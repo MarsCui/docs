@@ -3,7 +3,7 @@ name: Deploy to doc(s).oneprocloud.com
 on:
   push:
     branches:
-      - main
+      - preview
   workflow_dispatch: # 新增手动触发
     inputs: # 可选：定义手动输入参数
       environment:
@@ -21,11 +21,6 @@ jobs:
         with:
           node-version: 24
           cache: 'npm'
-
-      - name: Copy main navigation files
-        run: |
-          cp docs/.vitepress/theme/navbar/en.main.ts docs/.vitepress/theme/navbar/en.ts
-          cp docs/.vitepress/theme/navbar/zh.main.ts docs/.vitepress/theme/navbar/zn.ts
 
       - name: Install dependencies
         run: npm ci
