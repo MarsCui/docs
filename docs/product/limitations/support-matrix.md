@@ -1,43 +1,43 @@
 # Support Matrix
 
-## 软硬件支持矩阵（示例）
+## Hardware/Software Support Matrix (Example)
 
-以下内容用于快速确认环境兼容性，实际项目以发布说明和现场验证结果为准。
+This section helps quickly confirm environment compatibility. Use release notes and on-site validation as the final source of truth.
 
-### 操作系统支持
+### Operating Systems
 
-| 操作系统 | 版本 | 支持状态 |
+| OS | Versions | Support Status |
 |------|------|------|
-| Ubuntu | 20.04 / 22.04 | 推荐 |
-| CentOS / Rocky | 7.x / 8.x | 条件支持 |
-| Kylin / UOS | 指定版本 | 评估支持 |
+| Ubuntu | 20.04 / 22.04 | Recommended |
+| CentOS / Rocky | 7.x / 8.x | Conditionally supported |
+| Kylin / UOS | Specific versions | Under evaluation |
 
-### 容器与编排
+### Container and Orchestration
 
-| 组件 | 版本建议 | 说明 |
+| Component | Recommended Versions | Notes |
 |------|------|------|
-| Docker | 24.x+ | 建议开启 cgroup v2 兼容配置 |
-| Kubernetes | 1.24 - 1.29 | 建议结合 GPU Operator 使用 |
-| Helm | 3.10+ | 用于标准化安装与升级 |
+| Docker | 24.x+ | Consider enabling cgroup v2 compatible configuration |
+| Kubernetes | 1.24 - 1.29 | Recommended with GPU Operator |
+| Helm | 3.10+ | For standardized install and upgrade |
 
-### 模型支持（示例）
+### Model Support (Example)
 
-| 模型类别 | 代表模型 | 支持状态 |
+| Model Category | Examples | Support Status |
 |------|------|------|
-| 通用对话模型 | Llama/Qwen 等 | 支持 |
-| 向量模型 | BGE/GTE 等 | 支持 |
-| 重排序模型 | BGE-Reranker 等 | 条件支持 |
-| 多模态模型 | 视觉语言模型（部分） | 评估支持 |
+| General chat models | Llama / Qwen, etc. | Supported |
+| Embedding models | BGE / GTE, etc. | Supported |
+| Rerankers | BGE-Reranker, etc. | Conditionally supported |
+| Multimodal | Selected vision-language models | Under evaluation |
 
-### 协议与接口支持
+### Protocols and Interfaces
 
-| 协议/接口 | 支持状态 | 说明 |
+| Protocol/Interface | Support Status | Notes |
 |------|------|------|
-| REST API | 支持 | 推荐默认接入方式 |
-| OpenAI Compatible API | 支持 | 便于应用快速迁移 |
-| WebSocket（按场景） | 条件支持 | 需确认具体版本与配置 |
+| REST API | Supported | Recommended default integration |
+| OpenAI Compatible API | Supported | Easier app migration |
+| WebSocket (scenario-based) | Conditionally supported | Confirm exact versions and configuration |
 
-## 注意事项
+## Notes
 
-- 新版本发布后，支持矩阵可能动态更新
-- 对于“条件支持/评估支持”项，建议先执行专项验证
+- The support matrix may change across releases
+- For “conditional/under evaluation” items, run targeted validation first

@@ -1,40 +1,40 @@
 # Other Limitations
 
-## 功能边界说明（示例）
+## Functional Boundaries (Example)
 
-本页汇总除硬件与版本矩阵外的通用限制条件，帮助项目团队在方案阶段做好风险评估。
+This page summarizes common limitations beyond hardware and version matrices, helping project teams assess risks during solution design.
 
-## 已知限制项
+## Known Limitations
 
-### 1) 规模与性能限制
+### 1) Scale and Performance
 
-- 超大模型在低显存节点上需做量化或分片
-- 高并发场景下需提前做容量规划与限流策略
-- 跨地域部署时延可能影响实时交互体验
+- Very large models may require quantization or sharding on low‑VRAM nodes
+- High concurrency workloads require capacity planning and rate limiting strategies
+- Cross-region deployments may increase latency for interactive workloads
 
-### 2) 集成与改造限制
+### 2) Integration Constraints
 
-- 部分遗留系统缺少标准 API，需进行适配开发
-- 对接第三方身份系统时需确认协议兼容性
-- 非标准网络拓扑可能导致节点发现失败
+- Some legacy systems lack standard APIs and require adapter development
+- When integrating with third-party identity systems, confirm protocol compatibility
+- Non-standard network topologies may break node discovery
 
-### 3) 运维与治理限制
+### 3) Operations and Governance
 
-- 日志与审计保留周期受存储资源影响
-- 极端负载下告警噪声可能增加，需优化阈值策略
-- 多租户场景建议配置资源配额，避免抢占
+- Log/audit retention depends on available storage capacity
+- Under extreme load, alert noise may increase; tune thresholds accordingly
+- In multi-tenant environments, configure quotas to prevent noisy-neighbor issues
 
-## 风险规避建议
+## Risk Mitigation Recommendations
 
-- 在 PoC 阶段完成关键场景压测与故障演练
-- 为生产环境预留 20%-30% 的资源冗余
-- 建立版本升级与回滚机制，避免一次性大版本切换
+- Run stress tests and failure drills for critical scenarios during PoC
+- Reserve 20%-30% capacity headroom for production
+- Establish upgrade and rollback mechanisms; avoid one-shot large version jumps
 
-## 交付建议
+## Delivery Recommendations
 
-对存在限制项的功能，建议在方案文档中明确：
+For functions with known limitations, clearly document:
 
-- 限制描述
-- 影响范围
-- 临时规避方案
-- 后续优化计划
+- Limitation description
+- Impact scope
+- Workaround plan
+- Follow-up optimization roadmap
