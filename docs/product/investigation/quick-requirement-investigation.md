@@ -1,44 +1,44 @@
 # Quick Requirements Investigation
 
-主要用于在前期对用户现有的 AI 场景需求进行调研。信息收集完成后，可进一步评估需求满足性并制定落地方案，推进 AGIOne 产品实施。
+This document is used to investigate a customer's AI scenario requirements in the early stage. After collecting information, you can evaluate feasibility, map requirements to platform capabilities, and define an implementation plan for AGIOne.
 
-## 调研目标
+## Objectives
 
-- 明确客户业务目标与成功指标
-- 识别优先落地场景与可行性
-- 形成可执行的 PoC 或上线计划
+- Clarify business goals and success metrics
+- Identify priority scenarios and feasibility
+- Produce an actionable PoC or go-live plan
 
-## 快速调研清单（示例）
+## Quick Investigation Checklist (Example)
 
-### 1) 业务背景
+### 1) Business Background
 
-- 当前业务痛点是什么？
-- 期望通过 AI 解决哪些核心问题？
-- 项目涉及哪些部门和角色？
+- What are the current pain points?
+- What core problems should AI solve?
+- Which departments and roles are involved?
 
-### 2) 场景需求
+### 2) Scenario Requirements
 
-- 目标场景：知识问答 / 文档处理 / 智能助手 / 其他
-- 日均请求量与峰值并发预估
-- 对响应时延、准确率、稳定性的要求
+- Target scenarios: knowledge Q&A / document processing / AI assistant / others
+- Estimated daily volume and peak concurrency
+- Requirements for latency, accuracy, and stability
 
-### 3) 数据与安全
+### 3) Data and Security
 
-- 数据来源与数据类型（文本、图片、结构化数据）
-- 是否涉及敏感数据或合规要求
-- 数据是否允许出域、是否要求本地化部署
+- Data sources and types (text, images, structured data)
+- Any sensitive data or compliance requirements
+- Whether data can leave the network boundary; on‑prem requirement
 
-### 4) 集成需求
+### 4) Integration Requirements
 
-- 需对接的系统（OA、CRM、客服、门户等）
-- 接口方式（API、消息队列、文件交换）
-- 单点登录与权限体系要求
+- Systems to integrate (OA, CRM, customer service, portals, etc.)
+- Integration methods (API, message queue, file exchange)
+- SSO and permission model requirements
 
-## 调研输出物（示例）
+## Outputs (Example)
 
-| 输出项 | 内容 |
+| Output | Description |
 |------|------|
-| 场景优先级清单 | 按业务价值和实施难度分级 |
-| 需求满足性评估 | AGIOne 能力与需求映射结果 |
-| 实施建议 | PoC 范围、周期、资源建议 |
-| 风险清单 | 技术/数据/组织协同风险 |
+| Scenario priority list | Rank by business value and implementation complexity |
+| Requirement fit assessment | Capability mapping results for AGIOne |
+| Implementation recommendation | PoC scope, timeline, and resource proposal |
+| Risk list | Technical, data, and organizational risks |

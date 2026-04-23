@@ -1,30 +1,30 @@
 # Managed Chips
 
-## 纳管芯片支持范围（示例）
+## Supported Chips for Governance (Example)
 
-本页用于说明 AGIOne 对不同芯片平台的纳管支持情况，便于前期选型与环境评估。
+This page describes AGIOne support for chip platforms under governance/management, to help with early-stage sizing and environment assessment.
 
-| 芯片平台 | 支持状态 | 说明 |
+| Chip Platform | Support Status | Notes |
 |------|------|------|
-| NVIDIA A100/H100 | 完全支持 | 推荐用于生产高并发场景 |
-| NVIDIA A800 | 完全支持 | 常用于私有化部署 |
-| NVIDIA T4/L4 | 条件支持 | 适合轻量场景与 PoC |
-| 国产 AI 加速卡（部分型号） | 评估支持 | 需结合驱动与框架版本验证 |
+| NVIDIA A100/H100 | Fully supported | Recommended for production high-concurrency workloads |
+| NVIDIA A800 | Fully supported | Common for on‑prem deployments |
+| NVIDIA T4/L4 | Conditionally supported | Suitable for light workloads and PoC |
+| Domestic AI accelerators (selected models) | Under evaluation | Requires driver/framework version validation |
 
-## 版本与依赖要求（示例）
+## Version and Dependency Requirements (Example)
 
-- 建议使用经验证的驱动版本组合
-- 容器运行时与 GPU 插件需与内核版本匹配
-- 在多机环境下建议统一节点驱动版本
+- Use validated driver version combinations
+- Container runtime and GPU plugins must match kernel/driver compatibility
+- In multi-node clusters, standardize driver versions across nodes
 
-## 已知限制（示例）
+## Known Limitations (Example)
 
-- 部分老旧显卡在大上下文推理场景中性能不稳定
-- 混合芯片集群下，跨节点调度能力受限于底层驱动兼容性
-- 个别模型在特定芯片上需要专用算子或转换流程
+- Some legacy GPUs may be unstable under long-context inference workloads
+- Mixed-chip clusters may be constrained by low-level driver compatibility for cross-node scheduling
+- Some models may require chip-specific operators or conversion flows
 
-## 评估建议
+## Evaluation Recommendations
 
-- 上线前完成 24 小时稳定性压测
-- 对关键模型进行芯片级性能基线测试
-- 对不在推荐列表中的型号先走 PoC 验证再生产部署
+- Run a 24-hour stability stress test before production go-live
+- Benchmark key models per chip type as a baseline
+- For non-recommended models, run PoC validation before production deployment
