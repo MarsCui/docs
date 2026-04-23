@@ -3,18 +3,15 @@ prev: false
 next: true
 ---
 
-# 交付部署
+# 部署
 
-本章节包含 AGIOne 产品的部署、配置、验收相关文档。
+本章节包含 AGIOne 产品的部署、配置和验收相关文档。
 
-## 文档清单
+## 文档目录
 
-| 文档 | 用途 |
+| 文档 | 说明 |
 |------|------|
-| [部署检查文档](./precheck) | 环境预检查，驱动/CUDA/磁盘/端口检查 |
-| [安装部署指南](./installation) | 最小化/高可用节点安装部署 |
-| [产品配置指南](./configuration) | 模型、Token、路由等系统配置 |
-| [算力卡对接配置指南](./gpu-config) | 各类算力卡对接配置 |
-| [模型部署指南](./model-deploy) | 模型加载方式、显存要求 |
-| [模型配置及调优](./tuning) | 各类模型及硬件卡参数调优 |
-| [验收测试文档](./acceptance) | GPU卡管理、模型管理、API/性能测试验证 |
+| [(AGIOne) 部署与配置要求](./agione-deployment-requirements) | AGIOne 的最低和推荐部署要求 |
+| [(Calculator) 部署与配置要求](./calculator-deployment-requirements) | Calculator 的环境及资源需求 |
+| [(AGIOne) 快速安装指南](./agione-quick-install) | AGIOne 的快速安装与基线校验 |
+| [(Calculator) 快速安装指南](./calculator-quick-install) | Calculator 的快速安装与基线校验 |
