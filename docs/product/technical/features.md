@@ -1,49 +1,49 @@
 # Features & Ability
 
-## 功能总览
+## Feature Overview
 
-AGIOne 提供从模型接入到应用交付的全链路能力，覆盖以下模块：
+AGIOne provides end-to-end capabilities from model integration to application delivery, covering:
 
-- 模型纳管：统一接入主流大模型与推理引擎
-- 服务治理：流量控制、配额管理、访问鉴权
-- 应用支撑：Prompt 模板、知识检索、工具调用
-- 运维可观测：指标监控、日志审计、异常告警
+- Model onboarding: unified access for mainstream LLMs and inference engines
+- Service governance: traffic control, quota management, authentication
+- App enablement: prompt templates, knowledge retrieval, tool calling
+- Observability & operations: metrics, audit logs, anomaly alerting
 
-## 能力清单（示例）
+## Capability List (Example)
 
-| 能力域 | 具体能力 | 说明 |
+| Domain | Capability | Notes |
 |------|------|------|
-| 接入能力 | 多协议 API 接入 | 支持标准化接口统一调用 |
-| 调度能力 | 多模型路由 | 按策略分配到不同模型服务 |
-| 安全能力 | 细粒度权限控制 | 支持按租户/项目隔离 |
-| 运维能力 | 运行状态可观测 | 提供请求、延迟、错误率监控 |
+| Integration | Multi-protocol API integration | Standardized interfaces for unified invocation |
+| Scheduling | Multi-model routing | Distribute requests to different model services by policy |
+| Security | Fine-grained access control | Isolation by tenant/project |
+| Operations | Service observability | Monitor requests, latency, error rate |
 
-## 支持场景（示例）
+## Supported Scenarios (Example)
 
-### 1) 智能问答场景
+### 1) Intelligent Q&A
 
-- 输入：知识库文档 + 用户问题
-- 处理：检索召回 + 模型生成
-- 输出：可追溯的答案与引用片段
+- Input: knowledge base documents + user questions
+- Processing: retrieval + generation
+- Output: traceable answers with citations/snippets
 
-### 2) 文档处理场景
+### 2) Document Processing
 
-- 批量解析 PDF/Word/图片文档
-- 自动抽取关键字段并结构化
-- 对接业务系统进行自动流转
+- Batch parse PDF/Word/image documents
+- Extract key fields and structure the output
+- Integrate with business systems for automated workflows
 
-## 技术实现要点（示例）
+## Implementation Highlights (Example)
 
-- 通过统一网关屏蔽底层异构模型差异
-- 使用策略引擎实现模型路由与灰度发布
-- 结合缓存与并发控制优化高并发场景稳定性
+- Use a unified gateway to abstract heterogeneous model backends
+- Use a policy engine for routing and canary releases
+- Combine caching and concurrency control to improve stability under high load
 
-## 性能评估示例（PoC 口径）
+## Performance Evaluation (PoC Metrics Example)
 
-| 指标 | 目标值 | 备注 |
+| Metric | Target | Notes |
 |------|------|------|
-| 平均响应延迟 | <= 2.5s | 以问答请求为基准 |
-| 峰值吞吐 | >= 120 QPS | 视硬件规格而定 |
-| 成功率 | >= 99.5% | 不含外部依赖故障 |
+| Average latency | <= 2.5s | Based on Q&A requests |
+| Peak throughput | >= 120 QPS | Depends on hardware sizing |
+| Success rate | >= 99.5% | Excluding external dependency failures |
 
-> 说明：以上数据为示例口径，实际以现场测试结果为准。
+> Note: The numbers above are example metrics. Use on-site test results as the final baseline.

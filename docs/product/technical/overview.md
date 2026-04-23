@@ -1,43 +1,43 @@
 # Overview
 
-## 产品定位
+## Product Positioning
 
-AGIOne 是面向企业级场景的 AI 平台，聚焦于 **本地化部署、统一纳管、模型服务化** 三个核心目标，帮助客户在可控环境下快速构建并上线 AI 应用。
+AGIOne is an enterprise-grade AI platform focused on **on‑prem deployment**, **unified resource governance**, and **model service enablement**, helping customers build and launch AI applications in a controlled environment.
 
-## 目标客户与典型场景
+## Target Customers and Typical Scenarios
 
-- 政企客户：对数据安全和私有化部署有强要求
-- 金融客户：需要模型调用审计、权限隔离和资源配额
-- 制造与能源客户：希望将视觉/知识问答等 AI 能力接入生产系统
+- Government & enterprises: strong requirements on data security and private deployment
+- Finance: needs request auditability, permission isolation, and resource quotas
+- Manufacturing & energy: wants to integrate vision / knowledge Q&A capabilities into production systems
 
-典型场景示例：
+Typical scenario examples:
 
-- 企业知识库问答（RAG）
-- 文档理解与智能检索
-- 多模型统一网关与路由
-- AI 应用的统一监控与运维
+- Enterprise knowledge base Q&A (RAG)
+- Document understanding and intelligent retrieval
+- Unified multi-model gateway and routing
+- Unified monitoring and O&M for AI applications
 
-## 产品架构概览
+## Architecture Overview
 
-AGIOne 采用分层架构，便于扩展与运维：
+AGIOne adopts a layered architecture to simplify scaling and operations:
 
-- 接入层：API 网关、鉴权与限流
-- 服务层：模型编排、推理调度、应用服务
-- 资源层：GPU 资源池、存储、日志与监控
-- 运维层：可观测、告警、审计与策略管理
+- Access layer: API gateway, authentication, rate limiting
+- Service layer: model orchestration, inference scheduling, application services
+- Resource layer: GPU resource pool, storage, logging & monitoring
+- Operations layer: observability, alerting, audit, and policy management
 
-## 交付价值
+## Delivery Value
 
-- 降低 AI 基础设施建设复杂度
-- 缩短从 PoC 到生产上线的周期
-- 统一模型管理，减少跨团队协作成本
-- 在满足合规前提下提升资源利用率
+- Reduce AI infrastructure complexity
+- Shorten the cycle from PoC to production
+- Centralize model governance and reduce cross-team collaboration overhead
+- Improve resource utilization while meeting compliance requirements
 
-## 示例项目里程碑
+## Example Project Milestones
 
-| 阶段 | 时间 | 目标产出 |
+| Phase | Timeline | Deliverables |
 |------|------|------|
-| 需求澄清 | 第 1 周 | 业务场景清单、成功指标 |
-| 环境评估 | 第 2 周 | 部署可行性报告 |
-| 试点上线 | 第 3-4 周 | 单场景 PoC 与效果验收 |
-| 规模推广 | 第 5 周起 | 多部门接入与运维规范 |
+| Requirement clarification | Week 1 | Scenario list, success metrics |
+| Environment assessment | Week 2 | Deployment feasibility report |
+| Pilot go-live | Week 3-4 | Single-scenario PoC and acceptance |
+| Scale-out | Week 5+ | Multi-team onboarding and O&M standards |

@@ -1,44 +1,44 @@
 # Quick Environmental Investigation
 
-主要用于在前期对用户现有本地环境进行调研。信息收集完成后，可进一步评估 AGIOne 平台推进条件及对接纳管可行性。
+This document is used to investigate a customer's on‑prem environment in the early stage. After collecting information, you can evaluate deployment readiness and feasibility for integrating/governing resources via AGIOne.
 
-## 调研目标
+## Objectives
 
-- 判断现有基础设施是否满足部署条件
-- 识别网络、安全、资源等环境风险
-- 明确改造项与上线前准备工作
+- Determine whether the infrastructure meets deployment prerequisites
+- Identify risks in network, security, and capacity
+- Clarify required remediation items and go-live preparations
 
-## 快速调研清单（示例）
+## Quick Investigation Checklist (Example)
 
-### 1) 基础设施
+### 1) Infrastructure
 
-- 服务器规格（CPU、内存、GPU、磁盘）
-- 操作系统版本与内核信息
-- 虚拟化或容器化环境现状
+- Server sizing (CPU, memory, GPU, disk)
+- OS versions and kernel information
+- Virtualization/containerization baseline
 
-### 2) 网络条件
+### 2) Network
 
-- 节点间互通性与带宽情况
-- 关键端口开放策略与防火墙策略
-- 是否存在跨网段、跨区域部署需求
+- Inter-node connectivity and bandwidth
+- Required port opening and firewall policies
+- Cross-subnet / cross-region deployment needs
 
-### 3) 平台与中间件
+### 3) Platform and Middleware
 
-- Kubernetes / Docker 版本
-- 存储方案（本地盘、NAS、对象存储）
-- 监控日志平台（Prometheus、ELK 等）现状
+- Kubernetes / Docker versions
+- Storage approach (local disks, NAS, object storage)
+- Observability stack status (Prometheus, ELK, etc.)
 
-### 4) 安全与合规
+### 4) Security and Compliance
 
-- 身份认证方式（LDAP、AD、OIDC）
-- 审计与日志留存要求
-- 漏扫、等保、内控等合规要求
+- Identity provider (LDAP, AD, OIDC)
+- Audit and log retention requirements
+- Compliance requirements (vulnerability scanning, security baselines, internal controls)
 
-## 调研输出物（示例）
+## Outputs (Example)
 
-| 输出项 | 内容 |
+| Output | Description |
 |------|------|
-| 环境可行性结论 | 可部署 / 需整改后部署 / 暂不建议部署 |
-| 整改项清单 | 网络、资源、版本、权限等问题 |
-| 部署建议 | 单机 / 多机 / 高可用拓扑建议 |
-| 实施前置条件 | 账号、证书、端口、镜像仓库等准备项 |
+| Feasibility conclusion | Deployable / deployable after remediation / not recommended yet |
+| Remediation list | Network, capacity, version, and permission gaps |
+| Deployment recommendation | Single-node / multi-node / HA topology suggestion |
+| Prerequisites | Accounts, certificates, ports, image registry access, etc. |
