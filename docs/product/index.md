@@ -3,9 +3,9 @@ prev: false
 next: true
 ---
 
-# Pre-Sales
+# Product Overview
 
-This section contains pre-sales documentation for AGIOne products.
+This section contains product technical documentation for AGIOne products.
 
 ## Documentation Structure
 
