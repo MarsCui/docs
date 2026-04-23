@@ -12,7 +12,7 @@ hero:
       link: /zh/product/
     - theme: alt
       text: 部署指南
-      link: /zh/deployment/
+      link: /zh/installation/
 
 features:
   - title: 产品概述
@@ -20,7 +20,7 @@ features:
     link: /zh/product/
   - title: 交付部署
     details: 部署配置要求与快速安装指南（AGIOne / 算魔方）
-    link: /zh/deployment/
+    link: /zh/installation/
   - title: 购买与激活
     details: 在线支付激活与激活码激活流程
     link: /zh/license/
