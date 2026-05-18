@@ -200,8 +200,26 @@ export const enSidebar: DefaultTheme.Sidebar = {
           ]
         },
         {
-          text: "AI Infra on Cloud",
-          link: "/usermanual/ai-infra-on-cloud/"
+          text: "Multi-Cloud Scheduling Platform",
+          collapsed: false,
+          items: [
+            {
+              text: "Model Services",
+              collapsed: false,
+              items: [
+                { text: "Quick Start", link: "/usermanual/ai-infra-on-cloud/model-services/quick-start/" },
+                { text: "My Deployments", link: "/usermanual/ai-infra-on-cloud/model-services/my-deployments/" },
+                { text: "Model Gallery", link: "/usermanual/ai-infra-on-cloud/model-services/model-gallery/" },
+              ]
+            },
+            {
+              text: "Access Management",
+              collapsed: false,
+              items: [
+                { text: "Access Accounts", link: "/usermanual/ai-infra-on-cloud/access-management/access-accounts/" },
+              ]
+            },
+          ]
         },
         {
           text: "AI Infra on Prem",
