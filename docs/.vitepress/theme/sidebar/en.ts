@@ -168,6 +168,15 @@ export const enSidebar: DefaultTheme.Sidebar = {
               ]
             },
             {
+              text: "My Calls",
+              collapsed: false,
+              items: [
+                { text: "Overview", link: "/usermanual/model-services/my-calls/overview/" },
+                { text: "Call Analytics", link: "/usermanual/model-services/my-calls/call-analytics/" },
+                { text: "Call Logs", link: "/usermanual/model-services/my-calls/call-logs/" },
+              ]
+            },
+            {
               text: "Playground",
               collapsed: false,
               items: [
@@ -195,8 +204,26 @@ export const enSidebar: DefaultTheme.Sidebar = {
           ]
         },
         {
-          text: "AI Infra on Cloud",
-          link: "/usermanual/ai-infra-on-cloud/"
+          text: "Multi-Cloud Scheduling Platform",
+          collapsed: false,
+          items: [
+            {
+              text: "Model Services",
+              collapsed: false,
+              items: [
+                { text: "Quick Start", link: "/usermanual/ai-infra-on-cloud/Model-Services/Quick-Start/" },
+                { text: "My Deployments", link: "/usermanual/ai-infra-on-cloud/Model-Services/My-Deployments/" },
+                { text: "Model Gallery", link: "/usermanual/ai-infra-on-cloud/Model-Services/Model-Gallery/" },
+              ]
+            },
+            {
+              text: "Access Management",
+              collapsed: false,
+              items: [
+                { text: "Access Accounts", link: "/usermanual/ai-infra-on-cloud/Access-Management/Access-Accounts/" },
+              ]
+            },
+          ]
         },
         {
           text: "AI Infra on Prem",
