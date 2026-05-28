@@ -13,6 +13,13 @@ export const zhSidebar: DefaultTheme.Sidebar = {
       ],
     },
     {
+      text: '角色体系',
+      collapsed: false,
+      items: [
+        { text: '角色对比总览', link: '/zh/product/role-comparison' },
+      ],
+    },
+    {
       text: '兼容性与限制',
       collapsed: false,
       items: [
@@ -35,7 +42,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
       text: '安装部署',
       collapsed: false,
       items: [
-        { text: '部署配置要求', link: '/zh/installation/agione-deployment-requirements' },
+        { text: '部署综述', link: '/zh/installation/agione-deployment-requirements' },
         { text: '安装前环境预检', link: '/zh/installation/agione-precheck-environment-check' },
         { text: '环境安装部署指南', link: '/zh/installation/agione-quick-install' },
         { text: '节点纳管-部署配置要求', link: '/zh/installation/deployment-requirements-for-managing-compute-nodes' },
@@ -251,11 +258,9 @@ export const zhSidebar: DefaultTheme.Sidebar = {
   ],
   '/zh/others/release-notes/': [
     {
-      text: '版本说明',
+      text: '更新说明',
+      link: '/zh/others/release-notes/',
       collapsed: false,
-      items: [
-        { text: '版本说明（示例）', link: '/zh/others/release-notes/example' },
-      ],
     },
   ],
 }

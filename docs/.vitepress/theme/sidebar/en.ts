@@ -25,6 +25,13 @@ export const enSidebar: DefaultTheme.Sidebar = {
       ]
     },
     {
+      text: "Role System",
+      collapsed: false,
+      items: [
+        { text: "Role Comparison", link: "/product/role-comparison" },
+      ],
+    },
+    {
       text: "Compatibility & Limitations",
       collapsed: false,
       items: [
@@ -63,7 +70,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
       collapsed: false,
       items: [
         {
-          text: "Requirements",
+          text: "Overview",
           link: "/installation/agione-deployment-requirements"
         },
         {
@@ -304,13 +311,9 @@ export const enSidebar: DefaultTheme.Sidebar = {
   ],
   "/others/release-notes/": [
     {
-      text: "Release Notes",
+      text: "Update Notes",
+      link: "/others/release-notes/",
       collapsed: false,
-      items: [
-        {
-          text: "Release Notes (Example)", link: "/others/release-notes/example",
-        }
-      ]
     }
   ],
 }
