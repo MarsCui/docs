@@ -105,10 +105,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
       text: "Purchase & Activation",
       collapsed: false,
       items: [
-        {
-          text: "Online Payment & Activation",
-          link: "/license/online-payment-activation"
-        },
+        // { text: "Online Payment & Activation", link: "/license/online-payment-activation" }, // [Hidden] content not yet online
         {
           text: "Activation Code & Activation",
           link: "/license/activation-code-activation"
