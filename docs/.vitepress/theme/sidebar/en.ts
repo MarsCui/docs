@@ -105,10 +105,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
       text: "Purchase & Activation",
       collapsed: false,
       items: [
-        {
-          text: "Online Payment & Activation",
-          link: "/license/online-payment-activation"
-        },
+        { text: "Online Payment & Activation", link: "/license/online-payment-activation" },
         {
           text: "Activation Code & Activation",
           link: "/license/activation-code-activation"
@@ -311,9 +308,12 @@ export const enSidebar: DefaultTheme.Sidebar = {
       text: "FAQ",
       collapsed: false,
       items: [
-        {
-          text: "General FAQ", link: "/others/faq/general",
-        }
+          { text: "General", link: "/others/faq/general" },
+          { text: "Platform", link: "/others/faq/platform" },
+          { text: "Compute", link: "/others/faq/compute" },
+          { text: "Models", link: "/others/faq/model" },
+          { text: "Inference", link: "/others/faq/inference" },
+          { text: "Ops & Security", link: "/others/faq/ops" },
       ]
     }
   ],
