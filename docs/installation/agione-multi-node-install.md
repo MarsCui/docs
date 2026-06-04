@@ -219,7 +219,7 @@ The following requirements apply to each machine:
 | Operating system | Linux | Ubuntu 22.04 is recommended |
 | CPU | 8 cores | CPU count must be at least 8 cores |
 | Memory | 16 GiB | A small system / virtualization reservation is tolerated; about `15.2GiB` or more can pass |
-| Free disk | 200 GiB | The filesystem that hosts `/opt/hyperone` tolerates about 20% reservation; about `160GiB` or above passes |
+| Free disk | 200 GiB | With the default `runtime_root`, each node prefers a data disk with about `160GiB` or more free space; if no suitable data disk exists, the system disk path `/opt/hyperone` is checked |
 
 To override the minimum disk threshold for a special delivery environment, set:
 
@@ -311,21 +311,33 @@ By default, the middleware node is used as the NFS server, and both export and m
 
 NFS nodes need NFS server / client capability. The installer attempts to prepare `nfs-utils`, `rpcbind`, or equivalent packages through the OS package manager; in offline environments, confirm that OS repositories or local package sources are available.
 
-When all middleware components use external managed endpoints, configure them in the main installation YAML and run:
+#### Managed middleware / cloud-native delivery flow
+
+For cloud-native delivery, use managed middleware to replace part or all of the self-managed middleware node. A typical flow is:
+
+1. Prepare 2 to 8 App / Edge nodes in the same private network, or confirm private connectivity between App / Edge nodes and the managed middleware VPC.
+2. Prepare managed database, Redis, Nacos, Kafka, and object storage resources through the customer cloud console, the optional provider helper, or existing customer resources.
+3. Generate or merge `/root/agione-install.yml`, including node topology, SSH credentials, middleware endpoints, business presets, domain / certificate settings, and default account policy.
+4. Confirm Nacos behavior. If the installer should publish configs, the configured Nacos account must have config publish permission in namespace `agione-prod`. If the customer has already imported all AGIOne configs, set `agione_app.nacos.assume_preimported_configs: true`.
+5. Run `./agione quick --file /root/agione-install.yml` or use TUI installation with the same field values.
+
+The cloud resource helper is optional and provider-specific. It can create or reuse resources and render the main installation YAML, but the AGIOne installer itself only reads the final endpoint fields from `/root/agione-install.yml`. Cloud account AK/SK is not required by the AGIOne installer for Nacos config publishing; Nacos publishing uses the native Nacos OpenAPI with `agione_app.nacos.username` and `agione_app.nacos.password`.
+
+Private network connectivity is preferred for managed middleware. Public ELB / EIP exposure should be used only for test or special delivery cases with strict source IP restrictions. Kafka should use the managed Kafka service's advertised listener mechanism; do not assume a shared TCP ELB can replace Kafka broker advertised addresses.
+
+When all middleware components use external managed endpoints, configure `agione_app.middleware.mode: managed-middleware` and the endpoint fields in the main installation YAML, then run:
 
 ```bash
-./agione quick \
-  --file /root/agione-install.yml \
-  --middleware-mode managed-middleware
+./agione quick --file /root/agione-install.yml
 ```
 
-When some middleware components are external managed and others remain self-managed by the installer, use `hybrid`:
+When some middleware components are external managed and others remain self-managed by the installer, set `agione_app.middleware.mode: hybrid` and configure each component mode:
 
 ```bash
-./agione quick \
-  --file /root/agione-install.yml \
-  --middleware-mode hybrid
+./agione quick --file /root/agione-install.yml
 ```
+
+`--middleware-mode managed-middleware` and `--middleware-mode hybrid` remain available as command-line overrides for temporary tests, but production delivery should keep the selected mode in `/root/agione-install.yml`.
 
 Unified installation YAML example:
 
@@ -346,9 +358,7 @@ agione_app:
     app_nodes:
       - 192.168.31.204
       - 192.168.31.207
-    edge_nodes:
-      - 192.168.31.204
-      - 192.168.31.207
+    middleware_node: 192.168.31.208
     backup_nodes:
       - 192.168.31.209
     ssh_credentials:
@@ -414,16 +424,16 @@ Installation-time business presets and default account policy are written in the
 agione_app:
   business:
     payment_currency:
-      name: Renminbi
-      code: CNY
-      sign: CNY
+      name: US Dollar
+      code: USD
+      sign: "$"
     payment_units:
       CASH:
         - code: USD
           name: US Dollar
           symbol: "$"
         - code: CNY
-          name: Renminbi
+          name: Chinese Yuan
           symbol: CNY
       POINTS:
         - code: Credit
@@ -472,10 +482,6 @@ agione_app:
       - 192.168.31.204
       - 192.168.31.207
       - 192.168.31.210
-    edge_nodes:
-      - 192.168.31.204
-      - 192.168.31.207
-      - 192.168.31.210
 ```
 
 For ad hoc CLI-only testing, you can also repeat `--host-mode-ip`:
@@ -514,8 +520,9 @@ In the TUI, you can choose the middleware deployment mode directly. You do not n
 - Select "Self-managed middleware" to use the default 4 to 8 machine host-mode layout with application, middleware, and standby database nodes.
 - Select "All external managed middleware" to enter the database, Redis, Nacos, Kafka, and object storage hosts, ports, usernames, and passwords on the next page. The installer generates the endpoint configuration required by installation automatically.
 - Select "Hybrid per-component mode" to choose which components use external managed middleware on the next page, then fill their connection details. Unchecked components remain self-managed by the installer.
+- On the Nacos section of the middleware page, set `Nacos Configs Pre-imported (true/false)` to `true` only when all AGIOne configuration items already exist in the target Nacos namespace and installation should skip namespace creation and config publishing.
 
-On the node page, fill machine IPs according to the middleware mode: 4 to 8 for the default self-managed mode, 2 to 8 for all managed middleware, and at least 3 or 4 for hybrid depending on whether the database is self-managed. Each machine row includes SSH user, SSH port, and optional SSH password. Leave a row password empty for passwordless SSH on that node. Press `F5` to run node preflight. The preflight covers SSH access, remote Docker status, `bash` / `tar` / `python`, disk, existing runtime data, and role port occupancy. If any node fails, the TUI blocks navigation to the execution page. The service-level placement matrix is an advanced capability and is hidden in the standard flow; use a configuration file when advanced placement is required.
+On the node page, fill machine IPs according to the middleware mode: 4 to 8 for the default self-managed mode, 2 to 8 for all managed middleware, and at least 3 or 4 for hybrid depending on whether the database is self-managed. Each machine row includes SSH user, SSH port, and optional SSH password. Leave a row password empty for passwordless SSH on that node. Press `F5` to run node preflight. The preflight covers SSH access, remote Docker status, `bash` / `tar` / `python`, install disk selection, existing runtime data, and role port occupancy. When `runtime_root` is default, all nodes must pass preflight before the automatically selected runtime root is accepted. If any node fails, the TUI blocks navigation to the execution page. The service-level placement matrix is an advanced capability and is hidden in the standard flow; use a configuration file when advanced placement is required.
 
 ### 4.5 Reinstall testing and configuration sync
 

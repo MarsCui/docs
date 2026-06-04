@@ -17,7 +17,7 @@ Recommended request profile:
 | Operating system | Linux | Ubuntu 22.04 |
 | CPU | 8 cores | CPU must be at least 8 cores |
 | Memory | 16 GiB | A small OS or virtualization reservation is tolerated; about `15.2GiB` or above can pass |
-| Free disk | 200 GiB | The partition hosting `/opt/hyperone` tolerates about 20% filesystem reservation; about `160GiB` or above can pass |
+| Free disk | 200 GiB | When `runtime_root` keeps the default value, the installer prefers a data disk that has at least about `160GiB` free, and falls back to the system disk only when no suitable data disk is available |
 | Execution user | `root` | Root installation is recommended to avoid Docker, directory permission, and system service permission issues |
 
 ## Quick Install
@@ -160,12 +160,12 @@ The TUI flow includes:
 1. Welcome
 2. System Check
 3. Offline Package Check
-4. Module Selection
-5. Basic Info
-6. Node Input
+4. Install Overview
+5. Module Selection
+6. Basic Info
 7. Middleware Config
 8. Resource Policy
-9. Config Review
+9. Node Input
 10. Start Install
 11. Execute
 12. Result
@@ -303,9 +303,9 @@ No manual installation is required. The bundle includes an offline Python runtim
 
 Cloud hosts, virtualization platforms, and operating systems reserve part of the memory, so the detected value is commonly `15.xGiB`. The installer allows a small reservation loss, and about `15.2GiB` or above can pass.
 
-### Q4: Why is detected disk capacity slightly smaller after requesting 200G?
+### Q4: How does the installer choose the disk for runtime data?
 
-Disk vendor units, filesystem metadata, and system reserved space can make actual available space smaller than the nominal value. The installer allows about 20% tolerance, and about `160GiB` or above can pass.
+When `agione_app.runtime_root` is left as `/opt/hyperone`, the installer scans physical data-disk mounts first and selects `<mount>/hyperone` when the free space is about `160GiB` or above. If no suitable data disk exists, it checks `/opt/hyperone` on the system disk. If `runtime_root` is explicitly configured, the installer respects that path and validates the filesystem behind it.
 
 ### Q5: Can system check failures be skipped?
 
