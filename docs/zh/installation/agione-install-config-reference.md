@@ -59,7 +59,7 @@ selected_modules:
 | --- | --- | --- | --- |
 | `enabled` | boolean | `true` | 是否启用 AGIOne 应用模块。 |
 | `node_mode` | string | `all-in-one` | 应用节点模式。单机使用 `all-in-one`，多节点使用 `host-mode`。 |
-| `runtime_root` | string | `/opt/hyperone` | 运行数据目录。 |
+| `runtime_root` | string | `/opt/hyperone` | 运行数据目录。保持默认值时，安装器会自动优先选择合适的数据盘；只有交付环境要求固定运行目录时才显式配置该路径。 |
 | `compose_template_path` | string | 安装包默认值 | Compose 模板路径，通常保持安装包默认值。 |
 | `auto_start` | boolean | `false` | 安装过程中是否启动服务。quick 安装会自动设置。 |
 | `auto_import_nacos` | boolean | `true` | Nacos 就绪后是否自动导入配置。 |
@@ -166,6 +166,60 @@ agione_app:
       mode: self-managed
 ```
 
+云原生 / 外部托管中间件 quick 安装直接从同一份主 YAML 读取端点值，不需要单独准备端点 YAML：
+
+```yaml
+agione_app:
+  middleware:
+    mode: managed-middleware
+    provider: generic
+    verify_connectivity: true
+  db:
+    host: rds-mariadb.internal.example.com
+    port: 3306
+    root_username: root
+    root_password: "<database-root-password>"
+    ssl: false
+  redis:
+    host: redis.internal.example.com
+    port: 6379
+    password: "<redis-password>"
+    ssl: false
+  nacos:
+    host: nacos.internal.example.com
+    port: 8848
+    namespace: agione-prod
+    username: nacos
+    password: "<nacos-password>"
+    assume_preimported_configs: false
+  kafka:
+    bootstrap_servers: kafka-1.internal.example.com:9092
+    security_protocol: PLAINTEXT
+  minio:
+    endpoint: https://oss.internal.example.com
+    access_key: "<object-storage-access-key>"
+    secret_key: "<object-storage-secret-key>"
+    bucket_name: agione
+    path_style_access: true
+```
+
+执行 `./agione quick --file /root/agione-install.yml` 即可。`--middleware-mode` 只建议在临时测试需要覆盖主 YAML 配置时使用。
+
+### 云资源辅助脚本生成字段
+
+华为云托管中间件辅助脚本等云厂商专用脚本，可以在创建或复用云资源后生成同一份主安装 YAML。生成值按标准安装器输入处理：
+
+| 字段范围 | 安装器用途 |
+| --- | --- |
+| `agione_app.db`、`agione_app.redis`、`agione_app.nacos`、`agione_app.kafka`、`agione_app.minio` | AGIOne 服务运行时使用的连接端点和凭据。 |
+| `agione_app.middleware.provider` | 云厂商标识，主要用于报告和交付评审。 |
+| `agione_app.nacos.region`、`project_id`、`engine_id`、`enterprise_project_id` | 可选的托管 Nacos 元数据，用于追踪来源；这些字段本身不代表拥有 Nacos 配置发布权限。 |
+| `agione_app.nacos.username`、`password` | 安装器在 `assume_preimported_configs` 为 `false` 时创建命名空间和发布配置使用的原生 Nacos 账号。 |
+| `agione_app.nacos.assume_preimported_configs` | 仅当目标命名空间已存在全部 AGIOne 配置时设置为 `true`；安装器会跳过命名空间创建和配置发布。 |
+| `agione_app.minio.access_key`、`secret_key` | AGIOne 文件服务使用的对象存储凭据，不是云资源创建凭据。 |
+
+AGIOne 安装使用的 `/root/agione-install.yml` 不应要求填写云账号 AK/SK。AK/SK 只在云厂商辅助脚本需要创建、查询或删除云资源时使用。Nacos 配置发布应依赖配置的 Nacos 用户名 / 密码，以及云厂商侧的 Nacos RBAC 授权策略。
+
 ## 7. 中间件端点字段
 
 这些字段同时服务于自建中间件和外部托管中间件。自建 host-mode 场景填写中间件节点私网 IP；外部托管场景填写对应服务端点。
@@ -207,6 +261,9 @@ agione_app:
 | `auth_identity_key` | string | Nacos 服务端身份 key。 |
 | `auth_identity_value` | string | Nacos 服务端身份 value。 |
 | `console_url` | string | 可选的 Nacos 控制台访问地址覆盖值。 |
+| `assume_preimported_configs` | boolean | 仅当目标命名空间已经提前导入全部 AGIOne 配置项，并且安装时需要跳过命名空间创建和配置发布时，才设置为 `true`。 |
+| `provider` | string | 可选云厂商标识，例如 `huaweicloud`。配置发布仍使用原生 Nacos OpenAPI 和 `username` / `password`。 |
+| `region` / `project_id` / `engine_id` / `enterprise_project_id` | string | 云原生中间件创建脚本生成的可选托管 Nacos 元数据。AGIOne 安装器发布 Nacos 配置不要求填写云账号 AK/SK。 |
 
 ### `agione_app.kafka`
 
@@ -291,7 +348,7 @@ agione_app:
 ## 10. `agione_app.business`
 
 业务预配置会在安装过程中导入 Nacos。生产交付前必须替换示例值。
-面向海外用户的交付默认使用英文界面和美元币种；如客户现场需要人民币或其他币种，再按实际业务要求调整 `payment_currency` 和 `payment_units`。
+面向海外用户的交付默认使用 `en_US` 和 `USD`；如客户现场需要 `CNY` 或其他币种，再按实际业务要求调整 `payment_currency` 和 `payment_units`。
 
 | 字段 | 类型 | 说明 |
 | --- | --- | --- |
