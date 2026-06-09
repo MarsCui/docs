@@ -11,11 +11,12 @@ next: true
 |------|------|
 | [用户快速指引](./user-quick-guide) | 面向最终用户的快速指引 |
 | [供应商快速指引](./provider-quick-guide) | 面向模型发布商的快速指引 |
+| [模型发布：预配置说明](./model-publishing-preconfiguration) | 面向运营管理员的公有模型发布前预配置说明 |
 
 ## 项目
 
 | 项目 | 说明 |
 |------|------|
-| [Model Services](./model-services) | 待更新 |
-| [AI Infra on Cloud](./ai-infra-on-cloud) | 待更新 |
+| [Model Services](./model-services) | 模型服务的模型提供方与运营管理员操作手册 |
+| [多云调度平台](./ai-infra-on-cloud) | 多云调度平台的模型提供方与运营管理员操作手册 |
 | [AI Infra on Prem](./ai-infra-on-prem) | 待更新 |
