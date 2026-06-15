@@ -58,13 +58,13 @@ http://<app-entry-ip>:18090/modelone/
 | 离线 Python 运行时 | `/opt/agione-python` |
 | 离线安装资源目录 | `/opt/agione-offline` |
 
-多节点安装默认使用 SSH 复制分发。安装器会通过 SSH 分发安装器、Compose 文件、manifest、数据库配置和已渲染的 Nginx 配置：完整交付包优先使用 `rsync`，缺少 `rsync` 时回退为通过 SSH 传输 `tar` 数据流；小型配置文件使用 `scp`。如启用 NFS 共享配置挂载，安装器只共享 `/opt/hyperone/host-mode` 下的已渲染 host-mode 配置，不共享数据库数据、MinStore 数据、日志或 Docker 数据。安装器会在生成产物阶段为每个 Nginx 节点渲染独立的 `nginx.conf`，不再依赖远端正则修改基线配置。安装后如修改 host-mode 配置，可执行：
+多节点安装默认使用 SSH 复制分发。安装器会通过 SSH 分发安装器、Compose 文件、manifest、数据库配置和已渲染的 Nginx 配置：完整交付包优先使用 `rsync`，缺少 `rsync` 时回退为通过 SSH 传输 `tar` 数据流；小型配置文件使用 `scp`。如启用 NFS 代码共享，安装器只共享后端 `<runtime_root>/core/metis` 和前端 `<runtime_root>/core/mamba`。`runtime_root` 可能是系统盘上的 `/opt/hyperone`，也可能是自动选择的数据盘路径 `/data/hyperone`。不会共享 host-mode 渲染配置、Nginx 配置、数据库数据、MinStore 数据、日志或 Docker 数据。安装器会在生成产物阶段为每个 Nginx 节点渲染独立的 `nginx.conf`，不再依赖远端正则修改基线配置。安装后如修改 host-mode 配置，可执行：
 
 ```bash
 ./agione sync-host-mode
 ```
 
-该命令要求已经执行过一次 `quick` 或 TUI `install`，并且已生成 host-mode 输出文件。未启用 NFS 时，它只做一次性配置同步，不会持续监听配置目录；启用 NFS 时，各节点通过挂载目录读取同一份已渲染配置。
+该命令要求已经执行过一次 `quick` 或 TUI `install`，并且已生成 host-mode 输出文件。它只做一次性渲染配置同步，不会持续监听配置目录。NFS 代码共享不会替代该配置同步，因为 NFS 只共享 `core/metis` 和 `core/mamba`。
 
 ---
 
@@ -124,7 +124,7 @@ http://<app-entry-ip>:18090/modelone/
 
 ### 2.4 已有数据保护
 
-如果目标节点已经存在 `/opt/hyperone/core`、`/opt/hyperone/database`、`/opt/hyperone/minstore` 或 `/opt/hyperone/.agione-install-complete`，安装器默认会阻止覆盖，避免误删已有运行数据。
+如果目标节点已经存在 `<runtime_root>/core`、`<runtime_root>/database`、`<runtime_root>/minstore` 或 `<runtime_root>/.agione-install-complete`，安装器默认会阻止覆盖，避免误删已有运行数据。运行根目录可能是默认的 `/opt/hyperone`，也可能是自动选择的数据盘路径，例如 `/data/hyperone`。
 
 失败重试时不要只手工删除其中一两个目录后直接重跑。多节点安装会同时检查应用、中间件、备库和完成标记，残留数据可能导致预检失败或角色状态不一致。
 
@@ -204,7 +204,7 @@ host-mode 多节点不再使用 Docker `network_mode: host`。安装器会为每
 
 离线安装时应确保交付包内包含：安装器核心包、AGIOne 应用包、Docker 离线安装包、Docker 镜像包、database 基线包、MinStore 基线包、Python 离线运行时、`SHA256SUMS` 和 `bundle-manifest.json`。
 
-TUI 中的“启用离线交付资源完整性校验”只检查本地交付包资产完整性，不会从公网下载缺失包。SaaS 中间件能力目前为预留接入，不参与标准 host-mode 多节点安装。
+TUI 中的“启用离线交付资源完整性校验”只检查本地交付包资产完整性，不会从公网下载缺失包。当前安装器已支持 `managed-middleware` 和 `hybrid` 托管中间件模式；选择外部端点且启用 `verify_connectivity` 时，预检会从应用 / 入口节点检查端点连通性。
 
 ---
 
@@ -235,16 +235,17 @@ export AGIONE_DISK_TOLERANCE_RATIO=0.80
 
 ### 4.2 软件包获取
 
-当前交付包为 `agione-release-v1.0-20260527.tar.gz`；解压后目录名为同名去掉 `.tar.gz` 后缀，例如 `agione-release-v1.0-20260527/`。只需要先上传到安装发起机，安装器会在多节点安装过程中同步到其他目标节点。
+当前交付包为 `agione-release-v1.0-20260527.tar.gz`；解压后目录名为同名去掉 `.tar.gz` 后缀，例如 `agione-release-v1.0-20260527/`。只需要先下载到安装发起机，安装器会在多节点安装过程中同步到其他目标节点。
 
 **下载地址：** [https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz](https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz)
 
 推荐在第 1 台应用 / 入口节点执行安装：
 
 ```bash
-scp -r agione-release-v1.0-20260527.tar.gz root@<app-node-1>:/opt/hyperone/
 ssh root@<app-node-1>
+mkdir -p /opt/hyperone && \
 cd /opt/hyperone && \
+curl -fL -O https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz && \
 tar -zxvf agione-release-v1.0-20260527.tar.gz && \
 cd /opt/hyperone/agione-release-v1.0-20260527
 ```
@@ -289,7 +290,7 @@ chmod +x ./agione
 ./agione quick -f --file /root/agione-install.yml
 ```
 
-启用 NFS 共享配置挂载示例：
+启用 NFS 后端/前端代码共享示例：
 
 ```bash
 ./agione quick \
@@ -297,19 +298,17 @@ chmod +x ./agione
   --host-mode-shared-storage nfs
 ```
 
-默认使用中间件节点作为 NFS 服务端，导出与挂载目录均为 `/opt/hyperone/host-mode`。如需指定：
+默认使用首个应用节点作为 NFS 服务端。共享相对目录固定为所选 `runtime_root` 下的 `core/metis` 和 `core/mamba`。如需指定 NFS 服务端或挂载参数：
 
 ```bash
 ./agione quick \
   --file /root/agione-install.yml \
   --host-mode-shared-storage nfs \
-  --host-mode-nfs-server 192.168.31.208 \
-  --host-mode-nfs-export-path /opt/hyperone/host-mode \
-  --host-mode-nfs-mount-path /opt/hyperone/host-mode \
+  --host-mode-nfs-server 192.168.31.204 \
   --host-mode-nfs-mount-options rw,sync,hard,intr
 ```
 
-NFS 节点需要具备 NFS 服务端 / 客户端能力；安装器会尝试通过系统包管理器准备 `nfs-utils`、`rpcbind` 或等价包，离线环境请提前确认操作系统仓库或本地源可用。
+NFS 节点需要具备 NFS 服务端 / 客户端能力。离线环境请在打包前将与目标系统匹配的 `.rpm` / `.deb` 包放入 `assets/offline/nfs`。解包后安装器会检查 `/opt/agione-installer-bundle/assets/offline/nfs`；如果缺少 `exportfs` 或 `mount.nfs`，`setup-nfs` 会优先安装这些离线包，必要时才回退到操作系统包管理器。
 
 #### 云托管中间件交付流程
 

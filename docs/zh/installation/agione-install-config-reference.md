@@ -294,18 +294,20 @@ AGIOne 安装使用的 `/root/agione-install.yml` 不应要求填写云账号 AK
 
 ## 8. `agione_app.host_mode_shared_storage`
 
-该部分控制 host-mode 可选的 NFS 共享配置。
+该部分控制 host-mode 可选的 NFS 后端/前端代码共享。
 
 | 字段 | 类型 | 默认值 | 说明 |
 | --- | --- | --- | --- |
-| `enabled` | boolean | `false` | 是否启用共享配置挂载。 |
-| `mode` | string | `copy` | `copy` 表示 SSH 复制分发；`nfs` 表示使用 NFS 共享配置。 |
-| `server_node` | string | 空 | NFS 服务端节点。为空时，启用 NFS 后安装器默认使用中间件节点。 |
-| `export_path` | string | `/opt/hyperone/host-mode` | NFS 服务端导出目录。 |
-| `mount_path` | string | `/opt/hyperone/host-mode` | 客户端挂载目录。 |
+| `enabled` | boolean | `false` | 是否启用 NFS 代码共享。 |
+| `mode` | string | `copy` | `copy` 表示各节点使用本地副本；`nfs` 表示通过 NFS 共享后端/前端代码。 |
+| `server_node` | string | 空 | NFS 服务端节点。为空时，启用 NFS 后安装器默认使用首个应用节点。 |
+| `export_path` | string | 空 | 旧版兼容字段。代码共享场景安装器会忽略该字段。 |
+| `mount_path` | string | 空 | 旧版兼容字段。代码共享场景安装器会忽略该字段。 |
 | `mount_options` | string | `rw,sync,hard,intr` | NFS 挂载参数，不能包含空格。 |
 
-该配置只共享已渲染的 host-mode 配置目录，不共享数据库数据、MinStore 数据、日志或 Docker 数据。
+该配置只共享 `<runtime_root>/core/metis` 和 `<runtime_root>/core/mamba`。`runtime_root` 是安装器选中的 AGIOne 运行根目录，例如系统盘上的 `/opt/hyperone` 或数据盘上的 `/data/hyperone`。不会共享 host-mode 渲染配置、Nginx 配置、数据库数据、MinStore 数据、日志或 Docker 数据。
+
+离线环境启用 NFS 时，请在打包前将与目标系统匹配的 `.rpm` / `.deb` 包放入 `assets/offline/nfs`。如果安装包中已有 NFS 离线包，预检阶段允许远端暂时缺少 NFS 工具；`setup-nfs` 会先从安装包离线安装，再按需回退到操作系统包管理器。
 
 ## 9. `agione_app.host_mode_service_placements`
 

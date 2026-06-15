@@ -133,7 +133,7 @@ host-mode 多节点安装时，需要检查 `agione-install.yml` 中定义的每
 
 ## 9. 报告输出建议
 
-precheck 或 doctor 报告建议至少包含：
+预检或 doctor 报告建议至少包含：
 
 | 模块 | 输出内容 |
 | --- | --- |
@@ -150,7 +150,7 @@ precheck 或 doctor 报告建议至少包含：
 
 满足以下条件后再进入正式安装：
 
-1. `./agione doctor` 或 precheck 脚本执行完成，并已归档报告。
+1. `./agione doctor` 或预检脚本执行完成，并已归档报告。
 2. CPU、内存、磁盘、端口、权限、Docker 等基础项均为 `PASS`。
 3. 配置 host-mode 节点时，远端预检结果为 `PASS`。
 4. 选择外部托管中间件时，中间件连通性检查为 `PASS`。

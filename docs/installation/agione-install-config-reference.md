@@ -294,18 +294,20 @@ These fields are used both by self-managed middleware and managed middleware. Fo
 
 ## 8. `agione_app.host_mode_shared_storage`
 
-This section controls optional NFS shared configuration for host-mode.
+This section controls optional NFS backend/frontend code sharing for host-mode.
 
 | Field | Type | Default | Description |
 | --- | --- | --- | --- |
-| `enabled` | boolean | `false` | Whether to enable shared configuration mount. |
-| `mode` | string | `copy` | Use `copy` for SSH copy distribution, or `nfs` for NFS shared configuration. |
-| `server_node` | string | empty | NFS server node. If empty, the installer uses the middleware node when NFS is enabled. |
-| `export_path` | string | `/opt/hyperone/host-mode` | NFS export path on the server node. |
-| `mount_path` | string | `/opt/hyperone/host-mode` | NFS mount path on client nodes. |
+| `enabled` | boolean | `false` | Whether to enable NFS code sharing. |
+| `mode` | string | `copy` | Use `copy` for per-node local copies, or `nfs` to share backend/frontend code through NFS. |
+| `server_node` | string | empty | NFS server node. If empty, the installer uses the primary app node when NFS is enabled. |
+| `export_path` | string | empty | Legacy compatibility field. The installer ignores it for code sharing. |
+| `mount_path` | string | empty | Legacy compatibility field. The installer ignores it for code sharing. |
 | `mount_options` | string | `rw,sync,hard,intr` | NFS mount options. Do not include spaces. |
 
-Only rendered host-mode configuration is shared. Database data, MinStore data, logs, and Docker data are not shared through this setting.
+Only `<runtime_root>/core/metis` and `<runtime_root>/core/mamba` are shared. `runtime_root` is the selected AGIOne runtime root, for example `/opt/hyperone` on the system disk or `/data/hyperone` on a data disk. Host-mode rendered configuration, Nginx configuration, database data, MinStore data, logs, and Docker data are not shared through this setting.
+
+When NFS is enabled in an offline environment, prepare OS-matching `.rpm` / `.deb` packages under `assets/offline/nfs` before building the release bundle. The installer preflight allows missing NFS tools when offline NFS packages are bundled, and `setup-nfs` installs them from the bundle before trying the OS package manager.
 
 ## 9. `agione_app.host_mode_service_placements`
 

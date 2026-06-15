@@ -26,10 +26,24 @@ The following diagram shows the overall logical architecture of the AGIOne platf
 
 ## 3. Deployment Mode Selection
 
+| Deployment Mode | Applicable Scenario | Nodes | High Availability | Recommended Environment |
+|---|---|---|---|---|
+| PoC Deployment (All in One) | Proof of concept, demo, internal testing | 1 | No | Single virtual machine |
+| Production Deployment - Public Cloud | Formal production and external service delivery | Multi-node | Yes | Public cloud (**Recommended**) |
+| Production Deployment - Private Cloud / IDC | Data compliance and internal network isolation | >= 4 | Yes | Customer-owned private cloud or IDC |
+
 | Item | Description |
 | ---- | ----------- |
 | Scope | AGIOne full-stack deployment solution design, pre-sales support, PoC assessment, and production delivery |
-| Constraint Level | This document serves as a planning reference. Official delivery shall be governed by the Release Note and compatibility matrix distributed with `agione-release-v1.0-20260514.tar.gz` |
+| Constraint Level | This document serves as a planning reference. Official delivery shall be governed by the Release Note and compatibility matrix distributed with `agione-release-v1.0-20260527.tar.gz` |
+
+> **Selection recommendation**: If there are no mandatory data compliance or network isolation requirements, prioritize public cloud deployment to benefit from cloud-provider managed middleware and operational convenience.
+
+The currently supported public cloud managed middleware providers are listed below. Providers not listed here require separate assessment based on customer region, available product specifications, network connectivity, and installer endpoint configuration support.
+
+| Cloud Provider | Support Status | Covered Managed Middleware | Applicable Installer Mode | Notes |
+|---|---|---|---|---|
+| Huawei Cloud | Supported | RDS for MariaDB, DCS for Redis, CSE Nacos, DMS for Kafka, OBS, ELB | `managed-middleware` / `hybrid` | Suitable when the customer already uses Huawei Cloud resources or needs a domestic-cloud delivery path. App / Edge nodes access managed middleware endpoints through private networking. |
 
 ---
 
@@ -59,9 +73,9 @@ The following diagram shows the overall logical architecture of the AGIOne platf
 
 ---
 
-## 5. Management Plane - Production Deployment (Public Cloud SaaS)
+## 5. Management Plane - Production Deployment (Public Cloud)
 
-Public cloud SaaS is the recommended production deployment mode. It fully leverages cloud-provider managed capabilities such as RDS, ELB, and object storage.
+Public cloud is the recommended production deployment mode. It fully leverages cloud-provider managed capabilities such as RDS, ELB, and object storage.
 
 ### 5.1 Resource Requirements
 
@@ -80,6 +94,8 @@ Public cloud SaaS is the recommended production deployment mode. It fully levera
 
 #### 5.1.2 Databases and Middleware
 
+Generic managed middleware baseline requirements:
+
 | Component | Purpose | CPU | Memory | Disk | Nodes | Network Requirement |
 |---|---|---|---|---|---|---|
 | **RDS (relational database)** | Stores primary AGIOne platform data | >= 4 vCPU | >= 16 GiB | >= 100 GiB | >= 3 | Same VPC as management nodes |
@@ -89,6 +105,19 @@ Public cloud SaaS is the recommended production deployment mode. It fully levera
 | **Object storage** | Stores images and other static resources | - | - | - | - | Network access via AK/SK |
 | **ELB (load balancing)** | AGIOne API load balancing | - | - | >= 100 GiB | 1 | Internal same VPC; public access, >= 100 Mbps |
 
+The supported cloud-provider product list is shown below. Before formal purchase, confirm available specifications, availability zones, billing mode, and account permissions in the customer's target region.
+
+**Huawei Cloud Managed Middleware List**
+
+| AGIOne Component | Huawei Cloud Product | Purpose | Creation / Sizing Guidance | Network and Permission Requirements |
+|---|---|---|---|---|
+| Database | RDS for MariaDB | Stores AGIOne platform primary data and business schemas | Purchase a primary/standby instance, select the appropriate specification, storage, VPC, security group, and backup policy; reserve at least 40% extra capacity for production | Same VPC as management nodes or private network connectivity; security groups should allow only business node access; prepare an account with schema initialization permissions |
+| Redis | Distributed Cache Service (DCS) for Redis | Cache, sessions, tokens, and short-lived state | Avoid single-node instances in production; use primary/standby for small and medium environments, or Cluster for high write volume or large capacity; deploy across availability zones when possible | Same VPC as management nodes; configure password and access whitelist; confirm expiration and eviction policies before go-live |
+| Nacos | Cloud Service Engine (CSE) Nacos | Service registry, service discovery, and configuration center | Create a Nacos engine and configure specification, VPC, and permissions; migrate namespace, service, and config data | CSE Nacos is compatible with open-source Nacos / Eureka clients; when the installer publishes configs, the Nacos account must have namespace and config publish permissions |
+| Kafka | Distributed Message Service (DMS) for Kafka | Asynchronous messages, metering, audit, and event streams | Start from 3 brokers in production, enable multiple replicas, and size the instance by throughput, storage, and retention period | Private connectivity with management nodes; if authentication is enabled, synchronize client protocol, username, password, and ACL configuration |
+| Object storage | Object Storage Service (OBS) | Stores knowledge-base files, attachments, images, model assets, and log archives | Create private buckets and configure storage class, server-side encryption, lifecycle, and cross-region replication as needed | Access through AK/SK or temporary authorization; isolate workloads by bucket or prefix and avoid public read/write |
+| Entry load balancing | Elastic Load Balance (ELB) | Exposes the AGIOne API and Web entry externally | Prefer dedicated ELB for public entry, configure HTTPS listener, certificate, and backend server group; private ELB can be used for internal service entry | Expose only 80 / 443 on the public side; backends should point only to App / Edge nodes or CCE Ingress, with health checks configured |
+
 #### 5.1.3 Capacity and Scalability
 
 - AGIOne management nodes can scale horizontally.
@@ -97,7 +126,7 @@ Public cloud SaaS is the recommended production deployment mode. It fully levera
 
 ### 5.2 Architecture Diagram
 
-![Public Cloud SaaS Production Architecture](images/03-saas-production.svg)
+![Public Cloud Production Architecture](images/03-saas-production.svg)
 
 ### 5.3 Deployment Notes
 
@@ -242,21 +271,21 @@ Before deployment, confirm each item to ensure a smooth rollout:
 
 **Base Environment**
 
-- [ ] Deployment mode has been selected according to the scenario (PoC / public cloud SaaS / private cloud IDC)
+- [ ] Deployment mode has been selected according to the scenario (PoC / public cloud / private cloud IDC)
 - [ ] Node quantity and specifications meet resource requirements
 - [ ] Operating system and kernel version meet requirements
 - [ ] Time is synchronized (NTP), and all nodes use a consistent time zone
 
-**Download URL:** [https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260514.tar.gz](https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260514.tar.gz)
+**Download URL:** [https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz](https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz)
 
 ```bash
 # 1. Download and extract the bundle
 ssh root@<target>
 mkdir -p /opt/hyperone && \
 cd /opt/hyperone && \
-curl -fL -O https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260514.tar.gz && \
-tar -zxvf agione-release-v1.0-20260514.tar.gz && \
-cd /opt/hyperone/agione-release-v1.0-20260514
+curl -fL -O https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz && \
+tar -zxvf agione-release-v1.0-20260527.tar.gz && \
+cd /opt/hyperone/agione-release-v1.0-20260527
 ```
 
 ---
@@ -289,7 +318,7 @@ cd /opt/hyperone/agione-release-v1.0-20260514
 | Deployment Mode | Minimum Nodes | Minimum Per-Node Specification | Total Resource Reference |
 |---|---|--------------------------------|---|
 | PoC All in One | 1 | 8C / 24G / 200G                | 8C / 24G / 200G |
-| Public Cloud SaaS (business nodes) | 2 | 8C / 16G / 200G                | 16C / 32G / 1 TB+ |
+| Public Cloud (business nodes) | 2 | 8C / 16G / 200G                | 16C / 32G / 1 TB+ |
 | Private Cloud IDC | 4 | 8C / 16G / 200G                | 32C / 64G / 800G+ |
 
 ### 11.2 Capacity Estimation Reference

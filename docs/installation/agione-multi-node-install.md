@@ -58,13 +58,13 @@ Standard directories:
 | Offline Python runtime | `/opt/agione-python` |
 | Offline installation assets | `/opt/agione-offline` |
 
-Multi-node installation uses SSH copy distribution by default. The installer distributes the installer, compose files, manifest, database configuration, and rendered Nginx configuration over SSH: the full bundle uses `rsync` when available and falls back to `tar` over SSH; small configuration files use `scp`. When NFS shared configuration is enabled, only the rendered host-mode configuration under `/opt/hyperone/host-mode` is shared; database data, MinStore data, logs, and Docker data are not shared. The installer renders a per-Nginx-node `nginx.conf` during artifact generation instead of modifying the remote baseline config with regular expressions. After installation, if host-mode configuration changes are made, run:
+Multi-node installation uses SSH copy distribution by default. The installer distributes the installer, compose files, manifest, database configuration, and rendered Nginx configuration over SSH: the full bundle uses `rsync` when available and falls back to `tar` over SSH; small configuration files use `scp`. When NFS code sharing is enabled, only backend `<runtime_root>/core/metis` and frontend `<runtime_root>/core/mamba` are shared. `runtime_root` may be `/opt/hyperone` on the system disk or `/data/hyperone` on a selected data disk. Host-mode rendered configuration, Nginx configuration, database data, MinStore data, logs, and Docker data are not shared. The installer renders a per-Nginx-node `nginx.conf` during artifact generation instead of modifying the remote baseline config with regular expressions. After installation, if host-mode configuration changes are made, run:
 
 ```bash
 ./agione sync-host-mode
 ```
 
-This command requires a previous `quick` or TUI `install` run so that host-mode output files already exist. Without NFS, it is a one-time configuration sync command and does not continuously watch configuration directories. With NFS enabled, nodes read the same rendered configuration through the mounted directory.
+This command requires a previous `quick` or TUI `install` run so that host-mode output files already exist. It is a one-time rendered configuration sync command and does not continuously watch configuration directories. NFS code sharing does not replace this configuration sync because NFS only shares `core/metis` and `core/mamba`.
 
 ---
 
@@ -124,7 +124,7 @@ Remote nodes should provide at least:
 
 ### 2.4 Existing data protection
 
-If a target node already has `/opt/hyperone/core`, `/opt/hyperone/database`, `/opt/hyperone/minstore`, or `/opt/hyperone/.agione-install-complete`, the installer blocks overwrite by default to avoid deleting existing runtime data.
+If a target node already has `<runtime_root>/core`, `<runtime_root>/database`, `<runtime_root>/minstore`, or `<runtime_root>/.agione-install-complete`, the installer blocks overwrite by default to avoid deleting existing runtime data. The runtime root may be the default `/opt/hyperone` or a selected data-disk path such as `/data/hyperone`.
 
 After a failed run, do not delete only one or two runtime directories manually and rerun immediately. Multi-node installation checks App, middleware, standby, and completion-marker state together; leftovers can cause preflight failure or inconsistent role state.
 
@@ -204,7 +204,7 @@ Optional application services are not enabled by the IP-based quick path by defa
 
 For offline installation, ensure the bundle includes the installer core package, AGIOne application package, Docker offline package, Docker image package, database baseline package, MinStore baseline package, offline Python runtime, `SHA256SUMS`, and `bundle-manifest.json`.
 
-The `Enable offline delivery asset integrity checks` switch in the TUI only validates local bundle assets. It does not download missing packages from the public internet. SaaS middleware is currently a reserved integration and is not part of the standard host-mode multi-node installation path.
+The `Enable offline delivery asset integrity checks` switch in the TUI only validates local bundle assets. It does not download missing packages from the public internet. Managed middleware is supported through `managed-middleware` and `hybrid`; when external endpoints are selected and `verify_connectivity` is enabled, the installer checks endpoint reachability from App / Edge nodes during preflight.
 
 ---
 
@@ -235,16 +235,17 @@ export AGIONE_DISK_TOLERANCE_RATIO=0.80
 
 ### 4.2 Package acquisition
 
-The current delivery package is `agione-release-v1.0-20260527.tar.gz`. After extraction, the directory name is the archive basename without `.tar.gz`, for example `agione-release-v1.0-20260527/`. Upload it to the initiating machine first; the installer synchronizes it to the other target nodes during multi-node installation.
+The current delivery package is `agione-release-v1.0-20260527.tar.gz`. After extraction, the directory name is the archive basename without `.tar.gz`, for example `agione-release-v1.0-20260527/`. Download it on the initiating machine first; the installer synchronizes it to the other target nodes during multi-node installation.
 
 **Download URL:** [https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz](https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz)
 
 It is recommended to run the installation from machine 1, the primary App / Edge node:
 
 ```bash
-scp -r agione-release-v1.0-20260527.tar.gz root@<app-node-1>:/opt/hyperone/
 ssh root@<app-node-1>
+mkdir -p /opt/hyperone && \
 cd /opt/hyperone && \
+curl -fL -O https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz && \
 tar -zxvf agione-release-v1.0-20260527.tar.gz && \
 cd /opt/hyperone/agione-release-v1.0-20260527
 ```
@@ -289,7 +290,7 @@ For repeated reinstall testing where old AGIOne runtime data can be overwritten,
 ./agione quick -f --file /root/agione-install.yml
 ```
 
-Example with NFS shared configuration enabled:
+Example with NFS backend/frontend code sharing enabled:
 
 ```bash
 ./agione quick \
@@ -297,19 +298,17 @@ Example with NFS shared configuration enabled:
   --host-mode-shared-storage nfs
 ```
 
-By default, the middleware node is used as the NFS server, and both export and mount paths are `/opt/hyperone/host-mode`. To customize them:
+By default, the primary app node is used as the NFS server. The shared relative paths are fixed to `core/metis` and `core/mamba` under the selected `runtime_root`. To specify the NFS server or mount options:
 
 ```bash
 ./agione quick \
   --file /root/agione-install.yml \
   --host-mode-shared-storage nfs \
-  --host-mode-nfs-server 192.168.31.208 \
-  --host-mode-nfs-export-path /opt/hyperone/host-mode \
-  --host-mode-nfs-mount-path /opt/hyperone/host-mode \
+  --host-mode-nfs-server 192.168.31.204 \
   --host-mode-nfs-mount-options rw,sync,hard,intr
 ```
 
-NFS nodes need NFS server / client capability. The installer attempts to prepare `nfs-utils`, `rpcbind`, or equivalent packages through the OS package manager; in offline environments, confirm that OS repositories or local package sources are available.
+NFS nodes need NFS server / client capability. In offline environments, place OS-matching `.rpm` / `.deb` packages under `assets/offline/nfs` before building the release bundle. After unpacking, the installer checks `/opt/agione-installer-bundle/assets/offline/nfs`; if `exportfs` or `mount.nfs` is missing, `setup-nfs` installs these offline packages first, then falls back to the OS package manager only when needed.
 
 #### Managed middleware / cloud-native delivery flow
 
