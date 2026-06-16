@@ -26,7 +26,7 @@ features:
     link: /zh/license/
   - title: 用户指南
     details: 算力接入、算力管理与模型部署流程
-    link: /zh/userguide/
+    link: /zh/userguide/scenarios
   - title: 用户手册
     details: 注册、登录与仪表盘使用指引
     link: /zh/usermanual/

@@ -6,7 +6,7 @@ export const enNavbar = [
     items: [
       { text: "Installation", link: '/installation/' },
       { text: "Purchase & Activation", link: "/license/" },
-      { text: "User Guide", link: "/userguide/" },
+      { text: "User Guide", link: "/userguide/scenarios" },
       { text: "User Manual", link: "/usermanual/" },
       {
         text: "Best Practices",
