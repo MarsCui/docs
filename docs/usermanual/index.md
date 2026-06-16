@@ -5,14 +5,6 @@ next: true
 
 # User Manual
 
-## Documents
-
-| Document | Description |
-|------|------|
-| [User Quick Guide](./user-quick-guide) | Quick guide for end users |
-| [Vendor Quick Guide](./vendor-quick-guide) | Quick guide for model publishers |
-| [Model Publishing Preconfiguration](./model-publishing-preconfiguration) | Operator preconfiguration checklist before public model publishing |
-
 ## Projects
 
 | Project | Description |

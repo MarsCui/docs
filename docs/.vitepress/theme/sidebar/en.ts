@@ -119,27 +119,53 @@ export const enSidebar: DefaultTheme.Sidebar = {
       text: "User Guide",
       collapsed: false,
       items: [
+        { text: "Scenario Guide", link: "/userguide/scenarios" },
         {
-          text: "Compute Resource Integration",
+          text: "Scenario Guides",
           collapsed: false,
           items: [
-            { text: "Public Integration", link: "/userguide/public-ai-integration" },
-          ]
+            { text: "Register & Login", link: "/userguide/scenarios/register-login/" },
+            { text: "Identity Authorization", link: "/userguide/scenarios/identity-authorization/" },
+            {
+              text: "Publish Models",
+              collapsed: false,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/publish-model/" },
+                { text: "Provider Quick Guide", link: "/userguide/scenarios/publish-model/provider-quick-guide" },
+              ],
+            },
+            {
+              text: "Publish Models Preconfiguration",
+              collapsed: false,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/publish-model-preconfiguration/" },
+                { text: "Model Publishing Preconfiguration", link: "/userguide/scenarios/publish-model-preconfiguration/model-publishing-preconfiguration" },
+              ],
+            },
+            { text: "Publish Aggregation Models", link: "/userguide/scenarios/publish-aggregation-model/" },
+            {
+              text: "Model Experience & API Calling",
+              collapsed: false,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/model-experience-api-calling/" },
+                { text: "User Quick Guide", link: "/userguide/scenarios/model-experience-api-calling/user-quick-guide" },
+              ],
+            },
+            { text: "Model Usage & Revenue", link: "/userguide/scenarios/model-usage-revenue/" },
+            { text: "Recharge & Billing", link: "/userguide/scenarios/recharge-billing/" },
+            { text: "On-Prem Compute Onboarding", link: "/userguide/scenarios/on-prem-compute-onboarding/" },
+            { text: "On-Prem Inference Template Building", link: "/userguide/scenarios/on-prem-inference-template/" },
+            { text: "On-Prem Model Deployment & Status Check", link: "/userguide/scenarios/on-prem-model-deployment-status/" },
+            { text: "On-Prem Development, Training & Assets", link: "/userguide/scenarios/on-prem-dev-training-assets/" },
+            { text: "On-Prem Resource Metering & Monitoring", link: "/userguide/scenarios/on-prem-resource-metering-monitoring/" },
+            { text: "On Cloud Resource Access", link: "/userguide/scenarios/on-cloud-resource-access/" },
+            { text: "On Cloud Model Asset Publishing", link: "/userguide/scenarios/on-cloud-model-asset-publishing/" },
+            { text: "On Cloud Model Deployment & Calling", link: "/userguide/scenarios/on-cloud-model-deployment-calling/" },
+            { text: "Model Publishing Approval", link: "/userguide/scenarios/model-publishing-approval/" },
+            { text: "Observability & Troubleshooting", link: "/userguide/scenarios/observability-troubleshooting/" },
+            { text: "Platform Governance & Access Control", link: "/userguide/scenarios/platform-governance-access-control/" },
+          ],
         },
-        {
-          text: "Compute Resource Management",
-          collapsed: false,
-          items: [
-            { text: "A100 Management", link: "/userguide/a100-management" }
-          ]
-        },
-        {
-          text: "Model Management",
-          collapsed: false,
-          items: [
-            { text: "Model Deployment", link: "/userguide/mode-deployment" },
-          ]
-        }
       ]
     }
   ],
@@ -148,18 +174,6 @@ export const enSidebar: DefaultTheme.Sidebar = {
       text: "User Manual",
       collapsed: false,
       items: [
-        {
-          text: "User Quick Guide",
-          link: "/usermanual/user-quick-guide"
-        },
-        {
-          text: "Provider Quick Guide",
-          link: "/usermanual/provider-quick-guide"
-        },
-        {
-          text: "Model Publishing Preconfiguration",
-          link: "/usermanual/model-publishing-preconfiguration"
-        },
         {
           text: "Model Services",
           collapsed: false,

@@ -70,25 +70,51 @@ export const zhSidebar: DefaultTheme.Sidebar = {
       text: '用户指南',
       collapsed: false,
       items: [
+        { text: '场景导览', link: '/zh/userguide/scenarios' },
         {
-          text: '算力资源接入',
+          text: '场景指南',
           collapsed: false,
           items: [
-            { text: '公共算力接入', link: '/zh/userguide/public-ai-integration' },
-          ],
-        },
-        {
-          text: '算力资源管理',
-          collapsed: false,
-          items: [
-            { text: 'A100 管理', link: '/zh/userguide/a100-management' },
-          ],
-        },
-        {
-          text: '模型管理',
-          collapsed: false,
-          items: [
-            { text: '模型部署', link: '/zh/userguide/mode-deployment' },
+            { text: '注册 & 登录', link: '/zh/userguide/scenarios/register-login/' },
+            { text: '身份授权', link: '/zh/userguide/scenarios/identity-authorization/' },
+            {
+              text: '发布模型',
+              collapsed: false,
+              items: [
+                { text: '场景概览', link: '/zh/userguide/scenarios/publish-model/' },
+                { text: '供应商快速指引', link: '/zh/userguide/scenarios/publish-model/provider-quick-guide' },
+              ],
+            },
+            {
+              text: '发布模型（预设置）',
+              collapsed: false,
+              items: [
+                { text: '场景概览', link: '/zh/userguide/scenarios/publish-model-preconfiguration/' },
+                { text: '模型发布：预配置说明', link: '/zh/userguide/scenarios/publish-model-preconfiguration/model-publishing-preconfiguration' },
+              ],
+            },
+            { text: '发布聚合模型', link: '/zh/userguide/scenarios/publish-aggregation-model/' },
+            {
+              text: '模型的体验与调用',
+              collapsed: false,
+              items: [
+                { text: '场景概览', link: '/zh/userguide/scenarios/model-experience-api-calling/' },
+                { text: '用户快速指引', link: '/zh/userguide/scenarios/model-experience-api-calling/user-quick-guide' },
+              ],
+            },
+            { text: '模型的消费与收益', link: '/zh/userguide/scenarios/model-usage-revenue/' },
+            { text: '充值 & 计费', link: '/zh/userguide/scenarios/recharge-billing/' },
+            { text: 'On-Prem 算力纳管', link: '/zh/userguide/scenarios/on-prem-compute-onboarding/' },
+            { text: 'On-Prem 推理模板构建', link: '/zh/userguide/scenarios/on-prem-inference-template/' },
+            { text: 'On-Prem 模型部署与状态检查', link: '/zh/userguide/scenarios/on-prem-model-deployment-status/' },
+            { text: 'On-Prem 开发训练与资产沉淀', link: '/zh/userguide/scenarios/on-prem-dev-training-assets/' },
+            { text: 'On-Prem 资源计量与监控', link: '/zh/userguide/scenarios/on-prem-resource-metering-monitoring/' },
+            { text: 'On Cloud 云资源接入', link: '/zh/userguide/scenarios/on-cloud-resource-access/' },
+            { text: 'On Cloud 模型资产上架', link: '/zh/userguide/scenarios/on-cloud-model-asset-publishing/' },
+            { text: 'On Cloud 模型部署与调用', link: '/zh/userguide/scenarios/on-cloud-model-deployment-calling/' },
+            { text: '模型发布审批', link: '/zh/userguide/scenarios/model-publishing-approval/' },
+            { text: '可观测与问题排查', link: '/zh/userguide/scenarios/observability-troubleshooting/' },
+            { text: '平台治理与访问控制', link: '/zh/userguide/scenarios/platform-governance-access-control/' },
           ],
         },
       ],
@@ -100,9 +126,6 @@ export const zhSidebar: DefaultTheme.Sidebar = {
       text: '用户手册',
       collapsed: false,
       items: [
-        { text: '用户快速指引', link: '/zh/usermanual/user-quick-guide' },
-        { text: '供应商快速指引', link: '/zh/usermanual/provider-quick-guide' },
-        { text: '模型发布：预配置说明', link: '/zh/usermanual/model-publishing-preconfiguration' },
         {
           text: '模型及AI服务',
           collapsed: false,
