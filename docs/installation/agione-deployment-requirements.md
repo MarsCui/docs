@@ -35,7 +35,7 @@ The following diagram shows the overall logical architecture of the AGIOne platf
 | Item | Description |
 | ---- | ----------- |
 | Scope | AGIOne full-stack deployment solution design, pre-sales support, PoC assessment, and production delivery |
-| Constraint Level | This document serves as a planning reference. Official delivery shall be governed by the Release Note and compatibility matrix distributed with `agione-release-v1.0-20260527.tar.gz` |
+| Constraint Level | This document serves as a planning reference. Official delivery shall be governed by the Release Note and compatibility matrix distributed with `agione-release-v1.0-XXX.tar.gz` or `agione-release-v1.0-XXX-arm64.tar.gz` |
 
 > **Selection recommendation**: If there are no mandatory data compliance or network isolation requirements, prioritize public cloud deployment to benefit from cloud-provider managed middleware and operational convenience.
 
@@ -290,16 +290,21 @@ Before deployment, confirm each item to ensure a smooth rollout:
 - [ ] Operating system and kernel version meet requirements
 - [ ] Time is synchronized (NTP), and all nodes use a consistent time zone
 
-**Download URL:** [https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz](https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz)
+<!--@include: ../.vitepress/snippets/agione-release-download.en.md-->
 
 ```bash
 # 1. Download and extract the bundle
 ssh root@<target>
+# Choose one download URL above for the target host CPU architecture.
+AGIONE_RELEASE_URL="<paste-the-matching-download-url-here>"
+AGIONE_RELEASE_ARCHIVE="${AGIONE_RELEASE_URL##*/}"
+AGIONE_RELEASE_DIR="${AGIONE_RELEASE_ARCHIVE%.tar.gz}"
+
 mkdir -p /opt/hyperone && \
 cd /opt/hyperone && \
-curl -fL -O https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz && \
-tar -zxvf agione-release-v1.0-20260527.tar.gz && \
-cd /opt/hyperone/agione-release-v1.0-20260527
+curl -fL -O "$AGIONE_RELEASE_URL" && \
+tar -zxvf "$AGIONE_RELEASE_ARCHIVE" && \
+cd "/opt/hyperone/$AGIONE_RELEASE_DIR"
 ```
 
 ---

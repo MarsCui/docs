@@ -19,7 +19,7 @@
 正式安装前执行 `doctor`：
 
 ```bash
-cd /opt/hyperone/agione-release-v1.0-20260527
+cd /opt/hyperone/agione-release-v1.0-XXX
 chmod +x ./agione
 ./agione doctor
 ```
@@ -163,7 +163,7 @@ host-mode 多节点安装时，需要检查 `agione-install.yml` 中定义的每
 推荐执行顺序：
 
 ```bash
-cd /opt/hyperone/agione-release-v1.0-20260527
+cd /opt/hyperone/agione-release-v1.0-XXX
 chmod +x ./agione
 ./agione doctor --file /root/agione-install.yml
 ./agione verify-bundle

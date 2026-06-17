@@ -52,7 +52,7 @@ http://<app-entry-ip>:18090/modelone/
 
 | 类型 | 路径 |
 | --- | --- |
-| release 解包源目录 | `agione-release-v1.0-YYYYMMDD` |
+| release 解包源目录 | `agione-release-v1.0-XXX` 或 `agione-release-v1.0-XXX-arm64` |
 | 安装器运行目录 | `/opt/agione-installer-bundle` |
 | AGIOne 运行数据目录 | `/opt/hyperone` |
 | 离线 Python 运行时 | `/opt/agione-python` |
@@ -235,19 +235,24 @@ export AGIONE_DISK_TOLERANCE_RATIO=0.80
 
 ### 4.2 软件包获取
 
-当前交付包为 `agione-release-v1.0-20260527.tar.gz`；解压后目录名为同名去掉 `.tar.gz` 后缀，例如 `agione-release-v1.0-20260527/`。只需要先下载到安装发起机，安装器会在多节点安装过程中同步到其他目标节点。
+按安装发起机 CPU 架构选择交付包；解压后目录名为归档文件名去掉 `.tar.gz` 后缀，例如 `agione-release-v1.0-XXX/` 或 `agione-release-v1.0-XXX-arm64/`。只需要先下载到安装发起机，安装器会在多节点安装过程中同步到其他目标节点。
 
-**下载地址：** [https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz](https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz)
+<!--@include: ../../.vitepress/snippets/agione-relea  se-download.zh.md-->
 
 推荐在第 1 台应用 / 入口节点执行安装：
 
 ```bash
 ssh root@<app-node-1>
+# 按目标主机 CPU 架构，从上方下载地址中选择一个填入
+AGIONE_RELEASE_URL="<将上方对应架构的下载地址填入这里>"
+AGIONE_RELEASE_ARCHIVE="${AGIONE_RELEASE_URL##*/}"
+AGIONE_RELEASE_DIR="${AGIONE_RELEASE_ARCHIVE%.tar.gz}"
+
 mkdir -p /opt/hyperone && \
 cd /opt/hyperone && \
-curl -fL -O https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz && \
-tar -zxvf agione-release-v1.0-20260527.tar.gz && \
-cd /opt/hyperone/agione-release-v1.0-20260527
+curl -fL -O "$AGIONE_RELEASE_URL" && \
+tar -zxvf "$AGIONE_RELEASE_ARCHIVE" && \
+cd "/opt/hyperone/$AGIONE_RELEASE_DIR"
 ```
 
 解压后的典型交付包内容包括：
