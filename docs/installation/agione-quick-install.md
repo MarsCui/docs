@@ -24,19 +24,24 @@ Recommended request profile:
 
 ### 1. Download bundle
 
-Download `agione-release-v1.0-20260527.tar.gz` on the target host:
+Select and download the delivery package for the target host CPU architecture. The following commands set `AGIONE_RELEASE_URL` once and derive the archive name and extracted directory from that URL, so the version does not need to be maintained in multiple places.
 
-**Download URL:** [https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz](https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz)
+<!--@include: ../.vitepress/snippets/agione-release-download.en.md-->
 
 Example:
 
 ```bash
 ssh root@<target-host>
+# Choose one download URL above for the target host CPU architecture.
+AGIONE_RELEASE_URL="<paste-the-matching-download-url-here>"
+AGIONE_RELEASE_ARCHIVE="${AGIONE_RELEASE_URL##*/}"
+AGIONE_RELEASE_DIR="${AGIONE_RELEASE_ARCHIVE%.tar.gz}"
+
 mkdir -p /opt/hyperone && \
 cd /opt/hyperone && \
-curl -fL -O https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz && \
-tar -zxvf agione-release-v1.0-20260527.tar.gz && \
-cd /opt/hyperone/agione-release-v1.0-20260527
+curl -fL -O "$AGIONE_RELEASE_URL" && \
+tar -zxvf "$AGIONE_RELEASE_ARCHIVE" && \
+cd "/opt/hyperone/$AGIONE_RELEASE_DIR"
 ```
 
 ### 2. One-click installation
@@ -122,7 +127,7 @@ The AGIOne installer is responsible for:
 
 | Type | Path |
 | --- | --- |
-| Release source directory | `agione-release-v1.0-YYYYMMDD` |
+| Release source directory | `agione-release-v1.0-XXX` or `agione-release-v1.0-XXX-arm64` |
 | Installer runtime directory | `/opt/agione-installer-bundle` |
 | AGIOne runtime data directory | `/opt/hyperone` |
 | Offline Python runtime | `/opt/agione-python` |
@@ -375,7 +380,7 @@ At minimum, hand over:
 
 ```bash
 # 1. Enter the bundle directory
-cd /opt/hyperone/agione-release-v1.0-20260527
+cd /opt/hyperone/agione-release-v1.0-XXX
 
 # 2. Grant execute permission to the entry script
 chmod +x ./agione

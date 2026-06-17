@@ -19,7 +19,7 @@ The goal is to find blocking issues before the installation workflow starts.
 Run `doctor` before formal installation:
 
 ```bash
-cd /opt/hyperone/agione-release-v1.0-20260527
+cd /opt/hyperone/agione-release-v1.0-XXX
 chmod +x ./agione
 ./agione doctor
 ```
@@ -163,7 +163,7 @@ Enter formal installation only after:
 Recommended execution sequence:
 
 ```bash
-cd /opt/hyperone/agione-release-v1.0-20260527
+cd /opt/hyperone/agione-release-v1.0-XXX
 chmod +x ./agione
 ./agione doctor --file /root/agione-install.yml
 ./agione verify-bundle

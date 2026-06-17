@@ -52,7 +52,7 @@ Standard directories:
 
 | Type | Path |
 | --- | --- |
-| Release source directory | `agione-release-v1.0-YYYYMMDD` |
+| Release source directory | `agione-release-v1.0-XXX` or `agione-release-v1.0-XXX-arm64` |
 | Installer runtime directory | `/opt/agione-installer-bundle` |
 | AGIOne runtime data directory | `/opt/hyperone` |
 | Offline Python runtime | `/opt/agione-python` |
@@ -235,19 +235,24 @@ export AGIONE_DISK_TOLERANCE_RATIO=0.80
 
 ### 4.2 Package acquisition
 
-The current delivery package is `agione-release-v1.0-20260527.tar.gz`. After extraction, the directory name is the archive basename without `.tar.gz`, for example `agione-release-v1.0-20260527/`. Download it on the initiating machine first; the installer synchronizes it to the other target nodes during multi-node installation.
+Select the delivery package for the initiating machine CPU architecture. After extraction, the directory name is the archive basename without `.tar.gz`, for example `agione-release-v1.0-XXX/` or `agione-release-v1.0-XXX-arm64/`. Download it on the initiating machine first; the installer synchronizes it to the other target nodes during multi-node installation.
 
-**Download URL:** [https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz](https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz)
+<!--@include: ../.vitepress/snippets/agione-release-download.en.md-->
 
 It is recommended to run the installation from machine 1, the primary App / Edge node:
 
 ```bash
 ssh root@<app-node-1>
+# Choose one download URL above for the target host CPU architecture.
+AGIONE_RELEASE_URL="<paste-the-matching-download-url-here>"
+AGIONE_RELEASE_ARCHIVE="${AGIONE_RELEASE_URL##*/}"
+AGIONE_RELEASE_DIR="${AGIONE_RELEASE_ARCHIVE%.tar.gz}"
+
 mkdir -p /opt/hyperone && \
 cd /opt/hyperone && \
-curl -fL -O https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz && \
-tar -zxvf agione-release-v1.0-20260527.tar.gz && \
-cd /opt/hyperone/agione-release-v1.0-20260527
+curl -fL -O "$AGIONE_RELEASE_URL" && \
+tar -zxvf "$AGIONE_RELEASE_ARCHIVE" && \
+cd "/opt/hyperone/$AGIONE_RELEASE_DIR"
 ```
 
 Typical extracted bundle contents:

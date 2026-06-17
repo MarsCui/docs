@@ -42,6 +42,7 @@ AGIOne 平台部署在逻辑上分为两个相对独立的部分：
 
 | 云厂商 | 支持状态 | 已覆盖托管中间件 | 适用安装模式 | 说明 |
 |---|---|---|---|---|
+| 阿里云 | 已支持 | ApsaraDB RDS for MariaDB、Tair / Redis、MSE Nacos、ApsaraMQ for Kafka、OSS、ALB | `managed-middleware` / `hybrid` | 适合客户已有阿里云资源池或希望使用 MSE Nacos 的交付场景。交付前必须确认 RAM 权限、服务关联角色、VPC 连通和白名单策略。 |
 | 华为云 | 已支持 | RDS for MariaDB、DCS for Redis、CSE Nacos、DMS for Kafka、OBS、ELB | `managed-middleware` / `hybrid` | 适合客户已有华为云资源池或国产云交付场景。应用 / 入口节点通过私网访问托管中间件端点。 |
 
 ---
@@ -66,7 +67,7 @@ AGIOne 平台部署在逻辑上分为两个相对独立的部分：
 | 项目   | 说明                                                                                                                                                                                                                             |
 | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 适用范围 | AGIOne 全栈部署方案设计、售前支持、PoC 评估、生产交付                                                                                                                                                                                               |
-| 约束级别 | 本文档为规划参考，正式交付应以 `agione-release-v1.0-20260527.tar.gz` 配套的 Release Note 与兼容矩阵为准                                                                                                                                                  |
+| 约束级别 | 本文档为规划参考，正式交付应以 `agione-release-v1.0-XXX.tar.gz` 或 `agione-release-v1.0-XXX-arm64.tar.gz` 配套的 Release Note 与兼容矩阵为准                                                                                                                                                  |
 
 - 业务服务、数据库、中间件全部部署在同一节点上。
 - 默认通过 HTTP 端口 `18090` 对外提供服务。
@@ -112,6 +113,23 @@ AGIOne 平台部署在逻辑上分为两个相对独立的部分：
 </div>
 
 已支持云厂商的产品清单如下。正式采购前需在客户目标区域确认可用规格、可用区、计费方式和账号权限。
+
+**阿里云托管中间件清单**
+
+<div class="table-scroll" style="overflow-x:auto;">
+
+| AGIOne 组件 | 阿里云产品 | 用途 | 创建 / 规格建议 | 网络与权限要求 |
+|---|---|---|---|---|
+| 数据库 | ApsaraDB RDS for MariaDB | 存储 AGIOne 平台主数据和业务库表 | 创建高可用版 MariaDB 实例，选择 VPC 内网地址、ESSD / SSD、自动备份和必要的参数组；业务库与 Nacos 库建议逻辑隔离 | 与管理节点同 VPC 或通过私网互通；安全组 / 白名单只放行业务节点；初始化账号需具备建库、建表、变更 schema 和读写权限 |
+| Redis | Tair / ApsaraDB for Redis | 缓存、会话、令牌和短期状态 | 小中型场景使用主备标准版；高并发或大容量场景选择集群版并规划分片；开启密码和基础监控 | 与管理节点同 VPC；配置实例白名单；如启用集群模式，需确认客户端支持 MOVED / ASK；RAM 账号需具备 Redis 实例创建、查询、白名单和账号管理权限 |
+| Nacos | Microservices Engine（MSE）Nacos Registry | 服务注册、服务发现和配置中心 | 开通 MSE 后创建 Nacos 引擎，选择规格、网络和命名空间；导入 AGIOne 所需 namespace、service 和 config | MSE 首次开通和资源创建通常需要服务关联角色授权；安装器发布配置时，Nacos 运行账号需具备命名空间、配置发布和服务管理权限 |
+| Kafka | ApsaraMQ for Kafka | 异步消息、计量、审计和事件流 | 创建 VPC 内网实例，生产建议 3 broker 起，Topic 复制因子 3；按吞吐、存储和保留周期规划规格 | 需提前创建 Topic、Group、ACL 和认证信息；开启 SASL / ACL 时需同步客户端协议、用户名、密码；RAM 账号需具备实例、Topic、Group、ACL 的创建和查询权限 |
+| 对象存储 | Object Storage Service（OSS） | 存储知识库文件、附件、图片、模型资产和日志归档 | 创建私有 Bucket，设置存储类型、服务端加密、生命周期；下载流量较大时可前置 CDN | 禁止公开写入；应用访问建议使用最小权限 RAM 用户 / STS 临时凭证；授权范围应限制到目标 Bucket 和前缀，并具备上传、下载、列举、删除等业务所需权限 |
+| 入口负载均衡 | Application Load Balancer（ALB）或 MSE 云原生网关 | 对外暴露 AGIOne API 和 Web 入口 | 公网入口使用 ALB，配置 HTTPS Listener、证书、后端服务器组或 ACK Ingress；如后续需要微服务治理与网关融合，可评估 MSE 云原生网关 | 需要提前授权 ALB / ACK Ingress 相关服务关联角色；公网侧只开放 80 / 443；后端仅指向应用 / 入口节点或 ACK Ingress，并配置健康检查 |
+
+</div>
+
+> **阿里云权限重点**：云资源创建阶段使用的阿里云账号 / RAM 角色，与 AGIOne 安装器运行时使用的数据库、Redis、Nacos、Kafka、OSS 账号和密钥应分开管理。AGIOne 安装器不应要求云账号 AK/SK；安装器只消费最终生成的中间件端点、端口、运行时账号和访问密钥。
 
 **华为云托管中间件清单**
 
@@ -338,16 +356,21 @@ AGIOne 平台部署在逻辑上分为两个相对独立的部分：
 
 ---
 
-**下载地址：** [https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz](https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz)
+<!--@include: ../../.vitepress/snippets/agione-release-download.zh.md-->
 
 ```bash
 # 1. 下载并解压交付包
 ssh root@<target>
+# 按目标主机 CPU 架构，从上方下载地址中选择一个填入
+AGIONE_RELEASE_URL="<将上方对应架构的下载地址填入这里>"
+AGIONE_RELEASE_ARCHIVE="${AGIONE_RELEASE_URL##*/}"
+AGIONE_RELEASE_DIR="${AGIONE_RELEASE_ARCHIVE%.tar.gz}"
+
 mkdir -p /opt/hyperone && \
 cd /opt/hyperone && \
-curl -fL -O https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz && \
-tar -zxvf agione-release-v1.0-20260527.tar.gz && \
-cd /opt/hyperone/agione-release-v1.0-20260527
+curl -fL -O "$AGIONE_RELEASE_URL" && \
+tar -zxvf "$AGIONE_RELEASE_ARCHIVE" && \
+cd "/opt/hyperone/$AGIONE_RELEASE_DIR"
 ```
 
 ---
