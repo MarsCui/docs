@@ -52,7 +52,7 @@ Standard directories:
 
 | Type | Path |
 | --- | --- |
-| Release source directory | `agione-release-v1.0-XXX` or `agione-release-v1.0-XXX-arm64` |
+| Release source directory | `agione-release-v1.0-XXX` |
 | Installer runtime directory | `/opt/agione-installer-bundle` |
 | AGIOne runtime data directory | `/opt/hyperone` |
 | Offline Python runtime | `/opt/agione-python` |
@@ -235,22 +235,29 @@ export AGIONE_DISK_TOLERANCE_RATIO=0.80
 
 ### 4.2 Package acquisition
 
-Select the delivery package for the initiating machine CPU architecture. After extraction, the directory name is the archive basename without `.tar.gz`, for example `agione-release-v1.0-XXX/` or `agione-release-v1.0-XXX-arm64/`. Download it on the initiating machine first; the installer synchronizes it to the other target nodes during multi-node installation.
+Open the fixed download page on the initiating machine first, then copy the package link from `Download URL`. After extraction, the directory name is determined by the top-level directory inside the archive, for example `agione-release-v1.0-XXX/`. Download it on the initiating machine first; the installer synchronizes it to the other target nodes during multi-node installation.
 
-<!--@include: ../.vitepress/snippets/agione-release-download.en.md-->
+**Fixed download page:**
+
+<https://agione.pro/release/download/agione-release-latest>
+
+The page also provides an `MD5 URL`. It is recommended to verify the package after download.
 
 It is recommended to run the installation from machine 1, the primary App / Edge node:
 
 ```bash
 ssh root@<app-node-1>
-# Choose one download URL above for the target host CPU architecture.
-AGIONE_RELEASE_URL="<paste-the-matching-download-url-here>"
+AGIONE_RELEASE_PAGE="https://agione.pro/release/download/agione-release-latest"
+AGIONE_RELEASE_URL="<copy-the-Download-URL-from-the-page>"
+AGIONE_RELEASE_MD5_URL="<copy-the-MD5-URL-from-the-page>"
 AGIONE_RELEASE_ARCHIVE="${AGIONE_RELEASE_URL##*/}"
-AGIONE_RELEASE_DIR="${AGIONE_RELEASE_ARCHIVE%.tar.gz}"
 
 mkdir -p /opt/hyperone && \
 cd /opt/hyperone && \
-curl -fL -O "$AGIONE_RELEASE_URL" && \
+curl -fL -o "$AGIONE_RELEASE_ARCHIVE" "$AGIONE_RELEASE_URL" && \
+curl -fL -o "$AGIONE_RELEASE_ARCHIVE.md5" "$AGIONE_RELEASE_MD5_URL" && \
+echo "$(awk '{print $1}' "$AGIONE_RELEASE_ARCHIVE.md5")  $AGIONE_RELEASE_ARCHIVE" | md5sum -c - && \
+AGIONE_RELEASE_DIR="$(tar -tzf "$AGIONE_RELEASE_ARCHIVE" | head -1 | cut -d/ -f1)" && \
 tar -zxvf "$AGIONE_RELEASE_ARCHIVE" && \
 cd "/opt/hyperone/$AGIONE_RELEASE_DIR"
 ```

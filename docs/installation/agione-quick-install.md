@@ -24,22 +24,29 @@ Recommended request profile:
 
 ### 1. Download bundle
 
-Select and download the delivery package for the target host CPU architecture. The following commands set `AGIONE_RELEASE_URL` once and derive the archive name and extracted directory from that URL, so the version does not need to be maintained in multiple places.
+Open the fixed download page first, then copy the package link from `Download URL`. `agione-release-latest` is a download page, not a direct `.tar.gz` package URL.
 
-<!--@include: ../.vitepress/snippets/agione-release-download.en.md-->
+**Fixed download page:**
+
+<https://agione.pro/release/download/agione-release-latest>
+
+The page also provides an `MD5 URL`. It is recommended to verify the package after download.
 
 Example:
 
 ```bash
 ssh root@<target-host>
-# Choose one download URL above for the target host CPU architecture.
-AGIONE_RELEASE_URL="<paste-the-matching-download-url-here>"
+AGIONE_RELEASE_PAGE="https://agione.pro/release/download/agione-release-latest"
+AGIONE_RELEASE_URL="<copy-the-Download-URL-from-the-page>"
+AGIONE_RELEASE_MD5_URL="<copy-the-MD5-URL-from-the-page>"
 AGIONE_RELEASE_ARCHIVE="${AGIONE_RELEASE_URL##*/}"
-AGIONE_RELEASE_DIR="${AGIONE_RELEASE_ARCHIVE%.tar.gz}"
 
 mkdir -p /opt/hyperone && \
 cd /opt/hyperone && \
-curl -fL -O "$AGIONE_RELEASE_URL" && \
+curl -fL -o "$AGIONE_RELEASE_ARCHIVE" "$AGIONE_RELEASE_URL" && \
+curl -fL -o "$AGIONE_RELEASE_ARCHIVE.md5" "$AGIONE_RELEASE_MD5_URL" && \
+echo "$(awk '{print $1}' "$AGIONE_RELEASE_ARCHIVE.md5")  $AGIONE_RELEASE_ARCHIVE" | md5sum -c - && \
+AGIONE_RELEASE_DIR="$(tar -tzf "$AGIONE_RELEASE_ARCHIVE" | head -1 | cut -d/ -f1)" && \
 tar -zxvf "$AGIONE_RELEASE_ARCHIVE" && \
 cd "/opt/hyperone/$AGIONE_RELEASE_DIR"
 ```
@@ -127,7 +134,7 @@ The AGIOne installer is responsible for:
 
 | Type | Path |
 | --- | --- |
-| Release source directory | `agione-release-v1.0-XXX` or `agione-release-v1.0-XXX-arm64` |
+| Release source directory | `agione-release-v1.0-XXX` |
 | Installer runtime directory | `/opt/agione-installer-bundle` |
 | AGIOne runtime data directory | `/opt/hyperone` |
 | Offline Python runtime | `/opt/agione-python` |

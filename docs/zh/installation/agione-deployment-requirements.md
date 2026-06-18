@@ -67,7 +67,7 @@ AGIOne 平台部署在逻辑上分为两个相对独立的部分：
 | 项目   | 说明                                                                                                                                                                                                                             |
 | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 适用范围 | AGIOne 全栈部署方案设计、售前支持、PoC 评估、生产交付                                                                                                                                                                                               |
-| 约束级别 | 本文档为规划参考，正式交付应以 `agione-release-v1.0-XXX.tar.gz` 或 `agione-release-v1.0-XXX-arm64.tar.gz` 配套的 Release Note 与兼容矩阵为准                                                                                                                                                  |
+| 约束级别 | 本文档为规划参考，正式交付应以 `agione-release-v1.0-XXX.tar.gz` 配套的 Release Note 与兼容矩阵为准                                                                                                                                                  |
 
 - 业务服务、数据库、中间件全部部署在同一节点上。
 - 默认通过 HTTP 端口 `18090` 对外提供服务。
@@ -356,19 +356,26 @@ AGIOne 平台部署在逻辑上分为两个相对独立的部分：
 
 ---
 
-<!--@include: ../../.vitepress/snippets/agione-release-download.zh.md-->
+**固定下载页：**
+
+<https://agione.pro/release/download/agione-release-latest>
+
+打开页面后，复制页面中的 `Download URL` 与 `MD5 URL` 用于下载和校验安装包。
 
 ```bash
 # 1. 下载并解压交付包
 ssh root@<target>
-# 按目标主机 CPU 架构，从上方下载地址中选择一个填入
-AGIONE_RELEASE_URL="<将上方对应架构的下载地址填入这里>"
+AGIONE_RELEASE_PAGE="https://agione.pro/release/download/agione-release-latest"
+AGIONE_RELEASE_URL="<复制下载页中的 Download URL>"
+AGIONE_RELEASE_MD5_URL="<复制下载页中的 MD5 URL>"
 AGIONE_RELEASE_ARCHIVE="${AGIONE_RELEASE_URL##*/}"
-AGIONE_RELEASE_DIR="${AGIONE_RELEASE_ARCHIVE%.tar.gz}"
 
 mkdir -p /opt/hyperone && \
 cd /opt/hyperone && \
-curl -fL -O "$AGIONE_RELEASE_URL" && \
+curl -fL -o "$AGIONE_RELEASE_ARCHIVE" "$AGIONE_RELEASE_URL" && \
+curl -fL -o "$AGIONE_RELEASE_ARCHIVE.md5" "$AGIONE_RELEASE_MD5_URL" && \
+echo "$(awk '{print $1}' "$AGIONE_RELEASE_ARCHIVE.md5")  $AGIONE_RELEASE_ARCHIVE" | md5sum -c - && \
+AGIONE_RELEASE_DIR="$(tar -tzf "$AGIONE_RELEASE_ARCHIVE" | head -1 | cut -d/ -f1)" && \
 tar -zxvf "$AGIONE_RELEASE_ARCHIVE" && \
 cd "/opt/hyperone/$AGIONE_RELEASE_DIR"
 ```
