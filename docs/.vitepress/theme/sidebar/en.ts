@@ -210,8 +210,8 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   text: "Usage & Revenue",
                   collapsed: false,
                   items: [
-                    { text: "Revenue", link: "/usermanual/model-services/user/usage-revenue/revenue/" },
-                    { text: "Usage", link: "/usermanual/model-services/user/usage-revenue/usage/" },
+                    { text: "Model Earnings", link: "/usermanual/model-services/user/usage-revenue/revenue/" },
+                    { text: "Model Usage", link: "/usermanual/model-services/user/usage-revenue/usage/" },
                   ]
                 },
                 {
@@ -280,7 +280,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   text: "Model Services",
                   collapsed: false,
                   items: [
-                    { text: "Quick Deploy", link: "/usermanual/ai-infra-on-cloud/user/model-services/quick-start/" },
+                    { text: "Quick Deploy", link: "/usermanual/ai-infra-on-cloud/user/model-services/quick-deployment/" },
                     { text: "My Deployments", link: "/usermanual/ai-infra-on-cloud/user/model-services/my-deployments/" },
                   ]
                 },
@@ -298,26 +298,44 @@ export const enSidebar: DefaultTheme.Sidebar = {
               collapsed: false,
               items: [
                 {
-                  text: "Cloud Access",
+                  text: "Access Workbench",
                   collapsed: false,
                   items: [
-                    { text: "Quick Start", link: "/usermanual/ai-infra-on-cloud/operator/cloud-access/quick-start/" },
-                    { text: "Access CloudType", link: "/usermanual/ai-infra-on-cloud/operator/cloud-access/access-cloudtype/" },
-                    { text: "CloudType Auth", link: "/usermanual/ai-infra-on-cloud/operator/cloud-access/cloudtype-auth/" },
-                    { text: "Resource Pools", link: "/usermanual/ai-infra-on-cloud/operator/cloud-access/resource-pools/" },
-                    { text: "Cloud Region Auth", link: "/usermanual/ai-infra-on-cloud/operator/cloud-access/cloud-region-auth/" },
-                    { text: "Cloud Accounts", link: "/usermanual/ai-infra-on-cloud/operator/cloud-access/cloud-accounts/" },
+                    { text: "Access Overview", link: "/usermanual/ai-infra-on-cloud/operator/access-workbench/access-overview/" },
+                    { text: "Quick Access", link: "/usermanual/ai-infra-on-cloud/operator/access-workbench/quick-start/" },
                   ]
                 },
                 {
-                  text: "Models",
+                  text: "Access Management",
                   collapsed: false,
                   items: [
-                    { text: "Publish Guide", link: "/usermanual/ai-infra-on-cloud/operator/models/publish-guide/" },
-                    { text: "Models", link: "/usermanual/ai-infra-on-cloud/operator/models/models/" },
-                    { text: "Categories", link: "/usermanual/ai-infra-on-cloud/operator/models/categories/" },
-                    { text: "Frameworks", link: "/usermanual/ai-infra-on-cloud/operator/models/frameworks/" },
-                    { text: "Runtime Images", link: "/usermanual/ai-infra-on-cloud/operator/models/runtime-images/" },
+                    { text: "Access CloudType", link: "/usermanual/ai-infra-on-cloud/operator/access-management/access-cloudtype/" },
+                    { text: "Resource Pools", link: "/usermanual/ai-infra-on-cloud/operator/access-management/resource-pools/" },
+                    { text: "Cloud Accounts", link: "/usermanual/ai-infra-on-cloud/operator/access-management/cloud-accounts/" },
+                  ]
+                },
+                {
+                  text: "Auth Management",
+                  collapsed: false,
+                  items: [
+                    { text: "Tenant-Cloud Auth", link: "/usermanual/ai-infra-on-cloud/operator/auth-management/tenant-cloud-auth/" },
+                    { text: "Business-Region Auth", link: "/usermanual/ai-infra-on-cloud/operator/auth-management/business-region-auth/" },
+                  ]
+                },
+                {
+                  text: "Deploy Assets",
+                  collapsed: false,
+                  items: [
+                    { text: "Models", link: "/usermanual/ai-infra-on-cloud/operator/deploy-assets/models/" },
+                    { text: "Frameworks", link: "/usermanual/ai-infra-on-cloud/operator/deploy-assets/frameworks/" },
+                    { text: "Runtime Images", link: "/usermanual/ai-infra-on-cloud/operator/deploy-assets/runtime-images/" },
+                  ]
+                },
+                {
+                  text: "Scheduling Governance",
+                  collapsed: false,
+                  items: [
+                    { text: "Policies", link: "/usermanual/ai-infra-on-cloud/operator/scheduling-governance/policies/" },
                   ]
                 },
               ]
@@ -326,7 +344,115 @@ export const enSidebar: DefaultTheme.Sidebar = {
         },
         {
           text: "AI Infra on Prem",
-          link: "/usermanual/ai-infra-on-prem/"
+          collapsed: false,
+          items: [
+            { text: "Overview", link: "/usermanual/ai-infra-on-prem/" },
+            {
+              text: "Operator",
+              collapsed: false,
+              items: [
+                {
+                  text: "Resource Pools",
+                  collapsed: false,
+                  items: [
+                    { text: "Regions & Zones", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/regions-zones/" },
+                    { text: "Clusters", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/clusters/" },
+                    { text: "Accelerators", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/accelerators/" },
+                    { text: "Spec Metrics", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/spec-metrics/" },
+                    { text: "Resource Specs", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/resource-specs/" },
+                  ],
+                },
+                {
+                  text: "Image & Storage Services",
+                  collapsed: false,
+                  items: [
+                    { text: "Image Services", link: "/usermanual/ai-infra-on-prem/operator/storage/image-services/" },
+                    { text: "Object Storage", link: "/usermanual/ai-infra-on-prem/operator/storage/object-storage/" },
+                    { text: "Block Storage", link: "/usermanual/ai-infra-on-prem/operator/storage/block-storage/" },
+                    { text: "File Storage", link: "/usermanual/ai-infra-on-prem/operator/storage/file-storage/" },
+                  ],
+                },
+                {
+                  text: "Templates",
+                  collapsed: false,
+                  items: [
+                    { text: "Frames", link: "/usermanual/ai-infra-on-prem/operator/templates/frames/" },
+                    { text: "Models", link: "/usermanual/ai-infra-on-prem/operator/templates/models/" },
+                    { text: "Inference Templates", link: "/usermanual/ai-infra-on-prem/operator/templates/inference-templates/" },
+                    { text: "VRAM Config", link: "/usermanual/ai-infra-on-prem/operator/templates/vram-config/" },
+                  ],
+                },
+                {
+                  text: "Quotas & Metering",
+                  collapsed: false,
+                  items: [
+                    { text: "Tenant Quotas", link: "/usermanual/ai-infra-on-prem/operator/quotas-metering/tenant-quotas/" },
+                    { text: "Tenant Credits", link: "/usermanual/ai-infra-on-prem/operator/quotas-metering/tenant-credits/" },
+                    { text: "Monthly Usage", link: "/usermanual/ai-infra-on-prem/operator/quotas-metering/monthly-usage/" },
+                    { text: "Metering Details", link: "/usermanual/ai-infra-on-prem/operator/quotas-metering/metering-details/" },
+                  ],
+                },
+                {
+                  text: "Monitoring",
+                  collapsed: false,
+                  items: [
+                    { text: "Overview", link: "/usermanual/ai-infra-on-prem/operator/monitoring/overview/" },
+                    { text: "Clusters", link: "/usermanual/ai-infra-on-prem/operator/monitoring/clusters/" },
+                    { text: "Nodes", link: "/usermanual/ai-infra-on-prem/operator/monitoring/nodes/" },
+                    { text: "Devices", link: "/usermanual/ai-infra-on-prem/operator/monitoring/devices/" },
+                    { text: "Jobs", link: "/usermanual/ai-infra-on-prem/operator/monitoring/jobs/" },
+                  ],
+                },
+              ],
+            },
+            {
+              text: "User",
+              collapsed: false,
+              items: [
+                {
+                  text: "Quick Start",
+                  collapsed: false,
+                  items: [
+                    { text: "Overview", link: "/usermanual/ai-infra-on-prem/user/quick-start/overview/" },
+                    { text: "Inference Templates", link: "/usermanual/ai-infra-on-prem/user/quick-start/inference-templates/" },
+                  ],
+                },
+                {
+                  text: "Online Inference",
+                  collapsed: false,
+                  items: [
+                    { text: "Online Inference", link: "/usermanual/ai-infra-on-prem/user/online-inference/online-inference/" },
+                  ],
+                },
+                {
+                  text: "Development",
+                  collapsed: false,
+                  items: [
+                    { text: "Dev Environments", link: "/usermanual/ai-infra-on-prem/user/dev-environments/dev-environments/" },
+                    { text: "Model Training", link: "/usermanual/ai-infra-on-prem/user/model-training/model-training/" },
+                  ],
+                },
+                {
+                  text: "Storage",
+                  collapsed: false,
+                  items: [
+                    { text: "Object Storage", link: "/usermanual/ai-infra-on-prem/user/storage/object-storage/" },
+                    { text: "Block Storage", link: "/usermanual/ai-infra-on-prem/user/storage/block-storage/" },
+                    { text: "File Storage", link: "/usermanual/ai-infra-on-prem/user/storage/file-storage/" },
+                  ],
+                },
+                {
+                  text: "Quotas & Usage",
+                  collapsed: false,
+                  items: [
+                    { text: "Usage", link: "/usermanual/ai-infra-on-prem/user/quotas-usage/usage/" },
+                    { text: "Quotas", link: "/usermanual/ai-infra-on-prem/user/quotas-usage/quotas/" },
+                    { text: "Top-up Records", link: "/usermanual/ai-infra-on-prem/user/quotas-usage/top-up-records/" },
+                  ],
+                },
+              ],
+            },
+          ],
         }
       ]
     }

@@ -162,8 +162,8 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                   text: '用量与收益',
                   collapsed: false,
                   items: [
-                    { text: '我的收益', link: '/zh/usermanual/model-services/user/usage-revenue/revenue/' },
-                    { text: '消耗明细', link: '/zh/usermanual/model-services/user/usage-revenue/usage/' },
+                    { text: '模型收益', link: '/zh/usermanual/model-services/user/usage-revenue/revenue/' },
+                    { text: '用量明细', link: '/zh/usermanual/model-services/user/usage-revenue/usage/' },
                   ]
                 },
                 {
@@ -232,7 +232,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                   text: '模型服务',
                   collapsed: false,
                   items: [
-                    { text: '快速部署', link: '/zh/usermanual/ai-infra-on-cloud/user/model-services/quick-start/' },
+                    { text: '快速部署', link: '/zh/usermanual/ai-infra-on-cloud/user/model-services/quick-deployment/' },
                     { text: '我的部署', link: '/zh/usermanual/ai-infra-on-cloud/user/model-services/my-deployments/' },
                   ]
                 },
@@ -250,26 +250,44 @@ export const zhSidebar: DefaultTheme.Sidebar = {
               collapsed: false,
               items: [
                 {
-                  text: '接入管理',
+                  text: '接入工作台',
                   collapsed: false,
                   items: [
-                    { text: '快速开始', link: '/zh/usermanual/ai-infra-on-cloud/operator/cloud-access/quick-start/' },
-                    { text: '接入云平台', link: '/zh/usermanual/ai-infra-on-cloud/operator/cloud-access/access-cloudtype/' },
-                    { text: '云平台授权', link: '/zh/usermanual/ai-infra-on-cloud/operator/cloud-access/cloudtype-auth/' },
-                    { text: '接入资源池', link: '/zh/usermanual/ai-infra-on-cloud/operator/cloud-access/resource-pools/' },
-                    { text: '资源池授权', link: '/zh/usermanual/ai-infra-on-cloud/operator/cloud-access/cloud-region-auth/' },
-                    { text: '接入账号', link: '/zh/usermanual/ai-infra-on-cloud/operator/cloud-access/cloud-accounts/' },
+                    { text: '接入总览', link: '/zh/usermanual/ai-infra-on-cloud/operator/access-workbench/access-overview/' },
+                    { text: '快速接入', link: '/zh/usermanual/ai-infra-on-cloud/operator/access-workbench/quick-start/' },
                   ]
                 },
                 {
-                  text: '模型管理',
+                  text: '接入管理',
                   collapsed: false,
                   items: [
-                    { text: '发布向导', link: '/zh/usermanual/ai-infra-on-cloud/operator/models/publish-guide/' },
-                    { text: '模型库', link: '/zh/usermanual/ai-infra-on-cloud/operator/models/models/' },
-                    { text: '模型分类', link: '/zh/usermanual/ai-infra-on-cloud/operator/models/categories/' },
-                    { text: '推理框架', link: '/zh/usermanual/ai-infra-on-cloud/operator/models/frameworks/' },
-                    { text: '推理镜像', link: '/zh/usermanual/ai-infra-on-cloud/operator/models/runtime-images/' },
+                    { text: '接入云平台', link: '/zh/usermanual/ai-infra-on-cloud/operator/access-management/access-cloudtype/' },
+                    { text: '接入资源池', link: '/zh/usermanual/ai-infra-on-cloud/operator/access-management/resource-pools/' },
+                    { text: '接入账号', link: '/zh/usermanual/ai-infra-on-cloud/operator/access-management/cloud-accounts/' },
+                  ]
+                },
+                {
+                  text: '授权管理',
+                  collapsed: false,
+                  items: [
+                    { text: '租户-云平台授权', link: '/zh/usermanual/ai-infra-on-cloud/operator/auth-management/tenant-cloud-auth/' },
+                    { text: '业务-资源池授权', link: '/zh/usermanual/ai-infra-on-cloud/operator/auth-management/business-region-auth/' },
+                  ]
+                },
+                {
+                  text: '部署资产',
+                  collapsed: false,
+                  items: [
+                    { text: '模型库', link: '/zh/usermanual/ai-infra-on-cloud/operator/deploy-assets/models/' },
+                    { text: '推理框架', link: '/zh/usermanual/ai-infra-on-cloud/operator/deploy-assets/frameworks/' },
+                    { text: '推理镜像', link: '/zh/usermanual/ai-infra-on-cloud/operator/deploy-assets/runtime-images/' },
+                  ]
+                },
+                {
+                  text: '调度治理',
+                  collapsed: false,
+                  items: [
+                    { text: '策略管理', link: '/zh/usermanual/ai-infra-on-cloud/operator/scheduling-governance/policies/' },
                   ]
                 },
               ]
@@ -290,6 +308,98 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                   collapsed: false,
                   items: [
                     { text: '地域/可用区', link: '/zh/usermanual/ai-infra-on-prem/operator/resource-pools/regions-zones/' },
+                    { text: '集群管理', link: '/zh/usermanual/ai-infra-on-prem/operator/resource-pools/clusters/' },
+                    { text: '加速卡管理', link: '/zh/usermanual/ai-infra-on-prem/operator/resource-pools/accelerators/' },
+                    { text: '规格指标', link: '/zh/usermanual/ai-infra-on-prem/operator/resource-pools/spec-metrics/' },
+                    { text: '资源规格', link: '/zh/usermanual/ai-infra-on-prem/operator/resource-pools/resource-specs/' },
+                  ],
+                },
+                {
+                  text: '镜像与存储组件',
+                  collapsed: false,
+                  items: [
+                    { text: '镜像组件', link: '/zh/usermanual/ai-infra-on-prem/operator/images/image-services/' },
+                    { text: '对象存储组件', link: '/zh/usermanual/ai-infra-on-prem/operator/storage/object-storage/' },
+                    { text: '块存储组件', link: '/zh/usermanual/ai-infra-on-prem/operator/storage/block-storage/' },
+                    { text: '文件存储组件', link: '/zh/usermanual/ai-infra-on-prem/operator/storage/file-storage/' },
+                  ],
+                },
+                {
+                  text: '模板',
+                  collapsed: false,
+                  items: [
+                    { text: '框架配置', link: '/zh/usermanual/ai-infra-on-prem/operator/templates/frames/' },
+                    { text: '模型配置', link: '/zh/usermanual/ai-infra-on-prem/operator/templates/models/' },
+                    { text: '推理模板', link: '/zh/usermanual/ai-infra-on-prem/operator/templates/inference-templates/' },
+                    { text: '显存计算', link: '/zh/usermanual/ai-infra-on-prem/operator/templates/vram-config/' },
+                  ],
+                },
+                {
+                  text: '配额&计量',
+                  collapsed: false,
+                  items: [
+                    { text: '租户配额', link: '/zh/usermanual/ai-infra-on-prem/operator/quotas-metering/tenant-quotas/' },
+                    { text: '租户额度', link: '/zh/usermanual/ai-infra-on-prem/operator/quotas-metering/tenant-credits/' },
+                    { text: '月度计量', link: '/zh/usermanual/ai-infra-on-prem/operator/quotas-metering/monthly-usage/' },
+                    { text: '计量明细', link: '/zh/usermanual/ai-infra-on-prem/operator/quotas-metering/metering-details/' },
+                  ],
+                },
+                {
+                  text: '监控',
+                  collapsed: false,
+                  items: [
+                    { text: '统计概览', link: '/zh/usermanual/ai-infra-on-prem/operator/monitoring/overview/' },
+                    { text: '集群统计', link: '/zh/usermanual/ai-infra-on-prem/operator/monitoring/clusters/' },
+                    { text: '节点统计', link: '/zh/usermanual/ai-infra-on-prem/operator/monitoring/nodes/' },
+                    { text: '设备监控', link: '/zh/usermanual/ai-infra-on-prem/operator/monitoring/devices/' },
+                    { text: '作业监控', link: '/zh/usermanual/ai-infra-on-prem/operator/monitoring/jobs/' },
+                  ],
+                },
+              ],
+            },
+            {
+              text: '用户',
+              collapsed: false,
+              items: [
+                {
+                  text: '快速开始',
+                  collapsed: false,
+                  items: [
+                    { text: '概览', link: '/zh/usermanual/ai-infra-on-prem/user/quick-start/overview/' },
+                    { text: '部署模板', link: '/zh/usermanual/ai-infra-on-prem/user/quick-start/inference-templates/' },
+                  ],
+                },
+                {
+                  text: '在线推理',
+                  collapsed: false,
+                  items: [
+                    { text: '在线推理', link: '/zh/usermanual/ai-infra-on-prem/user/online-inference/online-inference/' },
+                  ],
+                },
+                {
+                  text: '开发训练',
+                  collapsed: false,
+                  items: [
+                    { text: '开发 IDE', link: '/zh/usermanual/ai-infra-on-prem/user/dev-environments/dev-environments/' },
+                    { text: '模型训练', link: '/zh/usermanual/ai-infra-on-prem/user/model-training/model-training/' },
+                  ],
+                },
+                {
+                  text: '存储服务',
+                  collapsed: false,
+                  items: [
+                    { text: '对象存储', link: '/zh/usermanual/ai-infra-on-prem/user/storage/object-storage/' },
+                    { text: '块存储', link: '/zh/usermanual/ai-infra-on-prem/user/storage/block-storage/' },
+                    { text: '文件存储', link: '/zh/usermanual/ai-infra-on-prem/user/storage/file-storage/' },
+                  ],
+                },
+                {
+                  text: '配额&用量',
+                  collapsed: false,
+                  items: [
+                    { text: '资源用量', link: '/zh/usermanual/ai-infra-on-prem/user/quotas-usage/usage/' },
+                    { text: '资源配额', link: '/zh/usermanual/ai-infra-on-prem/user/quotas-usage/quotas/' },
+                    { text: '充值记录', link: '/zh/usermanual/ai-infra-on-prem/user/quotas-usage/top-up-records/' },
                   ],
                 },
               ],
