@@ -276,7 +276,26 @@ export const zhSidebar: DefaultTheme.Sidebar = {
             },
           ]
         },
-        { text: '异构卡纳管', link: '/zh/usermanual/ai-infra-on-prem/' },
+        {
+          text: '异构卡纳管',
+          collapsed: false,
+          items: [
+            { text: '概览', link: '/zh/usermanual/ai-infra-on-prem/' },
+            {
+              text: '运营管理员',
+              collapsed: false,
+              items: [
+                {
+                  text: '资源池',
+                  collapsed: false,
+                  items: [
+                    { text: '地域/可用区', link: '/zh/usermanual/ai-infra-on-prem/operator/resource-pools/regions-zones/' },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
       ],
     },
   ],
