@@ -17,7 +17,7 @@
    - **"端口"**：填写框架运行时对外暴露的服务端口（默认 `8000`）。
    - **"启动命令"**（多选表单）：以列表形式维护框架的启动命令（如 `--port 8000 --model {model_name} --trust-remote-code`），每个命令项含 协议（如 http）/ 命令内容，支持添加/删除。
 5. 确认所有配置无误后，点击 **"保存"** 按钮完成框架添加；如需放弃，点击 **"取消"**。
-![添加框架](Add-Framework.png)
+![添加框架](./images/Add-Framework.png)
 #### 参数说明 - 基本信息
 
 | 字段名称 | 字段类型 | 示例 | 说明 |
@@ -34,4 +34,3 @@
 | 镜像 | 单选 | `eas-registry-vpc.cn-shanghai.cr.aliyuncs.com/pai-eas/vllmv:0.9.1-modelgallery` | 必填，从镜像列表中选择 |
 | 端口 | 数值 | `8000` | 必填，框架对外暴露的服务端口 |
 | 启动命令 | 列表 | `--port 8000 --model {model_name} --trust-remote-code` | 必填，支持多条命令 |
-

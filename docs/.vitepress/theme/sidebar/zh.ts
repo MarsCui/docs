@@ -70,9 +70,9 @@ export const zhSidebar: DefaultTheme.Sidebar = {
       text: '用户指南',
       collapsed: false,
       items: [
-        { text: '场景导览', link: '/zh/userguide/scenarios' },
+        { text: '场景导航', link: '/zh/userguide/scenarios' },
         {
-          text: '场景指南',
+          text: '场景操作指南',
           collapsed: false,
           items: [
             { text: '注册 & 登录', link: '/zh/userguide/scenarios/register-login/' },
@@ -82,7 +82,12 @@ export const zhSidebar: DefaultTheme.Sidebar = {
               collapsed: false,
               items: [
                 { text: '场景概览', link: '/zh/userguide/scenarios/publish-model/' },
-                { text: '供应商快速指引', link: '/zh/userguide/scenarios/publish-model/provider-quick-guide' },
+                { text: '发布公有模型', link: '/zh/userguide/scenarios/publish-model/provider-quick-guide' },
+                { text: '发布多模态（对话）模型', link: '/zh/userguide/scenarios/publish-model/Multimodal/' },
+                { text: '发布嵌入模型', link: '/zh/userguide/scenarios/publish-model/Embedding/' },
+                { text: '发布图片模型', link: '/zh/userguide/scenarios/publish-model/Image/' },
+                { text: '发布语音模型', link: '/zh/userguide/scenarios/publish-model/Speech/' },
+                { text: '发布视频模型', link: '/zh/userguide/scenarios/publish-model/Video/' },
               ],
             },
             {

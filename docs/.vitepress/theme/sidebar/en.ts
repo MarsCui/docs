@@ -119,9 +119,9 @@ export const enSidebar: DefaultTheme.Sidebar = {
       text: "User Guide",
       collapsed: false,
       items: [
-        { text: "Scenario Guide", link: "/userguide/scenarios" },
+        { text: "Scenario Navigator", link: "/userguide/scenarios" },
         {
-          text: "Scenario Guides",
+          text: "Scenario Playbooks",
           collapsed: false,
           items: [
             { text: "Register & Login", link: "/userguide/scenarios/register-login/" },
@@ -131,7 +131,8 @@ export const enSidebar: DefaultTheme.Sidebar = {
               collapsed: false,
               items: [
                 { text: "Scenario Overview", link: "/userguide/scenarios/publish-model/" },
-                { text: "Provider Quick Guide", link: "/userguide/scenarios/publish-model/provider-quick-guide" },
+                { text: "Publish Public Models", link: "/userguide/scenarios/publish-model/provider-quick-guide" },
+                { text: "Publish Text Models", link: "/userguide/scenarios/publish-model/Text/" },
               ],
             },
             {
