@@ -22,22 +22,23 @@ The upper right corner provides **"Add Cloud Account"** button for adding new cl
 
 The account card list displays registered cloud platform accounts, showing account name, cloud platform, account type, creation time, and other information.
 
-### Page Screenshot
-
-![Access Accounts](./images/access-management-access-accounts-overview.png)
-
 ## Operations
 
 ### Add Cloud Account
 
 1. On the platform home page, click the **"Access Management"** menu in the left navigation bar to enter the Access Accounts page.
 2. Click the **"Add Cloud Account"** button in the upper right corner to open the "Add Account" dialog.
+
+![Access Accounts](./images/Access-Accounts-list.png)
+
 3. Configure account information:
    - Enter the **Account Name** (e.g., `aliyun-test`)
    - Select the **Cloud Platform** (e.g., Alibaba Cloud, Huawei Cloud, Amazon, etc.)
    - Enter the **Access Key ID**
    - Enter the **Access Key Secret**
 4. After confirming all information is correct, click the **"Confirm"** button to complete the addition.
+
+![Add Account](./images/Add-Account.png)
 
 #### Parameters
 

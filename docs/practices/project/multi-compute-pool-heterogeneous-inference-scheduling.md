@@ -1,6 +1,6 @@
 # Multi-Compute Pool Heterogeneous Inference Scheduling Best Practice
 
-> **IMMS · AGIOne Platform** Multi-Compute Pool Heterogeneous Inference Scheduling **Best Practice**
+> **IMSS · AGIOne Platform** Multi-Compute Pool Heterogeneous Inference Scheduling **Best Practice**
 >
 > *Best Practice Guide for Heterogeneous Inference Scheduling*
 >
@@ -10,7 +10,7 @@
 >
 > **Version:** V1.0 | **Status:** Official Release
 >
-> **IMMS · Huawei Cloud · AGIOne Platform Team**
+> **IMSS · Huawei Cloud · AGIOne Platform Team**
 >
 > 2026
 
@@ -24,7 +24,7 @@
 
 ## 1.1 Business Background
 
-This document is intended for enterprises that have deployed self-fine-tuned Qwen-32B models in production. It describes how the IMMS AGIOne platform enables unified multi-compute-pool management, elastic scheduling, and high-availability operations under heterogeneous hardware (Huawei Ascend 910B NPU + NVIDIA A10 GPU) and cross-network-domain conditions (Huawei HCS public cloud, on-premise IDC private cloud, IDC physical servers).
+This document is intended for enterprises that have deployed self-fine-tuned Qwen-32B models in production. It describes how the IMSS AGIOne platform enables unified multi-compute-pool management, elastic scheduling, and high-availability operations under heterogeneous hardware (Huawei Ascend 910B NPU + NVIDIA A10 GPU) and cross-network-domain conditions (Huawei HCS public cloud, on-premise IDC private cloud, IDC physical servers).
 
 ## 1.2 Core Challenges
 
@@ -38,7 +38,7 @@ This document is intended for enterprises that have deployed self-fine-tuned Qwe
 
 ## 1.3 Overall Architecture
 
-The IMMS AGIOne platform adopts a "Central Control + Edge Execution" architecture, divided into three layers: control plane, scheduling plane, and execution plane.
+The IMSS AGIOne platform adopts a "Central Control + Edge Execution" architecture, divided into three layers: control plane, scheduling plane, and execution plane.
 
 | **Architecture Layer** | **Core Responsibilities and Components** |
 |---|---|
@@ -362,7 +362,7 @@ The AGIONE operations analysis panel provides the following capabilities to supp
 
 | **Term** | **Description** |
 |---|---|
-| AGIONE | IMMS platform unified model management and scheduling service, providing API gateway, scheduling, monitoring, and billing capabilities |
+| AGIONE | IMSS platform unified model management and scheduling service, providing API gateway, scheduling, monitoring, and billing capabilities |
 | MindIE | Huawei Ascend inference engine, a large model inference framework optimized specifically for Ascend NPU |
 | vLLM | High-performance large model inference engine for NVIDIA GPU, using PagedAttention technology |
 | evalscope | Large model evaluation and performance stress testing tool provided by Huawei Cloud |

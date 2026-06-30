@@ -3,6 +3,6 @@ prev: false
 next: true
 ---
 
-# Scenario Guide
+# Scenario Navigator
 
 <ScenarioGuide />

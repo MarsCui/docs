@@ -1,6 +1,6 @@
-# AGIOne Beginner Guide: Publish a Model
+# Publish Public Models
 
-This guide keeps only the practical steps: sign in, publish a model, and check the published model in the model marketplace.
+This guide explains how model providers publish a model to the public marketplace, including sign-in, model information, protocol testing, billing, rate limits, and approval submission.
 
 ## 1. Sign In To AGIOne
 
