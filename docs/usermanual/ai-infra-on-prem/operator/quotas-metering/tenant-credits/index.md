@@ -1,1 +1,3 @@
-更新中
+# Tenant Credits
+
+To be updated.

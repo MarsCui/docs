@@ -1,1 +1,3 @@
-更新中
+# Resource Specs
+
+待更新

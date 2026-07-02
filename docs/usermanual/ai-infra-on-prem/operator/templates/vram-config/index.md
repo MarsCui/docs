@@ -1,1 +1,3 @@
-更新中
+# VRAM Config
+
+To be updated.

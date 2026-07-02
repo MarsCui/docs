@@ -5,46 +5,47 @@ next: true
 
 # Product Overview
 
-This section contains product technical documentation for AGIOne products, organized by topic for quick reference and reuse.
+This section summarizes AGIOne product positioning, core capabilities, identity and access model, compatibility boundaries, and pre-sales investigation documents.
 
-## Documentation Structure
+## Document Index
 
-The product pre-sales documents are organized into four topics:
+The product overview documents are organized into four topics:
 
-### `technical/`
+### Product Technical Overview
 
 Technical overview and product capability details.
 
-| Document | Purpose |
-|------|------|
+| Document | Description |
+| --- | --- |
 | [Overview](./technical/overview) | Product positioning, architecture, and core capabilities |
-| [Features & Ability](./technical/features) | Supported frameworks, models, protocols, and functional abilities |
+| [Features & Ability](./technical/features) | Supported scenarios, key capabilities, and performance scope |
+| [Network Planning](./technical/network) | Typical network architecture and port planning recommendations |
 | [Technical Highlights](./technical/tech-highlights) | Key technical advantages and differentiated highlights |
 
 ### Identity and Access Model
 
 Design logic for accounts, tenants, roles, and permissions.
 
-| Document | Purpose |
-|------|------|
+| Document | Description |
+| --- | --- |
 | [User, Tenant, and Role Design Logic](./identity-access-model) | Explains tenant boundaries, default roles, and authorization control logic |
 | [Role Comparison](./role-comparison) | Compares the capability boundaries of admin, operator, provider, and enduser |
 
-### `limitations/`
+### Compatibility and Limitations
 
 Compatibility boundaries and known constraints.
 
-| Document | Purpose |
-|------|------|
+| Document | Description |
+| --- | --- |
 | [Managed Chips](./limitations/chips) | Supported chip platforms and management scope |
 | [Support Matrix](./limitations/support-matrix) | Compatibility matrix for hardware/software environments |
 | [Other Limitations](./limitations/limitations) | Product usage limitations and constraints |
 
-### `investigation/`
+### Pre-sales Investigation
 
 Pre-sales investigation templates for requirement and environment assessment.
 
-| Document | Purpose |
-|------|------|
+| Document | Description |
+| --- | --- |
 | [Quick Requirements Investigation](./investigation/quick-requirement-investigation) | Rapid requirement collection and scenario confirmation |
 | [Quick Environmental Investigation](./investigation/quick-env-investigation) | Rapid environment check for deployment readiness |

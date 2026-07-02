@@ -51,8 +51,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
       ]
     },
     {
-      text: "Investigation",
-      link: "/product/investigation/",
+      text: "Pre-sales Investigation",
       items: [
         {
           text: "Quick Requirements Investigation",
@@ -458,40 +457,43 @@ export const enSidebar: DefaultTheme.Sidebar = {
       ]
     }
   ],
-  "/practices/technical/": [
+  "/practices/": [
     {
-      text: "Technical Practices",
-      collapsed: false,
+      text: "Best Practices",
       items: [
         {
-          text: "AI Coding Integration",
+          text: "Technical Practices",
           collapsed: false,
           items: [
-            { text: "CherryStudio", link: "/practices/technical/CherryStudio/" },
-            { text: "claudeCode", link: "/practices/technical/claudeCode/" },
-            { text: "ClaudeCode-plugin", link: "/practices/technical/ClaudeCode-plugin/" },
-            { text: "Cline", link: "/practices/technical/Cline/" },
-            { text: "Codex", link: "/practices/technical/Codex/" },
-            { text: "Crush", link: "/practices/technical/Crush/" },
-            { text: "Cursor", link: "/practices/technical/Cursor/" },
-            { text: "dify", link: "/practices/technical/dify/" },
-            { text: "KiloCode", link: "/practices/technical/KiloCode/" },
-            { text: "n8n", link: "/practices/technical/n8n/" },
-            { text: "open-webui", link: "/practices/technical/open-webui/" },
-            { text: "openclaw", link: "/practices/technical/openclaw/" },
-            { text: "OpenCode", link: "/practices/technical/OpenCode/" },
-            { text: "RooCode", link: "/practices/technical/RooCode/" },
+            {
+              text: "AI Coding Integration",
+              collapsed: false,
+              items: [
+                { text: "CherryStudio", link: "/practices/technical/cherry-studio/" },
+                { text: "claudeCode", link: "/practices/technical/claude-code/" },
+                { text: "ClaudeCode-plugin", link: "/practices/technical/claude-code-plugin/" },
+                { text: "Cline", link: "/practices/technical/cline/" },
+                { text: "Codex", link: "/practices/technical/codex/" },
+                { text: "Crush", link: "/practices/technical/crush/" },
+                { text: "Cursor", link: "/practices/technical/cursor/" },
+                { text: "dify", link: "/practices/technical/dify/" },
+                { text: "KiloCode", link: "/practices/technical/kilo-code/" },
+                { text: "n8n", link: "/practices/technical/n8n/" },
+                { text: "open-webui", link: "/practices/technical/open-webui/" },
+                { text: "openclaw", link: "/practices/technical/openclaw/" },
+                { text: "OpenCode", link: "/practices/technical/open-code/" },
+                { text: "RooCode", link: "/practices/technical/roo-code/" },
+              ]
+            },
           ]
         },
-      ]
-    }
-  ],
-  "/practices/project/": [
-    {
-      text: "Project Practices",
-      collapsed: false,
-      items: [
-        { text: "Multi-Compute Pool Heterogeneous Inference Scheduling Best Practice", link: "/practices/project/multi-compute-pool-heterogeneous-inference-scheduling" }
+        {
+          text: "Project Practices",
+          collapsed: false,
+          items: [
+            { text: "Multi-Compute Pool Heterogeneous Inference Scheduling Best Practice", link: "/practices/project/multi-compute-pool-heterogeneous-inference-scheduling" }
+          ]
+        }
       ]
     }
   ],

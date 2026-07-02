@@ -1,1 +1,3 @@
-更新中
+# Inference Templates
+
+To be updated.

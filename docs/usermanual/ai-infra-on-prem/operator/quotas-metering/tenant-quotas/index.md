@@ -1,1 +1,3 @@
-更新中
+# Tenant Quotas
+
+To be updated.

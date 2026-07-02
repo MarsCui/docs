@@ -30,7 +30,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
       ],
     },
     {
-      text: '调研',
+      text: '售前调研',
       collapsed: false,
       items: [
         { text: '需求快速调研', link: '/zh/product/investigation/quick-requirement-investigation' },
