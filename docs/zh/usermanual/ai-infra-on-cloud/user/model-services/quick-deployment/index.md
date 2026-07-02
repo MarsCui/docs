@@ -38,7 +38,7 @@
    - **Qwen3.5-27b**（对话模型 / 文本 / 图片 / 视频 / 工具调用 / 文本生成，**阿里云 / 华东 2（上海）**）：**"详情"** / **"部署模型"**
 7. 点击目标模型的 **"部署模型"** 按钮，进入 Step 2 智能推荐部署。
 
-![Step 1：选择云账号与模型](./images/Step-1-Deployable-Scope.png)
+![Step 1：选择云账号与模型](./images/step-1-deployable-scope.png)
 
 #### 参数说明 - Step 1 模型库
 
@@ -73,7 +73,7 @@
    - **费用估算**：时估 `¥12.78/小时` / 日估 `¥306.72/天` / 月估 `¥9201.60/月` / 年估 `¥111952.80/年`
 6. 确认推理引擎、业务策略与算力方案后，点击 **"确认部署"** 按钮 → 弹出 **Step 3 "发布部署"** 配置弹窗，进入部署任务配置。
 
-![Step 2：智能推荐部署](./images/Step-2-Smart-Deployment-Recommendation.png)
+![Step 2：智能推荐部署](./images/step-2-smart-deployment-recommendation.png)
 
 #### 参数说明 - Step 2 智能推荐部署
 
@@ -103,7 +103,7 @@
    - 点击 **"返回推荐"** 按钮 → 关闭弹窗，返回 Step 2 智能推荐部署页（可调整算力方案）。
    - 点击 **"发起部署"** 按钮 → 提交部署任务，部署完成后可在 **"我的部署"** 列表中查看状态。
 
-![Step 3：发布部署](./images/Step-3-Publish-Deployment.png)
+![Step 3：发布部署](./images/step-3-publish-deployment.png)
 
 #### 参数说明 - Step 3 发布部署
 

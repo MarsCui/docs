@@ -25,16 +25,14 @@ The page top provides filter functionality, supporting filtering by review statu
 
 The page displays all pending / reviewed application cards. Each card contains application name, category, customer, review status, version, submission time, and other information.
 
-### Page Screenshot
-
-![Model Reviews](./images/app-reviews-list.png)
-
 ## Operations
 
 ### Viewing Application List
 
 1. Enter the platform homepage, click the **"Approvals > App Reviews"** menu in the left navigation bar to enter the application review management page.
 2. The page displays all pending / reviewed application cards, containing application name, category, customer, review status, version, submission time, and other information.
+
+![App Reviews List](./images/app-reviews-list.png)
 
 #### Parameters
 
@@ -53,12 +51,12 @@ The page displays all pending / reviewed application cards. Each card contains a
 | Operation | Steps |
 |-----------|-------|
 | View Details | Click the target application card's **"Details"** button → View complete information including application info, configuration, test status, etc. |
-| Individual Review | Click the target application card's **"Review"** button → View application info, configuration, tags in the review popup → Click "Approve" or "Reject" to complete the review |
-| Batch Review | Click the "Batch Review" button, check multiple pending applications → Click "Approve" or "Reject" to batch process reviews |
-| Edit Tag | Click an approved application card's **"Edit Tag"** button → Select tag (None / Hot / Recommended / Newest) → Click "Confirm" to save |
+| Individual Review | Click the target application card's **"Review"** button → View application info, configuration, tags in the review popup → Click **"Approve"** or **"Reject"** to complete the review |
+| Batch Review | Click the **"Batch Review"** button, check multiple pending applications → Click **"Approve"** or **"Reject"** to batch process reviews |
+| Edit Tag | Click an approved application card's **"Edit Tag"** button → Select tag (None / Hot / Recommended / Newest) → Click **"Confirm"** to save |
 
 ## Notes
 
 * Review operations require caution. Ensure applications comply with platform specifications before approval.
-* When batch reviewing, carefully verify each applications information before executing.
+* When batch reviewing, carefully verify each application's information before executing.
 * When rejecting a review, it is recommended to fill in the rejection reason so customers understand improvement directions.

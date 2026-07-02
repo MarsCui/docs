@@ -22,9 +22,6 @@ Each model provides "View Details" and "View Logs" operation buttons.
 
 The page displays call statistics in table format, summarized by model.
 
-### Page Screenshot
-![Call Analytics](./images/call-analytics.png)
-
 ## Operations
 
 ### Viewing Call Statistics
@@ -45,17 +42,15 @@ The page displays call statistics in table format, summarized by model.
    - Usage: consumed Tokens (for text/multimodal models) or duration (for video models), such as Input: 122.5M Tokens / Output: 619.4K Tokens;
    - Operations: View Details / View Logs.
 
+![Call Analytics](./images/call-analytics.png)
+
 #### Parameters
 
 | Term | Type | Example | Description |
 |------|------|---------|-------------|
-| Time Range | Date Range | `2026-05-07 to 2026-05-14` | The time period for statistics |
-| Model | Text | `Qwen3.6-plus` | The model name for fuzzy search |
-| Model Type | Tag | `Chat / Multimodal / Video` | The functional type for filtering |
-| Model ID | Text | `qwen/qwen3.6-plus` | The unique identifier for exact search |
 | Successful Calls | Number | `2.13K` | Total number of successfully completed call requests for this model within the selected time range |
-| Failed Calls | Number | `120` | Total number of failed call requests for this model within the selected time range |
-| Rate Limit Triggers | Number | `15` | Number of requests rejected due to triggering rate limit policies for this model within the selected time range |
+| Failed Calls | Number | `15` | Total number of failed call requests for this model within the selected time range |
+| Rate Limit Triggers | Number | `3` | Number of requests rejected due to triggering rate limit policies for this model within the selected time range |
 | Usage | Text | `Input: 122.5M Tokens / Output: 619.4K Tokens` | Resources consumed by this model within the selected time range: text models are input/output Token count, video models are generation duration |
 
 ## Notes

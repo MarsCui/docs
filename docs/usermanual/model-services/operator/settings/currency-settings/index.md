@@ -2,11 +2,11 @@
 
 ## Preface
 
-| Item | Content |
-|------|---------|
-| Target Audience | Operator |
-| Navigation Path | Settings > Currency Settings |
-| Overview | Configure the unified settlement currency for the platform. All transactions and fee displays across the platform will be based on this currency |
+| Item            | Content                                                                                                                    |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Target Audience | Operator                                                                                                                   |
+| Navigation Path | Settings > Currency Settings                                                                                               |
+| Overview        | Configure the unified settlement currency for the platform. All transactions and fee displays across the platform will be based on this currency |
 
 ## Page Structure
 
@@ -21,10 +21,6 @@ Click the currently used currency card to switch currencies.
 ### Data List
 
 The page displays the unified currency information used by the platform, including currency code and symbol.
-
-### Page Screenshot
-
-![Currency Settings](./images/currency-settings.png)
 
 ## Operations
 
@@ -47,7 +43,7 @@ The page displays the unified currency information used by the platform, includi
 
 | Operation | Steps |
 |-----------|-------|
-| View Current Currency Information | Enter the "Currency Settings" page to view the currently effective currency and corresponding currency symbol |
+| View Current Currency Information | Enter the **"Currency Settings"** page to view the currently effective currency and corresponding currency symbol |
 
 ## Notes
 

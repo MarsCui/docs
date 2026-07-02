@@ -29,7 +29,7 @@ The model list displays all models in card format, showing model name, descripti
 1. Enter the platform homepage, click the **"Deployment Assets > Model Library"** menu in the left navigation bar to enter the model library page.
 2. Click the **"Add Model"** button at the top right of the page to enter the model addition process (3 steps).
 
-![Model Library](./images/Models.png)
+![Model Library](./images/models.png)
 
 #### **Step 1: Meta-model / Onboarding Version**:
 
@@ -37,7 +37,7 @@ The model list displays all models in card format, showing model name, descripti
 - **"Meta-model Selection"**: Single-select the target meta-model in the meta-model list (e.g., `Qwen3-8b`). The right side displays the meta-model details (Capabilities and Access Constraints: context window 128 / max input 96 / max output 8 / modalities: input: text output: text / capabilities: tool calling, deep thinking / protocol compatibility: openai/chat_completions; meta-model information: series Qwen3 / meta-model type: Chat Model / model author: Qwen / meta-model subtype: LLM / scenario: text generation / description).
 - **"Onboarding Version"**: Fill in the **"Version"** (e.g., `1.0.0`) and **"Version Description"** (rich text).
 
-![Meta-model / Onboarding Version](./images/Step-1-Meta-Model.png)
+![Meta-model / Onboarding Version](./images/step-1-meta-model.png)
 
 - Click **"Next"**.
 
@@ -45,25 +45,26 @@ The model list displays all models in card format, showing model name, descripti
 
 - **"Cloud Deployment Point"**: Manage deployment points on the left (each deployment point is bound to a cloud platform + region), and you can click **"+ Add Deployment Point"** to add a new one.
 
-![Add Cloud Deployment Point](./images/Step-2-Add-Cloud-Deployment-Point.png)
+![Add Cloud Deployment Point](./images/step-2-add-cloud-deployment-point.png)
 
 - **"Cloud Model"**: Click the **"Assign Cloud Model"** button to configure the cloud model under the meta-model and cloud account (e.g., `aliyun-wh-dev` / `Qwen3-8B`), and click **"Save"**.
 
-![Assign Cloud Model](./images/Step-2-Assign-Cloud-Model.png)
+![Assign Cloud Model](./images/step-2-assign-cloud-model.png)
 
 - **"Compute Configuration"**: Click the **"Select Compute Plan"** button, single-select the target model framework (e.g., `Qwen3-8B` / vllm / v1.0 / `eas-registry-vpc.cn-shanghai.cr.aliyuncs.com/pai-eas/vllmv:0.9.1-modelgallery`) and deployment specification (e.g., `ecs.gn6i-c4g1.xlarge` / NVIDIA T4 x 1 / 4 cores / 15GB / CNY12.78/Hour), and click **"Save"**.
 
-![Select Compute Plan](./images/Step-2-Select-Compute-Plan.png)
+![Select Compute Plan](./images/step-2-select-compute-plan.png)
 
 - **"Output Configuration"**: Click the **"Add Output Configuration"** button, configure the request URL (automatically generated after deployment, template `{request_url}`), request method (e.g., `POST`), request headers (Content-Type: application/json / Authorization: Bearer {api_key}), request parameters (max_tokens: 1024 / messages: [{"role":"user","content":"hello"}]), and multilingual code samples (curl / python / java / go / nodejs / php / ruby), and click **"Save"**.
 
-![Add Output Configuration](./images/Step-2-Add-Output-Configuration.png)
+![Add Output Configuration](./images/step-2-add-output-configuration.png)
 
 - Click **"Next"**.
 
-#### **Step 3: Confirm Configuration**: Verify the overall template configuration information (Meta-model Information / Capabilities and Access Constraints / Meta-model Information / Deployment Configuration: Cloud Model + Compute Configuration + Output Configuration). After confirming that it is correct, click **"Submit"** to complete the model addition; to modify, click **"Previous"** to return to the corresponding step.
+#### **Step 3: Confirm Configuration**:
+Verify the overall template configuration information (Meta-model Information / Capabilities and Access Constraints / Meta-model Information / Deployment Configuration: Cloud Model + Compute Configuration + Output Configuration). After confirming that it is correct, click **"Submit"** to complete the model addition; to modify, click **"Previous"** to return to the corresponding step.
 
-![Confirm Configuration](./images/Step-3-Confirm-Configuration.png)
+![Confirm Configuration](./images/step-3-confirm-configuration.png)
 
 #### Parameters - Meta-model / Onboarding Version (Step 1)
 

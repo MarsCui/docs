@@ -22,10 +22,6 @@
 
 页面展示当前平台统一使用的币种信息，包括币种代码和货币符号。
 
-### 页面截图
-
-![Currency Settings](./images/currency-settings.png)
-
 ## 操作步骤
 
 ### 查看当前货币配置
@@ -35,6 +31,9 @@
 3. 若需切换币种，点击当前使用的币种卡片，在弹窗中选择目标币种并确认：
    - 选择新的币种（如 USD / CNY 等）；
    - 确认后，平台所有交易、费用显示将统一切换为该币种。
+
+![Currency Settings](./images/currency-settings.png)
+
 
 #### 参数说明
 

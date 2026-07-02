@@ -35,7 +35,7 @@ By default, all cloud account cards are displayed in a grid (2 per row). Each ca
 1. Enter the platform homepage, click the **"Access Management > Access Cloud Accounts"** menu in the left navigation bar to enter the access account management page.
 2. Click the **"Add Cloud Account"** button at the top right of the page to pop up the "Add Account" window.
 
-![Access Cloud Accounts](./images/Cloud-Accounts-list.png)
+![Access Cloud Accounts](./images/cloud-accounts-list.png)
 
 3. Configure the account information:
    - Fill in the **"Account Name"** to identify the cloud account;
@@ -44,7 +44,7 @@ By default, all cloud account cards are displayed in a grid (2 per row). Each ca
    - Enter the target cloud platform's **"Access Key Secret"**.
 4. After confirming all information is correct, click the **"Confirm"** button to complete the addition; to discard, click **"Cancel"**.
 
-![Add Account](./images/Add-Account.png)
+![Add Account](./images/add-account.png)
 
 #### Parameters
 

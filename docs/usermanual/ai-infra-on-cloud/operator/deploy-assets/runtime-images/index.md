@@ -29,7 +29,7 @@ The data table displays the inference image list, including Name, Type, Size, Pa
 1. Enter the platform homepage, click the **"Deployment Assets > Inference Images"** menu in the left navigation bar to enter the inference images page.
 2. Click the **"Add Image"** button at the top right of the page to pop up the "Add Image" window.
 
-![Inference Images](./images/Runtime-Images-list.png)
+![Inference Images](./images/runtime-images-list.png)
 
 3. Fill in the window:
    - **"Image Name"** (Multilingual): Simplified Chinese (e.g., `vllm`) / English (e.g., `vllm`) two tabs maintained independently.
@@ -40,7 +40,7 @@ The data table displays the inference image list, including Name, Type, Size, Pa
    - **"Description"** (Multilingual): Simplified Chinese / English two tabs maintained independently, explaining the use of the image (e.g., `vllm 0.9.1 modelgallery`).
 4. After confirming all configurations are correct, click the **"Save"** button to complete the image addition; to discard, click **"Cancel"**.
 
-![Add Image](./images/Add-Image.png)
+![Add Image](./images/add-image.png)
 
 #### Parameters
 

@@ -44,7 +44,7 @@
 5. 点击紫色 **"搜索"** 按钮应用筛选条件；点击 **"重置"** 按钮清空所有筛选条件。
 6. 列表为空时显示空状态插画 + **"暂无数据"** 提示。
 
-![我的部署](./images/My-Deployments-list.png)
+![我的部署](./images/my-deployments-list.png)
 
 #### 参数说明 - 列表筛选
 
@@ -79,7 +79,7 @@
 
 - **模型信息** 卡片：模型名 / **元模型 ID**（如 `qwen/qwen3-8b`）/ **模型类型** / **模型标签**
 
-![基本信息子页签](./images/General.png)
+![基本信息子页签](./images/general.png)
 
 #### API调用
 
@@ -103,7 +103,7 @@
 
 - **代码样例** 区（7 个语言 Tab + 右上角 复制 按钮）：curl / python / java / go / nodejs / php / ruby
 
-![API调用子页签](./images/API-Access.png)
+![API调用子页签](./images/api-access.png)
 
 #### 监控信息
 - **监控维度** Tab（3 选 1）：**基础资源指标**（默认）/ 服务性能/业务指标 / GPU专项监控
@@ -115,7 +115,7 @@
 
 > 注：部署刚启动时（截图所示），12 张折线图均为空（无数据），需等监控数据采集完成后填充。
 
-![监控信息子页签](./images/Monitoring.png)
+![监控信息子页签](./images/monitoring.png)
 
 #### 事件记录
 
@@ -128,7 +128,7 @@
 | Warning | `{"versionId":1,"message":"Instance \u003cqwen3-8b-vllm-std-7b445785b6-ms2pq\u003e not healthy: Instance crashed, please inspect instance log.","r..."` | 2026-06-22T02:02:04Z |
 | ... | ... | ... |
 
-![事件记录子页签](./images/Event-Records.png)
+![事件记录子页签](./images/event-records.png)
 
 #### 参数说明 - 详情页 4 个子页签
 
@@ -174,9 +174,9 @@
    - **公共区**（右侧卡片，紫色高亮选中）：发布到公共模型库，**对平台用户开放调用**（标签：**进入平台公共目录** / **可独立定价与计费** / **发布到公共区** →）。
 5. 点击底部 **"发布到私有区"** / **"发布到公共区"** 按钮 → 完成发布；如放弃，点击弹窗右上角 **"×"** 关闭按钮或弹窗外部区域关闭。
 
-![发布操作](./images/Publish.png)
+![发布操作](./images/publish.png)
 
-![发布模型弹窗](./images/Publish-Model.png)
+![发布模型弹窗](./images/publish-model.png)
 
 ## 其他操作
 

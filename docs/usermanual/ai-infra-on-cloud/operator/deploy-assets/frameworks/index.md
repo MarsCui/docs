@@ -29,7 +29,7 @@ The data table displays the framework list, including framework name, descriptio
 1. Enter the platform homepage, click the **"Deployment Assets > Inference Frameworks"** menu in the left navigation bar to enter the inference frameworks page.
 2. Click the **"Add Framework"** button at the top right of the page to pop up the "Add Framework" window.
 
-![Inference Frameworks](./images/Frameworks-list.png)
+![Inference Frameworks](./images/frameworks-list.png)
 
 3. In the **"Basic Information"** area, fill in:
    - **"Framework Icon"**: Click **"Select Image"** to upload the framework logo (supports jpg/png/svg, file ≤ 1MB, optimal size 64x64).
@@ -42,7 +42,7 @@ The data table displays the framework list, including framework name, descriptio
    - **"Startup Command"** (Multi-select Form): Maintain the startup commands of the framework in list form (e.g., `--port 8000 --model {model_name} --trust-remote-code`). Each command item contains Protocol (e.g., http) / Command Content, supporting add / delete.
 5. After confirming all configurations are correct, click the **"Save"** button to complete the framework addition; to discard, click **"Cancel"**.
 
-![Add Framework](./images/Add-Framework.png)
+![Add Framework](./images/add-framework.png)
 
 #### Parameters - Basic Information
 

@@ -34,7 +34,7 @@ The right side displays the region card grid (3 per row) of the selected cloud p
    - When the toggle is on, the region is enabled;
    - Click the toggle to switch the region's enable / disable status.
 
-![Access Resource Pools](./images/Resource-Pools-list.png)
+![Access Resource Pools](./images/resource-pools-list.png)
 
 ### Editing Region Display Name
 
@@ -44,7 +44,7 @@ The right side displays the region card grid (3 per row) of the selected cloud p
 4. **"Display Name"** (marked "Multilingual"): Used to set the display name of the region in lists, details, and selection controls. Click the **"English"** / **"Simplified Chinese"** tabs to switch language tabs, with the prompts **"Will be displayed in English language environment"** / **"Will be displayed in Simplified Chinese language environment"**. Fill in the names for the English and Simplified Chinese environments in the corresponding tabs.
 5. After confirming the configuration is correct, click the **"Confirm"** button to complete the modification; to discard, click **"Cancel"**.
 
-![Edit Name](./images/Edit-Name.png)
+![Edit Name](./images/edit-name.png)
 
 #### Parameters
 

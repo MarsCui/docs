@@ -30,13 +30,13 @@ The business type card list displays the configured business types (e.g., `INFER
 2. After expanding the business type, the cloud platform authorized region count card grid (5 per row) is displayed below, e.g., Huawei Cloud `1` / AWS `1` / Alibaba Cloud `3` / Google Cloud `2` / AGIOne-powerone `0`, for quick viewing of authorization statistics.
 3. Click the **"+ Authorize Region"** button on the right side of the business type to pop up the "Authorize Region" window.
 
-![Business-Resource Pool Authorization](./images/Business-Region_Auth-list.png)
+![Business-Resource Pool Authorization](./images/business-region_auth-list.png)
 
 4. The blue information bar at the top of the window displays **"Current Authorized Business: Inference Deployment"**.
 5. In the tree structure, check the regions to be authorized by cloud platform group (e.g., China East 2 (Shanghai), China Hong Kong, Singapore, etc. under Alibaba Cloud). Unchecked regions are not authorized by default.
 6. After confirming the selection is correct, click the **"Confirm"** button to complete the region authorization; to discard, click **"Cancel"**.
 
-![Authorize Region](./images/Auth-Regions.png)
+![Authorize Region](./images/auth-regions.png)
 
 > Note: This function is used to assign the use permission of specific regions under the cloud platform to different business scenarios. After the authorization is completed, the tenant can only access and use the resources and services of the authorized regions, so as to achieve precise control of the tenant's use of the cloud platform regions and ensure the standardization and security of resource access.
 

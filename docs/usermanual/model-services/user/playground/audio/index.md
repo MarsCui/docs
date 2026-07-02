@@ -2,78 +2,112 @@
 
 ## Preface
 
-| Item            | Content                                                                             |
-| --------------- | ----------------------------------------------------------------------------------- |
-| Target Audience | User                                                                                |
-| Navigation Path | Playground > Audio                                                                  |
-| Overview        | Synthesize speech from text to experience the model's audio generation capabilities |
+| Item            | Content                                                                    |
+| --------------- | -------------------------------------------------------------------------- |
+| Target Audience | User                                                                       |
+| Navigation Path | Playground > Audio                                                         |
+| Overview        | Generate speech from text and experience the model's text-to-audio ability |
 
 ## Page Structure
 
 ### Search Area
 
-No search area.
+There is no search area on the main page. The Select Model dialog provides a model name / model identifier search box on the left.
 
 ### Action Buttons
 
-* The left provides model selection, parameter configuration, and other operations
-* The right provides audio playback controls
+* The top model dropdown shows the current audio model and opens the Select Model dialog
+* The upper-right area provides **Model Compare** and **Back to old version** buttons
+* The lower-left area of the input box provides Voice ID selection and parameter configuration
+* The lower-right area of the input box provides Personal Key selection and the send button
 
 ### Data List
 
-The page displays the generated audio results and playback control area.
-
-### Page Screenshot
-
-![Audio](./images/audio-page.png)
+The page displays the audio generation prompt area, text input box, parameter configuration entry, and generated audio result area.
 
 ## Operations
 
 ### Generating Audio with Model
 
 1. Enter the platform homepage, click **"Model Services > Playground > Audio"** menu to enter the audio generation page.
-2. Select **Model Subtype** (e.g., Speech Synthesis).
-3. Select the target voice model from the model list.
-4. Configure pre-configuration parameters (select voice role, set language type, adjust speech rate and pitch).
-5. Select **Communication Protocol**.
-6. Enter the text to be synthesized in the input area.
-7. Click the **"Send"** button.
-8. Play the generated result in the audio playback area.
+2. Click the top model dropdown to open the Select Model dialog:
+   - Enter a model name or model identifier in the search box on the left to filter models;
+   - Select the target audio model from the model list on the left;
+   - Select an available provider instance on the right;
+   - Click **Confirm** to switch the model.
 
-#### Parameters
+![Select Model](./images/select-model.png)
+
+3. Select **Voice ID** in the lower-left area of the input box to specify the voice for this generation.
+4. Click the parameter configuration button and set generation parameters:
+   - Select **Protocol** (for example, openai/audio);
+   - Fill in the required **Text** field;
+   - Adjust **Speed**, **Volume**, and **Pitch**;
+   - Set **Audio Format** as needed.
+
+![Audio parameter configuration](./images/parameters.png)
+
+5. If a specific credential is required, select the corresponding **Personal Key** in the lower-right area of the input box.
+6. Enter or confirm the text to synthesize in the input box, then click the send button to generate audio.
+7. After generation is complete, view and play the generated audio in the result area.
+
+
+#### Parameters (Parameter Configuration Panel)
 
 | Term | Type | Example | Description |
 |------|------|---------|-------------|
-| Model Subtype | Dropdown | `Speech Synthesis` | The audio generation mode |
-| Voice Model | List Selection | `Voice-1 / Voice-2` | The voice model used for audio synthesis |
-| Voice Role | Dropdown | `Female / Male` | The voice character type |
-| Language | Dropdown | `English / Chinese` | The language type for synthesis |
-| Speech Rate | Number Slider | `1.0` | The speed of speech playback |
-| Pitch | Number Slider | `1.0` | The pitch adjustment for the voice |
-| Communication Protocol | Dropdown | `openai/audio` | The API protocol for model calling |
+| Voice ID | Dropdown | `male-qn-qingse` | The voice identifier used for audio generation |
+| Protocol | Dropdown | `openai/audio` | The API protocol used for model calls |
+| Text | Text Input | `please input` | Required. The text content to synthesize |
+| Speed | Number Slider / Input | `1.0` | Controls the speech speed of the generated audio |
+| Volume | Number Slider / Input | `1.0` | Controls the volume of the generated audio |
+| Pitch | Number Slider / Input | `0` | Controls the pitch of the generated audio |
+| Audio Format | Dropdown | `Select from page options` | The output file format for the generated audio |
+| Personal Key | Dropdown | `Personal Key 20260616...` | The credential used for the current request |
+
+#### Parameters (Select Model Dialog)
+
+| Term | Type | Example | Description |
+|------|------|---------|-------------|
+| Model Name / Identifier | Text | `Mock MiniMax Speech T2A / mock-models/speech-2.8-hd` | The model name and unique identifier |
+| Release Date | Date | `2026-06-02` | The release date of the model |
+| Context | Text | `-` | The displayed context value for the audio model |
+| Input Credit | Number | `3500 Credits` | The model input-side pricing display |
+| Provider | Text | `Model Mocker:Mock MiniMax Speech T2A / AGIOneSystem` | The model provider and service instance |
+| Billing Unit | Text | `Per Character` | The billing method of the selected provider instance |
+| Character Price | Number | `3,500 Credits/M chars` | The cost per million characters |
+| Latency / Throughput / Success Rate | Number | `- / 0 t/s / -` | Runtime metrics of the provider instance |
+| Weekly Calls / Weekly Chars | Number | `0 / 0 chars` | Recent usage of the provider instance |
+| Status Tags | Tag | `Recommended / Published` | Recommendation and publishing status |
+| Capability Tags | Tag | `Reasoning / Tool Calling` | Model capability tags; both are shown as unsupported in the screenshot |
 
 ### Model Comparison
 
-1. Click the **"Multiple Model Comparison"** button.
-2. Select two voice models to compare.
-3. Configure parameters for each model separately (can select different voice colors).
-4. Enter the same text to be synthesized.
-5. Click the **"Send"** button.
-6. Play the generated audio from both models in sequence in the output area for comparison.
-7. To exit the comparison mode, click the **"Cancel Comparison"** button.
+1. Click the **Model Compare** button to enter the multi-model comparison page.
+2. Select the audio models or provider instances to compare.
+3. Configure Voice ID, protocol, and generation parameters for each model.
+4. Enter the same text to synthesize.
+5. Click the send button to generate multiple audio results.
+6. Compare voice, speed, stability, and overall output quality across different models or provider instances.
 
 ## Other Operations
 
 | Operation | Steps |
 |-----------|-------|
-| Download Audio | Click the **"Download"** button in the generated result to save the audio locally |
-| Playback Control | Supports pause, resume, volume adjustment, and other operations |
-| Copy Text | Copy the current text to be synthesized |
-| Switch Voice | Before generation, you can reselect different voice persons |
+| Switch Model | Click the top model dropdown -> select another model or provider in the dialog -> click **Confirm** |
+| Search Model | Enter a model name or model identifier in the left search box of the Select Model dialog |
+| Switch Voice | Click the Voice ID dropdown in the lower-left area of the input box and select a voice |
+| Adjust Parameters | Click the parameter configuration button -> modify Protocol, Text, Speed, Volume, Pitch, Audio Format, and other parameters |
+| Select Credential | Click the key dropdown in the lower-right area of the input box and select the Personal Key for this request |
+| Model Compare | Click **Model Compare** to enter the multi-model audio generation page |
+| Text Input | Enter text in the bottom input box, then click the send button or press Enter; use Shift+Enter for a new line |
+| Back to Old Version | Click **Back to old version** to switch to the old audio generation page |
 
 ## Notes
 
-* The download audio function allows saving the generated audio locally.
-* Playback controls support pause, resume, volume adjustment, and other operations.
-* You can copy the current text to be synthesized for repeated use.
-* Before generation, you can reselect different voice persons to get different voice effects.
+* Text is required. If it is empty, the page prompts you to enter text.
+* Voice ID determines the generated voice. Confirm the selected voice before generation.
+* Speed, Volume, and Pitch affect the playback speed, volume, and pitch of the generated audio.
+* Audio Format options depend on the actual dropdown options on the page.
+* Model price, status, billing unit, and performance metrics are subject to the information shown in the Select Model dialog.
+* You can click **Model Compare** to enter the multi-model audio generation page.

@@ -22,10 +22,6 @@ No specific operation buttons.
 
 The page displays core metric cards and multi-dimensional trend charts.
 
-### Page Screenshot
-
-![Overview](./images/overview.png)
-
 ## Operations
 
 ### Viewing Call Overview
@@ -44,6 +40,8 @@ The page displays core metric cards and multi-dimensional trend charts.
    - **Overall call trends**: the line chart shows the distribution of total calls, successful calls, failed calls, and rate limit triggers by date. You can click on points on the chart to view detailed data for that day (e.g., total calls, successful/failed calls, rate limit counts);
    - **Per-model call trends**: you can switch via tags to view call data for a single model, such as Alibaba-China:Qwen3.6-plus. View average call count and call peak (example: peak 1.37K times, appeared on 2026-05-11);
    - **Token consumption trends**: the line chart shows the distribution of input Token and output Token consumption by date. You can click on points on the chart to view Token consumption details for that day (e.g., input 94.5M, output 490.5K).
+
+![Overview](./images/overview.png)
 
 #### Parameters
 

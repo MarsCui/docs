@@ -12,29 +12,6 @@
 
 "Quick Deployment" consists of a 3-step process: ① Model Library filtering → ② Smart Deployment Recommendation → ③ Publish Deployment popup.
 
-### Step 1 Model Library (Page)
-
-- The top shows the title "Model Library" with the prompt "After selecting deployable cloud accounts and regions, filter and deploy matching models", and provides a **"Refresh Resources"** button at the top right
-- The left "Deployable Range" card displays the **"Current Range: Alibaba Cloud / China East 2 (Shanghai)"** tag by default, and provides a **"Range Filter"** dropdown (All Clouds / All Regions)
-- The left cloud vendor list shows 7 deployable range cards: Huawei Cloud · China East (Shanghai 1) / Amazon · Europe (Frankfurt) / Alibaba Cloud · China (Hong Kong) / Alibaba Cloud · China East 2 (Shanghai) (default selected, highlighted in purple) / Alibaba Cloud · Singapore / Google Cloud · Tokyo / Google Cloud · Iowa
-- The right "Matching Models" area supports filtering by **"All Models"** / **"All Series"** / **"All Scenarios"** dropdowns + **"Search"** input box + **"Default Sort"** button
-- The main area is a **model card list**, each card contains: model name, model type tags (Chat Model / Text / Tool Calling / Deep Thinking / Text Generation, etc.), cloud platform / region, 2 direct actions (**"Details"** / **"Deploy Model"**)
-- The bottom provides pagination controls (**32 total** / 10 per page / page numbers 1 / 2 / 3 / 4 + left/right arrows)
-
-### Step 2 Smart Deployment Recommendation (Page)
-
-- The top shows the **"Selected Model"** info card (icon + model name + series + capability + version + context)
-- The top right shows the **"Deployment Mode"** radio Tab (**Single Node** / **High Availability**)
-- The middle has 2 configuration areas: **"Inference Engine"** (vLLM / SGLang radio cards) + **"Business Strategy"** (Cost-Effective / High Performance / Spot Fast Delivery / GPU Count radio cards)
-- The right side shows the **"Model Compute Matching Plan"** card (Recommended tag + **Top 1** badge + **"Confirm Deployment"** button): includes title (cloud account / region / engine / spec ID) + compute resources (GPU / CPU / Memory) + cost estimation (Hourly / Daily / Monthly / Yearly)
-
-### Step 3 Publish Deployment (Popup)
-
-- Top blue information bar **"Selected Model: Qwen3-8b (Qwen3 / Text Generation / 1.0.0 / 128)"** + top right **"Deployment Mode"** hint
-- Middle form: 2 required fields (**"\* Cloud Account"** dropdown / **"\* Task Name"** text input, max 36 characters) + 1 optional field (**"Task Description"** multi-line text, max 200 characters)
-- Bottom action bar: 2 buttons (**"Back to Recommendation"** / **"Start Deployment"**)
-- The popup can be closed (click outside the popup area or close button); after closing, return to Step 2
-
 ## Operations
 
 ### Step 1: Select Cloud Account and Model
@@ -59,9 +36,9 @@
    - **DeepSeek-V3.2** (Chat Model / Text / Tool Calling / Deep Thinking / Text Generation, **Alibaba Cloud / China East 2 (Shanghai)**): **"Details"** / **"Deploy Model"**
    - **-** (Multimodal untitled model, **Alibaba Cloud / China East 2 (Shanghai)**): **"Details"** / **"Deploy Model"**
    - **Qwen3.5-27b** (Chat Model / Text / Image / Video / Tool Calling / Text Generation, **Alibaba Cloud / China East 2 (Shanghai)**): **"Details"** / **"Deploy Model"**
-7. The bottom provides pagination controls (**32 total**, page numbers **1 / 2 / 3 / 4**, left/right arrows). Click the **"Deploy Model"** button of the target model to enter Step 2 Smart Deployment Recommendation.
+7. Click the **"Deploy Model"** button of the target model to enter Step 2 Smart Deployment Recommendation.
 
-![Step 1: Select Cloud Account and Model](./images/Step-1-Deployable-Scope.png)
+![Step 1: Select Cloud Account and Model](./images/step-1-deployable-scope.png)
 
 #### Parameters - Step 1 Model Library
 
@@ -96,7 +73,7 @@
    - **Cost Estimation**: Hourly `¥12.78/Hour` / Daily `¥306.72/Day` / Monthly `¥9201.60/Month` / Yearly `¥111952.80/Year`
 6. After confirming the inference engine, business strategy, and compute plan, click the **"Confirm Deployment"** button → the Step 3 "Publish Deployment" configuration popup will pop up, entering the deployment task configuration.
 
-![Step 2: Smart Deployment Recommendation](./images/Step-2-Smart-Deployment-Recommendation.png)
+![Step 2: Smart Deployment Recommendation](./images/step-2-smart-deployment-recommendation.png)
 
 #### Parameters - Step 2 Smart Deployment Recommendation
 
@@ -126,7 +103,7 @@
    - Click the **"Back to Recommendation"** button → Close the popup, return to the Step 2 Smart Deployment Recommendation page (you can adjust the compute plan).
    - Click the **"Start Deployment"** button → Submit the deployment task. After the deployment is complete, you can view the status in the **"My Deployments"** list.
 
-![Step 3: Publish Deployment](./images/Step-3-Publish-Deployment.png)
+![Step 3: Publish Deployment](./images/step-3-publish-deployment.png)
 
 #### Parameters - Step 3 Publish Deployment
 

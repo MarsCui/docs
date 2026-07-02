@@ -29,7 +29,7 @@
 1. 进入平台首页，点击左侧导航栏的 **"接入管理"** 菜单，进入接入账号管理页面。
 2. 点击页面右上角的 **"添加云账号"** 按钮，弹出「新增账号」窗口。
 
-![接入账号](./images/Access-Accounts-list.png)
+![接入账号](./images/access-accounts-list.png)
 
 3. 配置账号信息：
    - 填写 **账号名称**（如 `aliyun-test`）；
@@ -38,7 +38,7 @@
    - 填写 **Access Key Secret**。
 4. 确认所有信息配置无误后，点击 **"确定"** 按钮完成添加。
 
-![添加账号](./images/Add-Account.png)
+![添加账号](./images/add-account.png)
 
 #### 参数说明
 

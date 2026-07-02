@@ -4,7 +4,7 @@
 
 | Item            | Content                                                                                         |
 | --------------- | ----------------------------------------------------------------------------------------------- |
-| Target Audience | Provider                                                                                    |
+| Target Audience | Provider, User                                                                              |
 | Navigation Path | Customer Calls > Call Analytics                                                                 |
 | Overview        | View call statistics by customer or model dimension to support in-depth analysis of call status |
 
@@ -21,10 +21,6 @@ The page contains "Customer List" and "Model List" two tabs. Each customer or mo
 ### Data List
 
 The page displays customer or model call statistics in table format.
-
-### Page Screenshot
-
-![Call Analytics](./images/call-analytics.png)
 
 ## Operations
 
@@ -52,17 +48,17 @@ The page displays customer or model call statistics in table format.
    - Token consumption trends chart: line chart showing input / output Token consumption distribution by date;
    - Failed / Rate Limit Trigger TOP5 records: view the customer's main problem call records. You can click "View Logs" to locate specific requests.
 
-#### Parameters
+![Call Analytics](./images/models.png)
+
+#### Parameters (Customer List)
 
 | Term | Type | Example | Description |
 |------|------|---------|-------------|
-| Time Range | Date Range | `2026-05-07 to 2026-05-14` | The time period for statistics |
-| Customer Name | Text | `Customer-123` | The customer name for fuzzy search |
-| Model Name | Text | `Qwen3.6-plus` | The model name for filtering |
-| Number of Models Used | Number | `5` | Total number of models called by this customer |
-| Successful Calls | Number | `1,234` | Number of successful calls by this customer |
-| Failed Calls | Number | `56` | Number of failed calls by this customer |
-| Rate Limit Triggers | Number | `12` | Number of rate limit triggers for this customer |
+| Customer Name | Text | `user_xxx` | Name of the customer who initiated the call |
+| Number of Models Used | Number | `3` | Total number of models called by this customer |
+| Successful Calls | Number | `1.2K` | Number of successful calls by this customer in the statistical period |
+| Failed Calls | Number | `15` | Number of failed calls by this customer in the statistical period |
+| Rate Limit Triggers | Number | `3` | Number of rate limit triggers for this customer in the statistical period |
 
 ### Model List Tab (By Model Dimension)
 
@@ -84,20 +80,16 @@ The page displays customer or model call statistics in table format.
    - Token consumption trends chart: line chart showing input / output Token consumption distribution by date;
    - Failed / Rate Limit Trigger TOP5 records: view the model's main problem call records. You can click "View Logs" to locate specific requests.
 
-#### Parameters
+#### Parameters (Model List)
 
 | Term | Type | Example | Description |
 |------|------|---------|-------------|
-| Time Range | Date Range | `2026-05-07 to 2026-05-14` | The time period for statistics |
-| Model Name | Text | `Qwen3.6-plus` | The model name for fuzzy search |
-| Model Type | Tag | `Chat / Multimodal / Video` | The functional type for filtering |
-| Model ID | Text | `qwen/qwen3.6-plus` | The unique identifier for exact search |
 | Model Name | Text | `Qwen3.6-plus` | The name of the model |
-| Model Type | Tag | `Chat Model` | The functional type of the model |
-| Customer Name | Text | `Customer-123` | The customer who called this model |
-| Successful Calls | Number | `2,134` | Number of successful calls for this model |
-| Failed Calls | Number | `89` | Number of failed calls for this model |
-| Usage | Text | `Input: 122.5M Tokens / Output: 619.4K Tokens` | Resources consumed: text models are Token count, video models are duration |
+| Model Type | Tag | `Chat Model / Video Model` | The functional type of the model |
+| Customer Name | Text | `user_xxx` | Customer who called this model |
+| Successful Calls | Number | `2.13K` | Number of successful calls for this model in the statistical period |
+| Failed Calls | Number | `15` | Number of failed calls for this model in the statistical period |
+| Usage | Text | `Input: 122.5M Tokens / Output: 619.4K Tokens` | Consumed input / output Tokens or video generation duration |
 
 #### Key Operations
 

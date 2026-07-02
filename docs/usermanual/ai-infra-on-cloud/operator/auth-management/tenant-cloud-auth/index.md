@@ -29,7 +29,7 @@ The data table area displays the list of authorized tenants, including tenant na
 1. Enter the platform homepage, click the **"Authorization Management > Tenant-Cloud Platform Authorization"** menu in the left navigation bar to enter the cloud platform authorization management page.
 2. Click the **"Add Authorization"** button at the top right of the page to pop up the "Add Authorization" window.
 
-![Tenant-Cloud Platform Authorization](./images/Tenant-Cloud_Auth.png)
+![Tenant-Cloud Platform Authorization](./images/tenant-cloud_auth.png)
 
 3. In the **"Choose Cloud Platform"** dropdown list, check the cloud platforms to be authorized (multiple selections supported, e.g., Huawei Cloud, Amazon, AGIOne-powerone).
 4. Select the authorization scope (one of two):
@@ -37,7 +37,7 @@ The data table area displays the list of authorized tenants, including tenant na
    - **"Authorize All Tenants"**: Authorize all tenants without filling in the tenant name.
 5. After confirming all configurations are correct, click the **"Confirm"** button to complete the authorization; to discard, click **"Cancel"**.
 
-![Add Authorization](./images/Add-Authorization.png)
+![Add Authorization](./images/add-authorization.png)
 
 > Note: The administrator can assign the use permission of cloud platforms to different tenants here. After the authorization is completed, the tenant can only access and use the authorized cloud platform resources and services, so as to achieve precise control of the tenant's use of cloud platforms and ensure the standardization and security of resource access.
 

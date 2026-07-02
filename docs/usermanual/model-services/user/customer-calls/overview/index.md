@@ -4,7 +4,7 @@
 
 | Item            | Content                                                                                                                        |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| Target Audience | Provider                                                                                                                   |
+| Target Audience | Provider, User                                                                                                             |
 | Navigation Path | Customer Calls > Overview                                                                                                      |
 | Overview        | Statistics on call status by customer or model dimension to understand call volume, success rate, and Token consumption trends |
 
@@ -21,10 +21,6 @@ No specific operation buttons.
 ### Data List
 
 The page displays core metric cards and trend and ranking charts.
-
-### Page Screenshot
-
-![Overview](./images/overview.png)
 
 ## Operations
 
@@ -52,19 +48,18 @@ The page displays core metric cards and trend and ranking charts.
    - **Token Consumption Trends Chart** (model dimension only): the line chart shows the distribution of input Token and output Token consumption by date;
    - **TOP Ranking List**: Customer Call TOP5 (customer dimension only) / Model Call TOP5 (model dimension only): list sorted by total call volume, including successful and failed counts. Rate Limit Trigger TOP5: list sorted by rate limit trigger count for customers or models. Click "View Details" to enter the detailed call statistics page for the corresponding customer or model.
 
+![Overview](./images/overview.png)
+
 #### Parameters
 
 | Term | Type | Example | Description |
 |------|------|---------|-------------|
-| Dimension | Tab | `Customer / Model` | The statistical dimension for analysis |
-| Data Granularity | Dropdown | `Day / Week / Month` | The time unit for the statistics period |
-| Time Range | Date Range | `2026-05-07 to 2026-05-14` | The time period for statistics |
-| Customer Count | Number | `125` | Total number of independent customers who initiated calls within the selected time range |
-| Total Calls | Number | `15,234` | Total number of all customer / model call requests within the selected time range |
-| Successful Calls | Number | `14,892` | Number of successfully completed call requests within the selected time range |
-| Failed Calls | Number | `342` | Number of failed call requests within the selected time range |
-| Rate Limit Triggers | Number | `45` | Number of requests rejected due to triggering rate limit policies within the selected time range |
-| Total Token Consumption | Number | `256.7M` | Total input and output Tokens consumed by all calls within the selected time range |
+| Customer Count | Number | `15` | Total number of independent customers who initiated calls within the selected time range |
+| Total Calls | Number | `5.23K` | Total number of all customer / model call requests within the selected time range |
+| Successful Calls | Number | `5.10K` | Number of successfully completed call requests within the selected time range |
+| Failed Calls | Number | `130` | Number of failed call requests within the selected time range |
+| Rate Limit Triggers | Number | `25` | Number of requests rejected due to triggering rate limit policies within the selected time range |
+| Total Token Consumption | Number | `256.8M` | Total input and output Tokens consumed by all calls within the selected time range |
 
 ## Notes
 

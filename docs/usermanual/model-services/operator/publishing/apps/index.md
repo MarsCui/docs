@@ -2,11 +2,11 @@
 
 ## Preface
 
-| Item | Content |
-|------|---------|
-| Target Audience | Operator |
-| Navigation Path | Publishing > Apps |
-| Overview | View and manage all published applications, understand application usage and popularity |
+| Item            | Content                                                                                  |
+| --------------- | ---------------------------------------------------------------------------------------- |
+| Target Audience | Operator                                                                                 |
+| Navigation Path | Publishing > Apps                                                                        |
+| Overview        | View and manage all published applications, understand application usage and popularity |
 
 ## Page Structure
 
@@ -23,16 +23,14 @@ The page provides application name search functionality.
 
 The page displays all published applications in card format, with each card containing application name, tags, status, favorites count, views count, and other information.
 
-### Page Screenshot
-
-![Apps](./images/apps.png)
-
 ## Operations
 
 ### Viewing Application List
 
 1. Enter the platform homepage, click the **"Publishing > Apps"** menu in the left navigation bar to enter the application list management page.
 2. View all published application cards in the list. Cards display application name, tags, status, favorites / views data, and other information.
+
+![App List](./images/apps-list.png)
 
 #### Parameters
 
@@ -49,7 +47,7 @@ The page displays all published applications in card format, with each card cont
 
 | Operation | Steps |
 |-----------|-------|
-| Edit Tag | Click the target application card's **"Edit Tag"** button → Select tag (None / Hot / Recommended / Newest) in the popup → Click "Confirm" to save |
+| Edit Tag | Click the target application card's **"Edit Tag"** button → Select tag (None / Hot / Recommended / Newest) in the popup → Click **"Confirm"** to save |
 | Set Pin | Click the target application card's **"Pin"** button → Enter pin order (smaller numbers appear first) → After confirmation, the application will be displayed according to the pin order |
 | View Details | Click the application name or card → Enter the application details page to view complete information |
 

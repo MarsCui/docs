@@ -33,7 +33,7 @@ The page displays all cloud platforms in table format, with column headers inclu
 1. Enter the platform homepage, click the **"Access Management > Access Cloud Type"** menu in the left navigation bar to enter the cloud platform management page.
 2. Click the **"Add Platform"** button at the top right of the page to pop up the "Add Platform" window.
 
-![Access Cloud Type](./images/Access-CloudType-list.png)
+![Access Cloud Type](./images/access-cloudtype-list.png)
 
 3. Select **"Cloud Platform Type"** (Public Cloud / Private Cloud, toggle Tab).
 4. Configure the cloud platform information:
@@ -43,7 +43,7 @@ The page displays all cloud platforms in table format, with column headers inclu
    - Upload the **"Logo"** icon.
 5. After confirming all information is correct, click the **"Confirm"** button to complete the addition; to discard, click **"Cancel"**.
 
-![Add Platform](./images/Access-CloudType-list.png)
+![Add Platform](./images/access-cloudtype-list.png)
 
 #### Parameters
 

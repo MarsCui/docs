@@ -44,7 +44,7 @@ Click the **"Details"** link of any deployment card in the list → enter the de
 5. Click the purple **"Search"** button to apply the filter conditions; click the **"Reset"** button to clear all filter conditions.
 6. When the list is empty, an empty state illustration + **"No data"** prompt is displayed. The bottom provides pagination controls (**"Go to"** page number input box + current page number + **"‹"** / **"›"** arrows + **"Total N"** record count prompt).
 
-![My Deployments](./images/My-Deployments-list.png)
+![My Deployments](./images/my-deployments-list.png)
 
 #### Parameters - List Filtering
 
@@ -79,7 +79,7 @@ The page shows 4 cards:
 
 - **Model Info** card: model name / **Meta Model ID** (e.g., `qwen/qwen3-8b`) / **Model Type** / **Model Tags**
 
-![General Sub-Tab](./images/General.png)
+![General Sub-Tab](./images/general.png)
 
 #### Sub-Tab 2: API Access
 
@@ -103,7 +103,7 @@ Top small text **"aliyun  Region: cn-shanghai"** (cloud account and region ident
 
 - **Code Examples** area (7 language Tabs + Copy button at top right): curl / python / java / go / nodejs / php / ruby
 
-![API Access Sub-Tab](./images/API-Access.png)
+![API Access Sub-Tab](./images/api-access.png)
 
 #### Sub-Tab 3: Monitoring
 
@@ -118,7 +118,7 @@ The page top contains 2 Tab groups + 12 line charts:
 
 > Note: When the deployment just started (as shown in the screenshot), all 12 line charts may be empty (no data); wait for the monitoring data collection to complete.
 
-![Monitoring Sub-Tab](./images/Monitoring.png)
+![Monitoring Sub-Tab](./images/monitoring.png)
 
 #### Sub-Tab 4: Event Records
 
@@ -133,7 +133,7 @@ The event table (3 columns: Event Type / Event Information / First Occurrence Ti
 
 Pagination controls: Total 14 / 10 per page / ‹ / 1 2 / › + Go to 1 input box.
 
-![Event Records Sub-Tab](./images/Event-Records.png)
+![Event Records Sub-Tab](./images/event-records.png)
 
 #### Parameters - Details Page 4 Sub-Tabs
 
@@ -179,9 +179,9 @@ Pagination controls: Total 14 / 10 per page / ‹ / 1 2 / › + Go to 1 input bo
    - **Public** (right card, highlighted in purple): publish to the public model catalog, **open to platform users** (tags: **In the platform catalogue** / **Independent pricing** / **Publish to Public** →).
 5. Click the **"Publish to Private"** / **"Publish to Public"** button at the bottom → publishing complete; to discard, click the **"×"** close button at the top right of the popup or click outside the popup area.
 
-![Publish Action](./images/Publish.png)
+![Publish Action](./images/publish.png)
 
-![Publish Model Popup](./images/Publish-Model.png)
+![Publish Model Popup](./images/publish-model.png)
 
 ## Other Operations
 
