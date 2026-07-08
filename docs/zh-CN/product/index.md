@@ -11,7 +11,7 @@ next: true
 
 产品售前文档分为四个主题：
 
-### `technical/`
+### 产品技术概览
 
 技术概述与产品能力说明。
 
@@ -31,7 +31,7 @@ next: true
 | [用户、租户与角色设计逻辑](./identity-access-model) | 说明租户边界、默认角色和授权控制逻辑 |
 | [角色对比总览](./role-comparison) | 对比 admin、operator、provider、enduser 的能力边界 |
 
-### `limitations/`
+### 兼容性与限制
 
 兼容性边界与已知约束。
 
@@ -41,7 +41,7 @@ next: true
 | [支持矩阵](./limitations/support-matrix) | OS/容器/模型/接口支持情况 |
 | [其他限制](./limitations/limitations) | 非芯片类限制与风险提示 |
 
-### `investigation/`
+### 售前调研
 
 售前调研模板与信息收集指引。
 
