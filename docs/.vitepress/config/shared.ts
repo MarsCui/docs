@@ -5,7 +5,6 @@ const googleAnalyticsId = 'G-H60V3SBCER'
 export const baseConfig: UserConfig = {
   title: 'AGIOne Docs',
   description: 'AI Gateway Platform Documentation',
-  base: "/docs",
   head: [
     [
       'script',
