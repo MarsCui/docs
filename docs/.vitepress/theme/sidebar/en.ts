@@ -174,10 +174,14 @@ export const enSidebar: DefaultTheme.Sidebar = {
       text: "User Manual",
       collapsed: false,
       items: [
+        { text: "Manual Overview", link: "/usermanual/" },
         {
           text: "Model Services",
           collapsed: false,
           items: [
+            { text: "Overview", link: "/usermanual/model-services/" },
+            { text: "Getting Started", link: "/usermanual/model-services/getting-started/" },
+            { text: "Publish and Call a Model", link: "/usermanual/model-services/end-to-end/publish-and-call-model/" },
             {
               text: "Provider & User",
               collapsed: false,
@@ -210,8 +214,8 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   text: "Usage & Revenue",
                   collapsed: false,
                   items: [
-                    { text: "Model Earnings", link: "/usermanual/model-services/user/usage-revenue/revenue/" },
-                    { text: "Model Usage", link: "/usermanual/model-services/user/usage-revenue/usage/" },
+                    { text: "Model Earnings", link: "/usermanual/model-services/user/usage-revenue/model-revenue/" },
+                    { text: "Model Usage", link: "/usermanual/model-services/user/usage-revenue/model-usage/" },
                   ]
                 },
                 {
@@ -272,6 +276,9 @@ export const enSidebar: DefaultTheme.Sidebar = {
           text: "AI Infra on Cloud",
           collapsed: false,
           items: [
+            { text: "Overview", link: "/usermanual/ai-infra-on-cloud/" },
+            { text: "Getting Started", link: "/usermanual/ai-infra-on-cloud/getting-started/" },
+            { text: "Deploy a Cloud Model Service", link: "/usermanual/ai-infra-on-cloud/end-to-end/deploy-cloud-model-service/" },
             {
               text: "User",
               collapsed: false,
@@ -347,6 +354,8 @@ export const enSidebar: DefaultTheme.Sidebar = {
           collapsed: false,
           items: [
             { text: "Overview", link: "/usermanual/ai-infra-on-prem/" },
+            { text: "Getting Started", link: "/usermanual/ai-infra-on-prem/getting-started/" },
+            { text: "Deploy a Model Service", link: "/usermanual/ai-infra-on-prem/end-to-end/deploy-model-service/" },
             {
               text: "Operator",
               collapsed: false,
@@ -360,24 +369,19 @@ export const enSidebar: DefaultTheme.Sidebar = {
                     { text: "Accelerators", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/accelerators/" },
                     { text: "Spec Metrics", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/spec-metrics/" },
                     { text: "Resource Specs", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/resource-specs/" },
-                  ],
-                },
-                {
-                  text: "Image & Storage Services",
-                  collapsed: false,
-                  items: [
-                    { text: "Image Services", link: "/usermanual/ai-infra-on-prem/operator/storage/image-services/" },
-                    { text: "Object Storage", link: "/usermanual/ai-infra-on-prem/operator/storage/object-storage/" },
-                    { text: "Block Storage", link: "/usermanual/ai-infra-on-prem/operator/storage/block-storage/" },
-                    { text: "File Storage", link: "/usermanual/ai-infra-on-prem/operator/storage/file-storage/" },
+                    { text: "Images", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/images/" },
+                    { text: "Image Services", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/image-services/" },
+                    { text: "Object Storage", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/object-storage/" },
+                    { text: "Block Storage", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/block-storage/" },
+                    { text: "File Storage", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/file-storage/" },
                   ],
                 },
                 {
                   text: "Templates",
                   collapsed: false,
                   items: [
-                    { text: "Frames", link: "/usermanual/ai-infra-on-prem/operator/templates/frames/" },
-                    { text: "Models", link: "/usermanual/ai-infra-on-prem/operator/templates/models/" },
+                    { text: "Frameworks", link: "/usermanual/ai-infra-on-prem/operator/templates/frameworks/" },
+                    { text: "Model Config", link: "/usermanual/ai-infra-on-prem/operator/templates/model-config/" },
                     { text: "Inference Templates", link: "/usermanual/ai-infra-on-prem/operator/templates/inference-templates/" },
                     { text: "VRAM Config", link: "/usermanual/ai-infra-on-prem/operator/templates/vram-config/" },
                   ],
@@ -409,27 +413,27 @@ export const enSidebar: DefaultTheme.Sidebar = {
               text: "User",
               collapsed: false,
               items: [
+                { text: "Overview", link: "/usermanual/ai-infra-on-prem/user/overview/" },
                 {
                   text: "Quick Start",
                   collapsed: false,
                   items: [
-                    { text: "Overview", link: "/usermanual/ai-infra-on-prem/user/quick-start/overview/" },
                     { text: "Inference Templates", link: "/usermanual/ai-infra-on-prem/user/quick-start/inference-templates/" },
                   ],
                 },
                 {
-                  text: "Online Inference",
+                  text: "Model Deployment",
                   collapsed: false,
                   items: [
-                    { text: "Online Inference", link: "/usermanual/ai-infra-on-prem/user/online-inference/online-inference/" },
+                    { text: "Online Inference", link: "/usermanual/ai-infra-on-prem/user/model-deployment/online-inference/" },
                   ],
                 },
                 {
                   text: "Development",
                   collapsed: false,
                   items: [
-                    { text: "Dev Environments", link: "/usermanual/ai-infra-on-prem/user/dev-environments/dev-environments/" },
-                    { text: "Model Training", link: "/usermanual/ai-infra-on-prem/user/model-training/model-training/" },
+                    { text: "Dev Environments", link: "/usermanual/ai-infra-on-prem/user/development/dev-environments/" },
+                    { text: "Model Training", link: "/usermanual/ai-infra-on-prem/user/development/model-training/" },
                   ],
                 },
                 {
@@ -442,12 +446,30 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   ],
                 },
                 {
+                  text: "Extensions",
+                  collapsed: false,
+                  items: [
+                    { text: "Images", link: "/usermanual/ai-infra-on-prem/user/extensions/images/" },
+                  ],
+                },
+                {
                   text: "Quotas & Usage",
                   collapsed: false,
                   items: [
                     { text: "Usage", link: "/usermanual/ai-infra-on-prem/user/quotas-usage/usage/" },
                     { text: "Quotas", link: "/usermanual/ai-infra-on-prem/user/quotas-usage/quotas/" },
                     { text: "Top-up Records", link: "/usermanual/ai-infra-on-prem/user/quotas-usage/top-up-records/" },
+                  ],
+                },
+                {
+                  text: "Monitoring",
+                  collapsed: false,
+                  items: [
+                    { text: "Overview", link: "/usermanual/ai-infra-on-prem/user/monitoring/overview/" },
+                    { text: "Clusters", link: "/usermanual/ai-infra-on-prem/user/monitoring/clusters/" },
+                    { text: "Nodes", link: "/usermanual/ai-infra-on-prem/user/monitoring/nodes/" },
+                    { text: "Devices", link: "/usermanual/ai-infra-on-prem/user/monitoring/devices/" },
+                    { text: "Jobs", link: "/usermanual/ai-infra-on-prem/user/monitoring/jobs/" },
                   ],
                 },
               ],

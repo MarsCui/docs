@@ -1,4 +1,4 @@
-﻿<script setup lang="ts">
+<script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useRoute } from 'vitepress'
 
@@ -18,7 +18,7 @@ interface Scenario {
 
 const route = useRoute()
 
-const locale = computed<Locale>(() => (route.path.startsWith('/zh/') ? 'zh' : 'en'))
+const locale = computed<Locale>(() => (route.path.startsWith('/zh-CN/') ? 'zh' : 'en'))
 
 const uiText: Record<Locale, Record<string, string>> = {
   zh: {
@@ -369,7 +369,7 @@ function scenarioNumber(id: number) {
 }
 
 function guidePath(slug: string) {
-  const prefix = locale.value === 'zh' ? '/zh/userguide/scenarios' : '/userguide/scenarios'
+  const prefix = locale.value === 'zh' ? '/zh-CN/userguide/scenarios' : '/userguide/scenarios'
   return `${prefix}/${slug}/`
 }
 </script>

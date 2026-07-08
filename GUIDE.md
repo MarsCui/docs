@@ -37,7 +37,7 @@
 │   ├── operations/                # 英文运维运营文档
 │   ├── troubleshooting/           # 英文排错支持文档
 │   ├── oem/                       # 英文 OEM 配置文档
-│   └── zh/                        # 中文文档目录
+│   └── zh-CN/                        # 中文文档目录
 │       ├── index.md               # 中文首页
 │       ├── presales/              # 中文售前文档
 │       │   ├── best-practices/    # 最佳实践子目录
@@ -62,7 +62,7 @@
 | 文件路径 | 访问路径 |
 |----------|----------|
 | `docs/presales/new-doc.md` | `/presales/new-doc` |
-| `docs/zh/presales/new-doc.md` | `/zh/presales/new-doc` |
+| `docs/zh-CN/presales/new-doc.md` | `/zh-CN/presales/new-doc` |
 | `docs/deployment/subdir/guide.md` | `/deployment/subdir/guide` |
 
 ### 2. 更新侧边栏配置
@@ -92,7 +92,7 @@
     text: '售前资料',
     collapsed: false,
     items: [
-      { text: '新文档', link: '/zh/presales/new-doc' },
+      { text: '新文档', link: '/zh-CN/presales/new-doc' },
       // ... 其他文档
     ],
   },
@@ -133,9 +133,9 @@
 
 1. **创建文档目录和首页**：
    ```bash
-   mkdir -p docs/api docs/zh/api
+   mkdir -p docs/api docs/zh-CN/api
    ```
-   创建 `docs/api/index.md` 和 `docs/zh/api/index.md`
+   创建 `docs/api/index.md` 和 `docs/zh-CN/api/index.md`
 
 2. **添加侧边栏配置**：
 
@@ -155,13 +155,13 @@
 
    `docs/.vitepress/theme/sidebar/zh.ts`：
    ```typescript
-   '/zh/api/': [
+   '/zh-CN/api/': [
      {
        text: 'API 参考',
        collapsed: false,
        items: [
-         { text: '概述', link: '/zh/api/' },
-         { text: '接口列表', link: '/zh/api/endpoints' },
+         { text: '概述', link: '/zh-CN/api/' },
+         { text: '接口列表', link: '/zh-CN/api/endpoints' },
        ],
      },
    ],
@@ -176,7 +176,7 @@
 
    `docs/.vitepress/theme/navbar/zh.ts`：
    ```typescript
-   { text: 'API', link: '/zh/api/' },
+   { text: 'API', link: '/zh-CN/api/' },
    ```
 
 ## 主要配置说明
@@ -218,7 +218,7 @@ export default defineConfig({
     zh: {                           // 中文
       label: '简体中文',
       lang: 'zh-CN',
-      link: '/zh/',                 // 切换语言时的默认链接
+      link: '/zh-CN/',                 // 切换语言时的默认链接
       themeConfig: {
         ...zhTheme,
         socialLinks,
