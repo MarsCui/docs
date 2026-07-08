@@ -1,106 +1,151 @@
-# Model Library
+# Model Assets
 
-## Preface
+::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+:::
 
-| Item            | Content                                                                                                                |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Target Audience | Operator                                                                                                               |
-| Navigation Path | Deployment Assets > Model Library                                                                                       |
-| Overview        | Manage all onboarded AI models, supporting model addition, editing, detail viewing, deletion, and other operations    |
+::: warning Security Notice
+Model assets may include model IDs, providers, deployment parameters, invocation examples, and pricing criteria. Do not expose real Endpoint, API Key, internal model IDs, customer pricing policies, or unpublished model information.
+:::
 
-## Page Structure
+## Feature Overview
 
-### Search Area
+`Model Assets` is used to maintain deployable models, meta-models, output configurations, request parameters, and code examples, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.
 
-The page top supports search by model name, filter by model type, and **"Search"** and **"Reset"** buttons.
+| Item | Content |
+| --- | --- |
+| Applicable role | Operator |
+| Navigation path | Deployment Assets > Models |
+| Page route | /operator/deploy-assets/models |
+| Managed objects | Deployable models, meta-models, output configurations, request parameters, and code examples |
+| Typical use | Maintain deployable cloud model assets |
 
-### Action Buttons
+### Beginner View
 
-The page top-right provides **"Add Model"**, **"Export"**, and **"Import"** buttons for model creation and batch configuration management.
+Model assets are like dish descriptions on a deployment menu. They tell users which models can be deployed, which meta-model each model belongs to, what invocation parameters are used, and how invocation examples are generated after deployment.
 
-### Data List
+### Terms
 
-The model list displays all models in card format, showing model name, description, type, version, tag, creation time, and other information. The pagination control supports pagination browsing, displaying 10 items per page.
+| Term | Description |
+| --- | --- |
+| Meta-model | Abstract model that describes model base capabilities and protocol. |
+| Output configuration | Configuration that generates invocation address, request method, request headers, and parameters after deployment. |
+| Model parameters | Default request parameters passed to the model service. |
+| Code example | SDK, curl, or HTTP example generated for callers. |
 
-## Operations
+## Prerequisites
 
-### Adding a Model
+1. Meta-model, provider, and deployment framework are ready.
+2. Request URL, default parameters, and output configuration have been confirmed.
+3. Model asset authorization scope and business region have been confirmed.
 
-1. Enter the platform homepage, click the **"Deployment Assets > Model Library"** menu in the left navigation bar to enter the model library page.
-2. Click the **"Add Model"** button at the top right of the page to enter the model addition process (3 steps).
+## Page Description
 
-![Model Library](./images/models.png)
+The page is used to maintain deployable model assets, including model name, meta-model, provider, request parameters, output configuration, and code examples. Operators should ensure that model assets are consistent with deployment frameworks, runtime images, and authorized resources.
 
-#### **Step 1: Meta-model / Onboarding Version**:
+Page screenshot:
 
-- **"Meta-model Filter"**: Locate the target meta-model in the filter (All Authors / All Types / Keyword Search). The selected meta-model will be displayed as a tag below the filter, and the tag can be clicked to delete.
-- **"Meta-model Selection"**: Single-select the target meta-model in the meta-model list (e.g., `Qwen3-8b`). The right side displays the meta-model details (Capabilities and Access Constraints: context window 128 / max input 96 / max output 8 / modalities: input: text output: text / capabilities: tool calling, deep thinking / protocol compatibility: openai/chat_completions; meta-model information: series Qwen3 / meta-model type: Chat Model / model author: Qwen / meta-model subtype: LLM / scenario: text generation / description).
-- **"Onboarding Version"**: Fill in the **"Version"** (e.g., `1.0.0`) and **"Version Description"** (rich text).
+![Model Asset List](./images/models.png)
 
-![Meta-model / Onboarding Version](./images/step-1-meta-model.png)
+Used to view deployable models, meta-models, and deployment configurations.
 
-- Click **"Next"**.
+## Main Operations
 
-#### **Step 2: Deployment Configuration**:
+### Procedure
 
-- **"Cloud Deployment Point"**: Manage deployment points on the left (each deployment point is bound to a cloud platform + region), and you can click **"+ Add Deployment Point"** to add a new one.
+1. Go to `Deployment Assets > Models`.
+2. Filter by model name, meta-model, provider, or enablement status.
+3. When adding a model asset, fill in model name, meta-model, and provider information.
+4. Configure request URL placeholder examples, request parameters, output fields, and code examples.
+5. After saving, confirm that users can select this model on the Quick Deployment page.
+
+Key step screenshots:
+
+![Select Meta-Model](./images/step-1-meta-model.png)
+
+First confirm that model capabilities match the meta-model.
 
 ![Add Cloud Deployment Point](./images/step-2-add-cloud-deployment-point.png)
 
-- **"Cloud Model"**: Click the **"Assign Cloud Model"** button to configure the cloud model under the meta-model and cloud account (e.g., `aliyun-wh-dev` / `Qwen3-8B`), and click **"Save"**.
-
-![Assign Cloud Model](./images/step-2-assign-cloud-model.png)
-
-- **"Compute Configuration"**: Click the **"Select Compute Plan"** button, single-select the target model framework (e.g., `Qwen3-8B` / vllm / v1.0 / `eas-registry-vpc.cn-shanghai.cr.aliyuncs.com/pai-eas/vllmv:0.9.1-modelgallery`) and deployment specification (e.g., `ecs.gn6i-c4g1.xlarge` / NVIDIA T4 x 1 / 4 cores / 15GB / CNY12.78/Hour), and click **"Save"**.
+Deployment points determine which cloud resources the model can be deployed to.
 
 ![Select Compute Plan](./images/step-2-select-compute-plan.png)
 
-- **"Output Configuration"**: Click the **"Add Output Configuration"** button, configure the request URL (automatically generated after deployment, template `{request_url}`), request method (e.g., `POST`), request headers (Content-Type: application/json / Authorization: Bearer {api_key}), request parameters (max_tokens: 1024 / messages: [{"role":"user","content":"hello"}]), and multilingual code samples (curl / python / java / go / nodejs / php / ruby), and click **"Save"**.
+The compute plan must be consistent with resource pool capacity and scheduling policies.
 
-![Add Output Configuration](./images/step-2-add-output-configuration.png)
+![Confirm Model Configuration](./images/step-3-confirm-configuration.png)
 
-- Click **"Next"**.
+Before submission, confirm that no real keys or internal Endpoint values exist in the configuration.
 
-#### **Step 3: Confirm Configuration**:
-Verify the overall template configuration information (Meta-model Information / Capabilities and Access Constraints / Meta-model Information / Deployment Configuration: Cloud Model + Compute Configuration + Output Configuration). After confirming that it is correct, click **"Submit"** to complete the model addition; to modify, click **"Previous"** to return to the corresponding step.
+### Parameters
 
-![Confirm Configuration](./images/step-3-confirm-configuration.png)
+| Field | Required | Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Model name | Yes | Text | `qwen-cloud-7b` | Display name of the cloud deployment asset. |
+| Meta-model | Yes | Dropdown | `Qwen Text` | Associated model capability, protocol, and modality. |
+| Provider | Conditionally required | Dropdown | `provider-a` | Model source or cloud provider supplier. |
+| Request URL | Conditionally required | URL | `https://api.example.com/v1/chat/completions` | Use placeholders only. Real internal addresses are prohibited. |
+| Default parameters | No | JSON | `{"max_tokens":1024}` | Default request parameters used during deployment invocation. |
 
-#### Parameters - Meta-model / Onboarding Version (Step 1)
+### Pitfalls
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Meta-model | Radio | `Qwen3-8b` (unique identifier `qwen/qwen3-8b`) | Required. Select the base meta-model |
-| Onboarding Version - Version | Text | `1.0.0` | Required. The model onboarding version number |
-| Onboarding Version - Version Description | Rich Text | — | Optional. Explain the update content of this version |
+- Before enabling a model asset, confirm that framework, image, and resource specification are all available.
+- Request URL, request headers, and code examples can only use placeholders.
+- Before taking a model asset offline, check whether existing user deployments depend on it.
 
-#### Parameters - Deployment Configuration (Step 2)
+### Result Validation
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Cloud Deployment Point | List | `Alibaba Cloud · China East 2 (Shanghai)` | Required. Each deployment point is bound to a cloud platform + region |
-| Cloud Account | Dropdown | `aliyun-wh-dev` | Required. The cloud account used for model deployment |
-| Cloud Model | Dropdown | `Qwen3-8B` | Required. Identify the cloud model under the cloud account |
-| Model Framework | Radio | `Qwen3-8B` / vllm / v1.0 / `eas-registry-vpc.cn-shanghai.cr.aliyuncs.com/pai-eas/vllmv:0.9.1-modelgallery` | Required. Model framework and runtime version |
-| Deployment Specification | Radio | `ecs.gn6i-c4g1.xlarge` / NVIDIA T4 x 1 / 4 cores / 15GB / CNY12.78/Hour | Required. GPU model / quantity / CPU cores / memory |
-| Request URL | URL | `{request_url}` (generated after deployment) | Required. Model invocation endpoint |
-| Request Method | Dropdown | `POST` | Required. HTTP request method |
-| Request Header - Content-Type | Text | `application/json` | Required. Request content type |
-| Request Header - Authorization | Text | `Bearer {api_key}` | Required. Access credential |
-| Request Parameter - max_tokens | Number | `1024` | Required. Maximum number of generated tokens |
-| Request Parameter - messages | Array | `[{"role":"user","content":"hello"}]` | Required. Conversation message content |
+1. The model asset is visible in the list and its status is enabled.
+2. The Quick Deployment page can select this model.
+3. Generated invocation examples do not contain real credentials or internal addresses.
 
-## Other Operations
+## FAQ
 
-| Operation | Steps |
-|-----------|-------|
-| Edit Model | Click the **"..."** (More) button on the top-right of the target model card → Select **"Edit"** → Modify model information, model introduction, deployment configuration, and output configuration step by step → Click **"Submit"** |
-| View Model Details | Click the target model card to enter the detail page → Switch between "Model Information", "Deployment Configuration", "Output Configuration", and "Version Record" tabs to view the information → Click the back arrow at the top left to exit |
-| Delete Model | Click the **"..."** (More) button on the top-right of the target model card → Select **"Delete"** → **This action is irreversible. Please operate with caution.** |
-| Export / Import Configuration | Click the **"Export"** / **"Import"** buttons at the top right of the page → Batch management of model configurations |
+### Users Cannot See the Model on the Deployment Page
+
+**Issue Symptom:**
+
+A model asset has been created, but users cannot select it during Quick Deployment.
+
+**Possible Causes:**
+
+- The model asset is not enabled.
+- No available framework or runtime image is bound.
+- The model is not authorized to the user's business region.
+
+**Handling:**
+
+1. Confirm model asset enablement status.
+2. Verify framework, image, and resource specification associations.
+3. Check tenant and business region authorization.
+
+### Invocation Example Is Incorrect After Deployment
+
+**Issue Symptom:**
+
+The service is created successfully, but the path or parameters in the invocation example are unavailable.
+
+**Possible Causes:**
+
+- Output configuration field mapping is incorrect.
+- Meta-model protocol does not match request parameters.
+- Code examples still use old-version parameters.
+
+**Handling:**
+
+1. Check output configuration and protocol path.
+2. Verify meta-model default parameters.
+3. Regenerate or update code examples.
+
+## Next Steps
+
+1. Maintain deployment frameworks and runtime images.
+2. Configure business region authorization.
+3. Create one quick deployment from the user perspective.
 
 ## Notes
 
-- The model deletion operation is irreversible. Please operate with caution.
-- Before adding a model, ensure that the cloud platform, cloud account, and inference framework have been correctly configured.
-- After the model is published, it will be visible to the public. Please ensure that the information is accurate.
+- Request URL and request headers can only use placeholders.
+- Check existing deployment dependencies before taking a model offline.
+- Invocation examples must not contain real credentials.

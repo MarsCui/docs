@@ -1,115 +1,172 @@
-# Video
+# Video Playground
 
-## Preface
+::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+:::
+
+::: warning Security Notice
+Model Services documentation and screenshots must not expose real API Keys, AK/SK pairs, Secret Keys, Endpoints, request header authentication values, model source credentials, internal access addresses, customer names, or business-sensitive data. Use placeholders in all examples.
+:::
+
+## Feature Overview
+
+`Video Playground` is used to maintain or view video models, input materials, frame sampling parameters, generation parameters, and results. It supports model publishing, experimentation, calling, statistics, and operational governance.
 
 | Item | Content |
-|------|---------|
-| Target Audience | User |
-| Navigation Path | Playground > Video |
-| Overview | Generate AI videos through text descriptions or reference assets to experience the model's video generation capabilities |
+| --- | --- |
+| Applicable role | Regular user |
+| Navigation path | Playground > Video |
+| Page route | /user/playground/video |
+| Managed objects | Video models, input materials, frame sampling parameters, generation parameters, and results |
+| Typical use | Test video understanding or video generation models |
 
-## Page Structure
+### Beginner Explanation
 
-### Search Area
+The video Playground is like a screening room for video models. It validates video understanding, summarization, Q&A, or generation capabilities. Video duration, frame rate, and content compliance directly affect results.
 
-There is no search area on the main page. The Select Model dialog provides a model name / model identifier search box on the left.
+### Terms Quick Reference
 
-### Action Buttons
+| Term | Description |
+| --- | --- |
+| Video input | Video material used for video understanding, summarization, Q&A, or generation. |
+| Frame sampling interval | Time interval at which frames are sampled when the model analyzes the video. |
+| Maximum duration | Video length allowed for a single request. |
+| Output format | Return form such as summary, Q&A, or structured result. |
+## Prerequisites
 
-* The top model dropdown shows the current video model and opens the Select Model dialog
-* The upper-right area provides **Model Compare** and **Back to old version** buttons
-* The left side of the input box provides an asset add entry for video generation reference assets
-* The lower-left area of the input box provides Resolution, Ratio, Duration, and parameter configuration controls
-* The lower-right area of the input box provides Personal Key selection and the send button
+1. The current account has access to the video Playground page.
+2. The target video model is available for trial.
+3. Video materials are redacted and authorized.
+4. Format, duration, and frame sampling parameters have been confirmed to be within model support.
+## Page Description
 
-### Data List
+This page is used to try video models. It supports uploading redacted videos or entering video input addresses, setting frame sampling, duration, output format, and prompt, and viewing return results, elapsed time, error codes, and usage.
 
-The page center displays the video generation prompt area, prompt input box, parameter configuration entry, and generated result area.
+Page screenshot:
 
-## Operations
+![Select video model](./images/select-model.png)
 
-### Generating Videos with Model
+Select a video understanding, summarization, Q&A, or generation model.
 
-1. Enter the platform homepage, click the **"Playground > Video"** menu in the left navigation bar to enter the video generation experience page.
-2. Click the top model dropdown to open the Select Model dialog:
-   - Enter a model name or model identifier in the search box on the left to filter models;
-   - Select the target video model from the model list on the left;
-   - Select an available provider instance on the right;
-   - Click **Confirm** to switch the model.
+## Main Operations
 
-![Select Model](./images/select-model.png)
+### Steps
 
-3. If the current model requires reference assets, click the add entry on the left side of the input box to upload or select assets.
-4. Set basic generation options in the lower-left area of the input box:
-   - Select **Resolution** to set the output video resolution;
-   - Select **Ratio** to set the output video aspect ratio;
-   - Set **Duration** to control the generated video duration.
-5. Click the parameter configuration button and set advanced parameters:
-   - Select **Protocol** (for example, openai/video);
-   - Enter **Negative Prompt** to describe content that should not appear in the video;
-   - Set **Audio Setting**;
-   - Enable or disable **Prompt Extend** as needed;
-   - Enable or disable **Watermark** as needed;
-   - Enter **Seed** as needed.
+1. Go to `Playground > Video`.
+2. Select video model and provider.
+3. Upload a redacted video or fill in a placeholder video address.
+4. Set duration, frame sampling, output format, and prompt.
+5. Send the request and view result, request ID, and usage.
+
+Key screenshot:
 
 ![Video parameter configuration](./images/parameters.png)
 
-6. If a specific credential is required, select the corresponding **Personal Key** in the lower-right area of the input box.
-7. Enter the video description in the input box and click the send button to generate the video. Shift+Enter can be used for a new line.
-8. After generation is complete, view the generated video in the result area.
+Confirm video duration, frame sampling interval, and output format.
 
-#### Parameters (Parameter Configuration Panel)
+### Parameters
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Reference Asset | Upload / Add Entry | `+` | Adds image, video, or other reference assets according to the selected model requirements |
-| Resolution | Quick Option | `1080P` | The resolution of the output video |
-| Ratio | Quick Option | `--` | The aspect ratio of the output video. Available options depend on the selected model |
-| Duration | Number Option | `0` | The duration of the generated video |
-| Protocol | Dropdown | `openai/video` | The API protocol used for model calls |
-| Negative Prompt | Text Input | `please input` | Describes content that should not appear in the generated video |
-| Audio Setting | Dropdown | `auto` | The audio configuration for the generated video |
-| Prompt Extend | Switch | `Off` | Whether to automatically extend the prompt |
-| Watermark | Switch | `Off` | Whether to add a watermark to the generated video |
-| Seed | Number Input | `Optional` | The random seed used to make generation results more reproducible |
-| Personal Key | Dropdown | `Personal Key 20260616...` | The credential used for the current request |
-| Prompt | Text Input | `Please enter your question` | The video generation description entered in the input box |
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Video Input | Conditionally required | File / URL | `sample.mp4` | Input used for video understanding or generation. |
+| Prompt | Conditionally required | Text | `Summarize the video content` | Guides model analysis or generation. |
+| Maximum Duration | No | Number | `60s` | Limits the video length to process. |
+| Frame Sampling Interval | No | Number | `2s` | Controls sampling granularity for video understanding. |
+| Output Format | No | Enum | `summary` | Summary, Q&A, or structured result. |
 
-#### Parameters (Select Model Dialog)
+### Pitfalls
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Model Name / Identifier | Text | `Mock Ali Wan 2.7 Video Edit / mock-models/wan2.7-videoedit` | The model name and unique identifier |
-| Release Date | Date | `2026-07-01` | The release date of the model |
-| Context | Text | `-` | The context display value of the video model |
-| Input / Output Credit | Number | `- Credits / 6 Credits` | The input and output pricing display of the model |
-| Provider | Text | `Model Mocker:Ali Wan 2.7 Video Edit Mocker / AGIOneSystem` | The model provider and service instance |
-| Billing Unit | Text | `Credits/sec` | The billing unit of the current provider instance |
-| Unit Price | Number | `-- Credits/sec` | The unit price billed by generated seconds |
-| Throughput / Success Rate | Number | `0 t/s / -` | Runtime metrics of the provider instance |
-| Weekly Calls / Weekly Seconds | Number | `0 / 0 sec` | Recent usage of the provider instance |
-| Status Tags | Tag | `Recommended / Published` | Recommendation and publishing status |
-| Capability Tags | Tag | `Reasoning / Tool Calling` | Capability tags of the model. The screenshot shows these capabilities as unsupported |
+- Do not upload videos containing customer privacy, license plates, faces, or unauthorized materials.
+- Long videos increase latency, cost, and failure probability.
+- Video URLs must use accessible placeholder or secure addresses. Do not write internal addresses in documentation.
 
-## Other Operations
+### Result Checks
 
-| Operation | Steps |
-|-----------|-------|
-| Switch Model | Click the top model dropdown -> select another model or provider in the dialog -> click **Confirm** |
-| Search Model | Enter a model name or model identifier in the left search box of the Select Model dialog |
-| Add Reference Asset | Click the add entry on the left side of the input box and add image or video assets according to the selected model requirements |
-| Adjust Basic Parameters | Modify Resolution, Ratio, or Duration in the lower-left area of the input box |
-| Adjust Advanced Parameters | Click the parameter configuration button -> modify Protocol, Negative Prompt, Audio Setting, Prompt Extend, Watermark, Seed, and other parameters |
-| Select Credential | Click the key dropdown in the lower-right area of the input box and select the Personal Key for this request |
-| Model Compare | Click **Model Compare** to enter the multi-model parallel video generation page |
-| Text Input | Enter the video description in the bottom input box, then click the send button or press Enter; use Shift+Enter for a new line |
-| Back to Old Version | Click **Back to old version** to switch to the old video generation page |
+1. The page returns video summary, Q&A, or generation result.
+2. After frame sampling, duration, and output format parameters change, results match expectations.
+3. On failure, request ID, error code, or parameter limit prompt is visible.
+## FAQ
 
+### Video Processing Times Out
+
+**Symptom:**
+
+After submitting a video, there is no result for a long time or timeout is returned.
+
+**Possible Causes:**
+
+- Video duration is too long.
+- Frame sampling interval is too dense.
+- Model queue or upstream service is congested.
+
+**Handling:**
+
+1. Cut a shorter sample.
+2. Increase the frame sampling interval.
+3. Retry later or switch models.
+
+### Video Result Does Not Match Expectations
+
+**Symptom:**
+
+The summary misses key points, or video Q&A answers are incorrect.
+
+**Possible Causes:**
+
+- Prompt is not specific enough.
+- Key frames are not covered by frame sampling.
+- Video clarity or subtitle quality is poor.
+
+**Handling:**
+
+1. Add a clearer question.
+2. Adjust frame sampling strategy.
+3. Use clearer video material.
+
+### Video Format, Duration, or Frame Sampling Is Unsupported
+
+**Symptom:**
+
+The page reports unsupported video format, duration exceeded, or invalid frame sampling parameters.
+
+**Possible Causes:**
+
+- Video format is outside supported range.
+- File is too large or duration is too long.
+- Frame sampling interval or output format does not match model capability.
+
+**Handling:**
+
+1. Convert to a supported format.
+2. Cut a short video sample.
+3. Adjust frame sampling and output format according to page prompts.
+
+### Video URL Is Inaccessible or Fails to Parse
+
+**Symptom:**
+
+After entering a video URL, the page reports download failure, parsing failure, access timeout, or insufficient permission.
+
+**Possible Causes:**
+
+- The video URL is not accessible to the platform.
+- The URL requires login, the signature expired, or it is blocked by network policy.
+- Video encoding, format, or file size does not meet model limits.
+
+**Handling:**
+
+1. Use a publicly accessible or platform-allowed redacted test address.
+2. Confirm signature validity period, access permission, and network connectivity.
+3. If needed, upload a short video sample instead, and record request ID and error code.
+
+## Next Steps
+
+1. Record effective parameter combinations.
+2. View call logs to locate failed requests.
+3. Evaluate whether the video model is suitable for integration into app workflows.
 ## Notes
 
-* Clearer video descriptions usually make the generated result closer to expectations.
-* Whether reference assets are required depends on the selected model type, such as video editing, image-to-video, reference-to-video, or text-to-video.
-* Resolution, Ratio, and Duration affect generation time and billing. Set them according to actual needs.
-* Audio Setting, Prompt Extend, Watermark, and Seed availability depends on the selected protocol, model, and provider instance.
-* Model price, status, billing unit, and performance metrics are subject to the information shown in the Select Model dialog.
-* You can click **Model Compare** to enter the multi-model parallel video generation page.
+- Do not upload videos containing customer privacy, faces, license plates, or unauthorized materials.
+- Long videos significantly increase latency and cost.
+- Video URL examples must use placeholder addresses.

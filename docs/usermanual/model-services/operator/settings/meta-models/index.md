@@ -1,166 +1,148 @@
 # Meta-models
 
-## Preface
+::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+:::
 
-| Item            | Content                                                                                                                                                  |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Target Audience | Operator                                                                                                                                                 |
-| Navigation Path | Settings > Meta-models                                                                                                                                   |
-| Overview        | Manage model authors and meta-model configurations globally to provide foundational data support for model publishing, template creation, and other processes |
+::: warning Security Notice
+Model service documentation and screenshots must not expose real Endpoints, API Keys, request header authentication values, model source secrets, internal model IDs, customer call content, or business pricing policies. Use placeholders in all examples.
+:::
 
-## Page Structure
+## Feature Overview
 
-### Search Area
+`Meta-models` is used to maintain or view model capabilities, protocols, modalities, Token limits, default parameters, and capability tags. It supports model publishing, experimentation, calling, statistics, and operational governance.
 
-The page top supports quick location of target meta-models by model author name.
+| Item | Content |
+| --- | --- |
+| Applicable role | Operator |
+| Navigation path | System Settings > Meta-models |
+| Page route | /operator/settings/meta-models |
+| Managed objects | Model capabilities, protocols, modalities, Token limits, default parameters, and capability tags |
+| Typical use | Maintain model capability abstractions and protocol definitions |
 
-### Action Buttons
+### Beginner Explanation
 
-- The **"Add"** button above the left-side model author list is used to add new model authors.
-- The page top provides **"Export"** / **"Import"** buttons for batch management of model authors or meta-model configurations.
-- Each model author card provides **"Edit"** / **"Delete"** operations.
-- Each meta-model row provides **"+ Add"**, **"Edit"**, **"Copy"**, **"Details"**, **"Enable"** / **"Disable"**, **"Delete"** operations.
+A meta-model is like a capability specification for a model. It defines which inputs and outputs the model supports, which protocol it uses, how many Tokens it can process, and which default parameters are used for Playground and calls. It is not a concrete provider instance; it is a foundational definition referenced by model publishing and template configuration.
 
-### Data List
+### Terms Quick Reference
 
-- **Model Author List**: All authors are displayed in card format, with each card showing unique identifier, multilingual display name, and application icon.
-- **Meta-model List**: After selecting an author, all meta-models under that author are displayed, with key information such as unique identifier, name, series, status, version, token limit, and model type.
+| Term | Description |
+| --- | --- |
+| Meta-model | Abstract definition that describes model capabilities and call protocols. |
+| Input/output modalities | Text, image, audio, or video input/output types supported by the model. |
+| Token limits | Limits for model context, input length, and output length. |
+| Official native protocol | Compatible protocol definition such as OpenAI or Anthropic. |
 
-## Operations
+## Prerequisites
 
-### Adding a Model Author
+1. The current account has meta-model configuration permission.
+2. Model type, input/output modalities, context length, Token limits, and default parameters have been confirmed.
+3. Compatible protocols, Endpoint paths, and request/response formats have been confirmed by the technical owner.
+4. Before adding or changing a meta-model, the impact on model publishing templates and published models has been evaluated.
+## Page Description
 
-1. Enter the platform homepage, click the **"Settings > Meta-models"** menu in the left navigation bar to enter the meta-model management page.
-2. Above the left-side model author list, click the **"Add"** button to pop up the "Add" window.
+This page maintains model capability abstractions, including input/output modalities, protocols, Token limits, capability tags, and default parameters. A meta-model is not a concrete provider instance. It is more like a capability specification referenced during model publishing.
 
-![Meta-models](./images/meta-models-list.png)
+Page screenshot:
 
-3. Configure model author information:
-   - Fill in the **"Unique Identifier"** (e.g., `qwen`), used to uniquely identify this model author in the system;
-   - **"Display Name"** (marked "Multilingual"): Used to set the display name of the model author in lists, details, and selection controls. Click the **"English"** / **"Chinese"** tabs to switch language tabs, with the prompt **"Currently editing English display name. Switch language to maintain another language version"**. Fill in the names for the English and Simplified Chinese environments in the corresponding tabs (e.g., English: `Qwen` / Chinese: `通义千问`);
-   - Upload the **"Application Icon"** (e.g., Qwen brand icon).
-4. After confirming all information is correct, click the **"Confirm"** button to complete the addition; to discard, click **"Cancel"**.
+![Meta-model list](./images/meta-models-list.png)
 
-![Model Author](./images/model-author.png)
+Used to view meta-model status, modalities, protocols, and operation entry points.
 
-#### Parameters
+## Main Operations
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Unique Identifier | Text | `qwen` | Required. The unique identifier of the model author |
-| Display Name | Multilingual Text | `Qwen / 通义千问` | Required. Configure display names under the "English" and "Chinese" tabs respectively |
-| Application Icon | Image | `Qwen Brand Icon` | Required. The display icon for the model author |
+### Steps
 
-### Adding a Meta-model
+1. Go to `System Settings > Meta-models`.
+2. Add or edit meta-model basic information.
+3. Select input modalities and output modalities.
+4. Configure compatible protocols such as OpenAI and Anthropic and their Endpoint paths.
+5. Maintain context, maximum input, maximum output, and default parameters, then save.
 
-1. On the "Meta-models" management page, select the target model author (e.g., `Qwen`), and click the **"+ Add"** button on the right to enter the "Add Meta-model" process.
+Key screenshots:
 
-![Meta-models](./images/meta-models-list.png)
+![Meta-model basic information](./images/step-1-basic-information.png)
 
-#### **Step 1: Meta-model Configuration**:
+Basic information determines the display name and capability category during model publishing.
 
-- **Basic Information**:
-   - Select **"Model Author"** (e.g., Qwen);
-   - Fill in the **"Name"** (e.g., Qwen3.6-Plus);
-   - Fill in the **"Series"** (e.g., Qwen3.6);
-   - Fill in the **"Unique Identifier"** (e.g., `qwen/qwen3.6-plus`, auto-formatted as `author/series-name`);
-   - Select **"Scenario"** (e.g., Language & Text Processing / Text Generation);
-   - Select **"Status"** (Enabled / Disabled);
-   - Select the **"Official Release Date"** (date picker, e.g., 2026-04-02).
-   - **Multilingual Description**: Click the **"Multilingual"** tab at the top of the **"Model Description"** card to switch language tabs (English / Chinese). Fill in the model introduction in each language version using the rich text editor. The **"Multilingual"** marker indicates that this field needs to maintain multiple language versions simultaneously. The content supports inserting links (model_url can be maintained), and switching languages allows maintaining the other language version.
+![Input/output modalities](./images/step-1-input-output-modalities.png)
 
-![Basic Information](./images/step-1-basic-information.png)
+Modality configuration affects model marketplace filters and Playground entries.
 
-- **Model Type & Subtype**:
-   - **"Multimodal"**: For simultaneously processing, understanding, and generating two or more modalities of information;
-   - **"Chat Model"**: For text generation, dialogue, and other natural language processing tasks;
-   - **"Image Model"**: For image generation, editing, and style transfer tasks;
-   - **"Audio Model"**: For speech synthesis, recognition, and music generation tasks;
-   - **"Video Model"**: For video generation, editing, and special effects processing tasks;
-   - **"Embedding Model"**: For embedding query vectors for tasks such as retrieval, matching, and classification;
-   - **"Reranker Model"**: For reranking generation or retrieval results, prioritizing the most relevant content.
+![Token limits](./images/step-1-token-limit.png)
 
-![Model Type & Subtype](./images/step-1-model-type_variants.png)
+Token limits should match the real model capability.
 
-- **Input / Output Modalities**:
-   - **"Input Modalities"** (multi-select): Text / Image / Audio / Video;
-   - **"Output Modalities"** (multi-select): Text / Image / Audio / Video.
+### Parameters
 
-![Input / Output Modalities](./images/step-1-input_output-modalities.png)
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Meta-model Name | Yes | Text | `Qwen Text` | Model capability abstraction name. |
+| Input/output Modalities | Yes | Multi-select | `Text -> Text` | Declares the data types supported by the model. |
+| Protocol | Yes | Multi-select | `openai/chat_completions` | Compatible call protocols for the model. |
+| Token Limits | Yes | Number | `128000` | Context, input, or output Token upper limit. |
+| Default Parameters | No | JSON | `{"temperature":0.7}` | Default parameters for protocol calls. |
 
-- **Advanced Capability Configuration**:
-   - **"Function / Tool Support"**: When enabled, supports tool calling functionality;
-   - **"Thinking Mode"**: When enabled, supports deep thinking and reasoning capabilities.
 
-![Advanced Capability Configuration](./images/step-1-advanced-capability-configuration.png)
+### Pitfalls
 
-- **Token Limit**:
-   - **"Max Context"** (e.g., 1024K);
-   - **"Max Input"** (e.g., 991K);
-   - **"Max Output"** (e.g., 64K).
+- Setting Token limits higher than the real model capability causes call failures.
+- Protocol Endpoint paths should be paths or placeholder examples. Do not write real internal addresses.
+- Incorrect input/output modality configuration affects model marketplace filtering.
 
-![Token Limit](./images/step-1-token-limit.png)
 
-- **Official Native Protocol and Default Parameters**:
-   - **OpenAI-ChatCompletions** (protocol code `openai/chat_completions`): Fill in the **"Endpoint"** (e.g., `/compatible-mode/v1/chat/completions`), and configure **"Input Parameters"** (Temperature, Top-P, N, Stream, Max Tokens, Presence Penalty, Frequency Penalty, User, Seed, Parallel Tool Calls, etc., with "Required" toggle);
-   - **OpenAI-Responses** (protocol code `openai/responses`): Fill in the **"Endpoint"** (e.g., `/compatible-mode/v1/responses`), and configure **"Input Parameters"**;
-   - **Anthropic-Messages** (protocol code `anthropic/messages`): Fill in the **"Endpoint"** (e.g., `/apps/anthropic/v1/messages`), and configure **"Input Parameters"**.
+### Result Checks
 
-![Official Native Protocol and Default Parameters](./images/step-1-official-native-protocol.png)
+1. The new meta-model is visible in the list.
+2. The meta-model can be selected when publishing models or configuring templates.
+3. Protocols, modalities, and Token limits match the actual model capability.
+4. Default parameters take effect as expected in Playground or call tests.
+## FAQ
 
-- Click **"Next"** to enter the meta-model details.
+### Cannot Select the Meta-model When Publishing a Model
 
-#### **Step 2: Meta-model Details**:
+**Symptom:**
 
-- **Meta-model Details**: Fill in the complete detailed introduction of the model in the rich text editor (supports rich text format, link insertion, etc.).
+After a model provider enters the publishing flow, the target item is missing from the meta-model dropdown.
 
-![Meta-model Details](./images/step-2-meta-model-details.png)
+**Possible Causes:**
 
-- After confirming all information is correct, click the **"Submit"** button to complete the addition.
+- The meta-model is not enabled.
+- Model type or modality does not match the publishing method.
+- The current role or tenant does not have permission to use this meta-model.
 
-#### Parameters
+**Handling:**
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Model Author | Dropdown | `Qwen` | Required. The affiliated model author |
-| Name | Text | `Qwen3.6-Plus` | Required. Custom meta-model identifier |
-| Series | Text | `Qwen3.6` | Required. The model's version series |
-| Unique Identifier | Text | `qwen/qwen3.6-plus` | Required. The model's unique identifier in the system (auto-formatted as `author/series-name`) |
-| Scenario | Dropdown | `Language & Text Processing / Text Generation` | Required. The model's application business scenario |
-| Status | Dropdown | `Enabled / Disabled` | Required. Controls whether the model is available |
-| Official Release Date | Date | `2026-04-02` | Required. The model's official release date |
-| Multilingual Description | Multilingual Rich Text | `English + Chinese model introduction` | Required. Adapts to multilingual environment display |
-| Model Type | Multi-select | `Multimodal / Chat Model / Image Model / Audio Model / Video Model / Embedding Model / Reranker Model` | Required. Classifies model functional categories (select as needed) |
-| Input Modalities | Multi-select | `Text / Image / Audio / Video` | Required. Input data types supported by the model |
-| Output Modalities | Multi-select | `Text / Image / Audio / Video` | Required. Output data types supported by the model |
-| Advanced Capability - Function / Tool Support | Toggle | `On / Off` | Optional. When enabled, supports tool calling |
-| Advanced Capability - Thinking Mode | Toggle | `On / Off` | Optional. When enabled, supports deep thinking and reasoning |
-| Max Context | Number | `1024K` | Required. Token context length upper limit |
-| Max Input | Number | `991K` | Required. Single input Token upper limit |
-| Max Output | Number | `64K` | Required. Single output Token upper limit |
-| Official Native Protocol - OpenAI-ChatCompletions | Toggle + Protocol Code | `openai/chat_completions` | Required. When enabled, configure Endpoint and Input Parameters |
-| Official Native Protocol - OpenAI-Responses | Toggle + Protocol Code | `openai/responses` | Required. When enabled, configure Endpoint and Input Parameters |
-| Official Native Protocol - Anthropic-Messages | Toggle + Protocol Code | `anthropic/messages` | Required. When enabled, configure Endpoint and Input Parameters |
-| Endpoint | URL | `/compatible-mode/v1/chat/completions` | Required. The endpoint path corresponding to the protocol |
-| Input Parameters | Parameter List | `Temperature / Top-P / N / Stream / Max Tokens / Presence Penalty / Frequency Penalty / User / Seed / Parallel Tool Calls` | Optional. Preset input parameters by protocol (Required toggle available) |
-| Meta-model Details | Rich Text | `Model features, parameter introduction` | Required. The complete detailed description of the model |
+1. Confirm that the meta-model status is enabled.
+2. Check model type, input/output modalities, and publishing method.
+3. Check role, tenant, and visibility scope configuration.
 
-## Other Operations
+### Call Reports Token Limit Exceeded
 
-| Operation | Steps |
-|-----------|-------|
-| Edit Model Author | On the left model author list, click the target author's **"Edit"** button → Modify unique identifier, display name, application icon, etc. → Click **"Confirm"** |
-| Edit Meta-model | On the meta-model list, click the target meta-model's **"Edit"** button → Modify meta-model configuration → Click **"Submit"** |
-| Copy Meta-model | Click the target meta-model's **"Copy"** button → Quickly create a new meta-model based on the existing one |
-| View Meta-model Details | Click the target meta-model's **"Details"** button → View complete model configuration and introduction information |
-| Enable / Disable Meta-model | Click the target meta-model's **"Enable"** / **"Disable"** button → Toggle the model's availability status |
-| Delete Model Author | On the left model author list, click the target author's **"Delete"** button → Confirm operation (**This action is irreversible. Please operate with caution.**) |
-| Delete Meta-model | Click the target meta-model's **"Delete"** button → Confirm operation (**This action is irreversible. Please operate with caution.**) |
-| Export / Import Configuration | Click the **"Export"** / **"Import"** buttons at the top right of the page → Batch management of model author or meta-model configuration |
+**Symptom:**
+
+Model Playground or API calls return context length, input length, or output length limit errors.
+
+**Possible Causes:**
+
+- The meta-model Token limit is smaller than the actual request.
+- Default Max Tokens is set too high.
+- The caller passed an excessively long context.
+
+**Handling:**
+
+1. Check the meta-model context, input, and output limits.
+2. Adjust default parameters or call parameters.
+3. Shorten the Prompt or conversation context and retry.
+## Next Steps
+
+1. Select this meta-model in the model template or publishing flow and confirm that protocol, modalities, and Token limits are referenced correctly.
+2. Use a representative model for one publishing validation and check whether input/output formats match.
+3. When protocol, context length, or default parameters change, notify template maintainers and model providers.
 
 ## Notes
 
-- **Deletion operations are irreversible.** Please operate with caution.
-- Before deleting a model author, all meta-models under that author must be cleared first.
-- Meta-models are foundational data for templates, publishing, and model marketplace processes. Modifications may affect published model configurations.
-- Multilingual fields must maintain both English and Chinese versions simultaneously. Switch language tabs to maintain the other language version.
+- Meta-model changes affect model publishing, template selection, and marketplace filtering. Confirm dependency scope before release.
+- Token limits, protocol paths, and default parameters must match real model capability.
+- Before adjusting input/output modalities, check whether published models can still be filtered and called correctly.

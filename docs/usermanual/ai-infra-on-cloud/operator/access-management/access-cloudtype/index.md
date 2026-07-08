@@ -1,70 +1,139 @@
-# Access Cloud Type
+# Access Cloud Platforms
 
-## Preface
+::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+:::
 
-| Item            | Content                                                                                                                                                          |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Target Audience | Operator                                                                                                                                                         |
-| Navigation Path | Access Management > Access Cloud Type                                                                                                                            |
-| Overview        | Maintain the list of cloud platforms supported by the platform (public / private cloud), providing foundational data support for subsequent access to resource pools, access to accounts, and model publishing processes |
+::: warning Security Notice
+Cloud platform access involves cloud provider types, API capabilities, region mappings, and resource discovery rules. Do not expose real account IDs, internal Endpoint, AK/SK, or authorization policies in documentation, screenshots, tickets, or comments. Before adding a cloud platform, confirm least privilege and auditable scope.
+:::
 
-## Page Structure
+## Feature Overview
 
-### Search Area
+`Access Cloud Platforms` is used to maintain cloud platform types, private cloud addresses, enablement status, and access notes, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.
 
-The page top supports multi-dimensional filtering by vendor identifier and name.
+| Item | Content |
+| --- | --- |
+| Applicable role | Operator |
+| Navigation path | Access Management > Access Cloud Platforms |
+| Page route | /operator/access-management/access-cloudtype |
+| Managed objects | Cloud platform types, private cloud addresses, enablement status, and access notes |
+| Typical use | Maintain accessible public cloud or private cloud platforms |
 
-### Action Buttons
+### Beginner View
 
-- The page top-right provides the **"Add Platform"** button for adding new cloud platforms.
-- The page top provides **"Export"** / **"Import"** buttons for batch management of cloud platform configurations.
-- Each cloud platform row provides a **"Delete"** operation.
+Access Cloud Platforms is like registering the "available cloud resource types" for the platform. Only after confirming whether a platform is public cloud, private cloud, or dedicated cloud and maintaining its enablement status can subsequent cloud accounts, resource pools, and deployment assets know where to connect.
 
-### Data List
+### Terms
 
-The page displays all cloud platforms in table format, with column headers including Type / Vendor Identifier / Name / Logo / Actions. By default, 5 cloud platform records are displayed:
-- **Public Cloud**: Huawei Cloud (huawei / Huawei Cloud), AWS (aws / Amazon), Alibaba Cloud (aliyun / Alibaba Cloud), Google Cloud (google / Google Cloud)
-- **Private Cloud**: AGIOne-powerone (agione-powerone / AGIOne-powerone)
+| Term | Description |
+| --- | --- |
+| Public cloud | A standard cloud resource platform provided by a cloud provider. |
+| Private cloud | An enterprise-internal or dedicated cloud resource platform. |
+| Platform address | Private cloud access entry. Use `https://cloud.example.com` for examples. |
+| Enablement status | Controls whether a cloud platform can be selected by access accounts and resource pools. |
 
-## Operations
+## Prerequisites
 
-### Adding a Platform
+1. The current account has permission to maintain cloud platform types.
+2. The type, access method, and maintenance boundary of the cloud platform to be accessed have been confirmed.
+3. Real connection information for private or dedicated clouds is maintained only in secure configuration.
 
-1. Enter the platform homepage, click the **"Access Management > Access Cloud Type"** menu in the left navigation bar to enter the cloud platform management page.
-2. Click the **"Add Platform"** button at the top right of the page to pop up the "Add Platform" window.
+## Page Description
 
-![Access Cloud Type](./images/access-cloudtype-list.png)
+The page is used to maintain accessible cloud platform types, access entries, and enablement status. Operators need to confirm cloud platform ownership, network connectivity mode, and maintenance boundaries before deciding whether to enable it for access accounts and resource pools.
 
-3. Select **"Cloud Platform Type"** (Public Cloud / Private Cloud, toggle Tab).
-4. Configure the cloud platform information:
-   - Fill in / Select **"Vendor Identifier"**, used to uniquely identify this cloud platform in the system (dropdown for public cloud, text input for private cloud);
-   - **"Display Name"** (marked "Multilingual"): Used to set the display name of the cloud platform in lists, details, and selection controls. Click the **"English"** / **"Simplified Chinese"** tabs to switch language tabs, with the prompts **"Will be displayed in English language environment"** / **"Will be displayed in Simplified Chinese language environment"**. Fill in the names for the English and Simplified Chinese environments in the corresponding tabs;
-   - (**Private Cloud only**) Fill in the **"Link Address"**, used to access the private cloud platform;
-   - Upload the **"Logo"** icon.
-5. After confirming all information is correct, click the **"Confirm"** button to complete the addition; to discard, click **"Cancel"**.
+Page screenshot:
 
-![Add Platform](./images/access-cloudtype-list.png)
+![Cloud Platform List](./images/access-cloudtype-list.png)
 
-#### Parameters
+Used to confirm accessed cloud platform types, status, and operation entries.
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Cloud Platform Type | Toggle Tab | `Public Cloud` / `Private Cloud` | Required. Identifies the type of cloud platform |
-| Vendor Identifier | Dropdown (Public) / Text (Private) | `aliyun` / `agione-powerone` | Required. The unique identifier of the cloud platform |
-| Display Name | Multilingual Text | English: `aliyun` / Simplified Chinese: `阿里云` | Required. Configure display names under the "English" and "Simplified Chinese" tabs respectively |
-| Link Address | URL | `http://test.metis.opr/infrahub/op/access/platform` | **Private Cloud only** Required. The access address of the private cloud platform |
-| Logo | Image | `Alibaba Cloud / Huawei Cloud / AGIOne-powerone icon` | Optional. The icon for displaying the cloud platform |
+## Main Operations
 
-## Other Operations
+### Procedure
 
-| Operation | Steps |
-|-----------|-------|
-| Delete Platform | Click the target cloud platform's **"Delete"** button → **This action is irreversible. Please operate with caution.** |
-| Export / Import Configuration | Click the **"Export"** / **"Import"** buttons at the top right of the page → Batch management of cloud platform configurations |
+1. Go to `Access Management > Access Cloud Platforms`.
+2. View existing cloud platform types, enablement status, and maintenance notes.
+3. When adding a private cloud or dedicated cloud, fill in the platform name, type, and placeholder access address.
+4. Confirm that access accounts, network connectivity, and resource synchronization plans are ready.
+5. After saving, go to the access account page and verify that the cloud platform can be selected.
+
+Key step screenshot:
+
+![Add Cloud Platform](./images/add-platform.png)
+
+Before adding, confirm cloud provider type, region mapping, and API capability scope.
+
+### Parameters
+
+| Field | Required | Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Cloud platform name | Yes | Text | `AGIOne Private Cloud` | Cloud platform name displayed to operators. Avoid internal code names. |
+| Cloud platform type | Yes | Enum | `Private Cloud` | Distinguishes public cloud, private cloud, or dedicated cloud. |
+| Access address | Conditionally required | URL | `https://cloud.example.com` | Private cloud entry example. Documentation should only use placeholders. |
+| Enablement status | Yes | Enum | `Enabled` | Controls whether subsequent access accounts and resource pools can select it. |
+| Maintenance notes | No | Multi-line text | `Production resource entry` | Records cloud platform purpose, owner, and limitations. |
+
+### Pitfalls
+
+- Do not write real internal domain names, IP addresses, or internal Endpoint values as private cloud access addresses.
+- Before disabling a cloud platform, confirm whether access accounts, resource pools, or deployment assets reference it.
+- After changing a cloud platform name, also check operation manuals, ticket templates, and downstream filters.
+
+### Result Validation
+
+1. The added or updated record is visible in the Access Cloud Platforms list.
+2. The enablement status matches expectations.
+3. The cloud platform can be selected on the access account page.
+
+## FAQ
+
+### The Target Cloud Platform Is Missing on the Access Account Page
+
+**Issue Symptom:**
+
+When adding an access account, the newly maintained platform is not in the cloud platform dropdown.
+
+**Possible Causes:**
+
+- The cloud platform is not enabled.
+- The cloud platform type is configured incorrectly.
+- The current account has no management permission for this cloud platform.
+
+**Handling:**
+
+1. Return to Access Cloud Platforms and confirm the enablement status.
+2. Verify the cloud platform type and name.
+3. Check current account menu and data permissions.
+
+### Private Cloud Address Is Unavailable After Saving
+
+**Issue Symptom:**
+
+The platform has been saved, but later account access or resource synchronization fails.
+
+**Possible Causes:**
+
+- The access address was set to an example address, but real connection information was not maintained in system security configuration.
+- Network connectivity, certificates, or proxy are not ready.
+- The cloud platform type does not match the access plugin.
+
+**Handling:**
+
+1. Enter real connection information in secure configuration or on the access account page.
+2. Contact network or cloud platform administrators to confirm connectivity.
+3. Verify the platform type and access plugin.
+
+## Next Steps
+
+1. Maintain cloud account access information.
+2. Create or synchronize resource pools.
+3. Configure authorization for tenants or business regions.
 
 ## Notes
 
-- **Deletion operations are irreversible.** Please operate with caution.
-- Key difference between private cloud and public cloud: Private cloud requires additional configuration of "Link Address" to access the private cloud platform.
-- In the public cloud scenario, "Vendor Identifier" is a dropdown selection (including preset huawei / aws / aliyun / google / baidu, etc.); in the private cloud scenario, it is text input.
-- Multilingual fields must maintain both English and Chinese versions simultaneously. Switch language tabs to maintain the other language version.
+- Use only placeholders for private cloud addresses in documentation.
+- Confirm cloud account and resource pool dependencies before disabling a cloud platform.
+- Cloud platform names should avoid internal code names.

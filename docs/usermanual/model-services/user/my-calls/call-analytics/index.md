@@ -1,60 +1,131 @@
-# Call Analytics
+# My Call Analytics
 
-## Preface
+::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+:::
+
+::: warning Security Notice
+Call and revenue pages may contain request IDs, error codes, customer names, Token usage, fees, call content, and API Key information. Screenshots and tickets should redact model IDs, customer identifiers, request headers, call parameters, and sensitive amount information.
+:::
+
+## Feature Overview
+
+`My Call Analytics` is used to maintain or view call trends, model distribution, Token trends, success rate, and fee analysis. It supports model publishing, experimentation, calling, statistics, and operational governance.
 
 | Item | Content |
-|------|---------|
-| Target Audience | User |
-| Navigation Path | My Calls > Call Analytics |
-| Overview | Statistics on call status by model dimension to understand call volume and consumption of each model |
+| --- | --- |
+| Applicable role | Regular user |
+| Navigation path | My Calls > Call Analytics |
+| Page route | /user/my-calls/call-analytics |
+| Managed objects | Call trends, model distribution, Token trends, success rate, and fee analysis |
+| Typical use | Analyze trends and statistical rules for calls initiated by me |
 
-## Page Structure
+### Beginner Explanation
 
-### Search Area
+My Call Analytics is like a call trend report. It is used to observe how your call volume, Tokens, success rate, and fees change over time.
+### Terms Quick Reference
 
-The page top supports selecting time range, model name, model type, and model ID for filtering.
+| Term | Description |
+| --- | --- |
+| Trend | Call changes aggregated by time. |
+| Statistical granularity | Data summarized by hour, day, or month. |
+| Model distribution | Call share across different models. |
+| Fee trend | Call consumption changes over time. |
 
-### Action Buttons
+## Prerequisites
 
-Each model provides "View Details" and "View Logs" operation buttons.
+1. The current account has permission to view call analytics.
+2. Statistical time range and granularity have been determined.
+3. To locate anomalies, model, app, or status filters have been prepared.
+## Page Description
 
-### Data List
+This page only analyzes call trends and statistical rules for the current account. It is suitable for viewing call volume, Tokens, success rate, and fees over time.
 
-The page displays call statistics in table format, summarized by model.
+Page screenshot:
 
-## Operations
+![My call analytics](./images/call-analytics.png)
 
-### Viewing Call Statistics
+Used to view call trends, Token trends, and success rate changes.
 
-1. Enter the platform homepage, click the **"My Calls > Call Analytics"** menu in the left navigation bar to enter the call statistics page.
-2. Set filter parameters at the top of the page:
-   - Time range: select the start and end dates to query, e.g., 2026-05-07 to 2026-05-14;
-   - Model: enter the model name for fuzzy search;
-   - Model Type: filter by type, such as chat / multimodal / video model, etc.;
-   - Model ID: enter the model unique identifier for exact search.
-   - After setting, click the **"Search"** button to load data; click **"Reset"** to clear all filter conditions.
-3. View the statistics list. The table displays call statistics summarized by model:
-   - Model: model name and identifier;
-   - Model Type: such as chat model, multimodal, video model, etc.;
-   - Successful calls: number of successful calls for this model during the statistics period;
-   - Failed calls: number of failed calls for this model during the statistics period;
-   - Rate limit triggers: number of requests blocked due to triggering frequency limits for this model;
-   - Usage: consumed Tokens (for text/multimodal models) or duration (for video models), such as Input: 122.5M Tokens / Output: 619.4K Tokens;
-   - Operations: View Details / View Logs.
+## Main Operations
 
-![Call Analytics](./images/call-analytics.png)
+### Steps
 
-#### Parameters
+1. Go to `My Calls > Call Analytics`.
+2. Select statistical time and granularity.
+3. View call volume, Tokens, success rate, and fee trends.
+4. Split trends by model or app.
+5. After finding an abnormal date, return to call logs for sampling.
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Successful Calls | Number | `2.13K` | Total number of successfully completed call requests for this model within the selected time range |
-| Failed Calls | Number | `15` | Total number of failed call requests for this model within the selected time range |
-| Rate Limit Triggers | Number | `3` | Number of requests rejected due to triggering rate limit policies for this model within the selected time range |
-| Usage | Text | `Input: 122.5M Tokens / Output: 619.4K Tokens` | Resources consumed by this model within the selected time range: text models are input/output Token count, video models are generation duration |
 
+### Parameters
+
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Statistical Granularity | Yes | Enum | `Day` | Aggregation rule such as hour, day, or month. |
+| Time Range | Yes | Date range | `Last 30 days` | Trend window. |
+| Model | No | Dropdown | `qwen-plus` | Trend split object. |
+| Call Volume Trend | System-generated | Chart | `Line chart` | Request volume changes. |
+| Fee Trend | System-generated | Chart | `Bar chart` | Consumption changes. |
+
+
+### Pitfalls
+
+- Trend charts are aggregate data and cannot replace single logs.
+- For cross-month statistics, pay attention to billing rules and time zone.
+- Abnormal peaks need to be explained together with publishing, promotions, or customer call changes.
+
+
+### Result Checks
+
+1. Trend charts show call volume, Tokens, success rate, and fee data.
+2. After switching statistical granularity, charts and summary rules update together.
+3. Abnormal peaks can be cross-checked with request records in call logs.
+## FAQ
+
+### Trend Chart Has an Abnormal Peak
+
+**Symptom:**
+
+Call volume, Tokens, or fees increase significantly in a certain hour or day.
+
+**Possible Causes:**
+
+- Business traffic surged.
+- Caller retries or loop calls occurred.
+- Statistical backfill tasks merged data into the account.
+
+**Handling:**
+
+1. Split by model and app.
+2. Go to call logs and sample failed and high-Token requests.
+3. Check whether backfill or business activity exists.
+
+### Trend and Overview Numbers Do Not Match
+
+**Symptom:**
+
+Call analytics chart totals do not exactly match overview cards.
+
+**Possible Causes:**
+
+- Statistical granularity or time range differs.
+- Data synchronization is delayed.
+- Overview and trend use different aggregation rules.
+
+**Handling:**
+
+1. Align time range and filters.
+2. Wait for statistical synchronization.
+3. Reconcile against exported details or system rule descriptions.
+## Next Steps
+
+1. Go to call logs and sample-check abnormal requests.
+2. Adjust call strategy by model or app.
+3. Evaluate cost changes together with fee data.
 ## Notes
 
-* When filtering models, you can use a combination of model name, model type, or model ID at the top.
-* Click "View Details" in the operations column to enter the detailed call statistics page for that model.
-* Click "View Logs" in the operations column to jump to the call log page to view individual records.
+- Trend charts are aggregate data and are not suitable for locating the cause of a single request.
+- Pay attention to time zones and statistical periods for cross-day or cross-month analysis.
+- Redact fees, customer identifiers, and business app names before screenshots.

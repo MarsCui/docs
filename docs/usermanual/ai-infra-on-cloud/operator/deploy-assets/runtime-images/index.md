@@ -1,69 +1,139 @@
-# Inference Images
+# Runtime Images
 
-## Preface
+::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+:::
 
-| Item            | Content                                                                                                                                                          |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Target Audience | Operator                                                                                                                                                         |
-| Navigation Path | Deployment Assets > Inference Images                                                                                                                            |
-| Overview        | Provide common multi-cloud multi-region native container image resources, which can be added and used in inference frameworks, providing pre-configured runtime environment support for model deployment |
+::: warning Security Notice
+The runtime images page involves image repository addresses, tags, pull credentials, and runtime dependencies. Do not expose private repository addresses, robot credentials, Image Pull Secret values, or internal image naming rules.
+:::
 
-## Page Structure
+## Feature Overview
 
-### Search Area
+`Runtime Images` is used to maintain container images, image tags, framework dependencies, and applicable resource types, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.
 
-The page top provides cloud platform filter (All / AGIOne / Huawei Cloud / Google Cloud / Alibaba Cloud / Amazon), name search box, type search box, and **"Search"** and **"Reset"** buttons.
+| Item | Content |
+| --- | --- |
+| Applicable role | Operator |
+| Navigation path | Deployment Assets > Runtime Images |
+| Page route | /operator/deploy-assets/runtime-images |
+| Managed objects | Container images, image tags, framework dependencies, and applicable resource types |
+| Typical use | Maintain runtime environment images used for cloud deployment |
 
-### Action Buttons
+### Beginner View
 
-The page top-right provides **"Export"**, **"Import"**, and **"Add"** buttons for batch configuration management and image addition.
+A runtime image is like the runtime package for a model service. It contains framework dependencies, drivers, inference services, and base tools. When images do not match, services may fail to start even if resources are sufficient.
 
-### Data List
+### Terms
 
-The data table displays the inference image list, including Name, Type, Size, Path Information, Cloud Vendor, Description, Creation Time, and action columns (Edit / Delete).
+| Term | Description |
+| --- | --- |
+| Runtime image | Container environment used for model deployment. |
+| Image tag | Image version identifier, such as `v1.0.0`. |
+| Pull permission | Repository authorization required for cloud instances to pull images. |
+| Dependency version | Runtime dependency versions such as framework, driver, and Python packages. |
 
-## Operations
+## Prerequisites
 
-### Adding an Image
+1. Image repository address, tag, and pull credentials are ready.
+2. The image is compatible with the framework, driver, and accelerator card type.
+3. The resource pool can reach the image repository over the network.
 
-1. Enter the platform homepage, click the **"Deployment Assets > Inference Images"** menu in the left navigation bar to enter the inference images page.
-2. Click the **"Add Image"** button at the top right of the page to pop up the "Add Image" window.
+## Page Description
 
-![Inference Images](./images/runtime-images-list.png)
+The page is used to maintain runtime images available for cloud model deployment, including image address, version tag, framework compatibility, driver requirements, and enablement status. Operators should maintain an image matrix by framework and accelerator card type.
 
-3. Fill in the window:
-   - **"Image Name"** (Multilingual): Simplified Chinese (e.g., `vllm`) / English (e.g., `vllm`) two tabs maintained independently.
-   - **"Image Repository Address"**: Fill in the complete address of the image repository (e.g., `eas-registry-vpc.cn-shanghai.cr.aliyuncs.com/pai-eas/vllmv`).
-   - **"Image Tag"**: Fill in the image version tag (e.g., `0.9.1-modelgallery`).
-   - **"Framework Type"** (Multi-select Enum): vllm / tgi / sglang / ollama / asr / tts / sdk-stable-diffusion / comfyui, at least 1 must be selected, used to associate with the inference framework.
-   - **"Built-in"**: Radio `Yes` / `No`, identifies whether the image is a platform built-in image.
-   - **"Description"** (Multilingual): Simplified Chinese / English two tabs maintained independently, explaining the use of the image (e.g., `vllm 0.9.1 modelgallery`).
-4. After confirming all configurations are correct, click the **"Save"** button to complete the image addition; to discard, click **"Cancel"**.
+Page screenshot:
 
-![Add Image](./images/add-image.png)
+![Runtime Image List](./images/runtime-images-list.png)
 
-#### Parameters
+Used to view image names, tags, status, and applicable frameworks.
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Image Name (Multilingual) | Text | Chinese `vllm` / English `vllm` | Required. Two tabs maintained independently |
-| Image Repository Address | Text | `eas-registry-vpc.cn-shanghai.cr.aliyuncs.com/pai-eas/vllmv` | Required. Complete image repository address |
-| Image Tag | Text | `0.9.1-modelgallery` | Required. Image version tag |
-| Framework Type | Multi-select | `vllm`, `tgi`, `sglang` | Required. At least 1 must be selected, associating with the inference framework |
-| Built-in | Radio | `Yes` / `No` | Required. Identifies whether it is a platform built-in image |
-| Description (Multilingual) | Text | Chinese `vllm 0.9.1 modelgallery` / English `vllm 0.9.1 modelgallery` | Optional. Two tabs maintained independently |
+## Main Operations
 
-## Other Operations
+### Procedure
 
-| Operation | Steps |
-|-----------|-------|
-| Edit Image | Click the target image's **"Edit"** button → Modify the cloud platform, region, name, path information, etc. → Click **"Confirm"** |
-| Delete Image | Click the target image's **"Delete"** button → Confirm operation (**Data cannot be recovered after deletion. Please operate with caution.**) |
-| Export / Import Configuration | Click the **"Export"** / **"Import"** buttons at the top right of the page → Batch management of inference image configurations |
+1. Go to `Deployment Assets > Runtime Images`.
+2. Filter by framework, image tag, status, or keyword.
+3. When adding an image, fill in the image repository address, tag, compatible frameworks, and driver requirements.
+4. Confirm that image repository credentials or pull permissions have been configured.
+5. After saving, create a test deployment with the corresponding framework to validate image pulling.
+
+Key step screenshot:
+
+![Add Runtime Image](./images/add-image.png)
+
+Before adding, confirm that the image source is trusted and contains no sensitive credentials.
+
+### Parameters
+
+| Field | Required | Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Image name | Yes | Text | `vllm-runtime` | Display name on the deployment page. |
+| Image address | Yes | Text | `registry.example.com/ai/vllm:latest` | Use a placeholder repository address and avoid real internal addresses. |
+| Compatible framework | Yes | Multi-select | `vLLM` | Deployment frameworks that can use the image. |
+| Driver requirement | No | Text | `CUDA 12.x` | Accelerator card and runtime requirements. |
+| Enablement status | Yes | Enum | `Enabled` | Controls whether it can be selected on the deployment page. |
+
+### Pitfalls
+
+- Do not rely on `latest` for image tags long term. Production should use fixed versions.
+- Do not write image repository credentials into documentation or screenshots.
+- Driver, CUDA, or NPU runtime mismatch can cause instance startup failure.
+
+### Result Validation
+
+1. The image record is enabled.
+2. The deployment framework can associate this image.
+3. Test deployment events show that image pull and service startup succeed.
+
+## FAQ
+
+### Image Pull Fails
+
+**Issue Symptom:**
+
+Deployment events show image pull or authentication failure.
+
+**Possible Causes:**
+
+- Image address or tag is incorrect.
+- Image repository credentials are invalid.
+- The resource pool network cannot access the repository.
+
+**Handling:**
+
+1. Verify image address and tag.
+2. Update repository credentials or pull keys.
+3. Check network connectivity from the resource pool to the repository.
+
+### Image Can Be Pulled but the Service Fails to Start
+
+**Issue Symptom:**
+
+After the image is pulled successfully, the container exits or the health check fails.
+
+**Possible Causes:**
+
+- The image lacks framework dependencies.
+- Driver or runtime versions do not match.
+- Startup command is inconsistent with the image directory structure.
+
+**Handling:**
+
+1. View container logs.
+2. Verify framework dependencies and driver versions.
+3. Adjust the startup command or switch to a compatible image.
+
+## Next Steps
+
+1. Associate deployment frameworks.
+2. Maintain model assets.
+3. Create a test deployment with the target resource pool.
 
 ## Notes
 
-- **Deletion operations are irreversible.** Please operate with caution.
-- When adding an image, ensure that the image path is correct and has been correctly pushed to the container image repository of the target cloud platform.
-- For private images, ensure that the cloud account has the correct permission to access the image repository.
-- Multiple images may have similar names but different regions or types. Please confirm carefully before operating.
+- Production images should use fixed tags.
+- Do not write repository credentials into documentation or screenshots.
+- After image updates, validate pull and startup with a test deployment.

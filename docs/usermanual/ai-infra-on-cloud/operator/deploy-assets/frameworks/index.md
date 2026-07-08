@@ -1,79 +1,139 @@
-# Inference Frameworks
+# Framework Assets
 
-## Preface
+::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+:::
 
-| Item            | Content                                                                                                                                                                                  |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Target Audience | Operator                                                                                                                                                                                 |
-| Navigation Path | Deployment Assets > Inference Frameworks                                                                                                                                                |
-| Overview        | Manage the inference runtime environment configuration of models, define framework type, version, image address, port, and startup command, providing basic runtime environment support for model deployment |
+::: warning Security Notice
+Inference framework configuration may include startup commands, ports, health checks, and environment variables. Do not write real credentials, internal image addresses, private parameters, or production Endpoint values into documentation, screenshots, or examples.
+:::
 
-## Page Structure
+## Feature Overview
 
-### Search Area
+`Framework Assets` is used to maintain runtime frameworks, framework versions, startup commands, ports, and image relationships, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.
 
-The page top provides cloud platform filter (All / AGIONE / Huawei Cloud / Google Cloud / Alibaba Cloud), framework name search box, framework type search box, and **"Search"** and **"Reset"** buttons.
+| Item | Content |
+| --- | --- |
+| Applicable role | Operator |
+| Navigation path | Deployment Assets > Frameworks |
+| Page route | /operator/deploy-assets/frameworks |
+| Managed objects | Runtime frameworks, framework versions, startup commands, ports, and image relationships |
+| Typical use | Maintain runtime frameworks used during model deployment |
 
-### Action Buttons
+### Beginner View
 
-The page top-right provides **"Export"**, **"Import"**, and **"Add Framework"** buttons for batch configuration management and framework creation.
+A deployment framework is like the starter for a model service. It defines how the model starts, which port it listens on, which environment variables it needs, and how it works with runtime images and model assets.
 
-### Data List
+### Terms
 
-The data table displays the framework list, including framework name, description, version, framework type, cloud platform, region, creation time, and action columns (Details / Edit / ...).
+| Term | Description |
+| --- | --- |
+| Runtime framework | Framework or service process that hosts model inference services. |
+| Startup command | Command that loads the model and starts the service after the container starts. |
+| Service port | Port listened on by the model service. |
+| Framework version | Version identifier for framework capabilities and compatibility. |
 
-## Operations
+## Prerequisites
 
-### Adding a Framework
+1. The target runtime framework, startup command, and service port have been confirmed.
+2. Compatible runtime images and resource specifications are ready.
+3. Health check and environment variable requirements have been confirmed.
 
-1. Enter the platform homepage, click the **"Deployment Assets > Inference Frameworks"** menu in the left navigation bar to enter the inference frameworks page.
-2. Click the **"Add Framework"** button at the top right of the page to pop up the "Add Framework" window.
+## Page Description
 
-![Inference Frameworks](./images/frameworks-list.png)
+The page is used to maintain cloud deployment frameworks, including framework type, startup command, service port, health check, default environment variables, and compatible models. Operators should ensure that frameworks match runtime images, model assets, and cloud resource specifications.
 
-3. In the **"Basic Information"** area, fill in:
-   - **"Framework Icon"**: Click **"Select Image"** to upload the framework logo (supports jpg/png/svg, file ≤ 1MB, optimal size 64x64).
-   - **"Framework Name"** (Multilingual): Simplified Chinese (e.g., `vllm`) / English (e.g., `vllm`) two tabs maintained independently.
-   - **"Framework Type"** (Multi-select Enum): vllm / tgi / sglang / ollama / asr / tts / sdk-stable-diffusion / comfyui, at least 1 must be selected.
-   - **"Framework Description"** (Multilingual): Simplified Chinese / English two tabs maintained independently, supports rich text format.
-4. In the **"Runtime Environment"** area, fill in:
-   - **"Image"**: Click the **"Select Image"** button to single-select the target image from the image list (e.g., `eas-registry-vpc.cn-shanghai.cr.aliyuncs.com/pai-eas/vllmv:0.9.1-modelgallery`). Hover the mouse over the image to view the version.
-   - **"Port"**: Fill in the service port exposed by the framework at runtime (default `8000`).
-   - **"Startup Command"** (Multi-select Form): Maintain the startup commands of the framework in list form (e.g., `--port 8000 --model {model_name} --trust-remote-code`). Each command item contains Protocol (e.g., http) / Command Content, supporting add / delete.
-5. After confirming all configurations are correct, click the **"Save"** button to complete the framework addition; to discard, click **"Cancel"**.
+Page screenshot:
 
-![Add Framework](./images/add-framework.png)
+![Inference Framework List](./images/frameworks-list.png)
 
-#### Parameters - Basic Information
+Used to view framework names, runtime environments, and availability status.
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Framework Icon | Upload | — | Required. Supports jpg/png/svg, file ≤ 1MB, optimal 64x64 |
-| Framework Name (Multilingual) | Text | Chinese `vllm` / English `vllm` | Required. Two tabs maintained independently |
-| Framework Type | Multi-select | `vllm`, `tgi`, `sglang` | Required. At least 1 must be selected |
-| Framework Description (Multilingual) | Rich Text | — | Optional. Two tabs maintained independently |
+## Main Operations
 
-#### Parameters - Runtime Environment
+### Procedure
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Image | Radio | `eas-registry-vpc.cn-shanghai.cr.aliyuncs.com/pai-eas/vllmv:0.9.1-modelgallery` | Required. Select from the image list |
-| Port | Number | `8000` | Required. The service port exposed by the framework |
-| Startup Command | List | `--port 8000 --model {model_name} --trust-remote-code` | Required. Multiple commands are supported |
+1. Go to `Deployment Assets > Deployment Frameworks`.
+2. Filter records by framework type, enablement status, or keyword.
+3. When adding a framework, fill in the name, startup command, port, and health check.
+4. Associate compatible runtime images, model types, or resource specifications.
+5. After saving, create a deployment with a test model to validate startup results.
 
-## Other Operations
+Key step screenshot:
 
-| Operation | Steps |
-|-----------|-------|
-| Edit Framework | Click the target framework's **"Edit"** button → Modify the framework type, name, description, etc. → Click **"Confirm"** |
-| View Details | Click the target framework's **"Details"** button → View basic information and version configuration in the "Framework Information" and "Version Information" tabs → Click the back arrow at the top left to exit |
-| Add Version | Click the target framework's **"..."** (More) button → Select **"Add Version"** → Fill in the version number, image, port, startup command, etc. → Click **"Confirm"** |
-| Uninstall Framework | Click the target framework's **"..."** (More) button → Select **"Uninstall"** → Confirm operation (**Data cannot be recovered after uninstallation. Please operate with caution.**) |
-| Export / Import Configuration | Click the **"Export"** / **"Import"** buttons at the top right of the page → Batch management of inference framework configurations |
+![Add Inference Framework](./images/add-framework.png)
+
+When adding, verify startup command, port, and health check.
+
+### Parameters
+
+| Field | Required | Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Framework name | Yes | Text | `vllm-openai` | Framework name displayed on the deployment page. |
+| Startup command | Yes | Text | `python -m vllm.entrypoints.openai.api_server` | Command used by the container to start the model service. |
+| Service port | Yes | Number | `8000` | Port listened on by the model service. |
+| Health check path | No | Text | `/health` | Used to determine whether the service is ready. |
+| Compatible image | Conditionally required | Multi-select | `vllm-runtime:latest` | Runtime images that can be used with this framework. |
+
+### Pitfalls
+
+- Do not hardcode real model paths, keys, or internal download addresses in startup commands.
+- If the port is inconsistent with the port exposed by the runtime image, deployment may succeed but the service may be inaccessible.
+- Framework changes affect subsequent new deployments. Whether running instances are affected must be confirmed according to platform mechanisms.
+
+### Result Validation
+
+1. The framework record is enabled.
+2. The deployment page can select this framework and compatible images.
+3. Test deployment events show that service health checks pass.
+
+## FAQ
+
+### Framework Startup Fails
+
+**Issue Symptom:**
+
+The deployment instance enters failed status or restarts repeatedly after creation.
+
+**Possible Causes:**
+
+- Startup command parameters are incorrect.
+- The image lacks framework dependencies.
+- Model path or environment variables do not match.
+
+**Handling:**
+
+1. View deployment events and container logs.
+2. Verify startup command, port, and environment variables.
+3. Revalidate with a compatible image.
+
+### Framework Is Unavailable on the Deployment Page
+
+**Issue Symptom:**
+
+The framework has been maintained, but users cannot see it when creating a deployment.
+
+**Possible Causes:**
+
+- The framework is not enabled.
+- The current model type or runtime image is not associated.
+- The user's business region has no corresponding deployment asset permission.
+
+**Handling:**
+
+1. Confirm framework enablement status.
+2. Complete model type and image associations.
+3. Verify business region and tenant authorization.
+
+## Next Steps
+
+1. Maintain runtime images.
+2. Associate model assets.
+3. Create a test deployment to validate framework availability.
 
 ## Notes
 
-- **Deletion operations are irreversible.** Please operate with caution.
-- When configuring the image address, ensure that the image has been correctly pushed to the container image repository of the corresponding cloud platform.
-- The startup command needs to be configured according to the actual model and framework requirements. Incorrect startup commands may cause deployment failure.
-- In multi-cloud scenarios, ensure that the account permissions of each cloud platform are sufficient (at least permissions to read the image repository and call GPU instances are required).
+- Do not hardcode keys or internal paths in startup commands.
+- Ports must match the ports exposed by images.
+- After framework changes, validate with a test deployment.

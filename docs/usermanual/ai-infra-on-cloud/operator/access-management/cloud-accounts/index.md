@@ -1,63 +1,139 @@
-# Access Cloud Accounts
+# Access Accounts
 
-## Preface
+::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+:::
 
-| Item            | Content                                                                                                                                                |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Target Audience | Operator                                                                                                                                               |
-| Navigation Path | Access Management > Access Cloud Accounts                                                                                                              |
-| Overview        | Maintain cloud account credentials (Access Key) under each cloud platform, providing identity authentication support for subsequent model deployment and compute configuration processes |
+::: warning Security Notice
+Cloud account access involves AK/SK, access keys, cloud provider accounts, authorization policies, and resource permissions. Do not expose real AK/SK, account IDs, Secret Key, access tokens, or internal Endpoint values in documentation, screenshots, tickets, or comments. Use placeholders for examples and review regularly according to key rotation requirements.
+:::
 
-## Page Structure
+## Feature Overview
 
-### Cloud Platform Tabs
+`Access Accounts` is used to maintain cloud provider account credentials for Alibaba Cloud, AWS, Huawei Cloud, Google Cloud, private clouds, and similar platforms.
 
-The page top provides cloud platform Tabs (**All** / Huawei Cloud / AWS / Alibaba Cloud / Google Cloud / AGIOne-powerone [Private]).
+| Item | Content |
+| --- | --- |
+| Applicable role | Operator |
+| Navigation path | Access Management > Access Accounts |
+| Page route | /infrahub/op/access/account |
+| Managed objects | Cloud accounts, cloud platforms, Access Key, authorization status, and resource access permissions |
+| Typical use | Connect cloud provider accounts and provide authentication for resource pool discovery, model deployment, and cloud resource management |
 
-### Search Area
+### Beginner View
 
-The page top provides search fields (**Name** / **Status**) with **"Search"** / **"Reset"** buttons.
+A cloud account is like a keychain that lets the platform access cloud provider resources. The key must open the door, but the permissions must not be too broad. The document only explains field meanings. Real AK/SK, account IDs, and authorization policies must be maintained only in secure input fields or a key system.
 
-### Data List
+### Terms
 
-By default, all cloud account cards are displayed in a grid (2 per row). Each card contains Account Name / Cloud Platform Logo + Name / Public-Private Cloud / Creation Time / Status ("Available", etc.), e.g., aws (public, 2026-05-07 17:43:34), google-prod-account (public, 2026-05-19 17:15:05), aliyun-wh-dev (public, 2026-04-28 15:24:05), HuaweiOperatorAccount (public, 2024-07-30 09:37:40), etc.
+| Term | Description |
+| --- | --- |
+| Access Key ID | Cloud provider access key ID used to identify the access identity. |
+| Secret Key | Sensitive key paired with Access Key ID. It can only be saved in the platform's secure input field. |
+| Cloud platform | Cloud provider or private cloud platform type that owns the account. |
+| Least privilege | Grants only the resource access and deployment permissions required by the current business. |
 
-### Action Buttons
+## Prerequisites
 
-- The page top-right provides the **"Add Cloud Account"** button for adding new cloud accounts.
-- Each cloud account card provides an **"Edit"** button (direct edit).
-- The top-right of each cloud account card provides a **"..."** (More) button, which contains the **"Delete"** operation.
+1. The current account has permission to access cloud accounts.
+2. The cloud provider account, AK/SK, or role authorization is ready and follows least privilege.
+3. Resource synchronization regions and authorization policies have been confirmed.
 
-## Operations
+## Page Description
 
-### Adding a Cloud Account
+The page is used to access and maintain cloud provider accounts, credential validation status, resource synchronization scope, and authorization policies. Operators need to manage accounts by cloud platform, account purpose, and region scope, and avoid mixing production, test, and customer accounts.
 
-1. Enter the platform homepage, click the **"Access Management > Access Cloud Accounts"** menu in the left navigation bar to enter the access account management page.
-2. Click the **"Add Cloud Account"** button at the top right of the page to pop up the "Add Account" window.
+Page screenshot:
 
-![Access Cloud Accounts](./images/cloud-accounts-list.png)
+![Cloud Account List](./images/cloud-accounts-list.png)
 
-3. Configure the account information:
-   - Fill in the **"Account Name"** to identify the cloud account;
-   - Select **"Choose Cloud Platform"** from the dropdown (e.g., Alibaba Cloud, Amazon, Huawei Cloud, etc.);
-   - Enter the target cloud platform's **"Access Key ID"**;
-   - Enter the target cloud platform's **"Access Key Secret"**.
-4. After confirming all information is correct, click the **"Confirm"** button to complete the addition; to discard, click **"Cancel"**.
+Used to view cloud account status, resource synchronization, and authorization entries.
 
-![Add Account](./images/add-account.png)
+## Main Operations
 
-#### Parameters
+### Procedure
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Account Name | Text | `aliyun-wh-dev` | Required. Custom account identifier |
-| Choose Cloud Platform | Dropdown | `Alibaba Cloud` | Required. Select the target cloud platform |
-| Access Key ID | Text | `LTAI5tM8xHnXoLuBW...` | Required. Cloud platform access credential ID |
-| Access Key Secret | Password | `flsBCIDPLksdaNh05J...` | Required. Cloud platform access credential secret |
+1. Go to `Access Management > Cloud Accounts`.
+2. Filter target accounts by cloud platform, account status, or account name.
+3. When adding an account, select the cloud platform and fill in account name, authorization method, and resource scope.
+4. Enter access keys in secure input fields or select an existing key reference.
+5. After saving, run connectivity validation and check resource synchronization status.
 
-## Other Operations
+Key step screenshot:
 
-| Operation | Steps |
-|-----------|-------|
-| Edit Account | Click the target account card's **"Edit"** button → Modify the account information → Click **"Confirm"** |
-| Delete Account | Click the top-right **"..."** (More) button on the target account card → Select **"Delete"** → **Data cannot be recovered after deletion. Please operate with caution.** |
+![Add Cloud Account](./images/add-account.png)
+
+Use redacted examples when adding. Do not expose AK/SK or account IDs in screenshots.
+
+### Parameters
+
+| Field | Required | Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Account name | Yes | Text | `prod-cloud-account` | Display name in the platform. It should indicate purpose and cloud platform. |
+| Cloud platform | Yes | Dropdown | `Alibaba Cloud` | Cloud provider or private cloud platform that owns the account. |
+| Authorization method | Yes | Enum | `AK/SK` | Access key, role authorization, or another method supported by the platform. |
+| Resource scope | Conditionally required | Multi-select | `cn-shanghai` | Regions or resource scopes allowed for synchronization and use. |
+| Validation status | System-generated | Enum | `Validation passed` | Returned by the platform according to credentials and cloud provider APIs. |
+
+### Pitfalls
+
+- Do not write AK/SK, Secret Key, or account IDs into documentation, screenshots, or ticket comments.
+- Production accounts should use least-privilege policies instead of global administrator permissions.
+- Before disabling an account, confirm whether resource pools, authorization, and deployment instances still reference it.
+
+### Result Validation
+
+1. The account list shows the new account and normal validation status.
+2. Resource synchronization tasks can obtain resources from the target regions.
+3. Resource pool and authorization pages can select resources under this account.
+
+## FAQ
+
+### Account Validation Fails
+
+**Issue Symptom:**
+
+After saving a cloud account, validation status shows failed or resources cannot synchronize.
+
+**Possible Causes:**
+
+- The access key is invalid or expired.
+- The authorization policy lacks permission to query resources.
+- Cloud provider API, proxy, or private cloud Endpoint is unreachable.
+
+**Handling:**
+
+1. Update credentials in the key system.
+2. Verify cloud provider authorization policies and the least-privilege checklist.
+3. Check network, proxy, certificate, and cloud platform connectivity.
+
+### Target Region Resources Cannot Be Synchronized
+
+**Issue Symptom:**
+
+Account validation passes, but the resource pool page has no target region or resources.
+
+**Possible Causes:**
+
+- The resource scope does not include the target region.
+- Cloud provider resource tags or types do not match synchronization rules.
+- The synchronization task has not completed or failed.
+
+**Handling:**
+
+1. Check account resource scope configuration.
+2. Confirm that cloud-side resources have been created and are available.
+3. View synchronization task status and handle according to the error message.
+
+## Next Steps
+
+1. Create or synchronize cloud resource pools.
+2. Configure tenant-cloud authorization and business region authorization.
+3. Maintain deployable models and runtime environments on deployment asset pages.
+
+## Notes
+
+- AK/SK, Secret Key, and account IDs must not appear in screenshots or ticket bodies.
+- After cloud account validation passes, resource synchronization results still need to be confirmed.
+- Before changing production accounts, assess the impact on resource pools and deployments.

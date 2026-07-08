@@ -1,57 +1,139 @@
-# Tenant-Cloud Platform Authorization
+# Tenant Cloud Authorization
 
-## Preface
+::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+:::
 
-| Item            | Content                                                                                                                                |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| Target Audience | Operator                                                                                                                               |
-| Navigation Path | Authorization Management > Tenant-Cloud Platform Authorization                                                                          |
-| Overview        | Assign the use permission of cloud platforms to different tenants, enabling precise control of tenants' use of cloud platforms   |
+::: warning Security Notice
+Tenant cloud authorization involves tenant names, cloud accounts, resource pools, and validity periods. Do not expose real tenant names, cloud account IDs, authorization scopes, or internal approval information in screenshots, tickets, or comments. Authorization should follow the least-privilege principle.
+:::
 
-## Page Structure
+## Feature Overview
 
-### Search Area
+`Tenant Cloud Authorization` is used to maintain tenants, cloud accounts, resource pools, regions, and available permissions, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.
 
-The page top provides tenant name and tenant ID filter input boxes, and **"Search"** and **"Reset"** operation buttons.
+| Item | Content |
+| --- | --- |
+| Applicable role | Operator |
+| Navigation path | Authorization Management > Tenant Cloud Authorization |
+| Page route | /operator/auth-management/tenant-cloud-auth |
+| Managed objects | Tenants, cloud accounts, resource pools, regions, and available permissions |
+| Typical use | Authorize cloud resource capabilities to specified tenants |
 
-### Action Buttons
+### Beginner View
 
-The page top-right provides the **"Add Authorization"** button. The tip area displays the current function description text.
+Tenant cloud authorization is like assigning resource shelves to tenants. A resource pool existing only means "the warehouse has inventory". Only after authorization is complete can the tenant use these cloud resources during deployment.
 
-### Data List
+### Terms
 
-The data table area displays the list of authorized tenants, including tenant name, tenant ID, authorized cloud platforms, and action columns.
+| Term | Description |
+| --- | --- |
+| Tenant | Organization or account scope authorized to use cloud resources. |
+| Authorization scope | Cloud platforms, accounts, resource pools, and regions that the tenant is allowed to use. |
+| Resource pool | Resource collection summarized by cloud account, region, and resource type. |
+| Validity period | Time boundary for authorization to take effect and expire. |
 
-## Operations
+## Prerequisites
 
-### Adding Authorization
+1. The target tenant has been created.
+2. Authorizable cloud platforms, cloud accounts, and resource pools have been accessed.
+3. Authorization scope, validity period, and revocation strategy have been confirmed.
 
-1. Enter the platform homepage, click the **"Authorization Management > Tenant-Cloud Platform Authorization"** menu in the left navigation bar to enter the cloud platform authorization management page.
-2. Click the **"Add Authorization"** button at the top right of the page to pop up the "Add Authorization" window.
+## Page Description
 
-![Tenant-Cloud Platform Authorization](./images/tenant-cloud_auth.png)
+The page is used to configure available cloud platforms, cloud accounts, resource pools, and resource scope by tenant. Operators should confirm tenant ownership, permission boundaries, and resource quotas to avoid overly broad authorization or authorization to the wrong region.
 
-3. In the **"Choose Cloud Platform"** dropdown list, check the cloud platforms to be authorized (multiple selections supported, e.g., Huawei Cloud, Amazon, AGIOne-powerone).
-4. Select the authorization scope (one of two):
-   - **"Authorize Single Tenant"**: Authorize the specified tenant. At this time, fill in the target tenant name in the **"Choose Tenant"** input box;
-   - **"Authorize All Tenants"**: Authorize all tenants without filling in the tenant name.
-5. After confirming all configurations are correct, click the **"Confirm"** button to complete the authorization; to discard, click **"Cancel"**.
+Page screenshot:
+
+![Tenant Cloud Authorization List](./images/tenant-cloud-auth.png)
+
+Used to view tenants, cloud accounts, resource pools, and validity periods.
+
+## Main Operations
+
+### Procedure
+
+1. Go to `Authorization Management > Tenant Cloud Authorization`.
+2. Select the target tenant and view existing authorization scope.
+3. Select available resources by cloud platform, cloud account, resource pool, and region.
+4. Set enablement status, validity period, or notes.
+5. After saving, validate from the tenant perspective whether the corresponding resources can be selected on the deployment page.
+
+Key step screenshot:
 
 ![Add Authorization](./images/add-authorization.png)
 
-> Note: The administrator can assign the use permission of cloud platforms to different tenants here. After the authorization is completed, the tenant can only access and use the authorized cloud platform resources and services, so as to achieve precise control of the tenant's use of cloud platforms and ensure the standardization and security of resource access.
+Follow the least-privilege principle when adding authorization.
 
-#### Parameters
+### Parameters
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Choose Cloud Platform | Multi-select Dropdown | `Huawei Cloud`, `Amazon`, `AGIOne-powerone` | Required. Supports selecting multiple cloud platforms simultaneously |
-| Authorization Scope | Radio | `Authorize Single Tenant` / `Authorize All Tenants` | Required. Determines the authorization target |
-| Choose Tenant | Text | `dushuangyan01` | **Required when authorizing a single tenant**. Fill in the target tenant name |
+| Field | Required | Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Tenant | Yes | Dropdown | `tenant-a` | Tenant authorized to use cloud resources. |
+| Cloud platform | Yes | Dropdown | `Alibaba Cloud` | Cloud platform covered by the authorization. |
+| Resource pool | Yes | Multi-select | `gpu-cn-shanghai-prod` | Resource collections the tenant can use. |
+| Validity period | No | Date range | `2026-07-01 to 2026-12-31` | Controls the temporary authorization boundary. |
+| Authorization status | Yes | Enum | `Enabled` | Controls whether the authorization takes effect. |
+
+### Pitfalls
+
+- Tenant authorization does not mean the business region is already available. Configure business region authorization when necessary.
+- Do not reuse customer-dedicated resources across tenants in the authorization scope.
+- Before revoking authorization, confirm whether the tenant has running deployments.
+
+### Result Validation
+
+1. The tenant authorization list shows the target cloud platform and resource pool.
+2. The user deployment page can show authorized resources.
+3. Unauthorized tenants cannot select this resource pool.
+
+## FAQ
+
+### Tenant Deployment Page Cannot See Resources
+
+**Issue Symptom:**
+
+After authorization, users still cannot select the target resource pool when creating a deployment.
+
+**Possible Causes:**
+
+- Business region authorization has not been configured.
+- The resource pool is not enabled or capacity is 0.
+- The user account does not belong to the target tenant or lacks permissions.
+
+**Handling:**
+
+1. Check business region authorization.
+2. Confirm resource pool status and capacity.
+3. Verify the user's tenant and menu permissions.
+
+### Authorization Does Not Take Effect After Saving
+
+**Issue Symptom:**
+
+The authorization record exists, but downstream pages still show the old scope.
+
+**Possible Causes:**
+
+- Authorization cache or synchronization task has not refreshed.
+- Authorization status is disabled.
+- The wrong tenant was selected as the authorization object.
+
+**Handling:**
+
+1. Confirm authorization status and target tenant.
+2. Wait for or trigger authorization synchronization.
+3. Log in again from the user perspective to verify.
+
+## Next Steps
+
+1. Configure business region authorization.
+2. Set quotas or scheduling policies for the tenant.
+3. Guide users to create cloud model deployments.
 
 ## Notes
 
-- Before authorization, ensure that the target tenant already exists and the cloud platform has been correctly connected to the system.
-- When the authorization scope is "Authorize All Tenants", new tenants will automatically obtain the use permission of the cloud platform.
-- **The delete authorization operation is irreversible**. After deletion, the relevant tenants will no longer be able to access the cloud platform. Please operate with caution.
-- Cloud platform authorization is a prerequisite for tenants to use cloud resources. Unauthorized tenants cannot access any cloud platform resources.
+- Tenant authorization is not the same as business region authorization.
+- Configure authorization scope by the minimum necessary principle.
+- Confirm impact on running deployments before revoking authorization.

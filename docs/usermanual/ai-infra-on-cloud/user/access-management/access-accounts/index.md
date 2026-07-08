@@ -1,63 +1,139 @@
-# Access Accounts
+# My Access Accounts
 
-## Preface
+::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+:::
+
+::: warning Security Notice
+Cloud account access involves AK/SK, access keys, cloud provider accounts, authorization policies, and resource permissions. Do not expose real AK/SK, account IDs, Secret Key, access tokens, or internal Endpoint values in documentation, screenshots, tickets, or comments. Use placeholders for all examples.
+:::
+
+## Feature Overview
+
+`My Access Accounts` is used to maintain user-side cloud accounts, access keys, authorization status, and available resource scope, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.
 
 | Item | Content |
-| ---- | ------- |
-| Applicable Role | User |
-| Navigation Path | Access Management > Access Accounts |
-| Function Description | Provides cloud platform account access, editing, and deletion functionality |
+| --- | --- |
+| Applicable role | User |
+| Navigation path | Access Management > My Access Accounts |
+| Page route | /user/access-management/access-accounts |
+| Managed objects | User-side cloud accounts, access keys, authorization status, and available resource scope |
+| Typical use | Users maintain their own cloud accounts or view authorized accounts |
 
-## Page Structure
+### Beginner View
 
-### Search Area
+My Access Accounts is like the user's cloud resource pass. It is used to view which cloud accounts, regions, and resource scopes have been authorized to the user, so the corresponding resources can be selected later when deploying model services.
 
-The top of the page provides a cloud platform filter, a search box, and **"Search"** and **"Reset"** buttons.
+### Terms
 
-### Action Button Area
+| Term | Description |
+| --- | --- |
+| Access account | Cloud account entry that users can view or maintain. |
+| Authorization status | Whether the account is allowed to be used for deployment. |
+| Available region | Cloud resource regions currently available to the account. |
+| Resource scope | CPU, GPU, storage, or other resource types available to the account. |
 
-The upper-right corner of the page provides the **"Add Cloud Account"** button for adding a cloud platform account.
+## Prerequisites
 
-### Data List Description
+1. The current account has permission to view or maintain My Access Accounts.
+2. The cloud account to be used has been authorized or self-service access is allowed.
+3. The target business region and available region have been confirmed.
 
-The account card list displays connected cloud platform accounts, including account name, cloud platform, account type, creation time, and other information.
+## Page Description
 
-## Operations
+The page displays available access accounts, authorization status, cloud platforms, available regions, and resource scope to users. Users should first confirm whether the account is authorized and whether the region matches, then enter the deployment workflow. If an account needs to be added or modified, operate according to page permissions.
 
-### Add Cloud Account
+Page screenshot:
 
-1. Enter the platform homepage and click **"Access Management"** in the left navigation bar to enter the Access Accounts management page.
-2. Click the **"Add Cloud Account"** button in the upper-right corner of the page to open the "Add Account" window.
+![My Access Account List](./images/access-accounts-list.png)
 
-![Access Accounts](./images/access-accounts-list.png)
+Used to confirm the cloud accounts, regions, and authorization status available to the current account.
 
-3. Configure account information:
-   - Enter the **Account Name** (for example, `aliyun-test`);
-   - Select the **Cloud Platform** (for example, Alibaba Cloud, Huawei Cloud, Amazon, etc.);
-   - Enter the **Access Key ID**;
-   - Enter the **Access Key Secret**.
-4. After confirming that all information is configured correctly, click **"Confirm"** to complete the addition.
+## Main Operations
 
-![Add Account](./images/add-account.png)
+### Procedure
 
-#### Parameters
+1. Go to `Access Management > My Access Accounts`.
+2. View the cloud platform, authorization status, and available regions of each account.
+3. When adding a self-owned cloud account, use the page entry to fill in account name, cloud platform, and authorization method.
+4. Submit and wait for validation or operator review.
+5. Return to Quick Deployment and confirm that the corresponding cloud resources can be selected.
 
-| Field Name | Field Type | Example | Description |
-|----------|----------|------|------|
-| Account Name | Text | `aliyun-test` | Required. Custom account identifier |
-| Select Cloud Platform | Dropdown | `Alibaba Cloud` | Required. Select the cloud platform to which the account belongs |
-| Access Key ID | Text | `your-access-key-id` | Required. Access key ID of the cloud platform |
-| Access Key Secret | Text | `your-access-key-secret` | Required. Access key Secret of the cloud platform |
+Key step screenshot:
 
-## Other Operations
+![Add Access Account](./images/add-account.png)
 
-| Operation | Steps |
-|----------|----------|
-| Edit Account | Click the **"..."** (More) button in the upper-right corner of the target account card → Select **"Edit"** → Modify account information → Click **"Confirm"** |
-| Delete Account | Click the **"..."** (More) button in the upper-right corner of the target account card → Select **"Delete"** → Confirm the operation (**Data cannot be recovered after deletion. Please operate with caution**) |
+After adding, confirm that authorization status is available before Quick Deployment.
+
+### Parameters
+
+| Field | Required | Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Account name | Yes | Text | `my-cloud-account` | User-side display name. |
+| Cloud platform | Yes | Dropdown | `Alibaba Cloud` | Cloud platform that owns the account. |
+| Authorization status | System-generated | Enum | `Authorized` | Determines whether it can be used for deployment. |
+| Available region | System-generated | Multi-select | `cn-shanghai` | Cloud regions available to the account. |
+| Resource scope | System-generated | Text | `GPU / CPU` | Resource types available to the current account. |
+
+### Pitfalls
+
+- Users should not expose cloud account IDs, AK/SK, or authorization policies in screenshots or tickets.
+- An account being authorized does not mean all regions are available. Verify the business region before deployment.
+- Deleting or disabling an account may affect scaling or reconstruction of existing deployments.
+
+### Result Validation
+
+1. The account list shows authorization status and available regions.
+2. The Quick Deployment page can show cloud resources matching the account.
+3. Accounts without permission or authorization do not appear in selectable resources.
+
+## FAQ
+
+### Account Shows Unauthorized
+
+**Issue Symptom:**
+
+The account is visible in the list, but its status is unauthorized or unavailable.
+
+**Possible Causes:**
+
+- The operator has not completed authorization.
+- Account validation failed.
+- The account's available region does not match the current business region.
+
+**Handling:**
+
+1. View status and prompts in account details.
+2. Confirm the business region selected for deployment.
+3. Contact the operator to handle authorization or validation issues.
+
+### Deployment Page Cannot See Account Resources
+
+**Issue Symptom:**
+
+Account status is normal, but corresponding resources are absent during Quick Deployment.
+
+**Possible Causes:**
+
+- The resource pool is not opened to the current tenant.
+- Business region authorization is missing.
+- The current account has no deployment permission.
+
+**Handling:**
+
+1. Confirm business region and deployment permissions.
+2. Contact the operator to verify resource pools and authorization scope.
+3. Refresh the page and re-enter the deployment workflow.
+
+## Next Steps
+
+1. Enter Quick Deployment to create a model service.
+2. View My Deployments to confirm service status.
+3. Contact the operator to adjust authorization scope as needed.
 
 ## Notes
 
-- **Access Key Secret** is sensitive information. Keep it secure and do not disclose it.
-- **Account deletion is irreversible**. Data cannot be recovered after deletion. Please operate with caution.
-- Ensure that the entered Access Key ID and Access Key Secret are consistent with the cloud platform console. Otherwise, resource pulling may fail.
+- Do not expose cloud account IDs, AK/SK, or authorization policies in screenshots.
+- An account being authorized does not mean all regions are available.
+- Account deletion or disabling may affect existing deployments.

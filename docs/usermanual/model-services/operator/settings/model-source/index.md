@@ -1,85 +1,144 @@
-# Model Source
+# Model Sources
 
-## Preface
+::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+:::
 
-| Item            | Content                                                                                                                                                                                                              |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Target Audience | Operator                                                                                                                                                                                                             |
-| Navigation Path | Settings > Model Source                                                                                                                                                                                              |
-| Overview        | Manage model service source channels and regional node configurations, defining API call addresses, key addresses, and authentication information, providing foundational data support for model publishing, template creation, and other processes |
+::: warning Security Notice
+Model service documentation and screenshots must not expose real Endpoints, API Keys, request header authentication values, model source secrets, internal model IDs, customer call content, or business pricing policies. Use placeholders in all examples.
+:::
 
-## Page Structure
+## Feature Overview
 
-### Search Area
+`Model Sources` is used to maintain or view source channels, regions, Base URLs, request headers, authentication information, and connectivity status. It supports model publishing, experimentation, calling, statistics, and operational governance.
 
-The page top supports multi-dimensional filtering by model source name, identifier, and region.
+| Item | Content |
+| --- | --- |
+| Applicable role | Operator |
+| Navigation path | System Settings > Model Sources |
+| Page route | /operator/settings/model-source |
+| Managed objects | Source channels, regions, Base URLs, request headers, authentication information, and connectivity status |
+| Typical use | Maintain upstream model service sources |
 
-### Action Buttons
+### Beginner Explanation
 
-- The page top-right provides the **"Add"** button for adding new model sources.
-- Each model source card provides a **"..." (More)** button, including **"Edit"**, **"Details"**, and **"Delete"** operations.
+Model sources are like an address book for upstream model services. If a source is configured incorrectly, later model templates and published models will fail to call it.
 
-### Data List
+### Terms Quick Reference
 
-The page displays all model sources in card format, with each card showing multilingual name, identifier, region count, Base URL, and the number of associated meta-models.
+| Term | Description |
+| --- | --- |
+| Source channel | Vendor, organization, or access channel that owns the model service. |
+| Base URL | Base address of the upstream model service. |
+| Request header | Authentication or custom Header attached when calling the upstream service. |
+| Connectivity | Result of the platform test for upstream service reachability. |
 
-## Operations
+## Prerequisites
 
-### Adding a Model Source
+1. The current account has model source maintenance permission.
+2. Endpoint, Base URL, region, authentication method, and request header fields are prepared.
+3. Network connectivity and certificate policy for the upstream model service have been confirmed.
+4. Credentials used for connectivity tests have been entered through a secure method.
+## Page Description
 
-1. Enter the platform homepage, click the **"Settings > Model Source"** menu in the left navigation bar to enter the model source management page.
-2. Click the **"Add"** button at the top right of the page to enter the "Add Model Source" configuration page.
+This page maintains upstream model sources, including Endpoint, region, request header authentication, source channel, and connectivity. If the model source is configured incorrectly, subsequent model publishing and calls will fail.
 
-![Model Source](./images/model-source-list.png)
+Page screenshot:
 
-- **Basic Information**:
-   - **"Name"** (marked "Multilingual"): Used to set the model source name displayed in lists, details, and selection controls. Click the **"English"** / **"Chinese"** tabs to switch language tabs, with the prompt **"Currently editing English name. Switch language to maintain another language version"**. Fill in the names for the English and Simplified Chinese environments in the corresponding tabs (e.g., English: `Alibaba` / Chinese: `阿里巴巴`);
-   - Fill in the **"Model Source Identifier"** (e.g., `alibaba-china`), used to uniquely identify this model source.
+![Model source list](./images/model-source-list.png)
 
-![Basic Information](./images/basic-information.png)
+Used to view source status, region, and connectivity.
 
-- **Region Information**:
-   - **"Region Identifier"** (e.g., `china`);
-   - **"Region Name"** (multilingual, marked with "English / Chinese" dual tabs): e.g., English: `China` / Chinese: `中国`;
-   - **"Base URL"** (e.g., `https://dashscope.aliyuncs.com`);
-   - **"API Key Address"** (e.g., `https://bailian.console.aliyun.com`);
-   - **"API Documentation Address"** (e.g., `https://bailian.console.aliyun.com/cn-bei`);
-   - Click the **"Delete"** button at the end of a row to remove that region; click **"+ Add Region"** to add more regional nodes.
+## Main Operations
 
-![Region Information](./images/region-information.png)
+### Steps
 
-- **Request Header Configuration**: The default authentication field is `Authorization: Bearer <key>`. Click **"+ Add Request Header"** to add custom request headers (authentication field name + authentication value).
+1. Go to `System Settings > Model Sources`.
+2. Add or edit source name, provider, and region.
+3. Fill in a redacted Endpoint or Base URL placeholder example.
+4. Configure request header name and authentication value placeholder.
+5. Run the connectivity test and save.
 
-![Request Header Configuration](./images/headers-configuration.png)
+Key screenshots:
 
-- After confirming all information is correct, click the **"Confirm"** button to complete the addition; to discard, click **"Cancel"**.
+![Model source basic information](./images/basic-information.png)
 
-#### Parameters
+Use placeholder examples when filling in source name, protocol, and Endpoint.
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Name | Multilingual Text | `Alibaba / 阿里巴巴` | Required. Configure display names under the "English" and "Chinese" tabs respectively |
-| Model Source Identifier | Text | `alibaba-china` | Required. The unique identifier of the model source |
-| Region Identifier | Text | `china` | Required. The unique identifier of the regional node |
-| Region Name | Multilingual Text | `China / 中国` | Required. The multilingual name of the regional node (English / Chinese dual tabs) |
-| Base URL | URL | `https://dashscope.aliyuncs.com` | Required. The base API address of the model service |
-| API Key Address | URL | `https://bailian.console.aliyun.com` | Optional. The official address for obtaining API keys |
-| API Documentation Address | URL | `https://bailian.console.aliyun.com/cn-bei` | Optional. The API documentation address of the model service |
-| Request Header - Authentication Field Name | Text | `Authorization` | Optional. The authentication field key name in the request header |
-| Request Header - Authentication Value | Text | `Bearer <key>` | Optional. The authentication value in the request header, supporting template variables |
+![Request header configuration](./images/headers-configuration.png)
 
-## Other Operations
+Do not expose real API Keys or authentication values in request headers.
 
-| Operation | Steps |
-|-----------|-------|
-| Edit Model Source | Click the target model source card's **"..." (More)** button → Select **"Edit"** → Modify name, region, request header, etc. → Click **"Confirm"** |
-| View Model Source Details | Click the target model source card's **"..." (More)** button → Select **"Details"** → View complete configuration information |
-| Delete Model Source | Click the target model source card's **"..." (More)** button → Select **"Delete"** → Confirm operation (**This action is irreversible. Please operate with caution.**) |
-| Filter and Search | Enter model source name, identifier, or region → Click the **"Search"** button to quickly locate the target source |
+### Parameters
+
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Source Name | Yes | Text | `dashscope-cn` | Display name of the model source. |
+| Region | Yes | Text | `cn-shanghai` | Region where the source service is located. |
+| Endpoint | Yes | URL | `https://api.example.com/v1` | Upstream base address. Use a placeholder in examples. |
+| Request Headers | Conditionally required | Key-value | `Authorization: Bearer <key>` | Authentication request headers. Do not write real keys. |
+| Connectivity Status | System-generated | Enum | `Passed` | Tests whether the upstream service is reachable. |
+
+
+### Pitfalls
+
+- Do not misspell the protocol prefix or path in Endpoint.
+- Request header authentication values should use secure inputs and should not be written in remarks.
+- After connectivity passes, still test the protocol with a concrete model.
+
+
+### Result Checks
+
+1. The model source shows connected or available status in the list.
+2. The source can be selected in template and model publishing flows.
+3. Request headers, region, and Base URL match upstream service requirements.
+4. When connectivity testing fails, a clear error message is visible.
+## FAQ
+
+### Model Source Connectivity Test Fails
+
+**Symptom:**
+
+After saving the source, the connection test returns timeout, 401, 403, or 5xx.
+
+**Possible Causes:**
+
+- Endpoint, path, or region is incorrect.
+- Request header authentication value is invalid or lacks permission.
+- Network, proxy, certificate, or firewall access is unavailable.
+
+**Handling:**
+
+1. Check Endpoint, region, and path.
+2. Update authentication request headers or credential references.
+3. Contact the network or upstream service administrator to check connectivity.
+
+### Template Cannot Reference the Model Source
+
+**Symptom:**
+
+The source has been created, but it cannot be selected in the model template or publishing flow.
+
+**Possible Causes:**
+
+- The source is not enabled.
+- Source provider or region does not match the template.
+- Source synchronization status is abnormal.
+
+**Handling:**
+
+1. Confirm source status and provider.
+2. Check template applicability scope.
+3. Refresh synchronization and select again.
+## Next Steps
+
+1. Run the connectivity test immediately and confirm that Endpoint, authentication request headers, and return format are usable.
+2. Select this source in related models or templates and validate whether the call chain works.
+3. Periodically check source health, rate-limit policy, and credential validity.
 
 ## Notes
 
-- **Deletion operations are irreversible.** Please operate with caution.
-- Before deleting a model source, all associations with meta-models and templates must be removed first.
-- When configuring regions and request headers, ensure the Base URL and authentication information are accurate to avoid call failures.
-- Multilingual fields must maintain both English and Chinese versions simultaneously. Switch language tabs to maintain the other language version.
+- Model sources involve Endpoints, request headers, and authentication information. All examples must use placeholders.
+- Passing connectivity testing does not guarantee long-term availability. Review provider rate limits, allowlists, and health status as well.
+- After changing authentication method or request headers, validate Playground and API calls for associated models.

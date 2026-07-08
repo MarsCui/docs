@@ -1,49 +1,139 @@
-# Business-Resource Pool Authorization
+# Business Region Authorization
 
-## Preface
+::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+:::
 
-| Item            | Content                                                                                                                                                                                          |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Target Audience | Operator                                                                                                                                                                                         |
-| Navigation Path | Authorization Management > Business-Resource Pool Authorization                                                                                                                                  |
-| Overview        | Assign the use permission of cloud platform regions to different business types, enabling refined control of tenants' access to cloud platform regions                              |
+::: warning Security Notice
+Business region authorization involves business identifiers, region scope, resource pools, and deployable boundaries. Do not expose real business names, customer names, region policies, or internal capacity information. Before changing authorization, confirm the impact on existing deployments.
+:::
 
-## Page Structure
+## Feature Overview
 
-### Search Area
+`Business Region Authorization` is used to maintain business regions, cloud resource pools, tenant scope, and authorization status, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.
 
-The page top provides business type filter tags and search functionality, supporting quick location of target business types.
+| Item | Content |
+| --- | --- |
+| Applicable role | Operator |
+| Navigation path | Authorization Management > Business Region Authorization |
+| Page route | /operator/auth-management/business-region-auth |
+| Managed objects | Business regions, cloud resource pools, tenant scope, and authorization status |
+| Typical use | Open resource pool capabilities to specified business regions |
 
-### Action Buttons
+### Beginner View
 
-The page top-right provides **"Export"** and **"Import"** buttons for batch management of authorization configurations.
+Business region authorization is like applying a tenant's resource usage permission to a concrete business area. Tenant authorization is only the first layer. After the business region matches, deployment requests can be scheduled to the correct cloud resources.
 
-### Data List
+### Terms
 
-The business type card list displays the configured business types (e.g., `INFERENCE_JOB` Inference Deployment), showing the cloud platform authorization statistics of each type.
+| Term | Description |
+| --- | --- |
+| Business region | Resource area displayed to the business. |
+| Authorization scope | Regions, tenants, or user collections allowed to use resource pools. |
+| Resource pool mapping | Association between a business region and cloud resource pools. |
+| Effective status | Whether the authorization configuration has been recognized by downstream deployment workflows. |
 
-## Operations
+## Prerequisites
 
-### Authorizing Regions
+1. The target business region has been created.
+2. Tenant cloud authorization and resource pools are ready.
+3. The mapping between business regions and cloud regions has been confirmed.
 
-1. Enter the platform homepage, click the **"Authorization Management > Business-Resource Pool Authorization"** menu in the left navigation bar to enter the resource pool authorization management page.
-2. After expanding the business type, the cloud platform authorized region count card grid (5 per row) is displayed below, e.g., Huawei Cloud `1` / AWS `1` / Alibaba Cloud `3` / Google Cloud `2` / AGIOne-powerone `0`, for quick viewing of authorization statistics.
-3. Click the **"+ Authorize Region"** button on the right side of the business type to pop up the "Authorize Region" window.
+## Page Description
 
-![Business-Resource Pool Authorization](./images/business-region_auth-list.png)
+The page is used to authorize cloud resource pools to specified business regions and control which resource ranges are available to different regions, business lines, or environments. Operators should keep business region, cloud region, and scheduling policy definitions consistent.
 
-4. The blue information bar at the top of the window displays **"Current Authorized Business: Inference Deployment"**.
-5. In the tree structure, check the regions to be authorized by cloud platform group (e.g., China East 2 (Shanghai), China Hong Kong, Singapore, etc. under Alibaba Cloud). Unchecked regions are not authorized by default.
-6. After confirming the selection is correct, click the **"Confirm"** button to complete the region authorization; to discard, click **"Cancel"**.
+Page screenshot:
 
-![Authorize Region](./images/auth-regions.png)
+![Business Region Authorization List](./images/business-region-auth-list.png)
 
-> Note: This function is used to assign the use permission of specific regions under the cloud platform to different business scenarios. After the authorization is completed, the tenant can only access and use the resources and services of the authorized regions, so as to achieve precise control of the tenant's use of the cloud platform regions and ensure the standardization and security of resource access.
+Used to confirm business regions, resource pools, and authorization status.
 
-#### Parameters
+## Main Operations
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Business Type | Radio | `Inference Deployment` | Required. Identifies the business scenario that requires resource pool authorization |
-| Cloud Platform | Checkbox | `Alibaba Cloud` / `Amazon` | Required. Select the cloud platform to be authorized (grouped by tree structure) |
-| Region | Checkbox | `China East 2 (Shanghai)` / `China Hong Kong` | Required. Select the specific regions to be authorized under the selected cloud platform |
+### Procedure
+
+1. Go to `Authorization Management > Business Region Authorization`.
+2. Select a business region, tenant, or business line.
+3. Select available cloud platforms, cloud regions, and resource pools.
+4. Set enablement status, priority, or notes.
+5. After saving, validate resource visibility on the deployment page by business region.
+
+Key step screenshot:
+
+![Authorized Region Selection](./images/auth-regions.png)
+
+Confirm the business region and resource scope before authorization.
+
+### Parameters
+
+| Field | Required | Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Business region | Yes | Dropdown | `East China Production` | Business region selected during user deployment. |
+| Tenant | Conditionally required | Dropdown | `tenant-a` | Tenant scope to which the authorization applies. |
+| Cloud region | Yes | Dropdown | `cn-shanghai` | Cloud provider region that actually hosts deployment. |
+| Resource pool | Yes | Multi-select | `gpu-cn-shanghai-prod` | Resources schedulable by the business region. |
+| Priority | No | Number | `10` | Selection order when multiple resource pools are available. |
+
+### Pitfalls
+
+- When business region names are similar, verify their codes to avoid authorizing the wrong environment.
+- Cloud region and business region are not the same concept and should not be mixed directly.
+- Resource pool priority changes affect scheduling results for subsequent deployments.
+
+### Result Validation
+
+1. The business region authorization record is enabled.
+2. Users can see the target resources when selecting this business region.
+3. Scheduling policies select the expected resource pool according to priority.
+
+## FAQ
+
+### No Available Specifications Under a Business Region
+
+**Issue Symptom:**
+
+After a user selects a business region, specifications or resource pools are empty.
+
+**Possible Causes:**
+
+- The business region is not bound to a resource pool.
+- The resource pool has insufficient capacity or is disabled.
+- Tenant cloud authorization is missing.
+
+**Handling:**
+
+1. Check business region authorization records.
+2. Confirm resource pool status and capacity.
+3. Return to the tenant cloud authorization page and verify upper-level authorization.
+
+### Deployment Is Scheduled to an Unexpected Cloud Region
+
+**Issue Symptom:**
+
+After a user selects a business region, the deployment lands in another cloud region.
+
+**Possible Causes:**
+
+- The business region is bound to multiple cloud regions.
+- The scheduling policy has fallback resource pools configured.
+- The preferred resource pool has insufficient capacity.
+
+**Handling:**
+
+1. Check business region authorization and resource pool priority.
+2. View fallback configuration in scheduling policies.
+3. Verify scheduling reasons in deployment events.
+
+## Next Steps
+
+1. Maintain scheduling policies.
+2. Validate the user quick deployment workflow.
+3. Regularly review mappings between business regions and cloud regions.
+
+## Notes
+
+- Business region and cloud region are not the same concept.
+- Resource pool priority affects subsequent scheduling.
+- Cross-region scheduling requires latency, cost, and compliance assessment.

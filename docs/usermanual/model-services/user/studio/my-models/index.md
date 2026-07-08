@@ -1,257 +1,172 @@
 # My Models
 
-## Preface
+::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+:::
+
+::: warning Security Notice
+Model service documentation and screenshots must not expose real Endpoints, API Keys, request header authentication values, model source secrets, internal model IDs, customer call content, or business pricing policies. Use placeholders in all examples.
+:::
+
+## Feature Overview
+
+`My Models` is used to maintain or view owned models, model sources, request headers, Endpoints, publishing methods, billing, and rate-limit configuration. It supports model publishing, experimentation, calling, statistics, and operational governance.
 
 | Item | Content |
-|------|------|
-| Applicable Role | Provider, User |
-| Navigation Path | Studio > My Models |
-| Feature Positioning | Manage and publish owned models, supporting AGIOne-hosted deployment, third-party BYOK access, and multi-model aggregation |
+| --- | --- |
+| Applicable role | Model provider |
+| Navigation path | Studio > My Models |
+| Page route | /user/studio/my-models |
+| Managed objects | Owned models, model sources, request headers, Endpoints, publishing methods, billing, and rate-limit configuration |
+| Typical use | Publish single models, BYOK models, or aggregation models |
 
-## Page Structure
+### Beginner Explanation
 
-### Search Area
+My Models is the publishing workspace for model providers. You can organize materials, sources, pricing, and rate-limit rules for single models, BYOK models, or aggregation models, then submit them for review or publishing.
 
-The top of the page supports multidimensional filtering by public / private models, model name, and model type.
+If the model marketplace is the external shelf, this page is the backstage before listing. Incorrect Endpoint, request header, protocol, or billing configuration affects later Playground, calls, and revenue statistics.
 
-### Action Button Area
+### Terms Quick Reference
 
-- The upper-right corner of the page provides the **"Publish Model"** button.
-- The **"My Aggregations"** Tab provides the **"Create Aggregation Model"** button.
-- Each model provides details, edit, list / delist, and delete operations.
+| Term | Description |
+| --- | --- |
+| BYOK | Use your own Endpoint or API Key to connect a model service. |
+| Aggregation model | Combines multiple provider instances into one external model. |
+| Publishing method | Determines whether the model is published as a single model, BYOK model, or aggregation model. |
+| Billing configuration | Defines billing rules for input, output, or call volume. |
 
-### Data List Description
+## Prerequisites
 
-The page is divided into three Tabs: **"Overview"**, **"My Published"**, and **"My Aggregations"**, which respectively display the unified model access and publishing entry, published single-instance models, and created aggregation models.
+1. The current account has model publishing or model management permission.
+2. The publishing method for a single model, BYOK model, or aggregation model has been determined.
+3. Endpoint, request headers, meta-model, billing, and rate-limit parameters are prepared and redacted.
+## Page Description
 
-### Tab Switch Description
+This page is used by model providers to publish and maintain owned models. It supports single models, BYOK access, and aggregation models. Different publishing methods have different source, billing, rate-limit, and review requirements.
 
-- **"Overview"** Tab: Unified entry for model access and publishing, providing full-scenario model deployment and access solutions, supporting platform-hosted deployment, third-party service access, and multi-model aggregation.
-- **"My Published"** Tab: Unified management view for all single-instance published models. You can switch between **"Public Models / Private Models"** at the top to view models in different areas.
-- **"My Aggregations"** Tab: Dedicated management view for aggregation models. You can switch between **"Public Models / Private Models"** at the top to view aggregation models in different areas.
+Page screenshot:
 
-## Operations
+![My Models list](./images/my-models-list.png)
 
-### Publish Model (Multimodal Model)
+Used to view model status, publishing method, and review entry points.
 
-1. Enter the platform homepage and click **"Studio > My Models"** in the left navigation bar to enter the model management page.
-2. The page enters the **"Overview"** Tab by default. Switch to the **"My Published"** Tab to view models in different areas through the top **"Public Models / Private Models"** switch; you can also switch to the **"My Aggregations"** Tab.
+## Main Operations
 
-![My Models](./images/my-models-list.png)
+### Steps
 
-3. Click the **"Publish Model"** button in the upper-right corner of the page to open the "Choose where to publish" dialog.
-4. Select the publishing area:
-   - **"Publish to Private"**: Visible and callable only within the current team or tenant, added to the private catalog and not listed in the public catalog. Suitable for internal business and security-sensitive scenarios;
-   - **"Publish to Public"**: Listed in the public catalog and open for calls by EUs of all tenants. Independent pricing and rate limits can be configured.
-5. Click **"Publish to Public"** to enter the publishing configuration flow (Step 1: Basic Information).
+1. Go to `Studio > My Models`.
+2. Select single-model, BYOK model, or aggregation model publishing.
+3. Fill in basic information, meta-model, model source, and request headers.
+4. Configure billing, rate limits, protocol, and default parameters.
+5. After submission, enter the review or publishing flow.
 
-![Choose where to publish](./images/choose-where-to-publish.png)
+Key screenshots:
 
-#### **Step 1: Basic Information**
-- **Model Source / Meta-model Information**:
-    - Select **"Meta-model"** (for example, Qwen3.6-plus);
-    - Select **"Model Source"** (for example, Alibaba-China);
-    - Fill in **"Request URL"** (for example, `https://dashscope.aliyuncs.com`; region defaults to "China");
-    - Fill in **"API Key"** (for example, `sk-***`);
-    - Fill in **"Model Source ID"** (for example, `qwen3.6-plus`, the exact model name sent to the upstream vendor).
+![Model basic information](./images/step-1-basic-information.png)
 
-![Model Source / Meta-model Information](./images/step-1-model-source_meta-model-information.png)
+Fill in model name, description, and publishing information.
 
-- **Model Type**: In the "Model Type" block, **"Chat Model"** is selected by default.
+![Model source and meta-model](./images/step-1-model-source-meta-model-information.png)
 
-![Model Type](./images/aggregation-step-1-model-type.png)
+Model source, meta-model, and protocol must be consistent.
 
-- **Request Header Configuration**: The authentication field defaults to `Authorization: Bearer <key>`. Click **"Add Request Header"** to add custom fields.
+![Billing configuration](./images/step-2-billing-configuration.png)
 
-![Request Header Configuration](./images/step-1-request-header-configuration.png)
+Confirm billing rules and provider costs before submission.
 
-- **Model Parameter Configuration**:
-    - Default **"Input Modalities"** (Text / Image / Video);
-    - Default **"Output Modalities"** (Text);
-    - Enable **"Advanced Capabilities"**: Function / tool support, thinking mode.
-    - **Token Limits**: Set **"Maximum Context"** (for example, 1024K), **"Maximum Input"** (for example, 991K), and **"Maximum Output"** (for example, 64K).
+![Rate-limit configuration](./images/step-3-rate-limit-configuration.png)
 
-![Model Parameter Configuration](./images/step-1-model-parameter-configuration.png)
+Rate limits affect customer call experience and cost control.
 
-- **Supported Protocols and Default Parameters**: Select at least one protocol (OpenAI-ChatCompletions / OpenAI-Responses / Anthropic-Messages). Protocol connectivity testing must be performed first; subsequent operations are available only after the connectivity test succeeds. After the test passes, fill in **"Endpoint"** (for example, `https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions`) and configure **"Input Parameters"** (Temperature, Top-P, N, Stream, Max Tokens, Presence Penalty, Frequency Penalty, User, Seed, Parallel Tool Calls, etc.).
+### Parameters
 
-![Official Native Protocol and Default Advanced Parameters](./images/step-1-official-native-protocol.png)
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Publishing Method | Yes | Enum | `BYOK` | Single model, BYOK, or aggregation model. |
+| Meta-model | Yes | Dropdown | `Qwen Text` | Defines capability and protocol. |
+| Model Source | Conditionally required | Dropdown | `dashscope-cn` | BYOK or single-model call source. |
+| Aggregation Strategy | Conditionally required | Enum | `By weight` | Provider selection policy for aggregation models. |
+| Rate-limit Configuration | No | Number | `100 QPM` | Controls model call rate. |
 
-- **Basic Information**:
-   - Fill in **"Personalized Identifier"** (for example, Qwen3.6-plus) and **"Description"**.
 
-![Basic Information](./images/step-1-basic-information.png)
+### Pitfalls
 
-   - **Publishing Method**: Select **"Publish Now"** or **"Scheduled Publishing"**.
+- BYOK models must first validate Endpoint and request headers.
+- Any unavailable provider in an aggregation model affects overall quality.
+- Before submitting billing configuration, reconcile it with provider costs.
 
-![Publishing Method](./images/step-1-publication-method.png)
 
-- Click **"Next"** to enter Step 2: Billing Configuration.
+### Result Checks
 
-#### **Step 2: Billing Configuration**:
-- **Billing Configuration**:
-    - Select **"Billing Method"**:
-        - **"Token-based Billing"** (charged by consumed Tokens, Credit / M tokens)
-        - **"Free"** (open to all users for free, no billing; commonly used for public beta / open source / promotion / trial);
-- **Billing Rules**:
-    - Enable **"Show Price Comparison"** to display strikethrough original prices;
-    - In the **"Billing Rules - Price Entry"** block, configure:
-        - Enable **"Tier by Context Length"** (long-context intervals use higher unit prices);
-        - Enable **"Separate Cache Hit Pricing"** (cache-hit input is settled by an independent per-M unit price);
-        - **Set Tier Prices**: For each tier (for example, Tier 1: 0K-256K Tokens, Tier 2: 256K-∞), configure **"Input Selling Price / Output Selling Price / Cache Hit Selling Price"** and **"Input Original Price / Output Original Price / Cache Hit Original Price"** (all units are Credits/1M tokens). Click **"Add Tier"** to add more intervals;
-    - **Web Search**: Enable WebSearch tool fees;
-    - **Free Quota**: After enabling, configure claimable quota, number of users, and total amount;
+1. Model draft, review status, or publishing status matches the operation result.
+2. BYOK models pass connectivity or protocol tests.
+3. Aggregation model candidate models and routing policy are saved correctly.
+## FAQ
 
-![Billing Configuration](./images/step-2-billing-configuration.png)
+### Model Is Not Visible After Publishing
 
-- Click **"Next"** to enter Step 3: Rate Limit Configuration.
+**Symptom:**
 
-#### **Step 3: Rate Limit Configuration**:
-- Select **"Whether to Enable Rate Limit"**: **"Enable Rate Limit"** or **"Do Not Enable"**;
-- Configure **"Default Rate Limit"**:
-    - **"RPM (Requests Per Minute)"**: enter a value (for example, 2 requests/minute), or check **"Unlimited"**;
-    - **"TPM (Tokens Per Minute)"**: enter a value (for example, 100 Tokens/minute), or check **"Unlimited"**.
+After a model is submitted for publishing, the corresponding record cannot be found in My Models or the model marketplace.
 
-![Rate Limit Configuration](./images/step-3-rate-limit-configuration.png)
+**Possible Causes:**
 
-- Click **"Save Only"** or **"Submit for Review"** to complete publishing.
+- The model is still under review or the publishing task has not completed.
+- Visibility scope is set to private, specified customers, or specified tenants.
+- The model version is not associated with a valid template, source, or meta-model.
 
-#### Parameters - Publishing Flow Configuration Items
+**Handling:**
 
-| Field Name | Field Type | Example | Description |
-|--------------|--------|--------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
-| Meta-model | Dropdown | `Qwen3.6-plus` (with text 1024K tag) | Required. Select the base meta-model |
-| Model Source | Dropdown | `Alibaba-China` | Required. Source channel of the model |
-| Request URL | URL | `https://dashscope.aliyuncs.com` | Required. API address of the model service (region can be switched) |
-| API Key | Text | `sk-***` | Required. Key used to call the model |
-| Model Source ID | Text | `qwen3.6-plus` | Required. Exact model name sent to the upstream vendor |
-| Model Type | Radio | `Chat Model` | Required. Functional type of the model |
-| Request Headers | Key-Value | `Authorization: Bearer <key>` | Optional. Authentication and custom request headers |
-| Input Modalities | Multi-select | `Text / Image / Video` | Required. Input data types supported by the model |
-| Output Modalities | Multi-select | `Text` | Required. Output data types supported by the model |
-| Advanced Capabilities | Switch | `Function/Tool Support / Thinking Mode` | Optional. Extended capabilities of the model |
-| Maximum Context | Number | `1024K` | Required. Token context limit |
-| Maximum Input | Number | `991K` | Required. Maximum Token input per request |
-| Maximum Output | Number | `64K` | Required. Maximum Token output per request |
-| Supported Protocols | Multi-select | `OpenAI-ChatCompletions / OpenAI-Responses / Anthropic-Messages` | Required. API protocols compatible with the model; connectivity test must be performed first |
-| Endpoint | URL | `https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions` | Required. Endpoint address corresponding to the protocol |
-| Input Parameters | Parameter List | `Temperature / Top-P / N / Stream / Max Tokens / Presence Penalty / Frequency Penalty / User / Seed / Parallel Tool Calls` | Optional. Input parameters preset by protocol |
-| Personalized Identifier | Text | `Qwen3.6-plus` | Required. Custom identifier displayed externally |
-| Description | Text | `Qwen3.6 native vision...` | Optional. Model description |
-| Publishing Method | Radio | `Publish Now / Scheduled Publishing` | Required. Model go-live timing |
-| Billing Method | Radio | `Token-based Billing / Free` | Required. Charging method of the model |
-| Tier by Context Length | Switch | `On / Off` | Optional. Use higher unit prices for long-context intervals |
-| Separate Cache Hit Pricing | Switch | `On / Off` | Optional. Cache-hit input is settled by an independent per-M unit price |
-| Tier Prices | Group | `Tier 1 0K-256K: input 20/output 120/cache 2; Tier 2 256K-∞: input 80/output 480/cache 8` | Required. Input/output/cache selling prices and strikethrough original prices by context length (Credits/1M tokens) |
-| Web Search | Switch | `On / Not enabled` | Optional. Enable WebSearch tool fees |
-| Free Quota | Switch | `On / Not enabled` | Optional. Configure free call quota of the model |
-| Whether to Enable Rate Limit | Radio | `Enable Rate Limit / Do Not Enable` | Optional. Configure call frequency limits of the model |
-| RPM (Requests Per Minute) | Number / Unlimited | `2 requests/minute` | Optional. Maximum requests per minute; "Unlimited" can be checked |
-| TPM (Tokens Per Minute) | Number / Unlimited | `100 Tokens/minute` | Optional. Maximum Tokens per minute; "Unlimited" can be checked |
+1. First check model status, review records, and publishing time.
+2. Verify visibility scope, provider information, and version configuration.
+3. If review has passed but the marketplace is still invisible, contact the operator to check the publishing index and visibility scope.
 
-### Add Aggregation Model
+### Model Version Review Is Rejected
 
-1. Enter the platform homepage and click **"My Models"** in the left navigation bar to enter the model management page.
-2. Switch to the **"My Aggregations"** Tab. You can switch between **"Public Models / Private Models"** at the top to view aggregation models in different areas.
-3. Click the **"Create Aggregation Model"** button in the upper-right corner of the page to open the "Choose where to publish" dialog.
-4. Select the publishing area:
-   - **"Publish to Private"**: Visible and callable only within the current team or tenant, added to the private catalog and not listed in the public catalog;
-   - **"Publish to Public"**: Listed in the public catalog and open for calls by EUs of all tenants. Independent pricing and rate limits can be configured.
-5. Click **"Publish to Public"** to enter the publishing configuration flow (Step 1: Basic Information).
+**Symptom:**
 
-![Choose where to publish](./images/choose-where-to-publish.png)
+A submitted new model or new version is rejected and cannot enter the publishing flow.
 
-#### **Step 1: Basic Information**
-- Select **"Model Type"** (Multimodal / Chat Model / Image Model / Audio Model / Video Model / Embedding Model / Rerank Model);
-- Select **"Model Subtype"** (for example, LLM).
+**Possible Causes:**
 
-![Model Type](./images/aggregation-step-1-model-type.png)
+- Model materials, samples, pricing, or usage boundaries are missing.
+- Endpoint, API Key, or request header connectivity validation failed.
+- Model output has security, privacy, or compliance risks.
 
-- **Model Selection**: In the "Model Selection" list, click **"Add Model"** to open the "Select Model" dialog:
-   - The left side is a **Model Name / Model Identifier** list, where keywords can be entered for quick filtering;
-   - The right side displays multiple provider instances under the model (including release date, context, input/output Credit/1M Tokens, throughput, success rate, weekly calls, weekly Token volume, maximum output, region, capability tags, and other metrics);
-   - Check the target provider instances (multi-select supported, with **"Select All"** in the list header), then click **"Confirm"** to finish adding.
+**Handling:**
 
-![Model Selection](./images/aggregation-step-1-choose-model1.png)
+1. Read review comments and complete model descriptions, call examples, and authorization materials.
+2. Revalidate source connectivity, authentication method, and return format.
+3. For sensitive content, supplement security policies or adjust model visibility scope before resubmitting.
 
-- **Configure Member Model Parameters**: Configure each added member model:
-   - **Whether Enabled**: controlled by switch;
-   - **Minimum Success Rate**: percentage (for example, 80%);
-   - **Maximum Concurrency Rate**: number (for example, 1500);
-   - **Maximum Context Length**: number (for example, 128K);
-   - **Cost**: set input Token cost and output Token cost separately;
-   - Click **"Delete"** to remove the member model.
+### Model Status Stays Publishing
 
-![Model Selection](./images/aggregation-step-1-choose-model2.png)
+**Symptom:**
 
-- **Basic Information**:
-   - Fill in **"Personalized Identifier"** (for example, Qwen3-235b-a22b-instruct-2507);
-   - Select **"Matching Strategy"**: **"Cost First"** / **"Success Rate First"** / **"Cost & Experience Balance"** / **"Random"** / **"Round Robin"**;
-   - Select **"Tags"** (for example, Text Generation);
-   - Fill in **"Description"**.
+The model stays in publishing status for a long time, the marketplace page is unavailable, or call examples cannot be generated.
 
-![Basic Information](./images/aggregation-step-1-basic-information.png)
+**Possible Causes:**
 
-- **Publishing Method**: Select **"Publish Now"** or **"Scheduled Publishing"**.
+- The publishing task is synchronizing model index, template, or pricing information.
+- Model source health check did not pass.
+- Review, billing, or visibility configuration required by the publishing flow is incomplete.
 
-![Publishing Method](./images/step-1-publication-method.png)
+**Handling:**
 
-- Click **"Next"** to enter Step 2: Billing Configuration.
+1. Wait for the publishing task to complete and check the latest update time.
+2. Verify that model source, template, meta-model, and pricing configuration are complete.
+3. If it still does not complete after the expected time, provide model ID, version number, and publishing time to the operator for troubleshooting.
 
-#### **Step 2: Billing Configuration**
-- Select **"Billing Method"**: **"Free"** or **"Paid"**;
-- Select **"Billing Mode"**: **"Unified Billing"** / **"Input/Output Billing"** / **"Tiered Billing"**;
-- Set prices (Credits/1M tokens):
-- **"Input Original Price"**: reference original price of model input, used to display price comparison;
-- **"Input Selling Price"**: selling price of model input, used as the settlement price when users actually use the model;
-- **"Output Original Price"**: reference original price of model output, used to display price comparison;
-- **"Output Price"**: selling price of model output, used as the settlement price when users actually use the model.
+## Next Steps
 
-![Basic Information](./images/aggregation-step-2-billing-configuration.png)
-
-- Click **"Save Only"** or **"Submit for Review"** to complete publishing.
-
-#### Parameters - Aggregation Model Configuration Items
-
-| Field Name | Field Type | Example | Description |
-|----------|----------|------|------|
-| Model Type | Radio | `Chat Model / Image Model` | Required. Functional type of the aggregation model |
-| Model Subtype | Dropdown | `LLM` | Required. Specific subtype of the aggregation model |
-| Member Models | List Selection | `Baidu AI Cloud / Alibaba-China and multiple provider instances` | Required. Select 2 or more published models (multi-select) |
-| Whether Enabled | Switch | `Enabled / Disabled` | Required. Controls whether the member model participates in routing |
-| Minimum Success Rate | Percentage | `80%` | Required. Member models below this success rate will be removed |
-| Maximum Concurrency Rate | Number | `1500` | Required. Maximum concurrency limit of the member model |
-| Maximum Context Length | Number | `128K` | Required. Context upper limit supported by the member model |
-| Input Token Cost | Number | `2000` | Required. Reference cost per million input Tokens |
-| Output Token Cost | Number | `8000` | Required. Reference cost per million output Tokens |
-| Personalized Identifier | Text | `Qwen3-235b-a22b-instruct-2507` | Required. Custom identifier displayed externally for the aggregation model |
-| Matching Strategy | Radio | `Cost First / Success Rate First / Cost & Experience Balance / Random / Round Robin` | Required. Routing strategy when the model is called |
-| Tags | Dropdown | `Text Generation` | Optional. Tags of the aggregation model |
-| Description | Text | `Aggregation model...` | Optional. Description of the aggregation model |
-| Publishing Method | Radio | `Publish Now / Scheduled Publishing` | Required. Go-live timing of the aggregation model |
-| Billing Method | Radio | `Free / Paid` | Required. Charging method of the aggregation model |
-| Billing Mode | Radio | `Unified Billing / Input/Output Billing / Tiered Billing` | Required. Pricing method when charged |
-| Input Original Price | Number | `40.00 Credits/1M tokens` | Optional. Reference original price of model input, used to display price comparison |
-| Input Selling Price | Number | `20.00 Credits/1M tokens` | Required. Selling price of model input, used as the actual settlement price |
-| Output Original Price | Number | `160.00 Credits/1M tokens` | Optional. Reference original price of model output, used to display price comparison |
-| Output Price | Number | `80.00 Credits/1M tokens` | Required. Selling price of model output, used as the actual settlement price |
-
-## Other Operations
-
-| Operation | Steps |
-| -------- | ----- |
-| View Details | Click **"Details"** on the target model -> View complete configuration information -> Click the back arrow in the upper-left corner to exit |
-| Edit Model | Click **"Edit"** on the target model -> Modify configuration information -> Submit for review |
-| List / Delist Model | Click **"List"** / **"Delist"** on the target model -> Confirm the status change |
-| Delete Model | Click **"Delete"** on the target model -> The delete operation is irreversible. Please operate with caution |
-| View Aggregation Model Details | Click **"Details"** on the target aggregation model -> View complete configuration information -> Click the back arrow in the upper-left corner to exit |
-| Edit Aggregation Model | Click **"Edit"** on the target aggregation model -> Modify member models, routing strategy, and billing configuration -> Submit for review |
-| List / Delist Aggregation Model | Click **"List"** / **"Delist"** on the target aggregation model -> Confirm the status change |
-| Delete Aggregation Model | Click **"Delete"** on the target aggregation model -> The delete operation is irreversible. Please operate with caution |
+1. View review records and publishing results to confirm whether the model version is available.
+2. Search for the model in the model marketplace and verify name, tags, pricing, and visibility scope.
+3. Use Playground or call logs to validate model output quality, latency, and error rate.
+4. After launch, continuously track usage, revenue, and customer feedback, and publish a new version if needed.
 
 ## Notes
 
-- **Delete operations are irreversible**. Please operate with caution.
-- Aggregation models must select at least 2 published models as member models.
-- Before listing a model, ensure the configuration information is accurate to avoid affecting service quality.
-- Before publishing a model, protocol connectivity testing must be completed; otherwise, subsequent configuration cannot proceed.
+- Request headers, Endpoints, API Keys, and model source IDs must not appear in screenshots or ticket bodies.
+- Confirm billing, rate limits, and visibility scope before publishing.
+- Aggregation model changes affect customer call quality, so record the reason for changes.

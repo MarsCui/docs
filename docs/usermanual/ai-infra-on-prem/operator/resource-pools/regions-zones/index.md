@@ -36,7 +36,7 @@ The page is divided into 3 main areas:
 
 1. Click the **"+ Add Region"** button (purple) in the upper right corner of the page to open the **"Add Region"** configuration dialog.
 
-![Add Region](./images/Regions-Zones-list.png)
+![Add Region](./images/regions-zones-list.png)
 
 2. In the **"Region Basics"** section, configure:
    - **"\* Region ID"** (required, info icon ⊕): e.g., `wuhan` (the unique English identifier of the region)
@@ -47,7 +47,7 @@ The page is divided into 3 main areas:
      - **English** / **中文简体** Tab toggle (purple highlights the current Tab)
      - Fill in the name in the corresponding language in the input box (e.g., fill in `武汉` under the **中文简体** Tab, with the hint "Displayed in the 中文简体 locale" below)
 
-![Region Basics](./images/RegionBasics.png)
+![Region Basics](./images/regionbasics.png)
 
 3. In the **"Resource Binding"** section, configure 4 types of components:
    - **"Image Service (Harbor)"** (**Required**, purple highlighted): "Required for workloads" → dropdown selection (e.g., `image.icsb.shop`)
@@ -55,7 +55,7 @@ The page is divided into 3 main areas:
    - **"File Storage"** (off by default): "Shared FS for multi-node IO" → switch + dropdown selection
    - **"Block Storage"** (off by default): "High-performance volume pool" → switch + dropdown selection
 
-![Resource Binding](./images/Resource-Binding.png)
+![Resource Binding](./images/resource-binding.png)
 
 4. After confirming that all information is filled in correctly, click the **"Confirm"** button (primary button, purple highlighted) in the lower right corner of the dialog to complete the addition; to discard, click **"Cancel"**.
 
@@ -83,7 +83,7 @@ The page is divided into 3 main areas:
    - **"Description"** (multi-line text, optional): fill in the description of the availability zone (e.g., geographic location, business purpose, etc.)
 3. After confirming that all information is filled in correctly, click the **"Confirm"** button (primary button, purple highlighted) in the lower right corner of the dialog to complete the addition; to discard, click **"Cancel"**.
 
-![Add Availability Zone](./images/Add-Availability-Zone.png)
+![Add Availability Zone](./images/add-availability-zone.png)
 
 #### Parameter Description - Add Availability Zone
 

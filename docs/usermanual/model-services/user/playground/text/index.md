@@ -1,99 +1,156 @@
-# Text
+# Text Playground
 
-## Preface
+::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+:::
+
+::: warning Security Notice
+Model service documentation and screenshots must not expose real Endpoints, API Keys, request header authentication values, model source secrets, internal model IDs, customer call content, or business pricing policies. Use placeholders in all examples.
+:::
+
+## Feature Overview
+
+`Text Playground` is used to select text models on the page, write Prompts, adjust generation parameters, and observe response quality, latency, and error prompts.
 
 | Item | Content |
-|------|---------|
-| Target Audience | User |
-| Navigation Path | Playground > Text |
-| Overview | Interact with AI models through text input and experience question answering, generation, and multi-turn conversation capabilities |
+| --- | --- |
+| Applicable role | Regular user |
+| Navigation path | Playground > Text |
+| Page route | /user/playground/text |
+| Managed objects | Text models, Prompts, generation parameters, output results, and debugging records |
+| Typical use | Test text model output on the page |
 
-## Page Structure
+### Beginner Explanation
 
-### Search Area
+The text Playground is like scratch paper for a model. It is used to quickly draft Prompts, adjust Temperature, Top-P, Max Tokens, and Stream, and observe whether model responses are stable, complete, and as expected.
 
-There is no search area on the main page. The Select Model dialog provides a model name / model identifier search box on the left.
+### Terms Quick Reference
 
-### Action Buttons
+| Term | Description |
+| --- | --- |
+| Prompt | Prompt, question, or context input to the model. |
+| Temperature | Parameter that controls randomness and divergence of responses. |
+| Top-P | Parameter that controls the sampling range of candidate tokens. |
+| Max Tokens | Limits the maximum output length of the model. |
+| Stream | Controls whether content is returned as it is generated. |
+## Prerequisites
 
-* The top model dropdown shows the current text model and opens the Select Model dialog
-* The upper-right area provides **Model Compare** and **Back to old version** buttons
-* The lower-left area of the conversation input box provides parameter configuration for protocol and generation parameters
-* The lower-right area of the conversation input box provides Personal Key selection and the send button
+1. The current account has access to the text Playground page.
+2. The target model is authorized for the current account to try.
+3. The Prompt does not contain real keys, customer privacy, or production business data.
+## Page Description
 
-### Data List
+This page is used to try text models. Focus on adjusting Prompt, Temperature, Top-P, Max Tokens, Stream, and other parameters, and observe output quality, latency, and error prompts.
 
-The page center displays the welcome prompt, conversation history, user messages, and model responses.
+Page screenshot:
 
-### Page Screenshot
+![Select text model](./images/select-model.png)
 
-## Operations
+Select the model and provider to try first.
 
-### Generating Text with Model
+## Main Operations
 
-1. Enter the platform homepage, click the **"Playground > Text"** menu in the left navigation bar to enter the dialogue experience page.
-2. Click the top model dropdown to open the Select Model dialog:
-   - Enter a model name or model identifier in the search box on the left to filter models;
-   - Select the target text model from the model list on the left;
-   - Select an available provider instance on the right;
-   - Click **Confirm** to switch the model.
+### Steps
 
-![Select Model](./images/select-model.png)
+1. Go to `Playground > Text`.
+2. Select target model and provider.
+3. Enter a Prompt or conversation context.
+4. Adjust Temperature, Top-P, Max Tokens, and Stream as needed.
+5. Send the request and adjust parameters based on the output.
 
-3. Click the parameter configuration button in the lower-left area of the input box and set dialogue parameters:
-   - Select **Protocol** (for example, openai/chat_completions);
-   - Adjust **Temperature**, **Top-P**, **N**, **Stream**, **Max Tokens**, and other generation parameters.
-4. If a specific credential is required, select the corresponding **Personal Key** in the lower-right area of the input box.
-5. Enter a question in the conversation input box and click the send button to interact with the model. Shift+Enter can be used for a new line.
+Key screenshot:
 
 ![Text parameter configuration](./images/parameters.png)
 
-#### Parameters (Parameter Configuration Panel)
+After adjusting Temperature, Top-P, Max Tokens, and Stream, observe output changes.
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Protocol | Dropdown | `openai/chat_completions` | The API protocol used for model calls |
-| Temperature | Number Slider / Input | `1.0` | Controls response randomness. Higher values usually produce more diverse responses |
-| Top-P | Number Slider / Input | `1.0` | Controls the sampling range. Higher values allow a wider candidate range |
-| N | Number Slider / Input | `1` | The number of candidate responses returned in one request |
-| Stream | Switch | `Off` | Whether to return the model response in streaming mode |
-| Max Tokens | Number Slider / Input | `4096` | The maximum number of tokens that can be generated in one response |
-| Personal Key | Dropdown | `Personal Key 20260616...` | The credential used for the current request |
+### Parameters
 
-#### Parameters (Select Model Dialog)
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Prompt | Yes | Multiline text | `Summarize this text` | Prompt input to the model. |
+| Temperature | No | Number | `0.7` | Controls output randomness. Higher values are more divergent. |
+| Top-P | No | Number | `0.8` | Controls candidate token sampling range. |
+| Max Tokens | No | Number | `1024` | Limits maximum output length. |
+| Stream | No | Toggle | `On` | Controls whether output is returned as a stream. |
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Model Name / Identifier | Text | `qwen3.6-flash / qwen/qwen3.6-flash` | The model name and unique identifier |
-| Release Date | Date | `2026-04-16` | The release date of the model |
-| Context | Number | `1M` | The maximum context window supported by the model |
-| Input / Output Credit | Number | `12 Credits / 72 Credits` | The input and output pricing per 1M tokens |
-| Provider | Text | `Alibaba / AGIOneSystem` | The model provider and service instance |
-| Max Output | Number | `64K` | The maximum output length supported by the provider instance |
-| Region | Text | `China` | The region of the provider instance |
-| Latency / Throughput / Success Rate | Number | `- / 0 t/s / -` | Runtime metrics of the provider instance |
-| Weekly Calls / Weekly Tokens | Number | `0 / 0 M Tokens` | Recent usage of the provider instance |
-| Status Tags | Tag | `Recommended / Published` | Recommendation and publishing status |
-| Capability Tags | Tag | `Reasoning / Tool Calling` | Extended capabilities supported by the model |
 
-## Other Operations
+### Pitfalls
 
-| Operation | Steps |
-|-----------|-------|
-| Switch Model | Click the top model dropdown -> select another model or provider in the dialog -> click **Confirm** |
-| Search Model | Enter a model name or model identifier in the left search box of the Select Model dialog |
-| Adjust Parameters | Click the parameter configuration button -> modify Protocol, Temperature, Top-P, N, Stream, Max Tokens, and other parameters |
-| Select Credential | Click the key dropdown in the lower-right area of the input box and select the Personal Key for this request |
-| Model Compare | Click **Model Compare** to enter the multi-model conversation page |
-| Conversation Input | Enter a question in the bottom input box, then click the send button or press Enter; use Shift+Enter for a new line |
-| View Conversation History | View historical conversation records in the conversation window |
-| Back to Old Version | Click **Back to old version** to switch to the old text conversation page |
+- Do not set both Temperature and Top-P too high.
+- If Max Tokens is too small, answers may be truncated; if too large, costs may increase.
+- Do not enter real keys or customer privacy in Prompts.
 
+
+### Result Checks
+
+1. The page returns a text response related to the Prompt.
+2. After adjusting Temperature, Top-P, or Max Tokens, output length and style change as expected.
+3. Stream toggle status matches the return mode.
+## FAQ
+
+### Output Is Empty or Times Out
+
+**Symptom:**
+
+After sending a Prompt, no content is returned, or the page stays in generation for a long time.
+
+**Possible Causes:**
+
+- Prompt is too long, context is too large, or Max Tokens is too high.
+- The model service is busy, queued, or rate-limited.
+- Network connection is interrupted or the browser session has expired.
+
+**Handling:**
+
+1. Shorten the Prompt or reduce Max Tokens and retry.
+2. Send again later and observe whether the timeout persists.
+3. Record request time, model name, and error prompt, then check call logs or contact the operator.
+
+### High Temperature Causes Divergent Results
+
+**Symptom:**
+
+Model responses become off-topic, repetitive, poorly formatted, or inconsistent with business expectations.
+
+**Possible Causes:**
+
+- Temperature is too high, making output too random.
+- Top-P is also high, making the sampling range too broad.
+- The Prompt lacks clear format, boundaries, or examples.
+
+**Handling:**
+
+1. Lower Temperature to the `0.2` to `0.7` range and retry.
+2. Do not set both Temperature and Top-P very high.
+3. Add output format, prohibited items, and examples to the Prompt.
+
+### Streaming Output Is Interrupted
+
+**Symptom:**
+
+After Stream is enabled, the page starts returning content but stops midway or misses the ending.
+
+**Possible Causes:**
+
+- Network connection is unstable or the browser tab was refreshed.
+- The model server connection timed out.
+- Max Tokens or output length limits caused early truncation.
+
+**Handling:**
+
+1. Disable Stream and resend to confirm whether complete content can be returned.
+2. Reduce Max Tokens or shorten the Prompt to lower pressure on a single generation.
+3. Record request ID, model name, and time, then view error codes in call logs.
+
+## Next Steps
+
+1. Save effective Prompt and parameter combinations.
+2. When troubleshooting is needed, use request ID to view call logs.
+3. Before production integration, organize API parameters and output format requirements.
 ## Notes
 
-* Temperature and Top-P affect response diversity. Higher values usually make responses more random.
-* Max Tokens must not exceed the output limit supported by the selected model and provider instance.
-* Stream availability depends on the selected protocol, model, and provider instance.
-* Model price, status, region, and performance metrics are subject to the information shown in the Select Model dialog.
-* Use Shift+Enter for a new line to avoid sending incomplete sentences.
-* You can click **Model Compare** to enter the multi-model conversation page.
+- Do not enter keys, access tokens, or customer privacy in Prompts.
+- Redact request IDs and sensitive output content before screenshots.
+- When comparing parameters, adjust only a small number of variables at a time.

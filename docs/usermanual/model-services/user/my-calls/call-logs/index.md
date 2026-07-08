@@ -1,71 +1,131 @@
-# Call Logs
+# My Call Logs
 
-## Preface
+::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+:::
 
-| Item            | Content                                                                                     |
-| --------------- | ------------------------------------------------------------------------------------------- |
-| Target Audience | User                                                                                        |
-| Navigation Path | My Calls > Call Logs                                                                        |
-| Overview        | View detailed records of each model call to support problem investigation and data analysis |
+::: warning Security Notice
+Call and revenue pages may contain request IDs, error codes, customer names, Token usage, fees, call content, and API Key information. Screenshots and tickets should redact model IDs, customer identifiers, request headers, call parameters, and sensitive amount information.
+:::
 
-## Page Structure
+## Feature Overview
 
-### Search Area
+`My Call Logs` is used to maintain or view single-request logs, request IDs, error codes, latency, Tokens, and upstream return summaries. It supports model publishing, experimentation, calling, statistics, and operational governance.
 
-The page top supports selecting time range, model name, model type, and call status for filtering.
+| Item | Content |
+| --- | --- |
+| Applicable role | Regular user |
+| Navigation path | My Calls > Call Logs |
+| Page route | /user/my-calls/call-logs |
+| Managed objects | Single-request logs, request IDs, error codes, latency, Tokens, and upstream return summaries |
+| Typical use | Troubleshoot a single call initiated by me |
 
-### Action Buttons
+### Beginner Explanation
 
-The page top-right provides an export button (if available).
+My Call Logs are like receipts for each request. They record request ID, error code, latency, Tokens, and redacted summary, and are suitable for locating a single failure.
+### Terms Quick Reference
 
-### Data List
+| Term | Description |
+| --- | --- |
+| Request ID | Unique tracking identifier for a single call. |
+| Error code | Error type of a failed call. |
+| Latency | Time from request initiation to response. |
+| Upstream return | Status or error summary returned by the model provider. |
 
-The page displays all call records in reverse chronological order in table format.
+## Prerequisites
 
-## Operations
+1. The current account has permission to view My Call Logs.
+2. Location conditions such as request ID, time range, model name, or error code have been prepared.
+3. Use only redacted request summaries for troubleshooting.
+## Page Description
 
-### Viewing Call Logs
+This page is only used to view single-request logs initiated by the current account. Troubleshooting focuses on request ID, error code, status, latency, and redacted response summary.
 
-1. Enter the platform homepage, click the **"My Calls > Call Logs"** menu in the left navigation bar to enter the call logs page.
-2. Set filter parameters at the top of the page:
-   - Time range: select the start and end dates to query;
-   - Model: enter the model name for fuzzy search;
-   - Model Type: filter by type, such as chat / multimodal / video model, etc.;
-   - Call Status: filter by status, such as success / failure.
-   - After setting, click the **"Search"** button to load data; click **"Reset"** to clear all filter conditions.
-3. View the call logs list. The table displays all call records in reverse chronological order:
-   - Call Time: timestamp when the request occurred;
-   - Model: the model name and identifier for this call;
-   - Model Type: such as chat model, multimodal, video model, etc.;
-   - Call Status: success / failure;
-   - Usage: consumed input / output Tokens (for text/multimodal models) or duration (for video models);
-   - Time Consumed: total time from request initiation to complete end, reflecting overall model performance;
-   - First TOKEN Time: time from request initiation to returning the first Token, reflecting model response speed;
-   - Failure Type: classification of failed requests, such as system exception, rate limit, model error, etc. (only displayed for failed records);
-   - Error Information: specific error description of the failed request (only displayed for failed records);
-   - Operations: click "Details" to view complete information of a single call.
+Page screenshot:
 
-![Call Logs](./images/call-logs.png)
+![My call logs](./images/call-logs.png)
 
-### Viewing Single Call Details
+Used to locate a single call by request ID, error code, and latency.
 
-1. Click the **"Details"** button of any record to open the details popup.
-2. View complete call information:
-   - Basic Information: model name, call time, model type, total time consumed, first Token time, call status;
-   - Consumption Details: input / output Token consumption details.
+## Main Operations
 
-#### Parameters
+### Steps
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Call Status | Tag | `Success / Failure` | The result of this call, divided into "Success" and "Failure" |
-| Usage | Text | `Input: 22 Tokens / Output: 15 Tokens` | Resources consumed by this call: text / multimodal models are input and output Token count, and video models are generation duration |
-| Time Consumed | Number | `1417 ms` | Total time from request initiation to complete end, reflecting overall model performance |
-| First TOKEN Time | Number | `320 ms` | Time from request initiation to returning the first Token, reflecting model response speed |
-| Failure Type | Tag | `System Exception / Rate Limit` | Classification of failed requests, such as system exception, rate limit trigger, model error, etc. |
-| Error Information | Text | `Rate limit exceeded` | Specific error description of the failed request, which can be used for problem investigation |
+1. Go to `My Calls > Call Logs`.
+2. Enter request ID or select a time range.
+3. Filter by model, status, or error code.
+4. Open a single log and view latency, Tokens, and error summary.
+5. Return to model configuration or quota pages based on the error code.
 
+
+### Parameters
+
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Request ID | Conditionally required | Text | `req-20260706-001` | Single-request tracking identifier. |
+| Error Code | No | Text | `429` | Failed request type. |
+| Status | No | Enum | `Failed` | Request processing result. |
+| Latency | System-generated | Number | `820ms` | Request elapsed time. |
+| Token Usage | System-generated | Number | `2048` | Consumption for this request. |
+
+
+### Pitfalls
+
+- Do not copy complete Prompts or response content into public tickets.
+- Request ID is key for troubleshooting. Keep the redacted ID in screenshots.
+- 429 is mostly related to rate limits or quota and does not necessarily mean the model is unavailable.
+
+
+### Result Checks
+
+1. Records can be located by request ID, status, model, or time range.
+2. Log details show error code, latency, Tokens, and redacted summary.
+3. Failed requests can be associated with actionable handling suggestions.
+## FAQ
+
+### Cannot Find Logs by Request ID
+
+**Symptom:**
+
+No matching record appears after entering the request ID.
+
+**Possible Causes:**
+
+- The request ID is incomplete.
+- The time range does not cover when the request occurred.
+- The request does not belong to the current account.
+
+**Handling:**
+
+1. Verify the complete request ID.
+2. Expand the time range.
+3. Confirm whether the current account initiated the request.
+
+### Log Shows 429 or Rate Limit
+
+**Symptom:**
+
+The request status is failed, and the error code points to rate limiting or frequency restriction.
+
+**Possible Causes:**
+
+- Short-term request volume exceeded model rate limits.
+- Customer or account quota is insufficient.
+- Retry strategy is too aggressive.
+
+**Handling:**
+
+1. Reduce concurrency or add exponential backoff.
+2. Check quota and rate-limit policy.
+3. Apply for rate-limit adjustment if needed.
+## Next Steps
+
+1. Adjust request parameters based on error code.
+2. Provide request ID to the operator for further troubleshooting.
+3. Return to call analytics to check whether this is a batch anomaly.
 ## Notes
 
-* You can use a combination of time range, model name, model type, or call status at the top for combined filtering to quickly locate target records.
-* Click the "Details" button of any record to view complete information of that call.
+- Do not copy complete Prompts, response bodies, or API Keys into tickets.
+- Request ID, time range, and error code are the priority troubleshooting information.
+- Log data may be cleaned according to retention period.

@@ -1,61 +1,130 @@
 # Model Reviews
 
-## Preface
+::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+:::
 
-| Item            | Content                                                                                                    |
-| --------------- | ---------------------------------------------------------------------------------------------------------- |
-| Target Audience | Operator                                                                                                   |
-| Navigation Path | Approvals > Model Reviews                                                                                  |
-| Overview        | Review model publishing applications submitted by users to ensure model quality and service compliance      |
+::: warning Security Notice
+Model reviews may contain Endpoints, API Keys, model source configuration, customer notes, and review comments. Screenshots and documentation must not expose real credentials, internal addresses, or unpublished model information.
+:::
 
-## Page Structure
+## Feature Overview
 
-### Search Area
+`Model Reviews` is used to maintain or view model publishing requests, source configuration, protocols, billing, rate limits, and review comments. It supports model publishing, experimentation, calling, statistics, and operational governance.
 
-The page top provides filter functionality, supporting filtering by review status and model type.
+| Item | Content |
+| --- | --- |
+| Applicable role | Operator |
+| Navigation path | Approval Management > Model Reviews |
+| Page route | /operator/approvals/model-reviews |
+| Managed objects | Model publishing requests, source configuration, protocols, billing, rate limits, and review comments |
+| Typical use | Review whether a model can be listed |
 
-### Action Buttons
+### Beginner Explanation
 
-* Each model card provides a **"Details"** button for viewing complete information
-* Each model card provides a **"Review"** button for executing review operations
-* The page provides a **"Batch Review"** button for batch processing reviews
+Model review is like a quality check before listing. The focus is not only whether the name is complete, but also whether the model source, protocol, capability description, security boundary, and visibility scope are publishable.
 
-### Data List
+### Terms Quick Reference
 
-The page displays all pending / reviewed model cards. Each card contains model name, type, free quota mode, customer, status, version, submission time, and other information.
+| Term | Description |
+| --- | --- |
+| Review record | Processing record after model publishing, update, or delisting enters the review workflow. |
+| Authorization materials | Materials proving model source, usage rights, and publishing scope. |
+| Risk notes | Notes on data, content safety, call stability, and cost risks. |
+| Review comments | Handling comments given to the requester when approving, rejecting, or requesting supplementary materials. |
+## Prerequisites
 
-## Operations
+1. The current account has model review permission.
+2. The requester has submitted model source, authorization materials, protocol description, test results, and usage boundaries.
+3. The reviewer has clear criteria for approval, rejection, and supplementary materials.
+## Page Description
 
-### Viewing Model List
+This page processes reviews for model listing, updates, or delisting. It displays requested model, provider, meta-model, source credentials, risk notes, and review comments. Reviewers should provide clear conclusions around authorization, capability, compliance, and call availability.
 
-1. Enter the platform homepage, click the **"Approvals > Model Reviews"** menu in the left navigation bar to enter the model review management page.
-2. The page displays all pending / reviewed model cards, containing model name, type, free quota mode, customer, status, version, submission time, and other information.
+Page screenshot:
 
-![Model Reviews List](./images/model-reviews-list.png)
+![Model review list](./images/model-reviews-list.png)
 
-#### Parameters
+Used to view review status, requester, model, and processing entry points.
 
-| Term            | Type       | Example                                               | Description                                      |
-| --------------- | ---------- | ----------------------------------------------------- | ------------------------------------------------ |
-| Model Name      | Text       | `qwen-image-2.0 / Qwen3-235b-a22b`                    | The name of the model under review               |
-| Model Type      | Tag        | `Image Model / Chat Model / Video Model / Multimodal` | The functional type of the model                 |
-| Free Quota Mode | Text       | `Quota Mode / None`                                   | The free call quota configuration of the model   |
-| Customer Name   | Text       | `DuShuangYan / AGIOneSystem`                          | The customer name who submitted the model        |
-| Review Status   | Status Tag | `Pending / Approved / Rejected`                       | The current review status of the model           |
-| Version         | Text       | `1.0.0`                                               | The submitted version number of the model        |
-| Submission Time | Time       | `--`                                                  | The time when the model was submitted for review |
-| Review Time     | Time       | `--`                                                  | The time when the model review was completed     |
+## Main Operations
 
-## Other Operations
+### Steps
 
-| Operation | Steps |
-|-----------|-------|
-| View Details | Click the target model card's **"Details"** button → View complete information including model info, configuration, test status, etc. |
-| Individual Review | Click the target model card's **"Review"** button → View model info, configuration, tags in the review popup → Click **"Approve"** or **"Reject"** to complete the review |
-| Batch Review | Click the **"Batch Review"** button, check multiple pending models → Click **"Approve"** or **"Reject"** to batch process reviews |
+1. Go to `Approval Management > Model Reviews`.
+2. Filter by review status, requester, model name, or submission time.
+3. Open review details and view model source, meta-model, protocol, and visibility scope.
+4. Check authorization materials, test results, and risk notes.
+5. Select approve, reject, or request supplementary materials, and fill in review comments.
+
+### Parameters
+
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Review ID | System-generated | Text | `MR-20260706-001` | Model review tracking identifier. |
+| Model Name | Yes | Text | `qwen-plus` | The model requested for listing or update. |
+| Provider | Yes | Text | `provider-a` | Model source or provider. |
+| Review Result | Yes | Enum | `Approved` | Approved, rejected, or supplementary materials required. |
+| Review Comments | Conditionally required | Multiline text | `Authorization notes need to be supplemented` | The reason must be clear when rejecting or requesting supplementary materials. |
+
+### Pitfalls
+
+- Do not paste real keys, complete request headers, or raw customer call content into review comments.
+- Before approval, confirm that model protocol, Token limits, and input/output modalities are consistent.
+- When rejecting, state the missing materials clearly to avoid repeated submissions.
+
+### Result Checks
+
+1. After the review result is saved, the review record status is updated.
+2. After approval, the model enters the publishing or listing flow.
+3. When rejected or supplementary materials are required, the requester can see a clear reason.
+## FAQ
+
+### Review Materials Are Insufficient
+
+**Symptom:**
+
+Review details lack source authorization, protocol description, or test results.
+
+**Possible Causes:**
+
+- The requester submitted only the model name.
+- Provider authorization boundaries are unclear.
+- Connectivity or call tests were not completed.
+
+**Handling:**
+
+1. Reject or request supplementary materials.
+2. List the authorization, protocol, and test items that need to be supplemented.
+3. Review again after supplementation.
+
+### Model Is Still Invisible After Approval
+
+**Symptom:**
+
+After review approval, the user-side model marketplace does not display the model.
+
+**Possible Causes:**
+
+- The model has not been officially listed.
+- Visibility scope or tags are not configured.
+- The publishing synchronization task has not completed.
+
+**Handling:**
+
+1. Check model publishing status.
+2. Verify visibility scope and tags.
+3. Wait for or trigger the synchronization task.
+
+## Next Steps
+
+1. Go to the model publishing or model settings page.
+2. Validate model marketplace visibility.
+3. Track call logs and user feedback.
 
 ## Notes
 
-* Review operations require caution. Ensure models comply with platform specifications before approval.
-* When batch reviewing, carefully verify each model's information before executing.
-* When rejecting a review, it is recommended to fill in the rejection reason so customers understand improvement directions.
+- Do not paste raw keys, complete request headers, or customer data into review comments.
+- Before approval, focus on source authorization, protocol, Token limits, and usage boundaries.
+- Rejection comments should list actionable supplementation items.

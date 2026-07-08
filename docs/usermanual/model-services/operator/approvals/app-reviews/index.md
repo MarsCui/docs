@@ -1,62 +1,130 @@
 # App Reviews
 
-## Preface
+::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+:::
 
-| Item            | Content                                                                                                    |
-| --------------- | ---------------------------------------------------------------------------------------------------------- |
-| Target Audience | Operator                                                                                                   |
-| Navigation Path | Approvals > App Reviews                                                                                    |
-| Overview        | Review application publishing applications submitted by users to ensure application quality and compliance |
+::: warning Security Notice
+Model Services documentation and screenshots must not expose real API Keys, AK/SK pairs, Secret Keys, Endpoints, request header authentication values, model source credentials, internal access addresses, customer names, or business-sensitive data. Use placeholders in all examples.
+:::
 
-## Page Structure
+## Feature Overview
 
-### Search Area
+`App Reviews` is used to maintain or view app requests, model permissions, call scopes, customer information, and review comments. It supports model publishing, experimentation, calling, statistics, and operational governance.
 
-The page top provides filter functionality, supporting filtering by review status and category.
+| Item | Content |
+| --- | --- |
+| Applicable role | Operator |
+| Navigation path | Approval Management > App Reviews |
+| Page route | /operator/approvals/app-reviews |
+| Managed objects | App requests, model permissions, call scopes, customer information, and review comments |
+| Typical use | Review whether an app is allowed to call model services |
 
-### Action Buttons
+### Beginner Explanation
 
-* Each application card provides a **"Details"** button for viewing complete information
-* Each application card provides a **"Review"** button for executing review operations
-* Each approved application card provides an **"Edit Tag"** button
-* The page provides a **"Batch Review"** button for batch processing reviews
+App reviews work like an access gate before model capabilities are handed to customers. The focus is to confirm whether the app description, bound models, customer visibility scope, and call risks are clear.
 
-### Data List
+### Terms Quick Reference
 
-The page displays all pending / reviewed application cards. Each card contains application name, category, customer, review status, version, submission time, and other information.
+| Term | Description |
+| --- | --- |
+| App review record | Processing record after app publishing or changes enter the review workflow. |
+| Bound model | The model or aggregation model actually called by the app. |
+| Customer visibility scope | The set of customers allowed to access the app after publishing. |
+| Supplementary materials | Explanations, authorization, or test information that the requester must provide. |
+## Prerequisites
 
-## Operations
+1. The current account has app review permission.
+2. The requester has submitted the app description, bound models, customer visibility scope, and call entry.
+3. Before review, the bound model status, customer authorization, and usage boundaries have been confirmed.
+## Page Description
 
-### Viewing Application List
+This page processes app publishing reviews and displays app name, bound models, requester, visible customers, call entry, usage notes, and review comments. Reviewers need to decide whether the app is ready for publishing and whether unauthorized visibility risks exist.
 
-1. Enter the platform homepage, click the **"Approvals > App Reviews"** menu in the left navigation bar to enter the application review management page.
-2. The page displays all pending / reviewed application cards, containing application name, category, customer, review status, version, submission time, and other information.
+Page screenshot:
 
-![App Reviews List](./images/app-reviews-list.png)
+![App review list](./images/app-reviews-list.png)
 
-#### Parameters
+Used to view app publishing review status and processing entry points.
 
-| Term             | Type       | Example                                | Description                                            |
-| ---------------- | ---------- | -------------------------------------- | ------------------------------------------------------ |
-| Application Name | Text       | `Test App / OnePro-HyperBDR-AI`        | The name of the application under review               |
-| Category         | Tag        | `Marketing Copy / Agent & Interaction` | The functional classification tag of the application   |
-| Customer         | Text       | `liao1 / lixipeng`                     | The customer name who submitted the application        |
-| Review Status    | Status Tag | `Pending / Approved / Rejected`        | The current review status of the application           |
-| Version          | Text       | `1.0.0 / 1.0.12`                       | The submitted version number of the application        |
-| Submission Time  | Time       | `2026-02-04 11:34:47`                  | The time when the application was submitted for review |
-| Review Time      | Time       | `2026-02-11 10:52:27`                  | The time when the application review was completed     |
+## Main Operations
 
-## Other Operations
+### Steps
 
-| Operation | Steps |
-|-----------|-------|
-| View Details | Click the target application card's **"Details"** button → View complete information including application info, configuration, test status, etc. |
-| Individual Review | Click the target application card's **"Review"** button → View application info, configuration, tags in the review popup → Click **"Approve"** or **"Reject"** to complete the review |
-| Batch Review | Click the **"Batch Review"** button, check multiple pending applications → Click **"Approve"** or **"Reject"** to batch process reviews |
-| Edit Tag | Click an approved application card's **"Edit Tag"** button → Select tag (None / Hot / Recommended / Newest) → Click **"Confirm"** to save |
+1. Go to `Approval Management > App Reviews`.
+2. Filter by review status, app name, requester, or submission time.
+3. Open review details and view app description, bound models, and visibility scope.
+4. Check call entry, customer scope, and publishing materials.
+5. Select approve, reject, or request supplementary materials, and fill in review comments.
+
+### Parameters
+
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Review ID | System-generated | Text | `AR-20260706-001` | App review tracking identifier. |
+| App Name | Yes | Text | `customer-assistant` | The app requested for publishing. |
+| Bound Model | Yes | Text | `qwen-plus` | The model called by the app. |
+| Visible Customers | Conditionally required | Multi-select | `customer-a` | Visibility scope after app publishing. |
+| Review Comments | Conditionally required | Multiline text | `Usage boundaries need to be supplemented` | Required when rejecting or requesting supplementary materials. |
+
+### Pitfalls
+
+- App descriptions must not contain customer privacy, real business data, or internal Endpoints.
+- Visibility scope should follow the least-privilege principle.
+- A delisted or rate-limited bound model affects the app review conclusion.
+
+### Result Checks
+
+1. The review record status is updated to approved, rejected, or correction required.
+2. After approval, the app enters the publishing list.
+3. Target customers can see the app according to the visibility scope.
+## FAQ
+
+### App Review Is Rejected
+
+**Symptom:**
+
+The app does not pass review after submission.
+
+**Possible Causes:**
+
+- Usage notes are incomplete.
+- The bound model status is unavailable.
+- Customer visibility scope is too broad or lacks authorization.
+
+**Handling:**
+
+1. Supplement materials based on review comments.
+2. Check the bound model status.
+3. Narrow or explain the customer visibility scope.
+
+### Customer Still Cannot See the App After Approval
+
+**Symptom:**
+
+After review approval, the customer side does not show the app.
+
+**Possible Causes:**
+
+- The publishing step has not completed.
+- The customer is not in the visibility scope.
+- App publishing synchronization is delayed.
+
+**Handling:**
+
+1. Go to the app publishing page and confirm status.
+2. Verify customer visibility scope.
+3. Wait for synchronization and validate again.
+
+## Next Steps
+
+1. Go to the app publishing page and confirm status.
+2. View the customer call overview.
+3. Adjust app description and model binding based on feedback.
 
 ## Notes
 
-* Review operations require caution. Ensure applications comply with platform specifications before approval.
-* When batch reviewing, carefully verify each application's information before executing.
-* When rejecting a review, it is recommended to fill in the rejection reason so customers understand improvement directions.
+- App descriptions must not include customer privacy, internal Endpoints, or real API Keys.
+- Apply the least-privilege principle when reviewing visibility scope.
+- App review should not pass when the bound model is unavailable.

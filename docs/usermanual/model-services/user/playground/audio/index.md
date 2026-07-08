@@ -1,113 +1,154 @@
-# Audio
+# Audio Playground
 
-## Preface
+::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+:::
 
-| Item            | Content                                                                    |
-| --------------- | -------------------------------------------------------------------------- |
-| Target Audience | User                                                                       |
-| Navigation Path | Playground > Audio                                                         |
-| Overview        | Generate speech from text and experience the model's text-to-audio ability |
+::: warning Security Notice
+Model Services documentation and screenshots must not expose real API Keys, AK/SK pairs, Secret Keys, Endpoints, request header authentication values, model source credentials, internal access addresses, customer names, or business-sensitive data. Use placeholders in all examples.
+:::
 
-## Page Structure
+## Feature Overview
 
-### Search Area
+`Audio Playground` is used to maintain or view audio models, input files, recognition or generation parameters, and output results. It supports model publishing, experimentation, calling, statistics, and operational governance.
 
-There is no search area on the main page. The Select Model dialog provides a model name / model identifier search box on the left.
+| Item | Content |
+| --- | --- |
+| Applicable role | Regular user |
+| Navigation path | Playground > Audio |
+| Page route | /user/playground/audio |
+| Managed objects | Audio models, input files, recognition or generation parameters, and output results |
+| Typical use | Test speech recognition, speech generation, or audio understanding models |
 
-### Action Buttons
+### Beginner Explanation
 
-* The top model dropdown shows the current audio model and opens the Select Model dialog
-* The upper-right area provides **Model Compare** and **Back to old version** buttons
-* The lower-left area of the input box provides Voice ID selection and parameter configuration
-* The lower-right area of the input box provides Personal Key selection and the send button
+The audio Playground is like a listening room for models. You can upload or enter audio-related content and quickly validate speech recognition, speech generation, or audio understanding models.
 
-### Data List
+### Terms Quick Reference
 
-The page displays the audio generation prompt area, text input box, parameter configuration entry, and generated audio result area.
+| Term | Description |
+| --- | --- |
+| Audio input | Audio sample used for speech recognition, speech generation, or audio understanding. |
+| Sampling rate | Number of audio samples per second, affecting model compatibility and recognition quality. |
+| Language | Language setting for audio content or output content. |
+| Output format | Return form such as text, audio, or structured results. |
+## Prerequisites
 
-## Operations
+1. The current account has access to the audio Playground page.
+2. The target audio model is available for trial.
+3. Audio samples are redacted and authorized.
+4. Format, sampling rate, and duration have been confirmed to be within model support.
+## Page Description
 
-### Generating Audio with Model
+This page is used to try audio models. It focuses on input audio format, sampling rate, language, output text or audio result, latency, and error prompts. Use redacted samples and do not upload raw recordings containing customer privacy.
 
-1. Enter the platform homepage, click **"Model Services > Playground > Audio"** menu to enter the audio generation page.
-2. Click the top model dropdown to open the Select Model dialog:
-   - Enter a model name or model identifier in the search box on the left to filter models;
-   - Select the target audio model from the model list on the left;
-   - Select an available provider instance on the right;
-   - Click **Confirm** to switch the model.
+Page screenshot:
 
-![Select Model](./images/select-model.png)
+![Select audio model](./images/select-model.png)
 
-3. Select **Voice ID** in the lower-left area of the input box to specify the voice for this generation.
-4. Click the parameter configuration button and set generation parameters:
-   - Select **Protocol** (for example, openai/audio);
-   - Fill in the required **Text** field;
-   - Adjust **Speed**, **Volume**, and **Pitch**;
-   - Set **Audio Format** as needed.
+Select a speech recognition, speech generation, or audio understanding model.
+
+## Main Operations
+
+### Steps
+
+1. Go to `Playground > Audio`.
+2. Select audio model and provider.
+3. Upload redacted audio or fill in audio input parameters.
+4. Set language, sampling rate, output format, and streaming return as needed.
+5. Send the request and adjust parameters based on results, latency, and error prompts.
+
+Key screenshot:
 
 ![Audio parameter configuration](./images/parameters.png)
 
-5. If a specific credential is required, select the corresponding **Personal Key** in the lower-right area of the input box.
-6. Enter or confirm the text to synthesize in the input box, then click the send button to generate audio.
-7. After generation is complete, view and play the generated audio in the result area.
+Confirm audio format, sampling rate, language, and output format.
 
+### Parameters
 
-#### Parameters (Parameter Configuration Panel)
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Audio File | Conditionally required | File | `sample.wav` | Audio sample used for recognition, understanding, or generation. |
+| Language | No | Dropdown | `zh-CN` | Helps the model choose recognition or generation language. |
+| Sampling Rate | No | Number | `16000` | Audio sampling rate. |
+| Output Format | No | Enum | `text` | Returns text, audio, or structured result. |
+| Stream | No | Toggle | `On` | Controls whether results are returned as a stream. |
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Voice ID | Dropdown | `male-qn-qingse` | The voice identifier used for audio generation |
-| Protocol | Dropdown | `openai/audio` | The API protocol used for model calls |
-| Text | Text Input | `please input` | Required. The text content to synthesize |
-| Speed | Number Slider / Input | `1.0` | Controls the speech speed of the generated audio |
-| Volume | Number Slider / Input | `1.0` | Controls the volume of the generated audio |
-| Pitch | Number Slider / Input | `0` | Controls the pitch of the generated audio |
-| Audio Format | Dropdown | `Select from page options` | The output file format for the generated audio |
-| Personal Key | Dropdown | `Personal Key 20260616...` | The credential used for the current request |
+### Pitfalls
 
-#### Parameters (Select Model Dialog)
+- Do not upload sensitive recordings such as real customer calls, ID numbers, or phone numbers.
+- Audio format or sampling-rate mismatches can cause recognition failure.
+- Long audio may trigger timeout, Token, or billing limits.
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Model Name / Identifier | Text | `Mock MiniMax Speech T2A / mock-models/speech-2.8-hd` | The model name and unique identifier |
-| Release Date | Date | `2026-06-02` | The release date of the model |
-| Context | Text | `-` | The displayed context value for the audio model |
-| Input Credit | Number | `3500 Credits` | The model input-side pricing display |
-| Provider | Text | `Model Mocker:Mock MiniMax Speech T2A / AGIOneSystem` | The model provider and service instance |
-| Billing Unit | Text | `Per Character` | The billing method of the selected provider instance |
-| Character Price | Number | `3,500 Credits/M chars` | The cost per million characters |
-| Latency / Throughput / Success Rate | Number | `- / 0 t/s / -` | Runtime metrics of the provider instance |
-| Weekly Calls / Weekly Chars | Number | `0 / 0 chars` | Recent usage of the provider instance |
-| Status Tags | Tag | `Recommended / Published` | Recommendation and publishing status |
-| Capability Tags | Tag | `Reasoning / Tool Calling` | Model capability tags; both are shown as unsupported in the screenshot |
+### Result Checks
 
-### Model Comparison
+1. The page returns recognized text, generated audio, or structured result.
+2. After language, sampling rate, and output format parameters change, results match expectations.
+3. On failure, request ID, error code, or format limit prompt is visible.
+## FAQ
 
-1. Click the **Model Compare** button to enter the multi-model comparison page.
-2. Select the audio models or provider instances to compare.
-3. Configure Voice ID, protocol, and generation parameters for each model.
-4. Enter the same text to synthesize.
-5. Click the send button to generate multiple audio results.
-6. Compare voice, speed, stability, and overall output quality across different models or provider instances.
+### Recognition Fails After Audio Upload
 
-## Other Operations
+**Symptom:**
 
-| Operation | Steps |
-|-----------|-------|
-| Switch Model | Click the top model dropdown -> select another model or provider in the dialog -> click **Confirm** |
-| Search Model | Enter a model name or model identifier in the left search box of the Select Model dialog |
-| Switch Voice | Click the Voice ID dropdown in the lower-left area of the input box and select a voice |
-| Adjust Parameters | Click the parameter configuration button -> modify Protocol, Text, Speed, Volume, Pitch, Audio Format, and other parameters |
-| Select Credential | Click the key dropdown in the lower-right area of the input box and select the Personal Key for this request |
-| Model Compare | Click **Model Compare** to enter the multi-model audio generation page |
-| Text Input | Enter text in the bottom input box, then click the send button or press Enter; use Shift+Enter for a new line |
-| Back to Old Version | Click **Back to old version** to switch to the old audio generation page |
+The page returns a format error or cannot recognize the audio.
 
+**Possible Causes:**
+
+- Audio format is unsupported.
+- Sampling rate or channel does not meet model requirements.
+- File is too large or duration is too long.
+
+**Handling:**
+
+1. Convert to a model-supported format.
+2. Adjust sampling rate and channel.
+3. Retry with a shorter redacted sample.
+
+### Returned Content Is Incomplete
+
+**Symptom:**
+
+Recognized text is missing, or generated audio is truncated.
+
+**Possible Causes:**
+
+- Input audio quality is poor.
+- Output length limit is too small.
+- Request timed out or streaming connection was interrupted.
+
+**Handling:**
+
+1. Use a clearer sample.
+2. Increase output limits.
+3. Check network and streaming settings.
+
+### Audio File Is Too Large or Format Is Unsupported
+
+**Symptom:**
+
+After upload, the page reports unsupported format, file too large, duration exceeded, or parsing failure.
+
+**Possible Causes:**
+
+- File format, sampling rate, or channel is outside model support.
+- Audio duration is too long and exceeds the single trial limit.
+- The file contains damaged segments or nonstandard encoding.
+
+**Handling:**
+
+1. Convert to a model-supported format such as WAV or MP3.
+2. Cut a short sample and confirm sampling rate, channel, and duration.
+3. Retry with a redacted sample, and record request ID and error code if it fails.
+
+## Next Steps
+
+1. Save effective audio parameter combinations.
+2. Go to call logs to view failed requests.
+3. Evaluate whether the audio model is suitable for production integration.
 ## Notes
 
-* Text is required. If it is empty, the page prompts you to enter text.
-* Voice ID determines the generated voice. Confirm the selected voice before generation.
-* Speed, Volume, and Pitch affect the playback speed, volume, and pitch of the generated audio.
-* Audio Format options depend on the actual dropdown options on the page.
-* Model price, status, billing unit, and performance metrics are subject to the information shown in the Select Model dialog.
-* You can click **Model Compare** to enter the multi-model audio generation page.
+- Do not upload sensitive recordings such as real customer calls, ID numbers, or phone numbers.
+- Long audio may trigger timeout, fee, or length limits.
+- Confirm that audio content is redacted before export or screenshots.

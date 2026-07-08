@@ -1,78 +1,137 @@
-# Tags
+# Tag Management
 
-## Preface
+::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+:::
 
-| Item            | Content                                                                                                                                                                            |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Target Audience | Operator                                                                                                                                                                           |
-| Navigation Path | Settings > Tags                                                                                                                                                                    |
-| Overview        | Define and manage the classification tag system for models (English UI title **Tags**). Supports a level-1 + multi-level sub-tag tree structure. Tags are used for classification and filtering in the model marketplace |
+::: warning Security Notice
+Model Services documentation and screenshots must not expose real API Keys, AK/SK pairs, Secret Keys, Endpoints, request header authentication values, model source credentials, internal access addresses, customer names, or business-sensitive data. Use placeholders in all examples.
+:::
 
-## Page Structure
+## Feature Overview
 
-### Search Area
+`Tag Management` is used to maintain or view model tags, tag groups, display order, and enabled status. It supports model publishing, experimentation, calling, statistics, and operational governance.
 
-The page top provides **Tag Type Tabs** (the screenshot currently shows the **Model** type only) + **Status Tabs** (**All** / Available / Unavailable) + a **Name** input box for searching, with **"Search"** and **"Reset"** buttons.
+| Item | Content |
+| --- | --- |
+| Applicable role | Operator |
+| Navigation path | System Settings > Tag Management |
+| Page route | /operator/settings/tags |
+| Managed objects | Model tags, tag groups, display order, and enabled status |
+| Typical use | Maintain model marketplace filters and display tags |
 
-### Action Buttons
+### Beginner Explanation
 
-- The page top-right provides the **"Add Tag"** button (highlighted in purple) for creating a new level-1 tag.
-- The Actions column of a level-1 tag row contains 4 operations: **Edit / Add / Disable / Delete** ("Add" is used to add sub-tags).
-- The Actions column of a sub-tag row contains 3 operations: **Edit / Disable / Delete** (no "Add").
-- Each row provides a 6-dot drag handle (**⋮⋮**) on the left side, used to adjust the order of tags in the tree.
-- The level-1 tag row provides a dropdown arrow (**▼**) on the left side, used to expand / collapse the sub-tag list.
+Tags are like shelf labels in the model marketplace. They help users filter models by capability, industry, recommendation level, or scenario. Confusing tag names directly reduce discovery efficiency.
 
-### Data List
+### Terms Quick Reference
 
-The page displays the tag list in a tree structure, with a 4-column table: **Category Name / Creation Time / Status / Actions**. Each row contains the tag name (with parent-child indentation), creation time, status badge (● Available / Unavailable), and action column.
+| Term | Description |
+| --- | --- |
+| Tag group | Organizes tags by capability, industry, recommendation, or scenario. |
+| Applicable object | Model, app, or content type to which a tag can be bound. |
+| Sort value | Controls the display order of tags in filter areas or details pages. |
+| Enabled/disabled status | Controls whether a tag can continue to be bound and filtered. |
+## Prerequisites
 
-## Operations
+1. The current account has tag maintenance permission.
+2. Tag groups, naming rules, sorting rules, and applicable objects have been determined.
+3. Before adding a tag, check whether synonymous or duplicate tags already exist.
+4. Before taking a tag offline, confirm the number of bound models and impact on filter entries.
+## Page Description
 
-### Adding a Tag
+This page maintains the tag system for models, apps, or content, including tag name, group, sort order, enabled/disabled status, and display scope. Operators should unify naming rules and avoid duplicate tags and internal abbreviations.
 
-1. Enter the platform homepage, click the **"Settings > Tags"** menu in the left navigation bar to enter the tag management page (English title **Tags**).
-2. The page top **"Tag Type"** tab currently shows the **Model** type; click the **"Add Tag"** button (purple button at the top right of the page) to pop up the **"Add Tag"** configuration window.
+Page screenshot:
 
-![Tags](./images/tags-list.png)
+![Tag list](./images/tags-list.png)
 
-3. Fill in the **"Code"** in the popup (e.g., `text_generation`, the unique identifier of the tag).
-4. Configure the name in the **"Tag Name"** card (marked "Multilingual"):
-   - The top prompts "Currently editing: English" (highlighting the currently editing language tab);
-   - The **"English"** / **"Simplified Chinese"** two tabs switch, with the current tab highlighted in purple;
-   - Fill in the name for the corresponding language in the **"\* Name"** required input box (e.g., fill in `Text Generation` under the English tab; switch to the "Simplified Chinese" tab and fill in `文本生成`).
-5. Fill in supplementary information in the **"Remarks"** input box (single field, not multilingual) (e.g., `Please enter remarks`, optional).
-6. Click the **"Confirm"** button at the bottom right of the popup (primary button, highlighted in purple) to complete the addition; to discard, click **"Cancel"**.
+Used to view tag names, categories, sort order, and enabled status.
 
-![Add Tag](./images/add-tag.png)
+## Main Operations
 
-#### Parameters
+### Steps
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Code | Text | `text_generation` | Required. The unique identifier of the tag (recommended to keep stable after saving) |
-| Tag Name (Multilingual) | Multilingual Text | English `Text Generation` / Simplified Chinese `文本生成` | **Required**. Must be configured under the "English" and "Simplified Chinese" tabs respectively. The top prompt "Currently editing: English" indicates the language currently being edited |
-| Remarks | Text | `Description text` | Optional. Supplementary description information for the tag (**single field**, not multilingual) |
+1. Go to `System Settings > Tags`.
+2. Filter by tag group, status, or keyword.
+3. When adding a tag, fill in name, group, sort order, and applicable object.
+4. Before enabling, check whether it duplicates or overlaps with existing tags.
+5. After saving, validate filtering on the model discovery page.
 
-## Other Operations
+Key screenshot:
 
-| Operation | Steps |
-|-----------|-------|
-| Tag Type Switching | Click the **"Model"** tab at the top of the page (the only type currently) → Switch to the corresponding type's tag list |
-| Filter and Search | Filter via the top **Status** tabs (**All** / Available / Unavailable) + **Name** input box; click the **"Search"** button to apply filters, and the **"Reset"** button to clear filter conditions |
-| Add Level-1 Tag | Click the **"Add Tag"** button at the top right of the page → Fill in the code + name + remarks in the popup → Click **"Confirm"** |
-| Add Sub-tag | In the **"Actions"** column of a level-1 tag row, click the **"Add"** button → The same "Add Tag" popup as the level-1 tag pops up → Fill in and submit |
-| Edit Tag | Click the target tag's **"Edit"** button → Modify the code / multilingual name / remarks in the popup → Click **"Confirm"** |
-| Enable / Disable | Click the target tag's **"Disable"** / **"Enable"** button → Toggle the tag's availability status (**Available** ↔ **Unavailable**) |
-| Delete Tag | Click the target tag's **"Delete"** button → **This action is irreversible. Please operate with caution.** |
-| Drag to Reorder | Use the 6-dot drag handle (**⋮⋮**) on the left side of each row to adjust the order of tags in the tree (**This operation may have differences in multilingual environments**) |
-| Expand / Collapse | Click the dropdown arrow (**▼**) on the left side of a level-1 tag row → Expand or collapse its sub-tag list |
+![Add tag](./images/add-tag.png)
+
+Confirm naming and filtering rules before adding a tag.
+
+### Parameters
+
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Tag Name | Yes | Text | `Long context` | User-visible tag name. |
+| Tag Group | Yes | Dropdown | `Model capability` | Used to organize the tag system. |
+| Applicable Object | Yes | Multi-select | `Model` | Object type to which the tag can be bound. |
+| Sort Order | No | Number | `20` | Controls display order. |
+| Status | Yes | Enum | `Enabled` | Controls whether the tag can be used. |
+
+### Pitfalls
+
+- Do not use internal project codenames as user-visible tags.
+- Before disabling a tag, check bound models and filter entries.
+- Do not mix capability tags, industry tags, and recommendation tags in the same group.
+
+### Result Checks
+
+1. The tag can be bound on model editing or app editing pages.
+2. Users can filter correct results by tag on the discovery page.
+3. After disabling, the tag no longer appears as a new binding option.
+## FAQ
+
+### Tag Filter Result Is Empty
+
+**Symptom:**
+
+No models are displayed after a user clicks a tag.
+
+**Possible Causes:**
+
+- No listed models are bound to this tag.
+- The tag status is disabled.
+- Model visibility scope does not include the current user.
+
+**Handling:**
+
+1. Check tag binding relationships.
+2. Confirm tag enabled status.
+3. Verify model listing and visibility scope.
+
+### Tag Meanings Are Duplicated
+
+**Symptom:**
+
+There are multiple tags with similar meanings in the list.
+
+**Possible Causes:**
+
+- Unified naming rules are missing.
+- Different operators created tags based on personal habits.
+- Tag group boundaries are unclear.
+
+**Handling:**
+
+1. Merge duplicate tags.
+2. Migrate model binding relationships.
+3. Supplement tag naming and grouping rules.
+
+## Next Steps
+
+1. Bind tags to models or apps.
+2. Validate filtering on the discovery page.
+3. Periodically clean up low-usage or duplicate tags.
 
 ## Notes
 
-- **Code Stability**: The code field is the unique identifier of the tag. It is recommended **not to modify** it after saving, otherwise it may affect models that already use the tag.
-- **Multilingual Switching**: In the "Add Tag" popup, the "Tag Name" is a **multilingual field** and must be filled in the corresponding language under the "English" and "Simplified Chinese" tabs; the top prompt "Currently editing: English" indicates the language currently being edited.
-- **Remarks are not multilingual**: Unlike the "Tag Name", the "Remarks" field is a **single-language field** with no tab switch; for multilingual remarks, manually concatenate them in the text.
-- **Multi-level Tree Structure**: Tags support a level-1 + sub-level structure. The Actions column of a level-1 tag contains 4 operations: **Edit / Add / Disable / Delete** ("Add" is used to add sub-tags); the Actions column of a sub-tag only has 3 operations: **Edit / Disable / Delete** (no "Add").
-- **Drag to Reorder**: The 6-dot handle (**⋮⋮**) on the left side of each row can be used to adjust the order of tags in the tree; ordering may differ in multilingual environments.
-- **Status Field**: Tag statuses are **Available** (green badge ●) / **Unavailable**; disabled tags are not selectable when adding models.
-- **Deletion operations are irreversible.** Please operate with caution.
+- Do not use internal project codenames as user-visible tags.
+- Migrate bound models before merging tags.
+- For tags involving customer names or industry-specific labels, confirm display boundaries.

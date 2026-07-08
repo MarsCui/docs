@@ -1,3 +1,0 @@
-# Creation Categories
-
-Updating.

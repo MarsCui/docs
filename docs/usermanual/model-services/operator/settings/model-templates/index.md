@@ -1,129 +1,148 @@
 # Model Templates
 
-## Preface
+::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+:::
 
-| Item            | Content                                                                                                                                                              |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Target Audience | Operator                                                                                                                                                             |
-| Navigation Path | Settings > Model Templates                                                                                                                                           |
-| Overview        | Based on configured model authors, model sources, and meta-models, pre-generate standard template configurations as a quick-reuse foundation for the model publishing process |
+::: warning Security Notice
+Model service documentation and screenshots must not expose real Endpoints, API Keys, request header authentication values, model source secrets, internal model IDs, customer call content, or business pricing policies. Use placeholders in all examples.
+:::
 
-## Page Structure
+## Feature Overview
 
-### Search Area
+`Model Templates` is used to maintain or view vendor templates, source previews, protocols, default parameters, and publishing forms. It supports model publishing, experimentation, calling, statistics, and operational governance.
 
-The page top provides filter conditions such as keyword, model author, and model source, which can be combined to quickly locate target templates.
+| Item | Content |
+| --- | --- |
+| Applicable role | Operator |
+| Navigation path | System Settings > Model Templates |
+| Page route | /operator/settings/model-templates |
+| Managed objects | Vendor templates, source previews, protocols, default parameters, and publishing forms |
+| Typical use | Provide reusable templates for model publishing |
 
-### Action Buttons
+### Beginner Explanation
 
-- The page top-right provides the **"Add"** button for creating new templates.
-- The page top provides **"Export"** / **"Import"** buttons for batch management of template configurations.
-- Each template card provides a **"..." (More)** button, including **"Edit"**, **"Details"**, and **"Delete"** operations.
+A model template is like a preset for the model publishing form. After a template is configured, model providers can fill fewer repeated fields, but the Endpoint, request headers, and default parameters in the template must be secure and controlled.
 
-### Data List
+### Terms Quick Reference
 
-The page displays all templates in card format, with each template showing template name, associated meta-model, associated model source, associated region, and other key information.
+| Term | Description |
+| --- | --- |
+| Template | Reusable model publishing configuration set. |
+| Vendor configuration preview | Displays Base URL, documentation URL, and request header examples. |
+| Default advanced parameters | Preset parameters such as temperature and max Token used when publishing a model. |
+| Protocol mapping | Mapping between the template and model call protocols. |
 
-## Operations
+## Prerequisites
 
-### Adding a Template
+1. The current account has model template maintenance permission.
+2. Selectable providers, authors, meta-models, and model sources have been maintained.
+3. Default parameters, request header previews, and publishing form fields have been confirmed.
+4. Before enabling the template, the publishing flow has been validated with a sample model.
+## Page Description
 
-1. Enter the platform homepage, click the **"Settings > Model Templates"** menu in the left navigation bar to enter the template management page.
-2. Click the **"Add"** button at the top right of the page to enter the template creation process.
+This page maintains model publishing templates. A template combines provider, meta-model, default parameters, protocol, and source preview to help model providers reduce repeated input.
 
-![Model Templates](./images/model-source-list.png)
+Page screenshot:
 
-#### **Step 1: Model Provider / Author**:
+![Model template list](./images/model-source-list.png)
 
-- **"Select Author"**: Select the target author from the author card list (cards contain identifier, display name, and associated meta-model count). Click **"+ Add Author"** to create a new author.
+Used to view template status, provider, and associated configuration.
 
-![Select Author](./images/step-1-select-author.png)
+## Main Operations
 
-- **"Provider Information"**:
-   - Select **"Provider"** (Required);
-   - Select **"Region"** (Required);
-   - The page displays **"Current Vendor Configuration Preview"**: includes Base URL, API Key Address, API Documentation Address, and request header configuration code snippet (e.g., `{ "Authorization": "Bearer <key>" }`);
-   - Click **"+ Add Model Source"** to create a new model source.
+### Steps
 
-![Provider Information](./images/step-1-provider-information.png)
+1. Go to `System Settings > Model Templates`.
+2. Select provider or vendor configuration.
+3. Associate applicable meta-models and model sources.
+4. Configure protocol, default advanced parameters, and request header preview.
+5. After saving, validate the template with a test model publishing flow.
 
-- Click **"Next"**.
+Key screenshots:
 
-#### **Step 2: Meta-model**:
+![Select meta-model](./images/step-2-select-meta-model.png)
 
-- **"Select Meta-model"**: Use the search bar (meta-model name / unique identifier + meta-model type dropdown) in the meta-model list to filter and single-select the target meta-model (list headers include meta-model name, unique identifier, meta-model type, status, description). Click **"+ Add Meta-model"** to create a new meta-model.
-- Fill in the **"Model Source ID"** (Required, e.g., `qwen3.6-plus`).
+The template must be associated with the correct meta-model capability.
 
-![Select Meta-model](./images/step-2-select-meta-model.png)
+![Input/output modalities](./images/step-2-input-output-modalities.png)
 
-- **Input / Output Modalities**: Select **"Input Modalities"** (multi-select: Text / Image / Video) and **"Output Modalities"** (multi-select) respectively.
+Template modalities should match the meta-model and model source.
 
-![Input / Output Modalities](./images/step-2-input_output-modalities.png)
+![Template preview](./images/step-3-preview.png)
 
-- **Advanced Capability Configuration**: Enable the **"Function / Tool Support"** and **"Thinking Mode"** capability toggles.
+Preview the fields and default parameters shown to users before release.
 
-![Advanced Capability Configuration](./images/step-2-advanced-capability-configuration.png)
+### Parameters
 
-- **Token Limit**: Set **"Max Context"**, **"Max Input"**, and **"Max Output"**.
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Template Name | Yes | Text | `OpenAI-compatible template` | Template name selectable during model publishing. |
+| Provider | Yes | Dropdown | `OpenAI Compatible` | Vendor or source type corresponding to the template. |
+| Meta-model | Yes | Dropdown | `Qwen Text` | Capability definition referenced by default in the template. |
+| Default Parameters | No | JSON | `{"top_p":0.8}` | Parameters carried into model publishing. |
+| Request Header Preview | No | JSON | `{"Authorization":"Bearer <key>"}` | Show placeholders only. Do not write real keys. |
 
-![Token Limit](./images/step-2-token-limit.png)
 
-- **Official Native Protocol and Default Advanced Parameters**: At least one protocol (OpenAI-ChatCompletions / OpenAI-Responses / Anthropic-Messages) must be selected. Fill in the Endpoint and configure the input parameters.
+### Pitfalls
 
-![Official Native Protocol and Default Advanced Parameters](./images/step-2-official-native-protocol.png)
+- Template default parameters affect all models that reference the template.
+- Provider and meta-model capability mismatches cause call failures after publishing.
+- Request header previews can contain placeholders only.
 
-- Click **"Next"**.
 
-#### **Step 3: Preview**:
+### Result Checks
 
-- Verify the overall template configuration information (selected author, provider information, meta-model, input / output modalities, advanced capability configuration, token limit, official native protocol and default advanced parameters). Click **"Submit"** to complete the template addition; to modify, click **"Previous"** to return to the corresponding step.
+1. The template can be selected in the model publishing flow.
+2. Provider, meta-model, source preview, and default parameters are carried into the publishing form correctly.
+3. Protocols, modalities, and Token limits are consistent with the associated meta-model.
+4. After the template is disabled, it no longer appears in new publishing flows.
+## FAQ
 
-![Preview](./images/step-3-preview.png)
+### Target Template Is Missing from Publishing Flow
 
-#### Parameters - Basic Association Information (Step 1)
+**Symptom:**
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Model Author | Card Selection | `qwen / Qwen` | Required. The model author to which the template belongs (with associated meta-model count) |
-| Provider | Dropdown | `Alibaba-China` | Required. The source channel for model calls |
-| Region | Dropdown | `China` | Required. The available region corresponding to the model source |
-| Vendor Config Preview - Base URL | URL | `https://dashscope.aliyuncs.com` | Optional. The base API address of the model service (display only) |
-| Vendor Config Preview - API Key Address | URL | `https://bailian.console.aliyun.com/...` | Optional. The official address for obtaining API keys (display only) |
-| Vendor Config Preview - API Documentation Address | URL | `https://bailian.console.aliyun.com/...` | Optional. The API documentation address of the model service (display only) |
-| Vendor Config Preview - Request Header | JSON | `{ "Authorization": "Bearer <key>" }` | Optional. The request header configuration code snippet (display only) |
+The model provider cannot see the expected template when creating a model.
 
-#### Parameters - Meta-model Configuration Information (Step 2)
+**Possible Causes:**
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Meta-model | Radio | `Qwen3.6-plus` (unique identifier `qwen/qwen3.6-plus`) | Required. The meta-model from which to generate the template |
-| Model Source ID | Text | `qwen3.6-plus` | Required. The unique identifier of the model on the corresponding source platform |
-| Input Modalities | Multi-select | `Text / Image / Video` | Required. The input data types supported by the template |
-| Output Modalities | Multi-select | `Text` | Required. The output data types supported by the template |
-| Advanced Capability - Function / Tool Support | Toggle | `On / Off` | Optional. When enabled, supports tool calling |
-| Advanced Capability - Thinking Mode | Toggle | `On / Off` | Optional. When enabled, supports deep thinking and reasoning |
-| Max Context | Number | `1024K` | Required. Token context length upper limit |
-| Max Input | Number | `991K` | Required. Single input Token upper limit |
-| Max Output | Number | `64K` | Required. Single output Token upper limit |
-| Official Native Protocol - OpenAI-ChatCompletions | Toggle + Protocol Code | `openai/chat_completions` | Required. The interface protocol type adapted by the template |
-| Official Native Protocol - OpenAI-Responses | Toggle + Protocol Code | `openai/responses` | Required. The interface protocol type adapted by the template |
-| Official Native Protocol - Anthropic-Messages | Toggle + Protocol Code | `anthropic/messages` | Required. The interface protocol type adapted by the template |
-| Endpoint | URL | `/compatible-mode/v1/chat/completions` | Required. The endpoint path corresponding to the protocol |
-| Input Parameters | Parameter List | `Temperature / Top-P / N / Stream / Max Tokens / Presence Penalty / Frequency Penalty / User / Seed / Parallel Tool Calls` | Optional. Preset input parameters by protocol (Required toggle available) |
+- The template is not enabled.
+- The meta-model or source associated with the template is unavailable.
+- The template's applicable provider does not match the current selection.
 
-## Other Operations
+**Handling:**
 
-| Operation | Steps |
-|-----------|-------|
-| Edit Template | Click the target template's **"..." (More)** button at the top right → Select **"Edit"** → Modify Step 1 association information or Step 2 meta-model configuration → Click **"Submit"** |
-| View Template Details | Click the target template's **"..." (More)** button at the top right → Select **"Details"** → View complete template configuration information → Click the back arrow at the top left to exit |
-| Delete Template | Click the target template's **"..." (More)** button at the top right → Select **"Delete"** → **This action is irreversible. Please operate with caution.** |
-| Filter and Search | Enter keywords, select model author or model source at the top of the page → Click the **"Search"** button → Quickly locate the target template |
-| Export / Import Configuration | Click the **"Export"** / **"Import"** buttons at the top right of the page → Batch management of template configurations |
+1. Confirm template status.
+2. Check associated meta-model, source, and provider.
+3. Re-enter the publishing flow and verify the dropdown.
+
+### Parameters Carried by the Template Are Incorrect
+
+**Symptom:**
+
+Parameters, request headers, or modalities auto-filled in the publishing form do not match expectations.
+
+**Possible Causes:**
+
+- Template default parameters were not updated.
+- Meta-model limits changed but the template was not synchronized.
+- Source preview still points to old configuration.
+
+**Handling:**
+
+1. Update template default parameters and request header preview.
+2. Check meta-model limits.
+3. After saving, run through the publishing flow with a test model.
+## Next Steps
+
+1. Use the template to create or update a test model and confirm that default parameters, pricing, and visibility scope take effect.
+2. Go to model details or Playground and validate the call examples and parameter descriptions generated by the template.
+3. After template changes, notify affected providers to avoid using old rules in the publishing flow.
 
 ## Notes
 
-- **Deletion operations are irreversible.** Please operate with caution.
-- Templates are pre-generated based on model authors, model sources, and meta-models. Before modifying a template configuration, confirm that it will not affect published models.
-- Multilingual fields must maintain both English and Chinese versions simultaneously. Switch language tabs to maintain the other language version.
-- Before adding a template, ensure that the model author, model source, and meta-model have all been configured.
+- Template default parameters affect the model marketplace and Playground user experience. Confirm the rules before release.
+- The meta-model, source, pricing, and visibility scope associated with the template should stay consistent.
+- After adjusting a template, sample-check model details, quick-start examples, and call logs to confirm they are displayed according to the new template.

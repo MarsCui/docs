@@ -1,69 +1,139 @@
-# Access Resource Pools
+# Resource Pools
 
-## Preface
+::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+:::
 
-| Item            | Content                                                                                                                                                          |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Target Audience | Operator                                                                                                                                                         |
-| Navigation Path | Access Management > Access Resource Pools                                                                                                                         |
-| Overview        | Maintain cloud platform resource pool regions, enable/disable specific regions, and manage their display names, providing foundational data support for subsequent model deployment and compute configuration processes |
+::: warning Security Notice
+The resource pool page may display resource IDs, regions, capacity, levels, and instance specifications. Do not expose real cloud resource IDs, account IDs, internal capacity planning, or customer resource distribution in screenshots or exports. Use redacted resource pool numbers for external communication.
+:::
 
-## Page Structure
+## Feature Overview
 
-### Cloud Platform List
+`Resource Pools` is used to maintain cloud account resource pools, regions, instance specifications, inventory, and synchronization status, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.
 
-The page left side displays the cloud platform list, which can be quickly filtered through **"Enter Name to Search"** (including 26 for Alibaba Cloud / 41 for Google Cloud / 24 for Huawei Cloud / 34 for AWS / 1 for AGIOne-powerone, etc.).
+| Item | Content |
+| --- | --- |
+| Applicable role | Operator |
+| Navigation path | Access Management > Resource Pools |
+| Page route | /operator/access-management/resource-pools |
+| Managed objects | Cloud account resource pools, regions, instance specifications, inventory, and synchronization status |
+| Typical use | Organize deployable resources by cloud account and region |
 
-### Region Card Grid
+### Beginner View
 
-The right side displays the region card grid (3 per row) of the selected cloud platform, with each card showing the region name and an enable/disable toggle.
+A resource pool is like putting machines, accelerator cards, and storage from a cloud account onto shelves by region. During deployment, users see available resources on the shelves, not the cloud provider account itself.
 
-### Action Buttons
+### Terms
 
-- The page top provides **"Export"** / **"Import"** buttons for batch management of resource pool configurations.
-- The page top-right provides a **"Show Enabled Only"** checkbox to filter enabled regions.
+| Term | Description |
+| --- | --- |
+| Resource pool | A resource collection organized by cloud account, region, and resource type. |
+| Inventory | Current instance or accelerator card capacity available for deployment. |
+| Synchronization task | A task where the platform pulls resource status from the cloud provider. |
+| Resource boundary | Which tenants or business regions a resource pool is opened to. |
 
-## Operations
+## Prerequisites
 
-### Enabling / Disabling Resource Pool Regions
+1. The cloud account has been accessed and passed validation.
+2. Target region resources have been synchronized.
+3. Resource pool capacity, resource type, and enablement status have been confirmed.
 
-1. Enter the platform homepage, click the **"Access Management > Access Resource Pools"** menu in the left navigation bar to enter the resource pool management page.
-2. Enter keywords in the search box above the left-side cloud platform list to search for cloud vendors (including 26 for Alibaba Cloud / 41 for Google Cloud / 24 for Huawei Cloud / 34 for AWS / 1 for AGIOne-powerone, etc.), and click the target cloud platform (e.g., Alibaba Cloud).
-3. The right side displays the region card grid (3 per row) of the selected cloud platform, including regions such as China North 1 (Qingdao), China North 2 (Beijing), China North 3 (Zhangjiakou), etc.
-4. Find the region that needs to be enabled / disabled, and click the toggle button on the right side of the region card:
-   - When the toggle is on, the region is enabled;
-   - Click the toggle to switch the region's enable / disable status.
+## Page Description
 
-![Access Resource Pools](./images/resource-pools-list.png)
+The page is used to view and maintain resource pools synchronized from cloud accounts, including cloud platform, region, resource type, capacity level, enablement status, and authorization status. Operators should split resource pools by region and business purpose to keep subsequent authorization and scheduling policies controllable.
 
-### Editing Region Display Name
+Page screenshot:
 
-1. Enter the platform homepage, click the **"Access Resource Pools"** menu in the left navigation bar to enter the resource pool management page.
-2. Select the target cloud vendor (e.g., Alibaba Cloud) on the left, and find the region to be edited.
-3. Click the edit icon on the region card to pop up the "Edit Name" window.
-4. **"Display Name"** (marked "Multilingual"): Used to set the display name of the region in lists, details, and selection controls. Click the **"English"** / **"Simplified Chinese"** tabs to switch language tabs, with the prompts **"Will be displayed in English language environment"** / **"Will be displayed in Simplified Chinese language environment"**. Fill in the names for the English and Simplified Chinese environments in the corresponding tabs.
-5. After confirming the configuration is correct, click the **"Confirm"** button to complete the modification; to discard, click **"Cancel"**.
+![Resource Pool List](./images/resource-pools-list.png)
 
-![Edit Name](./images/edit-name.png)
+Used to view resource pool regions, capacity, levels, and enablement status.
 
-#### Parameters
+## Main Operations
 
-| Term | Type | Example | Description |
-|------|------|---------|-------------|
-| Cloud Vendor | Selector | `Alibaba Cloud` / `Amazon` | Required. Select the cloud vendor resource pool to manage |
-| Region Toggle | Toggle | `On` / `Off` | Used to enable or disable the resource pool of the corresponding region |
-| Display Name | Multilingual Text | English: `China (Beijing)` / Simplified Chinese: `北京` | Required. Configure display names under the "English" and "Simplified Chinese" tabs respectively |
+### Procedure
 
-## Other Operations
+1. Go to `Access Management > Resource Pools`.
+2. Filter resource pools by cloud platform, region, resource type, or status.
+3. After synchronizing or adding a resource pool, verify capacity, specifications, and resource type.
+4. Set enablement status, purpose notes, and authorizable scope for the resource pool.
+5. Go to the authorization page and open the resource pool to tenants or business regions.
 
-| Operation | Steps |
-|-----------|-------|
-| Edit Region Display Name | Click the edit icon on the target region card → Modify the English / Simplified Chinese display names → Click **"Confirm"** |
-| Show Enabled Only | Check the **"Show Enabled Only"** checkbox at the top right of the page → Display only enabled regions |
-| Export / Import Configuration | Click the **"Export"** / **"Import"** buttons at the top right of the page → Batch management of resource pool configurations |
+Key step screenshot:
+
+![Edit Resource Pool Name](./images/edit-name.png)
+
+Before editing the name, confirm that it will not affect authorization or user-side recognition.
+
+### Parameters
+
+| Field | Required | Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Resource pool name | Yes | Text | `gpu-cn-shanghai-prod` | Should indicate cloud platform, region, and purpose. |
+| Cloud account | Yes | Dropdown | `prod-cloud-account` | Cloud account that owns the resource pool. |
+| Region | Yes | Dropdown | `cn-shanghai` | Region where the cloud resource is located. |
+| Resource type | Yes | Multi-select | `GPU / CPU` | Resource types that the resource pool can host. |
+| Enablement status | Yes | Enum | `Enabled` | Controls whether it can be authorized and scheduled. |
+
+### Pitfalls
+
+- Normal resource pool capacity does not mean the tenant already has permissions. Authorization must also be completed.
+- Do not mix cross-region resource pools to avoid selecting unreachable resources during deployment.
+- Before disabling a resource pool, confirm whether running deployment instances exist.
+
+### Result Validation
+
+1. The resource pool list shows capacity, region, and enablement status.
+2. The authorization page can select the target resource pool.
+3. The user deployment page can show the corresponding resource within the authorized scope.
+
+## FAQ
+
+### Resource Pool Cannot Be Authorized
+
+**Issue Symptom:**
+
+The target resource pool cannot be found on tenant authorization or business region authorization pages.
+
+**Possible Causes:**
+
+- The resource pool is not enabled.
+- The cloud account that owns the resource pool failed validation.
+- The resource pool region does not match the authorization object.
+
+**Handling:**
+
+1. Confirm resource pool enablement status.
+2. Check cloud account validation and synchronization tasks.
+3. Verify the cloud platform and region of the authorization object.
+
+### Resource Pool Capacity Shows Abnormal
+
+**Issue Symptom:**
+
+Resource pool capacity is 0 or inconsistent with the cloud provider console.
+
+**Possible Causes:**
+
+- Synchronization task latency.
+- Cloud provider resource tags or specifications do not match recognition rules.
+- Resources are occupied by other businesses.
+
+**Handling:**
+
+1. Refresh or retrigger synchronization.
+2. Verify resource tags, specifications, and status.
+3. Check actual available capacity together with the cloud provider console.
+
+## Next Steps
+
+1. Configure tenant-cloud authorization.
+2. Configure business region authorization.
+3. Maintain scheduling policies and deployment assets.
 
 ## Notes
 
-- The enable/disable status of regions affects downstream model deployment, compute configuration, and other processes. Disabled regions cannot be used in subsequent processes.
-- Multilingual fields must maintain both English and Chinese versions simultaneously. Switch language tabs to maintain the other language version.
-- In public cloud scenarios, region names follow the official naming of the cloud platform (e.g., "China East 2 (Shanghai)"); in private cloud scenarios, region names are defined by the platform.
+- Normal resource pool capacity does not mean the tenant has been authorized.
+- Do not mix cross-region resource pools.
+- Confirm there are no running deployments before disabling a resource pool.
