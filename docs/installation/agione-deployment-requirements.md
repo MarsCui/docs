@@ -26,10 +26,25 @@ The following diagram shows the overall logical architecture of the AGIOne platf
 
 ## 3. Deployment Mode Selection
 
+| Deployment Mode | Applicable Scenario | Nodes | High Availability | Recommended Environment |
+|---|---|---|---|---|
+| PoC Deployment (All in One) | Proof of concept, demo, internal testing | 1 | No | Single virtual machine |
+| Production Deployment - Public Cloud | Formal production and external service delivery | Multi-node | Yes | Public cloud (**Recommended**) |
+| Production Deployment - Private Cloud / IDC | Data compliance and internal network isolation | >= 4 | Yes | Customer-owned private cloud or IDC |
+
 | Item | Description |
 | ---- | ----------- |
 | Scope | AGIOne full-stack deployment solution design, pre-sales support, PoC assessment, and production delivery |
-| Constraint Level | This document serves as a planning reference. Official delivery shall be governed by the Release Note and compatibility matrix distributed with `agione-release-v1.0-20260514.tar.gz` |
+| Constraint Level | This document serves as a planning reference. Official delivery shall be governed by the Release Note and compatibility matrix distributed with `agione-release-v1.0-XXX.tar.gz` |
+
+> **Selection recommendation**: If there are no mandatory data compliance or network isolation requirements, prioritize public cloud deployment to benefit from cloud-provider managed middleware and operational convenience.
+
+The currently supported public cloud managed middleware providers are listed below. Providers not listed here require separate assessment based on customer region, available product specifications, network connectivity, and installer endpoint configuration support.
+
+| Cloud Provider | Support Status | Covered Managed Middleware | Applicable Installer Mode | Notes |
+|---|---|---|---|---|
+| Alibaba Cloud | Supported | ApsaraDB RDS for MariaDB, Tair / Redis, MSE Nacos, ApsaraMQ for Kafka, OSS, ALB | `managed-middleware` / `hybrid` | Suitable when the customer already uses Alibaba Cloud resources or wants to use MSE Nacos. Confirm RAM permissions, service-linked roles, VPC connectivity, and whitelist policies before delivery. |
+| Huawei Cloud | Supported | RDS for MariaDB, DCS for Redis, CSE Nacos, DMS for Kafka, OBS, ELB | `managed-middleware` / `hybrid` | Suitable when the customer already uses Huawei Cloud resources or needs a domestic-cloud delivery path. App / Edge nodes access managed middleware endpoints through private networking. |
 
 ---
 
@@ -59,9 +74,9 @@ The following diagram shows the overall logical architecture of the AGIOne platf
 
 ---
 
-## 5. Management Plane - Production Deployment (Public Cloud SaaS)
+## 5. Management Plane - Production Deployment (Public Cloud)
 
-Public cloud SaaS is the recommended production deployment mode. It fully leverages cloud-provider managed capabilities such as RDS, ELB, and object storage.
+Public cloud is the recommended production deployment mode. It fully leverages cloud-provider managed capabilities such as RDS, ELB, and object storage.
 
 ### 5.1 Resource Requirements
 
@@ -80,6 +95,8 @@ Public cloud SaaS is the recommended production deployment mode. It fully levera
 
 #### 5.1.2 Databases and Middleware
 
+Generic managed middleware baseline requirements:
+
 | Component | Purpose | CPU | Memory | Disk | Nodes | Network Requirement |
 |---|---|---|---|---|---|---|
 | **RDS (relational database)** | Stores primary AGIOne platform data | >= 4 vCPU | >= 16 GiB | >= 100 GiB | >= 3 | Same VPC as management nodes |
@@ -89,6 +106,32 @@ Public cloud SaaS is the recommended production deployment mode. It fully levera
 | **Object storage** | Stores images and other static resources | - | - | - | - | Network access via AK/SK |
 | **ELB (load balancing)** | AGIOne API load balancing | - | - | >= 100 GiB | 1 | Internal same VPC; public access, >= 100 Mbps |
 
+The supported cloud-provider product list is shown below. Before formal purchase, confirm available specifications, availability zones, billing mode, and account permissions in the customer's target region.
+
+**Alibaba Cloud Managed Middleware List**
+
+| AGIOne Component | Alibaba Cloud Product | Purpose | Creation / Sizing Guidance | Network and Permission Requirements |
+|---|---|---|---|---|
+| Database | ApsaraDB RDS for MariaDB | Stores AGIOne platform primary data and business schemas | Create a high-availability MariaDB instance, select VPC internal endpoint, ESSD / SSD storage, automatic backup, and required parameter groups; keep business schemas and Nacos schemas logically isolated where possible | Same VPC as management nodes or private network connectivity; security group / whitelist should allow only business node access; initialization account needs permissions to create databases, create tables, change schemas, and read/write data |
+| Redis | Tair / ApsaraDB for Redis | Cache, sessions, tokens, and short-lived state | Use primary/standby standard edition for small and medium environments; use cluster edition for high concurrency or large capacity; plan shards and enable password and monitoring | Same VPC as management nodes; configure instance whitelist; if cluster mode is enabled, confirm client support for MOVED / ASK; RAM identity needs permissions to create, query, whitelist, and manage Redis accounts |
+| Nacos | Microservices Engine (MSE) Nacos Registry | Service registry, service discovery, and configuration center | Enable MSE and create a Nacos engine, select specification, network, and namespace; import required AGIOne namespace, service, and config data | Initial MSE enablement and resource creation usually require service-linked role authorization; when the installer publishes configs, the Nacos runtime account must have namespace, config publish, and service management permissions |
+| Kafka | ApsaraMQ for Kafka | Asynchronous messages, metering, audit, and event streams | Create a VPC internal instance, start from 3 brokers for production, use topic replication factor 3, and size by throughput, storage, and retention period | Pre-create Topic, Group, ACL, and authentication settings; when SASL / ACL is enabled, synchronize client protocol, username, and password; RAM identity needs permissions to create and query instances, topics, groups, and ACLs |
+| Object storage | Object Storage Service (OSS) | Stores knowledge-base files, attachments, images, model assets, and log archives | Create private buckets, configure storage class, server-side encryption, and lifecycle; use CDN in front of OSS when download traffic is high | Do not allow public write access; application access should use least-privilege RAM users or STS temporary credentials; authorization should be limited to the target bucket and prefix with only required upload, download, list, and delete permissions |
+| Entry load balancing | Application Load Balancer (ALB) or MSE Cloud-native Gateway | Exposes the AGIOne API and Web entry externally | Use ALB for public entry, configure HTTPS listener, certificate, backend server group, or ACK Ingress; evaluate MSE Cloud-native Gateway when gateway governance is required later | Authorize ALB / ACK Ingress related service-linked roles before creation; expose only 80 / 443 on the public side; backends should point only to App / Edge nodes or ACK Ingress, with health checks configured |
+
+> **Alibaba Cloud permission focus**: The Alibaba Cloud account / RAM role used to create cloud resources must be managed separately from the runtime accounts and keys consumed by the AGIOne installer. The AGIOne installer should not require cloud account AK/SK. It only consumes the final middleware endpoints, ports, runtime accounts, and access keys.
+
+**Huawei Cloud Managed Middleware List**
+
+| AGIOne Component | Huawei Cloud Product | Purpose | Creation / Sizing Guidance | Network and Permission Requirements |
+|---|---|---|---|---|
+| Database | RDS for MariaDB | Stores AGIOne platform primary data and business schemas | Purchase a primary/standby instance, select the appropriate specification, storage, VPC, security group, and backup policy; reserve at least 40% extra capacity for production | Same VPC as management nodes or private network connectivity; security groups should allow only business node access; prepare an account with schema initialization permissions |
+| Redis | Distributed Cache Service (DCS) for Redis | Cache, sessions, tokens, and short-lived state | Avoid single-node instances in production; use primary/standby for small and medium environments, or Cluster for high write volume or large capacity; deploy across availability zones when possible | Same VPC as management nodes; configure password and access whitelist; confirm expiration and eviction policies before go-live |
+| Nacos | Cloud Service Engine (CSE) Nacos | Service registry, service discovery, and configuration center | Create a Nacos engine and configure specification, VPC, and permissions; migrate namespace, service, and config data | CSE Nacos is compatible with open-source Nacos / Eureka clients; when the installer publishes configs, the Nacos account must have namespace and config publish permissions |
+| Kafka | Distributed Message Service (DMS) for Kafka | Asynchronous messages, metering, audit, and event streams | Start from 3 brokers in production, enable multiple replicas, and size the instance by throughput, storage, and retention period | Private connectivity with management nodes; if authentication is enabled, synchronize client protocol, username, password, and ACL configuration |
+| Object storage | Object Storage Service (OBS) | Stores knowledge-base files, attachments, images, model assets, and log archives | Create private buckets and configure storage class, server-side encryption, lifecycle, and cross-region replication as needed | Access through AK/SK or temporary authorization; isolate workloads by bucket or prefix and avoid public read/write |
+| Entry load balancing | Elastic Load Balance (ELB) | Exposes the AGIOne API and Web entry externally | Prefer dedicated ELB for public entry, configure HTTPS listener, certificate, and backend server group; private ELB can be used for internal service entry | Expose only 80 / 443 on the public side; backends should point only to App / Edge nodes or CCE Ingress, with health checks configured |
+
 #### 5.1.3 Capacity and Scalability
 
 - AGIOne management nodes can scale horizontally.
@@ -97,7 +140,7 @@ Public cloud SaaS is the recommended production deployment mode. It fully levera
 
 ### 5.2 Architecture Diagram
 
-![Public Cloud SaaS Production Architecture](images/03-saas-production.svg)
+![Public Cloud Production Architecture](images/03-saas-production.svg)
 
 ### 5.3 Deployment Notes
 
@@ -242,21 +285,33 @@ Before deployment, confirm each item to ensure a smooth rollout:
 
 **Base Environment**
 
-- [ ] Deployment mode has been selected according to the scenario (PoC / public cloud SaaS / private cloud IDC)
+- [ ] Deployment mode has been selected according to the scenario (PoC / public cloud / private cloud IDC)
 - [ ] Node quantity and specifications meet resource requirements
 - [ ] Operating system and kernel version meet requirements
 - [ ] Time is synchronized (NTP), and all nodes use a consistent time zone
 
-**Download URL:** [https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260514.tar.gz](https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260514.tar.gz)
+**Fixed download page:**
+
+<https://agione.pro/release/download/agione-release-latest>
+
+After opening the page, copy `Download URL` and `MD5 URL` for package download and verification.
 
 ```bash
 # 1. Download and extract the bundle
 ssh root@<target>
+AGIONE_RELEASE_PAGE="https://agione.pro/release/download/agione-release-latest"
+AGIONE_RELEASE_URL="<copy-the-Download-URL-from-the-page>"
+AGIONE_RELEASE_MD5_URL="<copy-the-MD5-URL-from-the-page>"
+AGIONE_RELEASE_ARCHIVE="${AGIONE_RELEASE_URL##*/}"
+
 mkdir -p /opt/hyperone && \
 cd /opt/hyperone && \
-curl -fL -O https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260514.tar.gz && \
-tar -zxvf agione-release-v1.0-20260514.tar.gz && \
-cd /opt/hyperone/agione-release-v1.0-20260514
+curl -fL -o "$AGIONE_RELEASE_ARCHIVE" "$AGIONE_RELEASE_URL" && \
+curl -fL -o "$AGIONE_RELEASE_ARCHIVE.md5" "$AGIONE_RELEASE_MD5_URL" && \
+echo "$(awk '{print $1}' "$AGIONE_RELEASE_ARCHIVE.md5")  $AGIONE_RELEASE_ARCHIVE" | md5sum -c - && \
+AGIONE_RELEASE_DIR="$(tar -tzf "$AGIONE_RELEASE_ARCHIVE" | head -1 | cut -d/ -f1)" && \
+tar -zxvf "$AGIONE_RELEASE_ARCHIVE" && \
+cd "/opt/hyperone/$AGIONE_RELEASE_DIR"
 ```
 
 ---
@@ -289,7 +344,7 @@ cd /opt/hyperone/agione-release-v1.0-20260514
 | Deployment Mode | Minimum Nodes | Minimum Per-Node Specification | Total Resource Reference |
 |---|---|--------------------------------|---|
 | PoC All in One | 1 | 8C / 24G / 200G                | 8C / 24G / 200G |
-| Public Cloud SaaS (business nodes) | 2 | 8C / 16G / 200G                | 16C / 32G / 1 TB+ |
+| Public Cloud (business nodes) | 2 | 8C / 16G / 200G                | 16C / 32G / 1 TB+ |
 | Private Cloud IDC | 4 | 8C / 16G / 200G                | 32C / 64G / 800G+ |
 
 ### 11.2 Capacity Estimation Reference

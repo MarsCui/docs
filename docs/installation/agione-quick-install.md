@@ -17,26 +17,38 @@ Recommended request profile:
 | Operating system | Linux | Ubuntu 22.04 |
 | CPU | 8 cores | CPU must be at least 8 cores |
 | Memory | 16 GiB | A small OS or virtualization reservation is tolerated; about `15.2GiB` or above can pass |
-| Free disk | 200 GiB | The partition hosting `/opt/hyperone` tolerates about 20% filesystem reservation; about `160GiB` or above can pass |
+| Free disk | 200 GiB | When `runtime_root` keeps the default value, the installer prefers a data disk that has at least about `160GiB` free, and falls back to the system disk only when no suitable data disk is available |
 | Execution user | `root` | Root installation is recommended to avoid Docker, directory permission, and system service permission issues |
 
 ## Quick Install
 
 ### 1. Download bundle
 
-Download `agione-release-v1.0-20260527.tar.gz` on the target host:
+Open the fixed download page first, then copy the package link from `Download URL`. `agione-release-latest` is a download page, not a direct `.tar.gz` package URL.
 
-**Download URL:** [https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz](https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz)
+**Fixed download page:**
+
+<https://agione.pro/release/download/agione-release-latest>
+
+The page also provides an `MD5 URL`. It is recommended to verify the package after download.
 
 Example:
 
 ```bash
 ssh root@<target-host>
+AGIONE_RELEASE_PAGE="https://agione.pro/release/download/agione-release-latest"
+AGIONE_RELEASE_URL="<copy-the-Download-URL-from-the-page>"
+AGIONE_RELEASE_MD5_URL="<copy-the-MD5-URL-from-the-page>"
+AGIONE_RELEASE_ARCHIVE="${AGIONE_RELEASE_URL##*/}"
+
 mkdir -p /opt/hyperone && \
 cd /opt/hyperone && \
-curl -fL -O https://onepro-agione.oss-ap-southeast-1.aliyuncs.com/modelone/release/agione-release-v1.0-20260527.tar.gz && \
-tar -zxvf agione-release-v1.0-20260527.tar.gz && \
-cd /opt/hyperone/agione-release-v1.0-20260527
+curl -fL -o "$AGIONE_RELEASE_ARCHIVE" "$AGIONE_RELEASE_URL" && \
+curl -fL -o "$AGIONE_RELEASE_ARCHIVE.md5" "$AGIONE_RELEASE_MD5_URL" && \
+echo "$(awk '{print $1}' "$AGIONE_RELEASE_ARCHIVE.md5")  $AGIONE_RELEASE_ARCHIVE" | md5sum -c - && \
+AGIONE_RELEASE_DIR="$(tar -tzf "$AGIONE_RELEASE_ARCHIVE" | head -1 | cut -d/ -f1)" && \
+tar -zxvf "$AGIONE_RELEASE_ARCHIVE" && \
+cd "/opt/hyperone/$AGIONE_RELEASE_DIR"
 ```
 
 ### 2. One-click installation
@@ -122,7 +134,7 @@ The AGIOne installer is responsible for:
 
 | Type | Path |
 | --- | --- |
-| Release source directory | `agione-release-v1.0-YYYYMMDD` |
+| Release source directory | `agione-release-v1.0-XXX` |
 | Installer runtime directory | `/opt/agione-installer-bundle` |
 | AGIOne runtime data directory | `/opt/hyperone` |
 | Offline Python runtime | `/opt/agione-python` |
@@ -160,12 +172,12 @@ The TUI flow includes:
 1. Welcome
 2. System Check
 3. Offline Package Check
-4. Module Selection
-5. Basic Info
-6. Node Input
+4. Install Overview
+5. Module Selection
+6. Basic Info
 7. Middleware Config
 8. Resource Policy
-9. Config Review
+9. Node Input
 10. Start Install
 11. Execute
 12. Result
@@ -303,9 +315,9 @@ No manual installation is required. The bundle includes an offline Python runtim
 
 Cloud hosts, virtualization platforms, and operating systems reserve part of the memory, so the detected value is commonly `15.xGiB`. The installer allows a small reservation loss, and about `15.2GiB` or above can pass.
 
-### Q4: Why is detected disk capacity slightly smaller after requesting 200G?
+### Q4: How does the installer choose the disk for runtime data?
 
-Disk vendor units, filesystem metadata, and system reserved space can make actual available space smaller than the nominal value. The installer allows about 20% tolerance, and about `160GiB` or above can pass.
+When `agione_app.runtime_root` is left as `/opt/hyperone`, the installer scans physical data-disk mounts first and selects `<mount>/hyperone` when the free space is about `160GiB` or above. If no suitable data disk exists, it checks `/opt/hyperone` on the system disk. If `runtime_root` is explicitly configured, the installer respects that path and validates the filesystem behind it.
 
 ### Q5: Can system check failures be skipped?
 
@@ -375,7 +387,7 @@ At minimum, hand over:
 
 ```bash
 # 1. Enter the bundle directory
-cd /opt/hyperone/agione-release-v1.0-20260527
+cd /opt/hyperone/agione-release-v1.0-XXX
 
 # 2. Grant execute permission to the entry script
 chmod +x ./agione

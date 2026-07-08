@@ -19,7 +19,7 @@ The goal is to find blocking issues before the installation workflow starts.
 Run `doctor` before formal installation:
 
 ```bash
-cd /opt/hyperone/agione-release-v1.0-20260527
+cd /opt/hyperone/agione-release-v1.0-XXX
 chmod +x ./agione
 ./agione doctor
 ```
@@ -50,8 +50,8 @@ For host-mode multi-node installation, run the precheck with the same configurat
 | --- | --- | --- |
 | Operating system and permissions | High | Confirm Linux distribution, root or equivalent permission, and basic commands |
 | CPU and memory | High | Confirm that the host meets the selected deployment mode |
-| Disk space | High | The partition hosting `/opt/hyperone` recommends 200 GiB; about 160 GiB or above can pass the basic check |
-| Runtime directory | High | Confirm that `/opt/hyperone` can be created, written, and cleaned when reinstalling |
+| Disk space | High | With the default `runtime_root`, the installer prefers a suitable data disk and falls back to `/opt/hyperone` on the system disk only when needed; about 160 GiB or above is required |
+| Runtime directory | High | Confirm that the selected runtime root can be created, written, and cleaned when reinstalling |
 | Port occupation | High | Confirm that required ports are not occupied by unmanaged processes |
 | Docker and Compose | High | If installed, check version and status; if missing, confirm that offline installation assets are available |
 | SSH access | High for host-mode | Confirm that the initiating host can access all host-mode nodes |
@@ -114,7 +114,7 @@ For host-mode multi-node installation, check every node defined in `agione-insta
 | SSH connectivity | Target node can be reached through the configured user and port | Authentication failure or timeout |
 | Private IPv4 address | Node address is an RFC1918 private IPv4 address | Public IP address, public DNS name, or placeholder hostname |
 | Remote commands | `bash`, `tar`, and Python are available or repairable from bundled assets | Required commands are missing and cannot be repaired |
-| Remote resources | CPU, memory, and disk meet the selected role | Node resource below the threshold |
+| Remote resources | CPU, memory, and selected install disk meet the selected role | Node resource below the threshold |
 | Existing data | Old runtime data is either absent or explicitly overwritten with `-f` | Old runtime data exists and overwrite was not confirmed |
 | Docker status | Docker and Compose are running or can be installed from offline assets | Docker repair failed |
 | Ports | Required ports are free on the node that will bind them | Existing process occupies a required port |
@@ -163,7 +163,7 @@ Enter formal installation only after:
 Recommended execution sequence:
 
 ```bash
-cd /opt/hyperone/agione-release-v1.0-20260527
+cd /opt/hyperone/agione-release-v1.0-XXX
 chmod +x ./agione
 ./agione doctor --file /root/agione-install.yml
 ./agione verify-bundle

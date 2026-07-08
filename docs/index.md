@@ -25,8 +25,8 @@ features:
     details: Online payment activation and activation-code based activation
     link: /license/
   - title: User Guide
-    details: Compute integration, compute management, and model deployment workflows
-    link: /userguide/
+    details: Scenario-based guides for common AGIOne workflows
+    link: /userguide/scenarios
   - title: User Manual
     details: Register, login, and dashboard usage
     link: /usermanual/

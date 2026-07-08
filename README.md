@@ -5,7 +5,7 @@
 
 AGIOne AI Gateway Platform Documentation
 
-Bilingual: [English](/) / [中文](/zh/)
+Bilingual: [English](/) / [中文](/zh-CN/)
 
 ## 环境要求
 
@@ -49,12 +49,12 @@ npm run docs:preview
 
 | 章节 | 英文路径 | 中文路径 |
 |------|---------|---------|
-| 售前资料 | `/presales/` | `/zh/presales/` |
-| 方案设计 | `/solution/` | `/zh/solution/` |
-| 交付部署 | `/deployment/` | `/zh/deployment/` |
-| 运维运营 | `/operations/` | `/zh/operations/` |
-| 排错支持 | `/troubleshooting/` | `/zh/troubleshooting/` |
-| OEM 配置 | `/oem/` | `/zh/oem/` |
+| 售前资料 | `/presales/` | `/zh-CN/presales/` |
+| 方案设计 | `/solution/` | `/zh-CN/solution/` |
+| 交付部署 | `/deployment/` | `/zh-CN/deployment/` |
+| 运维运营 | `/operations/` | `/zh-CN/operations/` |
+| 排错支持 | `/troubleshooting/` | `/zh-CN/troubleshooting/` |
+| OEM 配置 | `/oem/` | `/zh-CN/oem/` |
 
 ## 项目结构
 
@@ -92,7 +92,7 @@ npm run docs:preview
 │   ├── operations/             # English operations docs
 │   ├── troubleshooting/        # English troubleshooting docs
 │   ├── oem/                    # English OEM docs
-│   └── zh/                     # Chinese locale
+│   └── zh-CN/                     # Chinese locale
 │       ├── index.md            # 中文首页
 │       ├── presales/           # 中文售前资料
 │       │   ├── best-practices/ # 最佳实践子目录
@@ -136,7 +136,7 @@ npm run docs:preview
 | 文件路径 | 访问路径 |
 |---|---|
 | `docs/presales/new-doc.md` | `/presales/new-doc` |
-| `docs/zh/presales/new-doc.md` | `/zh/presales/new-doc` |
+| `docs/zh-CN/presales/new-doc.md` | `/zh-CN/presales/new-doc` |
 
 添加文档后，需要同步更新配置：
 

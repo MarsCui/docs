@@ -17,7 +17,7 @@ export default defineConfig({
       provider: 'local',
       options: {
         locales: {
-          zh: {
+          'zh-CN': {
             translations: {
               button: {
                 buttonText: '搜索文档',
@@ -60,10 +60,10 @@ export default defineConfig({
         socialLinks,
       },
     },
-    zh: {
+    'zh-CN': {
       label: '简体中文',
       lang: 'zh-CN',
-      link: '/zh/',
+      link: '/zh-CN/',
       themeConfig: {
         ...zhTheme,
         socialLinks,

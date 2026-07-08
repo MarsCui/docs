@@ -1,10 +1,14 @@
 import DefaultTheme from 'vitepress/theme'
 import { onMounted, watch, nextTick } from 'vue'
 import { useRoute } from 'vitepress'
+import ScenarioGuide from './components/ScenarioGuide.vue'
 import './custom.css'
 
 export default {
   extends: DefaultTheme,
+  enhanceApp({ app }) {
+    app.component('ScenarioGuide', ScenarioGuide)
+  },
   setup() {
     if (typeof window === 'undefined') return
     const route = useRoute()
