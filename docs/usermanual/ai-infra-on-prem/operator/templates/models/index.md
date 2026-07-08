@@ -1,3 +1,0 @@
-# Models
-
-To be updated.
