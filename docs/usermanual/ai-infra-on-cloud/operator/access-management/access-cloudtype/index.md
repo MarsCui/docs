@@ -1,5 +1,10 @@
 # Access Cloud Platforms
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Access Cloud Platforms` is used to maintain cloud platform types, private cloud addresses, enablement status, and access notes, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.

@@ -1,5 +1,10 @@
 # Getting Started
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## 30-Second Quick Reference
 
 | Who I Am | Read First | Next Step |

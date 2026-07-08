@@ -1,5 +1,10 @@
 # Device Monitoring
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Device Monitoring` is used to view accelerator devices such as GPUs/NPUs, VRAM, utilization, temperature, and health status, helping operators perform capacity inspections, locate exceptions, and make resource scheduling judgments.

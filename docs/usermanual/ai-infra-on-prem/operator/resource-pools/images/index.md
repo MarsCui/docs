@@ -1,5 +1,10 @@
 # Image Management
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Image Management` is used to manage image entries and tags in image repositories, supporting runtime environment selection for jobs, IDEs, inference services, and other workloads.

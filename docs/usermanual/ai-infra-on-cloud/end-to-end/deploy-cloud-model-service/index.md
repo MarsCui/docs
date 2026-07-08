@@ -1,5 +1,10 @@
 # Deploy a Cloud Model Service from Scratch
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 This document connects operator and user On-Cloud operations into an end-to-end path: the operator first connects the cloud platform, cloud account, resource pool, authorization relationships, model assets, and scheduling policies; then the user selects a cloud account and model, initiates deployment through intelligent recommendation, and views API invocation, monitoring, and event records after deployment.

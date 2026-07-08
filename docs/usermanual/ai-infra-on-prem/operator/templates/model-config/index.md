@@ -1,5 +1,10 @@
 # Model Configuration
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Model Configuration` is used to maintain model assets that can be referenced by inference templates, including base models, model versions, sources, quantization methods, token limits, tags, and associated clusters.

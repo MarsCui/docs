@@ -1,5 +1,10 @@
 # AI Infra On-Cloud
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Subsystem Positioning
 
 AI Infra On-Cloud is designed for cloud resource access, authorization, resource pool governance, and cloud model service deployment. It connects cloud provider accounts, resource pools, business authorization, deployment assets, and scheduling policies.

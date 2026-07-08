@@ -1,5 +1,10 @@
 # My Models
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `My Models` is used to maintain or view owned models, model sources, request headers, Endpoints, publishing methods, billing, and rate-limit configuration. It supports model publishing, experimentation, calling, statistics, and operational governance.

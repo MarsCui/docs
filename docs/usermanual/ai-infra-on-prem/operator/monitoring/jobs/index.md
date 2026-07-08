@@ -1,5 +1,10 @@
 # Job Monitoring
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Job Monitoring` is used to view model instances, online IDEs, runtime instances, training tasks, and historical jobs, helping operators perform capacity inspections, locate exceptions, and make resource scheduling judgments.

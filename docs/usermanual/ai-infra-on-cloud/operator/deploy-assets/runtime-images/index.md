@@ -1,5 +1,10 @@
 # Runtime Images
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Runtime Images` is used to maintain container images, image tags, framework dependencies, and applicable resource types, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.

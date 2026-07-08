@@ -1,5 +1,10 @@
 # Access Overview
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Access Overview` is used to maintain access accounts, resource pools, authorization status, deployment assets, and exception prompts, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.

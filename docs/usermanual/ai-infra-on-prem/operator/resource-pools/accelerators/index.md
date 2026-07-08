@@ -1,5 +1,10 @@
 # Accelerator Management
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Accelerator Management` is used to maintain AI accelerator models, vendors, architectures, VRAM capacity, compute capability, and adaptation status that the platform can identify, and to associate accelerator models with specification metrics.

@@ -1,5 +1,10 @@
 # Video Playground
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Video Playground` is used to maintain or view video models, input materials, frame sampling parameters, generation parameters, and results. It supports model publishing, experimentation, calling, statistics, and operational governance.

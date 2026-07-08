@@ -1,5 +1,10 @@
 # Framework Assets
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Framework Assets` is used to maintain runtime frameworks, framework versions, startup commands, ports, and image relationships, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.

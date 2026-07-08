@@ -1,5 +1,10 @@
 # Resource Quotas
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Resource Quotas` displays the total amount, used amount, and availability of the current tenant across AI cards, CPU, memory, and different instance types. Regular users should confirm whether quotas meet requirements before creating instances.

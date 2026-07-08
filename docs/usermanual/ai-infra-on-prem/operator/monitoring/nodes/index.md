@@ -1,5 +1,10 @@
 # Node Statistics
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Node Statistics` is used to view node status, node role, resource utilization, heartbeat, and owning cluster, helping operators perform capacity inspections, locate exceptions, and make resource scheduling judgments.

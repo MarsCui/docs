@@ -1,5 +1,10 @@
 # VRAM Estimation Configuration
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `VRAM Estimation Configuration` is used to maintain VRAM estimation rules for model deployment, helping inference templates recommend resource specifications based on model, precision, KV Token, concurrency, context length, and dynamic expressions.

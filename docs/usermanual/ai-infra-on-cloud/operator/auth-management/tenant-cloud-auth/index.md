@@ -1,5 +1,10 @@
 # Tenant Cloud Authorization
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Tenant Cloud Authorization` is used to maintain tenants, cloud accounts, resource pools, regions, and available permissions, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.

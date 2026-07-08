@@ -1,5 +1,10 @@
 # Image Playground
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Image Playground` is used to maintain or view image models, prompts, size, style, and generation results. It supports model publishing, experimentation, calling, statistics, and operational governance.

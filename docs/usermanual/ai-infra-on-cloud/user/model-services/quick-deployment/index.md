@@ -1,5 +1,10 @@
 # Quick Deployment
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Quick Deployment` is used to select models, cloud resources, deployment specifications, and access configuration through a wizard, and to create cloud model services.

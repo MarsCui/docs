@@ -1,5 +1,10 @@
 # App Reviews
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `App Reviews` is used to maintain or view app requests, model permissions, call scopes, customer information, and review comments. It supports model publishing, experimentation, calling, statistics, and operational governance.

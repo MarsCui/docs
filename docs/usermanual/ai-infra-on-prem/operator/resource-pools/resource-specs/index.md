@@ -1,5 +1,10 @@
 # Resource Specifications
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Resource Specifications` is used to maintain resource packages that users can select when creating jobs, combining metrics such as CPU, memory, and AI accelerators.

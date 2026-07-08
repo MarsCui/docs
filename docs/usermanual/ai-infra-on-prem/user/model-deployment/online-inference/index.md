@@ -1,5 +1,10 @@
 # Model Instances
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Model Instances` is used to view model services created through deployment templates. Regular users can filter instances by instance type, status, and name here, and enter subsequent details, logs, or access troubleshooting flows.

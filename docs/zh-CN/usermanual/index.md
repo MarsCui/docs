@@ -1,5 +1,10 @@
 # 用户手册
 
+:::: info 文档信息
+版本：v1.0
+更新日期：2026-07-06
+::::
+
 ## 子系统简介
 
 三个子系统像一条模型服务交付流水线：AI Infra On-Prem 管本地算力和资源池，AI Infra On-Cloud 管云上账号、授权和部署资源，Model Services 管模型上架、体验、调用和收益分析。
@@ -28,8 +33,8 @@
 
 ## 推荐阅读路径
 
-1. 新手先读对应子系统的 `getting-started`，理解角色边界、核心术语和资源层级。
-2. 需要完整交付流程时，再读 `end-to-end`，按步骤串联运营方准备和用户侧使用。
+1. 新手先读对应子系统的入门页，理解角色边界、核心术语和资源层级：[AI Infra On-Prem 平台入门](./ai-infra-on-prem/getting-started/)、[AI Infra On-Cloud 平台入门](./ai-infra-on-cloud/getting-started/)、[Model Services 平台入门](./model-services/getting-started/)。
+2. 需要完整交付流程时，再读端到端流程页，按步骤串联运营方准备和用户侧使用：[On-Prem 从零开始部署模型服务](./ai-infra-on-prem/end-to-end/deploy-model-service/)、[On-Cloud 从零开始部署云上模型服务](./ai-infra-on-cloud/end-to-end/deploy-cloud-model-service/)、[Model Services 从发布到调用模型](./model-services/end-to-end/publish-and-call-model/)。
 3. 已经知道目标功能时，直接进入功能页查看前提条件、参数说明、结果校验和 FAQ。
 4. 遇到创建失败、调用失败或用量异常时，优先查看配额、监控、调用日志和计量明细。
 

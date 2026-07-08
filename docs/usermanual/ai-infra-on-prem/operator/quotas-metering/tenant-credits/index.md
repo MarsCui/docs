@@ -1,5 +1,10 @@
 # Tenant Credits
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Tenant Credits` is used by operators to view and allocate CPU, GPU, and memory resource credits for tenants in the current resource pool.

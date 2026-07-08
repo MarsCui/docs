@@ -1,5 +1,10 @@
 # Model Services
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Subsystem Positioning
 
 Model Services covers model publishing, review, experimentation, calling, logs, and revenue analysis. It helps model providers publish models, callers discover and use models, and operators govern model capabilities and review workflows.

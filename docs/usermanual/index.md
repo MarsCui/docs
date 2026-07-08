@@ -5,6 +5,11 @@ next: true
 
 # User Manual
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Projects
 
 | Project | Description |

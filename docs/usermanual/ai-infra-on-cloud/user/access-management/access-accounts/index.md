@@ -1,5 +1,10 @@
 # My Access Accounts
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `My Access Accounts` is used to maintain user-side cloud accounts, access keys, authorization status, and available resource scope, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.

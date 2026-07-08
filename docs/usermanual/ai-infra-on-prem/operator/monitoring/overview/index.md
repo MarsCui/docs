@@ -1,5 +1,10 @@
 # Statistics Overview
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Statistics Overview` is used to view resource pool overview, cluster count, node status, job distribution, and resource capacity, helping operators perform capacity inspections, locate exceptions, and make resource scheduling judgments.

@@ -1,5 +1,10 @@
 # Framework Configuration
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Framework Configuration` is used to maintain inference or runtime frameworks, including framework name, version, image, startup command, ports, environment variables, and supported model types. The framework determines which service process hosts a model instance after it starts.

@@ -1,5 +1,10 @@
 # File Storage
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `File Storage` is used to view and use shared file storage capability opened by the operator in the target region. After the capability is opened, the page displays available file systems, shared directories, capacity, status, and mount entrypoints. When the capability is not opened, users need to confirm region, permissions, quotas, and operator component access status.

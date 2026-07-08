@@ -1,5 +1,10 @@
 # Model Sources
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Model Sources` is used to maintain or view source channels, regions, Base URLs, request headers, authentication information, and connectivity status. It supports model publishing, experimentation, calling, statistics, and operational governance.

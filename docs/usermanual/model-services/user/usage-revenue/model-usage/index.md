@@ -1,5 +1,10 @@
 # Model Usage
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Model Usage` is used to maintain or view model call volume, Token usage, customer distribution, time trends, and usage details. It supports model publishing, experimentation, calling, statistics, and operational governance.

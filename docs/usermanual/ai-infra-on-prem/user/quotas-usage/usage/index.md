@@ -1,5 +1,10 @@
 # Resource Usage
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Resource Usage` is used to view the current tenant's usage and consumption details across different resource specifications. Regular users can view quotas by specification and enter consumption details to confirm resource consumption sources.

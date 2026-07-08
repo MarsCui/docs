@@ -1,5 +1,10 @@
 # Specification Metrics
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Specification Metrics` is used to maintain base metrics that resource specifications can reference, including CPU, memory, and AI accelerator metrics. Metrics determine how resource specifications map to Kubernetes resource keys.

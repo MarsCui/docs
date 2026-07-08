@@ -1,5 +1,10 @@
 # My Call Analytics
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `My Call Analytics` is used to maintain or view call trends, model distribution, Token trends, success rate, and fee analysis. It supports model publishing, experimentation, calling, statistics, and operational governance.

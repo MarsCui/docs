@@ -1,5 +1,10 @@
 # Customer Call Logs
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Customer Call Logs` is used to maintain or view customer single-request logs, request IDs, error codes, customer identifiers, and model return summaries. It supports model publishing, experimentation, calling, statistics, and operational governance.

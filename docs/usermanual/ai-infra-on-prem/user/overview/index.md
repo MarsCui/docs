@@ -1,5 +1,10 @@
 # Overview
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Overview` is the summary page regular users enter after opening AI Infra-On Prem. It is used to centrally view deployment templates, accelerator capabilities, quick creation entrypoints, specification quotas, and resource consumption trends.

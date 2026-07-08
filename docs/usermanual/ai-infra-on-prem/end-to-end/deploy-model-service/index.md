@@ -1,5 +1,10 @@
 # Deploy a Model Service from Scratch
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 This document connects operator and regular-user On-Prem operations into an end-to-end path: operators first prepare regions, availability zones, clusters, specifications, images, storage, templates, and quotas; regular users then select templates or images to create model services and confirm service status through logs, usage, and monitoring.

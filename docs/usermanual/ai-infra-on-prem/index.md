@@ -1,5 +1,10 @@
 # AI Infra On-Prem
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Subsystem Positioning
 
 AI Infra On-Prem is designed for local or private computing resources. It helps operators manage regions, availability zones, clusters, nodes, storage, images, templates, quotas, and monitoring, and helps regular users create instances and jobs and view usage.

@@ -1,5 +1,10 @@
 # Tenant Quotas
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Tenant Quotas` is used to maintain tenant account credits, initialize customer credits, adjust customer credits, and view top-up and consumption details.

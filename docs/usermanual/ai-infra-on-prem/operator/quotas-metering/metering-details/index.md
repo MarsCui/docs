@@ -1,5 +1,10 @@
 # Metering Details
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Metering Details` is used to view resource-level metering records and supports filtering by resource type, region, availability zone, batch, and enterprise.

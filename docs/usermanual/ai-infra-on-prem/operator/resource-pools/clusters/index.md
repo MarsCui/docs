@@ -1,5 +1,10 @@
 # Cluster Management
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Overview
 
 `Cluster Management` is used to connect Kubernetes clusters, the container orchestration system for managing compute nodes, containers, and job scheduling, to AI Infra-On Prem resource pools. It also provides ongoing management for cluster specifications, shared storage, node status, job distribution, and resource monitoring. After the operator registers a cluster, the platform can schedule development, training, inference, and other jobs in the corresponding region and availability zone.

@@ -1,5 +1,10 @@
 # Monthly Metering
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Monthly Metering` is used to view monthly aggregated metering results by billing period.

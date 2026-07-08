@@ -1,5 +1,10 @@
 # Block Storage
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Block Storage` is used to view and use block storage volume capabilities opened by the operator in the target region. After the capability is opened, the page displays available volumes, capacity, status, and mount entrypoints. When the capability is not opened, users need to confirm region, permissions, quotas, and operator component access status.

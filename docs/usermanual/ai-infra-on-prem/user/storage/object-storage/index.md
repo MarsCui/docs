@@ -1,5 +1,10 @@
 # Object Storage
 
+:::: info Document Information
+Version: v1.0
+Updated: 2026-07-06
+::::
+
 ## Feature Overview
 
 `Object Storage` is used to manage buckets and objects of the current tenant in the On-Prem resource pool. Object storage is suitable for storing model weights, datasets, compressed packages, log archives, and runtime artifacts.
