@@ -1,14 +1,5 @@
 # Getting Started
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-06
-:::
-
-::: warning Security Notice
-Do not write real accounts, passwords, tokens, API Keys, AK/SK pairs, private keys, certificates, complete Endpoint credentials, internal access addresses, or business-sensitive information in documentation, screenshots, tickets, or comments.
-:::
-
 ## 30-Second Quick Reference
 
 | Who Am I | Read First | Next Step |

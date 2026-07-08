@@ -1,14 +1,5 @@
 # Deployment Templates
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-03
-:::
-
-::: warning Security Notice
-Do not write real accounts, passwords, tokens, AK/SK, private keys, certificates, complete kubeconfig files, internal access addresses, or business-sensitive information in documentation, screenshots, tickets, or comments.
-:::
-
 ## Feature Overview
 
 `Deployment Templates` is used to select models, accelerators, business parameters, and recommended specifications through a wizard, and to generate model service deployment configuration. Regular users use this page to convert published templates into runnable model instances.

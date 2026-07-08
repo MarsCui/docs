@@ -1,14 +1,5 @@
 # Cluster Statistics
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-03
-:::
-
-::: warning Security Notice
-Do not expose real node names, node IPs, tenant names, business identifiers, internal domains, or alert details in monitoring screenshots or descriptions. For external communication, prioritize sanitized resource IDs, time ranges, and symptom descriptions.
-:::
-
 ## Feature Overview
 
 `Cluster Statistics` is used to view cluster status, resource capacity, job count, and region/availability zone ownership, helping operators perform capacity inspections, locate exceptions, and make resource scheduling judgments.

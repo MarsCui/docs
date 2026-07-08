@@ -1,14 +1,5 @@
 # Inference Templates
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-03
-:::
-
-::: warning Security Notice
-Do not write real startup parameter keys, environment variable keys, model source credentials, repository access tokens, or internal download addresses in template documentation, screenshots, or examples. Use placeholders consistently in examples.
-:::
-
 ## Feature Overview
 
 `Inference Templates` is used to combine models, frameworks, images, specifications, VRAM estimation, ports, variables, and default parameters into templates that regular users can deploy directly.

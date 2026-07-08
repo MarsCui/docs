@@ -1,14 +1,5 @@
 # Runtime Instances
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-03
-:::
-
-::: warning Security Notice
-Do not write real accounts, passwords, tokens, AK/SK, private keys, certificates, complete kubeconfig files, internal access addresses, or business-sensitive information in documentation, screenshots, tickets, or comments.
-:::
-
 ## Feature Overview
 
 `Runtime Instances` is used to create and manage non-template runtime tasks. Regular users can select single-node or cluster form, specify image, specification, startup command, parameters, environment variables, and storage mounts, and start training, batch processing, or custom service instances.

@@ -1,14 +1,5 @@
 # Resource Pools
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-06
-:::
-
-::: warning Security Notice
-The resource pool page may display resource IDs, regions, capacity, levels, and instance specifications. Do not expose real cloud resource IDs, account IDs, internal capacity planning, or customer resource distribution in screenshots or exports. Use redacted resource pool numbers for external communication.
-:::
-
 ## Feature Overview
 
 `Resource Pools` is used to maintain cloud account resource pools, regions, instance specifications, inventory, and synchronization status, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.

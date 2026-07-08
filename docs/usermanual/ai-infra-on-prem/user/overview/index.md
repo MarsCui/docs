@@ -1,14 +1,5 @@
 # Overview
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-03
-:::
-
-::: warning Security Notice
-Do not write real accounts, passwords, tokens, AK/SK, private keys, certificates, complete kubeconfig files, internal access addresses, or business-sensitive information in documentation, screenshots, tickets, or comments.
-:::
-
 ## Feature Overview
 
 `Overview` is the summary page regular users enter after opening AI Infra-On Prem. It is used to centrally view deployment templates, accelerator capabilities, quick creation entrypoints, specification quotas, and resource consumption trends.

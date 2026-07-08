@@ -1,14 +1,5 @@
 # My Deployments
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-06
-:::
-
-::: warning Security Notice
-The My Deployments page displays Endpoint, API Key, instance status, events, costs, and monitoring information. Before copying invocation information or taking screenshots, redact keys, Endpoint, instance IDs, customer names, and cost data.
-:::
-
 ## Feature Overview
 
 `My Deployments` is used to maintain deployment instances, service status, Endpoint, API Key, monitoring, events, and invocation examples, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.

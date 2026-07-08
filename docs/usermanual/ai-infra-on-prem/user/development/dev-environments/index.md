@@ -1,14 +1,5 @@
 # Online IDE
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-03
-:::
-
-::: warning Security Notice
-Do not write real accounts, passwords, tokens, AK/SK, private keys, certificates, complete kubeconfig files, internal access addresses, or business-sensitive information in documentation, screenshots, tickets, or comments.
-:::
-
 ## Feature Overview
 
 `Online IDE` is used to create and manage interactive development environments. Regular users can select single-node or cluster form and start a development environment based on platform images and specifications for code debugging, data processing, and experiment validation.

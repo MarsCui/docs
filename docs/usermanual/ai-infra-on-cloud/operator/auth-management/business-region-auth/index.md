@@ -1,14 +1,5 @@
 # Business Region Authorization
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-06
-:::
-
-::: warning Security Notice
-Business region authorization involves business identifiers, region scope, resource pools, and deployable boundaries. Do not expose real business names, customer names, region policies, or internal capacity information. Before changing authorization, confirm the impact on existing deployments.
-:::
-
 ## Feature Overview
 
 `Business Region Authorization` is used to maintain business regions, cloud resource pools, tenant scope, and authorization status, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.

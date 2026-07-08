@@ -1,14 +1,5 @@
 # Model Instances
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-03
-:::
-
-::: warning Security Notice
-Do not write real accounts, passwords, tokens, AK/SK, private keys, certificates, complete kubeconfig files, internal access addresses, or business-sensitive information in documentation, screenshots, tickets, or comments.
-:::
-
 ## Feature Overview
 
 `Model Instances` is used to view model services created through deployment templates. Regular users can filter instances by instance type, status, and name here, and enter subsequent details, logs, or access troubleshooting flows.

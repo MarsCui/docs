@@ -1,14 +1,5 @@
 # Model Assets
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-06
-:::
-
-::: warning Security Notice
-Model assets may include model IDs, providers, deployment parameters, invocation examples, and pricing criteria. Do not expose real Endpoint, API Key, internal model IDs, customer pricing policies, or unpublished model information.
-:::
-
 ## Feature Overview
 
 `Model Assets` is used to maintain deployable models, meta-models, output configurations, request parameters, and code examples, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.

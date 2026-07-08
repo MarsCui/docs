@@ -1,14 +1,5 @@
 # Model Revenue
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-06
-:::
-
-::: warning Security Notice
-Call and revenue pages may contain request IDs, error codes, customer names, Token usage, fees, call content, and API Key information. Screenshots and tickets should redact model IDs, customer identifiers, request headers, call parameters, and sensitive amount information.
-:::
-
 ## Feature Overview
 
 `Model Revenue` is used to maintain or view model income, revenue details, settlement periods, currencies, and customer contribution. It supports model publishing, experimentation, calling, statistics, and operational governance.

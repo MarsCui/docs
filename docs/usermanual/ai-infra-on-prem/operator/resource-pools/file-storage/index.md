@@ -1,14 +1,5 @@
 # File Storage Component
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-03
-:::
-
-::: warning Security Notice
-Do not expose AK/SK, Ceph keyrings, real NFS share paths, production bucket names, bucket permission policies, or internal storage endpoints in storage documentation or screenshots. Use placeholders or sanitized paths in examples.
-:::
-
 ## Feature Overview
 
 `File Storage Component` is used to connect shared directory capabilities. Common implementations include NFS. File storage is suitable for multiple jobs, nodes, or instances to read and write the same directory, such as shared datasets, model repositories, code directories, and output results.

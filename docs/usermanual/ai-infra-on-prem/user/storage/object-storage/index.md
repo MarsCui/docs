@@ -1,14 +1,5 @@
 # Object Storage
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-03
-:::
-
-::: warning Security Notice
-Do not expose AK/SK, Ceph keyrings, real NFS share paths, production bucket names, bucket permission policies, or internal storage endpoints in storage documentation or screenshots. Use placeholders or sanitized paths in examples.
-:::
-
 ## Feature Overview
 
 `Object Storage` is used to manage buckets and objects of the current tenant in the On-Prem resource pool. Object storage is suitable for storing model weights, datasets, compressed packages, log archives, and runtime artifacts.

@@ -1,14 +1,5 @@
 # Object Storage Component
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-03
-:::
-
-::: warning Security Notice
-Do not expose AK/SK, Ceph keyrings, real NFS share paths, production bucket names, bucket permission policies, or internal storage endpoints in storage documentation or screenshots. Use placeholders or sanitized paths in examples.
-:::
-
 ## Feature Overview
 
 `Object Storage Component` is used to connect MinIO, S3-compatible storage, or other object storage services, providing bucket, object path, and unstructured data capabilities for regions and user-side object storage.

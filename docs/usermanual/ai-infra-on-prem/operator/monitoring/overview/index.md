@@ -1,14 +1,5 @@
 # Statistics Overview
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-03
-:::
-
-::: warning Security Notice
-Do not expose real node names, node IPs, tenant names, business identifiers, internal domains, or alert details in monitoring screenshots or descriptions. For external communication, prioritize sanitized resource IDs, time ranges, and symptom descriptions.
-:::
-
 ## Feature Overview
 
 `Statistics Overview` is used to view resource pool overview, cluster count, node status, job distribution, and resource capacity, helping operators perform capacity inspections, locate exceptions, and make resource scheduling judgments.

@@ -1,14 +1,5 @@
 # Node Statistics
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-03
-:::
-
-::: warning Security Notice
-Do not expose real node names, node IPs, tenant names, business identifiers, internal domains, or alert details in monitoring screenshots or descriptions. For external communication, prioritize sanitized resource IDs, time ranges, and symptom descriptions.
-:::
-
 ## Feature Overview
 
 `Node Statistics` is used to view node status, node role, resource utilization, heartbeat, and owning cluster, helping operators perform capacity inspections, locate exceptions, and make resource scheduling judgments.

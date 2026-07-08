@@ -1,14 +1,5 @@
 # Model Services
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-06
-:::
-
-::: warning Security Notice
-Model Services documentation and screenshots must not expose real Endpoints, API Keys, request header authentication values, model source secrets, internal model IDs, customer call content, revenue amounts, or business pricing policies. Use placeholders in all examples.
-:::
-
 ## Subsystem Positioning
 
 Model Services covers model publishing, review, experimentation, calling, logs, and revenue analysis. It helps model providers publish models, callers discover and use models, and operators govern model capabilities and review workflows.

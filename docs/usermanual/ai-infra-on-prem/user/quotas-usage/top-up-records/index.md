@@ -1,14 +1,5 @@
 # Top-Up Records
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-03
-:::
-
-::: warning Security Notice
-Do not expose real enterprise IDs, tenant names, financial amounts, consumption details, or business identifiers in quota, credit, or metering screenshots. Reconciliation materials should be sanitized according to organizational requirements.
-:::
-
 ## Feature Overview
 
 `Top-Up Records` is used to view the current tenant's credit top-up history, including granted amount, value amount, source, acquisition method, third-party serial number, and top-up time.

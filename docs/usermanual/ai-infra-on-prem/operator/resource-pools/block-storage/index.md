@@ -1,14 +1,5 @@
 # Block Storage Component
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-03
-:::
-
-::: warning Security Notice
-Do not expose AK/SK, Ceph keyrings, real NFS share paths, production bucket names, bucket permission policies, or internal storage endpoints in storage documentation or screenshots. Use placeholders or sanitized paths in examples.
-:::
-
 ## Feature Overview
 
 `Block Storage Component` is used to connect volume-oriented storage capabilities. Common implementations include Ceph RBD. Block storage is suitable for providing independent disk volumes to workloads, especially scenarios that require persistent volumes, low-level block devices, or specific performance characteristics.

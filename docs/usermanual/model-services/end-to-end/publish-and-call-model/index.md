@@ -1,14 +1,5 @@
 # Publish and Call a Model End to End
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-06
-:::
-
-::: warning Security Notice
-Do not write real accounts, passwords, tokens, API Keys, AK/SK pairs, private keys, certificates, complete Endpoint credentials, internal access addresses, or business-sensitive information in documentation, screenshots, tickets, or comments.
-:::
-
 ## Feature Overview
 
 This document connects the Model Services operations of operator admins, model providers, and model callers into one end-to-end path: operator admins first maintain meta-models, model sources, templates, and tags; model providers publish single models or aggregation models and submit them for review; after operator admins complete review, model callers view, try, and call models in the model marketplace and Playground; finally, each role views call, usage, and revenue data.

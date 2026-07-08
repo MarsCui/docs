@@ -1,14 +1,5 @@
 # Audio Playground
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-06
-:::
-
-::: warning Security Notice
-Model Services documentation and screenshots must not expose real API Keys, AK/SK pairs, Secret Keys, Endpoints, request header authentication values, model source credentials, internal access addresses, customer names, or business-sensitive data. Use placeholders in all examples.
-:::
-
 ## Feature Overview
 
 `Audio Playground` is used to maintain or view audio models, input files, recognition or generation parameters, and output results. It supports model publishing, experimentation, calling, statistics, and operational governance.

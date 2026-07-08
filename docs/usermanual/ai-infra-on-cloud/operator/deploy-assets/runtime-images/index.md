@@ -1,14 +1,5 @@
 # Runtime Images
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-06
-:::
-
-::: warning Security Notice
-The runtime images page involves image repository addresses, tags, pull credentials, and runtime dependencies. Do not expose private repository addresses, robot credentials, Image Pull Secret values, or internal image naming rules.
-:::
-
 ## Feature Overview
 
 `Runtime Images` is used to maintain container images, image tags, framework dependencies, and applicable resource types, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.

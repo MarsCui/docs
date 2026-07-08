@@ -1,14 +1,5 @@
 # My Access Accounts
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-06
-:::
-
-::: warning Security Notice
-Cloud account access involves AK/SK, access keys, cloud provider accounts, authorization policies, and resource permissions. Do not expose real AK/SK, account IDs, Secret Key, access tokens, or internal Endpoint values in documentation, screenshots, tickets, or comments. Use placeholders for all examples.
-:::
-
 ## Feature Overview
 
 `My Access Accounts` is used to maintain user-side cloud accounts, access keys, authorization status, and available resource scope, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.

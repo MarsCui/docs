@@ -1,14 +1,5 @@
 # Access Cloud Platforms
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-06
-:::
-
-::: warning Security Notice
-Cloud platform access involves cloud provider types, API capabilities, region mappings, and resource discovery rules. Do not expose real account IDs, internal Endpoint, AK/SK, or authorization policies in documentation, screenshots, tickets, or comments. Before adding a cloud platform, confirm least privilege and auditable scope.
-:::
-
 ## Feature Overview
 
 `Access Cloud Platforms` is used to maintain cloud platform types, private cloud addresses, enablement status, and access notes, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.

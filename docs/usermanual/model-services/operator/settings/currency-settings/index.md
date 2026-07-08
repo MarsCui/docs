@@ -1,14 +1,5 @@
 # Currency Settings
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-06
-:::
-
-::: warning Security Notice
-Currency settings involve prices, exchange rates, and settlement rules. Screenshots and descriptions must not expose unpublished pricing policies, internal settlement ratios, or customer-sensitive amounts.
-:::
-
 ## Feature Overview
 
 `Currency Settings` is used to maintain or view currencies, exchange rates, display symbols, settlement rules, and enabled status. It supports model publishing, experimentation, calling, statistics, and operational governance.

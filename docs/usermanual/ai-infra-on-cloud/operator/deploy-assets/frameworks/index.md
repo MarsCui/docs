@@ -1,14 +1,5 @@
 # Framework Assets
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-06
-:::
-
-::: warning Security Notice
-Inference framework configuration may include startup commands, ports, health checks, and environment variables. Do not write real credentials, internal image addresses, private parameters, or production Endpoint values into documentation, screenshots, or examples.
-:::
-
 ## Feature Overview
 
 `Framework Assets` is used to maintain runtime frameworks, framework versions, startup commands, ports, and image relationships, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.

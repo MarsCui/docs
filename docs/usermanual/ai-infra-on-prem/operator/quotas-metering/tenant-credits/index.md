@@ -1,14 +1,5 @@
 # Tenant Credits
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-03
-:::
-
-::: warning Security Notice
-Do not expose real enterprise IDs, tenant names, financial amounts, consumption details, or business identifiers in quota, credit, or metering screenshots. Reconciliation materials should be sanitized according to organizational requirements.
-:::
-
 ## Feature Overview
 
 `Tenant Credits` is used by operators to view and allocate CPU, GPU, and memory resource credits for tenants in the current resource pool.

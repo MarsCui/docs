@@ -1,14 +1,5 @@
 # Access Accounts
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-06
-:::
-
-::: warning Security Notice
-Cloud account access involves AK/SK, access keys, cloud provider accounts, authorization policies, and resource permissions. Do not expose real AK/SK, account IDs, Secret Key, access tokens, or internal Endpoint values in documentation, screenshots, tickets, or comments. Use placeholders for examples and review regularly according to key rotation requirements.
-:::
-
 ## Feature Overview
 
 `Access Accounts` is used to maintain cloud provider account credentials for Alibaba Cloud, AWS, Huawei Cloud, Google Cloud, private clouds, and similar platforms.

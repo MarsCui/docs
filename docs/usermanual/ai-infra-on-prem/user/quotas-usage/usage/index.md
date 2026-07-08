@@ -1,14 +1,5 @@
 # Resource Usage
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-03
-:::
-
-::: warning Security Notice
-Do not expose real enterprise IDs, tenant names, financial amounts, consumption details, or business identifiers in quota, credit, or metering screenshots. Reconciliation materials should be sanitized according to organizational requirements.
-:::
-
 ## Feature Overview
 
 `Resource Usage` is used to view the current tenant's usage and consumption details across different resource specifications. Regular users can view quotas by specification and enter consumption details to confirm resource consumption sources.

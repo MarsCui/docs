@@ -1,14 +1,5 @@
 # Meta-models
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-06
-:::
-
-::: warning Security Notice
-Model service documentation and screenshots must not expose real Endpoints, API Keys, request header authentication values, model source secrets, internal model IDs, customer call content, or business pricing policies. Use placeholders in all examples.
-:::
-
 ## Feature Overview
 
 `Meta-models` is used to maintain or view model capabilities, protocols, modalities, Token limits, default parameters, and capability tags. It supports model publishing, experimentation, calling, statistics, and operational governance.

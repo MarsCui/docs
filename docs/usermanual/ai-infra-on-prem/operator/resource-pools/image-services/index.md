@@ -1,14 +1,5 @@
 # Image Component
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-03
-:::
-
-::: warning Security Notice
-Do not expose robot credentials, image registry passwords, Image Pull Secret, private registry tokens, or internal registry addresses in image documentation or screenshots. Use placeholders in command examples.
-:::
-
 ## Feature Overview
 
 `Image Component` is used to connect Harbor, Docker Registry, or compatible image repositories, providing image pull capability for regions, clusters, and jobs. When no available image component exists, model instances, online IDEs, and runtime instances usually cannot pull their runtime environments.

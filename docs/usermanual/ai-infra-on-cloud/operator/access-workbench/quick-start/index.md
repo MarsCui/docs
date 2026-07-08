@@ -1,14 +1,5 @@
 # Quick Access
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-06
-:::
-
-::: warning Security Notice
-Do not expose real cloud accounts, AK/SK, Secret Key, access tokens, resource pool IDs, internal Endpoint, production instance names, or customer business identifiers in multi-cloud scheduling documentation. Use placeholders for all examples.
-:::
-
 ## Feature Overview
 
 `Quick Access` is used to maintain cloud platforms, cloud accounts, resource pools, tenant authorization, and deployment assets, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.

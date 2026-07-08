@@ -1,14 +1,5 @@
 # Quick Deployment
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-06
-:::
-
-::: warning Security Notice
-Quick Deployment involves cloud account authorization, Endpoint, API Key, costs, instance specifications, and deployment status. Do not expose real Endpoint, API Key, authorized accounts, cost details, or internal instance IDs in screenshots or tickets.
-:::
-
 ## Feature Overview
 
 `Quick Deployment` is used to select models, cloud resources, deployment specifications, and access configuration through a wizard, and to create cloud model services.

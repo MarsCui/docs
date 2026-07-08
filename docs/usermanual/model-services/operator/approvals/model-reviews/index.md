@@ -1,14 +1,5 @@
 # Model Reviews
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-06
-:::
-
-::: warning Security Notice
-Model reviews may contain Endpoints, API Keys, model source configuration, customer notes, and review comments. Screenshots and documentation must not expose real credentials, internal addresses, or unpublished model information.
-:::
-
 ## Feature Overview
 
 `Model Reviews` is used to maintain or view model publishing requests, source configuration, protocols, billing, rate limits, and review comments. It supports model publishing, experimentation, calling, statistics, and operational governance.

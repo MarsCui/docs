@@ -1,14 +1,5 @@
 # Image Services
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-03
-:::
-
-::: warning Security Notice
-Do not expose robot credentials, image registry passwords, Image Pull Secret, private registry tokens, or internal registry addresses in image documentation or screenshots. Use placeholders in command examples.
-:::
-
 ## Feature Overview
 
 `Image Services` is used to manage image projects, custom images, public images, and push history on the regular user side. Users can create image projects, push locally built images to the platform image repository, and then select the image in Online IDE, Runtime Instances, or model services.

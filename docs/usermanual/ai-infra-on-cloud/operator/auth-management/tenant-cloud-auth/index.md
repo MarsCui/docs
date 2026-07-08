@@ -1,14 +1,5 @@
 # Tenant Cloud Authorization
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-06
-:::
-
-::: warning Security Notice
-Tenant cloud authorization involves tenant names, cloud accounts, resource pools, and validity periods. Do not expose real tenant names, cloud account IDs, authorization scopes, or internal approval information in screenshots, tickets, or comments. Authorization should follow the least-privilege principle.
-:::
-
 ## Feature Overview
 
 `Tenant Cloud Authorization` is used to maintain tenants, cloud accounts, resource pools, regions, and available permissions, supporting multi-cloud scheduling, resource authorization, and model deployment workflows.

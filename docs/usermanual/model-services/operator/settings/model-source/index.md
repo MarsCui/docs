@@ -1,14 +1,5 @@
 # Model Sources
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-06
-:::
-
-::: warning Security Notice
-Model service documentation and screenshots must not expose real Endpoints, API Keys, request header authentication values, model source secrets, internal model IDs, customer call content, or business pricing policies. Use placeholders in all examples.
-:::
-
 ## Feature Overview
 
 `Model Sources` is used to maintain or view source channels, regions, Base URLs, request headers, authentication information, and connectivity status. It supports model publishing, experimentation, calling, statistics, and operational governance.

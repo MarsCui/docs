@@ -1,14 +1,5 @@
 # Image Management
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-03
-:::
-
-::: warning Security Notice
-Do not expose robot credentials, image registry passwords, Image Pull Secret, private registry tokens, or internal registry addresses in image documentation or screenshots. Use placeholders in command examples.
-:::
-
 ## Feature Overview
 
 `Image Management` is used to manage image entries and tags in image repositories, supporting runtime environment selection for jobs, IDEs, inference services, and other workloads.

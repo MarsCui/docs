@@ -1,14 +1,5 @@
 # Resource Quotas
 
-::: info Document Information
-Version: v1.0
-Updated: 2026-07-03
-:::
-
-::: warning Security Notice
-Do not expose real enterprise IDs, tenant names, financial amounts, consumption details, or business identifiers in quota, credit, or metering screenshots. Reconciliation materials should be sanitized according to organizational requirements.
-:::
-
 ## Feature Overview
 
 `Resource Quotas` displays the total amount, used amount, and availability of the current tenant across AI cards, CPU, memory, and different instance types. Regular users should confirm whether quotas meet requirements before creating instances.
