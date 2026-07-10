@@ -25,20 +25,20 @@ const uiText: Record<Locale, Record<string, string>> = {
     taskCloud: '常见任务',
     scenarios: '使用场景',
     summaryPrefix: '当前显示',
-    summarySuffix: '个闭环场景。可按用户角色和子系统筛选。',
+    summarySuffix: '个任务场景。可按用户角色和子系统筛选。',
     filters: '场景筛选',
     role: '用户角色',
     subsystem: '子系统',
     all: '全部',
     cta: '进入指南',
-    empty: '当前筛选条件下没有匹配的闭环场景。',
+    empty: '当前筛选条件下没有匹配的任务场景。',
     clear: '清除筛选',
   },
   en: {
     taskCloud: 'Common Tasks',
     scenarios: 'Use Scenarios',
     summaryPrefix: 'Showing',
-    summarySuffix: 'closed-loop scenarios. Filter by user role and subsystem.',
+    summarySuffix: 'task-oriented scenarios. Filter by user role and subsystem.',
     filters: 'Scenario Filters',
     role: 'User Role',
     subsystem: 'Subsystem',
@@ -67,6 +67,7 @@ const subsystemOptions = computed(() => [
 ])
 
 const taskOptions = computed(() => [
+  { value: 'npu4', label: locale.value === 'zh' ? '我有 4 张 NPU 卡，如何管理？' : 'How Do I Manage Four NPU Cards?' },
   { value: 'gpu', label: locale.value === 'zh' ? '我要纳管算力' : 'Manage Compute' },
   { value: 'publish', label: locale.value === 'zh' ? '我要发布模型' : 'Publish Models' },
   { value: 'call', label: locale.value === 'zh' ? '我要调用模型' : 'Call Models' },
@@ -196,7 +197,7 @@ const scenarios: Scenario[] = [
     },
     roles: ['operator'],
     subsystems: ['on-prem'],
-    tasks: ['gpu'],
+    tasks: ['gpu', 'npu4'],
   },
   {
     id: 10,
@@ -208,7 +209,7 @@ const scenarios: Scenario[] = [
     },
     roles: ['operator'],
     subsystems: ['on-prem'],
-    tasks: ['gpu'],
+    tasks: ['gpu', 'npu4'],
   },
   {
     id: 11,
@@ -220,7 +221,7 @@ const scenarios: Scenario[] = [
     },
     roles: ['provider', 'enduser'],
     subsystems: ['on-prem'],
-    tasks: ['gpu', 'call'],
+    tasks: ['gpu', 'call', 'npu4'],
   },
   {
     id: 12,
@@ -244,7 +245,7 @@ const scenarios: Scenario[] = [
     },
     roles: ['operator', 'provider', 'enduser'],
     subsystems: ['on-prem'],
-    tasks: ['gpu', 'bill'],
+    tasks: ['gpu', 'bill', 'npu4'],
   },
   {
     id: 14,

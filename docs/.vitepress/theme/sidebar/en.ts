@@ -123,8 +123,22 @@ export const enSidebar: DefaultTheme.Sidebar = {
           text: "Scenario Playbooks",
           collapsed: false,
           items: [
-            { text: "Register & Login", link: "/userguide/scenarios/register-login/" },
-            { text: "Identity Authorization", link: "/userguide/scenarios/identity-authorization/" },
+            {
+              text: "Register & Login",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/register-login/" },
+                { text: "Register, Login, and Recover Password", link: "/userguide/scenarios/register-login/account-access" },
+              ],
+            },
+            {
+              text: "Identity Authorization",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/identity-authorization/" },
+                { text: "Identity Authorization Workflow", link: "/userguide/scenarios/identity-authorization/authorization-workflow" },
+              ],
+            },
             {
               text: "Publish Models",
               collapsed: false,
@@ -132,6 +146,11 @@ export const enSidebar: DefaultTheme.Sidebar = {
                 { text: "Scenario Overview", link: "/userguide/scenarios/publish-model/" },
                 { text: "Publish Public Models", link: "/userguide/scenarios/publish-model/provider-quick-guide" },
                 { text: "Publish Text Models", link: "/userguide/scenarios/publish-model/Text/" },
+                { text: "Publish Multimodal Models", link: "/userguide/scenarios/publish-model/Multimodal/" },
+                { text: "Publish Embedding Models", link: "/userguide/scenarios/publish-model/Embedding/" },
+                { text: "Publish Image Models", link: "/userguide/scenarios/publish-model/Image/" },
+                { text: "Publish Speech Models", link: "/userguide/scenarios/publish-model/Speech/" },
+                { text: "Publish Video Models", link: "/userguide/scenarios/publish-model/Video/" },
               ],
             },
             {
@@ -140,9 +159,19 @@ export const enSidebar: DefaultTheme.Sidebar = {
               items: [
                 { text: "Scenario Overview", link: "/userguide/scenarios/publish-model-preconfiguration/" },
                 { text: "Model Publishing Preconfiguration", link: "/userguide/scenarios/publish-model-preconfiguration/model-publishing-preconfiguration" },
+                { text: "Meta-Models", link: "/userguide/scenarios/publish-model-preconfiguration/Meta-models/" },
+                { text: "Model Sources", link: "/userguide/scenarios/publish-model-preconfiguration/Model-Source/" },
+                { text: "Model Templates", link: "/userguide/scenarios/publish-model-preconfiguration/Model-Templates/" },
               ],
             },
-            { text: "Publish Aggregation Models", link: "/userguide/scenarios/publish-aggregation-model/" },
+            {
+              text: "Publish Aggregation Models",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/publish-aggregation-model/" },
+                { text: "Create an Aggregation Model", link: "/userguide/scenarios/publish-aggregation-model/create-aggregation-model" },
+              ],
+            },
             {
               text: "Model Experience & API Calling",
               collapsed: false,
@@ -151,19 +180,121 @@ export const enSidebar: DefaultTheme.Sidebar = {
                 { text: "User Quick Guide", link: "/userguide/scenarios/model-experience-api-calling/user-quick-guide" },
               ],
             },
-            { text: "Model Usage & Revenue", link: "/userguide/scenarios/model-usage-revenue/" },
-            { text: "Recharge & Billing", link: "/userguide/scenarios/recharge-billing/" },
-            { text: "On-Prem Compute Onboarding", link: "/userguide/scenarios/on-prem-compute-onboarding/" },
-            { text: "On-Prem Inference Template Building", link: "/userguide/scenarios/on-prem-inference-template/" },
-            { text: "On-Prem Model Deployment & Status Check", link: "/userguide/scenarios/on-prem-model-deployment-status/" },
-            { text: "On-Prem Development, Training & Assets", link: "/userguide/scenarios/on-prem-dev-training-assets/" },
-            { text: "On-Prem Resource Metering & Monitoring", link: "/userguide/scenarios/on-prem-resource-metering-monitoring/" },
-            { text: "On Cloud Resource Access", link: "/userguide/scenarios/on-cloud-resource-access/" },
-            { text: "On Cloud Model Asset Publishing", link: "/userguide/scenarios/on-cloud-model-asset-publishing/" },
-            { text: "On Cloud Model Deployment & Calling", link: "/userguide/scenarios/on-cloud-model-deployment-calling/" },
-            { text: "Model Publishing Approval", link: "/userguide/scenarios/model-publishing-approval/" },
-            { text: "Observability & Troubleshooting", link: "/userguide/scenarios/observability-troubleshooting/" },
-            { text: "Platform Governance & Access Control", link: "/userguide/scenarios/platform-governance-access-control/" },
+            {
+              text: "Model Usage & Revenue",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/model-usage-revenue/" },
+                { text: "Usage and Revenue Workflow", link: "/userguide/scenarios/model-usage-revenue/usage-revenue-workflow" },
+              ],
+            },
+            {
+              text: "Recharge & Billing",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/recharge-billing/" },
+                { text: "Recharge and Billing Workflow", link: "/userguide/scenarios/recharge-billing/billing-workflow" },
+              ],
+            },
+            {
+              text: "On-Prem Compute Onboarding",
+              collapsed: false,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/on-prem-compute-onboarding/" },
+                { text: "Accelerator Models", link: "/userguide/scenarios/on-prem-compute-onboarding/accelerator-management/" },
+                { text: "Cluster Onboarding", link: "/userguide/scenarios/on-prem-compute-onboarding/cluster-onboarding/" },
+                { text: "Metrics and Flavors", link: "/userguide/scenarios/on-prem-compute-onboarding/resource-specifications/" },
+              ],
+            },
+            {
+              text: "On-Prem Inference Template Building",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/on-prem-inference-template/" },
+                { text: "Build an NPU Template", link: "/userguide/scenarios/on-prem-inference-template/build-inference-template/" },
+              ],
+            },
+            {
+              text: "On-Prem Model Deployment & Status Check",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/on-prem-model-deployment-status/" },
+                { text: "Deploy and Check a Model", link: "/userguide/scenarios/on-prem-model-deployment-status/deploy-and-check/" },
+              ],
+            },
+            {
+              text: "On-Prem Development, Training & Assets",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/on-prem-dev-training-assets/" },
+                { text: "Development and Training Workflow", link: "/userguide/scenarios/on-prem-dev-training-assets/development-training-workflow" },
+              ],
+            },
+            {
+              text: "On-Prem Resource Metering & Monitoring",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/on-prem-resource-metering-monitoring/" },
+                { text: "Tenant NPU Quotas", link: "/userguide/scenarios/on-prem-resource-metering-monitoring/tenant-quotas/" },
+                { text: "Device, Node, and Workload Monitoring", link: "/userguide/scenarios/on-prem-resource-metering-monitoring/resource-monitoring/" },
+              ],
+            },
+            {
+              text: "On Cloud Resource Access",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/on-cloud-resource-access/" },
+                { text: "Cloud Platforms", link: "/userguide/scenarios/on-cloud-resource-access/Access-CloudType/" },
+                { text: "Cloud Accounts", link: "/userguide/scenarios/on-cloud-resource-access/Cloud-Accounts/" },
+                { text: "Resource Pools", link: "/userguide/scenarios/on-cloud-resource-access/Resource-Pools/" },
+                { text: "Business-Region Authorization", link: "/userguide/scenarios/on-cloud-resource-access/Business-Region-Auth/" },
+                { text: "Tenant-Cloud Authorization", link: "/userguide/scenarios/on-cloud-resource-access/Tenant-Cloud-Auth/" },
+              ],
+            },
+            {
+              text: "On Cloud Model Asset Publishing",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/on-cloud-model-asset-publishing/" },
+                { text: "Runtime Images", link: "/userguide/scenarios/on-cloud-model-asset-publishing/Runtime-Images/" },
+                { text: "Inference Frameworks", link: "/userguide/scenarios/on-cloud-model-asset-publishing/Frameworks/" },
+                { text: "Model Assets", link: "/userguide/scenarios/on-cloud-model-asset-publishing/Models/" },
+              ],
+            },
+            {
+              text: "On Cloud Model Deployment & Calling",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/on-cloud-model-deployment-calling/" },
+                { text: "Access Accounts", link: "/userguide/scenarios/on-cloud-model-deployment-calling/Access-Accounts/" },
+                { text: "Quick Deployment", link: "/userguide/scenarios/on-cloud-model-deployment-calling/Quick-Deployment/" },
+                { text: "My Deployments", link: "/userguide/scenarios/on-cloud-model-deployment-calling/My-Deployments/" },
+              ],
+            },
+            {
+              text: "Model Publishing Approval",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/model-publishing-approval/" },
+                { text: "Model Review Workflow", link: "/userguide/scenarios/model-publishing-approval/review-workflow" },
+              ],
+            },
+            {
+              text: "Observability & Troubleshooting",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/observability-troubleshooting/" },
+                { text: "Troubleshooting Workflow", link: "/userguide/scenarios/observability-troubleshooting/troubleshooting-workflow" },
+              ],
+            },
+            {
+              text: "Platform Governance & Access Control",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/platform-governance-access-control/" },
+                { text: "Governance Workflow", link: "/userguide/scenarios/platform-governance-access-control/governance-workflow" },
+              ],
+            },
           ],
         },
       ]

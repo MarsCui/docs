@@ -75,14 +75,29 @@ export const zhSidebar: DefaultTheme.Sidebar = {
           text: '场景操作指南',
           collapsed: false,
           items: [
-            { text: '注册 & 登录', link: '/zh-CN/userguide/scenarios/register-login/' },
-            { text: '身份授权', link: '/zh-CN/userguide/scenarios/identity-authorization/' },
+            {
+              text: '注册 & 登录',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/register-login/' },
+                { text: '注册、登录与找回密码', link: '/zh-CN/userguide/scenarios/register-login/account-access' },
+              ],
+            },
+            {
+              text: '身份授权',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/identity-authorization/' },
+                { text: '身份授权操作流程', link: '/zh-CN/userguide/scenarios/identity-authorization/authorization-workflow' },
+              ],
+            },
             {
               text: '发布模型',
               collapsed: false,
               items: [
                 { text: '场景概览', link: '/zh-CN/userguide/scenarios/publish-model/' },
                 { text: '发布公有模型', link: '/zh-CN/userguide/scenarios/publish-model/provider-quick-guide' },
+                { text: '发布文本 / 对话模型', link: '/zh-CN/userguide/scenarios/publish-model/Text/' },
                 { text: '发布多模态（对话）模型', link: '/zh-CN/userguide/scenarios/publish-model/Multimodal/' },
                 { text: '发布嵌入模型', link: '/zh-CN/userguide/scenarios/publish-model/Embedding/' },
                 { text: '发布图片模型', link: '/zh-CN/userguide/scenarios/publish-model/Image/' },
@@ -96,9 +111,19 @@ export const zhSidebar: DefaultTheme.Sidebar = {
               items: [
                 { text: '场景概览', link: '/zh-CN/userguide/scenarios/publish-model-preconfiguration/' },
                 { text: '模型发布：预配置说明', link: '/zh-CN/userguide/scenarios/publish-model-preconfiguration/model-publishing-preconfiguration' },
+                { text: '元模型', link: '/zh-CN/userguide/scenarios/publish-model-preconfiguration/Meta-models/' },
+                { text: '模型来源', link: '/zh-CN/userguide/scenarios/publish-model-preconfiguration/Model-Source/' },
+                { text: '模型模板', link: '/zh-CN/userguide/scenarios/publish-model-preconfiguration/Model-Templates/' },
               ],
             },
-            { text: '发布聚合模型', link: '/zh-CN/userguide/scenarios/publish-aggregation-model/' },
+            {
+              text: '发布聚合模型',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/publish-aggregation-model/' },
+                { text: '添加聚合模型', link: '/zh-CN/userguide/scenarios/publish-aggregation-model/create-aggregation-model' },
+              ],
+            },
             {
               text: '模型的体验与调用',
               collapsed: false,
@@ -107,19 +132,121 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                 { text: '用户快速指引', link: '/zh-CN/userguide/scenarios/model-experience-api-calling/user-quick-guide' },
               ],
             },
-            { text: '模型的消费与收益', link: '/zh-CN/userguide/scenarios/model-usage-revenue/' },
-            { text: '充值 & 计费', link: '/zh-CN/userguide/scenarios/recharge-billing/' },
-            { text: 'On-Prem 算力纳管', link: '/zh-CN/userguide/scenarios/on-prem-compute-onboarding/' },
-            { text: 'On-Prem 推理模板构建', link: '/zh-CN/userguide/scenarios/on-prem-inference-template/' },
-            { text: 'On-Prem 模型部署与状态检查', link: '/zh-CN/userguide/scenarios/on-prem-model-deployment-status/' },
-            { text: 'On-Prem 开发训练与资产沉淀', link: '/zh-CN/userguide/scenarios/on-prem-dev-training-assets/' },
-            { text: 'On-Prem 资源计量与监控', link: '/zh-CN/userguide/scenarios/on-prem-resource-metering-monitoring/' },
-            { text: 'On Cloud 云资源接入', link: '/zh-CN/userguide/scenarios/on-cloud-resource-access/' },
-            { text: 'On Cloud 模型资产上架', link: '/zh-CN/userguide/scenarios/on-cloud-model-asset-publishing/' },
-            { text: 'On Cloud 模型部署与调用', link: '/zh-CN/userguide/scenarios/on-cloud-model-deployment-calling/' },
-            { text: '模型发布审批', link: '/zh-CN/userguide/scenarios/model-publishing-approval/' },
-            { text: '可观测与问题排查', link: '/zh-CN/userguide/scenarios/observability-troubleshooting/' },
-            { text: '平台治理与访问控制', link: '/zh-CN/userguide/scenarios/platform-governance-access-control/' },
+            {
+              text: '模型的消费与收益',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/model-usage-revenue/' },
+                { text: '消费与收益核对流程', link: '/zh-CN/userguide/scenarios/model-usage-revenue/usage-revenue-workflow' },
+              ],
+            },
+            {
+              text: '充值 & 计费',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/recharge-billing/' },
+                { text: '充值与计费核对流程', link: '/zh-CN/userguide/scenarios/recharge-billing/billing-workflow' },
+              ],
+            },
+            {
+              text: 'On-Prem 算力纳管',
+              collapsed: false,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/on-prem-compute-onboarding/' },
+                { text: '维护加速卡型号', link: '/zh-CN/userguide/scenarios/on-prem-compute-onboarding/accelerator-management/' },
+                { text: '接入集群并核对设备', link: '/zh-CN/userguide/scenarios/on-prem-compute-onboarding/cluster-onboarding/' },
+                { text: '规格指标与资源规格', link: '/zh-CN/userguide/scenarios/on-prem-compute-onboarding/resource-specifications/' },
+              ],
+            },
+            {
+              text: 'On-Prem 推理模板构建',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/on-prem-inference-template/' },
+                { text: '构建 NPU 推理模板', link: '/zh-CN/userguide/scenarios/on-prem-inference-template/build-inference-template/' },
+              ],
+            },
+            {
+              text: 'On-Prem 模型部署与状态检查',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/on-prem-model-deployment-status/' },
+                { text: '部署模型并检查状态', link: '/zh-CN/userguide/scenarios/on-prem-model-deployment-status/deploy-and-check/' },
+              ],
+            },
+            {
+              text: 'On-Prem 开发训练与资产沉淀',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/on-prem-dev-training-assets/' },
+                { text: '开发训练与资产流程', link: '/zh-CN/userguide/scenarios/on-prem-dev-training-assets/development-training-workflow' },
+              ],
+            },
+            {
+              text: 'On-Prem 资源计量与监控',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/on-prem-resource-metering-monitoring/' },
+                { text: '配置租户 NPU 配额', link: '/zh-CN/userguide/scenarios/on-prem-resource-metering-monitoring/tenant-quotas/' },
+                { text: '监控设备、节点与作业', link: '/zh-CN/userguide/scenarios/on-prem-resource-metering-monitoring/resource-monitoring/' },
+              ],
+            },
+            {
+              text: 'On Cloud 云资源接入',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/on-cloud-resource-access/' },
+                { text: '接入云平台', link: '/zh-CN/userguide/scenarios/on-cloud-resource-access/Access-CloudType/' },
+                { text: '接入账号', link: '/zh-CN/userguide/scenarios/on-cloud-resource-access/Cloud-Accounts/' },
+                { text: '接入资源池', link: '/zh-CN/userguide/scenarios/on-cloud-resource-access/Resource-Pools/' },
+                { text: '业务地域授权', link: '/zh-CN/userguide/scenarios/on-cloud-resource-access/Business-Region-Auth/' },
+                { text: '租户云授权', link: '/zh-CN/userguide/scenarios/on-cloud-resource-access/Tenant-Cloud-Auth/' },
+              ],
+            },
+            {
+              text: 'On Cloud 模型资产上架',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/on-cloud-model-asset-publishing/' },
+                { text: '运行镜像', link: '/zh-CN/userguide/scenarios/on-cloud-model-asset-publishing/Runtime-Images/' },
+                { text: '推理框架', link: '/zh-CN/userguide/scenarios/on-cloud-model-asset-publishing/Frameworks/' },
+                { text: '模型库', link: '/zh-CN/userguide/scenarios/on-cloud-model-asset-publishing/Models/' },
+              ],
+            },
+            {
+              text: 'On Cloud 模型部署与调用',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/on-cloud-model-deployment-calling/' },
+                { text: '接入账号', link: '/zh-CN/userguide/scenarios/on-cloud-model-deployment-calling/Access-Accounts/' },
+                { text: '快速部署', link: '/zh-CN/userguide/scenarios/on-cloud-model-deployment-calling/Quick-Deployment/' },
+                { text: '我的部署', link: '/zh-CN/userguide/scenarios/on-cloud-model-deployment-calling/My-Deployments/' },
+              ],
+            },
+            {
+              text: '模型发布审批',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/model-publishing-approval/' },
+                { text: '模型审核操作流程', link: '/zh-CN/userguide/scenarios/model-publishing-approval/review-workflow' },
+              ],
+            },
+            {
+              text: '可观测与问题排查',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/observability-troubleshooting/' },
+                { text: '问题排查流程', link: '/zh-CN/userguide/scenarios/observability-troubleshooting/troubleshooting-workflow' },
+              ],
+            },
+            {
+              text: '平台治理与访问控制',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/platform-governance-access-control/' },
+                { text: '平台治理检查流程', link: '/zh-CN/userguide/scenarios/platform-governance-access-control/governance-workflow' },
+              ],
+            },
           ],
         },
       ],
