@@ -26,4 +26,4 @@ See [My Models](../../../../usermanual/model-services/user/studio/my-models/) fo
 
 ## Feature Screenshot
 
-![Choose the publication area](./images/Choose-where-to-publish.png)
+![Choose the publication area](./images/choose-where-to-publish.png)

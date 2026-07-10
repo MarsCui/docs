@@ -24,4 +24,4 @@ See [Cloud Model Assets](../../../../usermanual/ai-infra-on-cloud/operator/deplo
 
 ## Feature Screenshot
 
-![Model assets](./images/Models.png)
+![Model assets](./images/models.png)

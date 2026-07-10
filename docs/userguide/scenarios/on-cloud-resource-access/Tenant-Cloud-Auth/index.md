@@ -24,4 +24,4 @@ See [Tenant-Cloud Authorization](../../../../usermanual/ai-infra-on-cloud/operat
 
 ## Feature Screenshot
 
-![Tenant-cloud authorization](./images/Add-Authorization.png)
+![Tenant-cloud authorization](./images/add-authorization.png)

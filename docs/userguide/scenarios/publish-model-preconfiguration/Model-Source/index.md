@@ -24,4 +24,4 @@ See [Model Sources in the User Manual](../../../../usermanual/model-services/ope
 
 ## Feature Screenshot
 
-![Model source settings](./images/Basic-Information.png)
+![Model source settings](./images/basic-information.png)

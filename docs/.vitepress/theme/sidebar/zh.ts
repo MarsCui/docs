@@ -93,7 +93,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
             },
             {
               text: '发布模型',
-              collapsed: false,
+              collapsed: true,
               items: [
                 { text: '场景概览', link: '/zh-CN/userguide/scenarios/publish-model/' },
                 { text: '发布公有模型', link: '/zh-CN/userguide/scenarios/publish-model/provider-quick-guide' },
@@ -107,7 +107,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
             },
             {
               text: '发布模型（预设置）',
-              collapsed: false,
+              collapsed: true,
               items: [
                 { text: '场景概览', link: '/zh-CN/userguide/scenarios/publish-model-preconfiguration/' },
                 { text: '模型发布：预配置说明', link: '/zh-CN/userguide/scenarios/publish-model-preconfiguration/model-publishing-preconfiguration' },
@@ -126,7 +126,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
             },
             {
               text: '模型的体验与调用',
-              collapsed: false,
+              collapsed: true,
               items: [
                 { text: '场景概览', link: '/zh-CN/userguide/scenarios/model-experience-api-calling/' },
                 { text: '用户快速指引', link: '/zh-CN/userguide/scenarios/model-experience-api-calling/user-quick-guide' },
@@ -150,7 +150,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
             },
             {
               text: 'On-Prem 算力纳管',
-              collapsed: false,
+              collapsed: true,
               items: [
                 { text: '场景概览', link: '/zh-CN/userguide/scenarios/on-prem-compute-onboarding/' },
                 { text: '维护加速卡型号', link: '/zh-CN/userguide/scenarios/on-prem-compute-onboarding/accelerator-management/' },

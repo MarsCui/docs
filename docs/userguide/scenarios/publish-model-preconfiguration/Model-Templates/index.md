@@ -24,4 +24,4 @@ See [Model Templates in the User Manual](../../../../usermanual/model-services/o
 
 ## Feature Screenshot
 
-![Model template source selection](./images/Model-Source-list.png)
+![Model template source selection](./images/model-source-list.png)

@@ -25,4 +25,4 @@ See [Quick Deployment](../../../../usermanual/ai-infra-on-cloud/user/model-servi
 
 ## Feature Screenshot
 
-![Quick deployment](./images/Step-1.png)
+![Quick deployment](./images/step-1.png)

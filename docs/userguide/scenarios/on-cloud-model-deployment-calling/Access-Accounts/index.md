@@ -24,4 +24,4 @@ See [User Access Accounts](../../../../usermanual/ai-infra-on-cloud/user/access-
 
 ## Feature Screenshot
 
-![Access accounts](./images/Access-Accounts-list.png)
+![Access accounts](./images/access-accounts-list.png)

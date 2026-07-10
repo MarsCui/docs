@@ -24,4 +24,4 @@ See [Inference Frameworks](../../../../usermanual/ai-infra-on-cloud/operator/dep
 
 ## Feature Screenshot
 
-![Add an inference framework](./images/Add-Framework.png)
+![Add an inference framework](./images/add-framework.png)

@@ -24,4 +24,4 @@ See [Runtime Images](../../../../usermanual/ai-infra-on-cloud/operator/deploy-as
 
 ## Feature Screenshot
 
-![Add a runtime image](./images/Add-Image.png)
+![Add a runtime image](./images/add-image.png)

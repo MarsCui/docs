@@ -141,7 +141,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
             },
             {
               text: "Publish Models",
-              collapsed: false,
+              collapsed: true,
               items: [
                 { text: "Scenario Overview", link: "/userguide/scenarios/publish-model/" },
                 { text: "Publish Public Models", link: "/userguide/scenarios/publish-model/provider-quick-guide" },
@@ -155,7 +155,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
             },
             {
               text: "Publish Models Preconfiguration",
-              collapsed: false,
+              collapsed: true,
               items: [
                 { text: "Scenario Overview", link: "/userguide/scenarios/publish-model-preconfiguration/" },
                 { text: "Model Publishing Preconfiguration", link: "/userguide/scenarios/publish-model-preconfiguration/model-publishing-preconfiguration" },
@@ -174,7 +174,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
             },
             {
               text: "Model Experience & API Calling",
-              collapsed: false,
+              collapsed: true,
               items: [
                 { text: "Scenario Overview", link: "/userguide/scenarios/model-experience-api-calling/" },
                 { text: "User Quick Guide", link: "/userguide/scenarios/model-experience-api-calling/user-quick-guide" },
@@ -198,7 +198,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
             },
             {
               text: "On-Prem Compute Onboarding",
-              collapsed: false,
+              collapsed: true,
               items: [
                 { text: "Scenario Overview", link: "/userguide/scenarios/on-prem-compute-onboarding/" },
                 { text: "Accelerator Models", link: "/userguide/scenarios/on-prem-compute-onboarding/accelerator-management/" },

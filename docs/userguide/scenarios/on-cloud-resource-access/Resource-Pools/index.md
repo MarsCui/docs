@@ -24,4 +24,4 @@ See [Resource Pools](../../../../usermanual/ai-infra-on-cloud/operator/access-ma
 
 ## Feature Screenshot
 
-![Resource pools](./images/Edit-Name.png)
+![Resource pools](./images/edit-name.png)

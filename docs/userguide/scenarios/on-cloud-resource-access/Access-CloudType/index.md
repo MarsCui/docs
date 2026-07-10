@@ -24,4 +24,4 @@ See [Cloud Platform Access](../../../../usermanual/ai-infra-on-cloud/operator/ac
 
 ## Feature Screenshot
 
-![Cloud platforms](./images/Access-CloudType-list.png)
+![Cloud platforms](./images/access-cloudtype-list.png)

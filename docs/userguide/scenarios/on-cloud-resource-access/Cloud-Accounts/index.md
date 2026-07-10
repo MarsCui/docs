@@ -24,4 +24,4 @@ See [Cloud Accounts](../../../../usermanual/ai-infra-on-cloud/operator/access-ma
 
 ## Feature Screenshot
 
-![Add a cloud account](./images/Add-Account.png)
+![Add a cloud account](./images/add-account.png)

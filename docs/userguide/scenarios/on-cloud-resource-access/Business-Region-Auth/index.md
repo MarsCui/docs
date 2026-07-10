@@ -24,4 +24,4 @@ See [Business-Region Authorization](../../../../usermanual/ai-infra-on-cloud/ope
 
 ## Feature Screenshot
 
-![Business-region authorization](./images/Auth-Regions.png)
+![Business-region authorization](./images/auth-regions.png)

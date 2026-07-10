@@ -24,4 +24,4 @@ See [Meta-Models in the User Manual](../../../../usermanual/model-services/opera
 
 ## Feature Screenshot
 
-![Meta-model list](./images/Meta-models-list.png)
+![Meta-model list](./images/meta-models-list.png)

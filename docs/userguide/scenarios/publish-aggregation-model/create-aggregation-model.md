@@ -51,6 +51,6 @@ For related model publication and monitoring concepts, see [Publish and Call a M
 
 ## Feature Screenshots
 
-![Aggregation model basic information](./images/Step-1-Basic-Information.png)
+![Aggregation model basic information](./images/step-1-basic-information.png)
 
-![Aggregation model billing](./images/Step-2-Billing-Configuration.png)
+![Aggregation model billing](./images/step-2-billing-configuration.png)

@@ -68,8 +68,8 @@ This scenario helps end users create an account and helps all roles sign in or r
 
 ## Feature Screenshots
 
-![Create an account](./images/Create-your-account.png)
+![Create an account](./images/create-your-account.png)
 
-![Password login](./images/Password.png)
+![Password login](./images/password.png)
 
-![Reset a password](./images/Reset-password.png)
+![Reset a password](./images/reset-password.png)
