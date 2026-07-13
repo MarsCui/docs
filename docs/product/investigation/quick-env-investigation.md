@@ -1,5 +1,11 @@
 # Environment Quick Assessment
 
+:::: info Document Information
+Version: v1.1
+Updated: 2026-07-13
+Fact source: Current installation guide
+::::
+
 This document is used before AGIOne local deployment or cloud-native deployment to determine whether the environment meets installation prerequisites, identify delivery risks, and produce a remediation and go-live checklist.
 
 > 📥 **Download fillable template:** <a href="/downloads/AGIOne_Environment_Quick_Assessment.xlsx" download>Environment Quick Assessment (.xlsx)</a>
@@ -209,3 +215,11 @@ This document is used before AGIOne local deployment or cloud-native deployment 
 | Customer Owner | `<name>` | `<Pass/Conditional Pass/Blocked>` | `<date>` | `<signature>` |
 | Delivery Owner | `<name>` | `<Pass/Conditional Pass/Blocked>` | `<date>` | `<signature>` |
 | Operations Owner | `<name>` | `<Pass/Conditional Pass/Blocked>` | `<date>` | `<signature>` |
+
+## Related Documentation
+
+- [Installation Guide](../../installation/)
+- [Pre-installation Environment Check](../../installation/agione-precheck-environment-check)
+- [Network Planning](../technical/network)
+- [Support Matrix](../limitations/support-matrix)
+- [Quick Requirement Survey](./quick-requirement-investigation)

@@ -4,9 +4,10 @@ export const zhSidebar: DefaultTheme.Sidebar = {
   '/zh-CN/product/': [
     {
       text: '产品概述',
-      collapsed: false,
+      collapsed: true,
       items: [
-        { text: '概述', link: '/zh-CN/product/technical/overview' },
+        { text: '产品概览', link: '/zh-CN/product/' },
+        { text: '技术总览', link: '/zh-CN/product/technical/overview' },
         { text: '功能与能力', link: '/zh-CN/product/technical/features' },
         { text: '网络规划', link: '/zh-CN/product/technical/network' },
         { text: '技术亮点', link: '/zh-CN/product/technical/tech-highlights' },
@@ -14,7 +15,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
     },
     {
       text: '账号与权限模型',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '用户、租户与角色设计逻辑', link: '/zh-CN/product/identity-access-model' },
         { text: '角色对比总览', link: '/zh-CN/product/role-comparison' },
@@ -22,7 +23,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
     },
     {
       text: '兼容性与限制',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '纳管芯片', link: '/zh-CN/product/limitations/chips' },
         { text: '支持矩阵', link: '/zh-CN/product/limitations/support-matrix' },
@@ -31,7 +32,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
     },
     {
       text: '售前调研',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '需求快速调研', link: '/zh-CN/product/investigation/quick-requirement-investigation' },
         { text: '环境快速调研', link: '/zh-CN/product/investigation/quick-env-investigation' },

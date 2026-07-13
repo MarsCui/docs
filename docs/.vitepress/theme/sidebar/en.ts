@@ -4,14 +4,18 @@ export const enSidebar: DefaultTheme.Sidebar = {
   "/product/": [
     {
       text: "Product Overview",
-      collapsed: false,
+      collapsed: true,
       items: [
         {
-          text: "Overview",
+          text: "Start Here",
+          link: "/product/"
+        },
+        {
+          text: "Technical Overview",
           link: "/product/technical/overview"
         },
         {
-          text: "Features & Ability",
+          text: "Features & Capabilities",
           link: "/product/technical/features"
         },
         {
@@ -26,7 +30,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
     },
     {
       text: "Identity and Access Model",
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: "User, Tenant, and Role Design Logic", link: "/product/identity-access-model" },
         { text: "Role Comparison", link: "/product/role-comparison" },
@@ -34,10 +38,10 @@ export const enSidebar: DefaultTheme.Sidebar = {
     },
     {
       text: "Compatibility & Limitations",
-      collapsed: false,
+      collapsed: true,
       items: [
         {
-          text: "Managed Chips",
+          text: "Supported Accelerators",
           link: "/product/limitations/chips"
         },
         {
@@ -51,14 +55,15 @@ export const enSidebar: DefaultTheme.Sidebar = {
       ]
     },
     {
-      text: "Pre-sales Investigation",
+      text: "Pre-sales Assessment",
+      collapsed: true,
       items: [
         {
-          text: "Quick Requirements Investigation",
+          text: "Quick Requirement Survey",
           link: "/product/investigation/quick-requirement-investigation"
         },
         {
-          text: "Quick Environmental Investigation",
+          text: "Quick Environment Assessment",
           link: "/product/investigation/quick-env-investigation"
         },
       ]

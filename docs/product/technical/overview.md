@@ -1,30 +1,42 @@
 # Overview
 
+:::: info Document Information
+Version: v1.1
+Updated: 2026-07-13
+Functional baseline: User Manual updated on 2026-07-08
+::::
+
 ## Product Positioning
 
-AGIOne is an enterprise-grade AI compute platform centered on three core capabilities: **unified compute management, multi-source model aggregation, and enterprise-grade governance and control**. It enables organizations to rapidly build and deploy AI applications within a controllable, observable environment.
+AGIOne is an enterprise AI compute platform organized around unified compute management, multi-source model management, and enterprise governance. It connects compute preparation, model deployment and publishing, model experience and calling, and usage operations.
 
-The platform provides unified onboarding for both third-party models (those from model vendors and self-hosted models in private IDCs) and models deployed on the AGIOne platform itself (cloud-side On-Cloud and bare-metal On-Prem in private IDCs). Through API-level model scheduling, AGIOne delivers flexible, on-demand intelligent model services to the enterprise.
+The platform consists of AI Infra On-Prem, AI Infra On-Cloud, and Model Services. On-Prem manages local clusters and compute resources; On-Cloud manages accounts, authorization, and deployment resources for supported cloud platforms; Model Services manages model publishing, review, experience, calling, and revenue. Availability depends on the deployed version, account role, authorization scope, and prepared resources.
+
+![AGIOne overall architecture](./images/01-overall-architecture.svg)
 
 ## Product Value
 
 ### 1. Plug-and-Play Compute
 
-The platform onboards compute capacity from major cloud providers — including Alibaba Cloud, AWS, and Google Cloud — alongside heterogeneous bare-metal resources from NVIDIA, Huawei Ascend, and others, abstracting them into a unified, schedulable GPU resource pool. This eliminates compute silos and allows the enterprise to put its existing compute assets to productive use.
+The platform can manage configured and validated cloud resources together with listed local accelerators from NVIDIA, Huawei Ascend, Enflame, Biren, Hygon, and others. Huawei Ascend accelerator onboarding is an On-Prem compatibility topic and does not imply Huawei Cloud support; Huawei Cloud access is currently temporarily unsupported. Each deployment must still validate the accelerator, driver, runtime, image, inference engine, and model combination.
 
 ### 2. Multi-source Model Aggregation
 
-AGIOne aggregates capabilities from across the model landscape — vendor-native models, models self-deployed in private IDCs, models deployed cloud-side on the platform, and models deployed on bare metal in private IDCs — and exposes them through a unified API. This accelerates the development of enterprise AI applications by abstracting away differences in model origin and deployment architecture.
+The platform supports publishing single models, BYOK endpoints, and aggregate models. Model providers can create aggregate models from eligible member models and select routing strategies available in the deployed version; end users discover, experience, and call authorized models. Exact API fields, protocols, and model capabilities depend on the target model and product version.
 
 ### 3. Enterprise-grade Governance and Control
 
-The platform ships with built-in enterprise governance capabilities, including model invocation quotas, traffic throttling, and access control. Multi-tenant isolation and operational auditing are natively supported, meeting the control requirements of highly regulated industries.
+The platform uses tenants, roles, and resource authorization to separate the responsibilities of administrators, operators, model providers, and end users. Quotas, credits, reviews, and call records provide governance entry points; visible menus and data depend on account permission and environment configuration.
 
 ### 4. End-to-End Observability
 
-AGIOne provides monitoring dashboards covering core metrics such as model invocation volume, resource consumption per deployment instance, and response latency — equipping operations and SRE teams with the data they need to make scaling decisions and optimize costs.
+AGIOne provides pages for clusters, nodes, devices, jobs, deployment status, call logs, call analytics, usage, and metering. These pages support result validation and troubleshooting; metrics, scope, and synchronization timing vary by subsystem, role, and product version.
 
 ## <span style="white-space:normal;overflow-wrap:anywhere">Target Customers and Representative Scenarios</span>
+
+::: warning Scenario Scope
+The table describes target customer needs; it does not mean that every listed solution is delivered as a built-in AGIOne function. RAG and Function Calling are currently planned. Projects involving knowledge bases, retrieval, or tool calling require product-scope confirmation and solution assessment.
+:::
 
 | Customer Category | Customer Type | Core Requirements | Representative Scenarios |
 | --- | --- | --- | --- |
@@ -42,14 +54,16 @@ AGIOne provides monitoring dashboards covering core metrics such as model invoca
 
 **Representative scenario examples:**
 
-- **Enterprise knowledge-base Q&A**: Built on a RAG architecture, internal documents are consolidated into an enterprise knowledge hub with unified multi-model invocation.
-- **Unified multi-model access and routing**: Integrate once, switch models flexibly — with support for side-by-side model comparison and configurable routing strategies.
-- **AI application monitoring and operational governance**: End-to-end tracing of model invocations, with support for quota allocation and traffic control.
-- **Rapid model development and release**: Fully automated workflow from model selection to API delivery, shortening time to launch.
+- **Enterprise knowledge-base Q&A requirement**: RAG is currently planned. Survey knowledge sources, permissions, chunking, retrieval, and evaluation requirements without treating it as a current built-in delivery capability.
+- **Unified multi-model access and routing**: A model provider publishes single or aggregate models and selects a routing strategy available in the current version.
+- **AI application monitoring and operational governance**: Use monitoring, call logs, analytics, quotas, and metering pages for runtime checks.
+- **Model deployment and publishing**: Follow the On-Prem, On-Cloud, or Model Services manual for resource preparation, deployment, publication, and review.
 
 ## Delivery Value
 
-- **Reduces the complexity of building an AI platform**: One-stop onboarding of compute and models eliminates the need to reinvent the underlying infrastructure.
-- **Shortens the cycle from PoC to production**: Standardized deployment templates and APIs accelerate validation and iteration.
-- **Unifies model management and operational standards**: Centralized control of model versions, traffic allocation, and access permissions improves operational efficiency.
-- **Improves resource utilization without compromising compliance and security**: Multi-tenant isolation, audit trails, and quota controls enable more granular resource allocation.
+- **Reduces AI platform delivery complexity**: A consistent documentation path connects compute, deployment, publishing, calling, and operations tasks.
+- **Supports staged validation from PoC to production**: Survey templates, installation prechecks, operation scenarios, and user manuals help teams confirm prerequisites and acceptance results.
+- **Unifies model management and operations entry points**: Teams can review model configuration, reviews, deployment status, call records, usage, and revenue from documented pages.
+- **Manages resource use within permission boundaries**: Tenants, roles, authorization, quotas, and metering define account visibility and usage boundaries.
+
+Current product status requiring special confirmation: **Huawei Cloud access is temporarily unsupported; RAG and Function Calling are planned**. Review the [Support Matrix](../limitations/support-matrix) and [Other Limitations](../limitations/limitations) for project constraints. Start operations from the [Scenario Guide](../../userguide/scenarios) and use the [User Manual](../../usermanual/) for detailed steps.
