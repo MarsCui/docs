@@ -18,6 +18,17 @@ This scenario combines identity, resource authorization, model visibility, perso
 - Limit calls through keys, projects, model grants, quotas, and rate limits.
 - Ensure new requests fail after access is revoked.
 
+## Scenario Flow
+
+**Main path:** Identify governed objects → Configure roles, keys, and quota → Verify allowed and denied paths → Audit and adjust
+
+| Stage | Key Result |
+| --- | --- |
+| 1. Identify objects | Accounts, organizations, projects, models, resources, and actions are explicit |
+| 2. Configure controls | Roles, menus, keys, quota, and approval rules enforce least privilege |
+| 3. Verify both paths | Authorized accounts complete the task and unauthorized accounts are clearly blocked |
+| 4. Audit and adjust | Access, calls, and quota records are traceable and expired access can be revoked |
+
 ## Before You Start
 
 - Define the governed object, owner, tenant, and business scope.
@@ -36,6 +47,12 @@ This scenario combines identity, resource authorization, model visibility, perso
 | --- | --- |
 | [Governance Workflow](./governance-workflow) | Identity, resource, model, calling, credit controls, and a key-page screenshot |
 
-## Completion Criteria
+## Completion Checklist
 
-- Authorized accounts receive only the intended capability, and unauthorized accounts cannot access the object.
+> **Purpose:** These are the scenario exit criteria. Use them to decide whether the outcome is observable and reviewable and whether you can continue to the next scenario. They do not repeat the procedure; if any item fails, return to the relevant feature guide and follow its troubleshooting section.
+
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | Roles, keys, project scope, quota, or approval rules are saved and take effect in a new session. |
+| 2 | The authorized account completes the intended action without exceeding configured limits. |
+| 3 | An unauthorized account is hidden or explicitly denied, and related access or call records are auditable. |

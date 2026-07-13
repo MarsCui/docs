@@ -7,6 +7,12 @@ next: true
 
 本场景帮助用户区分账户充值、资源配额、资源用量和模型计费，并按正确入口核对“是否到账、是否可用、消耗多少、为什么扣减”。
 
+## 适用角色
+
+- 查看充值、配额、用量和扣费的平台用户（End User）
+- 查看模型用量和收益的模型提供方（Provider）
+- 核对额度、计量和账期的平台运营方（Operator）
+
 ## 先区分四个概念
 
 | 概念 | 回答的问题 | 参考入口 |
@@ -31,22 +37,35 @@ next: true
 
 ## 操作流程
 
-1. 查看充值记录，确认时间、类型和额度变化。
-2. 查看资源配额或账户额度，确认当前可用上限和剩余量。
-3. 对资源使用，查看实例状态、资源用量和运营方计量明细。
-4. 对模型调用，查看调用日志、模型用量和模型收益。
-5. 按相同账期核对币种、计费单位、价格和扣减记录。
-6. 如需运营方协助，提供租户、时间、对象编号和脱敏证据。
+1. 查看**充值记录**，核对发生时间、充值类型和额度变化。
 
-运营方参考：[租户配额](../../../usermanual/ai-infra-on-prem/operator/quotas-metering/tenant-quotas/)、[租户额度](../../../usermanual/ai-infra-on-prem/operator/quotas-metering/tenant-credits/)、[计量明细](../../../usermanual/ai-infra-on-prem/operator/quotas-metering/metering-details/)、[月度计量](../../../usermanual/ai-infra-on-prem/operator/quotas-metering/monthly-usage/)。
+![核对充值记录](./images/top-up-records.png)
+
+2. 查看**资源配额**或账户额度，确认上限和剩余值能够覆盖目标任务。
+
+![核对可用资源配额](./images/resource-quotas.png)
+
+3. 对 On-Prem 资源，对照实例状态、**资源用量**和运营侧计量明细。
+
+![追踪资源用量](./images/resource-usage.png)
+
+4. 对模型调用，对照调用日志、模型用量和模型收益。
+5. 在同一账期内核对币种、计费单位、价格和扣减。
+6. 需要运营方协助时，提供租户、时间、对象编号和脱敏证据。
+
+运营方可继续查看：[租户配额](../../../usermanual/ai-infra-on-prem/operator/quotas-metering/tenant-quotas/)、[租户额度](../../../usermanual/ai-infra-on-prem/operator/quotas-metering/tenant-credits/)、[计量明细](../../../usermanual/ai-infra-on-prem/operator/quotas-metering/metering-details/)和[月度用量](../../../usermanual/ai-infra-on-prem/operator/quotas-metering/monthly-usage/)。
 
 ## 完成检查
 
-- [ ] 充值记录、账户额度和发生时间相互对应。
-- [ ] 资源配额足以覆盖目标规格，账户额度足以覆盖预计消耗。
-- [ ] 扣减记录能对应到具体实例、作业或模型调用。
-- [ ] 计费单位、价格、币种和账期一致。
-- [ ] 异常说明包含可复核的时间范围和对象编号。
+> **用途：** 以下检查是当前功能任务的退出条件，用于判断操作结果是否可观察、可复核，以及是否可以继续当前场景的下一步。它不是操作步骤的重复；任一项不满足时，请按下方“常见失败分支”继续排查。
+
+| 检查项 | 通过标准 |
+| --- | --- |
+| 1 | 充值记录、账户额度和发生时间相互对应。 |
+| 2 | 资源配额足以覆盖目标规格，账户额度足以覆盖预计消耗。 |
+| 3 | 扣减记录能对应到具体实例、作业或模型调用。 |
+| 4 | 计费单位、价格、币种和账期一致。 |
+| 5 | 异常说明包含可复核的时间范围和对象编号。 |
 
 ## 常见失败分支
 
@@ -57,11 +76,3 @@ next: true
 | 实例已停止仍有消耗 | 计量结束时间、残留作业和状态同步 |
 | 金额与预期不一致 | 计费模式、单位、价格生效时间、币种和账期 |
 | 用户与运营方看到的数据不同 | 租户、时间范围、汇总层级和数据同步延迟 |
-
-## 功能截图
-
-![充值记录](./images/top-up-records.png)
-
-![资源配额](./images/resource-quotas.png)
-
-![资源用量](./images/resource-usage.png)

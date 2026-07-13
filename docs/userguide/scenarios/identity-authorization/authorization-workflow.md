@@ -14,7 +14,7 @@ This scenario guides platform administrators through setting organizational boun
 - Platform governance permissions remain separate from regular tenant permissions.
 - Changes can be verified by a new session and traced through records.
 
-## Roles
+## Applicable Roles
 
 - `admin`: maintains tenants, users, roles, menus, and platform permissions.
 - `operator`: confirms operational access requirements without taking ownership of permission metadata.
@@ -38,13 +38,21 @@ This scenario guides platform administrators through setting organizational boun
 | 5 | Sign in with the validation account and inspect menus and actions | [Operations User Management](../../../operations/om-guide/user) | Allowed items work and prohibited items do not |
 | 6 | Record the result and reason for the change | [Operations Guide](../../../operations/om-guide/) | The change is traceable |
 
+The **Role Management** view is used in steps 3-5 to confirm the role record and its scope before signing in with the validation account.
+
+![Confirm the role in Role Management](./images/roles-live.png)
+
 ## Completion Checklist
 
-- [ ] The user belongs to the correct tenant and is active.
-- [ ] The role matches responsibilities without unnecessary platform permissions.
-- [ ] Required menus and actions are available.
-- [ ] Prohibited menus, actions, and resources are unavailable.
-- [ ] A fresh session reflects the change and records are traceable.
+> **Purpose:** These are the exit criteria for the current feature task. Use them to decide whether the result is observable and reviewable and whether you can continue to the next step in the scenario. They do not repeat the procedure; if any item fails, follow the troubleshooting section below.
+
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | The user belongs to the correct tenant and is active. |
+| 2 | The role matches responsibilities without unnecessary platform permissions. |
+| 3 | Required menus and actions are available. |
+| 4 | Prohibited menus, actions, and resources are unavailable. |
+| 5 | A fresh session reflects the change and records are traceable. |
 
 ## Troubleshooting
 
@@ -56,6 +64,6 @@ This scenario guides platform administrators through setting organizational boun
 | Changes do not take effect | Session cache, re-login, role state, and whether changes were saved |
 | Custom role is too broad | Compare it with built-in roles and remove unrelated menus and APIs |
 
-## Feature Screenshot
+## User Manual
 
-![Role management](./images/roles-live.png)
+[Open the user-manual entry and choose the subsystem whose access you are configuring](/usermanual/)

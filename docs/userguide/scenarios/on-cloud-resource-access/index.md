@@ -9,7 +9,7 @@ This scenario guides operators through connecting cloud platforms, accounts, and
 
 ## Applicable Roles
 
-- Operator
+- Platform Operator
 
 ## Recommended Reading Order
 
@@ -35,6 +35,17 @@ This scenario guides operators through connecting cloud platforms, accounts, and
 - Business-region and tenant-cloud authorization match the intended scope.
 - A regular user can see only the authorized cloud platform, region, and account entries.
 
+## Scenario Flow
+
+**Main path:** Connect the cloud platform → Validate the account and regions → Grant business and tenant access → Verify with a user account
+
+| Stage | Key Result |
+| --- | --- |
+| 1. Connect the platform | A public- or private-cloud type becomes a managed resource source |
+| 2. Connect resources | Account validation passes and target regions and pools are available |
+| 3. Grant access | Business types and target tenants receive the correct cloud scope |
+| 4. Verify as a user | Platform Users see and use only authorized platforms and regions |
+
 ## Before You Start
 
 1. Confirm the cloud platform type and supported account verification method.
@@ -55,10 +66,14 @@ This scenario guides operators through connecting cloud platforms, accounts, and
 
 ## Completion Checklist
 
-- [ ] Cloud platform, account, and target regions are available.
-- [ ] The business type has the intended regional access.
-- [ ] The target tenant has cloud-platform access.
-- [ ] A regular user sees only the authorized platforms, regions, and account entries.
+> **Purpose:** These are the scenario exit criteria. Use them to decide whether the outcome is observable and reviewable and whether you can continue to the next scenario. They do not repeat the procedure; if any item fails, return to the relevant feature guide and follow its troubleshooting section.
+
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | Cloud platform, account, and target regions are available. |
+| 2 | The business type has the intended regional access. |
+| 3 | The target tenant has cloud-platform access. |
+| 4 | A regular user sees only the authorized platforms, regions, and account entries. |
 
 ## Troubleshooting
 

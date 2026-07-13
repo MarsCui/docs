@@ -4,13 +4,24 @@ This scenario helps model providers publish models as services that can be tried
 
 ## Applicable Roles
 
-- Provider
+- Model Provider
 - Operator when preconfiguration or review is required
 
 ## Goals
 
 - Publish a model service that users can discover, try, and call.
 - Configure protocol, billing, rate limits, publication scope, and review data.
+
+## Scenario Flow
+
+**Main path:** Prepare publication → Configure and test the model → Submit for review → Publish and verify calls
+
+| Stage | Key Result |
+| --- | --- |
+| 1. Prepare publication | Meta-models, sources, templates, tags, and currency are available |
+| 2. Configure and test | Model information, protocol, billing, and rate limits pass validation |
+| 3. Submit for review | The request enters review and comments can be tracked |
+| 4. Verify publication | Intended users can discover, try, and call the model |
 
 ## Before You Start
 
@@ -39,10 +50,14 @@ This scenario helps model providers publish models as services that can be tried
 
 ## Completion Checklist
 
-- [ ] Protocol testing passes and model source and request parameters work.
-- [ ] Billing, rate limits, publication area, and publication time match the plan.
-- [ ] Review status and comments are visible after submission.
-- [ ] Intended users can find, try, and call the published model.
+> **Purpose:** These are the scenario exit criteria. Use them to decide whether the outcome is observable and reviewable and whether you can continue to the next scenario. They do not repeat the procedure; if any item fails, return to the relevant feature guide and follow its troubleshooting section.
+
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | Protocol testing passes and model source and request parameters work. |
+| 2 | Billing, rate limits, publication area, and publication time match the plan. |
+| 3 | Review status and comments are visible after submission. |
+| 4 | Intended users can find, try, and call the published model. |
 
 ## Troubleshooting
 

@@ -1,5 +1,18 @@
 # 发布模型（语音模型）
 
+## 场景目标
+
+语音模型通过协议测试，在目标范围发布，并返回可播放或可解码的音频结果。
+
+## 适用角色
+
+- 模型提供方（Provider）
+
+## 开始前准备
+
+- 准备模型来源、标识、API 凭证、接口和无敏感信息的音频或文本样例。
+- 确认语言、音色、格式、采样率、同步或异步方式、计费和限流。
+
 ## 操作步骤
 
 1. 进入平台首页，点击左侧导航栏的 **"我的模型"** 菜单，进入模型管理页面。
@@ -10,7 +23,7 @@
    - **"发布到公有区"**：上架公有目录，对所有租户的 EU 开放调用，可独立设置定价与限流。
 5. 点击  **"发布到公有区"** 进入发布配置流程（Step 1：基本信息）。
 
-![选择发布区域](./images/Choose-where-to-publish.png)
+![选择发布区域](./images/choose-where-to-publish.png)
 
 ### **Step 1：基本信息**：
 - **模型源/元模型信息**：
@@ -20,21 +33,21 @@
     - 填写 **"API密钥"**（如 `sk-***`）；
     - 填写 **"模型源ID"**（如 `qwen3-tts-flash`，即发往上游厂商的精确模型名称）。
 
-![模型源/元模型信息](./images/Step-1-Model-Source_Meta-Model-Information.png)
+![模型源/元模型信息](./images/step-1-model-source_meta-model-information.png)
 
 - **模型类型**：在"模型类型"区块默认 **"语音模型"**，默认选择 **"模型子类型"**（如 语音合成）。
 
-![模型类型](./images/Step-1-Model-type.png)
+![模型类型](./images/step-1-model-type.png)
 
 - **请求头配置**：认证字段默认为 `Authorization: Bearer <key>`，可点击 **"添加请求头"** 增加自定义字段。
 
-![请求头配置](./images/Step-1-Request-Header-Configuration.png)
+![请求头配置](./images/step-1-request-header-configuration.png)
 
 - **模型参数配置**：
     - 默认 **"输入模态"**（文本）；
     - 默认 **"输出模态"**（语音）；
 
-![模型参数配置](./images/Step-1-Model-Parameter-Configuration.png)
+![模型参数配置](./images/step-1-model-parameter-configuration.png)
 
 - **支持协议与默认参数**：至少选择一个协议（语音模型仅 OpenAI-Audio 可选），只有先进行协议连通性测试，连通性测试成功后可执行后续操作；测试通过后填写 **"Endpoint"**（如 `https://dashscope.aliyuncs.com/api/v1/services/audio/tts/SpeechSynthesizer`）并配置 **"输入参数"**（Text、Voice、Language、Audio Format、Sample Rate、Volume、Speech Rate、Pitch、Seed 等，可设置"是否必填"）。
 - **调用配置**：
@@ -44,16 +57,16 @@
       - **URL Extract Field**：字段属性 urlExtractField，输入值如 `e.g., url or image_url (optional)`；
       - **Base64 Extract Field**：字段属性 base64ExtractField，输入值如 `e.g., b64_json (optional)`。
 
-![官方原生协议与默认高级参数](./images/Step-1-Official-Native-Protocol.png)
+![官方原生协议与默认高级参数](./images/step-1-official-native-protocol.png)
 
 - **基本信息**：
    - 填写 **"个性化标识"**（如 qwen3-tts-flash）、**"描述"**。
 
-![基本信息](./images/Step-1-Basic-Information.png)
+![基本信息](./images/step-1-basic-information.png)
 
    - **发布方式**：选择 **"立即发布"** 或 **"定时发布"**。
 
-![基本信息](./images/Step-1-Basic-Information.png)
+![发布方式](./images/step-1-publication-method.png)
 
 - 点击 **"下一步"** 进入 Step 2：计费配置。
 
@@ -68,7 +81,7 @@
         - **"输入售价"**（如 8 Credits/1M characters）与 **"划线原价"**（如 16 Credits/1M characters）；
     - **免费额度**：开启后可设置可领取额度、人数、总量；
 
-![计费配置](./images/Step-2-Billing-Configuration.png)
+![计费配置](./images/step-2-billing-configuration.png)
 
 - 点击 **"下一步"** 进入 Step 3：限流配置。
 
@@ -78,7 +91,7 @@
     - **"RPM（每分钟请求数）"**：输入数值（如 2 次/分钟），可勾选 **"不限制"**；
     - **"TPM（每分钟Token数）"**：输入数值（如 100 Token/分钟），可勾选 **"不限制"**。
 
-![限流配置](./images/Step-3-Rate-Limit-Configuration.png)
+![限流配置](./images/step-3-rate-limit-configuration.png)
 
 - 点击 **"仅保存"** 或 **"提交审核"** 完成发布。
 
@@ -114,3 +127,24 @@
 | 是否启用限流               | 单选       | `启用限流 / 不启用`                                                                                 | 选填，配置模型的调用频率限制              |
 | RPM（每分钟请求数）          | 数值 / 不限制 | `2 次/分钟`                                                                                     | 选填，每分钟请求数上限，可勾选"不限制"        |
 | TPM（每分钟Token数）       | 数值 / 不限制 | `100 Token/分钟`                                                                               | 选填，每分钟 Token 数上限，可勾选"不限制"   |
+
+## 完成检查
+
+> **用途：** 以下检查是当前功能任务的退出条件，用于判断操作结果是否可观察、可复核，以及是否可以继续当前场景的下一步。它不是操作步骤的重复；任一项不满足时，请按下方“常见失败分支”继续排查。
+
+| 检查项 | 通过标准 |
+| --- | --- |
+| 1 | 协议连通性测试通过，语言、音色和格式配置准确。 |
+| 2 | 发布或审核状态符合预期。 |
+| 3 | 受控调用返回可播放音频，调用日志可定位。 |
+
+## 常见失败分支
+
+| 现象 | 优先检查 |
+| --- | --- |
+| 协议测试失败 | 接口地址、凭证、模型标识、音频编码和请求体 |
+| 音频无法播放 | 返回映射、Content-Type、采样率、格式和结果地址 |
+
+## 操作手册
+
+[查看“我的模型”完整字段和发布结果校验](/zh-CN/usermanual/model-services/user/studio/my-models/)

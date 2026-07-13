@@ -9,7 +9,7 @@ This scenario combines a model, inference framework, startup parameters, and res
 
 ## Applicable Roles
 
-- Operator
+- Platform Operator
 - Inference platform administrator
 
 ## Goals
@@ -17,6 +17,17 @@ This scenario combines a model, inference framework, startup parameters, and res
 - Create an inference template that uses an NPU resource specification.
 - Make the template explicitly use one, two, or four cards.
 - Allow users to deploy a model from the template.
+
+## Scenario Flow
+
+**Main path:** Prepare model and runtime dependencies → Build the inference template → Validate one-, two-, or four-card settings → Publish to users
+
+| Stage | Key Result |
+| --- | --- |
+| 1. Prepare dependencies | Model, framework, image, ports, storage, and resource plan are available |
+| 2. Build the template | Commands, environment variables, and health checks form reusable configuration |
+| 3. Validate card count | The selected plan matches one-, two-, or four-card parallel settings |
+| 4. Publish for use | A test deployment passes and intended users can select the template |
 
 ## Before You Start
 
@@ -36,8 +47,12 @@ This scenario combines a model, inference framework, startup parameters, and res
 | --- | --- |
 | [Build an NPU Inference Template](./build-inference-template/) | Select the model, framework, resource specification, and startup parameters |
 
-## Completion Criteria
+## Completion Checklist
 
-- The template is available.
-- It selects the expected NPU flavor.
-- A deployment uses the intended card count and parallel parameters.
+> **Purpose:** These are the scenario exit criteria. Use them to decide whether the outcome is observable and reviewable and whether you can continue to the next scenario. They do not repeat the procedure; if any item fails, return to the relevant feature guide and follow its troubleshooting section.
+
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | The template is available. |
+| 2 | It selects the expected NPU flavor. |
+| 3 | A deployment uses the intended card count and parallel parameters. |

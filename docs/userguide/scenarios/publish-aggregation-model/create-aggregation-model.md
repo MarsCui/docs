@@ -7,6 +7,10 @@ next: true
 
 This scenario guides providers through exposing multiple compatible published models behind one endpoint and routing requests according to cost, success rate, balance, random, or round-robin policy.
 
+## Applicable Roles
+
+- Model Provider
+
 ## Target Outcome
 
 - At least two healthy member models are included.
@@ -22,23 +26,50 @@ This scenario guides providers through exposing multiple compatible published mo
 
 ## Procedure
 
-1. Open `My Models > My Aggregations` and select `Create Aggregation Model`.
-2. Choose the private or public publication area.
-3. Select model type and add at least two member model instances.
-4. Configure each member's enabled state, success-rate threshold, concurrency, context, and cost.
-5. Set the aggregation identifier, routing policy, tags, description, and publication time.
-6. Configure free or paid billing and save or submit for review.
-7. After publication, make controlled calls and observe routing and member health.
+1. Open **My Models > My Aggregations**, select **Create Aggregation Model**, and choose the private or public publication area.
+
+![Choose where to publish the aggregation model](./images/choose-where-to-publish.png)
+
+2. Select the aggregation model type.
+
+![Select the aggregation model type](./images/step-1-model-type.png)
+
+3. Add the first compatible published member model and confirm its enabled state.
+
+![Choose the first member model](./images/step-1-choose-model1.png)
+
+4. Add at least one more compatible member model so routing and failover have alternatives.
+
+![Choose the second member model](./images/step-1-choose-model2.png)
+
+5. Configure each member's success-rate threshold, concurrency, context, cost, and enabled state.
+6. Set the aggregation identifier, routing policy, tags, and description.
+
+![Complete aggregation model basic information](./images/step-1-basic-information.png)
+
+7. Choose immediate or scheduled publication according to the release plan.
+
+![Choose the publication method](./images/step-1-publication-method.png)
+
+8. Configure free or paid billing, then save or submit the aggregation model for review.
+
+![Configure aggregation model billing](./images/step-2-billing-configuration.png)
+
+9. After publication, make controlled calls and observe routing and member health.
 
 For related model publication and monitoring concepts, see [Publish and Call a Model](../../../usermanual/model-services/end-to-end/publish-and-call-model/) and [My Models](../../../usermanual/model-services/user/studio/my-models/).
 
 ## Completion Checklist
 
-- [ ] At least two enabled member models are present.
-- [ ] Routing policy matches the business objective and thresholds are complete.
-- [ ] Publication or review status is correct.
-- [ ] A controlled request succeeds through the aggregation endpoint.
-- [ ] Remaining members accept traffic when one member is disabled.
+> **Purpose:** These are the exit criteria for the current feature task. Use them to decide whether the result is observable and reviewable and whether you can continue to the next step in the scenario. They do not repeat the procedure; if any item fails, follow the troubleshooting section below.
+
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | At least two enabled member models are present. |
+| 2 | Routing policy matches the business objective and thresholds are complete. |
+| 3 | Publication or review status is correct. |
+| 4 | A controlled request succeeds through the aggregation endpoint. |
+| 5 | Remaining members accept traffic when one member is disabled. |
 
 ## Troubleshooting
 
@@ -48,9 +79,3 @@ For related model publication and monitoring concepts, see [Publish and Call a M
 | Submission fails | Member count, required fields, billing, and publication area |
 | Traffic always selects one member | Policy, enabled state, success rate, and cost thresholds |
 | Aggregation calls fail | Member health, protocol compatibility, rate limits, and timeout |
-
-## Feature Screenshots
-
-![Aggregation model basic information](./images/step-1-basic-information.png)
-
-![Aggregation model billing](./images/step-2-billing-configuration.png)

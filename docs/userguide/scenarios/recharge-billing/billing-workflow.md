@@ -7,6 +7,12 @@ next: true
 
 This scenario helps users distinguish account top-ups, resource quota, resource usage, and model billing and select the correct view for checking whether credits arrived, whether capacity is usable, and why deductions occurred.
 
+## Applicable Roles
+
+- Platform User reviewing top-ups, quota, usage, and charges
+- Model Provider reviewing model usage and revenue
+- Platform Operator reconciling quota, credits, metering, and billing periods
+
 ## Four Concepts
 
 | Concept | Question | Entry |
@@ -31,9 +37,18 @@ This scenario helps users distinguish account top-ups, resource quota, resource 
 
 ## Procedure
 
-1. Review top-up records and confirm time, type, and credit change.
-2. Review resource quota or account credits and confirm limits and remaining values.
-3. For resources, compare instance state, resource usage, and operator metering details.
+1. Review **Top-Up Records** and confirm the event time, type, and credit change.
+
+![Confirm top-up records](./images/top-up-records.png)
+
+2. Review **Resource Quotas** or account credits and confirm that limits and remaining values cover the target workload.
+
+![Confirm available resource quotas](./images/resource-quotas.png)
+
+3. For On-Prem resources, compare instance state with **Resource Usage** and operator metering details.
+
+![Trace resource usage](./images/resource-usage.png)
+
 4. For models, compare call logs, model usage, and model revenue.
 5. Reconcile currency, billing unit, price, and deductions for the same period.
 6. If operator assistance is required, provide tenant, time, object ID, and redacted evidence.
@@ -42,11 +57,15 @@ Operator references: [Tenant Quotas](../../../usermanual/ai-infra-on-prem/operat
 
 ## Completion Checklist
 
-- [ ] Top-up record, account credit, and event time agree.
-- [ ] Resource quota covers the target flavor and credits cover expected consumption.
-- [ ] Deductions map to a specific instance, job, or model call.
-- [ ] Billing unit, price, currency, and period are consistent.
-- [ ] Anomaly notes include a reproducible time range and object ID.
+> **Purpose:** These are the exit criteria for the current feature task. Use them to decide whether the result is observable and reviewable and whether you can continue to the next step in the scenario. They do not repeat the procedure; if any item fails, follow the troubleshooting section below.
+
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | Top-up record, account credit, and event time agree. |
+| 2 | Resource quota covers the target flavor and credits cover expected consumption. |
+| 3 | Deductions map to a specific instance, job, or model call. |
+| 4 | Billing unit, price, currency, and period are consistent. |
+| 5 | Anomaly notes include a reproducible time range and object ID. |
 
 ## Troubleshooting
 
@@ -57,11 +76,3 @@ Operator references: [Tenant Quotas](../../../usermanual/ai-infra-on-prem/operat
 | Stopped instance still incurs usage | Metering end time, residual job, and state synchronization |
 | Amount differs from expectation | Billing mode, unit, effective price time, currency, and period |
 | User and operator views differ | Tenant, time range, aggregation level, and synchronization delay |
-
-## Feature Screenshots
-
-![Top-up records](./images/top-up-records.png)
-
-![Resource quotas](./images/resource-quotas.png)
-
-![Resource usage](./images/resource-usage.png)

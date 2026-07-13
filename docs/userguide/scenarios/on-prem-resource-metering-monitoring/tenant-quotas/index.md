@@ -1,5 +1,18 @@
 # Configure Tenant NPU Quota
 
+## Target Outcome
+
+The tenant can request approved NPU plans without reserving more than its share of the four-card pool.
+
+## Applicable Roles
+
+- Platform Operator
+
+## Before You Start
+
+- Confirm total four-card capacity, current allocations, and whether quota is counted by card or specification.
+- Define the tenant's maximum concurrent one-card, two-card, and four-card workloads.
+
 ## Entry
 
 - **Role:** Operator
@@ -22,10 +35,23 @@
 - A four-card flavor and a tenant limit of four are separate requirements; both must pass.
 - Reserve operational capacity when the cards should not be occupied permanently.
 
-## Completion Check
+## Completion Checklist
 
-- Tenant quota is updated.
-- Authorized NPU flavors are selectable.
-- Insufficient quota produces a clear result instead of unexplained queuing.
+> **Purpose:** These are the exit criteria for the current feature task. Use them to decide whether the result is observable and reviewable and whether you can continue to the next step in the scenario. They do not repeat the procedure; if any item fails, follow the troubleshooting section below.
 
-[Tenant Quotas manual](/usermanual/ai-infra-on-prem/operator/quotas-metering/tenant-quotas/)
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | Tenant quota is updated. |
+| 2 | Authorized NPU flavors are selectable. |
+| 3 | Insufficient quota produces a clear result instead of unexplained queuing. |
+
+## Troubleshooting
+
+| Symptom | Check First |
+| --- | --- |
+| Quota looks sufficient but creation fails | Specification availability, tenant credits, capacity, and current workloads |
+| Quota does not recover after release | Instance final state, metering delay, and stale allocation |
+
+## User Manual
+
+[Tenant Quotas](/usermanual/ai-infra-on-prem/operator/quotas-metering/tenant-quotas/)

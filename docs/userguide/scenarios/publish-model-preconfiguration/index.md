@@ -4,13 +4,24 @@ This scenario helps operators prepare the required settings before providers pub
 
 ## Applicable Roles
 
-- Operator
+- Platform Operator
 
 ## Goals
 
 - Prepare model authors, meta-models, model sources, and templates.
 - Prepare tags, currencies, and model-review capabilities.
 - Let providers publish models from standardized settings.
+
+## Scenario Flow
+
+**Main path:** Define the canonical model → Connect the model source → Build a publication template → Verify provider availability
+
+| Stage | Key Result |
+| --- | --- |
+| 1. Define the model | Author, meta-model, modalities, capabilities, and protocols use one standard |
+| 2. Connect the source | Provider, region, endpoint, and authentication template are reusable |
+| 3. Build the template | Source, meta-model, tags, currency, and defaults are linked completely |
+| 4. Verify availability | Model Providers see the correct options and the review entry is ready |
 
 ## Before You Start
 
@@ -36,10 +47,14 @@ This scenario helps operators prepare the required settings before providers pub
 
 ## Completion Checklist
 
-- [ ] Providers can select the intended author, meta-model, source, and template.
-- [ ] Modality, protocol, token limits, and advanced capabilities are consistent.
-- [ ] Tags and currency support publication and billing.
-- [ ] Model review entry and reviewer role are available.
+> **Purpose:** These are the scenario exit criteria. Use them to decide whether the outcome is observable and reviewable and whether you can continue to the next scenario. They do not repeat the procedure; if any item fails, return to the relevant feature guide and follow its troubleshooting section.
+
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | Providers can select the intended author, meta-model, source, and template. |
+| 2 | Modality, protocol, token limits, and advanced capabilities are consistent. |
+| 3 | Tags and currency support publication and billing. |
+| 4 | Model review entry and reviewer role are available. |
 
 ## Troubleshooting
 

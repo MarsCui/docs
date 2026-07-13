@@ -9,7 +9,7 @@ This scenario explains how to connect a local Kubernetes cluster and its GPU, NP
 
 ## Applicable Roles
 
-- Operator
+- Platform Operator
 - Cluster administrator
 
 ## Goals
@@ -17,6 +17,17 @@ This scenario explains how to connect a local Kubernetes cluster and its GPU, NP
 - AGIOne recognizes the target NPU model and resource key.
 - Cluster nodes report all four NPU cards.
 - Users can select one-card, two-card, and four-card resource specifications.
+
+## Scenario Flow
+
+**Main path:** Identify the NPU model → Onboard the cluster and discover devices → Create one-, two-, and four-card plans → Verify downstream selection
+
+| Stage | Key Result |
+| --- | --- |
+| 1. Identify the model | NPU model, per-card memory, and scheduler resource key use one definition |
+| 2. Onboard the cluster | Cluster and nodes are available and all four physical NPU cards are discovered |
+| 3. Create plans | One-, two-, and four-card specifications match the real scheduling topology |
+| 4. Verify downstream use | An inference template or test workload can select and request the plan |
 
 ## Before You Start
 
@@ -40,8 +51,12 @@ This scenario explains how to connect a local Kubernetes cluster and its GPU, NP
 | [Onboard the Cluster and Verify Devices](./cluster-onboarding/) | Register the cluster and verify that all four NPU cards are reported |
 | [Configure Metrics and Resource Specifications](./resource-specifications/) | Create scheduling metrics and one-card, two-card, and four-card flavors |
 
-## Completion Criteria
+## Completion Checklist
 
-- The cluster and nodes are available.
-- AGIOne reports four target NPU cards.
-- Inference templates or test workloads can select the new resource specifications.
+> **Purpose:** These are the scenario exit criteria. Use them to decide whether the outcome is observable and reviewable and whether you can continue to the next scenario. They do not repeat the procedure; if any item fails, return to the relevant feature guide and follow its troubleshooting section.
+
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | The cluster and nodes are available. |
+| 2 | AGIOne reports four target NPU cards. |
+| 3 | Inference templates or test workloads can select the new resource specifications. |
