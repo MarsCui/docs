@@ -4,7 +4,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
   '/zh-CN/product/': [
     {
       text: '产品概述',
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: '产品概览', link: '/zh-CN/product/' },
         { text: '技术总览', link: '/zh-CN/product/technical/overview' },

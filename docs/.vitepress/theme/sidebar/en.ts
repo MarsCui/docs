@@ -4,7 +4,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
   "/product/": [
     {
       text: "Product Overview",
-      collapsed: true,
+      collapsed: false,
       items: [
         {
           text: "Start Here",
