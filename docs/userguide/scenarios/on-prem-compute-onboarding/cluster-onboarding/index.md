@@ -1,5 +1,18 @@
 # Onboard the Cluster and Verify Devices
 
+## Target Outcome
+
+The cluster is available, all four NPU cards are discovered on the expected nodes, and compatible specifications can be associated.
+
+## Applicable Roles
+
+- Platform Operator
+
+## Before You Start
+
+- Prepare the cluster endpoint, registration information, network route, and required agent or credential.
+- Record the expected node count and physical distribution of all four NPU cards.
+
 ## Entry
 
 - **Role:** Operator
@@ -16,10 +29,23 @@
 
 ![Cluster management](./images/clusters-list.png)
 
-## Completion Check
+## Completion Checklist
 
-- Cluster, node, and device data are visible.
-- All four NPU cards are recognized.
-- A one-card test workload enters scheduling successfully.
+> **Purpose:** These are the exit criteria for the current feature task. Use them to decide whether the result is observable and reviewable and whether you can continue to the next step in the scenario. They do not repeat the procedure; if any item fails, follow the troubleshooting section below.
 
-[Cluster Management manual](/usermanual/ai-infra-on-prem/operator/resource-pools/clusters/)
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | Cluster, node, and device data are visible. |
+| 2 | All four NPU cards are recognized. |
+| 3 | A one-card test workload enters scheduling successfully. |
+
+## Troubleshooting
+
+| Symptom | Check First |
+| --- | --- |
+| Cluster registration fails | Endpoint, network, registration data, agent state, and time synchronization |
+| Fewer than four cards appear | Node health, driver, device plug-in, accelerator mapping, and hardware visibility |
+
+## User Manual
+
+[Cluster Management](/usermanual/ai-infra-on-prem/operator/resource-pools/clusters/)

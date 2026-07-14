@@ -7,6 +7,11 @@ next: true
 
 This scenario guides operators through reviewing a model publishing request and verifying the decision, publication scope, and resulting visibility.
 
+## Applicable Roles
+
+- Platform Operator processing model reviews
+- Model Provider tracking the review result
+
 ## Target Outcome
 
 - The reviewer identifies the model, provider, publication area, and version.
@@ -31,13 +36,21 @@ This scenario guides operators through reviewing a model publishing request and 
 | 5 | Check status with the provider account | [My Models](../../../usermanual/model-services/user/studio/my-models/) | The provider sees the result and reason |
 | 6 | Verify visibility for an approved public model | [Model Marketplace](../../../usermanual/model-services/user/discover/models/) | Intended users can find the model |
 
+At the start of review, use the **Model Reviews** list to locate the request by provider, version, scope, submission time, and status.
+
+![Locate the request in Model Reviews](./images/model-reviews-list.png)
+
 ## Completion Checklist
 
-- [ ] Request, version, provider, and publication scope are correct.
-- [ ] Protocol, billing, and rate-limit settings have verification evidence.
-- [ ] Status, comment, reviewer, and time are traceable.
-- [ ] A rejection tells the provider exactly what to change and retest.
-- [ ] An approved model is visible only in the intended scope.
+> **Purpose:** These are the exit criteria for the current feature task. Use them to decide whether the result is observable and reviewable and whether you can continue to the next step in the scenario. They do not repeat the procedure; if any item fails, follow the troubleshooting section below.
+
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | Request, version, provider, and publication scope are correct. |
+| 2 | Protocol, billing, and rate-limit settings have verification evidence. |
+| 3 | Status, comment, reviewer, and time are traceable. |
+| 4 | A rejection tells the provider exactly what to change and retest. |
+| 5 | An approved model is visible only in the intended scope. |
 
 ## Troubleshooting
 
@@ -47,7 +60,3 @@ This scenario guides operators through reviewing a model publishing request and 
 | Approval cannot be submitted | Required settings, protocol test, publication area, and review permission |
 | Approved model is not visible | Publication time, model state, publication area, and user visibility |
 | Provider cannot act on rejection | Whether the review comment names the field, rule, and validation method |
-
-## Feature Screenshot
-
-![Model review list](./images/model-reviews-list.png)

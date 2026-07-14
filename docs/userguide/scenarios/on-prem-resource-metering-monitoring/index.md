@@ -9,7 +9,7 @@ This scenario explains how to grant NPU quota and inspect device, node, and work
 
 ## Applicable Roles
 
-- Operator
+- Platform Operator
 - Provider and End User viewing their own usage
 
 ## Goals
@@ -17,6 +17,17 @@ This scenario explains how to grant NPU quota and inspect device, node, and work
 - Grant an appropriate NPU quota to the tenant.
 - Show all four cards in device monitoring.
 - Correlate an abnormal card with its node and workload.
+
+## Scenario Flow
+
+**Main path:** Configure tenant quota → Run workloads → Correlate devices, nodes, and jobs → Reconcile metering and adjust
+
+| Stage | Key Result |
+| --- | --- |
+| 1. Configure quota | The tenant receives an NPU limit that matches the plan |
+| 2. Run workloads | One-, two-, or four-card jobs request and occupy resources by specification |
+| 3. Correlate monitoring | Devices, nodes, and jobs map to each other over one time range |
+| 4. Reconcile and adjust | Quota, allocation, utilization, and metering details agree and can be optimized |
 
 ## Before You Start
 
@@ -37,8 +48,12 @@ This scenario explains how to grant NPU quota and inspect device, node, and work
 | [Configure Tenant NPU Quota](./tenant-quotas/) | Grant the tenant an allowed NPU count |
 | [Monitor Devices, Nodes, and Workloads](./resource-monitoring/) | Verify health and usage from device, node, and workload views |
 
-## Completion Criteria
+## Completion Checklist
 
-- Tenant quota supports the intended workload.
-- Device monitoring shows all four cards.
-- Workload usage, node capacity, and device utilization agree.
+> **Purpose:** These are the scenario exit criteria. Use them to decide whether the outcome is observable and reviewable and whether you can continue to the next scenario. They do not repeat the procedure; if any item fails, return to the relevant feature guide and follow its troubleshooting section.
+
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | Tenant quota supports the intended workload. |
+| 2 | Device monitoring shows all four cards. |
+| 3 | Workload usage, node capacity, and device utilization agree. |

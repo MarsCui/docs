@@ -7,6 +7,11 @@ next: true
 
 本场景指导普通用户使用 On-Prem 算力创建在线开发环境或运行实例，并把代码、数据、镜像和模型产物沉淀为可复用资产。
 
+## 适用角色
+
+- 创建开发或训练任务的平台用户（End User）
+- 准备镜像、存储、算力、配额和监控的平台运营方（Operator）
+
 ## 场景目标
 
 - 用户能选择可用镜像、资源规格和存储创建开发或训练环境。
@@ -23,14 +28,18 @@ next: true
 
 ## 操作流程
 
-| 步骤 | 操作 | 参考手册 | 完成标志 |
-| --- | --- | --- | --- |
-| 1 | 准备对象或文件存储 | [对象存储](../../../usermanual/ai-infra-on-prem/user/storage/object-storage/)、[文件存储](../../../usermanual/ai-infra-on-prem/user/storage/file-storage/) | 数据和输出路径可访问 |
-| 2 | 准备或选择运行镜像 | [镜像服务](../../../usermanual/ai-infra-on-prem/user/extensions/images/) | 目标地域可拉取镜像 |
-| 3 | 创建在线 IDE 进行开发调试 | [在线 IDE](../../../usermanual/ai-infra-on-prem/user/development/dev-environments/) | IDE 运行且工作目录已挂载 |
-| 4 | 创建运行实例执行训练或批处理 | [运行实例](../../../usermanual/ai-infra-on-prem/user/development/model-training/) | 作业进入运行状态并持续输出日志 |
-| 5 | 保存镜像、模型和结果 | [镜像服务](../../../usermanual/ai-infra-on-prem/user/extensions/images/)、[对象存储](../../../usermanual/ai-infra-on-prem/user/storage/object-storage/) | 产物可由后续任务复用 |
-| 6 | 查看监控与用量并释放闲置资源 | [作业监控](../../../usermanual/ai-infra-on-prem/user/monitoring/jobs/)、[资源用量](../../../usermanual/ai-infra-on-prem/user/quotas-usage/usage/) | 用量可追溯，闲置实例已停止 |
+1. 准备对象存储或文件存储，确认数据路径和结果路径可访问。参考[对象存储](../../../usermanual/ai-infra-on-prem/user/storage/object-storage/)和[文件存储](../../../usermanual/ai-infra-on-prem/user/storage/file-storage/)。
+2. 准备或选择带版本的运行镜像，并确认目标地域能够拉取。参考[镜像服务](../../../usermanual/ai-infra-on-prem/user/extensions/images/)。
+3. 创建在线 IDE，挂载持久化工作区，并确认开发环境能够正常打开。
+
+![核对开发环境](./images/dev-environments.png)
+
+4. 创建训练或批处理运行实例，并确认作业进入运行状态且持续输出日志。
+
+![核对模型训练作业](./images/model-training.png)
+
+5. 将镜像、模型和结果保存到受控存储，确保后续任务可以复用。
+6. 查看[作业监控](../../../usermanual/ai-infra-on-prem/user/monitoring/jobs/)和[资源用量](../../../usermanual/ai-infra-on-prem/user/quotas-usage/usage/)，停止不再使用的实例。
 
 ## 资产沉淀建议
 
@@ -44,11 +53,15 @@ next: true
 
 ## 完成检查
 
-- [ ] 开发或训练实例状态正常，日志没有持续错误。
-- [ ] 重启或重建实例后，持久化代码和数据仍可访问。
-- [ ] 镜像、模型和结果具备明确版本与所有者。
-- [ ] 作业消耗的规格、时长和用量记录符合预期。
-- [ ] 不再使用的实例和临时资源已停止或清理。
+> **用途：** 以下检查是当前功能任务的退出条件，用于判断操作结果是否可观察、可复核，以及是否可以继续当前场景的下一步。它不是操作步骤的重复；任一项不满足时，请按下方“常见失败分支”继续排查。
+
+| 检查项 | 通过标准 |
+| --- | --- |
+| 1 | 开发或训练实例状态正常，日志没有持续错误。 |
+| 2 | 重启或重建实例后，持久化代码和数据仍可访问。 |
+| 3 | 镜像、模型和结果具备明确版本与所有者。 |
+| 4 | 作业消耗的规格、时长和用量记录符合预期。 |
+| 5 | 不再使用的实例和临时资源已停止或清理。 |
 
 ## 常见失败分支
 
@@ -59,9 +72,3 @@ next: true
 | 数据不可见 | 存储组件、挂载路径、权限和地域 |
 | 作业排队或失败 | 规格容量、镜像、启动命令、加速卡和配额 |
 | 产物丢失 | 是否写入临时目录、任务结束前是否完成上传或同步 |
-
-## 功能截图
-
-![开发环境](./images/dev-environments.png)
-
-![模型训练](./images/model-training.png)

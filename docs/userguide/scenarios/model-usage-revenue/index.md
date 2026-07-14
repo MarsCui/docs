@@ -9,13 +9,24 @@ This scenario shows callers how to review usage and providers how to reconcile c
 
 ## Applicable Roles
 
-- End User and Provider
+- Platform User and Model Provider
 
 ## Goals
 
 - Match usage data with call logs.
 - Trace revenue back to valid calls and pricing rules.
 - Locate discrepancies by model, caller, billing period, or configuration.
+
+## Scenario Flow
+
+**Main path:** Align the reconciliation scope → Check call logs → Check model usage → Reconcile charges and revenue
+
+| Stage | Key Result |
+| --- | --- |
+| 1. Align scope | User, model, provider, currency, and time range are consistent |
+| 2. Check calls | Success, failure, token, or duration records are traceable |
+| 3. Check usage | Aggregated usage maps to valid calls in the same scope |
+| 4. Reconcile settlement | User charges, provider revenue, and publication pricing explain each other |
 
 ## Before You Start
 
@@ -35,6 +46,12 @@ This scenario shows callers how to review usage and providers how to reconcile c
 | --- | --- |
 | [Usage and Revenue Workflow](./usage-revenue-workflow) | Caller/provider reconciliation steps and usage/revenue screenshots |
 
-## Completion Criteria
+## Completion Checklist
 
-- Calls, usage, and revenue can be reconciled over one time range.
+> **Purpose:** These are the scenario exit criteria. Use them to decide whether the outcome is observable and reviewable and whether you can continue to the next scenario. They do not repeat the procedure; if any item fails, return to the relevant feature guide and follow its troubleshooting section.
+
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | Successful and failed calls can be located over one consistent time range. |
+| 2 | Tokens, requests, or duration in Model Usage map to valid call records. |
+| 3 | User charges, provider revenue, billing units, currency, and publication pricing explain each other. |

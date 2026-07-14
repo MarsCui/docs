@@ -17,6 +17,17 @@ This scenario investigates throughput, latency, failure, queuing, and resource i
 - Map an error to a request, model, workload, node, or device.
 - Produce reviewable evidence without complete credentials.
 
+## Scenario Flow
+
+**Main path:** Define the symptom and time → Locate the failing layer → Collect correlated evidence → Fix and retest
+
+| Stage | Key Result |
+| --- | --- |
+| 1. Define the symptom | User, model, deployment, workload, and time range are recorded accurately |
+| 2. Locate the layer | The issue is assigned to calls, deployment, scheduling, node, device, or access |
+| 3. Collect evidence | Logs, events, monitoring, and configuration share one timeline |
+| 4. Fix and retest | The remediation is explicit and the original request or workload passes retest |
+
 ## Before You Start
 
 - Prepare a redacted request, instance, or workload identifier.
@@ -35,6 +46,12 @@ This scenario investigates throughput, latency, failure, queuing, and resource i
 | --- | --- |
 | [Troubleshooting Workflow](./troubleshooting-workflow) | Triage, investigation order, completion checks, and monitoring screenshot |
 
-## Completion Criteria
+## Completion Checklist
 
-- The issue is located at a specific layer with a verification or remediation action.
+> **Purpose:** These are the scenario exit criteria. Use them to decide whether the outcome is observable and reviewable and whether you can continue to the next scenario. They do not repeat the procedure; if any item fails, return to the relevant feature guide and follow its troubleshooting section.
+
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | The affected object, time range, and reproducible symptom are recorded. |
+| 2 | Logs, events, monitoring, or configuration evidence identifies a specific layer and object. |
+| 3 | After remediation or workaround, the original request or workload passes retest without repeated errors. |

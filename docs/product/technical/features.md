@@ -1,5 +1,11 @@
 # Core Capabilities and Features
 
+:::: info Document Information
+Version: v1.1
+Updated: 2026-07-13
+Functional baseline: User Manual updated on 2026-07-08
+::::
+
 ## Overview
 
 AGIOne is a **one-stop intelligent compute and model management platform** purpose-built for enterprise-grade large model productionization. Centered on the end-to-end closed loop of **"Compute → Model → Service → Operations"**, it delivers six core capabilities:
@@ -8,48 +14,51 @@ AGIOne is a **one-stop intelligent compute and model management platform** purpo
 
 <p align="center"><i>Figure 1   Overview of AGIOne's Six Core Capabilities (with end-to-end Invocation Observability)</i></p>
 
-> The seventh capability, **Invocation Observability**, runs horizontally across all six capabilities, providing full-stack visualization and analysis from hardware resources to business-level invocations.
+> The seventh capability, **Invocation Observability**, runs horizontally across all six capabilities, providing visibility and analysis from hardware resources to business-level invocations.
 
----
+::: warning Reading Note
+This page retains the original capability framework and conceptual diagrams. Times, strategies, performance figures, and pricing values in the diagrams and examples explain design considerations and are not current-version commitments. Use the [User Manual](../../usermanual/), [Support Matrix](../limitations/support-matrix), and target environment as the source of truth. Current status: Huawei Cloud access is temporarily unsupported; RAG and Function Calling are planned.
+:::
 
 ## 1. Compute Management — Unified Pooling of Heterogeneous Accelerators
 
 ### 1.1 Capability Overview
 
-Through a unified compute management layer, AGIOne consolidates accelerators (GPUs / NPUs) distributed across **different data centers, vendors, and hardware generations** into a compute resource pool that is **logically unified yet physically heterogeneous**. Resources are **automatically scheduled and allocated** based on workload specifications, fundamentally addressing enterprise pain points such as resource fragmentation, low utilization, and difficulty in scaling.
+Through AI Infra On-Prem, AGIOne manages regions, availability zones, clusters, nodes, and accelerator resources. Specifications, templates, quotas, and authorization provide selectable compute for workloads. Onboarding and model runtime still require validation of the accelerator, driver, runtime, image, inference engine, and model combination.
 
 ### 1.2 Supported Heterogeneous Accelerators
 
-| Vendor | Architecture / Series | Representative Models | Inference Engine Support |
-|---|---|---|----------------------|
-| **NVIDIA** | Hopper       | H200 / H20 / H100 / H800                                 | vLLM / SGLang        |
-| **NVIDIA** | Ada          | L40 / L40S / L20 / L20S / L4 / L2 / RTX 4090, etc.       | vLLM / SGLang        |
-| **NVIDIA** | Ampere       | A100 / A800 / A40 / A30 / A10 / RTX A Series / RTX 30 Series | vLLM             |
-| **Huawei Ascend** | Ascend 910 | 910B / 910C                                          | vLLM-Ascend / MindIE |
-| **Enflame** | Enflame     | 106                                                      | Vendor inference framework |
-| **Biren**   | Biren       | S60                                                      | Vendor inference framework |
+| Vendor | Architecture / Series | Representative Models | Adaptation Note |
+|---|---|---|---|
+| **NVIDIA** | Hopper | H800 / H200 / H100 / H20 | Validate driver, CUDA, image, and inference engine by project |
+| **NVIDIA** | Ampere | A100 / A800 / A40 / A30 / A10 / RTX A Series / RTX 30 Series | Confirm device memory and data-center deployment conditions by model |
+| **NVIDIA** | Ada | L40 / L40S / L20 / L20S / L4 / L2 / RTX 4090, etc. | Workstation or consumer models require additional stability and delivery validation |
+| **Huawei Ascend** | Ascend 910 | Ascend 910B / Ascend 910C | Validate CANN, MindIE, driver, image, and model by project |
+| **Enflame** | Enflame | 106 | Validate vendor driver, runtime, inference framework, and model |
+| **Biren** | Biren | S60 | Validate vendor driver, runtime, inference framework, and model |
+| **Hygon** | BW | BW200 | Validate vendor driver, runtime, inference framework, and model |
 
 ### 1.3 Core Sub-capabilities
 
 #### 1.3.1 Node Onboarding and Lifecycle Management
 
-- **Multi-cluster onboarding**: Supports cross-data-center and cross-network-domain integration (public cloud HCS, private cloud, IDC bare-metal) under a unified management view, using a "central control plane + edge execution" architecture.
-- **Node initialization**: Provides standardized node initialization scripts that automatically install the container runtime, Kubernetes components, AGIOne Agent, and other dependencies.
-- **Base image standards**: Maintains base images bundling the OS, drivers, Kubernetes components, and Agent.
-- **Self-healing**: Built on Kubernetes Deployments — when a node fails and sufficient capacity remains, the model is automatically rescheduled and restarted on a healthy node.
+- **Cluster and node onboarding**: Operators maintain regions, availability zones, clusters, nodes, and accelerator objects. The actual onboarding scope depends on network and installation conditions.
+- **Node initialization**: Follow the [Compute Node Onboarding and Installation Guide](../../installation/quick-install-for-managing-compute-nodes) to prepare Kubernetes, the container runtime, drivers, and device plugins.
+- **Images and runtime environments**: Use images, image services, and templates to maintain the environments required by workloads.
+- **Exception handling**: Use node, device, workload monitoring, and event records to locate issues. Recovery behavior depends on the Kubernetes configuration and delivery solution.
 
 #### 1.3.2 Resource Scheduling and Allocation Strategies
 
 | Scheduling Dimension | Strategy | Use Case |
 |---|---|---|
-| **Hardware-label-based scheduling** | Precise routing via labels such as `xpu_type=ascend-910b64g` / `nvidia-h2096g` | Binding inference engines to specific accelerators |
-| **Spec-based scheduling** | Automatically selects accelerators meeting compute-spec requirements (e.g., a 72B model requires ≥ 80 GB HBM) | Large model inference |
-| **Priority-based scheduling** | Mission-critical workloads claim high-performance accelerators first; secondary workloads use the remainder | Multi-business-line resource sharing |
-| **Multi-card parallel scheduling** | Automatically configures `tensor_parallel_size` / `world_size`; supports HCCL / NCCL communication | Single-node multi-card and multi-node multi-card |
+| **Hardware-label-based scheduling** | Uses node and device labels to distinguish accelerator types | Select the corresponding accelerator for different runtime environments |
+| **Compute-spec-based scheduling** | Selects an available specification that meets accelerator type, card count, and memory requirements | Model deployment and training workloads |
+| **Authorization-scope-based scheduling** | Uses only regions, resource pools, and specifications visible to the current tenant, business scope, or user | Multi-tenant resource use |
+| **Multi-card workload configuration** | Configures card count and parallelism parameters according to the template, model, and cluster conditions | Single-node or multi-node multi-card workloads |
 
 #### 1.3.3 Hardware Monitoring Metrics
 
-Metrics are collected in real time via DCGM (NVIDIA) and npu-exporter (Ascend) and pushed to monitoring dashboards at **15–30 second granularity**:
+The platform can display collected accelerator metrics on device and monitoring pages. The collectors, metric set, and refresh interval depend on the accelerator type, monitoring configuration, and deployed version. Examples include:
 
 - **GPU/NPU compute utilization** & SM occupancy
 - **VRAM usage** & memory bandwidth
@@ -62,7 +71,7 @@ Metrics are collected in real time via DCGM (NVIDIA) and npu-exporter (Ascend) a
 
 ### 2.1 Capability Overview
 
-Drawing on **accumulated deployment experience**, AGIOne distills the deployment know-how of every mainstream large model into **reusable model templates**. This transforms work that traditionally **depends on expert intuition** — "how many cards does this model need, which engine should I use, what parameters should I set" — into **out-of-the-box standardized products**.
+AGIOne uses model configurations, memory configurations, frameworks, and inference templates to preserve reusable deployment parameters. Template availability depends on the operator's configuration and validation of the target model, compute specification, image, and inference engine.
 
 ### 2.2 What's Inside a Model Template
 
@@ -76,6 +85,8 @@ Each model template encapsulates the following five categories of information, f
 
 #### 2.3.1 Pre-built Templates for Mainstream Large Models
 
+> The table below is retained as a capacity-planning example. It does not mean that the current environment includes these models, nor does it commit to compatibility for any model, card count, context length, or inference engine. Use the current template list and actual test results during delivery.
+
 | Model Family    | Representative Versions                 | Parameter Scale     | Recommended Compute Spec | Inference Engine | Context Length      |
 |--------------|-----------------------------------------|:------------------:|------------------------|:---:|:-------------------:|
 | **DeepSeek** | V3.1 / R1                               | 671B MoE / 14B–70B | H200×8 / H20×2         | vLLM         |    32K / 64K / 128K     |
@@ -87,14 +98,14 @@ Each model template encapsulates the following five categories of information, f
 
 ### 2.4 Template Version Management
 
-- **Official templates**: Continuously maintained by the AGIOne team and kept in sync with mainstream model releases.
-- **Enterprise custom templates**: Customers can codify proprietary templates based on their own production workloads (e.g., "Optimal configuration for a fine-tuned Qwen3-VL-7B on 4× L20"), building an internal library of best practices.
+- **Platform templates**: Operators maintain the model configurations, memory configurations, frameworks, and inference templates available in the current environment.
+- **Project templates**: A project can preserve dedicated templates based on validated combinations of models, images, compute, and parameters. Confirm versions and resource conditions before reuse.
 
 ## 3. Rapid Deployment — A "One-Click" Experience That Hides Technical Complexity
 
 ### 3.1 Capability Overview
 
-Building on the model template capability, AGIOne transforms model deployment — work that traditionally requires multiple engineers collaborating over several days — into a productized workflow of **"Pick a model → Pick a spec → Deploy with one click."** Inference framework configuration, VRAM sizing, parallelism parameters, container orchestration, and other complex technical details are completely abstracted away, **enabling general operations and business staff to perform professional-grade model deployments**.
+With prepared models, frameworks, images, specifications, and authorized resources, AGIOne provides a productized workflow of **"Select a model → Select a specification → Submit the deployment."** Operators prepare the underlying resources and deployment assets, while general users start rapid deployment from their currently visible scope and review the result.
 
 ### 3.2 Three-Step Rapid Deployment Workflow
 
@@ -104,7 +115,7 @@ Building on the model template capability, AGIOne transforms model deployment �
 
 ### 3.3 Intelligent Spec Filtering
 
-Once the user selects a model, AGIOne **automatically scans the current compute pool** and instantly computes and presents all **immediately deployable spec combinations** based on the following criteria:
+After a user selects a model, the page displays available deployment combinations based on the currently configured and authorized cloud platform, region, model, and compute solution. The following checks illustrate resource relationships to confirm before deployment:
 
 | Filter Criterion | Automated Decision Logic |
 |---|---|
@@ -114,49 +125,47 @@ Once the user selects a model, AGIOne **automatically scans the current compute 
 
 ### 3.4 Visualized Deployment Process
 
-Once deployment starts, the UI **displays each phase in real time**, keeping users fully informed of deployment status:
+After deployment starts, use the UI and status pages to follow each phase and confirm the current deployment state:
 
-| Phase | UI Display | Typical Duration |
+| Phase | UI or Status-page Focus | Timing Note |
 |:----------:|-------------------------------------------|:-----------:|
-| **① Resource allocation** | Highlights the selected physical cards (rack / node / card ID), with animated resource locking | < 30 seconds |
-| **② Container scheduling** | K8s Pod creation progress, with scheduling policy, node match, and resource quota validation | 30 seconds – 2 minutes |
-| **③ Image pull** | Inference engine image download progress (near-edge image services can complete in seconds) | 1 – 5 minutes |
-| **④ Model loading** | Model weights loaded from shared storage into VRAM, with shard-by-shard progress | 2 – 15 minutes |
-| **⑤ Health check** | HTTP port readiness probe | 30 seconds – 2 minutes |
+| **① Resource allocation** | Confirm that the selected region, resource pool, specification, and quota are available | Depends on resource state |
+| **② Container scheduling** | Check workload scheduling, node matching, and quota results | Depends on cluster state |
+| **③ Image pull** | Check image service, authentication, and network status | Depends on image size and network |
+| **④ Model loading** | Check model storage, mount, accelerator memory, and startup status | Depends on the model and storage |
+| **⑤ Health check** | Check deployment status, monitoring, and event records | Depends on startup and probe configuration |
 
-The full workflow typically completes **within 10–25 minutes** — no command line, no manual YAML editing, no familiarity with inference framework internals required.
+Deployment time depends on compute availability, images, model weights, storage, network, and cluster state. This document does not promise a fixed completion time.
 
 ### 3.5 Failure Rollback and Diagnostics
 
-- **Failure at any phase** triggers automatic rollback of allocated resources, preventing resource leaks.
-- **Failure causes** are pinpointed by a rule engine: typical errors such as "insufficient VRAM / image pull timeout / model file checksum mismatch / port conflict" are surfaced with clear diagnostics.
-- **Full deployment history** is retained, supporting post-mortem analysis and root-cause attribution.
-
----
+- **When deployment fails**, first review deployment status, monitoring, events, and related logs to identify the failed phase.
+- **Common causes** include insufficient quota or capacity, unavailable images, storage mount failures, incompatible model assets, and network errors.
+- **Resource cleanup and retry** should follow the capabilities available on the current page and the delivery solution; automatic rollback is not assumed.
 
 ## 4. Model Publishing — Exposing Models as Services
 
 ### 4.1 Capability Overview
 
-AGIOne **wraps deployed model instances as standardized service Endpoints**, exposing model capabilities to business consumers in a secure and controlled manner through unified authentication, pricing strategies, and rate-limiting configurations — enabling the critical leap from **"functional" to "commercially viable."**
+Model Services allows model providers to publish single models, BYOK Endpoints, or aggregate models; configure the visibility, pricing, and rate-limit fields available on the current page; and submit them for review. After operator approval, general users can discover, experience, and call authorized models.
 
 ### 4.2 Standardized Endpoint Encapsulation
 
 | Encapsulation Dimension | Details |
 |---|---|
-| **Protocol compatibility** | OpenAI-compatible (`/v1/chat/completions`, `/v1/embeddings`, `/v1/models`)<br>Anthropic-compatible (`/v1/messages`); existing clients migrate with zero code changes |
-| **Endpoint URL** | Standard URL format, e.g., `https://agione.example.com/v1/chat/completions`, with routing driven by a custom `model` field |
-| **Request / Response specs** | Fully aligned with community standards, including full support for tool use (function calling), streaming output (SSE), and multimodal inputs |
+| **Protocols and fields** | Use the invocation example on the target model detail or quick-start page, and confirm behavior against the deployed version |
+| **Endpoint URL** | Use the actual Endpoint and model identifier shown on the target model page; do not reuse documentation example addresses |
+| **Request / response capabilities** | Depend on the target model and current version; Function Calling is currently planned |
 
 ### 4.3 Authentication and Authorization
 
-- **API key authentication**: Independent API keys are issued per tenant / business line, with support for multiple concurrent keys and key rotation.
-- **OAuth 2.0 / SSO**: Integrates with enterprise identity systems (LDAP, DingTalk, WeCom, SAML) for unified identity management.
-- **RBAC permission model**: Four-tier authorization granularity — Tenant → Project → Model → Operation — controlling who can invoke models, view billing, and manage instances.
+- **Invocation credentials**: Use the access credentials provided on the model page or assigned in the current environment, and store and rotate them according to security policy.
+- **Role responsibilities**: Model providers publish models, operators review them, and general users experience and call authorized models.
+- **Authorization scope**: The tenant, role, model visibility, and resource authorization jointly determine which operations an account can perform.
 
 ### 4.4 Pricing Configuration
 
-At publication time, **differentiated pricing strategies** can be configured for each Endpoint:
+Model providers can configure the price fields available on the current publishing page. The following table illustrates pricing requirements only; actual dimensions, currency, and prices depend on environment configuration and commercial rules:
 
 | Pricing Model | Use Case | Example Configuration |
 |---|---|---|
@@ -166,19 +175,19 @@ At publication time, **differentiated pricing strategies** can be configured for
 
 ### 4.5 Multi-dimensional Rate Limiting
 
-At the API gateway layer, AGIOne provides **fine-grained, multi-dimensional rate limiting** to prevent any single consumer from causing system overload and to safeguard core workloads:
+The model publishing page can configure invocation-limit fields available in the current version. The exact dimensions and enforcement behavior depend on the page and invocation results:
 
 | Rate-limit Dimension | Configuration Granularity | Typical Scenario |
 |---|---|---|
 | **Per-tenant RPM / TPM** | Independent quota per tenant | Smart Manufacturing Division: RPM = 500, TPM = 2,000,000 |
 
-**Over-limit policy** can be set to either "reject immediately (HTTP 429)" or "queue and wait" — queuing is recommended for critical workloads to avoid request loss.
+Verify the response status, queuing behavior, or rejection behavior after a limit is exceeded in the target version; this document does not define a fixed outcome.
 
 ## 5. Model Aggregation — Multi-objective Intelligent Orchestration
 
 ### 5.1 Capability Overview
 
-The **Aggregated Model** is AGIOne's **core abstraction for value delivery**: **logically**, it presents a single unified model Endpoint to consumers; **physically**, it is composed of multiple backend inference instances that may span hardware types, clusters, and geographies. The aggregation layer makes **real-time dynamic routing decisions** for every request based on multi-dimensional objectives — **cost, high availability, load balancing, protocol translation, and user experience** — so that upstream applications never need to deal with backend complexity.
+An **Aggregated Model** is created by a model provider from eligible published member models and presents a unified model entry point. Member-model selection, available routing strategies, prices, and limit fields depend on the current creation page. General users do not create aggregate models.
 
 ### 5.2 Five Optimization Objectives of the Aggregated Model
 
@@ -186,48 +195,43 @@ The **Aggregated Model** is AGIOne's **core abstraction for value delivery**: **
 
 <p align="center"><i>Figure 4   Five Optimization Objectives of the Aggregated Model</i></p>
 
+> Figure 4 is retained as a solution-design view. It does not indicate that every objective is an available built-in strategy in the current version. Protocol translation is not a currently confirmed aggregation capability in this document.
+
 ### 5.3 Five Aggregation Strategies in Detail
 
 #### 5.3.1 Cost-optimized Aggregation
 
-- **Goal**: Meet SLA at the lowest possible cost.
-- **Strategy**: Route preferentially to the backend instance with the lowest per-token cost (e.g., prefer L20 over H200, prefer INT4-quantized variants).
-- **Typical scenarios**: Day-to-day Q&A, internal productivity assistants, knowledge base retrieval.
+- **Goal**: Consider invocation cost when member models meet business requirements.
+- **Strategy**: Select a cost-related strategy only when the current version provides it, then verify price fields and routing results.
+- **Typical scenarios**: Cost-sensitive internal invocations.
 
 #### 5.3.2 High-Availability (HA) Aggregation
 
-- **Goal**: 99.9%+ service availability with no service disruption from single-point failures.
-- **Strategy**: Hot-standby across multiple source instances; instances are automatically removed from the traffic pool after 2 consecutive heartbeat failures (60 seconds), and re-added once recovered. Deployments span data centers and availability zones.
-- **Typical scenarios**: Core business system integrations, externally exposed commercial APIs.
+- **Goal**: Reduce the effect of a single member-model failure on the unified entry point.
+- **Strategy**: Availability- or success-rate-related routing depends on the strategy options in the current version and actual test results.
+- **Typical scenarios**: Services that use multiple backends through one entry point.
 
 #### 5.3.3 Load-Balancing Aggregation
 
-- **Goal**: Prevent load imbalance across instances (inference latency varies widely, so naive round-robin can overload some instances).
-- **Strategy**: Dynamically weighted dispatch based on **real-time running task counts**, using the formula:
+- **Goal**: Distribute requests across multiple member models.
+- **Strategy**: Round-robin, success-rate, cost, and other options are available only when shown on the current creation page.
+- **Validation**: Use call logs and analytics to confirm that requests are distributed as expected; this document does not define a fixed weight formula or refresh interval.
 
-```
-Weight(i) = BaseCapacity(i) × HealthScore(i) / (RunningTasks(i) + 1)
-```
-Where:
-- `BaseCapacity` — Normalized TPM baseline from instance load testing (reflecting hardware performance differences).
-- `HealthScore` — Range 0.0–1.0 (success rate); drops to 0 when the instance is unhealthy.
-- `RunningTasks` — Number of in-flight requests (collected in real time).
+#### 5.3.4 Protocol Consistency Validation
 
-The scheduler **refreshes weights every minute**, biasing requests toward healthier, less-loaded instances.
-
-#### 5.3.4 Protocol-Translation Aggregation
-
-- **Goal**: Upstream clients use the OpenAI protocol, but backend instances may run different inference frameworks with different protocols.
-- **Strategy**: The aggregation layer **automatically translates protocol formats** on the request and response paths, transparent to the backend models.
-- **Supported translations**: OpenAI ⇄ Anthropic, OpenAI ⇄ MindIE native protocol, streaming ⇄ non-streaming.
+- **Goal**: Confirm that member-model request, response, and capability boundaries satisfy the unified entry point.
+- **Strategy**: Validate member-model protocols and fields before creation. The aggregation layer is not currently claimed to automatically translate OpenAI, Anthropic, MindIE, or streaming/non-streaming protocols.
+- **Handling**: Move protocol differences into project-specific adaptation assessment.
 
 #### 5.3.5 Experience-optimized Aggregation
 
-- **Goal**: Low TTFT and high output throughput, maximizing perceived quality.
-- **Strategy**: Selects instances delivering the best experience based on **historical P95 latency and output TPS**; configurable SLA thresholds (e.g., TTFT < 2s) cause underperforming instances to be deprioritized.
-- **Typical scenarios**: Interactive chatbots, real-time agentic conversations.
+- **Goal**: Consider response experience across multiple available member models.
+- **Strategy**: Compare actual call logs and analytics; latency-related routing depends on current-version support.
+- **Typical scenarios**: Interactive model invocation.
 
 ### 5.4 Multi-scenario Aggregation Configurations
+
+> The following table is a capacity and strategy design example, not a platform preset. Instance counts, timeouts, and active windows must be revalidated against actual load and version capabilities.
 
 | Aggregation Scenario | Backend Instances | Load Strategy | Timeout | Active Window |
 |---|:---:|---|:---:|---|
@@ -241,19 +245,17 @@ The scheduler **refreshes weights every minute**, biasing requests toward health
 
 <p align="center"><i>Figure 5   Transparent Scaling Workflow for Aggregated Models</i></p>
 
-**The aggregated Endpoint URL remains unchanged throughout — fully transparent to upstream consumers**.
-
----
+Before changing member models, verify the aggregate-model entry point, review status, and invocation continuity. Whether the Endpoint can remain unchanged and scaling can be transparent depends on the current version and change method.
 
 ## 6. Metering and Billing — Fine-grained Operational Control
 
 ### 6.1 Capability Overview
 
-AGIOne provides an **enterprise-grade SaaS metering and billing system** that converts every model invocation into precisely quantifiable, allocatable, and settle-able business data. Through a **credit-based system**, internal business units can adopt flexible pricing while maintaining unified reconciliation — moving AI cost from a "black box" to **complete transparency**.
+AGIOne provides operational pages for call logs, usage, metering details, credits, and revenue so users can review data recorded in the current environment. Billing dimensions, precision, currency, credit rules, and settlement methods depend on commercial configuration, model-returned fields, and the deployed version.
 
 ### 6.2 Multi-dimensional Metering Data Collection
 
-For every API call, AGIOne accurately records the following metering data:
+The platform can record or aggregate the following metering dimensions. Availability, precision, and completeness depend on fields returned by the target model, metering configuration, and synchronization status:
 
 | Metering Dimension | Captured Content | Precision |
 |---|---|:---:|
@@ -265,14 +267,16 @@ For every API call, AGIOne accurately records the following metering data:
 
 ### 6.3 Credit-based Pricing System
 
-AGIOne uses **credits** as the unified internal unit of pricing, which offers significant advantages over direct monetary pricing:
+The platform can use quotas or credits to record resource and invocation consumption. The exact unit and conversion relationship are configured for the current environment:
 
-- **Uniform comparability**: Credits provide a common unit across models, business units, and billing cycles, insulating accounting from FX and price fluctuations.
-- **Flexible conversion**: Credits convert to currency at a configurable ratio (e.g., $1 = 100 credits), adjustable to business needs.
-- **Cross-period rollover**: Credits can roll over on a monthly, quarterly, or annual basis.
-- **Flexible allocation**: Administrators can issue credit packages to departments in bulk; departments then consume them freely.
+- **Unified records**: Review consumption within the current account scope on usage and metering pages.
+- **Configuration relationship**: Currency, prices, and credit relationships follow the current configuration maintained by operators.
+- **Role scope**: Operators, model providers, and general users see different data scopes.
+- **Result reconciliation**: Cross-check invocation, usage, metering, and revenue data using the same time range.
 
 #### Billing Rule Examples
+
+> The following values illustrate calculation methods only. They are not current model prices, conversion ratios, or settlement rules.
 
 | Model Spec | Input Pricing | Output Pricing | Use Case |
 |---|:---:|:---:|---|
@@ -290,7 +294,7 @@ AGIOne uses **credits** as the unified internal unit of pricing, which offers si
 
 ### 6.4 Metering Logs and Deduction Logs
 
-AGIOne automatically generates **two types of logs** that serve as the primary records for reconciliation and audit:
+The platform provides metering details, usage, call logs, revenue, and related record entry points for reconciliation. Actual fields, data scope, and synchronization timing depend on the current page.
 
 #### 6.4.1 Metering Log (per-invocation)
 
@@ -316,14 +320,14 @@ Aggregates credit deductions by tenant / user / period:
 |---|---|:---:|---:|---:|---:|
 | Smart Manufacturing Division | (Department-level) | 2026-04 | 10,000,000 | 6,234,891 | 3,765,109 |
 | Smart Manufacturing Division / Zhang San | (User-level) | 2026-04 | — | 432,156 | — |
-| Smart Manufacturing Division / RAG System | (Application-level) | 2026-04 | — | 1,892,344 | — |
+| Smart Manufacturing Division / Example Application | (Application-level) | 2026-04 | — | 1,892,344 | — |
 
 
 ## 7. Invocation Observability — End-to-End Monitoring and Analysis
 
 ### 7.1 Capability Overview
 
-Invocation observability runs **horizontally across** all six capabilities described above, providing **complete end-to-end tracing** from the user's request, through aggregation-layer routing decisions and inference instance processing, down to the underlying hardware. Multi-dimensional analytics derived from this telemetry then **drive operational decisions and continuous optimization**.
+Invocation observability connects business calls and resource status through invocation overview, analytics, logs, and On-Prem monitoring pages. The correlatable path and available metrics depend on role permissions, collection configuration, fields returned by the target model, and the deployed version.
 
 ### 7.2 Three-Tier Monitoring Metric Framework
 
@@ -354,7 +358,7 @@ Invocation observability runs **horizontally across** all six capabilities descr
 
 ### 7.4 Coordinated Anomaly Diagnostic Workflow
 
-When users report abnormal invocations, AGIOne provides a standardized, minute-scale diagnostic path **from application → scheduling → infrastructure**:
+When users report invocation issues, troubleshoot in the order **application call → model and review status → Endpoint and quota → deployment and resource monitoring**:
 
 ![Figure 7   Coordinated Anomaly Diagnostic Workflow](./images/fig_diagnostic_flow.svg)
 
@@ -363,7 +367,7 @@ When users report abnormal invocations, AGIOne provides a standardized, minute-s
 
 ## 8. Closed-loop Synergy Across Capabilities
 
-AGIOne's six core capabilities are not standalone; together they form an organic whole that **interlocks and reinforces** end-to-end:
+AGIOne's six core capabilities can be used together in the sequence of resource preparation, model configuration, deployment, publishing, invocation, and operations:
 
 ![Figure 8   Closed-loop Synergy Across AGIOne's Six Core Capabilities](./images/fig_capability_loop.svg)
 

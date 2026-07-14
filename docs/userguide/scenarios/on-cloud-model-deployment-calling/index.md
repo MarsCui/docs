@@ -9,7 +9,7 @@ This scenario guides regular users through adding or confirming a cloud access a
 
 ## Applicable Roles
 
-- Provider and End User
+- Model Provider and Platform User
 
 ## Recommended Reading Order
 
@@ -32,6 +32,17 @@ This scenario guides regular users through adding or confirming a cloud access a
 - The deployment reaches running with usable events and monitoring.
 - A controlled API request succeeds with the deployment endpoint and authentication method.
 
+## Scenario Flow
+
+**Main path:** Prepare a user access account → Select a model and compute plan → Check deployment state → Call and manage the lifecycle
+
+| Stage | Key Result |
+| --- | --- |
+| 1. Prepare the account | The user cloud account passes validation and authorized regions are visible |
+| 2. Create deployment | Model, engine, strategy, specification, and estimated cost are confirmed and submitted |
+| 3. Check runtime | The deployment reaches Running without repeated event or monitoring errors |
+| 4. Call and manage | The API request succeeds and cloud resources can be stopped or released as needed |
+
 ## Before You Start
 
 1. The operator has completed cloud resource access and model asset publication.
@@ -50,11 +61,15 @@ This scenario guides regular users through adding or confirming a cloud access a
 
 ## Completion Checklist
 
-- [ ] The access account is valid and authorized regions are visible.
-- [ ] Quick deployment can select the target model, engine, and plan.
-- [ ] Deployment is running without repeated errors in events or monitoring.
-- [ ] A controlled request succeeds with redacted endpoint and API key handling.
-- [ ] Stopping or deleting a test deployment releases resources as expected.
+> **Purpose:** These are the scenario exit criteria. Use them to decide whether the outcome is observable and reviewable and whether you can continue to the next scenario. They do not repeat the procedure; if any item fails, return to the relevant feature guide and follow its troubleshooting section.
+
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | The access account is valid and authorized regions are visible. |
+| 2 | Quick deployment can select the target model, engine, and plan. |
+| 3 | Deployment is running without repeated errors in events or monitoring. |
+| 4 | A controlled request succeeds with redacted endpoint and API key handling. |
+| 5 | Stopping or deleting a test deployment releases resources as expected. |
 
 ## Troubleshooting
 

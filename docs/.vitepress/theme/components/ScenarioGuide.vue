@@ -16,6 +16,21 @@ interface Scenario {
   tasks: string[]
 }
 
+interface TaskStep {
+  scenarioId: number
+  stage: Record<Locale, string>
+  description: Record<Locale, string>
+}
+
+interface CommonTask {
+  id: string
+  question: Record<Locale, string>
+  keywords: Record<Locale, string>
+  goal: Record<Locale, string>
+  roles: Role[]
+  steps: TaskStep[]
+}
+
 const route = useRoute()
 
 const locale = computed<Locale>(() => (route.path.startsWith('/zh-CN/') ? 'zh' : 'en'))
@@ -23,9 +38,18 @@ const locale = computed<Locale>(() => (route.path.startsWith('/zh-CN/') ? 'zh' :
 const uiText: Record<Locale, Record<string, string>> = {
   zh: {
     taskCloud: '常见任务',
+    taskIntro: '选择与你的实际问题最相似的任务，查看建议按顺序阅读的场景。找不到对应任务时，可继续使用下方场景筛选。',
+    taskSearch: '搜索任务',
+    taskSearchPlaceholder: '例如：4 张 NPU 卡怎么管理？',
+    taskEmpty: '没有找到相似任务，请尝试其他关键词或浏览全部使用场景。',
+    selectedTask: '已选择的任务',
+    recommendedPath: '推荐场景路径',
+    recommendedIntro: '按顺序进入场景指南，避免遗漏前置配置和后续治理。',
+    applicableRoles: '适用角色',
+    pathCountSuffix: '个场景',
     scenarios: '使用场景',
     summaryPrefix: '当前显示',
-    summarySuffix: '个任务场景。可按用户角色和子系统筛选。',
+    summarySuffix: '个场景。没有找到相似任务时，可按用户角色和子系统筛选。',
     filters: '场景筛选',
     role: '用户角色',
     subsystem: '子系统',
@@ -36,9 +60,18 @@ const uiText: Record<Locale, Record<string, string>> = {
   },
   en: {
     taskCloud: 'Common Tasks',
+    taskIntro: 'Choose the task closest to your problem to see an ordered reading path. If no task matches, continue with the scenario filters below.',
+    taskSearch: 'Search Tasks',
+    taskSearchPlaceholder: 'For example: How do I manage four NPU cards?',
+    taskEmpty: 'No similar tasks found. Try another keyword or browse all use scenarios.',
+    selectedTask: 'Selected Task',
+    recommendedPath: 'Recommended Scenario Path',
+    recommendedIntro: 'Follow the scenario guides in order to cover prerequisites and ongoing governance.',
+    applicableRoles: 'Applicable Roles',
+    pathCountSuffix: 'scenarios',
     scenarios: 'Use Scenarios',
     summaryPrefix: 'Showing',
-    summarySuffix: 'task-oriented scenarios. Filter by user role and subsystem.',
+    summarySuffix: 'scenarios. If no task matches, filter by user role and subsystem.',
     filters: 'Scenario Filters',
     role: 'User Role',
     subsystem: 'Subsystem',
@@ -66,15 +99,6 @@ const subsystemOptions = computed(() => [
   { value: 'settings', label: 'Settings' },
 ])
 
-const taskOptions = computed(() => [
-  { value: 'npu4', label: locale.value === 'zh' ? '我有 4 张 NPU 卡，如何管理？' : 'How Do I Manage Four NPU Cards?' },
-  { value: 'gpu', label: locale.value === 'zh' ? '我要纳管算力' : 'Manage Compute' },
-  { value: 'publish', label: locale.value === 'zh' ? '我要发布模型' : 'Publish Models' },
-  { value: 'call', label: locale.value === 'zh' ? '我要调用模型' : 'Call Models' },
-  { value: 'bill', label: locale.value === 'zh' ? '我要看账单' : 'View Bills' },
-  { value: 'account', label: locale.value === 'zh' ? '我要做治理' : 'Govern Access' },
-])
-
 const roleLabels: Record<Role, string> = {
   operator: 'Operator',
   provider: 'Provider',
@@ -89,6 +113,281 @@ const subsystemLabels: Record<Subsystem, string> = {
   'on-prem': 'On-Prem',
   'on-cloud': 'On Cloud',
 }
+
+const commonTasks: CommonTask[] = [
+  {
+    id: 'npu4',
+    question: { zh: '我有 4 张 NPU 卡，如何管理？', en: 'How do I manage four NPU cards?' },
+    keywords: { zh: '4 张 NPU 卡 算力 纳管 规格 配额 监控', en: 'four NPU cards compute onboarding specification quota monitoring' },
+    goal: {
+      zh: '完成卡型识别、集群接入、规格规划、配额分配和持续监控。',
+      en: 'Identify the card type, onboard the cluster, plan specifications, allocate quotas, and monitor usage.',
+    },
+    roles: ['operator'],
+    steps: [
+      {
+        scenarioId: 9,
+        stage: { zh: '先完成', en: 'Start with' },
+        description: {
+          zh: '识别 NPU 卡型，接入集群并配置 1 卡、2 卡和 4 卡资源规格。',
+          en: 'Identify the NPU type, onboard the cluster, and configure one-card, two-card, and four-card resource specifications.',
+        },
+      },
+      {
+        scenarioId: 10,
+        stage: { zh: '然后配置', en: 'Configure' },
+        description: {
+          zh: '把卡型、卡数、框架和启动参数固化为可复用模板。',
+          en: 'Turn the card type, card count, framework, and startup parameters into a reusable template.',
+        },
+      },
+      {
+        scenarioId: 11,
+        stage: { zh: '验证部署', en: 'Validate' },
+        description: {
+          zh: '确认实例申请到预期卡数并进入运行状态。',
+          en: 'Confirm that the instance receives the expected number of cards and reaches the running state.',
+        },
+      },
+      {
+        scenarioId: 13,
+        stage: { zh: '持续运营', en: 'Operate' },
+        description: {
+          zh: '管理租户配额，并关联查看设备、节点和作业占用。',
+          en: 'Manage tenant quotas and correlate device, node, and job utilization.',
+        },
+      },
+    ],
+  },
+  {
+    id: 'cluster',
+    question: { zh: '我有一套本地集群，如何接入？', en: 'How do I onboard a local cluster?' },
+    keywords: { zh: 'Kubernetes 集群 本地 IDC 接入 算力', en: 'Kubernetes cluster local IDC onboarding compute' },
+    goal: {
+      zh: '把 Kubernetes 集群接入 AGIOne，并验证节点、设备和可调度规格。',
+      en: 'Onboard a Kubernetes cluster to AGIOne and validate nodes, devices, and schedulable specifications.',
+    },
+    roles: ['operator'],
+    steps: [
+      {
+        scenarioId: 9,
+        stage: { zh: '接入集群', en: 'Onboard' },
+        description: {
+          zh: '创建地域、注册集群、识别设备并配置资源规格。',
+          en: 'Create a region, register the cluster, discover devices, and configure resource specifications.',
+        },
+      },
+      {
+        scenarioId: 13,
+        stage: { zh: '验证资源', en: 'Validate' },
+        description: {
+          zh: '确认节点、设备和作业监控持续上报。',
+          en: 'Confirm continuous reporting for node, device, and job monitoring.',
+        },
+      },
+      {
+        scenarioId: 10,
+        stage: { zh: '准备服务', en: 'Prepare' },
+        description: {
+          zh: '为后续模型部署准备可选的推理模板。',
+          en: 'Prepare inference templates for subsequent model deployments.',
+        },
+      },
+    ],
+  },
+  {
+    id: 'team-governance',
+    question: { zh: '我部署了本地模型给团队使用，如何治理？', en: 'How do I govern a local model used by my team?' },
+    keywords: { zh: '本地模型 团队 使用 治理 权限 Key 配额', en: 'local model team governance permission key quota' },
+    goal: {
+      zh: '完成模型部署、团队授权、调用限制和运行监控。',
+      en: 'Complete model deployment, team authorization, calling controls, and operational monitoring.',
+    },
+    roles: ['operator', 'provider'],
+    steps: [
+      {
+        scenarioId: 9,
+        stage: { zh: '部署基础', en: 'Foundation' },
+        description: {
+          zh: '确保集群、加速卡和资源规格已经可用。',
+          en: 'Ensure that the cluster, accelerator cards, and resource specifications are available.',
+        },
+      },
+      {
+        scenarioId: 10,
+        stage: { zh: '配置部署', en: 'Configure' },
+        description: {
+          zh: '固定模型、框架、资源规格和启动参数。',
+          en: 'Define the model, framework, resource specification, and startup parameters.',
+        },
+      },
+      {
+        scenarioId: 11,
+        stage: { zh: '验证服务', en: 'Validate' },
+        description: {
+          zh: '确认实例运行、健康检查和访问入口正常。',
+          en: 'Confirm that the instance, health checks, and access endpoint are working.',
+        },
+      },
+      {
+        scenarioId: 2,
+        stage: { zh: '团队授权', en: 'Authorize' },
+        description: {
+          zh: '为团队成员分配组织、角色、菜单和操作权限。',
+          en: 'Assign organizations, roles, menus, and operation permissions to team members.',
+        },
+      },
+      {
+        scenarioId: 19,
+        stage: { zh: '调用治理', en: 'Govern' },
+        description: {
+          zh: '配置 Key、模型授权、调用限流和额度边界。',
+          en: 'Configure keys, model authorization, rate limits, and quota boundaries.',
+        },
+      },
+      {
+        scenarioId: 13,
+        stage: { zh: '持续运营', en: 'Operate' },
+        description: {
+          zh: '查看设备、节点、作业、配额和资源占用。',
+          en: 'Review devices, nodes, jobs, quotas, and resource utilization.',
+        },
+      },
+    ],
+  },
+  {
+    id: 'deployment-failure',
+    question: { zh: '模型部署后一直创建中，如何排查？', en: 'How do I troubleshoot a model deployment stuck in creating?' },
+    keywords: { zh: '模型部署 创建中 失败 排队 状态', en: 'model deployment creating failed pending status troubleshooting' },
+    goal: {
+      zh: '定位部署卡在资源、配额、镜像、启动参数还是设备健康。',
+      en: 'Determine whether deployment is blocked by resources, quotas, images, startup parameters, or device health.',
+    },
+    roles: ['provider', 'operator'],
+    steps: [
+      {
+        scenarioId: 11,
+        stage: { zh: '先定位', en: 'Locate' },
+        description: {
+          zh: '查看实例状态、事件、镜像拉取和调度结果。',
+          en: 'Review instance status, events, image pulls, and scheduling results.',
+        },
+      },
+      {
+        scenarioId: 10,
+        stage: { zh: '检查配置', en: 'Check config' },
+        description: {
+          zh: '核对镜像、启动命令、端口和资源规格。',
+          en: 'Check the image, startup command, port, and resource specification.',
+        },
+      },
+      {
+        scenarioId: 13,
+        stage: { zh: '检查资源', en: 'Check resources' },
+        description: {
+          zh: '核对配额、空闲卡数、节点和设备健康。',
+          en: 'Check quotas, available cards, nodes, and device health.',
+        },
+      },
+      {
+        scenarioId: 18,
+        stage: { zh: '综合排查', en: 'Investigate' },
+        description: {
+          zh: '按时间范围汇总日志、事件和资源证据。',
+          en: 'Correlate logs, events, and resource evidence over the same time range.',
+        },
+      },
+    ],
+  },
+  {
+    id: 'api-access',
+    question: { zh: '模型发布后，团队成员如何调用？', en: 'How can team members call a published model?' },
+    keywords: { zh: '模型发布 团队 API 调用 Key 授权', en: 'published model team API calling key authorization' },
+    goal: {
+      zh: '完成成员授权、个人 Key、模型体验、API 调用和记录核对。',
+      en: 'Complete member authorization, personal keys, model experience, API calls, and usage review.',
+    },
+    roles: ['provider', 'enduser'],
+    steps: [
+      {
+        scenarioId: 2,
+        stage: { zh: '先授权', en: 'Authorize' },
+        description: {
+          zh: '确认成员属于正确组织并获得对应角色。',
+          en: 'Confirm that members belong to the correct organization and have the required roles.',
+        },
+      },
+      {
+        scenarioId: 19,
+        stage: { zh: '配置调用', en: 'Configure' },
+        description: {
+          zh: '准备个人 Key、模型授权、限流和额度。',
+          en: 'Prepare personal keys, model authorization, rate limits, and quotas.',
+        },
+      },
+      {
+        scenarioId: 6,
+        stage: { zh: '开始调用', en: 'Call' },
+        description: {
+          zh: '在 Playground 验证后完成 API 调用。',
+          en: 'Validate in Playground before making API calls.',
+        },
+      },
+      {
+        scenarioId: 7,
+        stage: { zh: '核对结果', en: 'Review' },
+        description: {
+          zh: '查看调用记录、用量和收益。',
+          en: 'Review call records, usage, and revenue.',
+        },
+      },
+    ],
+  },
+  {
+    id: 'cost',
+    question: { zh: '如何核对模型用量、消费和收益？', en: 'How do I reconcile model usage, spending, and revenue?' },
+    keywords: { zh: '用量 消费 收益 账单 计费 配额', en: 'usage spending revenue bill billing quota' },
+    goal: {
+      zh: '让调用日志、模型用量、账户扣减和提供方收益可以互相验证。',
+      en: 'Cross-check call logs, model usage, account deductions, and provider revenue.',
+    },
+    roles: ['provider', 'enduser'],
+    steps: [
+      {
+        scenarioId: 6,
+        stage: { zh: '确认调用', en: 'Confirm calls' },
+        description: {
+          zh: '从调用记录定位模型、时间和请求结果。',
+          en: 'Locate the model, time range, and request results in call records.',
+        },
+      },
+      {
+        scenarioId: 7,
+        stage: { zh: '核对用量', en: 'Check usage' },
+        description: {
+          zh: '按相同模型和账期核对用量与收益。',
+          en: 'Compare usage and revenue for the same model and billing period.',
+        },
+      },
+      {
+        scenarioId: 8,
+        stage: { zh: '核对扣减', en: 'Check charges' },
+        description: {
+          zh: '区分充值、配额、用量和账户额度。',
+          en: 'Distinguish top-ups, quotas, usage, and account balance.',
+        },
+      },
+      {
+        scenarioId: 18,
+        stage: { zh: '检查异常', en: 'Investigate' },
+        description: {
+          zh: '定位统计延迟、失败调用或异常资源占用。',
+          en: 'Investigate delayed statistics, failed calls, or abnormal resource usage.',
+        },
+      },
+    ],
+  },
+]
 
 const scenarios: Scenario[] = [
   {
@@ -324,15 +623,49 @@ const scenarios: Scenario[] = [
 const currentRole = ref('all')
 const currentSubsystem = ref('all')
 const currentTask = ref('all')
+const taskSearch = ref('')
+
+const taskOptions = computed(() => {
+  const query = taskSearch.value.trim().toLocaleLowerCase()
+
+  return commonTasks
+    .filter((task) => {
+      if (!query) return true
+
+      const searchableText = `${task.question[locale.value]} ${task.keywords[locale.value]}`.toLocaleLowerCase()
+      return searchableText.includes(query)
+    })
+    .map((task) => ({
+      value: task.id,
+      label: task.question[locale.value],
+    }))
+})
+
+const selectedTask = computed(() => commonTasks.find((task) => task.id === currentTask.value) ?? null)
+
+const selectedTaskPath = computed(() => {
+  if (!selectedTask.value) return []
+
+  return selectedTask.value.steps.map((step) => {
+    const scenario = scenarios.find((item) => item.id === step.scenarioId)!
+
+    return {
+      ...scenario,
+      guideLink: guidePath(scenario.guideSlug),
+      titleText: scenario.title[locale.value],
+      stageText: step.stage[locale.value],
+      descriptionText: step.description[locale.value],
+    }
+  })
+})
 
 const filteredScenarios = computed(() => {
   return scenarios.filter((scenario) => {
     const roleMatched = currentRole.value === 'all' || scenario.roles.includes(currentRole.value as Role)
     const subsystemMatched =
       currentSubsystem.value === 'all' || scenario.subsystems.includes(currentSubsystem.value as Subsystem)
-    const taskMatched = currentTask.value === 'all' || scenario.tasks.includes(currentTask.value)
 
-    return roleMatched && subsystemMatched && taskMatched
+    return roleMatched && subsystemMatched
   })
 })
 
@@ -355,14 +688,11 @@ function selectSubsystem(subsystem: string) {
 
 function selectTask(task: string) {
   currentTask.value = currentTask.value === task ? 'all' : task
-  currentRole.value = 'all'
-  currentSubsystem.value = 'all'
 }
 
 function clearFilters() {
   currentRole.value = 'all'
   currentSubsystem.value = 'all'
-  currentTask.value = 'all'
 }
 
 function scenarioNumber(id: number) {
@@ -379,18 +709,74 @@ function guidePath(slug: string) {
   <section class="agp-scenario-guide">
     <div class="agp-task-cloud" :aria-label="uiText[locale].taskCloud">
       <p class="agp-task-cloud-title">{{ uiText[locale].taskCloud }}</p>
-      <div class="agp-task-bubbles">
+      <p class="agp-task-cloud-intro">{{ uiText[locale].taskIntro }}</p>
+
+      <label class="agp-task-search-label" for="agp-task-search">{{ uiText[locale].taskSearch }}</label>
+      <input
+        id="agp-task-search"
+        v-model="taskSearch"
+        class="agp-task-search"
+        type="search"
+        :placeholder="uiText[locale].taskSearchPlaceholder"
+        autocomplete="off"
+      >
+
+      <div v-if="taskOptions.length" class="agp-task-bubbles">
         <button
           v-for="task in taskOptions"
           :key="task.value"
           type="button"
           :class="{ 'is-active': currentTask === task.value }"
+          :aria-pressed="currentTask === task.value"
           @click="selectTask(task.value)"
         >
           {{ task.label }}
         </button>
       </div>
+      <p v-else class="agp-task-empty">{{ uiText[locale].taskEmpty }}</p>
     </div>
+
+    <section v-if="selectedTask" class="agp-recommended" :aria-label="uiText[locale].recommendedPath">
+      <div class="agp-section-head agp-recommended-head">
+        <span class="agp-section-kicker">{{ uiText[locale].selectedTask }}</span>
+        <h2>{{ selectedTask.question[locale] }}</h2>
+        <p>{{ selectedTask.goal[locale] }}</p>
+      </div>
+
+      <div class="agp-recommended-meta">
+        <div>
+          <span class="agp-filter-label">{{ uiText[locale].applicableRoles }}</span>
+          <div class="agp-pill-row">
+            <span
+              v-for="role in selectedTask.roles"
+              :key="role"
+              class="agp-pill"
+              :class="`agp-pill-${role === 'enduser' ? 'eu' : role}`"
+            >
+              {{ roleLabels[role] }}
+            </span>
+          </div>
+        </div>
+        <span class="agp-path-count">{{ selectedTaskPath.length }} {{ uiText[locale].pathCountSuffix }}</span>
+      </div>
+
+      <div class="agp-section-head agp-path-heading">
+        <h2>{{ uiText[locale].recommendedPath }}</h2>
+        <p>{{ uiText[locale].recommendedIntro }}</p>
+      </div>
+
+      <ol class="agp-path-list">
+        <li v-for="(scenario, index) in selectedTaskPath" :key="scenario.id" class="agp-path-item">
+          <span class="agp-card-index">{{ scenarioNumber(index + 1) }}</span>
+          <div class="agp-path-copy">
+            <span class="agp-path-stage">{{ scenario.stageText }}</span>
+            <h3>{{ scenario.titleText }}</h3>
+            <p>{{ scenario.descriptionText }}</p>
+          </div>
+          <a class="agp-path-cta" :href="scenario.guideLink">{{ uiText[locale].cta }}</a>
+        </li>
+      </ol>
+    </section>
 
     <div class="agp-section-head">
       <h2>{{ uiText[locale].scenarios }}</h2>
@@ -507,11 +893,50 @@ function guidePath(slug: string) {
 }
 
 .agp-task-cloud-title {
-  margin: 0 0 12px;
+  margin: 0 0 6px;
   color: var(--agp-text);
   font-size: 20px;
   line-height: 28px;
   font-weight: 700;
+}
+
+.agp-task-cloud-intro,
+.agp-task-empty {
+  margin: 0;
+  color: var(--agp-muted);
+}
+
+.agp-task-search-label {
+  display: block;
+  margin-top: 16px;
+  color: var(--agp-muted);
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.agp-task-search {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 6px 0 14px;
+  padding: 9px 12px;
+  border: 1px solid var(--agp-border);
+  border-radius: 7px;
+  outline: none;
+  background: var(--agp-card-elevated);
+  color: var(--agp-text);
+  font: inherit;
+  line-height: 1.4;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.agp-task-search:focus {
+  border-color: var(--agp-primary);
+  box-shadow: 0 0 0 3px var(--agp-primary-soft);
+}
+
+.agp-task-empty {
+  padding: 8px 0 2px;
 }
 
 .agp-task-bubbles,
@@ -559,11 +984,100 @@ function guidePath(slug: string) {
 
 .agp-section-head h2 {
   margin: 0 0 8px;
+  padding-top: 0;
+  border-top: 0;
 }
 
 .agp-section-head p {
   margin: 0;
   color: var(--agp-muted);
+}
+
+.agp-recommended {
+  margin-bottom: 36px;
+}
+
+.agp-recommended-head {
+  margin-bottom: 16px;
+}
+
+.agp-section-kicker {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--agp-primary);
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.agp-recommended-meta {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--agp-border);
+}
+
+.agp-recommended-meta .agp-filter-label {
+  display: block;
+  padding: 0 0 7px;
+}
+
+.agp-path-count {
+  flex: 0 0 auto;
+  color: var(--agp-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.agp-path-heading {
+  margin-top: 20px;
+}
+
+.agp-path-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.agp-path-item {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: start;
+  padding: 18px;
+  border: 1px solid var(--agp-border);
+  border-radius: 14px;
+  background: var(--agp-card-bg);
+}
+
+.agp-path-copy h3 {
+  margin: 6px 0 0;
+  color: var(--agp-text);
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+}
+
+.agp-path-copy p {
+  margin: 6px 0 0;
+  color: var(--agp-muted);
+  line-height: 1.65;
+}
+
+.agp-path-stage {
+  display: inline-flex;
+  padding: 3px 8px;
+  border: 1px solid var(--agp-primary);
+  border-radius: 4px;
+  background: var(--agp-primary-soft);
+  color: var(--agp-primary);
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 700;
 }
 
 .agp-filter-bar {
@@ -719,7 +1233,8 @@ function guidePath(slug: string) {
   border-color: rgba(61, 184, 211, 0.46);
 }
 
-.agp-card-cta {
+.agp-card-cta,
+.agp-path-cta {
   display: block;
   margin-top: 22px;
   padding: 10px 12px;
@@ -734,9 +1249,16 @@ function guidePath(slug: string) {
   transition: background 0.15s ease;
 }
 
-.agp-card-cta:hover {
+.agp-card-cta:hover,
+.agp-path-cta:hover {
   background: var(--agp-primary-strong);
   color: #ffffff;
+}
+
+.agp-path-cta {
+  min-width: 96px;
+  margin-top: 0;
+  align-self: center;
 }
 
 .agp-empty {
@@ -753,7 +1275,8 @@ function guidePath(slug: string) {
   padding: 8px 14px;
 }
 
-:global(html:not(.dark) .agp-card) {
+:global(html:not(.dark) .agp-card),
+:global(html:not(.dark) .agp-path-item) {
   background: #ffffff;
   border-color: #e5e7eb;
 }
@@ -824,10 +1347,41 @@ function guidePath(slug: string) {
   .agp-filter-label {
     padding-top: 0;
   }
+
+  .agp-path-item {
+    grid-template-columns: 46px minmax(0, 1fr);
+  }
+
+  .agp-path-cta {
+    grid-column: 2;
+    justify-self: start;
+  }
 }
 
 @media (max-width: 640px) {
   .agp-task-bubbles button {
+    width: 100%;
+  }
+
+  .agp-recommended-meta {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .agp-path-item {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .agp-path-item .agp-card-index {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+  }
+
+  .agp-path-cta {
+    grid-column: 1 / -1;
     width: 100%;
   }
 }

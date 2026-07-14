@@ -7,6 +7,10 @@ next: true
 
 This scenario helps operators, providers, and callers decide whether a problem belongs to calls, model services, cloud deployments, On-Prem resources, or metering before opening the corresponding logs and monitoring views.
 
+## Applicable Roles
+
+- Platform User, Model Provider, and Platform Operator investigating issues within their permitted scope
+
 ## Target Outcome
 
 - The issue includes role, time range, model or resource ID, and a reproducible symptom.
@@ -41,22 +45,26 @@ This scenario helps operators, providers, and callers decide whether a problem b
 5. For resource issues, compare job state, node capacity, and device health.
 6. For usage issues, validate runtime records before metering details and period summaries.
 
+Use the **On-Prem Monitoring Overview** during layer identification to compare cluster, node, device, and workload signals in the same time range.
+
+![Compare monitoring signals in the same time range](./images/monitoring-overview.png)
+
 ## Completion Checklist
 
-- [ ] The issue layer and current owner are clear.
-- [ ] Error, log, event, and monitoring times align.
-- [ ] Impact is classified as one request, instance, tenant, or the platform.
-- [ ] The same conditions were retested after mitigation or repair.
-- [ ] Handoff includes entry, steps, expected and actual results, time, and redacted evidence.
+> **Purpose:** These are the exit criteria for the current feature task. Use them to decide whether the result is observable and reviewable and whether you can continue to the next step in the scenario. They do not repeat the procedure; if any item fails, follow the troubleshooting section below.
 
-## Common Mistakes
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | The issue layer and current owner are clear. |
+| 2 | Error, log, event, and monitoring times align. |
+| 3 | Impact is classified as one request, instance, tenant, or the platform. |
+| 4 | The same conditions were retested after mitigation or repair. |
+| 5 | Handoff includes entry, steps, expected and actual results, time, and redacted evidence. |
+
+## Troubleshooting and Common Mistakes
 
 - Reviewing only aggregate monitoring without failed events or request logs.
 - Using different time, region, or tenant filters across views.
 - Treating permission-driven invisibility as missing resources.
 - Mixing quota, account credit, and cluster capacity failures.
 - Copying complete requests or credentials into evidence.
-
-## Feature Screenshot
-
-![On-Prem monitoring overview](./images/monitoring-overview.png)

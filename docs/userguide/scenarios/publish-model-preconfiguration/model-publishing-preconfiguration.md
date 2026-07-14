@@ -1,8 +1,21 @@
-﻿# Model Publishing: Preconfiguration Guide
+# Model Publishing: Preconfiguration Guide
 
 This guide explains the preconfiguration that an Operator needs to complete in **Model Services** before a Provider publishes a public model.
 
 Before you begin, sign in to AGIOne with an Operator account, open **"Model Services"**, and confirm that **"Settings"** and **"Approvals"** are available in the left-side menu.
+
+## Target Outcome
+
+Model Providers can publish without missing sources, templates, tags, currency, or review entry points.
+
+## Applicable Roles
+
+- Platform Operator
+
+## Before You Start
+
+- Collect authoritative provider and model documentation.
+- Define naming, region, protocol, pricing-currency, and approval ownership conventions.
 
 ## 1. Add Meta-models
 
@@ -178,3 +191,24 @@ Before the Provider submits a public model, the Operator should confirm at least
 2. Model source, meta-model, and template must match each other; otherwise, the Provider may lack options during publishing or fail protocol testing.
 3. Public models become externally visible after publishing, so verify name, tags, billing, rate limits, and protocol test results before approval.
 4. This guide applies only to Model Services model publishing preconfiguration.
+
+## Completion Checklist
+
+> **Purpose:** These are the exit criteria for the current feature task. Use them to decide whether the result is observable and reviewable and whether you can continue to the next step in the scenario. They do not repeat the procedure; if any item fails, follow the troubleshooting section below.
+
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | Meta-model, source, template, tags, and currency are enabled and mutually consistent. |
+| 2 | A Model Provider test account can see the expected publication options. |
+| 3 | The Platform Operator can locate and process a test review request. |
+
+## Troubleshooting
+
+| Symptom | Check First |
+| --- | --- |
+| Provider lacks a source or template | Status, region, model type, source-template association, and account scope |
+| Protocol defaults are wrong | Provider documentation, endpoint, model ID, modalities, limits, and parameters |
+
+## User Manual
+
+[Model Services end-to-end publishing flow](../../../usermanual/model-services/end-to-end/publish-and-call-model/)

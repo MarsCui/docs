@@ -1,5 +1,18 @@
 # Build an NPU Inference Template
 
+## Target Outcome
+
+The template exposes a compatible framework, model, runtime configuration, and one-card or four-card NPU plan.
+
+## Applicable Roles
+
+- Platform Operator
+
+## Before You Start
+
+- Prepare the model configuration, framework, image, resource specification, ports, and storage requirements.
+- Decide whether four cards form one distributed instance or several smaller instances.
+
 ## Entry
 
 - **Role:** Operator
@@ -23,10 +36,23 @@
 - State whether a four-card template requires one node or supports multi-node deployment.
 - Validate drivers, runtime, collective communication, and health checks with a small model first.
 
-## Completion Check
+## Completion Checklist
 
-- The template is visible and available.
-- Its flavor contains the expected NPU model and count.
-- A test deployment reaches a creating or running state.
+> **Purpose:** These are the exit criteria for the current feature task. Use them to decide whether the result is observable and reviewable and whether you can continue to the next step in the scenario. They do not repeat the procedure; if any item fails, follow the troubleshooting section below.
 
-[Inference Templates manual](/usermanual/ai-infra-on-prem/operator/templates/inference-templates/)
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | The template is visible and available. |
+| 2 | Its flavor contains the expected NPU model and count. |
+| 3 | A test deployment reaches a creating or running state. |
+
+## Troubleshooting
+
+| Symptom | Check First |
+| --- | --- |
+| Framework or model is unavailable | Status, region, compatibility, and template prerequisites |
+| Four-card deployment cannot start | Specification, distributed parameters, free cards, ports, and storage |
+
+## User Manual
+
+[Inference Templates](/usermanual/ai-infra-on-prem/operator/templates/inference-templates/)

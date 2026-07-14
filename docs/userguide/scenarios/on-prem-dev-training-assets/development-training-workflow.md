@@ -7,6 +7,11 @@ next: true
 
 This scenario guides users through creating an On-Prem development or training environment and preserving code, data, images, models, and outputs as reusable assets.
 
+## Applicable Roles
+
+- Platform User creating development or training workloads
+- Platform Operator preparing images, storage, compute, quota, and monitoring
+
 ## Target Outcome
 
 - Users can create development or training environments with an available image, flavor, and storage.
@@ -23,14 +28,18 @@ This scenario guides users through creating an On-Prem development or training e
 
 ## Procedure
 
-| Step | Action | Manual | Completion Signal |
-| --- | --- | --- | --- |
-| 1 | Prepare object or file storage | [Object Storage](../../../usermanual/ai-infra-on-prem/user/storage/object-storage/), [File Storage](../../../usermanual/ai-infra-on-prem/user/storage/file-storage/) | Data and output paths are accessible |
-| 2 | Prepare or select a runtime image | [Image Service](../../../usermanual/ai-infra-on-prem/user/extensions/images/) | The target region can pull the image |
-| 3 | Create an online IDE for development | [Development Environments](../../../usermanual/ai-infra-on-prem/user/development/dev-environments/) | The IDE runs with a mounted workspace |
-| 4 | Create a runtime instance for training or batch work | [Runtime Instances](../../../usermanual/ai-infra-on-prem/user/development/model-training/) | The workload runs and emits logs |
-| 5 | Preserve images, models, and outputs | [Image Service](../../../usermanual/ai-infra-on-prem/user/extensions/images/), [Object Storage](../../../usermanual/ai-infra-on-prem/user/storage/object-storage/) | Later workloads can reuse the artifacts |
-| 6 | Review monitoring and usage, then release idle capacity | [Job Monitoring](../../../usermanual/ai-infra-on-prem/user/monitoring/jobs/), [Resource Usage](../../../usermanual/ai-infra-on-prem/user/quotas-usage/usage/) | Usage is traceable and idle instances are stopped |
+1. Prepare object or file storage and confirm that data and output paths are accessible. See [Object Storage](../../../usermanual/ai-infra-on-prem/user/storage/object-storage/) and [File Storage](../../../usermanual/ai-infra-on-prem/user/storage/file-storage/).
+2. Prepare or select a versioned runtime image that the target region can pull. See [Image Service](../../../usermanual/ai-infra-on-prem/user/extensions/images/).
+3. Create an online IDE, mount the persistent workspace, and confirm that the IDE opens normally.
+
+![Verify the development environment](./images/dev-environments.png)
+
+4. Create a runtime instance for training or batch work and confirm that the workload runs and emits logs.
+
+![Verify the model-training workload](./images/model-training.png)
+
+5. Preserve images, models, and outputs in controlled storage so later workloads can reuse them.
+6. Review [Job Monitoring](../../../usermanual/ai-infra-on-prem/user/monitoring/jobs/) and [Resource Usage](../../../usermanual/ai-infra-on-prem/user/quotas-usage/usage/), then stop idle instances.
 
 ## Asset Guidance
 
@@ -44,11 +53,15 @@ This scenario guides users through creating an On-Prem development or training e
 
 ## Completion Checklist
 
-- [ ] The development or training instance is healthy without repeated errors.
-- [ ] Persistent code and data remain available after restart or rebuild.
-- [ ] Images, models, and outputs have clear versions and owners.
-- [ ] Flavor, runtime, and usage records match expectations.
-- [ ] Unused instances and temporary resources are stopped or removed.
+> **Purpose:** These are the exit criteria for the current feature task. Use them to decide whether the result is observable and reviewable and whether you can continue to the next step in the scenario. They do not repeat the procedure; if any item fails, follow the troubleshooting section below.
+
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | The development or training instance is healthy without repeated errors. |
+| 2 | Persistent code and data remain available after restart or rebuild. |
+| 3 | Images, models, and outputs have clear versions and owners. |
+| 4 | Flavor, runtime, and usage records match expectations. |
+| 5 | Unused instances and temporary resources are stopped or removed. |
 
 ## Troubleshooting
 
@@ -59,9 +72,3 @@ This scenario guides users through creating an On-Prem development or training e
 | Data is missing | Storage component, mount path, permissions, and region |
 | Workload remains pending or fails | Capacity, image, command, accelerator, and quota |
 | Artifacts disappear | Whether they were written to temporary storage and synchronized before completion |
-
-## Feature Screenshots
-
-![Development environments](./images/dev-environments.png)
-
-![Model training](./images/model-training.png)

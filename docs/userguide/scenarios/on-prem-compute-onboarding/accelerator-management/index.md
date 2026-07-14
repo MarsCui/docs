@@ -1,5 +1,18 @@
 # Maintain Accelerator Models
 
+## Target Outcome
+
+Define the NPU model once with the correct vendor, model identifier, memory, and resource key so specifications and monitoring use the same identity.
+
+## Applicable Roles
+
+- Platform Operator
+
+## Before You Start
+
+- Record the exact model and per-card memory reported by the four physical NPU cards.
+- Confirm that no existing entry already represents the same model.
+
 ## Entry
 
 - **Role:** Operator
@@ -22,10 +35,23 @@
 - All four cards of the same model should use the same resource key.
 - Memory and model metadata affect flavor and deployment feasibility checks.
 
-## Completion Check
+## Completion Checklist
 
-- The NPU model is visible.
-- Its adaptation state and metric association are correct.
-- The resource key matches the cluster.
+> **Purpose:** These are the exit criteria for the current feature task. Use them to decide whether the result is observable and reviewable and whether you can continue to the next step in the scenario. They do not repeat the procedure; if any item fails, follow the troubleshooting section below.
 
-[Accelerator Management manual](/usermanual/ai-infra-on-prem/operator/resource-pools/accelerators/)
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | The NPU model is visible. |
+| 2 | Its adaptation state and metric association are correct. |
+| 3 | The resource key matches the cluster. |
+
+## Troubleshooting
+
+| Symptom | Check First |
+| --- | --- |
+| The model is unavailable in a specification | Accelerator status, model identifier, and vendor mapping |
+| Monitoring cannot match the device | Whether the cluster-reported model matches this entry exactly |
+
+## User Manual
+
+[Accelerator Management](/usermanual/ai-infra-on-prem/operator/resource-pools/accelerators/)

@@ -9,7 +9,7 @@ This scenario guides operators through preparing runtime images and inference fr
 
 ## Applicable Roles
 
-- Operator
+- Platform Operator
 
 ## Recommended Reading Order
 
@@ -32,6 +32,17 @@ This scenario guides operators through preparing runtime images and inference fr
 - Model-library entries combine meta-models, deployment points, cloud models, compute plans, and output configuration.
 - Regular users can select the published asset during quick deployment.
 
+## Scenario Flow
+
+**Main path:** Register a runtime image → Build an inference framework → Create the model asset → Verify user deployment availability
+
+| Stage | Key Result |
+| --- | --- |
+| 1. Register the image | The target cloud can pull a controlled runtime-image version |
+| 2. Build the framework | Image, startup command, port, and framework type are compatible |
+| 3. Create the model asset | Meta-model, deployment point, cloud model, compute plan, and output protocol are linked |
+| 4. Verify availability | Platform Users see the model and available plan in quick deployment |
+
 ## Before You Start
 
 1. Complete [On Cloud Resource Access](../on-cloud-resource-access/).
@@ -49,10 +60,14 @@ This scenario guides operators through preparing runtime images and inference fr
 
 ## Completion Checklist
 
-- [ ] The runtime image can be pulled in the target cloud environment.
-- [ ] Framework command, port, and protocol match the model.
-- [ ] The model asset links its meta-model, deployment point, compute plan, and output configuration.
-- [ ] A regular user can see the model and available plan in quick deployment.
+> **Purpose:** These are the scenario exit criteria. Use them to decide whether the outcome is observable and reviewable and whether you can continue to the next scenario. They do not repeat the procedure; if any item fails, return to the relevant feature guide and follow its troubleshooting section.
+
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | The runtime image can be pulled in the target cloud environment. |
+| 2 | Framework command, port, and protocol match the model. |
+| 3 | The model asset links its meta-model, deployment point, compute plan, and output configuration. |
+| 4 | A regular user can see the model and available plan in quick deployment. |
 
 ## Troubleshooting
 

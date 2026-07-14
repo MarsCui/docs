@@ -2,6 +2,11 @@
 
 This guide is written for first-time AGIOne users. It walks you through the full basic workflow: signing in, claiming free quota, trying a model in the web playground, and calling the model with curl. Usernames, passwords, and API keys are shown as placeholders only.
 
+## Applicable Roles
+
+- Platform User trying and calling a model
+- Model Provider reviewing the resulting customer call records
+
 
 ## 1. Before You Start
 
@@ -21,7 +26,7 @@ This guide uses the following model.
 | Model Name       | Qwen3.5-27b                                                    |
 | Model Identifier | `qwen/qwen3.5-27b/8e413`                                       |
 | Protocol         | `openai/chat_completions`                                      |
-| API Endpoint     | `http://agione.pro/hyperone/xapi/api/v1/chat/completions` |
+| API Endpoint     | `https://agione.pro/hyperone/xapi/api/v1/chat/completions` |
 
 ## 2. Sign In to AGIOne
 
@@ -30,7 +35,7 @@ This guide uses the following model.
 Enter the following address in your browser:
 
 ```text
-http://agione.pro/user/login
+https://agione.pro/user/login
 ```
 
 You will see the AGIOne sign-in page.
@@ -61,7 +66,7 @@ After signing in successfully, you should see a user avatar or initial in the up
 After signing in, open:
 
 ```text
-http://agione.pro/modelone/store/model
+https://agione.pro/modelone/store/model
 ```
 
 You can also navigate through the page menu:
@@ -199,7 +204,7 @@ Please note:
 Replace `{API_KEY}` with the API key you copied, then run the command in your terminal.
 
 ```bash
-curl -X POST "http://agione.pro/hyperone/xapi/api/v1/chat/completions" \
+curl -X POST "https://agione.pro/hyperone/xapi/api/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer {API_KEY}" \
   -d '{
@@ -284,7 +289,7 @@ My Calls > Call Logs
 | ---------------------- | -------------------------------------------------------------------------------------------------- |
 | Authentication failure | Check whether the API key is complete and whether the header is `Authorization: Bearer {API_KEY}` |
 | Model not found        | Check whether `model` is `qwen/qwen3.5-27b/8e413`                                                 |
-| Incorrect request URL  | Check whether the URL is `http://agione.pro/hyperone/xapi/api/v1/chat/completions`           |
+| Incorrect request URL  | Check whether the URL is `https://agione.pro/hyperone/xapi/api/v1/chat/completions`           |
 | Invalid JSON           | Check quotation marks, commas, and braces                                                         |
 | Insufficient quota     | Confirm that free quota has been claimed, or check your account quota                             |
 
@@ -292,10 +297,34 @@ My Calls > Call Logs
 
 | Feature                 | Entry                                                      |
 | ----------------------- | ---------------------------------------------------------- |
-| Sign in                 | `http://agione.pro/user/login`                        |
-| Model list              | `http://agione.pro/modelone/store/model`              |
+| Sign in                 | `https://agione.pro/user/login`                        |
+| Model list              | `https://agione.pro/modelone/store/model`              |
 | Qwen3.5-27b detail page | `Model Services > Discover > Models > Qwen3.5-27b > View`  |
 | Claim free quota        | Qwen3.5-27b detail page provider card > `Claim Free Quota` |
 | Web playground          | Qwen3.5-27b detail page provider card > `Playground`       |
 | API instructions        | Qwen3.5-27b detail page > `Quick Start`                    |
 | Call logs               | `My Calls > Call Logs`                                     |
+
+## Completion Checklist
+
+> **Purpose:** These are the exit criteria for the current feature task. Use them to decide whether the result is observable and reviewable and whether you can continue to the next step in the scenario. They do not repeat the procedure; if any item fails, follow the troubleshooting section below.
+
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | Sign-in succeeds and the intended model can be found. |
+| 2 | Free quota or other authorized quota is available. |
+| 3 | A playground request and an API request both return valid responses. |
+| 4 | The API call appears in Call Logs with the expected model and status. |
+
+## Troubleshooting
+
+| Symptom | Check First |
+| --- | --- |
+| The intended model cannot be found | Model publication state, public/private scope, account authorization, and marketplace filters |
+| Playground works but the API request fails | Personal Key, endpoint, request headers, protocol, model identifier, and rate limit |
+| The request succeeds but no call log appears | Account and project scope, time range, model filter, and processing delay |
+
+## User Manual
+
+- [Model Services Getting Started](../../../usermanual/model-services/getting-started/)
+- [Publish and Call a Model](../../../usermanual/model-services/end-to-end/publish-and-call-model/)

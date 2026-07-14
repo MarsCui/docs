@@ -1,118 +1,93 @@
-# AGIOne Platform — User, Tenant, and Role Design Logic
+# Identity and Access Model
 
-## 1. Core Relationship
+:::: info Document Information
+Version: v1.1
+Updated: 2026-07-13
+::::
 
-In AGIOne, **the tenant defines the organizational boundary, users belong to tenants, roles define user capabilities, and menus plus permissions determine what users can see and operate**.
+## Core Relationship
 
-| Object | Meaning | Key Rule |
+In AGIOne, access is determined through four connected concepts:
+
+**Tenant defines the organization boundary -> User identifies the person -> Role defines the responsibility -> Authorization determines the visible resources and actions**
+
+| Object | Beginner-friendly Meaning | What It Affects |
 | --- | --- | --- |
-| Tenant | An organization, customer, or business boundary | One tenant can contain multiple users |
-| User | A personal account used to sign in to the platform | A user belongs to a tenant through `tenantId` |
-| Role | A set of capabilities and permissions | A user can be assigned one or more roles |
-| Menu / Permission | Page entries, buttons, and API permissions | After a role is assigned, the user can see the corresponding menus and perform the corresponding operations |
+| Tenant | The organization or customer space to which an account belongs | Data boundary and the resources available to the organization |
+| User | The account used by a person to sign in | Personal identity, operation records, and assigned roles |
+| Role | A set of responsibilities, such as operator or model provider | Menus, task ownership, and permitted operations |
+| Authorization scope | The resources opened to a tenant or account | Visible regions, resource pools, clusters, cloud accounts, models, templates, and data |
 
-After sign-in, the system loads menus and permissions according to the roles assigned to the user. The user can only see authorized menu entries. Buttons and APIs are also controlled by permission codes.
+An account needs both the correct role and the correct resource authorization. Having a menu does not mean that every resource is visible, and seeing a resource does not mean that every action is allowed.
 
-## 2. Tenant Design
-
-| Tenant Type | Identification Rule | Default Roles | Capability Boundary |
-| --- | --- | --- | --- |
-| Super tenant / operator tenant | `tenantId = "1"` | `admin`, `operator` | Manages the platform, tenants, roles, menus, and cross-domain operations |
-| Normal tenant | Any other `tenantId` | `provider`, `enduser` | Uses platform capabilities, provides models or resources, and calls model services |
-
-Key points:
-
-- `operator` is not an independent tenant. It is an operations user under the super tenant.
-- `provider` and `enduser` both belong to normal tenants. They are not distinguished by tenant type, but by assigned roles.
-- The same normal tenant can contain both provider users and enduser users.
-- Customer-facing documents should consistently use `enduser` instead of the internal shorthand `eu`.
-
-## 3. Default Role Overview
-
-| Role | Tenant | Core Positioning | Main Capabilities |
-| --- | --- | --- | --- |
-| `admin` | Super tenant | Platform super administrator | Manages tenants, base roles, menus, permissions, and platform metadata |
-| `operator` | Super tenant | Platform operations administrator | Handles model review and governance, cloud resource access, compute resource operations, and finance operations |
-| `provider` | Normal tenant | Model or compute provider and deployment user | Creates models, connects BYOK resources, deploys models, manages call statistics, and uses compute resources |
-| `enduser` | Normal tenant | End user | Browses models, tries model capabilities, calls models, views usage, and manages personal call records |
-
-## 4. admin Capabilities
-
-| Dimension | Description |
-| --- | --- |
-| Role positioning | Platform super administrator |
-| Main objects | Tenants, users, base roles, menus, and permission metadata |
-| Typical operations | Create and manage tenants, maintain roles, configure menus, and maintain permission metadata |
-| Menu scope | User Space account-domain capabilities, such as tenant, role, and menu management |
-| Permission boundary | Does not handle daily business operations for models, compute resources, or finance |
-| Customer interpretation | The overall platform administrator, usually held by the deployment owner or the highest platform management team |
-
-## 5. operator Capabilities
-
-| Dimension | Description |
-| --- | --- |
-| Role positioning | Platform operations administrator |
-| Model Services | Manages meta models, model sources, templates, tags, and currency settings; reviews models and applications; manages application lists |
-| Cross-Platforms / AI Infra-On Cloud | Connects cloud platforms, authorizes cloud platforms, manages access accounts, resource pools, resource pool authorization, model libraries, model categories, inference frameworks, and runtime images |
-| Heterogeneous-XPUs | Manages resource pools, clusters, nodes, storage, images, specifications, quotas, credits, approvals, monitoring, and statistics |
-| Trading / Finance | Manages announcements, agreements, platform customer accounts, and top-up orders from the operations side |
-| Permission boundary | Manages platform supply and governance, but is not a normal business user consuming model capabilities |
-| Customer interpretation | Suitable for platform operations or infrastructure teams that provide and govern models, compute resources, and platform resources |
-
-## 6. provider Capabilities
-
-| Dimension | Description |
-| --- | --- |
-| Role positioning | Supply-side role that also includes deployment and resource usage capabilities |
-| Model Services | Creates and manages owned models; supports AGIOne managed deployment, third-party BYOK access, multi-model aggregation, customer call overview, call logs, and call statistics |
-| Cross-Platforms / AI Infra-On Cloud | Connects personal cloud accounts; uses Model Services quick start; browses the model gallery; manages personal deployments |
-| Heterogeneous-XPUs | Creates development environments, training jobs, inference jobs; manages instances, storage, images, datasets, and creative workspace resources |
-| Permission boundary | Should not have platform-level tenant management, global menu governance, or global resource governance permissions |
-| Customer interpretation | Suitable for teams or users responsible for model access, model publishing, cloud account access, compute deployment, and resource maintenance |
-
-## 7. enduser Capabilities
-
-| Dimension | Description |
-| --- | --- |
-| Role positioning | End user |
-| Model Services | Browses the model marketplace; uses text, image, audio, and video playgrounds; views personal calls, call logs, call statistics, usage and revenue; uses private models or aggregated models |
-| Finance / Deck | Handles consumer-side finance capabilities such as top-up and credit deduction |
-| Permission boundary | Should not have model review, cloud resource access management, platform-level menus, or tenant governance permissions |
-| Customer interpretation | Suitable for business users who only need to use, try, and call model capabilities |
-
-## 8. Custom Roles and Menu Permissions
-
-AGIOne supports custom roles as needed. The actual control logic is:
+## How Access Is Decided
 
 ```text
-Create a role
-  -> Bind menus, buttons, and API permissions to the role
-  -> Assign the role to users
-  -> Users can only see and operate authorized content after sign-in
+Sign in
+  -> Identify tenant and user
+  -> Load assigned role permissions
+  -> Apply resource authorization scope
+  -> Display permitted menus, buttons, and data
 ```
 
-| Configuration Action | Object | Effect |
+When a documented menu or object is not visible, check the account role, tenant, authorization scope, and prerequisite resources before treating it as a product fault.
+
+## Default Role Model
+
+| Role | Main Responsibility | Typical Scope |
 | --- | --- | --- |
-| Create a role | `sys_role` | Defines a group of business capabilities; `type=2` means tenant custom role |
-| Configure menu permissions | `sys_role_menu` + `sys_menu` | Determines which menus, buttons, and API permissions the role can access |
-| Assign users | `sys_user_role` | Determines which role capabilities a user receives |
-| Menu control | `sys_menu.menuType=0` | Controls left-side navigation entries and page access |
-| Button control | `sys_menu.menuType=1` + `permission` | Controls buttons such as add, edit, delete, import, and export |
-| API control | `@HasPermission` + `sys_menu.permission` | Controls whether backend APIs can be called |
+| `admin` | Manage platform identity and access foundations | Tenants, users, roles, menus, and platform-level permission configuration |
+| `operator` | Prepare and govern platform resources and published content | Resource onboarding, templates, authorization, quotas, monitoring, base settings, and reviews |
+| `provider` | Supply and operate model services | Publish single or aggregate models, maintain versions and pricing, submit reviews, and view customer calls and revenue |
+| `enduser` | Consume authorized platform capabilities | Discover and experience models, call APIs, deploy available services, and view personal calls or usage |
 
-Customer-facing explanation:
+The exact menus available to a role can vary with the deployed version and platform configuration. Use the current environment as the final source for visible entries.
 
-> The platform does not enable menus user by user. It authorizes by role. A user can only see and operate the menus and permissions assigned to the user's roles.
+## Tenant Boundary
 
-## 9. Enterprise Private Deployment Example
+- A tenant represents an organization or customer boundary.
+- A tenant can contain multiple users with different roles.
+- Model providers and end users can belong to the same tenant while receiving different permissions.
+- Cross-tenant access must be explicitly governed; users should not assume that resources or data from another tenant are visible.
+- Platform-level identity governance should remain with the deployment owner or an authorized platform administration team.
 
-If one enterprise deploys AGIOne and provides access to users from another enterprise or external organization, the relationship can be understood as follows:
+## Role and Authorization Are Different
 
-| Participant | Recommended Role | Capability Boundary |
+| Situation | Role Check | Authorization Check |
 | --- | --- | --- |
-| Platform administrator of the deploying enterprise | `admin` | Manages tenants, roles, menus, and platform base permissions |
-| Operations or infrastructure team of the deploying enterprise | `operator` | Manages model review, resource access, compute supply, and finance operations |
-| Model or technical team of the served enterprise | `provider` or a provider-derived role | Connects models, connects cloud accounts, deploys models, and views call statistics |
-| Business users of the served enterprise | `enduser` or an enduser-derived role | Calls models, tries model capabilities, and views personal calls and usage |
+| A menu is missing | Confirm that the account has the role responsible for the task | Confirm that the menu is enabled for the role in this deployment |
+| A region, cluster, or resource pool is missing | Confirm that the role can use the relevant subsystem | Confirm tenant, business-region, or resource-pool authorization |
+| A model is missing from Model Marketplace | Confirm that the account is an end user or another permitted consumer | Confirm model review status, visibility, and access scope |
+| A provider cannot publish | Confirm the `provider` role | Confirm required model sources, templates, tags, and tenant permissions |
+| An operation button is missing | Confirm task ownership for the current role | Confirm button-level permission and resource state |
 
-Platform-level governance permissions should remain with the deploying enterprise. The capabilities granted to the served enterprise should be controlled through tenants, roles, and menu permissions.
+## Recommended Responsibility Split
+
+| Participant | Recommended Role | Responsibility Boundary |
+| --- | --- | --- |
+| Deployment owner | `admin` | Maintains tenants, users, roles, and platform access foundations |
+| Platform operations or infrastructure team | `operator` | Prepares resources, maintains governance configuration, reviews content, and monitors platform operations |
+| Model or technical team | `provider` | Publishes and maintains models, submits reviews, and operates provider-side calls and revenue |
+| Business user or application developer | `enduser` | Experiences and calls authorized models and views personal usage |
+
+Avoid assigning `admin` or broad `operator` permissions only to make a missing menu visible. Adjust the role or resource authorization to the minimum scope required by the task.
+
+## Troubleshooting Access
+
+1. Confirm the current subsystem and target task.
+2. Confirm the signed-in user, tenant, and role.
+3. Compare the task with the [Role Comparison](./role-comparison).
+4. Confirm that the target region, resource pool, cluster, cloud account, model, or template has been authorized.
+5. Confirm that the prerequisite resource has been prepared by the operator.
+6. If the entry is still missing, record the page path, expected entry, account role, tenant, and time of observation for the platform administrator.
+
+::: details Implementation Notes for Maintainers
+Some deployments use a designated platform tenant for `admin` and `operator`, with ordinary tenants carrying `provider` and `enduser`. Role-menu, user-role, button, and API permission mappings may be stored in implementation objects such as `sys_role`, `sys_role_menu`, `sys_user_role`, and `sys_menu`, with backend permission checks applied to APIs. These names are implementation details and should not be used as the primary customer explanation or assumed to be stable public interfaces.
+:::
+
+## Related Documentation
+
+- [Role Comparison](./role-comparison)
+- [Features and Capabilities](./technical/features)
+- [Scenario Guide](../userguide/scenarios)
+- [User Manual](../usermanual/)

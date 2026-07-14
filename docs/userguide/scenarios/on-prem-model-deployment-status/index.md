@@ -9,8 +9,8 @@ This scenario shows how to create a model instance from an inference template an
 
 ## Applicable Roles
 
-- Provider
-- End User
+- Model Provider
+- Platform User
 - Operator assisting with troubleshooting
 
 ## Goals
@@ -18,6 +18,17 @@ This scenario shows how to create a model instance from an inference template an
 - Create a model instance from an NPU template.
 - Interpret creating, running, queued, failed, and stopped states.
 - Verify the allocated NPU count.
+
+## Scenario Flow
+
+**Main path:** Select a template and plan → Create the model instance → Check scheduling and runtime → Verify the service call
+
+| Stage | Key Result |
+| --- | --- |
+| 1. Select configuration | Template, card count, quota, storage, and instance parameters meet the task |
+| 2. Create the instance | The request appears in Model Instances and remains traceable |
+| 3. Check status | Scheduling, image, events, logs, and actual NPU allocation are healthy |
+| 4. Verify the service | Health checks pass and the endpoint completes one controlled call |
 
 ## Before You Start
 
@@ -37,8 +48,12 @@ This scenario shows how to create a model instance from an inference template an
 | --- | --- |
 | [Deploy and Check a Model](./deploy-and-check/) | Create an instance and verify state, workload events, and NPU allocation |
 
-## Completion Criteria
+## Completion Checklist
 
-- The model instance is running.
-- The workload uses the card count selected by the template.
-- Health checks and the service endpoint work.
+> **Purpose:** These are the scenario exit criteria. Use them to decide whether the outcome is observable and reviewable and whether you can continue to the next scenario. They do not repeat the procedure; if any item fails, return to the relevant feature guide and follow its troubleshooting section.
+
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | The model instance is running. |
+| 2 | The workload uses the card count selected by the template. |
+| 3 | Health checks and the service endpoint work. |

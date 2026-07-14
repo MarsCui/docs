@@ -1,5 +1,18 @@
 # Configure Metrics and Resource Specifications
 
+## Target Outcome
+
+Users can request clear one-card, two-card, and four-card NPU plans, each mapped to the correct scheduler resource key.
+
+## Applicable Roles
+
+- Platform Operator
+
+## Before You Start
+
+- Confirm the accelerator entry and the resource key reported by the cluster device plug-in.
+- Decide which card combinations are supported and how CPU and memory scale with NPU count.
+
 ## Entry
 
 - **Role:** Operator
@@ -8,15 +21,16 @@
 
 ## Steps
 
-1. Verify that the NPU metric k8s-key matches the device-plugin resource key.
-2. Add selector keys when scheduling must target a specific model or node group.
-3. Create one-card, two-card, and four-card resource specifications.
-4. Configure CPU, memory, NPU count, and storage requirements.
-5. Associate the specifications with the cluster and validate them with test workloads.
+1. In **Specification Metrics**, verify that the NPU metric k8s-key matches the device-plugin resource key and add selector keys when scheduling must target a model or node group.
 
-![Specification metrics](./images/spec-metrics-list.png)
+![Verify specification metrics](./images/spec-metrics-list.png)
 
-![Resource specifications](./images/resource-specs-list.png)
+2. In **Resource Specifications**, create one-card, two-card, and four-card plans.
+3. Configure CPU, memory, NPU count, and storage requirements, then associate each plan with the target cluster.
+
+![Verify resource specifications](./images/resource-specs-list.png)
+
+4. Validate the one-card plan with a test workload before testing the two-card and four-card plans.
 
 ## Recommended Four-Card Plan
 
@@ -28,11 +42,24 @@
 
 Do not assume that a single pod can request all four cards when they are distributed across nodes.
 
-## Completion Check
+## Completion Checklist
 
-- All three flavors are selectable.
-- Resource keys match node reporting.
-- One-card validation passes before two-card and four-card validation.
+> **Purpose:** These are the exit criteria for the current feature task. Use them to decide whether the result is observable and reviewable and whether you can continue to the next step in the scenario. They do not repeat the procedure; if any item fails, follow the troubleshooting section below.
 
-- [Specification Metrics manual](/usermanual/ai-infra-on-prem/operator/resource-pools/spec-metrics/)
-- [Resource Specifications manual](/usermanual/ai-infra-on-prem/operator/resource-pools/resource-specs/)
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | All three flavors are selectable. |
+| 2 | Resource keys match node reporting. |
+| 3 | One-card validation passes before two-card and four-card validation. |
+
+## Troubleshooting
+
+| Symptom | Check First |
+| --- | --- |
+| A specification is not selectable | Status, tenant quota, cluster association, and region availability |
+| A workload remains pending | Resource key, requested card count, free capacity, and node labels |
+
+## User Manual
+
+- [Specification Metrics](/usermanual/ai-infra-on-prem/operator/resource-pools/spec-metrics/)
+- [Resource Specifications](/usermanual/ai-infra-on-prem/operator/resource-pools/resource-specs/)

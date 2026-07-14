@@ -7,6 +7,11 @@ next: true
 
 This scenario combines identity permissions, resource authorization, model visibility, API credentials, rate limits, and credits into one governance path for answering who can access what, how much they can use, and how changes are traced.
 
+## Applicable Roles
+
+- Platform Operator designing and auditing access
+- Model Provider and Platform User validating their effective permissions
+
 ## Target Outcome
 
 - Users, tenants, and roles form clear organizational boundaries.
@@ -41,13 +46,21 @@ This scenario combines identity permissions, resource authorization, model visib
 6. Use the target account for a read-only check or controlled call.
 7. Record the reason, scope, validation result, and rollback method.
 
+When validating credential boundaries, open **Personal Key Management** and confirm that only the intended owner and active keys remain available.
+
+![Validate personal key ownership and state](./images/my-keys-live.png)
+
 ## Completion Checklist
 
-- [ ] Unauthorized accounts cannot see the target menu, resource, or model.
-- [ ] Authorized accounts see only the agreed scope without extra governance permissions.
-- [ ] Exceeding quota, credits, or rate limits is rejected or limited as defined.
-- [ ] Revoked credentials or authorization no longer permit new requests.
-- [ ] Records identify owner, tenant, object, and time.
+> **Purpose:** These are the exit criteria for the current feature task. Use them to decide whether the result is observable and reviewable and whether you can continue to the next step in the scenario. They do not repeat the procedure; if any item fails, follow the troubleshooting section below.
+
+| Check | Pass Criteria |
+| --- | --- |
+| 1 | Unauthorized accounts cannot see the target menu, resource, or model. |
+| 2 | Authorized accounts see only the agreed scope without extra governance permissions. |
+| 3 | Exceeding quota, credits, or rate limits is rejected or limited as defined. |
+| 4 | Revoked credentials or authorization no longer permit new requests. |
+| 5 | Records identify owner, tenant, object, and time. |
 
 ## Troubleshooting
 
@@ -59,6 +72,6 @@ This scenario combines identity permissions, resource authorization, model visib
 | Access remains after revocation | Current session, cache, API permission, and whether revocation was saved |
 | User has excessive access | Role inheritance, multiple assigned roles, and platform-level menus |
 
-## Feature Screenshot
+## User Manual
 
-![Personal key management](./images/my-keys-live.png)
+[Use the user-manual entry to validate the effective menus and operations in each affected subsystem](/usermanual/)

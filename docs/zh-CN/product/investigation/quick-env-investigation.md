@@ -1,5 +1,11 @@
 # AGIOne环境快速调研
 
+:::: info 文档信息
+版本：v1.1
+更新日期：2026-07-13
+事实来源：当前安装指南
+::::
+
 本文档用于在 AGIOne 本地部署或云原生部署前，判断环境是否满足安装部署前置条件，识别交付风险，并输出整改与上线清单。
 
 > 📥 **下载可填写模板：** <a href="/downloads/AGIOne%E7%8E%AF%E5%A2%83%E5%BF%AB%E9%80%9F%E8%B0%83%E7%A0%94%E8%AE%B0%E5%BD%95%E8%A1%A8.xlsx" download>环境快速调研记录表 (.xlsx)</a>
@@ -209,3 +215,11 @@
 | 客户负责人 | `<姓名>` | `<通过/有条件通过/阻塞>` | `<日期>` | `<签字>` |
 | 交付负责人 | `<姓名>` | `<通过/有条件通过/阻塞>` | `<日期>` | `<签字>` |
 | 运维负责人 | `<姓名>` | `<通过/有条件通过/阻塞>` | `<日期>` | `<签字>` |
+
+## 相关文档
+
+- [安装指南](../../installation/)
+- [安装前环境检查](../../installation/agione-precheck-environment-check)
+- [网络规划](../technical/network)
+- [支持矩阵](../limitations/support-matrix)
+- [需求快速调研](./quick-requirement-investigation)
