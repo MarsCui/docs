@@ -42,7 +42,7 @@ Updated: 2026-07-13
 | Dimension | AGIOne | Typical DIY Stack |
 |------|--------|-------------|
 | Delivery efficiency | Standard path across surveys, installation, scenarios, and manuals | Multi-component workflows and documentation must be organized independently |
-| Operational complexity | Resource, model, and operations entry points across three subsystems | Multiple systems and ownership boundaries are maintained separately |
+| Operational complexity | Resource, model, billing, settings, and operations entry points across five product modules | Multiple systems and ownership boundaries are maintained separately |
 | Access governance | Tenants, roles, and authorization scopes control visible content | A permission system must be designed and integrated separately |
 | Compute management | Manages validated cloud resources and heterogeneous accelerators | Resources are commonly managed in separate systems |
 | Model aggregation | Providers can configure aggregate models and available routing strategies | Endpoints and routing logic are maintained model by model |

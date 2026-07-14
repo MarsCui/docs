@@ -10,9 +10,9 @@ Updated: 2026-07-13
 | Role | Positioning | Responsible For | Not Responsible For |
 | --- | --- | --- | --- |
 | `admin` | Platform administrator | Tenant, user, role, menu, and platform access foundations | Daily compute operations, model publishing, or model consumption |
-| `operator` | Platform operator | Resource preparation, governance configuration, quotas, monitoring, and reviews | Publishing a provider-owned model or consuming models as an end user |
-| `provider` | Model provider | Publishing and maintaining models, aggregate models, reviews, customer calls, and revenue | Platform-wide identity governance or reviewing its own publication |
-| `enduser` | General user and model consumer | Deploying available services, discovering and experiencing models, API calls, and personal usage | Publishing or reviewing models and managing platform-wide resources |
+| `operator` | Platform operator | Resource preparation, governance configuration, quotas, monitoring, reviews, customer finance, License, settings, audit, and API rate control | Publishing a provider-owned model or consuming models as an end user |
+| `provider` | Model provider | Publishing and maintaining models, aggregate models, reviews, customer calls, provider revenue, and permitted team settings | Platform-wide identity governance, finance operations, or reviewing its own publication |
+| `enduser` | General user and model consumer | Deploying available services, discovering and experiencing models, API calls, personal usage, personal billing, and personal settings | Publishing or reviewing models and managing platform-wide resources |
 
 ## Capability Comparison
 
@@ -22,13 +22,15 @@ Updated: 2026-07-13
 | Prepare On-Prem resource pools and templates | No | Primary | Use authorized resources | Use authorized resources |
 | Connect and authorize supported cloud resources | No | Primary | Use assigned access accounts or resources | Use assigned access accounts or resources |
 | Maintain Model Services base settings | No | Primary | Use prepared settings | No |
+| Maintain Billing and License operations | No | Primary for platform/customer finance | View owned revenue and settlements | View own billing |
+| Maintain Settings, audit, and API rate control | Platform access foundations | Primary for platform settings | Own team or personal scope when authorized | Own personal or team scope when authorized |
 | Publish a single or BYOK model | No | Govern and review | Primary | No |
 | Create an aggregate model | No | Govern and review | Primary | No |
 | Review models and apps | No | Primary | Submit for review | No |
 | Discover models and use Playground | No | Validation when needed | Validation when needed | Primary |
 | Call model APIs | No | Validation when needed | Validate owned services | Primary |
 | View customer calls and model revenue | No | Platform scope when authorized | Primary for owned models | No |
-| View personal calls and usage | No | Operational scope when authorized | Own scope | Own scope |
+| View personal calls, usage, and billing | No | Operational scope when authorized | Own scope | Own scope |
 
 “Primary” indicates normal task ownership. Actual visibility depends on tenant, role configuration, resource authorization, and the installed version.
 
@@ -58,6 +60,8 @@ Main responsibilities by subsystem:
 | AI Infra On-Prem | Prepare resource topology, specifications, storage, images, templates, quotas, metering, and monitoring | [On-Prem Getting Started](../usermanual/ai-infra-on-prem/getting-started/) |
 | AI Infra On-Cloud | Maintain supported cloud access, accounts, resource pools, authorization, deployment assets, and scheduling policies | [On-Cloud Getting Started](../usermanual/ai-infra-on-cloud/getting-started/) |
 | Model Services | Maintain meta-models, model sources, templates, tags, and currency settings; process model and app reviews | [Model Services Getting Started](../usermanual/model-services/getting-started/) |
+| Billing | Maintain customer finance, operation finance, reconciliation, settlement, adjustment, and License status | [Billing Getting Started](../usermanual/billing/getting-started/) |
+| Settings | Maintain members, roles, organizations, operation logs, platform settings, login properties, and API rate-control rules | [Settings Getting Started](../usermanual/settings/getting-started/) |
 
 Boundary:
 
@@ -74,6 +78,8 @@ Main responsibilities:
 - Create aggregate models from eligible member models and select an available routing strategy.
 - Configure provider-owned publication information, submit reviews, and respond to review results.
 - View model usage, model revenue, and customer-call data for the permitted scope.
+- View provider-side earnings, customer lists, and settlement records within the permitted scope.
+- Manage personal Keys, profile, team members, roles, quotas, or organization settings only when those entries are authorized to the provider account.
 - Use authorized On-Prem or On-Cloud resources when a deployment workflow requires them.
 
 Boundary:
@@ -93,6 +99,7 @@ Main responsibilities:
 - Experience supported model interactions in Playground.
 - Obtain required access and call model APIs.
 - View personal-call overview, analytics, logs, usage, and deployment status.
+- View personal billing, transactions, top-up orders, monthly bills, and personal settings when available.
 - Create On-Prem or On-Cloud workloads from resources and templates already authorized to the account.
 
 Boundary:
@@ -110,10 +117,12 @@ See the [User Manual](../usermanual/) and [Scenario Guide](../userguide/scenario
 | Onboard a local cluster or configure quotas | `operator` |
 | Connect and authorize a supported cloud resource pool | `operator` |
 | Maintain meta-models or review a model | `operator` |
+| Reconcile a billing cycle or maintain customer finance | `operator` |
+| Maintain members, roles, login settings, or API rate-control rules | `operator` or authorized administrator |
 | Publish a model or create an aggregate model | `provider` |
 | View customer calls and provider revenue | `provider` |
 | Try a model or call its API | `enduser` |
-| View personal usage or a personal deployment | `enduser` |
+| View personal usage, billing, or a personal deployment | `enduser` |
 
 If one person performs multiple responsibilities in a small deployment, assign multiple roles only after confirming the required boundary. Keep platform administration and review permissions limited and auditable.
 

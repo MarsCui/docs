@@ -15,7 +15,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
     },
     {
       text: '账号与权限模型',
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: '用户、租户与角色设计逻辑', link: '/zh-CN/product/identity-access-model' },
         { text: '角色对比总览', link: '/zh-CN/product/role-comparison' },
@@ -23,7 +23,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
     },
     {
       text: '兼容性与限制',
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: '纳管芯片', link: '/zh-CN/product/limitations/chips' },
         { text: '支持矩阵', link: '/zh-CN/product/limitations/support-matrix' },
@@ -32,7 +32,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
     },
     {
       text: '售前调研',
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: '需求快速调研', link: '/zh-CN/product/investigation/quick-requirement-investigation' },
         { text: '环境快速调研', link: '/zh-CN/product/investigation/quick-env-investigation' },

@@ -3,7 +3,7 @@
 :::: info Document Information
 Version: v1.1
 Updated: 2026-07-13
-Functional baseline: User Manual updated on 2026-07-08
+Functional baseline: User Manual updated on 2026-07-10
 ::::
 
 ## Overview
@@ -17,7 +17,7 @@ AGIOne is a **one-stop intelligent compute and model management platform** purpo
 > The seventh capability, **Invocation Observability**, runs horizontally across all six capabilities, providing visibility and analysis from hardware resources to business-level invocations.
 
 ::: warning Reading Note
-This page retains the original capability framework and conceptual diagrams. Times, strategies, performance figures, and pricing values in the diagrams and examples explain design considerations and are not current-version commitments. Use the [User Manual](../../usermanual/), [Support Matrix](../limitations/support-matrix), and target environment as the source of truth. Current status: Huawei Cloud access is temporarily unsupported; RAG and Function Calling are planned.
+This page retains the original capability framework and conceptual diagrams. Times, strategies, performance figures, and pricing values in the diagrams and examples explain design considerations and are not current-version commitments. The current user manual also documents **Billing** and **Settings** as product modules for finance, License, identity, audit, and API rate-control operations. Use the [User Manual](../../usermanual/), [Support Matrix](../limitations/support-matrix), and target environment as the source of truth. Current status: Huawei Cloud access is temporarily unsupported; RAG and Function Calling are planned.
 :::
 
 ## 1. Compute Management — Unified Pooling of Heterogeneous Accelerators
@@ -247,11 +247,11 @@ An **Aggregated Model** is created by a model provider from eligible published m
 
 Before changing member models, verify the aggregate-model entry point, review status, and invocation continuity. Whether the Endpoint can remain unchanged and scaling can be transparent depends on the current version and change method.
 
-## 6. Metering and Billing — Fine-grained Operational Control
+## 6. Metering, Billing, and Financial Operations — Fine-grained Operational Control
 
 ### 6.1 Capability Overview
 
-AGIOne provides operational pages for call logs, usage, metering details, credits, and revenue so users can review data recorded in the current environment. Billing dimensions, precision, currency, credit rules, and settlement methods depend on commercial configuration, model-returned fields, and the deployed version.
+AGIOne provides operational pages for call logs, usage, metering details, credits, revenue, user billing, customer finance, finance operations, settlement, reconciliation, and License status so users can review data recorded in the current environment. Billing dimensions, precision, currency, credit rules, settlement methods, License quotas, and financial-account workflows depend on commercial configuration, model-returned fields, synchronization status, and the deployed version.
 
 ### 6.2 Multi-dimensional Metering Data Collection
 
@@ -322,6 +322,20 @@ Aggregates credit deductions by tenant / user / period:
 | Smart Manufacturing Division / Zhang San | (User-level) | 2026-04 | — | 432,156 | — |
 | Smart Manufacturing Division / Example Application | (Application-level) | 2026-04 | — | 1,892,344 | — |
 
+### 6.5 Finance and License Operations
+
+The Billing module extends metering into finance-oriented workflows. It separates user-side billing views, provider revenue views, customer finance, operation finance, reconciliation, settlement, and License management.
+
+| Area | Typical Scope | Manual Entry |
+| --- | --- | --- |
+| User billing | Balance, quota, transactions, top-up orders, and monthly bills visible to the current account | [Billing Overview](../../usermanual/billing/user/billing/overview/) |
+| Provider earnings | Customer list, revenue, and settlement records in the permitted provider scope | [Earnings](../../usermanual/billing/user/earnings/revenue/) |
+| Customer finance | Customer profiles, business units, top-up orders, and customer financial state | [Customer Billing](../../usermanual/billing/operator/customer-billing/customer-overview/) |
+| Finance operations | Today's tasks, monthly overview, settlement list, financial accounts, reconciliation, and adjustments | [Finance Operations](../../usermanual/billing/operator/finance-operations/monthly-overview/) |
+| License | License quota, validity, activation state, and module authorization | [License](../../usermanual/billing/operator/license/license/) |
+
+Financial conclusions should be made from the concrete Billing pages with the same billing cycle, organization, customer, account, and synchronization status. Do not infer settlement results from model-call metering alone.
+
 
 ## 7. Invocation Observability — End-to-End Monitoring and Analysis
 
@@ -365,7 +379,24 @@ When users report invocation issues, troubleshoot in the order **application cal
 <p align="center"><i>Figure 7   Coordinated Anomaly Diagnostic Workflow</i></p>
 
 
-## 8. Closed-loop Synergy Across Capabilities
+## 8. Settings and Access Control — Platform Governance Workspace
+
+### 8.1 Capability Overview
+
+Settings centralizes identity, organization, audit, login security, platform configuration, and API rate-control operations. It is used to maintain the control plane around the model and compute workflows rather than to publish or call models directly.
+
+| Area | Typical Scope | Manual Entry |
+| --- | --- | --- |
+| Personal settings | Keys, profile, projects, and personal dashboard | [My Keys](../../usermanual/settings/user/personal/my-keys/) |
+| Members and roles | Team members, roles, member quotas, and quota requests | [Team Members](../../usermanual/settings/operator/members-roles/team-members/) |
+| Organizations | Organization records and user-side organization settings | [Organizations](../../usermanual/settings/operator/organizations/organizations/) |
+| Activity and audit | Operation logs and change traceability | [Operation Logs](../../usermanual/settings/operator/activity-notifications/operation-logs/) |
+| System settings | Platform settings and login properties | [Platform Settings](../../usermanual/settings/operator/system-settings/platform-settings/) |
+| API rate control | Rule management, observability audit, node cache, and publish center | [API Rate Control Overview](../../usermanual/settings/operator/api-rate-control/overview/) |
+
+Settings changes can affect real users, access credentials, login behavior, audit visibility, and API traffic. Confirm role scope, organization scope, and rollback method before changing members, roles, login policies, Keys, or rate-control rules.
+
+## 9. Closed-loop Synergy Across Capabilities
 
 AGIOne's six core capabilities can be used together in the sequence of resource preparation, model configuration, deployment, publishing, invocation, and operations:
 

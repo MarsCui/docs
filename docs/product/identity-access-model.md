@@ -16,7 +16,7 @@ In AGIOne, access is determined through four connected concepts:
 | Tenant | The organization or customer space to which an account belongs | Data boundary and the resources available to the organization |
 | User | The account used by a person to sign in | Personal identity, operation records, and assigned roles |
 | Role | A set of responsibilities, such as operator or model provider | Menus, task ownership, and permitted operations |
-| Authorization scope | The resources opened to a tenant or account | Visible regions, resource pools, clusters, cloud accounts, models, templates, and data |
+| Authorization scope | The resources, records, and actions opened to a tenant or account | Visible regions, resource pools, clusters, cloud accounts, models, templates, billing records, License data, settings, audit logs, API rate-control rules, and data |
 
 An account needs both the correct role and the correct resource authorization. Having a menu does not mean that every resource is visible, and seeing a resource does not mean that every action is allowed.
 
@@ -37,9 +37,9 @@ When a documented menu or object is not visible, check the account role, tenant,
 | Role | Main Responsibility | Typical Scope |
 | --- | --- | --- |
 | `admin` | Manage platform identity and access foundations | Tenants, users, roles, menus, and platform-level permission configuration |
-| `operator` | Prepare and govern platform resources and published content | Resource onboarding, templates, authorization, quotas, monitoring, base settings, and reviews |
-| `provider` | Supply and operate model services | Publish single or aggregate models, maintain versions and pricing, submit reviews, and view customer calls and revenue |
-| `enduser` | Consume authorized platform capabilities | Discover and experience models, call APIs, deploy available services, and view personal calls or usage |
+| `operator` | Prepare and govern platform resources, published content, finance operations, and settings | Resource onboarding, templates, authorization, quotas, monitoring, base settings, reviews, customer finance, License, audit, and API rate control |
+| `provider` | Supply and operate model services | Publish single or aggregate models, maintain versions and pricing, submit reviews, view customer calls and revenue, and manage authorized team settings |
+| `enduser` | Consume authorized platform capabilities | Discover and experience models, call APIs, deploy available services, and view personal calls, usage, billing, or settings |
 
 The exact menus available to a role can vary with the deployed version and platform configuration. Use the current environment as the final source for visible entries.
 
@@ -59,6 +59,8 @@ The exact menus available to a role can vary with the deployed version and platf
 | A region, cluster, or resource pool is missing | Confirm that the role can use the relevant subsystem | Confirm tenant, business-region, or resource-pool authorization |
 | A model is missing from Model Marketplace | Confirm that the account is an end user or another permitted consumer | Confirm model review status, visibility, and access scope |
 | A provider cannot publish | Confirm the `provider` role | Confirm required model sources, templates, tags, and tenant permissions |
+| A billing or License record is missing | Confirm that the account has the billing, finance, provider, or user-side role needed for the task | Confirm billing cycle, organization, customer, account, License scope, and synchronization status |
+| A settings or API rate-control entry is missing | Confirm that the account can manage settings or audit tasks | Confirm organization scope, role-menu configuration, and rule visibility |
 | An operation button is missing | Confirm task ownership for the current role | Confirm button-level permission and resource state |
 
 ## Recommended Responsibility Split
@@ -66,9 +68,9 @@ The exact menus available to a role can vary with the deployed version and platf
 | Participant | Recommended Role | Responsibility Boundary |
 | --- | --- | --- |
 | Deployment owner | `admin` | Maintains tenants, users, roles, and platform access foundations |
-| Platform operations or infrastructure team | `operator` | Prepares resources, maintains governance configuration, reviews content, and monitors platform operations |
-| Model or technical team | `provider` | Publishes and maintains models, submits reviews, and operates provider-side calls and revenue |
-| Business user or application developer | `enduser` | Experiences and calls authorized models and views personal usage |
+| Platform operations, finance, security, or infrastructure team | `operator` | Prepares resources, maintains governance configuration, reviews content, manages customer finance or License, maintains settings, and monitors platform operations |
+| Model or technical team | `provider` | Publishes and maintains models, submits reviews, operates provider-side calls and revenue, and maintains authorized team settings |
+| Business user or application developer | `enduser` | Experiences and calls authorized models and views personal usage, billing, or settings |
 
 Avoid assigning `admin` or broad `operator` permissions only to make a missing menu visible. Adjust the role or resource authorization to the minimum scope required by the task.
 
@@ -77,7 +79,7 @@ Avoid assigning `admin` or broad `operator` permissions only to make a missing m
 1. Confirm the current subsystem and target task.
 2. Confirm the signed-in user, tenant, and role.
 3. Compare the task with the [Role Comparison](./role-comparison).
-4. Confirm that the target region, resource pool, cluster, cloud account, model, or template has been authorized.
+4. Confirm that the target region, resource pool, cluster, cloud account, model, template, billing record, License, setting, audit log, or rate-control rule has been authorized.
 5. Confirm that the prerequisite resource has been prepared by the operator.
 6. If the entry is still missing, record the page path, expected entry, account role, tenant, and time of observation for the platform administrator.
 

@@ -30,7 +30,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
     },
     {
       text: "Identity and Access Model",
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: "User, Tenant, and Role Design Logic", link: "/product/identity-access-model" },
         { text: "Role Comparison", link: "/product/role-comparison" },
@@ -38,7 +38,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
     },
     {
       text: "Compatibility & Limitations",
-      collapsed: true,
+      collapsed: false,
       items: [
         {
           text: "Supported Accelerators",
@@ -56,7 +56,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
     },
     {
       text: "Pre-sales Assessment",
-      collapsed: true,
+      collapsed: false,
       items: [
         {
           text: "Quick Requirement Survey",

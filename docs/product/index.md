@@ -3,31 +3,33 @@
 :::: info Document Information
 Version: v1.1
 Updated: 2026-07-13
-Functional baseline: User Manual updated on 2026-07-08
+Functional baseline: User Manual updated on 2026-07-10
 ::::
 
 ## Understand AGIOne in 30 Seconds
 
 AGIOne connects the work required to deliver model services into one path:
 
-**Compute resources -> Model deployment and publishing -> Model experience and API calling -> Usage, monitoring, and revenue operations**
+**Compute resources -> Model deployment and publishing -> Model experience and API calling -> Usage, finance, settings, and governance operations**
 
 | Stage | What AGIOne Manages | Main Subsystem |
 | --- | --- | --- |
 | Compute | Local clusters, cloud accounts, resource pools, storage, specifications, quotas, and monitoring | AI Infra On-Prem / AI Infra On-Cloud |
 | Model | Deployment assets, model sources, templates, model publishing, and review | AI Infra On-Prem / AI Infra On-Cloud / Model Services |
 | Service | Model Marketplace, Playground, API access, call records, and deployment status | Model Services |
-| Operations | Authorization, metering, usage, monitoring, customer calls, and model revenue | All three subsystems |
+| Operations | Authorization, metering, usage, monitoring, customer calls, model revenue, finance, License, settings, audit, and API rate control | All product modules |
 
-## Three Subsystems
+## Five Product Modules
 
-| Subsystem | Use It When You Need To | Main Objects |
+| Product Module | Use It When You Need To | Main Objects |
 | --- | --- | --- |
 | **AI Infra On-Prem** | Manage private or local compute and deploy services on local clusters | Regions, availability zones, clusters, nodes, accelerators, storage, templates, quotas, monitoring |
 | **AI Infra On-Cloud** | Connect cloud accounts, authorize cloud resources, and deploy cloud model services | Cloud platforms, cloud accounts, resource pools, authorization, deployment assets, scheduling policies |
 | **Model Services** | Publish, review, discover, experience, call, and operate models | Model Marketplace, My Models, Playground, call logs, usage, customer calls, revenue |
+| **Billing** | Manage user billing, customer finance, settlement, reconciliation, revenue, and License status | Transactions, monthly bills, top-up orders, settlement statements, financial accounts, reconciliation, License |
+| **Settings** | Manage identity, organization, audit, login policy, platform configuration, and API rate control | Keys, profiles, members, roles, organizations, operation logs, login properties, API rate-control rules |
 
-The subsystems can be used independently for a focused task or together as an end-to-end model service delivery workflow.
+These modules can be used independently for a focused task or together as an end-to-end model service delivery and operations workflow.
 
 ## Roles and Responsibilities
 

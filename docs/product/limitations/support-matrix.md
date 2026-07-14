@@ -3,7 +3,7 @@
 :::: info Document Information
 Version: v1.1
 Updated: 2026-07-13
-Functional baseline: User Manual updated on 2026-07-08
+Functional baseline: User Manual updated on 2026-07-10
 ::::
 
 ## Status Definitions
@@ -35,6 +35,12 @@ This matrix is the product-level status entry. Release notes, the delivered pack
 | Model Services | Model discovery and Playground | Supported | A visible, reviewed, and usable model is required; modality depends on the model | [Model Services User Manual](../../usermanual/model-services/) |
 | Model Services | Model-specific API access and call records | Supported | Valid access, endpoint, credentials, quota, and model availability are required | [Publish and Call a Model](../../usermanual/model-services/end-to-end/publish-and-call-model/) |
 | Model Services | Usage, customer calls, and model revenue | Supported | Scope and freshness depend on role, metering, and synchronization | [Model Services User Manual](../../usermanual/model-services/) |
+| Billing | User billing, transactions, top-up orders, monthly bills, and quota governance | Supported | Scope depends on account, organization, billing cycle, and synchronization status | [Billing User Manual](../../usermanual/billing/) |
+| Billing | Customer finance, finance operations, settlement, reconciliation, and account adjustment | Supported | Operator permission, billing-cycle consistency, and source-record synchronization are required | [Billing Getting Started](../../usermanual/billing/getting-started/) |
+| Billing | License quota, validity, activation status, and module authorization | Supported | License status depends on the delivered package, activation state, and configured quota | [License](../../usermanual/billing/operator/license/license/) |
+| Settings | Personal Keys, profile, projects, members, roles, and organizations | Supported | Visibility depends on role, organization scope, and menu authorization | [Settings User Manual](../../usermanual/settings/) |
+| Settings | Platform settings, login properties, operation logs, and audit records | Supported | Platform or security administration permission is required for high-risk changes | [Settings Getting Started](../../usermanual/settings/getting-started/) |
+| Settings | API rate-control rules, observability audit, node cache, and publish center | Supported | Rule effects depend on published state, node synchronization, and current traffic scope | [API Rate Control Overview](../../usermanual/settings/operator/api-rate-control/overview/) |
 
 ## Cloud and Accelerator Status
 
@@ -52,7 +58,7 @@ This matrix is the product-level status entry. Release notes, the delivered pack
 | Text model discovery, experience, publishing, and calling | Supported | Actual results depend on the selected model, endpoint, quota, and inference resources. |
 | Image, audio, and video Playground entries | Supported | A compatible and visible model must be configured for the corresponding modality. |
 | Single-model, BYOK, and aggregate-model publication | Supported | Provider publishing and operator review responsibilities must be separated. |
-| Call logs, analytics, usage, metering, and revenue views | Supported | Data scope and synchronization depend on role and subsystem. |
+| Call logs, analytics, usage, metering, billing, settlement, and revenue views | Supported | Data scope and synchronization depend on role, module, billing cycle, and source records. |
 | RAG | Planned | Not currently available as a production delivery capability. |
 | Function Calling | Planned | Not currently available as a production delivery capability. |
 
