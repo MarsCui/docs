@@ -66,7 +66,7 @@ Basic information determines the display name and capability category during mod
 
 Modality configuration affects model marketplace filters and Playground entries.
 
-![Token limits](./images/step-1-Token-limit.png)
+![Token limits](./images/step-1-token-limit.png)
 
 Token limits should match the real model capability.
 
