@@ -859,7 +859,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
   ],
   "/others/release-notes/": [
     {
-      text: "Update Notes",
+      text: "Release Notes",
       link: "/others/release-notes/",
       collapsed: false,
     }

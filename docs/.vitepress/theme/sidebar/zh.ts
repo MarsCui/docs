@@ -808,7 +808,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
   ],
   '/zh-CN/others/release-notes/': [
     {
-      text: '更新说明',
+      text: '版本发布说明',
       link: '/zh-CN/others/release-notes/',
       collapsed: false,
     },
