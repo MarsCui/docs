@@ -1,13 +1,13 @@
 # Model Templates
 
-:::: info Document Information
+::: info Document Information
 Version: v1.0
 Updated: 2026-07-08
-::::
+:::
 
 ## Feature Overview
 
-`Model Templates` is used to maintain or view vendor templates, source previews, protocols, default parameters, and publishing forms. It supports model publishing, experimentation, calling, statistics, and operational governance.
+Model Templates helps operators maintain reusable publishing templates that connect vendors, model sources, protocols, default parameters, request headers, and publishing forms.
 
 | Item | Content |
 | --- | --- |

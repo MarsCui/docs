@@ -1,13 +1,13 @@
 # Tag Management
 
-:::: info Document Information
+::: info Document Information
 Version: v1.0
 Updated: 2026-07-08
-::::
+:::
 
 ## Feature Overview
 
-`Tag Management` is used to maintain or view model tags, tag groups, display order, and enabled status. It supports model publishing, experimentation, calling, statistics, and operational governance.
+Tag Management helps operators maintain model tags, tag groups, display order, and enabled status so users can filter and discover models consistently.
 
 | Item | Content |
 | --- | --- |

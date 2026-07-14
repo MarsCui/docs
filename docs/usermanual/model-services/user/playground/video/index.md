@@ -1,13 +1,13 @@
 # Video Playground
 
-:::: info Document Information
+::: info Document Information
 Version: v1.0
 Updated: 2026-07-08
-::::
+:::
 
 ## Feature Overview
 
-`Video Playground` is used to maintain or view video models, input materials, frame sampling parameters, generation parameters, and results. It supports model publishing, experimentation, calling, statistics, and operational governance.
+Video Playground is used to try video-capable models with redacted inputs, frame sampling settings, generation parameters, and result inspection. It is for effect validation, not model administration.
 
 | Item | Content |
 | --- | --- |
@@ -37,7 +37,7 @@ The video Playground is like a screening room for video models. It validates vid
 4. Format, duration, and frame sampling parameters have been confirmed to be within model support.
 ## Page Description
 
-This page is used to try video models. It supports uploading redacted videos or entering video input addresses, setting frame sampling, duration, output format, and prompt, and viewing return results, elapsed time, error codes, and usage.
+This page is used to try video models. It supports uploading redacted videos or entering video input addresses, setting frame sampling, duration, output format, and Prompt, and viewing return results, elapsed time, error codes, and usage.
 
 Page screenshot:
 
@@ -52,7 +52,7 @@ Select a video understanding, summarization, Q&A, or generation model.
 1. Go to `Playground > Video`.
 2. Select video model and provider.
 3. Upload a redacted video or fill in a placeholder video address.
-4. Set duration, frame sampling, output format, and prompt.
+4. Set duration, frame sampling, output format, and Prompt.
 5. Send the request and view result, request ID, and usage.
 
 Key screenshot:
@@ -81,7 +81,7 @@ Confirm video duration, frame sampling interval, and output format.
 
 1. The page returns video summary, Q&A, or generation result.
 2. After frame sampling, duration, and output format parameters change, results match expectations.
-3. On failure, request ID, error code, or parameter limit prompt is visible.
+3. On failure, request ID, error code, or parameter limit Prompt is visible.
 ## FAQ
 
 ### Video Processing Times Out
@@ -136,7 +136,7 @@ The page reports unsupported video format, duration exceeded, or invalid frame s
 
 1. Convert to a supported format.
 2. Cut a short video sample.
-3. Adjust frame sampling and output format according to page prompts.
+3. Adjust frame sampling and output format according to page Prompts.
 
 ### Video URL Is Inaccessible or Fails to Parse
 

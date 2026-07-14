@@ -1,13 +1,13 @@
 # Model Marketplace
 
-:::: info Document Information
+::: info Document Information
 Version: v1.0
 Updated: 2026-07-08
-::::
+:::
 
 ## Feature Overview
 
-`Model Marketplace` is used to maintain or view model lists, providers, quick start, performance metrics, and model overview. It supports model publishing, experimentation, calling, statistics, and operational governance.
+Model Marketplace helps users discover available models, compare providers, review quick-start information, and check performance details before trying or calling a model.
 
 | Item | Content |
 | --- | --- |
@@ -140,7 +140,7 @@ The model is visible in the marketplace, but details or quick start indicates th
 
 **Handling:**
 
-1. View source status, protocol, and available region prompts on the details page.
+1. View source status, protocol, and available region Prompts on the details page.
 2. Use a similar available model for temporary validation.
 3. Contact the provider to verify Endpoint, authentication method, and service health.
 

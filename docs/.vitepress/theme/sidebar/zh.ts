@@ -267,6 +267,37 @@ export const zhSidebar: DefaultTheme.Sidebar = {
             { text: '平台入门', link: '/zh-CN/usermanual/model-services/getting-started/' },
             { text: '从发布到调用模型', link: '/zh-CN/usermanual/model-services/end-to-end/publish-and-call-model/' },
             {
+              text: '运营管理员',
+              collapsed: false,
+              items: [
+                {
+                  text: '设置',
+                  collapsed: false,
+                  items: [
+                    { text: '元模型', link: '/zh-CN/usermanual/model-services/operator/settings/meta-models/' },
+                    { text: '模型来源', link: '/zh-CN/usermanual/model-services/operator/settings/model-source/' },
+                    { text: '模板', link: '/zh-CN/usermanual/model-services/operator/settings/model-templates/' },
+                    { text: '标签', link: '/zh-CN/usermanual/model-services/operator/settings/tags/' },
+                  ]
+                },
+                {
+                  text: '发布',
+                  collapsed: false,
+                  items: [
+                    { text: '应用列表', link: '/zh-CN/usermanual/model-services/operator/publishing/apps/' },
+                  ]
+                },
+                {
+                  text: '审批',
+                  collapsed: false,
+                  items: [
+                    { text: '模型审核', link: '/zh-CN/usermanual/model-services/operator/approvals/model-reviews/' },
+                    { text: '应用审核', link: '/zh-CN/usermanual/model-services/operator/approvals/app-reviews/' },
+                  ]
+                },
+              ]
+            },
+            {
               text: '模型提供方&用户',
               collapsed: false,
               items: [
@@ -283,7 +314,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                   items: [
                     { text: '文本对话', link: '/zh-CN/usermanual/model-services/user/playground/text/' },
                     { text: '图像生成', link: '/zh-CN/usermanual/model-services/user/playground/images/' },
-                    { text: '视频', link: '/zh-CN/usermanual/model-services/user/playground/video/' },
+                    { text: '视频生成', link: '/zh-CN/usermanual/model-services/user/playground/video/' },
                     { text: '语音生成', link: '/zh-CN/usermanual/model-services/user/playground/audio/' },
                   ]
                 },
@@ -322,38 +353,6 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                 },
               ]
             },
-            {
-              text: '运营管理员',
-              collapsed: false,
-              items: [
-                {
-                  text: '设置',
-                  collapsed: false,
-                  items: [
-                    { text: '元模型', link: '/zh-CN/usermanual/model-services/operator/settings/meta-models/' },
-                    { text: '模型来源', link: '/zh-CN/usermanual/model-services/operator/settings/model-source/' },
-                    { text: '模板', link: '/zh-CN/usermanual/model-services/operator/settings/model-templates/' },
-                    { text: '标签', link: '/zh-CN/usermanual/model-services/operator/settings/tags/' },
-                    { text: '币种设置', link: '/zh-CN/usermanual/model-services/operator/settings/currency-settings/' },
-                  ]
-                },
-                {
-                  text: '发布',
-                  collapsed: false,
-                  items: [
-                    { text: '应用列表', link: '/zh-CN/usermanual/model-services/operator/publishing/apps/' },
-                  ]
-                },
-                {
-                  text: '审批',
-                  collapsed: false,
-                  items: [
-                    { text: '模型审核', link: '/zh-CN/usermanual/model-services/operator/approvals/model-reviews/' },
-                    { text: '应用审核', link: '/zh-CN/usermanual/model-services/operator/approvals/app-reviews/' },
-                  ]
-                },
-              ]
-            },
           ]
         },
         {
@@ -363,27 +362,6 @@ export const zhSidebar: DefaultTheme.Sidebar = {
             { text: '概览', link: '/zh-CN/usermanual/ai-infra-on-cloud/' },
             { text: '平台入门', link: '/zh-CN/usermanual/ai-infra-on-cloud/getting-started/' },
             { text: '从零开始部署云上模型服务', link: '/zh-CN/usermanual/ai-infra-on-cloud/end-to-end/deploy-cloud-model-service/' },
-            {
-              text: '用户',
-              collapsed: false,
-              items: [
-                {
-                  text: '模型服务',
-                  collapsed: false,
-                  items: [
-                    { text: '快速部署', link: '/zh-CN/usermanual/ai-infra-on-cloud/user/model-services/quick-deployment/' },
-                    { text: '我的部署', link: '/zh-CN/usermanual/ai-infra-on-cloud/user/model-services/my-deployments/' },
-                  ]
-                },
-                {
-                  text: '访问管理',
-                  collapsed: false,
-                  items: [
-                    { text: '接入管理', link: '/zh-CN/usermanual/ai-infra-on-cloud/user/access-management/access-accounts/' },
-                  ]
-                },
-              ]
-            },
             {
               text: '运营管理员',
               collapsed: false,
@@ -427,6 +405,27 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                   collapsed: false,
                   items: [
                     { text: '策略管理', link: '/zh-CN/usermanual/ai-infra-on-cloud/operator/scheduling-governance/policies/' },
+                  ]
+                },
+              ]
+            },
+            {
+              text: '用户',
+              collapsed: false,
+              items: [
+                {
+                  text: '模型服务',
+                  collapsed: false,
+                  items: [
+                    { text: '快速部署', link: '/zh-CN/usermanual/ai-infra-on-cloud/user/model-services/quick-deployment/' },
+                    { text: '我的部署', link: '/zh-CN/usermanual/ai-infra-on-cloud/user/model-services/my-deployments/' },
+                  ]
+                },
+                {
+                  text: '访问管理',
+                  collapsed: false,
+                  items: [
+                    { text: '接入管理', link: '/zh-CN/usermanual/ai-infra-on-cloud/user/access-management/access-accounts/' },
                   ]
                 },
               ]
@@ -548,6 +547,179 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                     { text: '节点统计', link: '/zh-CN/usermanual/ai-infra-on-prem/user/monitoring/nodes/' },
                     { text: '设备监控', link: '/zh-CN/usermanual/ai-infra-on-prem/user/monitoring/devices/' },
                     { text: '作业监控', link: '/zh-CN/usermanual/ai-infra-on-prem/user/monitoring/jobs/' },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          text: '账务',
+          collapsed: false,
+          items: [
+            { text: '概览', link: '/zh-CN/usermanual/billing/' },
+            { text: '快速入门', link: '/zh-CN/usermanual/billing/getting-started/' },
+            { text: '完成一次账期对账与结算', link: '/zh-CN/usermanual/billing/end-to-end/reconcile-billing-cycle/' },
+            {
+              text: '运营管理员',
+              collapsed: false,
+              items: [
+                {
+                  text: '运营账务',
+                  collapsed: false,
+                  items: [
+                    { text: '今日任务', link: '/zh-CN/usermanual/billing/operator/finance-operations/today-tasks/' },
+                    { text: '月结总览', link: '/zh-CN/usermanual/billing/operator/finance-operations/monthly-overview/' },
+                    { text: '结算单列表', link: '/zh-CN/usermanual/billing/operator/finance-operations/settlement-list/' },
+                    { text: '财务账户', link: '/zh-CN/usermanual/billing/operator/finance-operations/financial-accounts/' },
+                    { text: '巡检中心', link: '/zh-CN/usermanual/billing/operator/finance-operations/reconciliation-center/' },
+                    { text: '调账处理', link: '/zh-CN/usermanual/billing/operator/finance-operations/account-adjustment/' },
+                  ],
+                },
+                {
+                  text: '客户账务',
+                  collapsed: false,
+                  items: [
+                    { text: '客户概览', link: '/zh-CN/usermanual/billing/operator/customer-billing/customer-overview/' },
+                    { text: '客户充值单', link: '/zh-CN/usermanual/billing/operator/customer-billing/top-up-orders/' },
+                    { text: '业务线', link: '/zh-CN/usermanual/billing/operator/customer-billing/business-units/' },
+                  ],
+                },
+                {
+                  text: 'License',
+                  collapsed: false,
+                  items: [
+                    { text: 'License', link: '/zh-CN/usermanual/billing/operator/license/license/' },
+                  ],
+                },
+              ],
+            },
+            {
+              text: '用户',
+              collapsed: false,
+              items: [
+                {
+                  text: 'Provider 收益',
+                  collapsed: false,
+                  items: [
+                    { text: '收益总览', link: '/zh-CN/usermanual/billing/user/earnings/revenue/' },
+                    { text: '月度结算单', link: '/zh-CN/usermanual/billing/user/earnings/settlements/' },
+                    { text: '客户总览', link: '/zh-CN/usermanual/billing/user/earnings/customers/' },
+                  ],
+                },
+                {
+                  text: '我的账务',
+                  collapsed: false,
+                  items: [
+                    { text: '账户概览', link: '/zh-CN/usermanual/billing/user/billing/overview/' },
+                    { text: '额度治理', link: '/zh-CN/usermanual/billing/user/billing/quota-governance/' },
+                    { text: '流水明细', link: '/zh-CN/usermanual/billing/user/billing/transactions/' },
+                    { text: '充值订单', link: '/zh-CN/usermanual/billing/user/billing/top-up-orders/' },
+                    { text: '月度账单', link: '/zh-CN/usermanual/billing/user/billing/monthly-bill/' },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          text: '设置',
+          collapsed: false,
+          items: [
+            { text: '概览', link: '/zh-CN/usermanual/settings/' },
+            { text: '快速入门', link: '/zh-CN/usermanual/settings/getting-started/' },
+            { text: '配置账号与权限闭环', link: '/zh-CN/usermanual/settings/end-to-end/configure-account-and-permissions/' },
+            {
+              text: '运营管理员',
+              collapsed: false,
+              items: [
+                {
+                  text: '个人',
+                  collapsed: false,
+                  items: [
+                    { text: '我的 Keys', link: '/zh-CN/usermanual/settings/operator/personal/my-keys/' },
+                    { text: '账号信息', link: '/zh-CN/usermanual/settings/operator/personal/profile/' },
+                  ],
+                },
+                {
+                  text: '成员与角色',
+                  collapsed: false,
+                  items: [
+                    { text: '团队成员', link: '/zh-CN/usermanual/settings/operator/members-roles/team-members/' },
+                    { text: '角色', link: '/zh-CN/usermanual/settings/operator/members-roles/roles/' },
+                  ],
+                },
+                {
+                  text: '组织&设置',
+                  collapsed: false,
+                  items: [
+                    { text: '组织', link: '/zh-CN/usermanual/settings/operator/organizations/organizations/' },
+                  ],
+                },
+                {
+                  text: '消息与日志',
+                  collapsed: false,
+                  items: [
+                    { text: '操作日志', link: '/zh-CN/usermanual/settings/operator/activity-notifications/operation-logs/' },
+                  ],
+                },
+                {
+                  text: '系统配置',
+                  collapsed: false,
+                  items: [
+                    { text: '平台设置', link: '/zh-CN/usermanual/settings/operator/system-settings/platform-settings/' },
+                    { text: '登录配置', link: '/zh-CN/usermanual/settings/operator/system-settings/login-properties/' },
+                  ],
+                },
+                {
+                  text: 'API 流控',
+                  collapsed: false,
+                  items: [
+                    { text: 'Overview', link: '/zh-CN/usermanual/settings/operator/api-rate-control/overview/' },
+                    { text: '规则管理', link: '/zh-CN/usermanual/settings/operator/api-rate-control/rule-management/' },
+                    { text: '观测审计', link: '/zh-CN/usermanual/settings/operator/api-rate-control/observability-audit/' },
+                    { text: '节点缓存', link: '/zh-CN/usermanual/settings/operator/api-rate-control/node-cache/' },
+                    { text: '发布中心', link: '/zh-CN/usermanual/settings/operator/api-rate-control/publish-center/' },
+                  ],
+                },
+              ],
+            },
+            {
+              text: '用户',
+              collapsed: false,
+              items: [
+                {
+                  text: '个人',
+                  collapsed: false,
+                  items: [
+                    { text: '概览', link: '/zh-CN/usermanual/settings/user/personal/dashboard/' },
+                    { text: '项目', link: '/zh-CN/usermanual/settings/user/personal/projects/' },
+                    { text: '我的 Keys', link: '/zh-CN/usermanual/settings/user/personal/my-keys/' },
+                    { text: '账号信息', link: '/zh-CN/usermanual/settings/user/personal/profile/' },
+                  ],
+                },
+                {
+                  text: '成员与角色',
+                  collapsed: false,
+                  items: [
+                    { text: '团队成员', link: '/zh-CN/usermanual/settings/user/members-roles/team-members/' },
+                    { text: '角色', link: '/zh-CN/usermanual/settings/user/members-roles/roles/' },
+                    { text: '成员额度', link: '/zh-CN/usermanual/settings/user/members-roles/member-quotas/' },
+                    { text: '额度申请', link: '/zh-CN/usermanual/settings/user/members-roles/quota-requests/' },
+                  ],
+                },
+                {
+                  text: '组织&设置',
+                  collapsed: false,
+                  items: [
+                    { text: '组织设置', link: '/zh-CN/usermanual/settings/user/organizations/org-settings/' },
+                  ],
+                },
+                {
+                  text: '消息与日志',
+                  collapsed: false,
+                  items: [
+                    { text: '操作日志', link: '/zh-CN/usermanual/settings/user/activity-notifications/operation-logs/' },
                   ],
                 },
               ],

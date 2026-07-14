@@ -1,13 +1,13 @@
 # Model Revenue
 
-:::: info Document Information
+::: info Document Information
 Version: v1.0
 Updated: 2026-07-08
-::::
+:::
 
 ## Feature Overview
 
-`Model Revenue` is used to maintain or view model income, revenue details, settlement periods, currencies, and customer contribution. It supports model publishing, experimentation, calling, statistics, and operational governance.
+Model Revenue helps model providers review income, revenue details, settlement periods, currencies, and customer contribution so usage and revenue can be reconciled together.
 
 | Item | Content |
 | --- | --- |

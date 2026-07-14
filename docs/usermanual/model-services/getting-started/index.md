@@ -1,9 +1,9 @@
 # Getting Started
 
-:::: info Document Information
+::: info Document Information
 Version: v1.0
 Updated: 2026-07-08
-::::
+:::
 
 ## 30-Second Quick Reference
 
@@ -86,7 +86,7 @@ The recommended configuration order is: operator admins maintain meta-models, mo
 | Model source | Model provider or upstream service source, including region, request URL, authentication, and source ID. |
 | Template | Reusable publishing configuration combination maintained by operators. |
 | BYOK | Bring Your Own Key. Use your own API Key or Endpoint to connect an upstream model service. |
-| Endpoint | The call endpoint address of the model service, usually configured together with protocol and request headers. |
+| Endpoint | The call Endpoint address of the model service, usually configured together with protocol and request headers. |
 | Aggregation model | Combines multiple published models into one entry and routes by cost, success rate, round robin, or other policies. |
 | Model marketplace | Entry point for users to discover, filter, and view available models. |
 | Playground | Entry point for users to select models and directly try text, image, video, or audio capabilities. |

@@ -1,25 +1,25 @@
 # Image Playground
 
-:::: info Document Information
+::: info Document Information
 Version: v1.0
 Updated: 2026-07-08
-::::
+:::
 
 ## Feature Overview
 
-`Image Playground` is used to maintain or view image models, prompts, size, style, and generation results. It supports model publishing, experimentation, calling, statistics, and operational governance.
+Image Playground is used to try image or multimodal models with redacted images, Prompts, size, style, safety settings, and generation results.
 
 | Item | Content |
 | --- | --- |
 | Applicable role | Regular user |
 | Navigation path | Playground > Image |
 | Page route | /user/playground/images |
-| Managed objects | Image models, prompts, size, style, and generation results |
+| Managed objects | Image models, Prompts, size, style, and generation results |
 | Typical use | Test image understanding or image generation models |
 
 ### Beginner Explanation
 
-The image Playground is like a test booth for models. It validates image understanding, image generation, or multimodal Q&A. Focus on whether input image quality, prompt, and output format match.
+The image Playground is like a test booth for models. It validates image understanding, image generation, or multimodal Q&A. Focus on whether input image quality, Prompt, and output format match.
 
 ### Terms Quick Reference
 
@@ -36,7 +36,7 @@ The image Playground is like a test booth for models. It validates image underst
 3. Uploaded images are redacted and authorized for use.
 ## Page Description
 
-This page is used to try image or multimodal models. It supports uploading redacted images, entering prompts, setting size, quantity, quality, or safety filter parameters, and viewing generation results, error codes, and usage.
+This page is used to try image or multimodal models. It supports uploading redacted images, entering Prompts, setting size, quantity, quality, or safety filter parameters, and viewing generation results, error codes, and usage.
 
 Page screenshot:
 
@@ -50,7 +50,7 @@ Select a model that supports image generation or image understanding.
 
 1. Go to `Playground > Image`.
 2. Select an image or multimodal model.
-3. Upload a redacted image or enter a generation prompt.
+3. Upload a redacted image or enter a generation Prompt.
 4. Set size, quantity, quality, and safety filter parameters.
 5. Send the request and view image results, request ID, and usage.
 
@@ -80,24 +80,24 @@ Set size, quantity, quality, and safety filter parameters according to model cap
 
 1. Image generation or understanding results are displayed on the page.
 2. After size, quantity, or quality parameters change, results match expectations.
-3. On failure, the page displays request ID, error code, or safety policy prompt.
+3. On failure, the page displays request ID, error code, or safety policy Prompt.
 ## FAQ
 
 ### Image Generation Fails
 
 **Symptom:**
 
-After submitting the prompt, no image is generated or the page returns failure.
+After submitting the Prompt, no image is generated or the page returns failure.
 
 **Possible Causes:**
 
-- The prompt triggered a safety policy.
+- The Prompt triggered a safety policy.
 - Size, quantity, or quality parameters exceed model limits.
 - The model is currently rate-limited or unavailable.
 
 **Handling:**
 
-1. Adjust the prompt and avoid sensitive or infringing descriptions.
+1. Adjust the Prompt and avoid sensitive or infringing descriptions.
 2. Lower image size, quantity, or quality requirements.
 3. View the error code in call logs.
 
@@ -110,7 +110,7 @@ The model description does not match the image content or misses key objects.
 **Possible Causes:**
 
 - The image is blurry, occluded, or low resolution.
-- The prompt question is too broad.
+- The Prompt question is too broad.
 - The model does not support this image task.
 
 **Handling:**
@@ -138,7 +138,7 @@ After upload, the page reports format, file size, dimension, or safety check fai
 3. Replace it with authorized and redacted image material.
 ## Next Steps
 
-1. Save reusable prompts and parameters.
+1. Save reusable Prompts and parameters.
 2. View call logs to locate failed requests.
 3. Evaluate whether the result is suitable for app or integration workflows.
 ## Notes

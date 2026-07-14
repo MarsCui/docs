@@ -1,13 +1,13 @@
 # My Call Logs
 
-:::: info Document Information
+::: info Document Information
 Version: v1.0
 Updated: 2026-07-08
-::::
+:::
 
 ## Feature Overview
 
-`My Call Logs` is used to maintain or view single-request logs, request IDs, error codes, latency, Tokens, and upstream return summaries. It supports model publishing, experimentation, calling, statistics, and operational governance.
+My Call Logs records single-request logs, request IDs, error codes, latency, Tokens, and redacted upstream summaries for calls initiated by the current account.
 
 | Item | Content |
 | --- | --- |

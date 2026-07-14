@@ -1,13 +1,13 @@
 # Customer Call Analytics
 
-:::: info Document Information
+::: info Document Information
 Version: v1.0
 Updated: 2026-07-08
-::::
+:::
 
 ## Feature Overview
 
-`Customer Call Analytics` is used to maintain or view customer trends, model distribution, call volume, Tokens, fees, and success rate. It supports model publishing, experimentation, calling, statistics, and operational governance.
+Customer Call Analytics helps model providers analyze customer trends, model distribution, call volume, Tokens, fees, and success rate across customer groups.
 
 | Item | Content |
 | --- | --- |

@@ -1,9 +1,9 @@
 # Access Cloud Platforms
 
-:::: info Document Information
+::: info Document Information
 Version: v1.0
 Updated: 2026-07-08
-::::
+:::
 
 ## Feature Overview
 

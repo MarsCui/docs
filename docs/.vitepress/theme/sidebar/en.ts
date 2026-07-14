@@ -314,6 +314,37 @@ export const enSidebar: DefaultTheme.Sidebar = {
             { text: "Getting Started", link: "/usermanual/model-services/getting-started/" },
             { text: "Publish and Call a Model", link: "/usermanual/model-services/end-to-end/publish-and-call-model/" },
             {
+              text: "Operator",
+              collapsed: false,
+              items: [
+                {
+                  text: "Settings",
+                  collapsed: false,
+                  items: [
+                    { text: "Meta-models", link: "/usermanual/model-services/operator/settings/meta-models/" },
+                    { text: "Model Sources", link: "/usermanual/model-services/operator/settings/model-source/" },
+                    { text: "Templates", link: "/usermanual/model-services/operator/settings/model-templates/" },
+                    { text: "Tags", link: "/usermanual/model-services/operator/settings/tags/" },
+                  ]
+                },
+                {
+                  text: "Publishing",
+                  collapsed: false,
+                  items: [
+                    { text: "App List", link: "/usermanual/model-services/operator/publishing/apps/" },
+                  ]
+                },
+                {
+                  text: "Approvals",
+                  collapsed: false,
+                  items: [
+                    { text: "Model Reviews", link: "/usermanual/model-services/operator/approvals/model-reviews/" },
+                    { text: "App Reviews", link: "/usermanual/model-services/operator/approvals/app-reviews/" },
+                  ]
+                },
+              ]
+            },
+            {
               text: "Provider & User",
               collapsed: false,
               items: [
@@ -321,7 +352,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   text: "Discover",
                   collapsed: false,
                   items: [
-                    { text: "Model Marketplace", link: "/usermanual/model-services/user/discover/models/" },
+                    { text: "Models", link: "/usermanual/model-services/user/discover/models/" },
                   ]
                 },
                 {
@@ -369,68 +400,15 @@ export const enSidebar: DefaultTheme.Sidebar = {
                 },
               ]
             },
-            {
-              text: "Operator",
-              collapsed: false,
-              items: [
-                {
-                  text: "Settings",
-                  collapsed: false,
-                  items: [
-                    { text: "Meta-models", link: "/usermanual/model-services/operator/settings/meta-models/" },
-                    { text: "Model Source", link: "/usermanual/model-services/operator/settings/model-source/" },
-                    { text: "Model Templates", link: "/usermanual/model-services/operator/settings/model-templates/" },
-                    { text: "Tags", link: "/usermanual/model-services/operator/settings/tags/" },
-                    { text: "Currency Settings", link: "/usermanual/model-services/operator/settings/currency-settings/" },
-                  ]
-                },
-                {
-                  text: "Publishing",
-                  collapsed: false,
-                  items: [
-                    { text: "Apps", link: "/usermanual/model-services/operator/publishing/apps/" },
-                  ]
-                },
-                {
-                  text: "Approvals",
-                  collapsed: false,
-                  items: [
-                    { text: "Model Reviews", link: "/usermanual/model-services/operator/approvals/model-reviews/" },
-                    { text: "App Reviews", link: "/usermanual/model-services/operator/approvals/app-reviews/" },
-                  ]
-                },
-              ]
-            },
           ]
         },
         {
-          text: "AI Infra on Cloud",
+          text: "AI Infra(On-Cloud)",
           collapsed: false,
           items: [
             { text: "Overview", link: "/usermanual/ai-infra-on-cloud/" },
             { text: "Getting Started", link: "/usermanual/ai-infra-on-cloud/getting-started/" },
-            { text: "Deploy a Cloud Model Service", link: "/usermanual/ai-infra-on-cloud/end-to-end/deploy-cloud-model-service/" },
-            {
-              text: "User",
-              collapsed: false,
-              items: [
-                {
-                  text: "Model Services",
-                  collapsed: false,
-                  items: [
-                    { text: "Quick Deploy", link: "/usermanual/ai-infra-on-cloud/user/model-services/quick-deployment/" },
-                    { text: "My Deployments", link: "/usermanual/ai-infra-on-cloud/user/model-services/my-deployments/" },
-                  ]
-                },
-                {
-                  text: "Access Management",
-                  collapsed: false,
-                  items: [
-                    { text: "Access Management", link: "/usermanual/ai-infra-on-cloud/user/access-management/access-accounts/" },
-                  ]
-                },
-              ]
-            },
+            { text: "Deploy a Cloud Model Service from Scratch", link: "/usermanual/ai-infra-on-cloud/end-to-end/deploy-cloud-model-service/" },
             {
               text: "Operator",
               collapsed: false,
@@ -447,13 +425,13 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   text: "Access Management",
                   collapsed: false,
                   items: [
-                    { text: "Access CloudType", link: "/usermanual/ai-infra-on-cloud/operator/access-management/access-cloudtype/" },
+                    { text: "Cloud Platforms", link: "/usermanual/ai-infra-on-cloud/operator/access-management/access-cloudtype/" },
                     { text: "Resource Pools", link: "/usermanual/ai-infra-on-cloud/operator/access-management/resource-pools/" },
                     { text: "Cloud Accounts", link: "/usermanual/ai-infra-on-cloud/operator/access-management/cloud-accounts/" },
                   ]
                 },
                 {
-                  text: "Auth Management",
+                  text: "Authorization Management",
                   collapsed: false,
                   items: [
                     { text: "Tenant-Cloud Auth", link: "/usermanual/ai-infra-on-cloud/operator/auth-management/tenant-cloud-auth/" },
@@ -478,15 +456,36 @@ export const enSidebar: DefaultTheme.Sidebar = {
                 },
               ]
             },
+            {
+              text: "User",
+              collapsed: false,
+              items: [
+                {
+                  text: "Model Services",
+                  collapsed: false,
+                  items: [
+                    { text: "Quick Deployment", link: "/usermanual/ai-infra-on-cloud/user/model-services/quick-deployment/" },
+                    { text: "My Deployments", link: "/usermanual/ai-infra-on-cloud/user/model-services/my-deployments/" },
+                  ]
+                },
+                {
+                  text: "Access Management",
+                  collapsed: false,
+                  items: [
+                    { text: "Access Accounts", link: "/usermanual/ai-infra-on-cloud/user/access-management/access-accounts/" },
+                  ]
+                },
+              ]
+            },
           ]
         },
         {
-          text: "AI Infra on Prem",
+          text: "AI Infra(On-Prem)",
           collapsed: false,
           items: [
             { text: "Overview", link: "/usermanual/ai-infra-on-prem/" },
             { text: "Getting Started", link: "/usermanual/ai-infra-on-prem/getting-started/" },
-            { text: "Deploy a Model Service", link: "/usermanual/ai-infra-on-prem/end-to-end/deploy-model-service/" },
+            { text: "Deploy a Model Service from Scratch", link: "/usermanual/ai-infra-on-prem/end-to-end/deploy-model-service/" },
             {
               text: "Operator",
               collapsed: false,
@@ -511,8 +510,8 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   text: "Templates",
                   collapsed: false,
                   items: [
-                    { text: "Frameworks", link: "/usermanual/ai-infra-on-prem/operator/templates/frameworks/" },
-                    { text: "Model Config", link: "/usermanual/ai-infra-on-prem/operator/templates/model-config/" },
+                    { text: "Models", link: "/usermanual/ai-infra-on-prem/operator/templates/model-config/" },
+                    { text: "Frames", link: "/usermanual/ai-infra-on-prem/operator/templates/frameworks/" },
                     { text: "Inference Templates", link: "/usermanual/ai-infra-on-prem/operator/templates/inference-templates/" },
                     { text: "VRAM Config", link: "/usermanual/ai-infra-on-prem/operator/templates/vram-config/" },
                   ],
@@ -546,25 +545,19 @@ export const enSidebar: DefaultTheme.Sidebar = {
               items: [
                 { text: "Overview", link: "/usermanual/ai-infra-on-prem/user/overview/" },
                 {
-                  text: "Quick Start",
-                  collapsed: false,
-                  items: [
-                    { text: "Inference Templates", link: "/usermanual/ai-infra-on-prem/user/quick-start/inference-templates/" },
-                  ],
-                },
-                {
                   text: "Model Deployment",
                   collapsed: false,
                   items: [
-                    { text: "Online Inference", link: "/usermanual/ai-infra-on-prem/user/model-deployment/online-inference/" },
+                    { text: "Templates", link: "/usermanual/ai-infra-on-prem/user/quick-start/inference-templates/" },
+                    { text: "Instances", link: "/usermanual/ai-infra-on-prem/user/model-deployment/online-inference/" },
                   ],
                 },
                 {
-                  text: "Development",
+                  text: "Dev Resources",
                   collapsed: false,
                   items: [
-                    { text: "Dev Environments", link: "/usermanual/ai-infra-on-prem/user/development/dev-environments/" },
-                    { text: "Model Training", link: "/usermanual/ai-infra-on-prem/user/development/model-training/" },
+                    { text: "Online IDE", link: "/usermanual/ai-infra-on-prem/user/development/dev-environments/" },
+                    { text: "Runtime Instances", link: "/usermanual/ai-infra-on-prem/user/development/model-training/" },
                   ],
                 },
                 {
@@ -606,9 +599,182 @@ export const enSidebar: DefaultTheme.Sidebar = {
               ],
             },
           ],
-        }
-      ]
-    }
+        },
+        {
+          text: "Billing",
+          collapsed: false,
+          items: [
+            { text: "Overview", link: "/usermanual/billing/" },
+            { text: "Getting Started", link: "/usermanual/billing/getting-started/" },
+            { text: "Reconcile and Settle a Billing Cycle", link: "/usermanual/billing/end-to-end/reconcile-billing-cycle/" },
+            {
+              text: "Operator",
+              collapsed: false,
+              items: [
+                {
+                  text: "Finance Operations",
+                  collapsed: false,
+                  items: [
+                    { text: "Today Tasks", link: "/usermanual/billing/operator/finance-operations/today-tasks/" },
+                    { text: "Monthly Overview", link: "/usermanual/billing/operator/finance-operations/monthly-overview/" },
+                    { text: "Settlement List", link: "/usermanual/billing/operator/finance-operations/settlement-list/" },
+                    { text: "Financial Accounts", link: "/usermanual/billing/operator/finance-operations/financial-accounts/" },
+                    { text: "Reconciliation Center", link: "/usermanual/billing/operator/finance-operations/reconciliation-center/" },
+                    { text: "Account Adjustment", link: "/usermanual/billing/operator/finance-operations/account-adjustment/" },
+                  ],
+                },
+                {
+                  text: "Customer Billing",
+                  collapsed: false,
+                  items: [
+                    { text: "Customer Overview", link: "/usermanual/billing/operator/customer-billing/customer-overview/" },
+                    { text: "Top-up Orders", link: "/usermanual/billing/operator/customer-billing/top-up-orders/" },
+                    { text: "Business Units", link: "/usermanual/billing/operator/customer-billing/business-units/" },
+                  ],
+                },
+                {
+                  text: "License",
+                  collapsed: false,
+                  items: [
+                    { text: "License", link: "/usermanual/billing/operator/license/license/" },
+                  ],
+                },
+              ],
+            },
+            {
+              text: "User",
+              collapsed: false,
+              items: [
+                {
+                  text: "Earnings",
+                  collapsed: false,
+                  items: [
+                    { text: "Revenue", link: "/usermanual/billing/user/earnings/revenue/" },
+                    { text: "Settlements", link: "/usermanual/billing/user/earnings/settlements/" },
+                    { text: "Customers", link: "/usermanual/billing/user/earnings/customers/" },
+                  ],
+                },
+                {
+                  text: "Billing",
+                  collapsed: false,
+                  items: [
+                    { text: "Overview", link: "/usermanual/billing/user/billing/overview/" },
+                    { text: "Quota Governance", link: "/usermanual/billing/user/billing/quota-governance/" },
+                    { text: "Transactions", link: "/usermanual/billing/user/billing/transactions/" },
+                    { text: "Top-up Orders", link: "/usermanual/billing/user/billing/top-up-orders/" },
+                    { text: "Monthly Bill", link: "/usermanual/billing/user/billing/monthly-bill/" },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          text: "Settings",
+          collapsed: false,
+          items: [
+            { text: "Overview", link: "/usermanual/settings/" },
+            { text: "Getting Started", link: "/usermanual/settings/getting-started/" },
+            { text: "Configure Accounts and Permissions", link: "/usermanual/settings/end-to-end/configure-account-and-permissions/" },
+            {
+              text: "Operator",
+              collapsed: false,
+              items: [
+                {
+                  text: "Personal",
+                  collapsed: false,
+                  items: [
+                    { text: "My Keys", link: "/usermanual/settings/operator/personal/my-keys/" },
+                    { text: "Profile", link: "/usermanual/settings/operator/personal/profile/" },
+                  ],
+                },
+                {
+                  text: "Members & Roles",
+                  collapsed: false,
+                  items: [
+                    { text: "Team Members", link: "/usermanual/settings/operator/members-roles/team-members/" },
+                    { text: "Roles", link: "/usermanual/settings/operator/members-roles/roles/" },
+                  ],
+                },
+                {
+                  text: "Organizations",
+                  collapsed: false,
+                  items: [
+                    { text: "Organizations", link: "/usermanual/settings/operator/organizations/organizations/" },
+                  ],
+                },
+                {
+                  text: "Activity & Notifications",
+                  collapsed: false,
+                  items: [
+                    { text: "Operation Logs", link: "/usermanual/settings/operator/activity-notifications/operation-logs/" },
+                  ],
+                },
+                {
+                  text: "System Settings",
+                  collapsed: false,
+                  items: [
+                    { text: "Platform Settings", link: "/usermanual/settings/operator/system-settings/platform-settings/" },
+                    { text: "Login Properties", link: "/usermanual/settings/operator/system-settings/login-properties/" },
+                  ],
+                },
+                {
+                  text: "API Rate Control",
+                  collapsed: false,
+                  items: [
+                    { text: "Overview", link: "/usermanual/settings/operator/api-rate-control/overview/" },
+                    { text: "Rule Management", link: "/usermanual/settings/operator/api-rate-control/rule-management/" },
+                    { text: "Observability Audit", link: "/usermanual/settings/operator/api-rate-control/observability-audit/" },
+                    { text: "Node Cache", link: "/usermanual/settings/operator/api-rate-control/node-cache/" },
+                    { text: "Publish Center", link: "/usermanual/settings/operator/api-rate-control/publish-center/" },
+                  ],
+                },
+              ],
+            },
+            {
+              text: "User",
+              collapsed: false,
+              items: [
+                {
+                  text: "Personal",
+                  collapsed: false,
+                  items: [
+                    { text: "Dashboard", link: "/usermanual/settings/user/personal/dashboard/" },
+                    { text: "Projects", link: "/usermanual/settings/user/personal/projects/" },
+                    { text: "My Keys", link: "/usermanual/settings/user/personal/my-keys/" },
+                    { text: "Profile", link: "/usermanual/settings/user/personal/profile/" },
+                  ],
+                },
+                {
+                  text: "Members & Roles",
+                  collapsed: false,
+                  items: [
+                    { text: "Team Members", link: "/usermanual/settings/user/members-roles/team-members/" },
+                    { text: "Roles", link: "/usermanual/settings/user/members-roles/roles/" },
+                    { text: "Member Quotas", link: "/usermanual/settings/user/members-roles/member-quotas/" },
+                    { text: "Quota Requests", link: "/usermanual/settings/user/members-roles/quota-requests/" },
+                  ],
+                },
+                {
+                  text: "Organizations",
+                  collapsed: false,
+                  items: [
+                    { text: "Org Settings", link: "/usermanual/settings/user/organizations/org-settings/" },
+                  ],
+                },
+                {
+                  text: "Activity & Notifications",
+                  collapsed: false,
+                  items: [
+                    { text: "Operation Logs", link: "/usermanual/settings/user/activity-notifications/operation-logs/" },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
   ],
   "/practices/": [
     {

@@ -1,13 +1,13 @@
 # Model Reviews
 
-:::: info Document Information
+::: info Document Information
 Version: v1.0
 Updated: 2026-07-08
-::::
+:::
 
 ## Feature Overview
 
-`Model Reviews` is used to maintain or view model publishing requests, source configuration, protocols, billing, rate limits, and review comments. It supports model publishing, experimentation, calling, statistics, and operational governance.
+Model Reviews helps operators review model publishing requests, source configuration, protocols, billing rules, rate limits, and review comments before a model is listed.
 
 | Item | Content |
 | --- | --- |

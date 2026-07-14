@@ -1,13 +1,13 @@
 # Audio Playground
 
-:::: info Document Information
+::: info Document Information
 Version: v1.0
 Updated: 2026-07-08
-::::
+:::
 
 ## Feature Overview
 
-`Audio Playground` is used to maintain or view audio models, input files, recognition or generation parameters, and output results. It supports model publishing, experimentation, calling, statistics, and operational governance.
+Audio Playground is used to try audio-capable models with redacted input files, recognition or generation parameters, and output inspection.
 
 | Item | Content |
 | --- | --- |
@@ -37,7 +37,7 @@ The audio Playground is like a listening room for models. You can upload or ente
 4. Format, sampling rate, and duration have been confirmed to be within model support.
 ## Page Description
 
-This page is used to try audio models. It focuses on input audio format, sampling rate, language, output text or audio result, latency, and error prompts. Use redacted samples and do not upload raw recordings containing customer privacy.
+This page is used to try audio models. It focuses on input audio format, sampling rate, language, output text or audio result, latency, and error Prompts. Use redacted samples and do not upload raw recordings containing customer privacy.
 
 Page screenshot:
 
@@ -53,7 +53,7 @@ Select a speech recognition, speech generation, or audio understanding model.
 2. Select audio model and provider.
 3. Upload redacted audio or fill in audio input parameters.
 4. Set language, sampling rate, output format, and streaming return as needed.
-5. Send the request and adjust parameters based on results, latency, and error prompts.
+5. Send the request and adjust parameters based on results, latency, and error Prompts.
 
 Key screenshot:
 
@@ -81,7 +81,7 @@ Confirm audio format, sampling rate, language, and output format.
 
 1. The page returns recognized text, generated audio, or structured result.
 2. After language, sampling rate, and output format parameters change, results match expectations.
-3. On failure, request ID, error code, or format limit prompt is visible.
+3. On failure, request ID, error code, or format limit Prompt is visible.
 ## FAQ
 
 ### Recognition Fails After Audio Upload

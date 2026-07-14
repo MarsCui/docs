@@ -1,13 +1,13 @@
 # App Publishing
 
-:::: info Document Information
+::: info Document Information
 Version: v1.0
 Updated: 2026-07-08
-::::
+:::
 
 ## Feature Overview
 
-`App Publishing` is used to maintain or view apps, model permissions, call scopes, status, and publishing records. It supports model publishing, experimentation, calling, statistics, and operational governance.
+App Publishing helps operators view apps, model permissions, call scopes, status, and publishing records for application-level model access governance.
 
 | Item | Content |
 | --- | --- |

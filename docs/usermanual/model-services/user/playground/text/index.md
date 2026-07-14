@@ -1,13 +1,13 @@
 # Text Playground
 
-:::: info Document Information
+::: info Document Information
 Version: v1.0
 Updated: 2026-07-08
-::::
+:::
 
 ## Feature Overview
 
-`Text Playground` is used to select text models on the page, write Prompts, adjust generation parameters, and observe response quality, latency, and error prompts.
+`Text Playground` is used to select text models on the page, write Prompts, adjust generation parameters, and observe response quality, latency, and error Prompts.
 
 | Item | Content |
 | --- | --- |
@@ -27,7 +27,7 @@ The text Playground is like scratch paper for a model. It is used to quickly dra
 | --- | --- |
 | Prompt | Prompt, question, or context input to the model. |
 | Temperature | Parameter that controls randomness and divergence of responses. |
-| Top-P | Parameter that controls the sampling range of candidate tokens. |
+| Top-P | Parameter that controls the sampling range of candidate Tokens. |
 | Max Tokens | Limits the maximum output length of the model. |
 | Stream | Controls whether content is returned as it is generated. |
 ## Prerequisites
@@ -37,7 +37,7 @@ The text Playground is like scratch paper for a model. It is used to quickly dra
 3. The Prompt does not contain real keys, customer privacy, or production business data.
 ## Page Description
 
-This page is used to try text models. Focus on adjusting Prompt, Temperature, Top-P, Max Tokens, Stream, and other parameters, and observe output quality, latency, and error prompts.
+This page is used to try text models. Focus on adjusting Prompt, Temperature, Top-P, Max Tokens, Stream, and other parameters, and observe output quality, latency, and error Prompts.
 
 Page screenshot:
 
@@ -67,7 +67,7 @@ After adjusting Temperature, Top-P, Max Tokens, and Stream, observe output chang
 | --- | --- | --- | --- | --- |
 | Prompt | Yes | Multiline text | `Summarize this text` | Prompt input to the model. |
 | Temperature | No | Number | `0.7` | Controls output randomness. Higher values are more divergent. |
-| Top-P | No | Number | `0.8` | Controls candidate token sampling range. |
+| Top-P | No | Number | `0.8` | Controls candidate Token sampling range. |
 | Max Tokens | No | Number | `1024` | Limits maximum output length. |
 | Stream | No | Toggle | `On` | Controls whether output is returned as a stream. |
 
@@ -102,7 +102,7 @@ After sending a Prompt, no content is returned, or the page stays in generation 
 
 1. Shorten the Prompt or reduce Max Tokens and retry.
 2. Send again later and observe whether the timeout persists.
-3. Record request time, model name, and error prompt, then check call logs or contact the operator.
+3. Record request time, model name, and error Prompt, then check call logs or contact the operator.
 
 ### High Temperature Causes Divergent Results
 
@@ -147,6 +147,6 @@ After Stream is enabled, the page starts returning content but stops midway or m
 3. Before production integration, organize API parameters and output format requirements.
 ## Notes
 
-- Do not enter keys, access tokens, or customer privacy in Prompts.
+- Do not enter keys, access Tokens, or customer privacy in Prompts.
 - Redact request IDs and sensitive output content before screenshots.
 - When comparing parameters, adjust only a small number of variables at a time.

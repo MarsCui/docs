@@ -1,13 +1,13 @@
 # Meta-models
 
-:::: info Document Information
+::: info Document Information
 Version: v1.0
 Updated: 2026-07-08
-::::
+:::
 
 ## Feature Overview
 
-`Meta-models` is used to maintain or view model capabilities, protocols, modalities, Token limits, default parameters, and capability tags. It supports model publishing, experimentation, calling, statistics, and operational governance.
+Meta-models helps operators define model capabilities, protocols, modalities, Token limits, default parameters, and capability tags used by publishing and templates.
 
 | Item | Content |
 | --- | --- |
@@ -66,7 +66,7 @@ Basic information determines the display name and capability category during mod
 
 Modality configuration affects model marketplace filters and Playground entries.
 
-![Token limits](./images/step-1-token-limit.png)
+![Token limits](./images/step-1-Token-limit.png)
 
 Token limits should match the real model capability.
 

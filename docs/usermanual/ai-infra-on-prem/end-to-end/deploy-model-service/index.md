@@ -1,9 +1,9 @@
 # Deploy a Model Service from Scratch
 
-:::: info Document Information
+::: info Document Information
 Version: v1.0
 Updated: 2026-07-08
-::::
+:::
 
 ## Feature Overview
 

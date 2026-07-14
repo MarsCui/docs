@@ -1,13 +1,13 @@
 # My Call Overview
 
-:::: info Document Information
+::: info Document Information
 Version: v1.0
 Updated: 2026-07-08
-::::
+:::
 
 ## Feature Overview
 
-`My Call Overview` is used to maintain or view call volume, success rate, Token usage, fees, and core model metrics for calls initiated by me. It supports model publishing, experimentation, calling, statistics, and operational governance.
+My Call Overview summarizes call volume, success rate, Token usage, fees, and core model metrics for requests initiated by the current account. Use it as the starting point before opening logs or analytics.
 
 | Item | Content |
 | --- | --- |
