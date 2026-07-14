@@ -3,18 +3,16 @@ prev: false
 next: true
 ---
 
-# Update Notes
+# Release Notes
 
 ## Table of Contents
 
 - [2026-06-30](#2026-06-30)
 - [2026-05-15](#2026-05-15)
 
----
-
 ## 2026-06-30
 
-### Update Details
+### Release Contents
 
 #### Highlights
 
@@ -182,7 +180,7 @@ next: true
 
 ## 2026-05-15
 
-### Update Details
+### Release Contents
 
 #### General
 
