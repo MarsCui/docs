@@ -1,7 +1,7 @@
-# Role Comparison
+﻿# Role Comparison
 
 :::: info Document Information
-Version: v1.1
+Version: v1.0
 Updated: 2026-07-13
 ::::
 
