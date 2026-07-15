@@ -769,6 +769,10 @@ export const zhSidebar: DefaultTheme.Sidebar = {
               text: '多算力池异构推理调度最佳实践',
               link: '/zh-CN/practices/project/multi-compute-pool-heterogeneous-inference-scheduling',
             },
+            {
+              text: '单节点多卡多模型部署最佳实践',
+              link: '/zh-CN/practices/project/single-node-multi-card-multi-model-deployment',
+            },
           ],
         },
       ],
