@@ -11,6 +11,11 @@ Online payment activation is used to validate the full loop from payment-channel
 
 This document describes configuration locations, field meanings, and operating steps only. It does not contain real accounts, login credentials, internal login parameters, validation-account information, real payment credentials, or real secrets.
 
+::: tip Payment Method Availability
+- Stripe: Available globally, excluding mainland China.
+- Alipay: Available in mainland China.
+:::
+
 ## When To Use
 
 - You are enabling Stripe or Alipay online recharge for the first time.
