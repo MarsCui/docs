@@ -60,8 +60,8 @@ export const zhSidebar: DefaultTheme.Sidebar = {
       text: '购买与激活',
       collapsed: false,
       items: [
-        { text: '在线支付与激活', link: '/zh-CN/license/online-payment-activation' },
-        { text: '激活码与激活', link: '/zh-CN/license/activation-code-activation' },
+        { text: '在线支付激活', link: '/zh-CN/license/online-payment-activation' },
+        { text: 'License激活', link: '/zh-CN/license/activation-code-activation' },
       ],
     },
   ],
