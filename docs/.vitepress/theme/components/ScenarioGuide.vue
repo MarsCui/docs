@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { useRoute } from 'vitepress'
+import { useRoute, withBase } from 'vitepress'
 
 type Role = 'operator' | 'provider' | 'enduser'
 type Subsystem = 'platform' | 'settings' | 'model-services' | 'billing' | 'on-prem' | 'on-cloud'
@@ -33,7 +33,9 @@ interface CommonTask {
 
 const route = useRoute()
 
-const locale = computed<Locale>(() => (route.path.startsWith('/zh-CN/') ? 'zh' : 'en'))
+const locale = computed<Locale>(() =>
+  route.data.relativePath.startsWith('zh-CN/') || route.path.includes('/zh-CN/') ? 'zh' : 'en'
+)
 
 const uiText: Record<Locale, Record<string, string>> = {
   zh: {
@@ -746,7 +748,7 @@ function scenarioNumber(id: number) {
 
 function guidePath(slug: string) {
   const prefix = locale.value === 'zh' ? '/zh-CN/userguide/scenarios' : '/userguide/scenarios'
-  return `${prefix}/${slug}/`
+  return withBase(`${prefix}/${slug}/`)
 }
 </script>
 
