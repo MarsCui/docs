@@ -9,13 +9,13 @@ next: true
 
 ## 适用角色
 
-- 设计和审计访问控制的平台运营方（Operator）
+- 设计和审计访问控制的平台运营方
 - 验证实际权限的模型提供方和平台用户
 
 ## 场景目标
 
 - 用户、租户和角色构成清晰的组织边界。
-- 云资源、On-Prem 资源和模型只对授权范围开放。
+- 云资源、本地算力平台资源和模型只对授权范围开放。
 - API Key、项目、模型、配额和限流共同限制调用能力。
 - 权限与额度调整后，可以通过实际账号验证并追溯变更。
 
@@ -24,8 +24,8 @@ next: true
 | 层次 | 控制对象 | 主要入口 |
 | --- | --- | --- |
 | 身份 | 租户、用户、角色、菜单和按钮 | [身份授权](../identity-authorization/) |
-| 云资源 | 云平台、地域和租户授权 | [On Cloud 云资源接入](../on-cloud-resource-access/) |
-| On-Prem 资源 | 地域、规格、租户配额和额度 | [On-Prem 算力纳管](../on-prem-compute-onboarding/)、[资源计量与监控](../on-prem-resource-metering-monitoring/) |
+| 云资源 | 云平台、地域和租户授权 | [多云资源接入](../on-cloud-resource-access/) |
+| 本地算力平台资源 | 地域、规格、租户配额和额度 | [本地算力平台 算力纳管](../on-prem-compute-onboarding/)、[资源计量与监控](../on-prem-resource-metering-monitoring/) |
 | 模型 | 公有/私有范围、发布审批和模型可见性 | [发布模型](../publish-model/)、[模型发布审批](../model-publishing-approval/) |
 | 调用 | Personal Key、项目、模型授权、限流和余额 | [模型的体验与调用](../model-experience-api-calling/) |
 
@@ -40,7 +40,7 @@ next: true
 
 1. 按 [用户、租户与角色设计逻辑](../../../product/identity-access-model) 确认身份边界。
 2. 完成角色和菜单授权，并用目标账号验证入口可见性。
-3. 按资源类型完成云资源授权或 On-Prem 规格、配额分配。
+3. 按资源类型完成云资源授权或 本地算力平台 规格、配额分配。
 4. 对模型设置公有或私有范围，按需完成发布审批。
 5. 为调用方准备个人调用凭据、项目或模型授权，并设置限流和额度。
 6. 使用目标账号完成一次只读检查或受控调用，确认权限和限制生效。

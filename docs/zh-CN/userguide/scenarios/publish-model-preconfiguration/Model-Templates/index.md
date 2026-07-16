@@ -6,12 +6,12 @@
 
 ## 适用角色
 
-- 平台运营方（Operator）
+- 平台运营方
 
 ## 开始前准备
 
 - 已准备模型作者、模型来源、地域和元模型。
-- 已确认厂商模型 ID、能力、Token 限制、协议 Endpoint 和默认参数。
+- 已确认厂商模型 ID、能力、Token 限制、协议 接口地址 和默认参数。
 
 ## 操作步骤
 
@@ -38,7 +38,7 @@
 ![高级能力配置](./images/step-2-advanced-capability-configuration.png)
    - **Token 限制**：设置 **"最大上下文"**、**"最大输入"**、**"最大输出"**。
 ![Token 限制](./images/step-2-token-limit.png)
-   - **官方原生协议与默认高级参数**：至少选择一个协议（OpenAI-ChatCompletions / OpenAI-Responses / Anthropic-Messages），填写 Endpoint 并配置输入参数。
+   - **官方原生协议与默认高级参数**：至少选择一个协议（OpenAI-ChatCompletions / OpenAI-Responses / Anthropic-Messages），填写 接口地址 并配置输入参数。
 ![官方原生协议与默认高级参数](./images/step-2-official-native-protocol.png)
    - 点击 **"下一步"**。
 1. **Step 3：预览**：核对模板整体配置信息（选择作者、供应方信息、元模型、输入/输出模态、高级能力配置、Token 限制、官方原生协议与默认高级参数），确认无误后点击 **"提交"** 完成模板添加；如需修改，点击 **"上一步"** 返回对应步骤。
@@ -72,7 +72,7 @@
 | 官方原生协议 - OpenAI-ChatCompletions | 开关 + 协议代号 | `openai/chat_completions` | 必填，模板适配的接口协议类型 |
 | 官方原生协议 - OpenAI-Responses | 开关 + 协议代号 | `openai/responses` | 必填，模板适配的接口协议类型 |
 | 官方原生协议 - Anthropic-Messages | 开关 + 协议代号 | `anthropic/messages` | 必填，模板适配的接口协议类型 |
-| Endpoint | URL | `/compatible-mode/v1/chat/completions` | 必填，协议对应的端点路径 |
+| 接口地址 | URL | `/compatible-mode/v1/chat/completions` | 必填，协议对应的端点路径 |
 | 输入参数 | 参数列表 | `Temperature / Top-P / N / Stream / Max Tokens / Presence Penalty / Frequency Penalty / User / Seed / Parallel Tool Calls` | 选填，按协议预设的输入参数（可设置是否必填） |
 
 ## 完成检查
@@ -90,7 +90,7 @@
 | 现象 | 优先检查 |
 | --- | --- |
 | 发布时找不到模板 | 模板状态、来源地域、元模型和厂商关联 |
-| 模板带出参数错误 | 模型 ID、模态、Token 限制、Endpoint 和协议参数 |
+| 模板带出参数错误 | 模型 ID、模态、Token 限制、接口地址 和协议参数 |
 
 ## 操作手册
 

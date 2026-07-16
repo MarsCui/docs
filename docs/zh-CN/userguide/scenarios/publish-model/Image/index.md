@@ -6,7 +6,7 @@
 
 ## 适用角色
 
-- 模型提供方（Provider）
+- 模型提供方
 
 ## 开始前准备
 
@@ -49,7 +49,7 @@
 
 ![模型参数配置](./images/step-1-model-parameter-configuration.png)
 
-- **支持协议与默认参数**：至少选择一个协议（图片模型仅 OpenAI-Images 可选），只有先进行协议连通性测试，连通性测试成功后可执行后续操作；测试通过后填写 **"Endpoint"**（如 `https://dashscope.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation`）并配置 **"输入参数"**（Prompt、Image、Mask、N、Size、Response Format、User、Negative Prompt、Prompt Extend、Watermark 等，可设置"是否必填"）。
+- **支持协议与默认参数**：至少选择一个协议（图片模型仅 OpenAI-Images 可选），只有先进行协议连通性测试，连通性测试成功后可执行后续操作；测试通过后填写 **"接口地址"**（如 `https://dashscope.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation`）并配置 **"输入参数"**（Prompt、Image、Mask、N、Size、Response Format、User、Negative Prompt、Prompt Extend、Watermark 等，可设置"是否必填"）。
 - **调用配置**：
     - 选择 **"调用方式"**：**"同步"** 或 **"异步"**；
     - 配置 **"返回结果解析"**：
@@ -112,7 +112,7 @@
 | 输入模态 | 多选 | `文本 / 图片` | 必填，模型支持的输入数据类型 |
 | 输出模态 | 多选 | `图片` | 必填，模型支持的输出数据类型 |
 | 支持协议 | 多选 | `OpenAI-Images` | 必填，图片模型兼容的 API 协议，需先进行连通性测试 |
-| Endpoint | URL | `https://dashscope.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation` | 必填，协议对应的端点地址 |
+| 接口地址 | URL | `https://dashscope.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation` | 必填，协议对应的端点地址 |
 | 输入参数 | 参数列表 | `Prompt / Image / Mask / N / Size / Response Format / User / Negative Prompt / Prompt Extend / Watermark` | 选填，按协议预设的输入参数（可设置是否必填） |
 | 调用方式 | 单选 | `同步 / 异步` | 必填，模型的调用方式 |
 | Result Path | 文本 | `output.choices[0].message.content[0].image` | 选填，异步调用时返回结果的解析路径 |

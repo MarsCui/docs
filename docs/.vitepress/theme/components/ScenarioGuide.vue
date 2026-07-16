@@ -82,36 +82,81 @@ const uiText: Record<Locale, Record<string, string>> = {
   },
 }
 
-const roleOptions = computed(() => [
-  { value: 'all', label: uiText[locale.value].all },
-  { value: 'operator', label: 'Operator' },
-  { value: 'provider', label: 'Provider' },
-  { value: 'enduser', label: 'End User' },
-])
+const roleOptions = computed(() => {
+  const labels: Record<Locale, Record<Role, string>> = {
+    zh: { operator: '平台运营方', provider: '模型提供方', enduser: '平台用户' },
+    en: { operator: 'Operator', provider: 'Provider', enduser: 'End User' },
+  }
 
-const subsystemOptions = computed(() => [
-  { value: 'all', label: uiText[locale.value].all },
-  { value: 'on-prem', label: 'AI Infra-On Prem' },
-  { value: 'on-cloud', label: 'AI Infra-On Cloud' },
-  { value: 'model-services', label: 'Model Services' },
-  { value: 'billing', label: 'Billing' },
-  { value: 'platform', label: 'Platform' },
-  { value: 'settings', label: 'Settings' },
-])
+  return [
+    { value: 'all', label: uiText[locale.value].all },
+    { value: 'operator', label: labels[locale.value].operator },
+    { value: 'provider', label: labels[locale.value].provider },
+    { value: 'enduser', label: labels[locale.value].enduser },
+  ]
+})
 
-const roleLabels: Record<Role, string> = {
-  operator: 'Operator',
-  provider: 'Provider',
-  enduser: 'End User',
+const subsystemOptions = computed(() => {
+  const labels: Record<Locale, Record<Subsystem, string>> = {
+    zh: {
+      platform: '平台',
+      settings: '设置',
+      'model-services': '模型及 AI 服务',
+      billing: '账务',
+      'on-prem': '本地算力平台',
+      'on-cloud': '多云调度平台',
+    },
+    en: {
+      platform: 'Platform',
+      settings: 'Settings',
+      'model-services': 'Model Services',
+      billing: 'Billing',
+      'on-prem': 'AI Infra-On Prem',
+      'on-cloud': 'AI Infra-On Cloud',
+    },
+  }
+
+  return [
+    { value: 'all', label: uiText[locale.value].all },
+    { value: 'on-prem', label: labels[locale.value]['on-prem'] },
+    { value: 'on-cloud', label: labels[locale.value]['on-cloud'] },
+    { value: 'model-services', label: labels[locale.value]['model-services'] },
+    { value: 'billing', label: labels[locale.value].billing },
+    { value: 'platform', label: labels[locale.value].platform },
+    { value: 'settings', label: labels[locale.value].settings },
+  ]
+})
+
+const roleLabels: Record<Locale, Record<Role, string>> = {
+  zh: {
+    operator: '平台运营方',
+    provider: '模型提供方',
+    enduser: '平台用户',
+  },
+  en: {
+    operator: 'Operator',
+    provider: 'Provider',
+    enduser: 'End User',
+  },
 }
 
-const subsystemLabels: Record<Subsystem, string> = {
-  platform: 'Platform',
-  settings: 'Settings',
-  'model-services': 'Model Services',
-  billing: 'Billing',
-  'on-prem': 'On-Prem',
-  'on-cloud': 'On Cloud',
+const subsystemLabels: Record<Locale, Record<Subsystem, string>> = {
+  zh: {
+    platform: '平台',
+    settings: '设置',
+    'model-services': '模型及 AI 服务',
+    billing: '账务',
+    'on-prem': '本地算力平台',
+    'on-cloud': '多云调度平台',
+  },
+  en: {
+    platform: 'Platform',
+    settings: 'Settings',
+    'model-services': 'Model Services',
+    billing: 'Billing',
+    'on-prem': 'On-Prem',
+    'on-cloud': 'On Cloud',
+  },
 }
 
 const commonTasks: CommonTask[] = [
@@ -395,7 +440,7 @@ const scenarios: Scenario[] = [
     guideSlug: 'register-login',
     title: { zh: '注册 & 登录', en: 'Register & Login' },
     description: {
-      zh: 'Enduser 完成邮箱注册；Operator/Enduser/Provider 登录平台并进入对应工作台。',
+      zh: '平台用户完成邮箱注册；平台运营方、平台用户和模型提供方登录平台并进入对应工作台。',
       en: 'End users complete email registration; Operator, End User, and Provider log in and enter their workspaces.',
     },
     roles: ['enduser', 'operator', 'provider'],
@@ -407,7 +452,7 @@ const scenarios: Scenario[] = [
     guideSlug: 'identity-authorization',
     title: { zh: '身份授权', en: 'Identity Authorization' },
     description: {
-      zh: 'Operator 通过角色、菜单与按钮权限控制谁能看见、能操作什么。',
+      zh: '平台运营方通过角色、菜单与按钮权限控制谁能看见、能操作什么。',
       en: 'Operators control who can see and operate features through roles, menus, and button permissions.',
     },
     roles: ['operator'],
@@ -419,7 +464,7 @@ const scenarios: Scenario[] = [
     guideSlug: 'publish-model',
     title: { zh: '发布模型', en: 'Publish Models' },
     description: {
-      zh: 'Provider 把外部 Endpoint、自有或平台托管模型发布为公有/私有服务，配置计费与限流。',
+      zh: '模型提供方把外部接口地址、自有或平台托管模型发布为公有或私有服务，并配置计费与限流。',
       en: 'Providers publish external endpoints, self-owned models, or platform-hosted models as public or private services with billing and throttling.',
     },
     roles: ['provider'],
@@ -431,7 +476,7 @@ const scenarios: Scenario[] = [
     guideSlug: 'publish-model-preconfiguration',
     title: { zh: '发布模型（预设置）', en: 'Publish Models Preconfiguration' },
     description: {
-      zh: '为发布准备标准化的元模型、模型来源、模板和标签，降低 Provider 的重复配置。',
+      zh: '为发布准备标准化的元模型、模型来源、模板和标签，降低模型提供方的重复配置。',
       en: 'Prepare standardized meta-models, model sources, templates, and tags to reduce repeated provider configuration.',
     },
     roles: ['operator'],
@@ -455,7 +500,7 @@ const scenarios: Scenario[] = [
     guideSlug: 'model-experience-api-calling',
     title: { zh: '模型的体验与调用', en: 'Model Experience & API Calling' },
     description: {
-      zh: 'Enduser 发现、体验、API 接入并回看调用；Provider 观察客户维度的调用情况。',
+      zh: '平台用户发现、体验、接入 API 并回看调用；模型提供方查看客户维度的调用情况。',
       en: 'End users discover, try, integrate, and review calls; providers monitor customer-level calling activity.',
     },
     roles: ['enduser', 'provider'],
@@ -467,7 +512,7 @@ const scenarios: Scenario[] = [
     guideSlug: 'model-usage-revenue',
     title: { zh: '模型的消费与收益', en: 'Model Usage & Revenue' },
     description: {
-      zh: '将调用产生的 Token/时长/次数转成 Enduser 消耗与 Provider 收益，并跟踪账期。',
+      zh: '将调用产生的 Token、时长或次数转成平台用户消耗与模型提供方收益，并跟踪账期。',
       en: 'Convert tokens, duration, and request counts into end-user usage and provider revenue across billing periods.',
     },
     roles: ['enduser', 'provider'],
@@ -489,7 +534,7 @@ const scenarios: Scenario[] = [
   {
     id: 9,
     guideSlug: 'on-prem-compute-onboarding',
-    title: { zh: 'On-Prem 算力纳管', en: 'On-Prem Compute Onboarding' },
+    title: { zh: '本地算力纳管', en: 'On-Prem Compute Onboarding' },
     description: {
       zh: '把私有 IDC / 本地 GPU / NPU / XPU 接入 AGIOne，成为可调度、可计量、可监控的资源池。',
       en: 'Connect private IDC, local GPU, NPU, or XPU resources to AGIOne as schedulable, metered, and observable resource pools.',
@@ -501,7 +546,7 @@ const scenarios: Scenario[] = [
   {
     id: 10,
     guideSlug: 'on-prem-inference-template',
-    title: { zh: 'On-Prem 推理模板构建', en: 'On-Prem Inference Template Building' },
+    title: { zh: '本地推理模板构建', en: 'On-Prem Inference Template Building' },
     description: {
       zh: '把推理参数沉淀为模板，让用户基于模板快速完成在线推理部署。',
       en: 'Turn inference parameters into templates so users can quickly deploy online inference services.',
@@ -513,7 +558,7 @@ const scenarios: Scenario[] = [
   {
     id: 11,
     guideSlug: 'on-prem-model-deployment-status',
-    title: { zh: 'On-Prem 模型部署与状态检查', en: 'On-Prem Model Deployment & Status Check' },
+    title: { zh: '本地模型部署与状态检查', en: 'On-Prem Model Deployment & Status Check' },
     description: {
       zh: '在本地资源池上部署在线推理服务，确认可运行、可访问、可排障。',
       en: 'Deploy online inference services on local resource pools and confirm they are runnable, accessible, and diagnosable.',
@@ -525,7 +570,7 @@ const scenarios: Scenario[] = [
   {
     id: 12,
     guideSlug: 'on-prem-dev-training-assets',
-    title: { zh: 'On-Prem 开发训练与资产沉淀', en: 'On-Prem Development, Training & Assets' },
+    title: { zh: '本地开发训练与资产沉淀', en: 'On-Prem Development, Training & Assets' },
     description: {
       zh: '支持开发、训练与数据管理，沉淀模型、镜像、数据集等资产。',
       en: 'Support development, training, and data management while accumulating models, images, datasets, and other assets.',
@@ -537,7 +582,7 @@ const scenarios: Scenario[] = [
   {
     id: 13,
     guideSlug: 'on-prem-resource-metering-monitoring',
-    title: { zh: 'On-Prem 资源计量与监控', en: 'On-Prem Resource Metering & Monitoring' },
+    title: { zh: '本地资源计量与监控', en: 'On-Prem Resource Metering & Monitoring' },
     description: {
       zh: '控制额度，对资源池运行、水位、用量、账期计量做运营监控。',
       en: 'Control quotas and monitor resource pool runtime status, capacity, usage, and billing-period metering.',
@@ -549,7 +594,7 @@ const scenarios: Scenario[] = [
   {
     id: 14,
     guideSlug: 'on-cloud-resource-access',
-    title: { zh: 'On Cloud 云资源接入', en: 'On Cloud Resource Access' },
+    title: { zh: '多云资源接入', en: 'On Cloud Resource Access' },
     description: {
       zh: '把云厂商、云账号、地域、资源池接入平台，并授权给租户或业务类型使用。',
       en: 'Connect cloud providers, cloud accounts, regions, and resource pools, then authorize tenants or business types to use them.',
@@ -561,7 +606,7 @@ const scenarios: Scenario[] = [
   {
     id: 15,
     guideSlug: 'on-cloud-model-asset-publishing',
-    title: { zh: 'On Cloud 模型资产上架', en: 'On Cloud Model Asset Publishing' },
+    title: { zh: '多云模型资产上架', en: 'On Cloud Model Asset Publishing' },
     description: {
       zh: '把云上模型需要的运行环境、框架、分类、模型信息与输出 API 配成可部署资产。',
       en: 'Configure runtime environments, frameworks, categories, model information, and output APIs as deployable cloud model assets.',
@@ -573,7 +618,7 @@ const scenarios: Scenario[] = [
   {
     id: 16,
     guideSlug: 'on-cloud-model-deployment-calling',
-    title: { zh: 'On Cloud 模型部署与调用', en: 'On Cloud Model Deployment & Calling' },
+    title: { zh: '多云模型部署与调用', en: 'On Cloud Model Deployment & Calling' },
     description: {
       zh: '从云上模型广场选模型，完成部署并获得 API 调用能力。',
       en: 'Select models from the cloud model marketplace, deploy them, and obtain API calling capability.',
@@ -587,7 +632,7 @@ const scenarios: Scenario[] = [
     guideSlug: 'model-publishing-approval',
     title: { zh: '模型发布审批', en: 'Model Publishing Approval' },
     description: {
-      zh: '对 Provider 的发布申请做模型信息、协议、计费、限流的治理审批。',
+      zh: '对模型提供方的发布申请做模型信息、协议、计费、限流的治理审批。',
       en: 'Review provider publishing requests for model information, agreements, billing, and throttling governance.',
     },
     roles: ['operator'],
@@ -753,7 +798,7 @@ function guidePath(slug: string) {
               class="agp-pill"
               :class="`agp-pill-${role === 'enduser' ? 'eu' : role}`"
             >
-              {{ roleLabels[role] }}
+              {{ roleLabels[locale][role] }}
             </span>
           </div>
         </div>
@@ -840,7 +885,7 @@ function guidePath(slug: string) {
               class="agp-pill"
               :class="`agp-pill-${subsystem}`"
             >
-              {{ subsystemLabels[subsystem] }}
+              {{ subsystemLabels[locale][subsystem] }}
             </span>
           </div>
           <div class="agp-pill-row">
@@ -850,7 +895,7 @@ function guidePath(slug: string) {
               class="agp-pill"
               :class="`agp-pill-${role === 'enduser' ? 'eu' : role}`"
             >
-              {{ roleLabels[role] }}
+              {{ roleLabels[locale][role] }}
             </span>
           </div>
         </div>
