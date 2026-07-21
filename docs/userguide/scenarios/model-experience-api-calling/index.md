@@ -1,3 +1,8 @@
+---
+prev: false
+next: true
+---
+
 # Scenario Overview - Model Experience and API Calling
 
 This scenario helps users discover models, try them in the playground, call them through APIs, and review call records.

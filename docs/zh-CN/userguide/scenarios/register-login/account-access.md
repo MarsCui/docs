@@ -1,3 +1,8 @@
+---
+prev: false
+next: true
+---
+
 # 登录 / 注册 / 找回密码
 
 ## 场景目标
@@ -129,7 +134,7 @@
 4. 点击 **"重置密码"** 按钮提交新密码。
 5. 若需返回上一步，可点击 **"上一步"** 返回验证邮箱步骤。
 
-![充值密码](./images/reset-password.png)
+![重置密码](./images/reset-password.png)
 
 #### Step 3：完成
 

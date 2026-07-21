@@ -1,3 +1,8 @@
+---
+prev: false
+next: true
+---
+
 # 发布模型（语音模型）
 
 ## 场景目标
@@ -53,9 +58,9 @@
 - **调用配置**：
     - 选择 **"调用方式"**：**"同步"** 或 **"异步"**；
     - 配置 **"返回结果解析"**：
-      - **Result Path**：字段属性 resultPath，输入值如 `e.g., data.images or response.output.results`；
-      - **URL Extract Field**：字段属性 urlExtractField，输入值如 `e.g., url or image_url (optional)`；
-      - **Base64 Extract Field**：字段属性 base64ExtractField，输入值如 `e.g., b64_json (optional)`。
+      - **Result Path**：字段属性 resultPath，输入值如 `data.audio` 或 `response.output.results`；
+      - **URL Extract Field**：字段属性 urlExtractField，输入值如 `url` 或 `audio_url`；
+      - **Base64 Extract Field**：字段属性 base64ExtractField，输入值如 `b64_audio`。
 
 ![官方原生协议与默认高级参数](./images/step-1-official-native-protocol.png)
 
@@ -113,9 +118,9 @@
 | 接口地址             | URL      | `https://dashscope.aliyuncs.com/api/v1/services/audio/tts/SpeechSynthesizer`                 | 必填，协议对应的端点地址                |
 | 输入参数                 | 参数列表     | `Text / Voice / Language / Audio Format / Sample Rate / Volume / Speech Rate / Pitch / Seed` | 选填，按协议预设的输入参数（可设置是否必填）      |
 | 调用方式                 | 单选       | `同步 / 异步`                                                                                    | 必填，模型的调用方式                  |
-| Result Path          | 文本       | `e.g., data.images or response.output.results`                                               | 选填，异步调用时返回结果的解析路径           |
-| URL Extract Field    | 文本       | `e.g., url or image_url (optional)`                                                          | 选填，从结果中提取 URL 的字段名          |
-| Base64 Extract Field | 文本       | `e.g., b64_json (optional)`                                                                  | 选填，从结果中提取 Base64 音频数据的字段名   |
+| Result Path          | 文本       | `data.audio` 或 `response.output.results`                                                      | 选填，异步调用时返回结果的解析路径           |
+| URL Extract Field    | 文本       | `url` 或 `audio_url`                                                                          | 选填，从结果中提取 URL 的字段名          |
+| Base64 Extract Field | 文本       | `b64_audio`                                                                                   | 选填，从结果中提取 Base64 音频数据的字段名   |
 | 个性化标识                | 文本       | `qwen3-tts-flash`                                                                            | 必填，模型对外展示的自定义标识             |
 | 描述                   | 文本       | `语音合成...`                                                                                    | 选填，模型的说明描述                  |
 | 发布方式                 | 单选       | `立即发布 / 定时发布`                                                                                | 必填，模型的上线时机                  |

@@ -1,3 +1,8 @@
+---
+prev: false
+next: true
+---
+
 # 模板
 
 ## 场景目标
@@ -34,7 +39,7 @@
 ![选择元模型](./images/step-2-select-meta-model.png)
    - **输入/输出模态**：分别选择 **"输入模态"**（多选：文本/图片/视频）与 **"输出模态"**（多选）。
 ![输入/输出模态](./images/step-2-input_output-modalities.png)
-   - **高级能力配置**：开启 **"函数 / 工具支持"**、**"思考模式"** 能力开关。
+   - **高级能力配置**：仅按模型实际能力开启 **"思考模式"**；Function Calling（函数/工具支持）仍在规划中，当前版本不作为可用能力配置。
 ![高级能力配置](./images/step-2-advanced-capability-configuration.png)
    - **Token 限制**：设置 **"最大上下文"**、**"最大输入"**、**"最大输出"**。
 ![Token 限制](./images/step-2-token-limit.png)
@@ -64,7 +69,7 @@
 | 模型源 ID | 文本 | `qwen3.6-plus` | 必填，模型在对应源平台的唯一标识 |
 | 输入模态 | 多选 | `文本 / 图片 / 视频` | 必填，配置模板支持的输入数据类型 |
 | 输出模态 | 多选 | `文本` | 必填，配置模板支持的输出数据类型 |
-| 高级能力 - 函数/工具支持 | 开关 | `开启 / 关闭` | 选填，开启后支持工具调用功能 |
+| 高级能力 - 函数/工具支持 | 规划状态 | `规划中` | 当前版本不作为可用能力配置 |
 | 高级能力 - 思考模式 | 开关 | `开启 / 关闭` | 选填，开启后支持深度思考和推理 |
 | 最大上下文 | 数值 | `1024K` | 必填，Token 上下文长度上限 |
 | 最大输入 | 数值 | `991K` | 必填，单次输入 Token 上限 |
@@ -73,7 +78,7 @@
 | 官方原生协议 - OpenAI-Responses | 开关 + 协议代号 | `openai/responses` | 必填，模板适配的接口协议类型 |
 | 官方原生协议 - Anthropic-Messages | 开关 + 协议代号 | `anthropic/messages` | 必填，模板适配的接口协议类型 |
 | 接口地址 | URL | `/compatible-mode/v1/chat/completions` | 必填，协议对应的端点路径 |
-| 输入参数 | 参数列表 | `Temperature / Top-P / N / Stream / Max Tokens / Presence Penalty / Frequency Penalty / User / Seed / Parallel Tool Calls` | 选填，按协议预设的输入参数（可设置是否必填） |
+| 输入参数 | 参数列表 | `Temperature / Top-P / N / Stream / Max Tokens / Presence Penalty / Frequency Penalty / User / Seed` | 选填，按协议预设的输入参数（可设置是否必填） |
 
 ## 完成检查
 

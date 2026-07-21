@@ -9,7 +9,7 @@
 
 | 我是谁 | 先看什么 | 下一步 |
 | --- | --- | --- |
-| 普通用户 | 先确认个人账号、项目、Key、额度和组织范围。 | 进入 [用户侧设置](../user/)。 |
+| 普通用户 | 先确认个人账号、项目、Key、额度和组织范围。 | 进入 用户侧设置。 |
 | 平台运营 | 先确认成员、角色、组织和操作日志。 | 进入 [运营管理员设置](../operator/personal/profile/)。 |
 | 安全管理员 | 先确认登录配置、账号找回和第三方登录。 | 进入 [登录配置](../operator/system-settings/login-properties/)。 |
 | 流控管理员 | 先确认请求趋势、命中规则和发布状态。 | 进入 [API 流控概览](../operator/api-rate-control/overview/)。 |
@@ -34,7 +34,7 @@
 
 | 角色 | 先看哪里 | 下一步 |
 | --- | --- | --- |
-| 普通用户 | [用户侧设置](../user/) | 查看账号、项目、Key、额度和组织规则 |
+| 普通用户 | 用户侧设置 | 查看账号、项目、Key、额度和组织规则 |
 | 平台运营 | [运营管理员设置](../operator/personal/profile/) | 核对成员、角色、组织和日志 |
 | 安全管理员 | [登录配置](../operator/system-settings/login-properties/) | 配置验证码、账号找回和第三方登录 |
 | 流控管理员 | [API 流控概览](../operator/api-rate-control/overview/) | 查看趋势后再配置规则 |
@@ -47,7 +47,7 @@
 
 | 角色 | 主要职责 | 常用入口 |
 | --- | --- | --- |
-| 普通用户 | 管理个人资料、项目、Key、额度申请和组织内可见对象。 | [用户侧设置](../user/) |
+| 普通用户 | 管理个人资料、项目、Key、额度申请和组织内可见对象。 | 用户侧设置 |
 | 平台运营 | 管理团队成员、角色、组织和操作日志。 | [团队成员](../operator/members-roles/team-members/)、[角色](../operator/members-roles/roles/) |
 | 安全管理员 | 维护登录配置、账号找回和第三方登录策略。 | [登录配置](../operator/system-settings/login-properties/) |
 | 流控管理员 | 查看 API 流控趋势、维护规则、审计和发布状态。 | [API 流控概览](../operator/api-rate-control/overview/) |
@@ -121,7 +121,7 @@
 | 你的目标 | 先读 | 下一步 |
 | --- | --- | --- |
 | 了解设置边界 | [设置概览](../) | 再读本快速入门 |
-| 管理自己的账号和 Key | [用户侧设置](../user/) | 进入账号信息、我的 Keys 或项目 |
+| 管理自己的账号和 Key | 用户侧设置 | 进入账号信息、我的 Keys 或项目 |
 | 配置成员和权限 | [配置账号与权限闭环](../end-to-end/configure-account-and-permissions/) | 按成员、角色、组织、日志顺序核对 |
 | 排查登录问题 | [登录配置](../operator/system-settings/login-properties/) | 核对验证码、找回和第三方登录 |
 | 排查接口流控 | [API 流控概览](../operator/api-rate-control/overview/) | 查看规则、审计、节点缓存和发布中心 |

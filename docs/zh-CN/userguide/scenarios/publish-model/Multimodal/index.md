@@ -1,3 +1,8 @@
+---
+prev: false
+next: true
+---
+
 # 发布模型（多模态模型）
 
 ## 场景目标
@@ -46,7 +51,7 @@
 - **模型参数配置**：
     - 默认 **"输入模态"**（文本 / 图片 / 视频）；
     - 默认 **"输出模态"**（文本）；
-    - 开启 **"高级能力"**：函数/工具支持、思考模式。
+    - 按模型实际能力开启 **"思考模式"**。Function Calling（函数/工具支持）仍在规划中，当前版本不作为可用能力配置。
     - **Token 限制**：设置 **"最大上下文"**（如 1024K）、**"最大输入"**（如 991K）、**"最大输出"**（如 64K）。
 
 ![模型参数配置](./images/step-1-model-parameter-configuration.png)
@@ -107,13 +112,13 @@
 | 请求头            | 键值对      | `Authorization: Bearer <key>`                                                                                              | 选填，认证与自定义请求头                                   |
 | 输入模态           | 多选       | `文本 / 图片 / 视频`                                                                                                             | 必填，模型支持的输入数据类型                                 |
 | 输出模态           | 多选       | `文本`                                                                                                                       | 必填，模型支持的输出数据类型                                 |
-| 高级能力           | 开关       | `函数/工具支持 / 思考模式`                                                                                                           | 选填，模型的扩展能力                                     |
+| 高级能力           | 开关       | `思考模式`                                                                                                                   | 选填，仅开启模型已验证支持的能力；Function Calling（函数/工具支持）仍在规划中 |
 | 最大上下文          | 数值       | `1024K`                                                                                                                    | 必填，Token 上下文上限                                 |
 | 最大输入           | 数值       | `991K`                                                                                                                     | 必填，单次输入 Token 上限                               |
 | 最大输出           | 数值       | `64K`                                                                                                                      | 必填，单次输出 Token 上限                               |
 | 支持协议           | 多选       | `OpenAI-ChatCompletions / OpenAI-Responses / Anthropic-Messages`                                                           | 必填，模型兼容的 API 协议，需先进行连通性测试                      |
 | 接口地址       | URL      | `https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions`                                                       | 必填，协议对应的端点地址                                   |
-| 输入参数           | 参数列表     | `Temperature / Top-P / N / Stream / Max Tokens / Presence Penalty / Frequency Penalty / User / Seed / Parallel Tool Calls` | 选填，按协议预设的输入参数                                  |
+| 输入参数           | 参数列表     | `Temperature / Top-P / N / Stream / Max Tokens / Presence Penalty / Frequency Penalty / User / Seed`                       | 选填，按协议预设的输入参数                                  |
 | 个性化标识          | 文本       | `Qwen3.6-plus`                                                                                                             | 必填，模型对外展示的自定义标识                                |
 | 描述             | 文本       | `Qwen3.6原生视觉...`                                                                                                           | 选填，模型的说明描述                                     |
 | 发布方式           | 单选       | `立即发布 / 定时发布`                                                                                                              | 必填，模型的上线时机                                     |

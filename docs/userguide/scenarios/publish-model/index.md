@@ -1,3 +1,8 @@
+---
+prev: false
+next: true
+---
+
 # Scenario Overview - Publish Models
 
 This scenario helps model providers publish models as services that can be tried and called.
@@ -7,7 +12,7 @@ This scenario helps model providers publish models as services that can be tried
 - Model Provider
 - Operator when preconfiguration or review is required
 
-## Goals
+## Scenario Goals
 
 - Publish a model service that users can discover, try, and call.
 - Configure protocol, billing, rate limits, publication scope, and review data.
@@ -47,6 +52,13 @@ This scenario helps model providers publish models as services that can be tried
 | [Publish Image Models](./Image/) | Publish an image model with image-specific billing and response parsing |
 | [Publish Speech Models](./Speech/) | Publish a speech model with audio protocol and character-based billing |
 | [Publish Video Models](./Video/) | Publish an asynchronous video model with callback and result parsing |
+
+## Related Scenarios
+
+- **[Publish Models Preconfiguration](../publish-model-preconfiguration/)**: Platform Operators prepare meta-models, model sources, templates, tags, currency, and review settings before publication
+- **[Model Publishing Approval](../model-publishing-approval/)**: administrators process the publication request after submission
+- **[Publish an Aggregation Model](../publish-aggregation-model/)**: defines aggregation routing on top of published models
+- **[Model Experience and API Calling](../model-experience-api-calling/)**: explains how end users discover, try, and call the model after publication
 
 ## Completion Checklist
 

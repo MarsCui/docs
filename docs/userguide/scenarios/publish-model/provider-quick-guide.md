@@ -30,11 +30,12 @@ The model passes protocol testing, is submitted to the correct publication scope
 
 1. After signing in, open **"Model Services"**.
 2. In the left menu, go to **"Studio" > "My Models"**.
-3. Click **"Publish Model"** and choose a deployment method:
+3. Click **"Publish Model"**.
+4. In the dialog, choose a deployment method:
    - **On-Prem / On-Cloud** for a model deployed on compute managed through AGIOne.
    - **BYOK (Bring Your Own Key)** for an existing third-party or self-hosted model API.
-4. Choose **Private** for internal use or **Public** for the public marketplace.
-5. Click **Start**.
+5. Choose **Private** for internal use or **Public** for the public marketplace.
+6. Click **Start**.
 
 ![My Models entry](./images/my_models-overview-en.png)
 

@@ -1,3 +1,8 @@
+---
+prev: false
+next: true
+---
+
 # 接入云平台
 
 本任务先登记 AGIOne 可接入的公有云或私有云类型，为后续账号接入、资源池同步和授权建立基础。
@@ -40,7 +45,7 @@
 | 厂商标识 | 下拉选择（公有云）/ 文本（私有云） | `aliyun` / `agione-powerone` | 必填，云平台的唯一标识 |
 | 显示名称 | 多语言文本 | English: `aliyun` / 中文简体: `阿里云` | 必填，分别在"English"和"中文简体"Tab 下配置显示名称 |
 | 链接地址 | URL | `http://test.metis.opr/infrahub/op/access/platform` | **仅私有云**必填，私有云平台的访问地址 |
-| Logo | 图片 | `阿里云 / 华为云 / AGIOne-powerone 图标` | 选填，用于展示的云平台图标 |
+| Logo | 图片 | `阿里云 / AWS / AGIOne-powerone 图标` | 选填，用于展示的云平台图标；华为云接入当前暂不支持 |
 
 ## 完成检查
 

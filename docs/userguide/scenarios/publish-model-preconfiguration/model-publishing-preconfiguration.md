@@ -37,8 +37,8 @@ Model Providers can publish without missing sources, templates, tags, currency, 
     - Multiple selections are supported.
     - Select according to the interaction media supported by the model, such as Text, Image, Audio, or Video.
 15. Enable advanced capabilities according to the model capability.
-    - Enable only capabilities actually supported by the model, such as Function Calling, Tool Support, or Thinking Mode.
-    - Do not enable capabilities that the model does not support.
+    - Enable Thinking Mode only when the model has been verified to support it.
+    - Function Calling and Tool Support are planned capabilities and must not be configured as currently available features.
 16. Set Token Limits.
     - Fill in Max Context, Max Input, and Max Output according to the model's official capability.
     - Avoid values that exceed the model capability, otherwise the Provider may fail model testing during publishing.
