@@ -13,15 +13,16 @@ This scenario guides operators through connecting cloud platforms, accounts, and
 
 ## Recommended Reading Order
 
-1. Connect the cloud platform
-2. Connect cloud accounts and resource pools
-3. Grant business-region access
-4. Grant tenant-cloud access
+1. Start with Quick Access and Access Overview to understand global progress.
+2. Connect the cloud platform, accounts, and resource pools.
+3. Grant business-region access.
+4. Grant tenant-cloud access and validate with a regular user.
 
 ## Document Index
 
 | Document | Description |
 | --- | --- |
+| [Quick Access and Access Overview](./quick-access-overview/) | Review onboarding order, global state, and next-step entries |
 | [Cloud Platforms](./Access-CloudType/) | Add public or private cloud platforms |
 | [Cloud Accounts](./Cloud-Accounts/) | Add an account under a platform |
 | [Resource Pools](./Resource-Pools/) | Enable regions and maintain display data |

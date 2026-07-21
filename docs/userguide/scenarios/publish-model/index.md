@@ -26,7 +26,7 @@ This scenario helps model providers publish models as services that can be tried
 ## Before You Start
 
 - Complete model-publishing preconfiguration.
-- Prepare the source endpoint, protocol, model ID, and request headers.
+- Choose platform-hosted deployment or BYOK. For BYOK, prepare the external endpoint, model ID, protocol, headers, and key.
 - Define billing and rate-limit policies.
 
 ## Recommended Reading Order
@@ -40,7 +40,7 @@ This scenario helps model providers publish models as services that can be tried
 
 | Document | Description |
 | --- | --- |
-| [Publish Public Models](./provider-quick-guide) | Publish a model to the public marketplace, including model information, protocol testing, billing, rate limits, and approval submission |
+| [Publish Public Models](./provider-quick-guide) | Choose platform-hosted deployment or BYOK, then complete model information, protocol testing, billing, rate limits, and approval submission |
 | [Publish Text Models](./Text/) | Publish a text model through the text model publishing flow |
 | [Publish Multimodal Models](./Multimodal/) | Publish a multimodal conversation model and configure compatible protocols and billing |
 | [Publish Embedding Models](./Embedding/) | Publish an embedding model through an embeddings-compatible protocol |

@@ -240,6 +240,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
                 { text: "Scenario Overview", link: "/userguide/scenarios/on-prem-resource-metering-monitoring/" },
                 { text: "Tenant NPU Quotas", link: "/userguide/scenarios/on-prem-resource-metering-monitoring/tenant-quotas/" },
                 { text: "Device, Node, and Workload Monitoring", link: "/userguide/scenarios/on-prem-resource-metering-monitoring/resource-monitoring/" },
+                { text: "Monthly Metering Reconciliation", link: "/userguide/scenarios/on-prem-resource-metering-monitoring/metering-reconciliation/" },
               ],
             },
             {
@@ -247,6 +248,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
               collapsed: true,
               items: [
                 { text: "Scenario Overview", link: "/userguide/scenarios/on-cloud-resource-access/" },
+                { text: "Quick Access and Access Overview", link: "/userguide/scenarios/on-cloud-resource-access/quick-access-overview/" },
                 { text: "Cloud Platforms", link: "/userguide/scenarios/on-cloud-resource-access/Access-CloudType/" },
                 { text: "Cloud Accounts", link: "/userguide/scenarios/on-cloud-resource-access/Cloud-Accounts/" },
                 { text: "Resource Pools", link: "/userguide/scenarios/on-cloud-resource-access/Resource-Pools/" },
@@ -296,6 +298,78 @@ export const enSidebar: DefaultTheme.Sidebar = {
               items: [
                 { text: "Scenario Overview", link: "/userguide/scenarios/platform-governance-access-control/" },
                 { text: "Governance Workflow", link: "/userguide/scenarios/platform-governance-access-control/governance-workflow" },
+              ],
+            },
+            {
+              text: "Billing-Cycle Reconciliation & Settlement",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/billing-cycle-reconciliation-settlement/" },
+                { text: "Reconciliation and Settlement Workflow", link: "/userguide/scenarios/billing-cycle-reconciliation-settlement/reconciliation-settlement-workflow" },
+              ],
+            },
+            {
+              text: "Provider Revenue & Settlement",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/provider-revenue-settlement/" },
+                { text: "Revenue and Settlement Workflow", link: "/userguide/scenarios/provider-revenue-settlement/revenue-settlement-workflow" },
+              ],
+            },
+            {
+              text: "Project, Key & Budget Governance",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/project-key-budget-governance/" },
+                { text: "Project and Key Workflow", link: "/userguide/scenarios/project-key-budget-governance/project-key-workflow" },
+              ],
+            },
+            {
+              text: "Member Quota Request & Allocation",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/member-quota-application-allocation/" },
+                { text: "Member Quota Workflow", link: "/userguide/scenarios/member-quota-application-allocation/quota-workflow" },
+              ],
+            },
+            {
+              text: "Application Publishing & Approval",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/application-publishing-approval/" },
+                { text: "Application Publishing and Approval Workflow", link: "/userguide/scenarios/application-publishing-approval/application-review-workflow" },
+              ],
+            },
+            {
+              text: "On-Prem Runtime Images & Storage",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/on-prem-runtime-storage-foundation/" },
+                { text: "Runtime Image and Storage Workflow", link: "/userguide/scenarios/on-prem-runtime-storage-foundation/runtime-storage-workflow" },
+              ],
+            },
+            {
+              text: "API Rate-Control Release & Audit",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/api-rate-control-release-audit/" },
+                { text: "Rate-Control Release and Audit Workflow", link: "/userguide/scenarios/api-rate-control-release-audit/rate-control-workflow" },
+              ],
+            },
+            {
+              text: "On-Cloud Scheduling Policies",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/on-cloud-scheduling-policy/" },
+                { text: "Scheduling Policy Workflow", link: "/userguide/scenarios/on-cloud-scheduling-policy/scheduling-policy-workflow" },
+              ],
+            },
+            {
+              text: "License Lifecycle Management",
+              collapsed: true,
+              items: [
+                { text: "Scenario Overview", link: "/userguide/scenarios/license-lifecycle-management/" },
+                { text: "License Lifecycle Workflow", link: "/userguide/scenarios/license-lifecycle-management/license-lifecycle-workflow" },
               ],
             },
           ],

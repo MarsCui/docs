@@ -27,7 +27,9 @@ next: true
 | 云资源 | 云平台、地域和租户授权 | [多云资源接入](../on-cloud-resource-access/) |
 | 本地算力平台资源 | 地域、规格、租户配额和额度 | [本地算力平台 算力纳管](../on-prem-compute-onboarding/)、[资源计量与监控](../on-prem-resource-metering-monitoring/) |
 | 模型 | 公有/私有范围、发布审批和模型可见性 | [发布模型](../publish-model/)、[模型发布审批](../model-publishing-approval/) |
-| 调用 | Personal Key、项目、模型授权、限流和余额 | [模型的体验与调用](../model-experience-api-calling/) |
+| 项目与调用 | 项目预算、Key、模型白名单和成员额度 | [项目、Key 与预算治理](../project-key-budget-governance/)、[成员额度申请与分配](../member-quota-application-allocation/) |
+| API 流控 | API Pattern、规则版本、节点缓存和命中审计 | [API 流控发布与审计](../api-rate-control-release-audit/) |
+| 平台授权容量 | License 状态、有效期、授权构成和纳管对象 | [License 生命周期管理](../license-lifecycle-management/) |
 
 ## 开始前准备
 
@@ -42,9 +44,11 @@ next: true
 2. 完成角色和菜单授权，并用目标账号验证入口可见性。
 3. 按资源类型完成云资源授权或 本地算力平台 规格、配额分配。
 4. 对模型设置公有或私有范围，按需完成发布审批。
-5. 为调用方准备个人调用凭据、项目或模型授权，并设置限流和额度。
-6. 使用目标账号完成一次只读检查或受控调用，确认权限和限制生效。
-7. 记录变更原因、范围、验证结果和回退方式。
+5. 按[项目、Key 与预算治理](../project-key-budget-governance/)创建调用边界，再按[成员额度申请与分配](../member-quota-application-allocation/)核对成员限制。
+6. 对平台 API 按[API 流控发布与审计](../api-rate-control-release-audit/)验证规则版本和命中结果。
+7. 检查 [License 生命周期](../license-lifecycle-management/)是否支撑目标资源规模。
+8. 使用目标账号完成一次只读检查或受控调用，确认权限和限制生效。
+9. 记录变更原因、范围、验证结果和回退方式。
 
 验证凭据边界时，进入 **Personal Key 管理**，确认只保留目标责任人持有且仍应生效的 Key。
 

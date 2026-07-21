@@ -41,6 +41,17 @@
 
 ![我的模型入口](./images/my_models-overview-zh.png)
 
+### 2.1 选择平台托管或 BYOK
+
+| 部署方式 | 适用情况 | 发布前需要确认 |
+| --- | --- | --- |
+| 本地算力平台 / 多云调度平台 | 模型由 AGIOne 管理的算力部署 | 模型资产、资源池、推理模板或云部署条件已准备 |
+| BYOK（Bring Your Own Key） | 已有第三方或自建模型 API，需要接入统一体验、计费和治理 | 接口地址、模型来源 ID、请求头、密钥、协议和返回格式已准备 |
+
+选择发布区域和部署方式后再点击“开始”。BYOK 的密钥只填写在平台配置页，文档、截图和工单中不得出现明文。
+
+![选择发布区域和部署方式](../../../usermanual/model-services/user/studio/my-models/images/choose-where-to-publish.png)
+
 ## 3. 填写基本信息
 
 1. 在**选择模型类型**中选择与上游服务一致的模型类型和子类型。
@@ -49,7 +60,7 @@
 ![核对模型基本信息](./images/publish-basic-info-zh.png)
 
 3. 在**模型来源/元模型信息**中选择真实的模型来源、地域和目标元模型。
-4. 填写模型服务 URL、厂商 Key 和准确的模型来源 ID。
+4. BYOK 填写模型服务 URL、厂商 Key 和准确的模型来源 ID；平台托管部署则选择已经准备好的模型资产和部署来源。
 
 ![填写模型来源信息](./images/publish-source-protocol-zh.png)
 

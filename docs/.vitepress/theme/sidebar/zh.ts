@@ -190,6 +190,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                 { text: '场景概览', link: '/zh-CN/userguide/scenarios/on-prem-resource-metering-monitoring/' },
                 { text: '配置租户 NPU 配额', link: '/zh-CN/userguide/scenarios/on-prem-resource-metering-monitoring/tenant-quotas/' },
                 { text: '监控设备、节点与作业', link: '/zh-CN/userguide/scenarios/on-prem-resource-metering-monitoring/resource-monitoring/' },
+                { text: '核对月度计量与明细', link: '/zh-CN/userguide/scenarios/on-prem-resource-metering-monitoring/metering-reconciliation/' },
               ],
             },
             {
@@ -197,6 +198,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
               collapsed: true,
               items: [
                 { text: '场景概览', link: '/zh-CN/userguide/scenarios/on-cloud-resource-access/' },
+                { text: '快速接入与接入总览', link: '/zh-CN/userguide/scenarios/on-cloud-resource-access/quick-access-overview/' },
                 { text: '接入云平台', link: '/zh-CN/userguide/scenarios/on-cloud-resource-access/Access-CloudType/' },
                 { text: '接入账号', link: '/zh-CN/userguide/scenarios/on-cloud-resource-access/Cloud-Accounts/' },
                 { text: '接入资源池', link: '/zh-CN/userguide/scenarios/on-cloud-resource-access/Resource-Pools/' },
@@ -246,6 +248,78 @@ export const zhSidebar: DefaultTheme.Sidebar = {
               items: [
                 { text: '场景概览', link: '/zh-CN/userguide/scenarios/platform-governance-access-control/' },
                 { text: '平台治理检查流程', link: '/zh-CN/userguide/scenarios/platform-governance-access-control/governance-workflow' },
+              ],
+            },
+            {
+              text: '运营账期对账与结算',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/billing-cycle-reconciliation-settlement/' },
+                { text: '账期对账与结算流程', link: '/zh-CN/userguide/scenarios/billing-cycle-reconciliation-settlement/reconciliation-settlement-workflow' },
+              ],
+            },
+            {
+              text: '服务商收益与结算',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/provider-revenue-settlement/' },
+                { text: '收益与结算核对流程', link: '/zh-CN/userguide/scenarios/provider-revenue-settlement/revenue-settlement-workflow' },
+              ],
+            },
+            {
+              text: '项目、Key 与预算治理',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/project-key-budget-governance/' },
+                { text: '项目与 Key 配置流程', link: '/zh-CN/userguide/scenarios/project-key-budget-governance/project-key-workflow' },
+              ],
+            },
+            {
+              text: '成员额度申请与分配',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/member-quota-application-allocation/' },
+                { text: '成员额度申请与分配流程', link: '/zh-CN/userguide/scenarios/member-quota-application-allocation/quota-workflow' },
+              ],
+            },
+            {
+              text: '应用发布与审核',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/application-publishing-approval/' },
+                { text: '应用发布与审核流程', link: '/zh-CN/userguide/scenarios/application-publishing-approval/application-review-workflow' },
+              ],
+            },
+            {
+              text: '本地运行镜像与存储底座',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/on-prem-runtime-storage-foundation/' },
+                { text: '运行镜像与存储配置流程', link: '/zh-CN/userguide/scenarios/on-prem-runtime-storage-foundation/runtime-storage-workflow' },
+              ],
+            },
+            {
+              text: 'API 流控发布与审计',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/api-rate-control-release-audit/' },
+                { text: '流控发布与审计流程', link: '/zh-CN/userguide/scenarios/api-rate-control-release-audit/rate-control-workflow' },
+              ],
+            },
+            {
+              text: '多云调度策略',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/on-cloud-scheduling-policy/' },
+                { text: '调度策略配置与验证', link: '/zh-CN/userguide/scenarios/on-cloud-scheduling-policy/scheduling-policy-workflow' },
+              ],
+            },
+            {
+              text: 'License 生命周期管理',
+              collapsed: true,
+              items: [
+                { text: '场景概览', link: '/zh-CN/userguide/scenarios/license-lifecycle-management/' },
+                { text: 'License 生命周期检查流程', link: '/zh-CN/userguide/scenarios/license-lifecycle-management/license-lifecycle-workflow' },
               ],
             },
           ],
