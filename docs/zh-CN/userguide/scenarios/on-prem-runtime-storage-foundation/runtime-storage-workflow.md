@@ -24,13 +24,13 @@ next: true
 
 进入[镜像组件](../../../usermanual/ai-infra-on-prem/operator/resource-pools/image-services/)，填写仓库 Endpoint、认证信息和关联地域。注册后检查组件和同步状态；只在浏览器能打开仓库不代表集群节点能够拉取镜像。
 
-![检查镜像组件及其同步状态](../../../usermanual/ai-infra-on-prem/operator/resource-pools/image-services/images/image-services-list-browser.png)
+![检查镜像组件及其同步状态](../../../usermanual/ai-infra-on-prem/operator/resource-pools/image-services/images/image-services-list.png)
 
 ### 2. 同步或上传运行镜像
 
 进入[镜像管理](../../../usermanual/ai-infra-on-prem/operator/resource-pools/images/)，同步仓库或上传镜像条目。使用包含框架、版本、硬件环境和用途的稳定标签，生产环境不要只使用 `latest`。
 
-![在镜像管理中确认运行镜像可见](../../../usermanual/ai-infra-on-prem/operator/resource-pools/images/images/images-list-browser.png)
+![在镜像管理中确认运行镜像可见](../../../usermanual/ai-infra-on-prem/operator/resource-pools/images/images/images-list.png)
 
 ### 3. 按工作负载选择存储组件
 
@@ -40,7 +40,7 @@ next: true
 
 填写连接信息、容量、访问策略和关联地域后，返回列表确认状态。
 
-![注册文件存储组件并确认共享路径](../../../usermanual/ai-infra-on-prem/operator/resource-pools/file-storage/images/file-storage-register-browser.png)
+![注册文件存储组件并确认共享路径](../../../usermanual/ai-infra-on-prem/operator/resource-pools/file-storage/images/new-file-storage.png)
 
 ### 4. 绑定地域并运行联合验证
 

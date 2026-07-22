@@ -179,7 +179,7 @@ For an image model, choose an available image or multimodal model, upload saniti
 
 For a video model, first use a short sanitized sample to validate frame sampling, output format, and asynchronous results before increasing input size.
 
-![Configure video playground parameters](../../../usermanual/model-services/user/playground/video/images/parameters.png)
+![Configure video playground parameters](../../../usermanual/model-services/user/playground/video/images/video-list.png)
 
 For an audio model, confirm input format, language, and output type. Do not upload original recordings that contain customer privacy.
 

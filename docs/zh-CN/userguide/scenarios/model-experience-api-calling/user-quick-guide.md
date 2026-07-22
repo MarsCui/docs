@@ -178,7 +178,7 @@ Web 体验中心是试用模型最简单的方式，无需编写代码。
 
 体验视频模型时，先使用短时长的脱敏素材验证抽帧、输出格式和异步结果，再逐步扩大输入。
 
-![配置视频体验参数](../../../usermanual/model-services/user/playground/video/images/parameters.png)
+![配置视频体验参数](../../../usermanual/model-services/user/playground/video/images/video-list.png)
 
 体验语音模型时，确认输入格式、语言和输出类型；不要上传包含客户隐私的原始录音。
 

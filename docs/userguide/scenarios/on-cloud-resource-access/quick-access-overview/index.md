@@ -17,11 +17,11 @@ Understand the on-cloud access sequence before configuring individual items and 
 
 1. Open [Quick Access](../../../../usermanual/ai-infra-on-cloud/operator/access-workbench/quick-start/) and review the dependency order for platforms, accounts, resource pools, and authorization.
 
-![Review configuration order in Quick Access](../../../../usermanual/ai-infra-on-cloud/operator/access-workbench/quick-start/images/quick-start.png)
+![Review configuration order in Quick Access](../../../../usermanual/ai-infra-on-cloud/operator/access-workbench/quick-start/images/quick-start-list.png)
 
 2. Open [Access Overview](../../../../usermanual/ai-infra-on-cloud/operator/access-workbench/access-overview/) and review onboarded platforms, valid accounts, available resource pools, and authorization exceptions.
 
-![Review global state in Access Overview](../../../../usermanual/ai-infra-on-cloud/operator/access-workbench/access-overview/images/access-overview.png)
+![Review global state in Access Overview](../../../../usermanual/ai-infra-on-cloud/operator/access-workbench/access-overview/images/access-overview-list.png)
 
 3. Follow missing-item entries to Cloud Platforms, Cloud Accounts, Resource Pools, Business-Region Authorization, or Tenant-Cloud Authorization.
 4. After configuration, refresh Access Overview and confirm that exception counts and target-object states update.

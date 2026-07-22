@@ -23,13 +23,13 @@ Use this task to configure preferred and fallback resource pools for a tenant or
 
 Open [Access Overview](../../../usermanual/ai-infra-on-cloud/operator/access-workbench/access-overview/) and confirm target cloud-account and resource-pool state. Then review tenant-cloud authorization, business-region authorization, and available capacity. Do not create a scheduling policy while required authorization is missing.
 
-![Review on-cloud access and resource state](../../../usermanual/ai-infra-on-cloud/operator/access-workbench/access-overview/images/access-overview.png)
+![Review on-cloud access and resource state](../../../usermanual/ai-infra-on-cloud/operator/access-workbench/access-overview/images/access-overview-list.png)
 
 ### 2. Configure the Scheduling Policy
 
 Open [Scheduling Policies](../../../usermanual/ai-infra-on-cloud/operator/scheduling-governance/policies/) and set the policy name, tenant or business-region scope, preferred resource pool, priority, capacity threshold, fallback resource pools, and constraints. Assess latency, cost, and data compliance before allowing cross-region fallback.
 
-![Configure policy scope, priority, and resource pools](../../../usermanual/ai-infra-on-cloud/operator/scheduling-governance/policies/images/policies.png)
+![Configure policy scope, priority, and resource pools](../../../usermanual/ai-infra-on-cloud/operator/scheduling-governance/policies/images/policies-list.png)
 
 ### 3. Run a Test Deployment
 

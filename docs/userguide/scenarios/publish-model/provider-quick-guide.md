@@ -48,7 +48,7 @@ The model passes protocol testing, is submitted to the correct publication scope
 
 Select the publication area and deployment method before clicking Start. Enter a BYOK credential only on the platform configuration page; never expose it in documentation, screenshots, or tickets.
 
-![Choose the publication area and deployment method](../../../usermanual/model-services/user/studio/my-models/images/choose-where-to-publish.png)
+![Choose the publication area and deployment method](../../../usermanual/model-services/user/studio/my-models/images/my-published-choose-where-to-publish-add.png)
 
 ## 3. Fill In Basic Information
 

@@ -23,13 +23,13 @@ next: true
 
 进入[接入总览](../../../usermanual/ai-infra-on-cloud/operator/access-workbench/access-overview/)，确认目标云账号和资源池状态；再核对租户云授权、业务地域授权和资源池可用容量。缺少授权时不要直接创建调度策略。
 
-![检查多云接入和资源状态](../../../usermanual/ai-infra-on-cloud/operator/access-workbench/access-overview/images/access-overview.png)
+![检查多云接入和资源状态](../../../usermanual/ai-infra-on-cloud/operator/access-workbench/access-overview/images/access-overview-list.png)
 
 ### 2. 配置调度策略
 
 进入[调度策略](../../../usermanual/ai-infra-on-cloud/operator/scheduling-governance/policies/)，设置策略名称、适用租户或业务地域、首选资源池、优先级、容量阈值、回退资源池和约束。跨地域回退前必须确认时延、成本和数据合规影响。
 
-![配置策略范围、优先级和资源池](../../../usermanual/ai-infra-on-cloud/operator/scheduling-governance/policies/images/policies.png)
+![配置策略范围、优先级和资源池](../../../usermanual/ai-infra-on-cloud/operator/scheduling-governance/policies/images/policies-list.png)
 
 ### 3. 执行测试部署
 

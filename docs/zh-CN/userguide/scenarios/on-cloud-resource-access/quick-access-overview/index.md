@@ -17,11 +17,11 @@
 
 1. 进入[快速接入](../../../../usermanual/ai-infra-on-cloud/operator/access-workbench/quick-start/)，按页面顺序确认云平台、云账号、资源池和授权依赖。
 
-![从快速接入确认配置顺序](../../../../usermanual/ai-infra-on-cloud/operator/access-workbench/quick-start/images/quick-start.png)
+![从快速接入确认配置顺序](../../../../usermanual/ai-infra-on-cloud/operator/access-workbench/quick-start/images/quick-start-list.png)
 
 2. 进入[接入总览](../../../../usermanual/ai-infra-on-cloud/operator/access-workbench/access-overview/)，核对已接入平台、有效账号、可用资源池和授权异常。
 
-![从接入总览检查全局状态](../../../../usermanual/ai-infra-on-cloud/operator/access-workbench/access-overview/images/access-overview.png)
+![从接入总览检查全局状态](../../../../usermanual/ai-infra-on-cloud/operator/access-workbench/access-overview/images/access-overview-list.png)
 
 3. 根据缺失项进入云平台、云账号、资源池、业务地域授权或租户云授权任务。
 4. 配置完成后返回接入总览刷新，确认异常数量和目标对象状态更新。
