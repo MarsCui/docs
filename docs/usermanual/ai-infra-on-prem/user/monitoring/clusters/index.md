@@ -53,9 +53,11 @@ The page displays cluster statistics capability for the selected region. When th
 | Health Status | `Available / Abnormal / Under maintenance` | Determines whether the cluster is suitable for new instances. |
 | Capacity Trend | `Resource usage in the last 24 hours` | Determines short-term resource pressure. |
 
-## View Cluster Statistics
+## Main Operations
 
-### Procedure
+### View Cluster Statistics
+
+#### Procedure
 
 1. Go to `Monitoring > Cluster Statistics`.
 2. Confirm the region in the upper-right corner.
@@ -63,13 +65,13 @@ The page displays cluster statistics capability for the selected region. When th
 4. View charts, lists, or prompt information.
 5. If monitoring capability is not opened, return to instance details to view logs, events, and status.
 
-### Key Focus When Capability Is Open
+#### Key Focus When Capability Is Open
 
 - Whether cluster health status is normal.
 - Whether node count, total GPUs, and total CPUs match expectations.
 - Whether resource watermarks are close to thresholds that affect new task creation.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -80,13 +82,13 @@ The page displays cluster statistics capability for the selected region. When th
 | Total CPUs | System-generated | Number | `1536 Core` | Total CPU capacity of the cluster. |
 | Health Status | System-generated | Status | `Healthy` | Shows whether the cluster is available, alerted, or collection abnormal. |
 
-### Pitfalls
+#### Pitfalls
 
 - High cluster watermarks do not necessarily mean your task will fail. Also check target specification and quota.
 - When cluster health is abnormal, do not repeatedly submit the same job. Confirm platform events first.
 - Do not mix resources from different regions in the same judgment.
 
-### Result Validation
+#### Result Validation
 
 1. The list displays cluster name, region, node count, and health status.
 2. Resource capacity is consistent with the current region and visible scope.

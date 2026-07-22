@@ -44,9 +44,11 @@ The left side provides bucket search and bucket list, and the upper-right corner
 
 ![Object Storage](./images/object-storage.png)
 
-## Add Bucket
+## Main Operations
 
-### Procedure
+### Add Bucket
+
+#### Procedure
 
 1. Go to `Storage Services > Object Storage`.
 2. Confirm the region in the upper-right corner.
@@ -54,7 +56,7 @@ The left side provides bucket search and bucket list, and the upper-right corner
 4. Fill in Bucket Name.
 5. Click `Confirm` to submit.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -64,21 +66,21 @@ The left side provides bucket search and bucket list, and the upper-right corner
 | Access Path | Conditionally required | Text | `/mnt/data` | Mount path used by jobs or instances. |
 | Status | System-generated | Enum | `Available` | Current storage resource status. |
 
-### Pitfalls
+#### Pitfalls
 
 - Storage paths, bucket names, AK/SK, and NFS paths must be sanitized before screenshots.
 - If mounting fails, confirm region, permissions, and storage component status first.
 - Before deleting storage resources, confirm that no instances, tasks, or output artifacts depend on them.
 
-### Result Validation
+#### Result Validation
 
 1. The new bucket appears in the bucket list.
 2. Searching by bucket name can locate the bucket.
 3. After entering bucket details, the object list or upload entrypoint is visible.
 
-## Upload Object
+### Upload Object
 
-### Procedure
+#### Procedure
 
 1. Open the target bucket in the bucket list.
 2. Click the upload entrypoint provided by the page.
@@ -86,7 +88,7 @@ The left side provides bucket search and bucket list, and the upper-right corner
 4. Submit the upload and wait for completion.
 5. Refresh the object list and confirm file size, update time, and path.
 
-### Naming Recommendations
+#### Naming Recommendations
 
 | Type | Example Path | Description |
 | --- | --- | --- |
@@ -94,18 +96,18 @@ The left side provides bucket search and bucket list, and the upper-right corner
 | Dataset | `datasets/train/train.jsonl` | Organize by use and batch. |
 | Output result | `outputs/job-20260703/result.json` | Organize by task or date. |
 
-## Download Object
+### Download Object
 
-### Procedure
+#### Procedure
 
 1. Open the target bucket.
 2. Find the target file in the object list.
 3. Click the download entrypoint.
 4. After download, verify file size, format, and content.
 
-## Delete Object or Bucket
+### Delete Object or Bucket
 
-### Delete Object
+#### Delete Object
 
 1. Open the target bucket.
 2. Select or locate the target object.
@@ -113,7 +115,7 @@ The left side provides bucket search and bucket list, and the upper-right corner
 4. Read the confirmation prompt and submit.
 5. Refresh the list to confirm that the object has been removed.
 
-### Delete Bucket
+#### Delete Bucket
 
 Before deleting a bucket, confirm that objects in the bucket have been backed up or are no longer used. If the platform requires an empty bucket before deletion, clean up objects first, then delete the bucket.
 

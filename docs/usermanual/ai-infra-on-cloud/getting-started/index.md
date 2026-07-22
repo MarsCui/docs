@@ -1,4 +1,4 @@
-﻿# Getting Started
+# Getting Started
 
 ::: info Document Information
 Version: v1.0

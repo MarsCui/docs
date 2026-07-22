@@ -63,19 +63,21 @@ The list page supports filtering by region and status, and provides refresh and 
 | Single Node / Cluster | Distinguishes single-node and cluster forms in the list or creation page. |
 | Pagination Area | View by page when there are many IDEs. |
 
-## Create Online IDE
+## Main Operations
 
-### Applicable Scenario
+### Create Online IDE
+
+#### Applicable Scenario
 
 Create an online IDE when an interactive development, debugging, or Notebook environment is needed.
 
-### Pre-Operation Check
+#### Pre-Operation Check
 
 1. Target specification and quota are available.
 2. The image contains Python, CUDA, frameworks, or other development dependencies.
 3. The runtime cycle has been confirmed to avoid long idle resource consumption.
 
-### Procedure
+#### Procedure
 
 1. Go to `Development Resources > Online IDE`.
 2. Click `Create IDE`.
@@ -86,7 +88,7 @@ Create an online IDE when an interactive development, debugging, or Notebook env
 
 The following figure shows the online IDE creation page. Users first select deployment type, then enter parameter filling.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -96,32 +98,32 @@ The following figure shows the online IDE creation page. Users first select depl
 | Storage Mount | No | Path | `/mnt/workspace` | Workspace mount path. |
 | Startup Command | No | Text | `jupyter lab` | IDE startup command. |
 
-### Pitfalls
+#### Pitfalls
 
 - Cluster mode may require more quota. Use single-node first for regular debugging.
 - If the image lacks dependencies, the IDE may start but code may fail to run.
 - Stop or release IDEs that are not used for a long time.
 
-### Result Validation
+#### Result Validation
 
 1. A new IDE appears in the list after creation.
 2. Status enters Running or Accessible.
 3. Web IDE, JupyterLab, or the corresponding development entrypoint can be opened.
 
-## Search and Refresh IDEs
+### Search and Refresh IDEs
 
-### Applicable Scenario
+#### Applicable Scenario
 
 When there are many IDEs or status changes, quickly locate the target environment.
 
-### Procedure
+#### Procedure
 
 1. Select region or status in the filter area.
 2. Enter a keyword and click `Search`.
 3. If no result is returned after filtering, click `Reset`.
 4. Click `Refresh` to get the latest status.
 
-### Pitfalls
+#### Pitfalls
 
 - Status refresh may be delayed immediately after creation submission.
 - Existing IDEs may also be hidden when filters are too narrow.

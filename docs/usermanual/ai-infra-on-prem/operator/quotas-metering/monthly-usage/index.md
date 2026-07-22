@@ -50,16 +50,18 @@ The following figure shows the monthly metering page.
 
 ![Monthly Metering](./images/monthly-usage-list.png)
 
-## View Monthly Metering
+## Main Operations
 
-### Procedure
+### View Monthly Metering
+
+#### Procedure
 
 1. Go to `Quota & Metering > Monthly Metering`.
 2. Filter by billing period or status.
 3. View billing period status and creation time in the list.
 4. If the monthly summary is abnormal, go to metering details for reconciliation.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -70,13 +72,13 @@ The following figure shows the monthly metering page.
 | Fee / Credits | System-generated | Number | `28800` | Fee or Credits converted according to metering rules. |
 | Export Status | System-generated | Status | `Generated` | Whether the monthly report can be downloaded or is still generating. |
 
-### Pitfalls
+#### Pitfalls
 
 - Sufficient quota does not mean the underlying cluster definitely has idle resources.
 - Metering data may be delayed. Use a unified time range and statistical definition during reconciliation.
 - Sanitize tenant, amount, and business identifiers before exporting data.
 
-### Result Validation
+#### Result Validation
 
 1. Billing period list matches expectations.
 2. Summaries can correspond to detail totals.

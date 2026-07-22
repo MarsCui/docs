@@ -46,16 +46,18 @@ The following figure shows the inference templates page.
 
 ![Inference Templates](./images/inference-templates-list.png)
 
-## Create Inference Template
+## Main Operations
 
-### Pre-Operation Check
+### Create Inference Template
+
+#### Pre-Operation Check
 
 1. Available frameworks, runtime images, and model configurations have been prepared.
 2. Resource specifications, deployment mode, and visibility scope adapted by the template have been confirmed.
 3. Default parameters have been confirmed not to expose internal paths, credentials, or test endpoints.
 4. Which user deployment entrypoints are affected by template changes has been clarified.
 
-### Procedure
+#### Procedure
 
 1. Go to `Templates > Inference Templates`.
 2. Click the add or create entrypoint.
@@ -65,7 +67,7 @@ The following figure shows the inference templates page.
 6. On the Factor Form tab, configure parameters users need to fill in, default values, validation rules, and trigger conditions.
 7. Save and publish the template.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -76,13 +78,13 @@ The following figure shows the inference templates page.
 | Visibility Scope | Yes | Enum / multi-select | `Specific tenants` | Controls which users or tenants can use the template. |
 | Associated Framework | Yes | Drop-down | `vllm-runtime` | Runtime framework configuration called by the template. |
 
-### Pitfalls
+#### Pitfalls
 
 - Do not fill in resource specifications based only on minimum VRAM. Reserve margin based on concurrency, context length, and model precision.
 - Visibility scope changes directly affect whether users can select the template on the creation page.
 - Default parameters are inherited by users. Confirm that they do not contain internal paths or test values before publishing.
 
-### Result Validation
+#### Result Validation
 
 1. The template appears in the list and its status matches expectations.
 2. The user-side deployment template page can see this template.

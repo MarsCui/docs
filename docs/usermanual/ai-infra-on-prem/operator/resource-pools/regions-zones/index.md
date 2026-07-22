@@ -13,7 +13,7 @@ Updated: 2026-07-08
 | --- | --- |
 | Applicable role | Operator |
 | Navigation path | AI Infra > On-Prem > Resource Pools > Regions & Zones |
-| Page route | To be aligned with the actual UI or frontend route configuration |
+| Page route | /powerone/resourcepool/region |
 | Managed objects | Region, Availability Zone, region-associated components, and cluster resources under availability zones |
 | Typical use | Divide compute resource pools, bind image and storage capabilities, host cluster registration, and support later job scheduling |
 

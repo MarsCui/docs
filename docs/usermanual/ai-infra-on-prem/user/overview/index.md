@@ -60,25 +60,27 @@ The upper area displays deployable templates and accelerator vendors; the middle
 | Specification Quota | Displays specification-level quotas and used amount. |
 | Consumption Trend | Displays consumption trend for the current cycle. If there is no job consumption, it is empty. |
 
-## View Deployable Resources
+## Main Operations
 
-### Applicable Scenario
+### View Deployable Resources
+
+#### Applicable Scenario
 
 Before creating a model service, online IDE, or runtime instance, confirm on the overview page whether templates, accelerators, and quotas are available.
 
-### Pre-Operation Check
+#### Pre-Operation Check
 
 1. You have entered the On-Prem overview page.
 2. The region or resource scope in the upper-right corner matches the current use scenario.
 
-### Procedure
+#### Procedure
 
 1. View model vendors and model cards in deployment templates.
 2. View accelerator vendors, models, VRAM, and adaptation status in accelerator vendors.
 3. Confirm whether the target specification still has available quota in specification quota.
 4. If a job needs to be created, click `Create Job` to enter the corresponding creation page.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -88,12 +90,12 @@ Before creating a model service, online IDE, or runtime instance, confirm on the
 | Used Amount | System-generated | Number | `4` | Current used resource amount. |
 | Update Time | System-generated | Date time | `2026-07-07 10:00` | Overview data update time. |
 
-### Pitfalls
+#### Pitfalls
 
 - When the deployment button is unavailable, usually no model or accelerator has been selected.
 - Sufficient quota does not mean the cluster definitely has idle resources. If creation fails, check region, availability zone, and specifications.
 
-### Result Validation
+#### Result Validation
 
 1. The target model or quick entrypoint is visible.
 2. The target specification is visible in the quota table.

@@ -189,6 +189,28 @@ The displayed balance, consumption, settlement status, monthly bill, or License 
 3. Compare the summary number with the detail list and operation records on the related billing pages.
 4. For financial-impacting differences, pause confirmation actions and escalate with desensitized record IDs, time range, customer scope, and screenshots without credentials.
 
+### The Generate Settlement Statement button is unavailable
+
+Check the selected billing cycle, customer or project scope, status filters, and related asynchronous task records. Compare the result with transaction details, settlement records, and operation logs before repeating any high-risk billing action.
+
+### Settlement amount is inconsistent with expectations
+
+Check the selected billing cycle, customer or project scope, status filters, and related asynchronous task records. Compare the result with transaction details, settlement records, and operation logs before repeating any high-risk billing action.
+
+### Settlement statement generation fails
+
+Check the selected billing cycle, customer or project scope, status filters, and related asynchronous task records. Compare the result with transaction details, settlement records, and operation logs before repeating any high-risk billing action.
+
+### Can a settlement statement be generated repeatedly?
+
+Check the selected billing cycle, customer or project scope, status filters, and related asynchronous task records. Compare the result with transaction details, settlement records, and operation logs before repeating any high-risk billing action.
+
+## Next Steps
+
+1. Review related billing records, transactions, settlement statements, and account balance changes.
+2. Keep only desensitized page paths, timestamps, status values, and screenshots when escalating.
+3. Continue with the related reconciliation, settlement, top-up, or adjustment flow after the result is confirmed.
+
 ## Notes
 
 - Billing amounts, settlements, balances, and customer information are sensitive. Desensitize them before sharing.

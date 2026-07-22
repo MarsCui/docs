@@ -62,18 +62,20 @@ The page provides search, reset, and top-up record tables. In the screenshot, th
 | Third Party Serial Number | External serial number. |
 | Top-up Time | Arrival time. |
 
-## Query Top-Up Records
+## Main Operations
 
-### Applicable Scenario
+### Query Top-Up Records
+
+#### Applicable Scenario
 
 When you need to confirm whether credits have arrived, reconcile accounts, or trace credit source, query top-up records.
 
-### Pre-Operation Check
+#### Pre-Operation Check
 
 1. The time range or serial information to query is clear.
 2. The current account is viewing the target tenant.
 
-### Procedure
+#### Procedure
 
 1. Go to `Quota & Usage > Top-Up Records`.
 2. Enter query conditions.
@@ -81,7 +83,7 @@ When you need to confirm whether credits have arrived, reconcile accounts, or tr
 4. View records in the table.
 5. To restore the default list, click `Reset`.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -92,12 +94,12 @@ When you need to confirm whether credits have arrived, reconcile accounts, or tr
 | Effective Status | System-generated | Status | `Effective` | Whether the record has affected available credits. |
 | Remarks | No | Text | `Project expansion` | Describes the business background or source of this change. |
 
-### Pitfalls
+#### Pitfalls
 
 - When there is no data, click `Reset` first to exclude filter impact.
 - Top-up records are used for reconciliation and do not mean resource quotas have been adjusted.
 
-### Result Validation
+#### Result Validation
 
 1. Amount, source, and time in the record match expectations.
 2. Third-party serial number can match the external system.

@@ -51,9 +51,11 @@ The following figure shows the metering details page.
 
 ![Metering Details](./images/metering-details-list.png)
 
-## View Metering Details
+## Main Operations
 
-### Procedure
+### View Metering Details
+
+#### Procedure
 
 1. Go to `Quota & Metering > Metering Details`.
 2. Select resource type, region, availability zone, or enterprise.
@@ -61,7 +63,7 @@ The following figure shows the metering details page.
 4. Expand details to view resource start and end time.
 5. To reconcile offline, click `Download Details`.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -72,13 +74,13 @@ The following figure shows the metering details page.
 | Credits | System-generated | Number | `360` | Consumed credits converted from usage according to billing rules. |
 | Detail Status | System-generated | Status | `Posted` | Shows whether the detail has completed statistics, posting, or correction. |
 
-### Pitfalls
+#### Pitfalls
 
 - Sufficient quota does not mean the underlying cluster definitely has idle resources.
 - Metering data may be delayed. Use a unified time range and statistical definition during reconciliation.
 - Sanitize tenant, amount, and business identifiers before exporting data.
 
-### Result Validation
+#### Result Validation
 
 1. Filter results match the conditions.
 2. Detail start/end time and resource type can explain monthly summaries.

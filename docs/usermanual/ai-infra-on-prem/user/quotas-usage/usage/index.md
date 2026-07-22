@@ -60,18 +60,20 @@ The page displays resource specifications, quotas, and operation entrypoints in 
 | Consumption Details | Opens consumption details for this specification. |
 | Pagination Area | View by page when there are many usage records. |
 
-## View Consumption Details
+## Main Operations
 
-### Applicable Scenario
+### View Consumption Details
+
+#### Applicable Scenario
 
 When you need to confirm which instances or tasks caused resource consumption for a specification, view consumption details.
 
-### Pre-Operation Check
+#### Pre-Operation Check
 
 1. The target resource specification has been located.
 2. Filters are confirmed not to exclude target records.
 
-### Procedure
+#### Procedure
 
 1. Go to `Quota & Usage > Resource Usage`.
 2. Find the target specification.
@@ -81,7 +83,7 @@ When you need to confirm which instances or tasks caused resource consumption fo
 
 The following figure shows the page state after opening the consumption details entrypoint, which can be used to view specification usage sources.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -92,12 +94,12 @@ The following figure shows the page state after opening the consumption details 
 | Consumed Credits | System-generated | Number | `1440 Credits` | Consumed credits converted according to platform rules. |
 | Statistics Update Time | System-generated | Date time | `2026-07-06 10:00` | Determines whether usage data has completed synchronization. |
 
-### Pitfalls
+#### Pitfalls
 
 - If details are empty, this specification may currently have no consumption records.
 - Statistical data may be delayed and is not suitable as a replacement for real-time instance status.
 
-### Result Validation
+#### Result Validation
 
 1. The details page or drawer can open.
 2. The specification in records is consistent with the clicked row.

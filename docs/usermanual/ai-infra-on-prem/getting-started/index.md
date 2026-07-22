@@ -25,7 +25,7 @@ Updated: 2026-07-08
 | Key Objects | Regions, availability zones, clusters, nodes, resource specifications, image services, storage components, templates, quotas, monitoring |
 | Typical Use | Build an On-Prem resource understanding framework, clarify the operation boundary between operators and users, and choose the correct reading path |
 
-## Beginner View
+### Beginner View
 
 AI Infra On-Prem is like the user guide for a self-built computing campus: first learn regions, availability zones, clusters, nodes, and resource pools, then read along the path of operator resource preparation and user resource consumption.
 

@@ -53,9 +53,11 @@ The page displays device monitoring capability for the selected region. When the
 | Temperature and Health Status | `72C / Healthy` | Determines hardware health, cooling, or driver risk. |
 | Update Time | `2026-07-03 10:00` | Determines whether collection is delayed. |
 
-## View Device Monitoring
+## Main Operations
 
-### Procedure
+### View Device Monitoring
+
+#### Procedure
 
 1. Go to `Monitoring > Device Monitoring`.
 2. Confirm the region in the upper-right corner.
@@ -63,13 +65,13 @@ The page displays device monitoring capability for the selected region. When the
 4. View charts, lists, or prompt information.
 5. If monitoring capability is not opened, return to instance details to view logs, events, and status.
 
-### Key Focus When Capability Is Open
+#### Key Focus When Capability Is Open
 
 - Whether GPU/NPU utilization is empty or continuously abnormal.
 - Whether VRAM usage is close to the limit.
 - Whether temperature and health status have alerts.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -81,13 +83,13 @@ The page displays device monitoring capability for the selected region. When the
 | VRAM Usage | System-generated | Percentage | `78%` | Determines model or job VRAM pressure. |
 | GPU/NPU Utilization | System-generated | Percentage | `63%` | Determines compute unit load. |
 
-### Pitfalls
+#### Pitfalls
 
 - Empty utilization may mean not collected, no task, or device plugin exception. Do not directly judge it as idle.
 - High VRAM directly affects model startup even when total cluster capacity looks sufficient.
 - Temperature exceptions should be handled as hardware health issues. Avoid relying only on task retry.
 
-### Result Validation
+#### Result Validation
 
 1. The device list displays device name, type, health status, temperature, and VRAM usage.
 2. Device metrics can correspond to nodes and time ranges.

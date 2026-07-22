@@ -47,16 +47,18 @@ The page contains three views: `My Images`, `Public Images`, and `Push History`.
 
 ![Image Services](./images/image-services.png)
 
-## Add Image Project
+## Main Operations
 
-### Procedure
+### Add Image Project
+
+#### Procedure
 
 1. Go to `Extension Services > Image Services`.
 2. On the `My Images` page, click `Add Project`.
 3. Fill in the project name.
 4. Click `Confirm`.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -66,27 +68,27 @@ The page contains three views: `My Images`, `Public Images`, and `Push History`.
 | Image Tag | Yes | Text | `app:v1` | Image version tag. |
 | Sync Status | System-generated | Enum | `Synced` | Whether the image can be selected by jobs. |
 
-### Pitfalls
+#### Pitfalls
 
 - Image service status changes may affect downstream flows. Confirm impact before submission.
 - Sanitize credentials, addresses, customer information, or business identifiers first.
 - If the list is empty, check filters, region, and permissions first.
 
-### Result Validation
+#### Result Validation
 
 1. The project appears in the `My Images` list.
 2. Image count, quota usage, and push entrypoint can be viewed under the project.
 
-## Push Custom Image
+### Push Custom Image
 
-### Pre-Operation Check
+#### Pre-Operation Check
 
 1. The target image project has been created on the page.
 2. Repository address and push instructions have been obtained from the page.
 3. If the page provides robot credentials, use them only in the local terminal and do not write them into documentation, script repositories, or screenshots.
 4. Use explicit image version tags. Using only `latest` is not recommended.
 
-### Command Examples
+#### Command Examples
 
 The following examples use placeholders. Replace them with the repository address, project name, and local image name provided by the page when running them.
 
@@ -102,14 +104,14 @@ If you need to build the image locally first, run:
 docker build -t <local-image>:<local-tag> .
 ```
 
-### Result Validation
+#### Result Validation
 
 1. The `docker push` command succeeds.
 2. Return to the Image Services page and click `Sync`.
 3. The new image and tag are visible under the project.
 4. The image can be selected when creating an online IDE, runtime instance, or model service.
 
-## View Public Images and Push History
+### View Public Images and Push History
 
 1. Switch to `Public Images` to view base images provided by the platform.
 2. Switch to `Push History` to view image push records.

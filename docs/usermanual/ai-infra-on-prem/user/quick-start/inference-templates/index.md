@@ -63,19 +63,21 @@ The page displays model library, accelerators, business parameters, recommended 
 | Deployment Settings | Fill in instance name, region, specification, startup parameters, and other deployment information. |
 | Preview | Summarizes this deployment configuration before submission. |
 
-## Create Model Instance
+## Main Operations
 
-### Applicable Scenario
+### Create Model Instance
+
+#### Applicable Scenario
 
 When a published model needs to be deployed as an online service, use deployment templates to create a model instance.
 
-### Pre-Operation Check
+#### Pre-Operation Check
 
 1. The model is shown as deployable in the template list.
 2. The target accelerator and specification have available quota.
 3. The service access method and lifecycle after deployment have been confirmed.
 
-### Procedure
+#### Procedure
 
 1. Go to `Model Deployment > Deployment Templates`.
 2. Select the target model in the model library.
@@ -84,7 +86,7 @@ When a published model needs to be deployed as an online service, use deployment
 5. In deployment settings, fill in instance name, region, specification, and startup parameters.
 6. Review configuration on the preview page and submit after confirmation.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -94,13 +96,13 @@ When a published model needs to be deployed as an online service, use deployment
 | Startup Parameters | System-generated | Text | `--max-model-len 8192` | Default startup parameters of the template. |
 | Status | System-generated | Enum | `Available` | Whether the template can create instances. |
 
-### Pitfalls
+#### Pitfalls
 
 - If an accelerator shows Unadapted or Unmanaged, it may not be directly deployable.
 - Empty recommended specifications usually mean this model and hardware combination has no available resources or is not fully configured.
 - Do not modify startup parameters casually. Incorrect parameters may cause model service startup failure.
 
-### Result Validation
+#### Result Validation
 
 1. After submission, enter `Model Deployment > Model Instances`.
 2. Confirm that the new instance appears in the list.

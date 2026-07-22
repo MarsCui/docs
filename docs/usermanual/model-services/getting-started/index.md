@@ -1,4 +1,4 @@
-﻿# Model Services Getting Started
+# Model Services Getting Started
 
 ::: info Document Information
 Version: v1.0

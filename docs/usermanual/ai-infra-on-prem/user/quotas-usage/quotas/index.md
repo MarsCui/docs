@@ -61,18 +61,20 @@ The page displays Total, Unused, and Used by resource type, and separately displ
 | Online IDE | Displays online IDE occupation. |
 | View Resource Usage | Views resource occupation details for the corresponding type. |
 
-## View Resource Occupation
+## Main Operations
 
-### Applicable Scenario
+### View Resource Occupation
+
+#### Applicable Scenario
 
 When creation fails with insufficient quota, or when you need to confirm which instances occupy resources, view resource occupation details.
 
-### Pre-Operation Check
+#### Pre-Operation Check
 
 1. The target resource type, such as GPU, CPU, or Memory, has been confirmed.
 2. Whether to view runtime instance or online IDE occupation has been confirmed.
 
-### Procedure
+#### Procedure
 
 1. Go to `Quota & Usage > Resource Quotas`.
 2. Find the `Runtime Instance` or `Online IDE` area.
@@ -82,7 +84,7 @@ When creation fails with insufficient quota, or when you need to confirm which i
 
 The following figure shows the resource occupation details dialog, used to view instance-level resource usage.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -93,12 +95,12 @@ The following figure shows the resource occupation details dialog, used to view 
 | Region | Conditionally required | Drop-down | `Central China Zone 1` | Limits the region or resource pool to which the quota belongs. |
 | Update Time | System-generated | Date time | `2026-07-06 10:00` | Determines whether quota data has refreshed in time. |
 
-### Pitfalls
+#### Pitfalls
 
 - When quota is sufficient but creation fails, actual cluster resources may be insufficient.
 - If occupation details are empty but Used is not 0, statistical delay may exist.
 
-### Result Validation
+#### Result Validation
 
 1. The resource occupation dialog can open.
 2. Occupation items match the instance type.

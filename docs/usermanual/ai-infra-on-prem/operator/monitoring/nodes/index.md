@@ -45,9 +45,11 @@ The following figure shows the node statistics page.
 
 ![Node Statistics](./images/monitoring-nodes.png)
 
-## View Node Statistics
+## Main Operations
 
-### Procedure
+### View Node Statistics
+
+#### Procedure
 
 1. Go to `Monitoring > Node Statistics`.
 2. Confirm the region in the upper-right corner and page filters.
@@ -55,13 +57,13 @@ The following figure shows the node statistics page.
 4. Focus on abnormal status, high watermarks, long periods without updates, or data inconsistent with expectations.
 5. When a node is abnormal, go to the cluster node page to view labels, taints, hardware, runtime, and job information.
 
-### Key Focus
+#### Key Focus
 
 - Whether the node is online or Ready.
 - Whether single-node resources are close to full load.
 - Whether abnormal nodes are concentrated in the same cluster or availability zone.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -73,13 +75,13 @@ The following figure shows the node statistics page.
 | Node Status | System-generated | Status | `Ready` | Shows whether the node is schedulable, unavailable, or has alerts. |
 | Update Time | System-generated | Date time | `2026-07-06 10:00` | Determines whether node metrics are latest data. |
 
-### Pitfalls
+#### Pitfalls
 
 - Node Ready does not mean the device plugin is definitely normal.
 - High disk watermark may cause image pull or log write failures.
 - During troubleshooting, judge together with node events and job logs.
 
-### Result Validation
+#### Result Validation
 
 1. The node list displays node name, status, and key resource metrics.
 2. Node status corresponds to cluster health and job scheduling results.

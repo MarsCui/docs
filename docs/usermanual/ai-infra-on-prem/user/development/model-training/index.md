@@ -46,9 +46,11 @@ The list page supports filtering by region and status, and provides refresh and 
 
 ![Runtime Instances](./images/runtime-instances.png)
 
-## Create Runtime Instance
+## Main Operations
 
-### Procedure
+### Create Runtime Instance
+
+#### Procedure
 
 1. Go to `Development Resources > Runtime Instances`.
 2. Click `Create Instance`.
@@ -57,7 +59,7 @@ The list page supports filtering by region and status, and provides refresh and 
 5. Fill in image, specification, startup command, parameters, environment variables, and storage mounts.
 6. Submit and return to the list to view instance status.
 
-### Startup Command Examples
+#### Startup Command Examples
 
 #### Python Training Script
 
@@ -77,7 +79,7 @@ bash run.sh --config /mnt/config/config.yaml --output /mnt/output
 python app.py --host 0.0.0.0 --port 8000 --model-dir /mnt/models/base
 ```
 
-### Parameter Passing Methods
+#### Parameter Passing Methods
 
 | Method | Applicable Scenario | Example |
 | --- | --- | --- |
@@ -86,7 +88,7 @@ python app.py --host 0.0.0.0 --port 8000 --model-dir /mnt/models/base
 | Configuration file | Many parameters or reusable configuration is needed. | `--config /mnt/config/config.yaml` |
 | Mount path | Input data, model files, or output results. | `/mnt/data`, `/mnt/output` |
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -96,13 +98,13 @@ python app.py --host 0.0.0.0 --port 8000 --model-dir /mnt/models/base
 | Resource Specification | Yes | Drop-down | `1GPU-16C-64G` | Specification used by the training task. |
 | Output Path | No | Text | `s3://bucket/output` | Training artifact output location. |
 
-### Pitfalls
+#### Pitfalls
 
 - Runtime instance status changes may affect downstream flows. Confirm impact before submission.
 - Sanitize credentials, addresses, customer information, or business identifiers first.
 - If the list is empty, check filters, region, and permissions first.
 
-### Result Validation
+#### Result Validation
 
 1. The instance appears in the list.
 2. Status enters Running, Succeeded, or a status matching the task type.

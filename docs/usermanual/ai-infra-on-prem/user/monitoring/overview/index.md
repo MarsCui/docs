@@ -52,9 +52,11 @@ The page displays statistics overview capability for the selected region. When t
 | Exception Aggregation | `Failed jobs / High-watermark resources / Offline nodes` | Helps users prioritize issues that affect current instances. |
 | Update Time | `2026-07-03 10:00` | Determines whether data has collection delay. |
 
-## View Statistics Overview
+## Main Operations
 
-### Procedure
+### View Statistics Overview
+
+#### Procedure
 
 1. Go to `Monitoring > Statistics Overview`.
 2. Confirm the region in the upper-right corner.
@@ -62,13 +64,13 @@ The page displays statistics overview capability for the selected region. When t
 4. View charts, lists, or prompt information.
 5. If monitoring capability is not opened, return to instance details to view logs, events, and status.
 
-### Key Focus When Capability Is Open
+#### Key Focus When Capability Is Open
 
 - Cluster count, node status, and exception count in overview cards.
 - Whether resource trends are consistent with recent instance creation, training tasks, or deployment changes.
 - Whether update time is later than the latest operation.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -79,13 +81,13 @@ The page displays statistics overview capability for the selected region. When t
 | Exception Count | System-generated | Number | `2` | Aggregates failed jobs, offline nodes, or high-watermark resources. |
 | Update Time | System-generated | Date time | `2026-07-06 10:00` | Determines whether monitoring data refreshes in time. |
 
-### Pitfalls
+#### Pitfalls
 
 - Overview is suitable for determining direction and should not be the sole basis for a single instance failure.
 - When exception counts differ from detail pages, fix region and time range first.
 - If the page only shows a capability prompt, prioritize instance logs, events, and usage, then contact the operator to confirm opening conditions.
 
-### Result Validation
+#### Result Validation
 
 1. Overview cards display time range, region, cluster count, and exception count.
 2. After switching time range, trend charts or exception counts change accordingly.

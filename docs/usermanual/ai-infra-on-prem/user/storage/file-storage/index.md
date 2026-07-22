@@ -43,9 +43,11 @@ The page is used to display file storage capability in the selected region. When
 
 ![File Storage](./images/file-storage.png)
 
-## Create Shared Directory
+## Main Operations
 
-### Areas Displayed When the Feature Is Available
+### Create Shared Directory
+
+#### Areas Displayed When the Feature Is Available
 
 | Area | Description |
 | --- | --- |
@@ -54,7 +56,7 @@ The page is used to display file storage capability in the selected region. When
 | Mount Entrypoint | Associates a shared directory with an instance or container path. |
 | Operation Entrypoint | Edit, expand, unmount, delete, or view details depending on page capabilities. |
 
-### Procedure
+#### Procedure
 
 1. Go to `Storage Services > File Storage`.
 2. Confirm the region in the upper-right corner.
@@ -62,7 +64,7 @@ The page is used to display file storage capability in the selected region. When
 4. After submission, return to the list and view status.
 5. Select this shared directory in instance creation or instance details and set the in-container path.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -72,22 +74,22 @@ The page is used to display file storage capability in the selected region. When
 | Mount Path | Conditionally required | Text | `/mnt/shared` | Access path inside the instance or container. |
 | Share Status | System-generated | Enum | `Available` | Used to determine whether it can be mounted, expanded, or deleted. |
 
-## Mount, Unmount, and Confirm Capacity
+### Mount, Unmount, and Confirm Capacity
 
-### Mount
+#### Mount
 
 1. Open the instance creation page or storage mount entrypoint.
 2. Select the target file storage resource.
 3. Fill in the in-container path, such as `/mnt/data` or `/mnt/output`.
 4. After submission, view instance events and logs to confirm successful mounting.
 
-### Unmount
+#### Unmount
 
 1. Confirm that no running process is reading or writing this path.
 2. Perform unmount through the instance or storage operation entrypoint.
 3. Refresh the page to confirm that the mount relationship has been removed.
 
-### Confirm Capacity
+#### Confirm Capacity
 
 1. View capacity and status in the file storage list.
 2. Run `df -h` inside the instance or perform application-side capacity checks.
@@ -118,7 +120,7 @@ Alternative troubleshooting paths:
 3. When storage capability is unavailable, prioritize object storage for models, datasets, and output artifacts.
 4. When monitoring capability is not opened, use instance status, logs, events, and usage as short-term troubleshooting basis.
 
-### Pitfalls
+## Pitfalls
 
 - Files in shared directories are visible to multiple tasks. Confirm naming and overwrite risks before writing.
 - NFS or shared storage paths must be sanitized before screenshots.
