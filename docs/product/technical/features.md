@@ -2,19 +2,19 @@
 
 :::: info Document Information
 Version: v1.0
-Updated: 2026-07-13
+Updated: 2026-07-22
 Functional baseline: User Manual updated on 2026-07-10
 ::::
 
 ## Overview
 
-AGIOne is a **one-stop intelligent compute and model management platform** purpose-built for enterprise-grade large model productionization. Centered on the end-to-end closed loop of **"Compute → Model → Service → Operations"**, it delivers six core capabilities:
+AGIOne is a **one-stop intelligent compute and model management platform** purpose-built for enterprise-grade large model productionization. Centered on the end-to-end closed loop of **"Compute → Model → Service → Operations"**, it delivers eight core capabilities:
 
-![Figure 1   Overview of AGIOne's Six Core Capabilities (with end-to-end Invocation Observability)](./images/fig_overview_capabilities.svg)
+![Figure 1   Overview of AGIOne's Eight Core Capabilities (six business stages and two cross-cutting capabilities)](./images/fig_overview_capabilities.svg)
 
-<p align="center"><i>Figure 1   Overview of AGIOne's Six Core Capabilities (with end-to-end Invocation Observability)</i></p>
+<p align="center"><i>Figure 1   Overview of AGIOne's Eight Core Capabilities (six business stages and two cross-cutting capabilities)</i></p>
 
-> The seventh capability, **Invocation Observability**, runs horizontally across all six capabilities, providing visibility and analysis from hardware resources to business-level invocations.
+> The first six capabilities form the business path from compute preparation to financial operations. The seventh, **Invocation Observability**, provides end-to-end visibility, analytics, and anomaly diagnosis. The eighth, **Settings and Access Control**, provides governance for identities, organizations, permissions, audit, and API rate control.
 
 ::: warning Reading Note
 This page retains the original capability framework and conceptual diagrams. Times, strategies, performance figures, and pricing values in the diagrams and examples explain design considerations and are not current-version commitments. The current user manual also documents **Billing** and **Settings** as product modules for finance, License, identity, audit, and API rate-control operations. Use the [User Manual](../../usermanual/), [Support Matrix](../limitations/support-matrix), and target environment as the source of truth. Current status: Huawei Cloud access is temporarily unsupported; RAG and Function Calling are planned.
@@ -398,11 +398,11 @@ Settings changes can affect real users, access credentials, login behavior, audi
 
 ## 9. Closed-loop Synergy Across Capabilities
 
-AGIOne's six core capabilities can be used together in the sequence of resource preparation, model configuration, deployment, publishing, invocation, and operations:
+AGIOne's first six business-stage capabilities can be used together in the sequence of resource preparation, model configuration, deployment, publishing, invocation, and operations:
 
-![Figure 8   Closed-loop Synergy Across AGIOne's Six Core Capabilities](./images/fig_capability_loop.svg)
+![Figure 8   Closed-loop Synergy Across AGIOne's First Six Business-stage Capabilities](./images/fig_capability_loop.svg)
 
-<p align="center"><i>Figure 8   Closed-loop Synergy Across AGIOne's Six Core Capabilities</i></p>
+<p align="center"><i>Figure 8   Closed-loop Synergy Across AGIOne's First Six Business-stage Capabilities</i></p>
 
 **A representative business loop**:
 
