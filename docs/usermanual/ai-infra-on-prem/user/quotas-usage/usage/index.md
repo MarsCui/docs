@@ -143,6 +143,8 @@ The following figure shows the page state after opening the consumption details 
 2. View historical instance or job records.
 3. Contact the operator to verify metering data.
 
+![Consumption details](./images/consumption-details.png)
+
 ## Follow-Up Operations
 
 1. When usage grows abnormally, locate high-consumption instances and jobs by resource name or time range.

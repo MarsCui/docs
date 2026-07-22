@@ -53,6 +53,30 @@ On-Prem is like an owned computing campus: operators plan the campus, connect ma
 3. Before creating instances, you have confirmed specifications, images, storage, quotas, and cluster capability.
 4. For troubleshooting, prepare a sanitized time range, resource ID, error message, and log summary.
 
+## Parameter Reference
+
+| Parameter | Checkpoint | Impact |
+| --- | --- | --- |
+| Region / Availability Zone | Confirm the target resource boundary before creating or troubleshooting resources. | Affects visible clusters, storage components, templates, quotas, and monitoring scope. |
+| Cluster | Confirm cluster status, node visibility, and associated specifications. | Determines whether instances and jobs can be scheduled. |
+| Specification | Confirm CPU, memory, accelerator, VRAM, and storage requirements. | Determines whether users can select a resource package and whether capacity is sufficient. |
+| Image / Storage | Confirm image repository access, object storage buckets, block storage, or file storage mounts. | Affects startup, data loading, output retention, and troubleshooting. |
+| Quota / Credit | Confirm tenant quota and credit before creation. | Blocks instance creation when limits are insufficient. |
+
+## Result Validation
+
+| Check Item | Success Signal | If Not Met |
+| --- | --- | --- |
+| Operator resources are visible | Regions, clusters, specifications, images, storage, templates, quotas, and monitoring pages show the target objects. | Check region binding, cluster access, component status, and operator permissions. |
+| User creation entry is available | The user can select an opened template, image, specification, storage path, and quota. | Check tenant authorization, template scope, quota, and resource visibility. |
+| Runtime status can be located | Instance status, events, logs, usage, and monitoring are available after submission. | Check image pull, startup command, mount path, cluster scheduling, and monitoring delay. |
+
+## Pitfall Tips
+
+- Do not expose kubeconfig, registry credentials, storage keys, internal addresses, or customer data in screenshots or tickets.
+- If a user cannot see a resource, check region, tenant authorization, quota, template binding, and filters before treating it as a platform failure.
+- If creation stays queued, check capacity, specification association, image pull, storage mount, and cluster events together.
+
 ## FAQ
 
 ### User Side Cannot See Resources
@@ -96,3 +120,9 @@ After a user submits an instance, job, or model service, the task is queued, fai
 1. Operators should continuously maintain resource pools, templates, quotas, and monitoring.
 2. Regular users should view usage, logs, and monitoring promptly after creating resources.
 3. Before publishing, periodically check documentation screenshots, example commands, and sensitive information sanitization.
+
+## Notes
+
+- This overview explains module-level navigation. Use feature pages for exact fields, buttons, and validation details.
+- For deletion, disablement, quota adjustment, or storage unbinding, confirm the impact scope and rollback path first.
+- For production incidents, collect sanitized page paths, resource IDs, time ranges, events, and logs before escalation.

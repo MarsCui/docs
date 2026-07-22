@@ -169,6 +169,8 @@ After the instance ends, result files are not found in the expected directory.
 2. Set the output directory to object storage, file storage, or shared directory mount path.
 3. Rerun a small sample task to verify output.
 
+![Create runtime instance](./images/create-instance.png)
+
 ## Follow-Up Operations
 
 1. Enter instance details to view logs and output.

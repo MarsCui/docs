@@ -126,6 +126,8 @@ After form parameters change, VRAM estimation or recommended specification does 
 2. Adjust trigger conditions and test them one by one.
 3. Set reasonable default values and validation rules for the factor form.
 
+![Create VRAM precision rule](./images/vram-config-create-precision-browser.png)
+
 ## Follow-Up Operations
 
 1. Reference VRAM estimation rules in inference templates.

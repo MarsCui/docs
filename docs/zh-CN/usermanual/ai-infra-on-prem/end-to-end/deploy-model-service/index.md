@@ -76,7 +76,7 @@
 
 下图展示地域和可用区列表，用于确认资源池的地理层级是否已创建完成。
 
-![地域/可用区](../../operator/resource-pools/regions-zones/images/regions-zones-list-browser.png)
+![地域/可用区](../../operator/resource-pools/regions-zones/images/regions-zones-list.png)
 
 **结果校验：**
 
@@ -95,7 +95,7 @@
 
 下图展示集群管理列表，用于核对集群状态、节点数量和资源使用概况。
 
-![集群管理](../../operator/resource-pools/clusters/images/clusters.png)
+![集群管理](../../operator/resource-pools/clusters/images/clusters-list.png)
 
 **结果校验：**
 

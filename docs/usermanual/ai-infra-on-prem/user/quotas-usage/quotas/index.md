@@ -144,6 +144,8 @@ The following figure shows the resource occupation details dialog, used to view 
 2. View resource occupation details.
 3. Confirm that the instance lifecycle has ended.
 
+![Resource usage dialog](./images/resource-usage-dialog.png)
+
 ## Follow-Up Operations
 
 1. When remaining quota is insufficient, release unused instances, jobs, or storage resources.

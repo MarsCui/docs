@@ -1,4 +1,4 @@
-# Getting Started
+﻿# Getting Started
 
 ::: info Document Information
 Version: v1.0
@@ -11,7 +11,7 @@ Updated: 2026-07-08
 | --- | --- | --- |
 | New to On-Cloud | First understand the relationship between cloud platforms, cloud accounts, resource pools, authorization, deployment assets, and deployment tasks. | Read [Deploy a Cloud Model Service from Scratch](../end-to-end/deploy-cloud-model-service/). |
 | Operator | Complete cloud platform access, cloud account access, resource pool enablement, and authorization first. | Continue maintaining the model library, inference frameworks, inference images, and scheduling policies. |
-| User | Confirm your available access accounts, cloud platforms, regions, and deployable models first. | Use [Quick Deployment](../user/model-services/quick-deployment/) to initiate model deployment. |
+| User | Confirm your available access accounts, cloud platforms, regions, and deployable models first. | Use [Quick Deployment](../user/model-services/quick-deployment/) to initiate model deployment. To continue publishing, go to the `On-Cloud` list under `Model Services > Studio > My Deployments`. |
 | Troubleshooter | First determine whether the issue is with accounts, authorization, resource pools, model assets, scheduling policies, or deployment tasks. | Check deployment details, API calls, monitoring information, and event records. |
 
 ## Feature Overview
@@ -25,11 +25,11 @@ Updated: 2026-07-08
 | Key objects | Cloud platform, cloud account, resource pool, tenant authorization, business authorization, model library, inference framework, inference image, scheduling policy, deployment task |
 | Typical use | Build an On-Cloud resource understanding framework, clarify operator and user boundaries, and choose the correct reading path |
 
-## Beginner View
+### Beginner View
 
 AI Infra On-Cloud is like a multi-cloud resource access manual: first clarify cloud accounts, resource pools, and authorization relationships, then let users deploy model services based on authorized resources.
 
-## Prerequisites
+## Applicable Roles
 
 1. You have confirmed whether the current account is an operator or a user.
 2. Operators should prepare cloud account authorization, resource pool planning, deployment assets, and scheduling policies.
@@ -51,7 +51,7 @@ In On-Cloud scenarios, the platform is responsible for:
 
 | Role | Main Responsibilities | Common Sections |
 | --- | --- | --- |
-| Operator | Connect cloud platforms, cloud accounts, and resource pools; configure tenant and business authorization; maintain model libraries, frameworks, images, and scheduling policies. | [Quick Access](../operator/access-workbench/quick-start/), [Access Cloud Platforms](../operator/access-management/access-cloudtype/), [Model Assets](../operator/deploy-assets/models/) |
+| Operator | Connect cloud platforms, cloud accounts, and resource pools; configure tenant and business authorization; maintain model libraries, frameworks, images, and scheduling policies. | [Quick Access](../operator/access-workbench/quick-start/), [Access Cloud Platforms](../operator/access-management/cloud-platforms/), [Model Assets](../operator/deploy-assets/models/) |
 | User | Add or use authorized cloud accounts; select models from the model library; initiate deployments based on intelligent recommendations; view deployment details, APIs, monitoring, and events. | [Access Accounts](../user/access-management/access-accounts/), [Quick Deployment](../user/model-services/quick-deployment/), [My Deployments](../user/model-services/my-deployments/) |
 
 Operators decide "which cloud resources and model assets can be deployed". Users decide "which model to deploy to which authorized cloud resource". If users cannot see a model, cloud account, or region, troubleshoot from account access, tenant authorization, business authorization, resource pool status, and deployment assets.
@@ -103,11 +103,29 @@ The recommended configuration order is: connect cloud platforms first, then add 
 2. The operator has prepared cloud account authorization, resource pool planning, and least-privilege policies.
 3. The user has confirmed that they have the target cloud account, region, and deployment permissions.
 
-## Understanding Checklist
+## Parameter Reference
+
+| Field | Required | Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Role Type | Yes | Enum | User | Used to decide whether to read the operator access configuration or the user deployment workflow. |
+| Cloud Account | No | Text | Sample cloud account A | Used to locate access accounts, cloud account authorization, and resource synchronization status. |
+| Resource Pool | No | Text | Sample resource pool | Used to confirm deployable regions, specifications, and inventory scope. |
+| Deployment Asset | No | Text | Sample model / sample image | Used to check whether the model library, inference framework, and inference image match. |
+
+## Result Validation
 
 - You can explain the relationship between cloud accounts, resource pools, tenant authorization, and business region authorization.
 - You know that Quick Deployment depends on models, frameworks, images, authorization, and scheduling policies.
 - You know that when deployment fails, you should check My Deployments events, resource pool status, and authorization scope.
+- You know that after Quick Deployment submission, you can select a publish region from the `On-Cloud` list under `Model Services > Studio > My Deployments` and redirect to the publish model page in [My Models](../../model-services/user/studio/my-models/).
+
+## Pitfall Tips
+
+- Do not open only the cloud platform type to users. Cloud account validation, resource pool synchronization, and authorization configuration are all required.
+- When users cannot see regions or specifications, check tenant authorization, business resource pool authorization, and resource pool enabled status first.
+- Models, frameworks, images, and scheduling policies must match at the same time. Maintaining only the model library does not guarantee successful deployment.
+- When deployment fails, keep only redacted deployment IDs, regions, models, specifications, and event summaries before entering operator-side troubleshooting.
+- Quick Deployment, selecting a publish region, and publishing a model may affect real service exposure. Do not submit real deployments, publishing actions, or configuration changes during learning or screenshot capture.
 
 ## Recommended Reading Path
 
@@ -115,7 +133,7 @@ The recommended configuration order is: connect cloud platforms first, then add 
 
 1. Read this document to confirm role boundaries and the resource authorization hierarchy.
 2. Complete [Quick Access](../operator/access-workbench/quick-start/).
-3. Maintain [Access Cloud Platforms](../operator/access-management/access-cloudtype/) and [Access Accounts](../operator/access-management/cloud-accounts/).
+3. Maintain [Access Cloud Platforms](../operator/access-management/cloud-platforms/) and [Access Accounts](../operator/access-management/cloud-accounts/).
 4. Enable [Resource Pools](../operator/access-management/resource-pools/).
 5. Configure [Tenant-Cloud Platform Authorization](../operator/auth-management/tenant-cloud-auth/) and [Business-Resource Pool Authorization](../operator/auth-management/business-region-auth/).
 6. Maintain [Model Assets](../operator/deploy-assets/models/), [Inference Frameworks](../operator/deploy-assets/frameworks/), and [Runtime Images](../operator/deploy-assets/runtime-images/).
@@ -128,6 +146,7 @@ The recommended configuration order is: connect cloud platforms first, then add 
 3. Use [Quick Deployment](../user/model-services/quick-deployment/) to select cloud accounts, regions, and models.
 4. Select an inference engine, business policy, and recommended plan to initiate deployment.
 5. View task status, API invocation, monitoring information, and event records in [My Deployments](../user/model-services/my-deployments/).
+6. To continue publishing the model, go to the `On-Cloud` list under `Model Services > Studio > My Deployments`, select a publish region, and redirect to the publish model page in [My Models](../../model-services/user/studio/my-models/).
 
 ## FAQ
 
@@ -171,8 +190,14 @@ After a deployment task is submitted, it stays in creating, deploying, or unavai
 3. Ask the operator to check model library, inference framework, inference image, and resource pool configuration.
 4. Check cloud account permissions and cloud-side resource status.
 
+## Next Steps
+
+1. Operators should continue reading Access Cloud Platforms, Cloud Accounts, Resource Pools, Authorization Management, and Deployment Assets.
+2. Users should continue reading Access Accounts, Quick Deployment, and My Deployments. To publish a model, continue with [Model Services My Deployments](../../model-services/user/studio/my-deployments/) and [My Models](../../model-services/user/studio/my-models/).
+3. For the complete workflow, continue reading [Deploy a Cloud Model Service from Scratch](../end-to-end/deploy-cloud-model-service/).
+
 ## Notes
 
 - This document is a platform-level introduction and does not replace detailed field descriptions on each function page.
-- For operations involving cloud accounts, AK/SK, tokens, private keys, and certificates, use the platform's key management capability for storage. Do not write them into documentation or screenshots.
+- For operations involving cloud accounts, AK/SK, API Keys, tokens, Endpoints, account IDs, deployment IDs, customer information, cost details, private keys, and certificates, use the platform's key management capability for storage. Do not write them into documentation or screenshots.
 - Deletion, disabling, unbinding, authorization adjustment, and deployment start/stop may affect user tasks. Confirm the impact scope and rollback plan first.

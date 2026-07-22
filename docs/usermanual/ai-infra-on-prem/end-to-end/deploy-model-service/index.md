@@ -49,7 +49,25 @@ An On-Prem end-to-end deployment is like delivering self-built data center resou
 4. Tenant quotas and credits are sufficient for this validation.
 5. Images, startup commands, model files, and input/output paths have been planned.
 
+## Parameter Reference
+
+| Parameter | Checkpoint | Impact |
+| --- | --- | --- |
+| Region / Availability Zone | Confirm ID, display name, visibility, and component binding. | Determines resource isolation and whether users can select target resources. |
+| Cluster | Confirm kubeconfig, API Server, authentication, network, and monitoring ports. | Determines whether nodes and jobs can be managed by the platform. |
+| Specification | Confirm CPU, memory, accelerator, VRAM, and cluster association. | Determines whether users can select and schedule the target resource package. |
+| Template / Image | Confirm model, framework, image, ports, variables, startup command, and VRAM rules. | Determines whether the model service or runtime instance can start successfully. |
+| Quota / Credit | Confirm tenant quota, credit, and metering rule. | Determines whether users can create and continue running workloads. |
+
+## Pitfall Tips
+
+- Do not paste real kubeconfig, registry credentials, storage keys, tokens, or internal endpoints into examples or screenshots.
+- If a specification is not selectable, check cluster association, tenant quota, template limits, and current filters together.
+- If an instance fails after submission, inspect events and logs before changing quota or cluster configuration.
+
 ## Step 1: Operator Creates Region / Availability Zone
+
+![Regions and availability zones](../../operator/resource-pools/regions-zones/images/regions-zones-list.png)
 
 1. Go to `Resource Pools > Regions / Availability Zones`.
 2. Click `Add Region`, fill in the region ID, display name, visibility policy, and bind the image service and required storage components.
@@ -63,6 +81,8 @@ Result validation:
 3. The target availability zone is visible in the availability zone list.
 
 ## Step 2: Operator Registers a Cluster
+
+![Cluster list](../../operator/resource-pools/clusters/images/clusters-list.png)
 
 1. Go to `Resource Pools > Cluster Management`.
 2. Click `Register Cluster`.
@@ -89,6 +109,8 @@ Result validation:
 
 ## Step 4: Operator Configures Templates or Opens Resources
 
+![Inference template list](../../operator/templates/inference-templates/images/inference-templates-list.png)
+
 1. Go to `Templates > Model Configuration` to maintain deployable models and model versions.
 2. Go to `Templates > Framework Configuration` to maintain inference frameworks and runtime image relationships.
 3. Go to `Templates > Inference Templates` to bind models, frameworks, specifications, ports, variables, and default parameters.
@@ -103,6 +125,8 @@ Result validation:
 
 ## Step 5: User Prepares Images and Data
 
+![Image services](../../user/extensions/images/images/images-list.png)
+
 1. If using a platform public image, go to `Extension Services > Image Services > Public Images` to confirm that the image is visible.
 2. If using a custom image, first create an image project in `My Images`, then push the image to the repository address provided by the page.
 3. Go to `Storage Services > Object Storage` to create a bucket and upload model files, datasets, or runtime artifacts.
@@ -112,12 +136,16 @@ Result validation:
 
 ### Method A: Use a Deployment Template to Create a Model Service
 
+![Deployment templates](../../user/quick-start/inference-templates/images/inference-templates-list.png)
+
 1. Go to `Model Deployment > Deployment Templates`.
 2. Select the target template.
 3. Fill in the instance name, model parameters, specification, ports, storage, and environment variables according to the template.
 4. After submission, enter the model instance list to view status.
 
 ### Method B: Create a Runtime Instance
+
+![Create runtime instance](../../user/development/model-training/images/create-instance.png)
 
 1. Go to `Development Resources > Runtime Instances`.
 2. Click `Create Instance`.
@@ -141,6 +169,8 @@ python app.py --host 0.0.0.0 --port 8000
 4. Check whether expected output is generated in object storage or mounted directories.
 
 ## Step 8: View Usage, Quotas, and Monitoring
+
+![Resource usage](../../user/quotas-usage/usage/images/usage-list.png)
 
 1. Go to `Quota & Usage > Resource Usage` to view instance resource consumption.
 2. Go to `Quota & Usage > Resource Quotas` to confirm remaining quota.

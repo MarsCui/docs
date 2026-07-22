@@ -99,65 +99,27 @@ Use the following operations to work with monthly bill records and related statu
 
 ## FAQ
 
-### Monthly Bill Troubleshooting
+### Target billing data is not visible in Monthly Bill
 
-**Issue Symptom:**
+The expected account, customer, order, bill, settlement, adjustment, or License record does not appear on this page.
 
-The expected result is not visible on the `Monthly Bill` page, or the available action does not match the current business expectation.
+**How to check:**
 
-**Possible Causes:**
+1. Confirm the current tenant, organization, customer, account, and role scope.
+2. Check page filters such as billing cycle, time range, customer, account type, status, and keyword.
+3. Verify that upstream actions, such as top-up, reconciliation, settlement, adjustment, or License activation, have completed successfully.
+4. If the record was just created or updated, refresh the list and compare it with related transaction, bill, settlement, or operation records.
 
-- The current role, organization scope, status filter, time range, or billing cycle does not match the target record.
-- Upstream data, permissions, synchronization, or review status has not finished updating.
-- The action may be restricted because it affects monthly bill records and related status.
+### Amount, status, or billing cycle does not match in Monthly Bill
 
-**Handling:**
+The displayed balance, consumption, settlement status, monthly bill, or License status differs from the expected result.
 
-1. Reset filters and search again from `Billing > Monthly Bill`.
-2. Open the target detail page and verify status, owner, time range, and related fields.
-3. If the issue remains, provide desensitized page route, record ID, time range, and symptom summary for troubleshooting.
+**How to check:**
 
-### Values Do Not Match Expectations
-
-**Issue Symptom:**
-
-The expected result is not visible on the `Monthly Bill` page, or the available action does not match the current business expectation.
-
-**Possible Causes:**
-
-- The current role, organization scope, status filter, time range, or billing cycle does not match the target record.
-- Upstream data, permissions, synchronization, or review status has not finished updating.
-- The action may be restricted because it affects monthly bill records and related status.
-
-**Handling:**
-
-1. Reset filters and search again from `Billing > Monthly Bill`.
-2. Open the target detail page and verify status, owner, time range, and related fields.
-3. If the issue remains, provide desensitized page route, record ID, time range, and symptom summary for troubleshooting.
-
-### Values Do Not Match Expectations
-
-**Issue Symptom:**
-
-The expected result is not visible on the `Monthly Bill` page, or the available action does not match the current business expectation.
-
-**Possible Causes:**
-
-- The current role, organization scope, status filter, time range, or billing cycle does not match the target record.
-- Upstream data, permissions, synchronization, or review status has not finished updating.
-- The action may be restricted because it affects monthly bill records and related status.
-
-**Handling:**
-
-1. Reset filters and search again from `Billing > Monthly Bill`.
-2. Open the target detail page and verify status, owner, time range, and related fields.
-3. If the issue remains, provide desensitized page route, record ID, time range, and symptom summary for troubleshooting.
-
-## Next Steps
-
-1. Open the related detail page if the list value requires verification.
-2. Cross-check transactions, monthly bills, settlement statements, and reconciliation results when amounts differ.
-3. Escalate with desensitized record IDs, billing cycle, organization, customer, time range, and issue symptom when needed.
+1. Confirm that the same billing cycle, customer, account, currency, and resource scope are being compared.
+2. Check whether pending top-up orders, adjustments, refunds, settlement reviews, or metering synchronization are still in progress.
+3. Compare the summary number with the detail list and operation records on the related billing pages.
+4. For financial-impacting differences, pause confirmation actions and escalate with desensitized record IDs, time range, customer scope, and screenshots without credentials.
 
 ## Notes
 

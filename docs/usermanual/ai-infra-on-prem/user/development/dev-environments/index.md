@@ -166,6 +166,8 @@ When there are many IDEs or status changes, quickly locate the target environmen
 2. View instance logs or events.
 3. Contact the operator to check cluster entrypoint and image configuration.
 
+![Create IDE](./images/create-ide.png)
+
 ## Follow-Up Operations
 
 1. Enter the IDE to write and debug code.
