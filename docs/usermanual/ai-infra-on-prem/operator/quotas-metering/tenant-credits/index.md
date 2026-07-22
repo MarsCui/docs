@@ -179,6 +179,10 @@ The instance has stopped or failed, but tenant credits still show usage.
 2. Confirm whether associated resources have been released.
 3. Wait for synchronization or contact the operator to check metering tasks.
 
+![Default credit assignment](./images/tenant-credits-default-assign-browser.png)
+
+![Tenant credit assignment](./images/tenant-credits-assign-browser.png)
+
 ## Follow-Up Operations
 
 1. When Credits balance is insufficient, verify top-up records, deduction details, and arrears status.

@@ -184,6 +184,8 @@ After a runtime instance or model service starts, logs indicate that the object 
 2. Confirm that the job and object storage are within an accessible region scope.
 3. View instance logs and contact the operator to verify permissions.
 
+![Add bucket](./images/add-bucket.png)
+
 ## Follow-Up Operations
 
 1. Reference object paths in runtime instances, online IDEs, or model services.

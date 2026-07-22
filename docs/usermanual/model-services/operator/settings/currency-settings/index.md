@@ -7,14 +7,14 @@ Updated: 2026-07-08
 
 ## Feature Overview
 
-Currency Settings helps operators maintain currencies, exchange rates, display symbols, settlement rules, and enabled status used by pricing and revenue pages.
+`Currency Settings` is used to maintain platform pricing units, exchange rates, display symbols, settlement rules, and enabled status, ensuring model usage, revenue, and customer bills use the same pricing basis.
 
 | Item | Content |
 | --- | --- |
 | Applicable role | Operator |
 | Navigation path | System Settings > Currency Settings |
 | Page route | /operator/settings/currency-settings |
-| Managed objects | Currencies, exchange rates, display symbols, settlement rules, and enabled status |
+| Managed objects | Currency, exchange rate, display symbol, settlement rule, and enabled status |
 | Typical use | Maintain billing display and revenue conversion rules for the model marketplace |
 
 ### Beginner Explanation
@@ -26,26 +26,29 @@ Currency settings are the pricing ruler inside the platform. They determine how 
 | Term | Description |
 | --- | --- |
 | Currency | Currency unit used for price display or settlement. |
-| Exchange rate | Conversion ratio between currencies. |
-| Settlement rule | Calculation rule used for revenue, usage, or fee statistics. |
-| Enabled status | Controls whether the currency is available on pages. |
+| Exchange Rate | Conversion ratio between currencies. |
+| Settlement Rule | Calculation rule used for revenue, usage, or fee statistics. |
+| Enabled Status | Controls whether the currency is available on pages. |
 
 ## Prerequisites
 
-1. The current account has currency or credit setting permission.
+1. The current account has permission to configure currency or credits.
 2. Measurement unit, conversion ratio, display precision, and applicable business scope have been confirmed.
 3. Revenue, usage, and bill export rules are aligned with finance or operations rules.
+
 ## Page Description
 
-This page maintains billing currency, credit name, conversion ratio, display precision, and enabled status. Operators should keep these settings consistent with billing, revenue, and usage statistics, and avoid exposing real business pricing policies in documentation.
+This page is used to maintain billing currency, credit name, conversion ratio, display precision, and enabled status. Operators should keep these settings consistent with billing, revenue, and usage statistics, and avoid exposing real business pricing policies in documentation.
 
 Page screenshot:
+
+![Currency Settings](./images/currency-settings.png)
 
 Used to maintain currency rules for price display and revenue statistics.
 
 ## Main Operations
 
-### Steps
+### Manage Currency Settings
 
 1. Go to `System Settings > Currency Settings`.
 2. View the current currency, credit name, and conversion ratio.
@@ -53,7 +56,7 @@ Used to maintain currency rules for price display and revenue statistics.
 4. Before saving, cross-check the rules with usage statistics and revenue pages.
 5. After saving, validate the display result on model revenue and model usage pages.
 
-### Parameters
+## Parameter Reference
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -63,17 +66,20 @@ Used to maintain currency rules for price display and revenue statistics.
 | Applicable Scope | No | Multi-select | `Model calls` | Business scope affected by this currency configuration. |
 | Status | Yes | Enum | `Enabled` | Controls whether the configuration takes effect. |
 
-### Pitfalls
+## Pitfalls
 
 - Do not write real commercial discounts, customer contract prices, or internal settlement prices into screenshots.
 - Changing conversion ratios affects revenue and usage display. Explain the rule before release.
 - Do not mix multiple unit names on the same page.
 
-### Result Checks
+## Result Validation
 
-1. Units displayed on usage and revenue pages match currency settings.
-2. Raw measurement values and display values in exported details can be reconciled.
-3. After configuration changes, new statistical periods display using the new rules.
+| Check Item | Success Criteria | Handling If Abnormal |
+| --- | --- | --- |
+| Unit is consistent | Units displayed on usage and revenue pages match currency settings. | Return to Currency Settings and check display name and enabled status. |
+| Details can be reconciled | Raw measurement values and display values in exported details can be reconciled. | Check conversion ratio, precision, and statistical time range. |
+| Effective period is clear | After configuration changes, new statistical periods display using the new rule. | Confirm effective time and wait for statistical tasks to refresh. |
+
 ## FAQ
 
 ### Revenue Amount Does Not Match Usage
@@ -112,6 +118,20 @@ The page displays an old unit, or decimal places do not match expectations.
 2. Refresh the page or wait for cache updates.
 3. Check whether related modules support this unit.
 
+### Will Historical Data Change After Currency Changes?
+
+**Symptom:**
+
+After the operator changes the display name, precision, or conversion ratio, it is unclear whether historical revenue and usage will change together.
+
+**Possible Causes:**
+
+Different statistics pages may display data by effective time, billing cycle, or real-time configuration. Historical data and new-period data may not use the same rule.
+
+**Handling:**
+
+Record the effective time and impact scope before making changes. After the change, check historical billing cycles, new statistical periods, and exported details separately. If needed, state the rule change in external explanations.
+
 ## Next Steps
 
 1. View the model revenue page.
@@ -121,5 +141,5 @@ The page displays an old unit, or decimal places do not match expectations.
 ## Notes
 
 - Do not expose real customer contract prices, discounts, or settlement amounts in screenshots.
-- Conversion ratio changes need to include statistical period and effective time notes.
+- Conversion ratio changes need synchronized notes for statistical period and effective time.
 - Use redacted sample amounts in external materials.

@@ -177,6 +177,12 @@ After credits are supplemented, users still cannot create instances.
 2. Confirm that templates, regions, specifications, and clusters are available.
 3. Ask users to re-enter the creation flow and submit the instance again.
 
+![Default tenant quota](./images/tenant-quotas-default-browser.png)
+
+![Initialize tenant quota](./images/tenant-quotas-init-browser.png)
+
+![Adjust tenant quota](./images/tenant-quotas-adjust-browser.png)
+
 ## Follow-Up Operations
 
 1. When quotas are insufficient, first verify tenant business requirements, resource pool capacity, and approval records.

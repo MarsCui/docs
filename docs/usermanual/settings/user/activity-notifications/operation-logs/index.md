@@ -91,65 +91,27 @@ Use the following operations to work with operation logs records and related sta
 
 ## FAQ
 
-### Cannot Find the Target Data
+### Target settings entry is not visible in Operation Logs
 
-**Issue Symptom:**
+The expected account, project, member, role, organization, key, operation log, system configuration, or API rate-control entry does not appear on this page.
 
-The expected result is not visible on the `Operation Logs` page, or the available action does not match the current business expectation.
+**How to check:**
 
-**Possible Causes:**
+1. Confirm the current tenant, organization, project, role, and account permission scope.
+2. Check page filters such as keyword, status, project, member, role, organization, time range, and configuration type.
+3. Verify that prerequisite objects, such as projects, members, roles, keys, or system configurations, have been created and enabled.
+4. If the entry was just changed, refresh the page and compare it with operation logs or related settings pages.
 
-- The current role, organization scope, status filter, time range, or billing cycle does not match the target record.
-- Upstream data, permissions, synchronization, or review status has not finished updating.
-- The action may be restricted because it affects operation logs records and related status.
+### Configuration change does not take effect in Operation Logs
 
-**Handling:**
+A permission, project, role, key, notification, system setting, or rate-control change was submitted, but the page or downstream behavior still shows the old result.
 
-1. Reset filters and search again from `Activity & Notifications > Operation Logs`.
-2. Open the target detail page and verify status, owner, time range, and related fields.
-3. If the issue remains, provide desensitized page route, record ID, time range, and symptom summary for troubleshooting.
+**How to check:**
 
-### Cannot Find the Target Data
-
-**Issue Symptom:**
-
-The expected result is not visible on the `Operation Logs` page, or the available action does not match the current business expectation.
-
-**Possible Causes:**
-
-- The current role, organization scope, status filter, time range, or billing cycle does not match the target record.
-- Upstream data, permissions, synchronization, or review status has not finished updating.
-- The action may be restricted because it affects operation logs records and related status.
-
-**Handling:**
-
-1. Reset filters and search again from `Activity & Notifications > Operation Logs`.
-2. Open the target detail page and verify status, owner, time range, and related fields.
-3. If the issue remains, provide desensitized page route, record ID, time range, and symptom summary for troubleshooting.
-
-### The Action Button Is Unavailable
-
-**Issue Symptom:**
-
-The expected result is not visible on the `Operation Logs` page, or the available action does not match the current business expectation.
-
-**Possible Causes:**
-
-- The current role, organization scope, status filter, time range, or billing cycle does not match the target record.
-- Upstream data, permissions, synchronization, or review status has not finished updating.
-- The action may be restricted because it affects operation logs records and related status.
-
-**Handling:**
-
-1. Reset filters and search again from `Activity & Notifications > Operation Logs`.
-2. Open the target detail page and verify status, owner, time range, and related fields.
-3. If the issue remains, provide desensitized page route, record ID, time range, and symptom summary for troubleshooting.
-
-## Next Steps
-
-1. Open the related member, role, organization, operation log, or API rate-control page based on the issue.
-2. Recheck permissions and audit records after configuration changes.
-3. Escalate with desensitized account, organization, page route, time range, and issue symptom when needed.
+1. Confirm that the save operation completed and the target object status is enabled or active.
+2. Check whether the change applies to the correct organization, project, member, role, API key, or policy scope.
+3. Compare downstream behavior with operation logs and related settings pages to rule out cache, permission, or synchronization delay.
+4. For security-sensitive settings, verify impact scope before repeating the operation or escalating with desensitized page paths and timestamps.
 
 ## Notes
 

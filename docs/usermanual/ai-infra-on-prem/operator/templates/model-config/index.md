@@ -126,6 +126,8 @@ When deploying an instance, model files cannot be downloaded or loaded.
 2. Check authentication information and object path.
 3. Correct model version, path, and file name, then validate again.
 
+![Create model configuration](./images/model-config-create-browser.png)
+
 ## Follow-Up Operations
 
 1. Go to [Framework Configuration](../frameworks/) to maintain frameworks available for the model.

@@ -177,6 +177,8 @@ Image push fails, hangs, or reports no permission.
 3. Run `docker login <registry>` again and push again.
 4. If the image is too large, clean cache layers, remove unnecessary dependencies, or split the image.
 
+![Add image project](./images/add-project.png)
+
 ## Follow-Up Operations
 
 1. Select this image in Online IDE or Runtime Instances to verify dependencies.

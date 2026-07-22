@@ -7,104 +7,131 @@ Updated: 2026-07-08
 
 ## Feature Overview
 
-`Image Component` is used to connect Harbor, Docker Registry, or compatible image repositories, providing image pull capability for regions, clusters, and jobs. When no available image component exists, model instances, online IDEs, and runtime instances usually cannot pull their runtime environments.
+`Image Component` is used to connect Harbor, Docker Registry, or compatible image repositories, providing image pull capability for regions, clusters, jobs, online IDEs, and model instances. When no available image component exists, later image sync, image upload, job startup, and model service deployment are usually affected.
 
 | Item | Content |
 | --- | --- |
 | Applicable Role | Operator |
-| Navigation Path | Resource Pools > Image Component |
-| Page Route | `/powerone/resourcepool/image-service` |
-| Managed Objects | Image repository, Endpoint, projects, access credentials, sync status, and associated regions |
-| Typical Use | Connect Harbor/Registry to support public images, custom images, and job image pulling |
+| Navigation Path | AI Infra > On-Prem > Resource Pools > Image Component |
+| Page Route | `/powerone/resourcepool/images` |
+| Managed Objects | Component name, repository address, Endpoint, authentication method, access credentials, certificate policy, associated region, bound cluster, project sync scope, and sync status |
+| Typical Use | Connect Harbor/Registry to support public images, custom images, job image pulling, and user-side image project sync |
 
-### Terms Quick Reference
+#### Beginner View
+
+Image Component is like the image repository access card of the platform. It tells the platform where to pull runtime images, which credentials to use, and which regions or clusters can use the repository. When the image component is configured incorrectly, user-side model instances, online IDEs, runtime instances, and jobs usually get stuck during image pull.
+
+#### Terms
 
 | Term | Description |
 | --- | --- |
 | Harbor | A common enterprise container image repository. |
 | Registry | Image repository service used to store and distribute container images. |
-| Project | A project or namespace in Harbor. |
+| Endpoint | Service address used by the platform or clusters to access the image repository. |
 | Robot Credentials | Automated image repository account and password. These are sensitive credentials. |
 | Image Pull Secret | Credential used by Kubernetes to pull private images. |
+| Project Sync Scope | Scope of projects, namespaces, or image lists synchronized from the image repository by the platform. |
 
 ## Prerequisites
 
-1. The image repository has been deployed and can be accessed from the platform and target cluster.
-2. Repository address, project plan, access credentials, and certificate policy have been prepared.
+1. The image repository has been deployed and can be accessed from the platform side and target clusters.
+2. Repository address, Endpoint, authentication method, access credentials, and certificate policy have been prepared.
 3. The target cluster can resolve and access the image repository address.
-4. Permission boundaries for public images, custom images, and tenant projects have been confirmed.
+4. Associated regions, bound clusters, public images, custom images, and tenant project permission boundaries have been confirmed.
+5. For learning or screenshots, only view fields and forms without submitting real image component configuration.
 
 ## Page Description
 
 The page displays connected image components, status, access address, project count, sync status, and associated regions.
 
-The following figure shows the image component page.
+The following figure shows the image component list, where component status, Endpoint, sync status, and operation entrypoints can be viewed.
 
 ![Image Component](./images/image-services-list.png)
 
-## Register Image Component
+## Main Operations
 
-### Pre-Operation Check
+### Register Image Component
 
-1. The repository Endpoint is accessible from the platform and target cluster.
-2. Certificate, domain name, and image pull policy have been confirmed.
-3. Robot credentials or access accounts have the minimum required permissions.
-4. The target region needs to bind this image component.
+#### Applicable Scenarios
 
-### Procedure
+Register an image component when a new Harbor, Docker Registry, or compatible image repository needs to be connected and used by specified regions, clusters, or user-side image services.
 
-1. Go to `Resource Pools > Image Component`.
-2. Click the register or add entrypoint.
-3. Fill in the component name, repository address, authentication information, and associated region.
-4. If the page provides connection testing or sync, verify availability first.
-5. After submission, return to the list and check component status.
+#### Steps
 
-### Parameters
+1. Go to `AI Infra > On-Prem > Resource Pools > Image Component`.
+2. Click `Register`, `Add`, or the actual registration entry on the page.
+3. Fill in component name, image repository address, Endpoint, authentication method, access credentials, and certificate configuration according to the page fields.
+4. Select associated regions, bound clusters, project sync scope, or sync policy as required by the page.
+5. Before submission, confirm that the repository address is reachable from both the platform side and target clusters, and that robot credentials or access accounts have minimum required permissions.
+6. Before clicking the final `Save`, `Submit`, or `OK`, verify repository address, credential source, certificate policy, and region binding scope again.
+7. For learning or page validation only, view fields and forms without submitting real image component configuration.
 
-| Field Name | Required | Field Type | Example | Description |
-| --- | --- | --- | --- | --- |
-| Component Name | Yes | Text | `harbor-prod` | Image component display name. |
-| Repository Address | Yes | URL | `https://registry.example.com` | Image repository entrypoint. Use a placeholder in documentation. |
-| Authentication Method | Conditionally required | Enum | `Robot Account` | Authentication method for image pull or push. |
-| Bound Cluster | Conditionally required | Multi-select | `cluster-a` | Clusters that can access this image component. |
-| Sync Status | System-generated | Enum | `Normal` | Image component sync or probe status. |
+The following figure shows the Register Image Component form, used to fill in image service connection information and sync configuration.
 
-### Pitfalls
+![Register Image Component](./images/register-component.png)
 
-- Resource pool configuration affects job scheduling. Confirm running instances before making changes.
-- If a drop-down list is empty, check region, permissions, and dependent component status first.
-- Prepare replacement resources and a rollback plan before deleting or disabling resources.
+## Parameter Reference
 
-### Result Validation
+| Parameter | Required | Description | Configuration Suggestion |
+| --- | --- | --- | --- |
+| Component Name | Yes | Display name of the image component. | Use a name that reflects repository purpose, region, or environment. |
+| Repository Address | Yes | Access address of the image repository. | Use placeholders only in documentation. Do not record real repository addresses. |
+| Endpoint | Yes | Service address used by the platform and clusters to access the image repository. | Confirm that the platform side, target cluster nodes, and container runtime can access it. |
+| Authentication Method | Conditionally required | Authentication method for image pull, push, or sync. | Select Robot account, access account, or another page-supported method according to repository capability. |
+| Access Credentials | Conditionally required | Account, password, token, or key material required for authentication. | Fill credentials only in system forms. Do not write them in documents, screenshots, or tickets. |
+| Certificate Policy | Conditionally required | Private certificate, certificate chain, or TLS verification policy. | For private repositories, confirm the trust chain on the cluster side. |
+| Associated Region | Conditionally required | Region scope where the image component is available. | Keep it consistent with resource pools, user entrypoints, and image project visibility scope. |
+| Bound Cluster | Conditionally required | Clusters that can access this image component. | Before binding, confirm cluster network, DNS, and container runtime configuration. |
+| Project Sync Scope | No | Scope of projects, namespaces, or image lists synchronized by the platform. | Use the minimum required scope to avoid exposing unrelated projects. |
+| Sync Status | System-generated | Image component sync or probe status. | After registration, watch sync status, update time, and error messages. |
+| Actions | No | Supports register, edit, sync, test connection, bind, delete, and other operations. | Confirm impacts on regions, clusters, and user-side visibility before high-risk actions. |
 
-1. The component appears in the list and its status matches expectations.
-2. The component can be bound in a region.
-3. User-side image services can see public images or custom image projects.
-4. A test job can pull images normally.
+## Pitfalls
+
+- Registering an image component affects image pull capability for regions, clusters, jobs, online IDEs, and model instances.
+- Incorrect repository address, certificate chain, Robot credentials, or Image Pull Secret may cause `ImagePullBackOff`.
+- Binding the image component to the wrong region may cause user-side image projects to be invisible or jobs to fail image pull.
+- `Save`, `Submit`, and `OK` are high-risk final actions.
+- Do not record real repository addresses, Robot passwords, Image Pull Secret, tokens, AK/SK, internal addresses, cluster IDs, resource pool IDs, or internal test parameters.
+
+## Result Validation
+
+| Check Item | Expected Result | Troubleshooting |
+| --- | --- | --- |
+| Page can be opened | `AI Infra > On-Prem > Resource Pools > Image Component` is accessible. | Check menu configuration and account permissions. |
+| Component list loads normally | Component name, status, access address, project count, sync status, and associated region are displayed normally. | Refresh the page and check service status or browser console errors. |
+| Registration entry is visible | `Register`, `Add`, or the actual registration entry is displayed on the page. | Check operator permissions, License, and page configuration. |
+| Registration form can be opened | Clicking the entry shows component name, repository address, Endpoint, authentication method, and certificate configuration fields. | Check route, permissions, and frontend errors. |
+| Required field validation works | Validation prompts appear when component name, repository address, authentication information, or region scope is missing. | Complete fields according to page prompts without bypassing validation. |
+| No real submission during learning | No real save, submit, or OK action is triggered. | If submitted by mistake, immediately verify the component list and binding scope. |
+| Status is traceable after real submission | The new component appears in the list, and status and sync result are visible. | Check repository connectivity, credentials, certificates, and sync logs. |
+| Downstream image pull can be verified | A test job, online IDE, or model instance can pull images normally. | Check Image Pull Secret, region binding, DNS, network, and certificate trust. |
 
 ## FAQ
 
-### Job Image Pull Fails
+#### Job Image Pull Fails
 
 **Symptom:**
 
-Instance events or logs show image pull failure, authentication failure, or image not found.
+Instance events or logs show image pull failure, authentication failure, image not found, or `ImagePullBackOff`.
 
 **Possible Causes:**
 
 - Image address, project name, or tag is incorrect.
 - Robot credentials, Image Pull Secret, or repository permissions are configured incorrectly.
-- The target cluster cannot access the image repository.
+- The target cluster cannot access the image repository Endpoint.
 - The private certificate is not trusted by the cluster.
+- The image component is not bound to the region or cluster where the job runs.
 
 **Solution:**
 
-1. Check the complete image address and tag.
-2. Verify image component authentication information and user-side project permissions.
-3. Verify repository network connectivity on the target node.
+1. Check the complete image address, project name, and tag.
+2. Verify image component authentication information, Robot credentials, and user-side project permissions.
+3. Verify repository network connectivity and DNS resolution on the target node.
 4. Check certificate trust and container runtime configuration.
+5. Verify the binding relationship among region, cluster, and image component.
 
-### User Side Cannot See Image Projects
+#### User Side Cannot See Image Projects
 
 **Symptom:**
 
@@ -113,22 +140,30 @@ After a regular user enters Image Services, custom projects or public images are
 **Possible Causes:**
 
 - The image component is not bound to the region selected by the user.
+- Project sync scope does not cover the target project.
 - The user has no image service permissions.
-- Image sync has not completed.
+- Image sync has not completed or has failed.
 
 **Solution:**
 
 1. Check the binding relationship between the region and image component.
-2. Verify tenant and account permissions.
+2. Verify project sync scope, tenant permissions, and account permissions.
 3. Perform image sync or refresh the page.
+4. Check sync status, update time, and error messages.
 
-## Follow-Up Operations
+## Next Steps
 
-1. Go to [Regions / Availability Zones](../regions-zones/) to bind the image component.
+1. Go to [Regions / Availability Zones](../regions-zones/) to bind or verify the image component.
 2. Guide users to create projects and push images in [Image Services](../../../user/extensions/images/).
-3. Use a test job to verify image pull and startup.
+3. Go to Image Management or user-side Image Services to confirm that projects, images, and tags are visible.
+4. Use a test job, online IDE, or model instance to verify image pull and startup.
 
 ## Notes
 
-- Robot credentials, repository passwords, and Image Pull Secret are sensitive information.
+- Registering an image component affects image pull capability for regions, clusters, jobs, online IDEs, and model instances.
+- Robot credentials, repository passwords, Image Pull Secret, tokens, and certificate materials are sensitive information.
+- Incorrect repository address, certificate chain, Robot credentials, or Image Pull Secret may cause `ImagePullBackOff`.
+- Binding the image component to the wrong region may cause user-side image projects to be invisible or jobs to fail image pull.
 - Long-term use of the `latest` tag in production templates is not recommended. Use explicit version tags instead.
+- `Save`, `Submit`, and `OK` are high-risk final actions. Do not trigger them during learning or screenshots.
+- Do not record real repository addresses, Robot passwords, Image Pull Secret, tokens, AK/SK, internal addresses, cluster IDs, resource pool IDs, or internal test parameters.

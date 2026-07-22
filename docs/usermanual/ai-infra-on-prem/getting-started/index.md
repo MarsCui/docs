@@ -97,6 +97,30 @@ The recommended configuration order is: create regions first, then create availa
 2. You have confirmed that the target resource is in a local cluster or private resource pool.
 3. Before creating instances, you have confirmed the region, specification, image, storage, and quota.
 
+## Parameter Reference
+
+| Parameter | Meaning | Check Before Use |
+| --- | --- | --- |
+| Region / Availability Zone | Logical or physical resource boundary. | Confirm the target region is enabled and bound to required clusters and components. |
+| Cluster / Node | Kubernetes compute and scheduling carrier. | Confirm cluster status, node status, accelerator resources, and monitoring data. |
+| Specification | User-selectable CPU, memory, accelerator, and VRAM package. | Confirm the specification is associated with the target cluster and opened to users. |
+| Image / Storage | Runtime image and data persistence resources. | Confirm repository access, bucket or mount path, and credential handling. |
+| Quota / Credit | Tenant-side creation and consumption limits. | Confirm remaining quota and credit before creating instances or jobs. |
+
+## Result Validation
+
+| Check Item | Success Signal | If Not Met |
+| --- | --- | --- |
+| Resource hierarchy is clear | You can map region, availability zone, cluster, node, resource pool, and instance relationships. | Re-read Resource Hierarchy and Role Relationship before entering feature pages. |
+| Operator preparation is complete | Regions, clusters, specifications, images, storage, templates, quotas, and monitoring have target records. | Continue with the operator reading path and check missing bindings. |
+| User creation path is available | User-side template, image, storage, quota, usage, and monitoring entries are visible. | Check permissions, tenant scope, resource opening, and filters. |
+
+## Pitfall Tips
+
+- Do not use user-side invisibility alone as proof of missing resources; check authorization, tenant scope, filters, and resource binding first.
+- Do not paste kubeconfig, registry credentials, storage keys, or internal endpoints into screenshots or tickets.
+- For capacity issues, check quota, specification association, node resources, and job events together.
+
 ## Understanding Checklist
 
 - You can clearly explain the hierarchy of regions, availability zones, clusters, nodes, and resource pools.
@@ -165,6 +189,12 @@ A model instance, online IDE, or runtime instance does not enter the running sta
 2. Check resource quotas and usage.
 3. Try a smaller specification or another available region.
 4. Contact the operator to check cluster nodes, specification associations, image services, and storage mounts.
+
+## Follow-Up Operations
+
+1. Operators should continue with regions, clusters, specifications, storage, images, templates, quotas, and monitoring pages.
+2. Regular users should continue with user overview, deployment templates, runtime instances, object storage, image services, quotas, and usage.
+3. Troubleshooters should keep events, logs, monitoring, quota, image, storage, and cluster status in the same investigation path.
 
 ## Notes
 

@@ -447,6 +447,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   collapsed: false,
                   items: [
                     { text: "My Models", link: "/usermanual/model-services/user/studio/my-models/" },
+                    { text: "My Deployments", link: "/usermanual/model-services/user/studio/my-deployments/" },
                   ]
                 },
                 {
@@ -577,10 +578,10 @@ export const enSidebar: DefaultTheme.Sidebar = {
                     { text: "Spec Metrics", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/spec-metrics/" },
                     { text: "Resource Specs", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/resource-specs/" },
                     { text: "Images", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/images/" },
-                    { text: "Image Services", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/image-services/" },
-                    { text: "Object Storage", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/object-storage/" },
-                    { text: "Block Storage", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/block-storage/" },
-                    { text: "File Storage", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/file-storage/" },
+                    { text: "Image Component", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/image-services/" },
+                    { text: "Object Storage Component", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/object-storage/" },
+                    { text: "Block Storage Component", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/block-storage/" },
+                    { text: "File Storage Component", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/file-storage/" },
                   ],
                 },
                 {

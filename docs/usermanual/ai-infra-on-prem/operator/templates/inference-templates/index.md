@@ -126,6 +126,8 @@ When users create instances, form fields are missing, default values are incorre
 2. Verify dynamic expressions one by one.
 3. Test form visibility with different model, framework, and specification combinations.
 
+![Create inference template](./images/inference-templates-create-browser.png)
+
 ## Follow-Up Operations
 
 1. Use a test tenant to create a model instance and verify the template.

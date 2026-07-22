@@ -37,13 +37,13 @@ On-Cloud is like a multi-cloud resource scheduling hub: operators connect accoun
 | --- | --- | --- |
 | Manage local clusters and resource pools | AI Infra On-Prem | Region / Cluster / Specification / Template |
 | Manage cloud accounts and cloud deployments | AI Infra On-Cloud | Cloud accounts / Resource pools / Authorization / Quick deployment |
-| Publish or call models | Model Services | Model marketplace / My models / Playground |
+| Publish or call models | Model Services | Model marketplace / My Models / My Deployments / Playground |
 
 ## Recommended Reading Path
 
 1. Beginners should read [Getting Started](./getting-started/) first to understand cloud accounts, resource pools, and authorization relationships.
 2. Operators should configure cloud platforms, cloud accounts, resource pools, authorization, deployment assets, and scheduling policies in sequence.
-3. Users should start from access accounts to confirm available resources, then initiate quick deployment.
+3. Users should start from access accounts to confirm available resources, then initiate Quick Deployment. After submission, view the deployment record in the `On-Cloud` list under `Model Services > Studio > My Deployments` and continue publishing.
 4. For the complete workflow, read [Deploy a Cloud Model Service from Scratch](./end-to-end/deploy-cloud-model-service/).
 
 ## Prerequisites
@@ -52,6 +52,32 @@ On-Cloud is like a multi-cloud resource scheduling hub: operators connect accoun
 2. Resource pools, tenant authorization, business region authorization, and deployment assets have been configured.
 3. The user has obtained permissions for the target account, region, resource pool, and model deployment.
 4. Before deployment and invocation, Endpoint, API Key, costs, and resource capacity have been confirmed.
+
+## Parameter Reference
+
+| Field | Required | Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Role Type | Yes | Enum | Operator | Used to decide whether to enter the operator access workflow or the user deployment workflow first. |
+| Cloud Resource Object | No | Text | Sample cloud account A | Used to locate a cloud platform, cloud account, resource pool, or access account. |
+| Authorization Scope | No | Text | Sample tenant / sample business region | Used to check whether tenant authorization and business region authorization cover the target user. |
+| Deployment Object | No | Text | Sample model service | Used to locate Quick Deployment, My Deployments, model library, framework, and image configurations. |
+| Troubleshooting Scope | No | Time range | 2026-07-01 to 2026-07-31 | Used to check deployment events, resource synchronization, cost, and capacity issues. |
+
+## Result Validation
+
+| Check Item | Success Signal | Handling If Abnormal |
+| --- | --- | --- |
+| Correct entry selected | You can distinguish the operator access workflow from the user deployment workflow. | Return to the role entry table and locate the entry again. |
+| Authorization workflow clear | You understand the relationship between cloud accounts, resource pools, tenant authorization, and business region authorization. | Continue reading Getting Started for AI Infra On-Cloud. |
+| Deployment path clear | Users can enter My Deployments from Quick Deployment to view status and know that they can select a publish region from the `On-Cloud` list under `Model Services > Studio > My Deployments`. | Check account permissions, resource authorization, and publish entry status. |
+| Troubleshooting entry reachable | When failures occur, you know to check resource pools, authorization, deployment assets, and event records. | Continue troubleshooting with the end-to-end workflow. |
+
+## Pitfall Tips
+
+- Successful cloud account access does not mean users can deploy. Resource pool enablement, tenant authorization, and business region authorization must also be completed.
+- When Quick Deployment has no available resources, do not only change model parameters. Check authorization scope, resource pool status, and inventory first.
+- When My Deployments stays in creating status, check event records and resource recommendation results before deciding whether operator intervention is required.
+- Quick Deployment, selecting a publish region, and publishing a model may affect real service exposure. Do not submit real deployments, publishing actions, or configuration changes during learning or screenshot capture.
 
 ## FAQ
 
@@ -94,5 +120,12 @@ A task fails after quick deployment submission, stays in creation for a long tim
 ## Next Steps
 
 1. Operators should regularly check cloud account key rotation, resource synchronization, and authorization scope.
-2. Users should check Endpoint, API Key, events, and monitoring after deployment.
+2. Users should check Endpoint, API Key, events, and monitoring after deployment. To continue publishing, go to the `On-Cloud` list under `Model Services > Studio > My Deployments`, select a publish region, and redirect to the publish model page in [My Models](../model-services/user/studio/my-models/).
 3. If cost or capacity is abnormal, cross-check On-Cloud deployment records, Model Services invocation records, and the cloud provider bill.
+
+## Notes
+
+- This overview page helps identify cloud accounts, authorization, resource pools, and deployment entries. It does not replace detailed cloud resource configuration instructions.
+- Cloud account, authorization, and resource pool scopes must stay aligned; otherwise, the deployment options and cost attribution visible to users may differ.
+- For cloud account credentials, role authorization, resource pool changes, and deployment deletion, confirm the affected tenant, region, and business scope first.
+- Do not expose real AK/SK, API Keys, tokens, Endpoints, account IDs, deployment IDs, customer information, cost details, internal addresses, or test parameters in screenshots, tickets, or troubleshooting records.
