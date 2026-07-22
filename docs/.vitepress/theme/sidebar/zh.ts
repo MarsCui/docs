@@ -150,7 +150,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
               ],
             },
             {
-              text: 'On-Prem 算力纳管',
+              text: '本地算力纳管',
               collapsed: true,
               items: [
                 { text: '场景概览', link: '/zh-CN/userguide/scenarios/on-prem-compute-onboarding/' },
@@ -160,7 +160,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
               ],
             },
             {
-              text: 'On-Prem 推理模板构建',
+              text: '本地推理模板构建',
               collapsed: true,
               items: [
                 { text: '场景概览', link: '/zh-CN/userguide/scenarios/on-prem-inference-template/' },
@@ -168,7 +168,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
               ],
             },
             {
-              text: 'On-Prem 模型部署与状态检查',
+              text: '本地模型部署与状态检查',
               collapsed: true,
               items: [
                 { text: '场景概览', link: '/zh-CN/userguide/scenarios/on-prem-model-deployment-status/' },
@@ -176,7 +176,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
               ],
             },
             {
-              text: 'On-Prem 开发训练与资产沉淀',
+              text: '本地开发训练与资产沉淀',
               collapsed: true,
               items: [
                 { text: '场景概览', link: '/zh-CN/userguide/scenarios/on-prem-dev-training-assets/' },
@@ -184,7 +184,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
               ],
             },
             {
-              text: 'On-Prem 资源计量与监控',
+              text: '本地资源计量与监控',
               collapsed: true,
               items: [
                 { text: '场景概览', link: '/zh-CN/userguide/scenarios/on-prem-resource-metering-monitoring/' },
@@ -193,7 +193,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
               ],
             },
             {
-              text: 'On Cloud 云资源接入',
+              text: '多云资源接入',
               collapsed: true,
               items: [
                 { text: '场景概览', link: '/zh-CN/userguide/scenarios/on-cloud-resource-access/' },
@@ -205,7 +205,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
               ],
             },
             {
-              text: 'On Cloud 模型资产上架',
+              text: '多云模型资产上架',
               collapsed: true,
               items: [
                 { text: '场景概览', link: '/zh-CN/userguide/scenarios/on-cloud-model-asset-publishing/' },
@@ -215,7 +215,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
               ],
             },
             {
-              text: 'On Cloud 模型部署与调用',
+              text: '多云模型部署与调用',
               collapsed: true,
               items: [
                 { text: '场景概览', link: '/zh-CN/userguide/scenarios/on-cloud-model-deployment-calling/' },
@@ -600,7 +600,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
               collapsed: false,
               items: [
                 {
-                  text: 'Provider 收益',
+                  text: '模型提供方收益',
                   collapsed: false,
                   items: [
                     { text: '收益总览', link: '/zh-CN/usermanual/billing/user/earnings/revenue/' },

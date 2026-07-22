@@ -6,7 +6,7 @@
 
 ## 适用角色
 
-- 平台运营方（Operator）
+- 平台运营方
 
 ## 开始前准备
 
@@ -68,9 +68,9 @@
    - **"最大输出"**（如 64K）。
 ![Token 限制](./images/step-1-token-limit.png)
 1. **官方原生协议与默认参数**：在"官方原生协议与默认参数"区块为每个协议配置：
-   - **OpenAI-ChatCompletions**（协议代号 `openai/chat_completions`）：填写 **"Endpoint"**（如 `/compatible-mode/v1/chat/completions`），配置 **"输入参数"**（Temperature、Top-P、N、Stream、Max Tokens、Presence Penalty、Frequency Penalty、User、Seed、Parallel Tool Calls 等，可设置"是否必填"）；
-   - **OpenAI-Responses**（协议代号 `openai/responses`）：填写 **"Endpoint"**（如 `/compatible-mode/v1/responses`），配置 **"输入参数"**；
-   - **Anthropic-Messages**（协议代号 `anthropic/messages`）：填写 **"Endpoint"**（如 `/apps/anthropic/v1/messages`），配置 **"输入参数"**。
+   - **OpenAI-ChatCompletions**（协议代号 `openai/chat_completions`）：填写 **"接口地址"**（如 `/compatible-mode/v1/chat/completions`），配置 **"输入参数"**（Temperature、Top-P、N、Stream、Max Tokens、Presence Penalty、Frequency Penalty、User、Seed、Parallel Tool Calls 等，可设置"是否必填"）；
+   - **OpenAI-Responses**（协议代号 `openai/responses`）：填写 **"接口地址"**（如 `/compatible-mode/v1/responses`），配置 **"输入参数"**；
+   - **Anthropic-Messages**（协议代号 `anthropic/messages`）：填写 **"接口地址"**（如 `/apps/anthropic/v1/messages`），配置 **"输入参数"**。
 ![官方原生协议与默认参数](./images/step-1-official-native-protocol.png)
 1. 点击 **"下一步"** 进入元模型详情。
 2. **元模型详情**：在富文本编辑器中填写模型的完整详细介绍（支持富文本格式、插入链接等）。
@@ -97,10 +97,10 @@
 | 最大上下文 | 数值 | `1024K` | 必填，Token 上下文长度上限 |
 | 最大输入 | 数值 | `991K` | 必填，单次输入 Token 上限 |
 | 最大输出 | 数值 | `64K` | 必填，单次输出 Token 上限 |
-| 官方原生协议 - OpenAI-ChatCompletions | 开关 + 协议代号 | `openai/chat_completions` | 必填，启用后需配置 Endpoint 与输入参数 |
-| 官方原生协议 - OpenAI-Responses | 开关 + 协议代号 | `openai/responses` | 必填，启用后需配置 Endpoint 与输入参数 |
-| 官方原生协议 - Anthropic-Messages | 开关 + 协议代号 | `anthropic/messages` | 必填，启用后需配置 Endpoint 与输入参数 |
-| Endpoint | URL | `/compatible-mode/v1/chat/completions` | 必填，协议对应的端点路径 |
+| 官方原生协议 - OpenAI-ChatCompletions | 开关 + 协议代号 | `openai/chat_completions` | 必填，启用后需配置 接口地址 与输入参数 |
+| 官方原生协议 - OpenAI-Responses | 开关 + 协议代号 | `openai/responses` | 必填，启用后需配置 接口地址 与输入参数 |
+| 官方原生协议 - Anthropic-Messages | 开关 + 协议代号 | `anthropic/messages` | 必填，启用后需配置 接口地址 与输入参数 |
+| 接口地址 | URL | `/compatible-mode/v1/chat/completions` | 必填，协议对应的端点路径 |
 | 输入参数 | 参数列表 | `Temperature / Top-P / N / Stream / Max Tokens / Presence Penalty / Frequency Penalty / User / Seed / Parallel Tool Calls` | 选填，按协议预设的输入参数（可设置是否必填） |
 | 元模型详情 | 富文本 | `模型特性、参数介绍` | 必填，模型完整详细说明 |
 
