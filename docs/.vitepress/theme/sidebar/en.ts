@@ -454,8 +454,8 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   text: "Usage & Revenue",
                   collapsed: false,
                   items: [
-                    { text: "Model Earnings", link: "/usermanual/model-services/user/usage-revenue/model-revenue/" },
-                    { text: "Model Usage", link: "/usermanual/model-services/user/usage-revenue/model-usage/" },
+                    { text: "Model Earnings", link: "/usermanual/model-services/user/usage-earnings/model-earnings/" },
+                    { text: "Model Usage", link: "/usermanual/model-services/user/usage-earnings/model-usage/" },
                   ]
                 },
                 {
@@ -503,7 +503,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   text: "Access Management",
                   collapsed: false,
                   items: [
-                    { text: "Cloud Platforms", link: "/usermanual/ai-infra-on-cloud/operator/access-management/access-cloudtype/" },
+                    { text: "Cloud Platforms", link: "/usermanual/ai-infra-on-cloud/operator/access-management/cloud-platforms/" },
                     { text: "Resource Pools", link: "/usermanual/ai-infra-on-cloud/operator/access-management/resource-pools/" },
                     { text: "Cloud Accounts", link: "/usermanual/ai-infra-on-cloud/operator/access-management/cloud-accounts/" },
                   ]

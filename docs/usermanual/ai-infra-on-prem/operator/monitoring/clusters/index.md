@@ -45,9 +45,11 @@ The following figure shows the cluster statistics page.
 
 ![Cluster Statistics](./images/monitoring-clusters.png)
 
-## View Cluster Statistics
+## Main Operations
 
-### Procedure
+### View Cluster Statistics
+
+#### Procedure
 
 1. Go to `Monitoring > Cluster Statistics`.
 2. Confirm the region in the upper-right corner and page filters.
@@ -55,13 +57,13 @@ The following figure shows the cluster statistics page.
 4. Focus on abnormal status, high watermarks, long periods without updates, or data inconsistent with expectations.
 5. When cluster watermarks are abnormal, enter cluster details, node statistics, and job monitoring to confirm specific nodes and jobs.
 
-### Key Focus
+#### Key Focus
 
 - Whether cluster status is available.
 - Whether GPU, CPU, memory, and disk usage rates are abnormal.
 - Whether jobs are concentrated on a small number of clusters.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -72,13 +74,13 @@ The following figure shows the cluster statistics page.
 | GPU Usage | System-generated | Percentage | `65%` | Determines whether accelerator resources are close to bottleneck. |
 | Update Time | System-generated | Date time | `2026-07-06 10:00` | Determines whether cluster monitoring data is timely. |
 
-### Pitfalls
+#### Pitfalls
 
 - Normal cluster watermarks do not mean every node or device is available.
 - Use the same time range and metric units for cross-cluster comparison.
 - Continue drilling down into node and device monitoring when a cluster is abnormal.
 
-### Result Validation
+#### Result Validation
 
 1. The cluster list displays health status, capacity, and update time.
 2. Resource watermarks correspond to node and device details.

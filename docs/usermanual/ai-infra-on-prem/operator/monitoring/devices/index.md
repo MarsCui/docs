@@ -45,9 +45,11 @@ The following figure shows the device monitoring page.
 
 ![Device Monitoring](./images/monitoring-devices.png)
 
-## View Device Monitoring
+## Main Operations
 
-### Procedure
+### View Device Monitoring
+
+#### Procedure
 
 1. Go to `Monitoring > Device Monitoring`.
 2. Confirm the region in the upper-right corner and page filters.
@@ -55,13 +57,13 @@ The following figure shows the device monitoring page.
 4. Focus on abnormal status, high watermarks, long periods without updates, or data inconsistent with expectations.
 5. When a device is abnormal, combine node statistics, job monitoring, and underlying driver status to judge whether it is job occupation or a hardware issue.
 
-### Key Focus
+#### Key Focus
 
 - Whether devices are identified and continuously reported.
 - Whether VRAM and utilization are close to limits.
 - Whether temperature, error counts, or health status are abnormal.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -73,13 +75,13 @@ The following figure shows the device monitoring page.
 | Temperature | System-generated | Number | `71°C` | Helps judge cooling and hardware health. |
 | Health Status | System-generated | Status | `Normal` | Shows whether the device is available, alerted, or offline. |
 
-### Pitfalls
+#### Pitfalls
 
 - Full VRAM does not necessarily mean compute is fully loaded. Judge together with utilization.
 - Temperature exceptions should be escalated to operations promptly for hardware and cooling checks.
 - When devices are invisible, check drivers, plugins, and node status first.
 
-### Result Validation
+#### Result Validation
 
 1. The device list displays model, node, utilization, VRAM, temperature, and health status.
 2. Abnormal devices can be mapped to nodes and affected jobs.

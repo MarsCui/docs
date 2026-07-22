@@ -52,17 +52,19 @@ The following figure shows the tenant credit list, where each tenant's total res
 
 ![Tenant Credits](./images/tenant-credits-list.png)
 
-## Set Default Allocated Resources
+## Main Operations
 
-### Applicable Scenario
+### Set Default Allocated Resources
+
+#### Applicable Scenario
 
 - A unified default resource credit definition is required.
 
-### Pre-Operation Check
+#### Pre-Operation Check
 
 1. Confirm that default credits will not cause new tenants to over-occupy resources.
 
-### Procedure
+#### Procedure
 
 1. Go to `Quota & Metering > Tenant Credits`.
 2. Click `Default Allocated Resources`.
@@ -71,23 +73,23 @@ The following figure shows the tenant credit list, where each tenant's total res
 
 The following figure shows the default allocated resources entrypoint for maintaining the default resource allocation policy.
 
-### Result Validation
+#### Result Validation
 
 1. The default policy is saved successfully.
 2. New tenants or initialization flows use the default values.
 
-## Allocate Resources
+### Allocate Resources
 
-### Applicable Scenario
+#### Applicable Scenario
 
 - Resource credits need to be adjusted for a single tenant.
 
-### Pre-Operation Check
+#### Pre-Operation Check
 
 1. Confirm that the target tenant is correct.
 2. Confirm that adjusted credits meet business requirements and do not exceed the resource pool plan.
 
-### Procedure
+#### Procedure
 
 1. Click `Allocate Resources`.
 2. Select the tenant.
@@ -97,7 +99,7 @@ The following figure shows the default allocated resources entrypoint for mainta
 
 The following figure shows the allocate resources dialog, where CPU, memory, and GPU credits can be maintained by tenant.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -108,11 +110,11 @@ The following figure shows the allocate resources dialog, where CPU, memory, and
 | Adjustment Quantity | Conditionally required | Number | `2000` | Credits quantity adjusted this time. |
 | Effective Time | System-generated | Date time | `2026-07-06 10:00` | Time when the credit change is written to the account. |
 
-### Pitfalls
+#### Pitfalls
 
 - Before decreasing credits, confirm whether running jobs already exceed the new credits.
 
-### Result Validation
+#### Result Validation
 
 1. Target tenant credits are updated in the list.
 2. User-side credit validation behaves as expected when creating jobs.

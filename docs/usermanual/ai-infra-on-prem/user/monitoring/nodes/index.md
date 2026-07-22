@@ -53,9 +53,11 @@ The page displays node statistics capability for the selected region. When the c
 | Disk Metric | `Disk 70%` | Determines whether logs, cache, or data directories are close to limits. |
 | Node Status | `Ready / NotReady` | Determines whether the node can host jobs. |
 
-## View Node Statistics
+## Main Operations
 
-### Procedure
+### View Node Statistics
+
+#### Procedure
 
 1. Go to `Monitoring > Node Statistics`.
 2. Confirm the region in the upper-right corner.
@@ -63,13 +65,13 @@ The page displays node statistics capability for the selected region. When the c
 4. View charts, lists, or prompt information.
 5. If monitoring capability is not opened, return to instance details to view logs, events, and status.
 
-### Key Focus When Capability Is Open
+#### Key Focus When Capability Is Open
 
 - Whether nodes are Ready or schedulable.
 - Whether CPU, memory, or GPU curves remain high.
 - Whether curves are interrupted or update time is clearly delayed.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -81,13 +83,13 @@ The page displays node statistics capability for the selected region. When the c
 | GPU Usage | System-generated | Percentage | `65%` | Determines node accelerator compute pressure. |
 | Node Status | System-generated | Status | `Ready` | Shows whether the node is available or abnormal. |
 
-### Pitfalls
+#### Pitfalls
 
 - Temporary CPU or memory spikes are not necessarily failures. Judge them together with the task runtime window.
 - Curve interruption may be collection delay or node unavailability.
 - Users usually cannot maintain nodes directly. During troubleshooting, prepare time range and instance information for the operator.
 
-### Result Validation
+#### Result Validation
 
 1. The node list displays node name, owning cluster, status, and key metrics.
 2. Metric curves match the selected time range.

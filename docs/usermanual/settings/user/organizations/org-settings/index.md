@@ -125,6 +125,16 @@ A permission, project, role, key, notification, system setting, or rate-control 
 3. Compare downstream behavior with operation logs and related settings pages to rule out cache, permission, or synchronization delay.
 4. For security-sensitive settings, verify impact scope before repeating the operation or escalating with desensitized page paths and timestamps.
 
+### Why is the organization settings save button unavailable?
+
+Check the current tenant, organization, project, role permissions, object status, feature switch, and operation logs. Do not repeat save, submit, publish, rollback, disable, or delete actions until the scope and impact are confirmed.
+
+## Next Steps
+
+1. Recheck the affected users, organizations, projects, roles, keys, policies, or configuration objects.
+2. Verify operation logs and downstream behavior after the configuration is saved or refreshed.
+3. Keep only desensitized page paths, timestamps, object names, and status values when escalating.
+
 ## Notes
 
 - Permission, Key, login, organization, and rate-control changes can affect real users. Confirm scope before changes.

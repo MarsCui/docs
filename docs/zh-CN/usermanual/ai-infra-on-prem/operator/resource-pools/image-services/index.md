@@ -13,7 +13,7 @@
 | --- | --- |
 | 适用角色 | 运营方 |
 | 导航路径 | AI Infra > On-Prem > 资源池管理 > 镜像组件 |
-| 页面路由 | `/powerone/resourcepool/images` |
+| 页面路由 | powerone/resourcepool/images |
 | 管理对象 | 组件名称、仓库地址、Endpoint、认证方式、访问凭据、证书策略、关联地域、绑定集群、项目同步范围和同步状态 |
 | 典型用途 | 接入 Harbor/Registry，支撑公共镜像、自定义镜像、作业镜像拉取和用户侧镜像项目同步 |
 

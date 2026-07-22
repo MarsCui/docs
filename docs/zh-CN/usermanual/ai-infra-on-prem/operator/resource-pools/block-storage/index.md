@@ -13,7 +13,7 @@
 | --- | --- |
 | 适用角色 | 运营方 |
 | 导航路径 | AI Infra > On-Prem > 资源池管理 > 块存储组件 |
-| 页面路由 | `/powerone/resourcepool/block-storage` |
+| 页面路由 | powerone/resourcepool/block |
 | 管理对象 | Ceph 集群、Mon 地址、FSID、RBD Pool、StorageClass、容量、访问凭据、绑定地域和绑定集群 |
 | 典型用途 | 为工作负载 PVC 创建、卷挂载、容量展示和资源调度提供持久化块设备能力 |
 

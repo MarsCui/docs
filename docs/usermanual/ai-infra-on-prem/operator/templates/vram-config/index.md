@@ -46,16 +46,18 @@ The following figure shows the vram estimation configuration page.
 
 ![VRAM Estimation Configuration](./images/vram-config-list.png)
 
-## Configure VRAM Rules
+## Main Operations
 
-### Pre-Operation Check
+### Configure VRAM Rules
+
+#### Pre-Operation Check
 
 1. Model parameter size, precision, quantization method, and maximum context length have been confirmed.
 2. Target GPU/NPU model, single-card VRAM, and parallel strategy have been confirmed.
 3. Estimation definitions for KV Token, batch size, and concurrency have been confirmed.
 4. VRAM estimation results should be cross-verified with actual stress tests or trial runs.
 
-### Procedure
+#### Procedure
 
 1. Go to `Templates > VRAM Estimation`.
 2. Click the add or edit entrypoint.
@@ -64,7 +66,7 @@ The following figure shows the vram estimation configuration page.
 5. On the Dynamic Expression tab, configure VRAM calculation formulas, recommended specifications, and trigger conditions.
 6. Save, then reference and verify it in inference templates.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -75,13 +77,13 @@ The following figure shows the vram estimation configuration page.
 | Concurrency / Batch Size | No | Number | `4` | Used to estimate VRAM pressure under peak requests. |
 | VRAM Estimation Result | System-generated | Capacity | `152 GB` | Recommended VRAM requirement calculated by the platform. |
 
-### Pitfalls
+#### Pitfalls
 
 - KV Token, context length, and concurrency significantly affect VRAM estimation. Do not look only at model parameter scale.
 - Incorrect quantization precision causes recommended specifications to be too small or too large.
 - VRAM estimation results should be verified through test deployments and cannot replace real stress tests.
 
-### Result Validation
+#### Result Validation
 
 1. The rule appears in the list.
 2. Inference templates can reference this VRAM rule.

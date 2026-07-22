@@ -1,4 +1,4 @@
-﻿# Model Services
+# Model Services
 
 ::: info Document Information
 Version: v1.0

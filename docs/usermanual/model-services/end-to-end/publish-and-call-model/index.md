@@ -1,4 +1,4 @@
-﻿# Publish and Call a Model End to End
+# Publish and Call a Model End to End
 
 ::: info Document Information
 Version: v1.0

@@ -46,16 +46,18 @@ The following figure shows the model configuration page.
 
 ![Model Configuration](./images/model-config-list.png)
 
-## Add Model
+## Main Operations
 
-### Pre-Operation Check
+### Add Model
+
+#### Pre-Operation Check
 
 1. Model file path, format, permissions, and source credentials have been confirmed.
 2. The model matches the runtime framework, precision, context length, and resource specification.
 3. Environment variables, startup parameters, and mount paths do not contain real keys.
 4. If the model comes from an external repository, authorization scope and network connectivity have been confirmed.
 
-### Procedure
+#### Procedure
 
 1. Go to `Templates > Model Configuration`.
 2. Click `Add Model`.
@@ -64,7 +66,7 @@ The following figure shows the model configuration page.
 5. On the Association Configuration tab, select tags, clusters, and visibility scope.
 6. Save and return to the list to check model status.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -75,13 +77,13 @@ The following figure shows the model configuration page.
 | Startup Parameters | No | Command parameters | `--max-model-len 8192` | Model parameters appended to the framework startup command. |
 | Model Source Credential | Conditionally required | Credential reference | `secret-model-repo` | Credential reference used when accessing a private model repository or object storage. |
 
-### Pitfalls
+#### Pitfalls
 
 - The model path must be consistent with the mount path or object storage path, otherwise the framework cannot find weights after startup.
 - Do not mix real credentials into environment variables or startup parameters. Sensitive values should use credential references.
 - Clarify the parameter source to prevent template default values from overriding model-specific parameters.
 
-### Result Validation
+#### Result Validation
 
 1. The model appears in the list.
 2. Model version status matches expectations.

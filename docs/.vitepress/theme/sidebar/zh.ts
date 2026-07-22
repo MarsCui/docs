@@ -405,8 +405,8 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                   text: '用量与收益',
                   collapsed: false,
                   items: [
-                    { text: '模型收益', link: '/zh-CN/usermanual/model-services/user/usage-revenue/model-revenue/' },
-                    { text: '用量明细', link: '/zh-CN/usermanual/model-services/user/usage-revenue/model-usage/' },
+                    { text: '模型收益', link: '/zh-CN/usermanual/model-services/user/usage-earnings/model-earnings/' },
+                    { text: '用量明细', link: '/zh-CN/usermanual/model-services/user/usage-earnings/model-usage/' },
                   ]
                 },
                 {
@@ -454,7 +454,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                   text: '接入管理',
                   collapsed: false,
                   items: [
-                    { text: '接入云平台', link: '/zh-CN/usermanual/ai-infra-on-cloud/operator/access-management/access-cloudtype/' },
+                    { text: '接入云平台', link: '/zh-CN/usermanual/ai-infra-on-cloud/operator/access-management/cloud-platforms/' },
                     { text: '接入资源池', link: '/zh-CN/usermanual/ai-infra-on-cloud/operator/access-management/resource-pools/' },
                     { text: '接入账号', link: '/zh-CN/usermanual/ai-infra-on-cloud/operator/access-management/cloud-accounts/' },
                   ]

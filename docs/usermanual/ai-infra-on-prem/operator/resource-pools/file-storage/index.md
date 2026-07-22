@@ -11,9 +11,9 @@ Updated: 2026-07-08
 
 | Item | Content |
 | --- | --- |
-| Applicable role | Operator or user with resource pool storage component management permissions |
+| Applicable role | Operator |
 | Navigation path | AI Infra > On-Prem > Resource Pools > File Storage Component |
-| Page route | `/powerone/resourcepool/file-storage` |
+| Page route | /powerone/resourcepool/file |
 | Managed objects | NFS services, service addresses, shared paths, access policies, capacity, mount paths, and associated regions or clusters |
 | Typical use | Create file storage components to provide shared directory mounts, model repositories, local Git repositories, or dataset directories |
 

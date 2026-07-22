@@ -9,11 +9,11 @@
 
 | 我是谁 | 先看什么 | 下一步 |
 | --- | --- | --- |
-| 普通用户 | 先确认自己的余额、流水、充值订单和月度账单。 | 进入 我的账务。 |
-| 平台运营 | 先确认客户档案、客户充值和业务线归属。 | 进入 客户账务。 |
-| 账务运营 | 先确认账期、月结进度、结算单和巡检状态。 | 进入 运营财务。 |
+| 普通用户 | 先确认自己的余额、流水、充值订单和月度账单。 | 进入 [我的账务](../user/billing/overview/)。 |
+| 平台运营 | 先确认客户档案、客户充值和业务线归属。 | 进入 [客户账务](../operator/customer-billing/customer-overview/)。 |
+| 账务运营 | 先确认账期、月结进度、结算单和巡检状态。 | 进入 [运营财务](../operator/finance-operations/today-tasks/)。 |
 | 财务对账人员 | 先确认账户流水、结算单和巡检异常。 | 进入 [财务账户](../operator/finance-operations/financial-accounts/)。 |
-| License 管理员 | 先确认授权类型、额度、有效期和激活状态。 | 进入 License。 |
+| License 管理员 | 先确认授权类型、额度、有效期和激活状态。 | 进入 [License](../operator/license/license/)。 |
 
 ## 功能概述
 
@@ -27,11 +27,11 @@
 
 | 角色 | 先关注什么 | 推荐入口 |
 | --- | --- | --- |
-| 普通用户 | 自己的余额、流水、充值订单和月度账单。 | 我的账务 |
-| 平台运营 | 客户档案、客户充值单、业务线和支付渠道。 | 客户账务 |
-| 账务运营 | 今日任务、月结总览、结算单、财务账户和巡检。 | 运营财务 |
+| 普通用户 | 自己的余额、流水、充值订单和月度账单。 | [我的账务](../user/billing/overview/) |
+| 平台运营 | 客户档案、客户充值单、业务线和支付渠道。 | [客户账务](../operator/customer-billing/customer-overview/) |
+| 账务运营 | 今日任务、月结总览、结算单、财务账户和巡检。 | [运营财务](../operator/finance-operations/today-tasks/) |
 | 财务对账人员 | 账户流水、结算单、巡检异常和调账记录。 | [财务账户](../operator/finance-operations/financial-accounts/) |
-| License 管理员 | 授权类型、额度、有效期和激活状态。 | License |
+| License 管理员 | 授权类型、额度、有效期和激活状态。 | [License](../operator/license/license/) |
 
 ## 账务是什么
 
@@ -41,11 +41,11 @@
 
 | 角色 | 主要职责 | 常用入口 |
 | --- | --- | --- |
-| 普通用户 | 查看自己的余额、流水、充值订单和月度账单。 | 我的账务 |
-| 平台运营 | 维护客户账务对象、充值订单和业务线。 | 客户账务 |
-| 账务运营 | 推进月结、结算、巡检和调账处理。 | 运营财务 |
+| 普通用户 | 查看自己的余额、流水、充值订单和月度账单。 | [我的账务](../user/billing/overview/) |
+| 平台运营 | 维护客户账务对象、充值订单和业务线。 | [客户账务](../operator/customer-billing/customer-overview/) |
+| 账务运营 | 推进月结、结算、巡检和调账处理。 | [运营财务](../operator/finance-operations/today-tasks/) |
 | 财务对账人员 | 核对账户流水、结算单和巡检异常。 | [财务账户](../operator/finance-operations/financial-accounts/) |
-| License 管理员 | 查看授权额度、有效期和激活状态。 | License |
+| License 管理员 | 查看授权额度、有效期和激活状态。 | [License](../operator/license/license/) |
 
 ## 账务对象层级
 
@@ -119,17 +119,17 @@
 | 你的目标 | 先读 | 下一步 |
 | --- | --- | --- |
 | 了解账务子系统边界 | [账务概览](../) | 再读本快速入门 |
-| 查询自己的余额和充值 | 我的账务 | 进入账户概览、流水明细或充值订单 |
-| 处理客户充值问题 | 客户账务 | 查看客户概览、客户充值单或业务线 |
-| 推进账期结算 | 运营财务 | 查看月结总览、财务账户、巡检中心和结算单 |
+| 查询自己的余额和充值 | [我的账务](../user/billing/overview/) | 进入账户概览、流水明细或充值订单 |
+| 处理客户充值问题 | [客户账务](../operator/customer-billing/customer-overview/) | 查看客户概览、客户充值单或业务线 |
+| 推进账期结算 | [运营财务](../operator/finance-operations/today-tasks/) | 查看月结总览、财务账户、巡检中心和结算单 |
 | 完成一次对账闭环 | [完成一次账期对账与结算](../end-to-end/reconcile-billing-cycle/) | 按流程检查任务、账户、巡检和结算单 |
-| 处理资源授权问题 | License | 查看授权额度、有效期和激活状态 |
+| 处理资源授权问题 | [License](../operator/license/license/) | 查看授权额度、有效期和激活状态 |
 
 1. 先读 [账务概览](../)，理解客户账务、运营财务、License 和用户侧账务的边界。
-2. 普通用户进入 我的账务，按账户概览、流水明细、充值订单、月度账单的顺序阅读。
-3. 如果你是运营人员，先读 客户账务 和 运营财务，再进入具体功能页。
+2. 普通用户进入 [我的账务](../user/billing/overview/)，按账户概览、流水明细、充值订单、月度账单的顺序阅读。
+3. 如果你是运营人员，先读 [客户账务](../operator/customer-billing/customer-overview/) 和 [运营财务](../operator/finance-operations/today-tasks/)，再进入具体功能页。
 4. 如果你要处理完整账期，阅读 [完成一次账期对账与结算](../end-to-end/reconcile-billing-cycle/)。
-5. 如果问题表现为资源不可用、授权到期或额度不足，进入 License。
+5. 如果问题表现为资源不可用、授权到期或额度不足，进入 [License](../operator/license/license/)。
 
 ## 常见问题
 
@@ -145,7 +145,7 @@
 
 **处理方式：**
 
-如果问题来自某个用户自己看余额或充值，先看 我的账务；如果要核对客户、组织、结算单、财务账户或巡检异常，进入 运营财务 或 客户账务。
+如果问题来自某个用户自己看余额或充值，先看 [我的账务](../user/billing/overview/)；如果要核对客户、组织、结算单、财务账户或巡检异常，进入 [运营财务](../operator/finance-operations/today-tasks/) 或 [客户账务](../operator/customer-billing/customer-overview/)。
 
 ### 余额、流水和月度账单为什么对不上？
 
@@ -177,11 +177,11 @@ License 只说明资源授权状态，不代表账务链路已经完成结算、
 
 ## 后续操作
 
-- 需要用户自查余额、充值和账单，进入 我的账务。
-- 需要运营核对客户和充值，进入 客户账务。
-- 需要推进结算、巡检和调账，进入 运营财务。
+- 需要用户自查余额、充值和账单，进入 [我的账务](../user/billing/overview/)。
+- 需要运营核对客户和充值，进入 [客户账务](../operator/customer-billing/customer-overview/)。
+- 需要推进结算、巡检和调账，进入 [运营财务](../operator/finance-operations/today-tasks/)。
 - 需要完成账期闭环，进入 [完成一次账期对账与结算](../end-to-end/reconcile-billing-cycle/)。
-- 需要确认资源授权，进入 License。
+- 需要确认资源授权，进入 [License](../operator/license/license/)。
 
 ## 注意事项
 

@@ -53,9 +53,11 @@ The page displays job monitoring capability for the selected region. When the ca
 | Runtime Duration | `2h 13m` | Determines whether the task exceeds expected runtime. |
 | Failure Information | `ImagePullBackOff` | Determines whether logs, events, or operator support is needed. |
 
-## View Job Monitoring
+## Main Operations
 
-### Procedure
+### View Job Monitoring
+
+#### Procedure
 
 1. Go to `Monitoring > Job Monitoring`.
 2. Confirm the region in the upper-right corner.
@@ -63,13 +65,13 @@ The page displays job monitoring capability for the selected region. When the ca
 4. View charts, lists, or prompt information.
 5. If monitoring capability is not opened, return to instance details to view logs, events, and status.
 
-### Key Focus When Capability Is Open
+#### Key Focus When Capability Is Open
 
 - Whether jobs remain queued for a long time.
 - Whether failure causes point to quota, image, startup command, or insufficient resources.
 - Whether GPU occupation and runtime duration match expectations.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -81,13 +83,13 @@ The page displays job monitoring capability for the selected region. When the ca
 | Failure Cause | System-generated | Text | `ImagePullBackOff` | Helps locate failure direction. |
 | Submission Time | System-generated | Date time | `2026-07-06 09:30` | Used to align logs, events, and usage. |
 
-### Pitfalls
+#### Pitfalls
 
 - Job queueing is usually related to quotas, specifications, capacity, or scheduling conditions. Do not only refresh the page.
 - When failure cause is empty, view instance events and logs first.
 - When GPU occupation is normal but results are abnormal, return to training scripts or model parameters for troubleshooting.
 
-### Result Validation
+#### Result Validation
 
 1. The job list displays ID, status, queue duration, runtime duration, and resource occupation.
 2. After filters change, list and statistics change accordingly.

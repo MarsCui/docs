@@ -45,9 +45,11 @@ The following figure shows the job monitoring page.
 
 ![Job Monitoring](./images/monitoring-jobs.png)
 
-## View Job Monitoring
+## Main Operations
 
-### Procedure
+### View Job Monitoring
+
+#### Procedure
 
 1. Go to `Monitoring > Job Monitoring`.
 2. Confirm the region in the upper-right corner and page filters.
@@ -55,13 +57,13 @@ The following figure shows the job monitoring page.
 4. Focus on abnormal status, high watermarks, long periods without updates, or data inconsistent with expectations.
 5. When a job is abnormal, go to instance details to view logs, events, image pull, startup command, and storage mount.
 
-### Key Focus
+#### Key Focus
 
 - Whether failed and queued jobs increase abnormally.
 - Whether long-running jobs occupy critical resources.
 - Whether job tenant, specification, image, and cluster match expectations.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -73,13 +75,13 @@ The following figure shows the job monitoring page.
 | GPU Occupation | System-generated | Number | `2 * A800` | Shows accelerator specification and quantity occupied by the job. |
 | Failure Information | System-generated | Text | `ImagePullBackOff` | Helps locate job failure causes. |
 
-### Pitfalls
+#### Pitfalls
 
 - Job queueing is not necessarily a failure. It may be caused by insufficient resources or quotas.
 - Failure causes should be judged together with events, logs, and image pull status.
 - Long-running jobs should be evaluated for resource occupation and cost.
 
-### Result Validation
+#### Result Validation
 
 1. The job list displays ID, status, queue duration, runtime duration, and resource occupation.
 2. Failed jobs show an error summary or event entrypoint.

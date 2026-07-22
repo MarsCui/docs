@@ -53,9 +53,11 @@ The following figure shows the tenant quota list, where top-up details and consu
 
 ![Tenant Quotas](./images/tenant-quotas-list.png)
 
-## Set Default Credits
+## Main Operations
 
-### Procedure
+### Set Default Credits
+
+#### Procedure
 
 1. Go to `Quota & Metering > Tenant Quotas`.
 2. Click `Default Credits`.
@@ -64,13 +66,13 @@ The following figure shows the tenant quota list, where top-up details and consu
 
 The following figure shows the default credits entrypoint.
 
-### Result Validation
+#### Result Validation
 
 1. The default credit policy is saved successfully.
 
-## Initialize Customer Credits
+### Initialize Customer Credits
 
-### Procedure
+#### Procedure
 
 1. Click `Initialize Customer Credits`.
 2. Select or confirm the customer that needs initialization.
@@ -79,14 +81,14 @@ The following figure shows the default credits entrypoint.
 
 The following figure shows the initialize customer credits entrypoint.
 
-### Result Validation
+#### Result Validation
 
 1. The customer appears in the list.
 2. A corresponding initialization record exists in top-up details.
 
-## Adjust Customer Credits
+### Adjust Customer Credits
 
-### Procedure
+#### Procedure
 
 1. Click `Adjust Customer Credits`.
 2. Select the target customer.
@@ -95,7 +97,7 @@ The following figure shows the initialize customer credits entrypoint.
 
 The following figure shows the adjust customer credits entrypoint.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -106,11 +108,11 @@ The following figure shows the adjust customer credits entrypoint.
 | Remaining | System-generated | Number / capacity | `3 cards` | Available credits after subtracting used from quota limit. |
 | Adjustment Reason | Conditionally required | Text | `Project expansion` | Business reason recorded for manual credit adjustment. |
 
-### Pitfalls
+#### Pitfalls
 
 - Do not mix resource credit issues with account credit issues. Troubleshoot them separately.
 
-### Result Validation
+#### Result Validation
 
 1. Target customer credit changes match expectations.
 2. Detail records are traceable.

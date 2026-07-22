@@ -61,18 +61,20 @@ The page provides instance type, status, search, and reset entrypoints. In the c
 | List Area | Displays model instances and their status. When no data exists, it displays No model services. |
 | Pagination Area | View by page when there are many instances. |
 
-## View Model Instances
+## Main Operations
 
-### Applicable Scenario
+### View Model Instances
+
+#### Applicable Scenario
 
 When you need to confirm whether a model service was created successfully, is still running, or has exceptions, view the model instance list.
 
-### Pre-Operation Check
+#### Pre-Operation Check
 
 1. Model instance creation has been completed, or you explicitly need to confirm that there are no instances.
 2. Filters are not too narrow, avoiding false empty results.
 
-### Procedure
+#### Procedure
 
 1. Go to `Model Deployment > Model Instances`.
 2. Select instance type and status.
@@ -80,7 +82,7 @@ When you need to confirm whether a model service was created successfully, is st
 4. View target instance status in the list.
 5. If troubleshooting is needed, enter instance details or logs.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -90,12 +92,12 @@ When you need to confirm whether a model service was created successfully, is st
 | Instance Count | Yes | Number | `1` | Number of inference service replicas. |
 | Access Method | System-generated | Text | `Internal access` | Access entrypoint after service creation. |
 
-### Pitfalls
+#### Pitfalls
 
 - An empty list does not necessarily mean there are no instances. Click `Reset` to clear filters first.
 - Newly created instances may need time for status refresh.
 
-### Result Validation
+#### Result Validation
 
 1. The target instance appears in the list.
 2. Instance status matches expectations.

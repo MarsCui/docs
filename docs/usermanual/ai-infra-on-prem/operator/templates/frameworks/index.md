@@ -58,9 +58,11 @@ The following figure shows the framework configuration page.
 
 ![Framework Configuration](./images/frameworks-list.png)
 
-## Add or Maintain a Framework
+## Main Operations
 
-### Pre-Operation Check
+### Add or Maintain a Framework
+
+#### Pre-Operation Check
 
 1. The container image, base dependencies, and image region required by the framework have been confirmed.
 2. The main node startup command, worker node startup command, and single-node startup method have been confirmed.
@@ -68,7 +70,7 @@ The following figure shows the framework configuration page.
 4. Extra parameters, environment variables, and placeholders have been sanitized.
 5. The model types, inference protocols, and resource specifications supported by the framework have been confirmed.
 
-### Procedure
+#### Procedure
 
 1. Go to `Templates > Framework Configuration`.
 2. Click the add, edit, or maintenance entrypoint provided by the page.
@@ -78,7 +80,7 @@ The following figure shows the framework configuration page.
 6. In the message area, maintain the creation success message and reference parameter placeholders as needed.
 7. Save and reference this framework in inference templates.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -95,7 +97,7 @@ The following figure shows the framework configuration page.
 | Health Check | Conditionally required | Path / command | `/health` | Used to determine whether the framework service starts successfully. |
 | Creation Success Message | No | Markdown text | `The service has been created. You can access ${modelName}.` | Message shown to users after the task cluster is created. Markdown and placeholders are supported. |
 
-### Port Exposure Policy and Port Tags
+#### Port Exposure Policy and Port Tags
 
 | Configuration | Value | Description |
 | --- | --- | --- |
@@ -107,7 +109,7 @@ The following figure shows the framework configuration page.
 | Port Tag | `Ollama API Port` | Identifies an inference service compatible with the Ollama API format. The system generates corresponding Ollama API usage guides. |
 | Port Tag | `Custom` | Used for internal notes or special protocol identifiers. It does not trigger automatic document generation. |
 
-### Parameter Placeholder Description
+#### Parameter Placeholder Description
 
 Startup commands, extra parameters, and creation success messages can use placeholders. When a job is created, the platform replaces placeholders with actual task cluster parameters.
 
@@ -134,7 +136,7 @@ Startup commands, extra parameters, and creation success messages can use placeh
 | `${vendor}` | Model vendor. |
 | `${supportModelClusterIds}` | List of cluster IDs that support the current model. |
 
-### Pitfalls
+#### Pitfalls
 
 - The startup command must run as a foreground process to avoid the container exiting immediately after startup.
 - The service port must match the actual framework listening port, otherwise health checks or access entries may fail.
@@ -142,7 +144,7 @@ Startup commands, extra parameters, and creation success messages can use placeh
 - The port exposure policy determines the access authentication method. Do not select a non-authenticated policy for external or cross-tenant access.
 - The creation success message can include access methods and follow-up operations, but must not include real tokens, passwords, AK/SK, private keys, or internal endpoints.
 
-### Result Validation
+#### Result Validation
 
 1. The framework appears in the list.
 2. Inference templates can select this framework.

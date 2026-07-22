@@ -13,7 +13,7 @@
 | --- | --- |
 | 适用角色 | 运营方 |
 | 导航路径 | AI Infra > On-Prem > 资源池管理 > 对象存储组件 |
-| 页面路由 | `/powerone/resourcepool/storage` |
+| 页面路由 | /powerone/resourcepool/storage |
 | 管理对象 | 组件名称、Endpoint、内网地址、访问协议、认证方式、访问凭据、Bucket 能力、容量限制、关联地域和状态 |
 | 典型用途 | 接入 MinIO/S3，支撑模型文件、数据集、产物包、任务输出和用户侧 Bucket 管理 |
 

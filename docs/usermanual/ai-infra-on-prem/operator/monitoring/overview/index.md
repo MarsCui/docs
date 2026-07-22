@@ -45,9 +45,11 @@ The following figure shows the statistics overview page.
 
 ![Statistics Overview](./images/monitoring-overview.png)
 
-## View Statistics Overview
+## Main Operations
 
-### Procedure
+### View Statistics Overview
+
+#### Procedure
 
 1. Go to `Monitoring > Statistics Overview`.
 2. Confirm the region in the upper-right corner and page filters.
@@ -55,13 +57,13 @@ The following figure shows the statistics overview page.
 4. Focus on abnormal status, high watermarks, long periods without updates, or data inconsistent with expectations.
 5. After finding an exception, go to cluster statistics, node statistics, device monitoring, or job monitoring for further location.
 
-### Key Focus
+#### Key Focus
 
 - Whether cluster and node counts change abnormally.
 - Whether GPU, CPU, memory, and disk watermarks are close to limits.
 - Whether failed, queued, or long-running jobs increase.
 
-### Parameters
+#### Parameters
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -71,13 +73,13 @@ The following figure shows the statistics overview page.
 | Exception Count | System-generated | Number | `3` | Aggregates abnormal objects in clusters, nodes, devices, or jobs. |
 | Update Time | System-generated | Date time | `2026-07-06 10:00` | Used to determine whether overview data has collection delay. |
 
-### Pitfalls
+#### Pitfalls
 
 - The overview can only help locate direction and does not replace specific object details.
 - Rising watermarks should be judged together with new jobs, expansion, and queueing.
 - Mask tenants, node names, and business identifiers before screenshots.
 
-### Result Validation
+#### Result Validation
 
 1. Overview cards display summaries for clusters, nodes, devices, jobs, and exceptions.
 2. After switching region or time range, trends and exception counts change accordingly.

@@ -13,7 +13,7 @@ Updated: 2026-07-08
 | --- | --- |
 | Applicable role | Operator |
 | Navigation path | AI Infra > On-Prem > Resource Pools > Block Storage Component |
-| Page route | `/powerone/resourcepool/block-storage` |
+| Page route | powerone/resourcepool/block |
 | Managed objects | Ceph cluster, Mon addresses, FSID, RBD Pool, StorageClass, capacity, access credentials, associated regions, and bound clusters |
 | Typical use | Provide persistent block device capability for workload PVC creation, volume mounting, capacity display, and resource scheduling |
 
