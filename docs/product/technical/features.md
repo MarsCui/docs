@@ -1,9 +1,9 @@
 ﻿# Core Capabilities and Features
 
 :::: info Document Information
-Version: v1.0
-Updated: 2026-07-22
-Functional baseline: User Manual updated on 2026-07-10
+Version: v1.1
+Updated: 2026-07-23
+Functional baseline: User Manual updated on 2026-07-22 and the current AI Infra On-Cloud business workflow
 ::::
 
 ## Overview
@@ -16,17 +16,21 @@ AGIOne is a **one-stop intelligent compute and model management platform** purpo
 
 > The first six capabilities form the business path from compute preparation to financial operations. The seventh, **Invocation Observability**, provides end-to-end visibility, analytics, and anomaly diagnosis. The eighth, **Settings and Access Control**, provides governance for identities, organizations, permissions, audit, and API rate control.
 
+> The first three capabilities are presented through separate **AI Infra On-Prem** and **AI Infra On-Cloud** paths. On-Prem covers local compute and model deployment, while On-Cloud covers multi-cloud resource access, cloud deployment assets, and recommendation-driven deployment.
+
 ::: warning Reading Note
 This page retains the original capability framework and conceptual diagrams. Times, strategies, performance figures, and pricing values in the diagrams and examples explain design considerations and are not current-version commitments. The current user manual also documents **Billing** and **Settings** as product modules for finance, License, identity, audit, and API rate-control operations. Use the [User Manual](../../usermanual/), [Support Matrix](../limitations/support-matrix), and target environment as the source of truth. Current status: Huawei Cloud access is temporarily unsupported; RAG and Function Calling are planned.
 :::
 
-## 1. Compute Management — Unified Pooling of Heterogeneous Accelerators
+## 1. Compute Resources — On-Prem Management and Multi-Cloud Access
 
-### 1.1 Capability Overview
+### 1.1 AI Infra On-Prem
+
+#### 1.1.1 Capability Overview
 
 Through AI Infra On-Prem, AGIOne manages regions, availability zones, clusters, nodes, and accelerator resources. Specifications, templates, quotas, and authorization provide selectable compute for workloads. Onboarding and model runtime still require validation of the accelerator, driver, runtime, image, inference engine, and model combination.
 
-### 1.2 Supported Heterogeneous Accelerators
+#### 1.1.2 Supported Heterogeneous Accelerators
 
 | Vendor | Architecture / Series | Representative Models | Adaptation Note |
 |---|---|---|---|
@@ -38,16 +42,16 @@ Through AI Infra On-Prem, AGIOne manages regions, availability zones, clusters, 
 | **Biren** | Biren | S60 | Validate vendor driver, runtime, inference framework, and model |
 | **Hygon** | BW | BW200 | Validate vendor driver, runtime, inference framework, and model |
 
-### 1.3 Core Sub-capabilities
+#### 1.1.3 Core Sub-capabilities
 
-#### 1.3.1 Node Onboarding and Lifecycle Management
+##### Node Onboarding and Lifecycle Management
 
 - **Cluster and node onboarding**: Operators maintain regions, availability zones, clusters, nodes, and accelerator objects. The actual onboarding scope depends on network and installation conditions.
 - **Node initialization**: Follow the [Compute Node Onboarding and Installation Guide](../../installation/quick-install-for-managing-compute-nodes) to prepare Kubernetes, the container runtime, drivers, and device plugins.
 - **Images and runtime environments**: Use images, image services, and templates to maintain the environments required by workloads.
 - **Exception handling**: Use node, device, workload monitoring, and event records to locate issues. Recovery behavior depends on the Kubernetes configuration and delivery solution.
 
-#### 1.3.2 Resource Scheduling and Allocation Strategies
+##### Resource Scheduling and Allocation Strategies
 
 | Scheduling Dimension | Strategy | Use Case |
 |---|---|---|
@@ -56,7 +60,7 @@ Through AI Infra On-Prem, AGIOne manages regions, availability zones, clusters, 
 | **Authorization-scope-based scheduling** | Uses only regions, resource pools, and specifications visible to the current tenant, business scope, or user | Multi-tenant resource use |
 | **Multi-card workload configuration** | Configures card count and parallelism parameters according to the template, model, and cluster conditions | Single-node or multi-node multi-card workloads |
 
-#### 1.3.3 Hardware Monitoring Metrics
+##### Hardware Monitoring Metrics
 
 The platform can display collected accelerator metrics on device and monitoring pages. The collectors, metric set, and refresh interval depend on the accelerator type, monitoring configuration, and deployed version. Examples include:
 
@@ -66,54 +70,133 @@ The platform can display collected accelerator metrics on device and monitoring 
 - **Real-time power draw** & TDP utilization
 - **NVLink / InfiniBand bandwidth** & link health
 
+### 1.2 AI Infra On-Cloud
 
-## 2. Model Templates — Codifying Best Practices
+#### 1.2.1 Capability Overview
 
-### 2.1 Capability Overview
+Through AI Infra On-Cloud, AGIOne provides unified access to cloud platforms, cloud accounts, regions, resource pools, and compute specifications. It organizes inference resources from different cloud providers into authorized, filterable compute candidates that can be used for model deployment. Operators prepare cloud resources and access scopes, while general users deploy models from recommended solutions within their authorized scope.
 
-AGIOne uses model configurations, memory configurations, frameworks, and inference templates to preserve reusable deployment parameters. Template availability depends on the operator's configuration and validation of the target model, compute specification, image, and inference engine.
+Cloud resource preparation follows this relationship:
 
-### 2.2 What's Inside a Model Template
+![Figure 1-A   AI Infra On-Cloud Multi-Cloud Resource Access Workflow](./images/fig_oncloud_resource_access.svg)
 
-Each model template encapsulates the following five categories of information, forming a complete deployment knowledge asset:
+<p align="center"><i>Figure 1-A   AI Infra On-Cloud Multi-Cloud Resource Access Workflow</i></p>
 
-![Figure 2   The Five Components of a Model Template](./images/fig_model_template.svg)
+#### 1.2.2 Core Resource Objects
 
-<p align="center"><i>Figure 2   The Five Components of a Model Template</i></p>
+| Resource Object | Purpose | Usage Boundary |
+|---|---|---|
+| **Cloud platform** | Identifies integrated provider capabilities such as Alibaba Cloud, AWS, and AGIOne-PowerOne | Available platforms depend on the current environment and deployed version |
+| **Cloud account** | Provides the credentials required for the platform to operate cloud-provider resources | At deployment confirmation, users can select only an available account that matches the candidate provider |
+| **Region and resource pool** | Organizes provider regions, available resources, and dedicated resource scopes | Business authorization is still required after a resource pool is created |
+| **Business-region authorization** | Restricts the cloud platform and region combinations available to a business or tenant | Supports multi-tenant isolation, compliance, and cost control |
+| **Compute specification** | Describes GPU, CPU, memory, instance count, price, and billing cycle | Specifications and prices must be confirmed separately for each platform and region |
 
-### 2.3 Built-in Model Template Examples
+#### 1.2.3 Multi-Cloud Resource Management
 
-#### 2.3.1 Pre-built Templates for Mainstream Large Models
+- **Account and region management**: Operators maintain cloud platforms and accounts, and synchronize available regions, resource pools, and specifications.
+- **Authorization-scope control**: Resource-pool and business-region authorization determine which providers and regions are visible to each business.
+- **Specification and cost information**: Deployment candidates can display accelerator type and count, CPU, memory, instance count, estimated cost, and currency.
+- **Cloud-provider adaptation**: Provider components query resources and create services. Fields and lifecycle capabilities may vary by provider.
+- **Runtime observation**: After deployment, users can review task status, provider events, invocation logs, and resource monitoring.
+
+
+## 2. Model Deployment Assets — On-Prem Templates and Cloud Configurations
+
+On-Prem and On-Cloud use different asset structures for local-compute and cloud-model deployment:
+
+![Figure 2   On-Prem and On-Cloud Model Deployment Assets](./images/fig_model_template.svg)
+
+<p align="center"><i>Figure 2   On-Prem and On-Cloud Model Deployment Assets</i></p>
+
+| Deployment Scope | Components | User Manual |
+|---|---|---|
+| **On-Prem** | Model configurations, VRAM estimation, framework configurations, and inference templates | [Model Configurations](../../usermanual/ai-infra-on-prem/operator/templates/model-config/) / [VRAM Estimation](../../usermanual/ai-infra-on-prem/operator/templates/vram-config/) / [Framework Configurations](../../usermanual/ai-infra-on-prem/operator/templates/frameworks/) / [Inference Templates](../../usermanual/ai-infra-on-prem/operator/templates/inference-templates/) |
+| **On-Cloud** | Runtime images, inference frameworks, and the model catalog; model records further connect metadata models, cloud deployment points, cloud models, compute solutions, and output configurations | [Runtime Images](../../usermanual/ai-infra-on-cloud/operator/deploy-assets/runtime-images/) / [Inference Frameworks](../../usermanual/ai-infra-on-cloud/operator/deploy-assets/frameworks/) / [Model Catalog](../../usermanual/ai-infra-on-cloud/operator/deploy-assets/models/) |
+
+### 2.1 AI Infra On-Prem
+
+#### 2.1.1 Capability Overview
+
+AGIOne uses model configurations, VRAM estimation, framework configurations, and inference templates to preserve reusable local-deployment parameters. Template availability depends on the operator's configuration and validation of the target model, compute specification, image, and inference engine.
+
+#### 2.1.2 Built-in Model Template Examples
+
+##### Pre-built Templates for Mainstream Large Models
 
 > The table below is retained as a capacity-planning example. It does not mean that the current environment includes these models, nor does it commit to compatibility for any model, card count, context length, or inference engine. Use the current template list and actual test results during delivery.
 
 | Model Family    | Representative Versions                 | Parameter Scale     | Recommended Compute Spec | Inference Engine | Context Length      |
 |--------------|-----------------------------------------|:------------------:|------------------------|:---:|:-------------------:|
-| **DeepSeek** | V3.1 / R1                               | 671B MoE / 14B–70B | H200×8 / H20×2         | vLLM         |    32K / 64K / 128K     |
+| **DeepSeek** | V3.1 / R1                               | 671B MoE / 14B-70B | H200×8 / H20×2         | vLLM         |    32K / 64K / 128K     |
 | **Qwen**     | QwQ-32B                                 |        32B         | H20×1 / L20×4          | vLLM         |       32K / 64K       |
 | **Qwen-VL**  | 2 / 3                                   |     14B / 72B      | L20×1 / L20×4          | vLLM         |     Multimodal      |
 | **Llama3**   | 8B                                      |         8B         | L20S×1 / Ascend 910B×1 | vLLM / MindIE |        32K          |
 | **GLM**      | 5.1                                     |        744B        | H20×16                 | vLLM         | 32K / 64K / 128K        |
 | **Embedding / Reranker** | bge-m3 / bge-reranker / qwen3-embedding |     —          | L20×1 / L4×2           | vLLM         |          —          |
 
-### 2.4 Template Version Management
+#### 2.1.3 Template Version Management
 
-- **Platform templates**: Operators maintain the model configurations, memory configurations, frameworks, and inference templates available in the current environment.
+- **On-Prem platform templates**: Operators maintain the model configurations, VRAM estimation rules, framework configurations, and inference templates available in the current environment.
 - **Project templates**: A project can preserve dedicated templates based on validated combinations of models, images, compute, and parameters. Confirm versions and resource conditions before reuse.
 
-## 3. Rapid Deployment — A "One-Click" Experience That Hides Technical Complexity
+### 2.2 AI Infra On-Cloud
 
-### 3.1 Capability Overview
+#### 2.2.1 Capability Overview
+
+AI Infra On-Cloud combines model presentation data with cloud deployment capabilities to create model records that can be published and recommended. Names, tags, and capabilities can come from a unified metadata model. AGIOne maintains where the model can be deployed, which runtime and specifications it uses, and how it becomes an accessible inference service.
+
+The cloud model asset preparation workflow is:
+
+![Figure 2-A   AI Infra On-Cloud Model Asset Publishing Workflow](./images/fig_oncloud_model_assets.svg)
+
+<p align="center"><i>Figure 2-A   AI Infra On-Cloud Model Asset Publishing Workflow</i></p>
+
+#### 2.2.2 Cloud Deployment Assets
+
+| Deployment Asset | Main Content | Purpose |
+|---|---|---|
+| **Inference framework** | Framework types such as vLLM and SGLang | Defines the inference runtime used by the model |
+| **Framework version** | Version, port, startup parameters, environment variables, and compatibility conditions | Provides reusable runtime configurations for different models and providers |
+| **Runtime image** | Container images available on the cloud platform and their association status | Hosts the inference framework and model startup environment |
+| **Model catalog record** | Metadata-model association, publishing status, and model capability references | Creates a deployable model in the user-facing model marketplace |
+| **Cloud deployment point** | Cloud platform, region, model source, framework, image, and output configuration | Describes a model's complete deployment capability in one cloud environment |
+| **Compute solution** | Specification, GPU, CPU, memory, instance count, and billing information | Creates a resource candidate for recommended deployment |
+
+#### 2.2.3 Boundary Between Model and Deployment Information
+
+| Information Scope | Primary Source | Display or Usage |
+|---|---|---|
+| **Name, tags, and model capabilities** | Unified metadata model | Used for marketplace display and filtering |
+| **Publishing status and visibility** | AGIOne model catalog | Determines whether users can discover the model |
+| **Cloud platform, region, and specification** | Cloud deployment point and compute solution | Used to filter and generate deployment candidates |
+| **Framework, image, and startup configuration** | Inference framework and runtime image | Maintained by operators and automatically matched during user deployment |
+| **Model source and output configuration** | Provider model assets or model-storage configuration | Used to create the service and generate access details |
+
+#### 2.2.4 Pre-Publishing Checklist
+
+- Associate a displayable metadata model and confirm its name, tags, and capability information.
+- Provide at least one complete cloud deployment point.
+- Associate the deployment point with an available inference framework version and runtime image.
+- Confirm specification, resource, and billing information in the compute solution.
+- Ensure that the model source, output configuration, and API access configuration meet target-provider requirements.
+- Treat the current environment, provider APIs, and deployment validation results as the source of truth for actual publishing capability.
+
+## 3. Rapid Deployment — On-Prem and On-Cloud Paths
+
+### 3.1 AI Infra On-Prem
+
+#### 3.1.1 Capability Overview
 
 With prepared models, frameworks, images, specifications, and authorized resources, AGIOne provides a productized workflow of **"Select a model → Select a specification → Submit the deployment."** Operators prepare the underlying resources and deployment assets, while general users start rapid deployment from their currently visible scope and review the result.
 
-### 3.2 Three-Step Rapid Deployment Workflow
+#### 3.1.2 Three-Step Rapid Deployment Workflow
 
 ![Figure 3   Three-Step Rapid Deployment Workflow](./images/fig_quick_deploy_flow.svg)
 
 <p align="center"><i>Figure 3   Three-Step Rapid Deployment Workflow</i></p>
 
-### 3.3 Intelligent Spec Filtering
+#### 3.1.3 Intelligent Spec Filtering
 
 After a user selects a model, the page displays available deployment combinations based on the currently configured and authorized cloud platform, region, model, and compute solution. The following checks illustrate resource relationships to confirm before deployment:
 
@@ -123,7 +206,7 @@ After a user selects a model, the page displays available deployment combination
 | **Sufficient cards**   | Verifies free cards in the target compute pool ≥ `tensor_parallel_size` |
 | **Sufficient network** | For multi-node deployments, validates RDMA bandwidth and latency |
 
-### 3.4 Visualized Deployment Process
+#### 3.1.4 Visualized Deployment Process
 
 After deployment starts, use the UI and status pages to follow each phase and confirm the current deployment state:
 
@@ -137,11 +220,62 @@ After deployment starts, use the UI and status pages to follow each phase and co
 
 Deployment time depends on compute availability, images, model weights, storage, network, and cluster state. This document does not promise a fixed completion time.
 
-### 3.5 Failure Rollback and Diagnostics
+#### 3.1.5 Failure Rollback and Diagnostics
 
 - **When deployment fails**, first review deployment status, monitoring, events, and related logs to identify the failed phase.
 - **Common causes** include insufficient quota or capacity, unavailable images, storage mount failures, incompatible model assets, and network errors.
 - **Resource cleanup and retry** should follow the capabilities available on the current page and the delivery solution; automatic rollback is not assumed.
+
+### 3.2 AI Infra On-Cloud
+
+#### 3.2.1 Capability Overview
+
+AI Infra On-Cloud uses recommendation-driven deployment. General users express business intent through the model, deployment mode, business preference, and provider scope. The platform then generates candidate solutions from cloud accounts, regions, frameworks, images, deployment points, and compute solutions prepared by operators, and automatically fills in the underlying runtime configuration.
+
+The recommendation-driven deployment workflow is:
+
+![Figure 3-A   AI Infra On-Cloud Recommendation-Driven Deployment Workflow](./images/fig_oncloud_recommended_deploy.svg)
+
+<p align="center"><i>Figure 3-A   AI Infra On-Cloud Recommendation-Driven Deployment Workflow</i></p>
+
+#### 3.2.2 User Choices and Platform Matching
+
+| Scope | User Selects | Platform Handles |
+|---|---|---|
+| **Model and runtime** | Model and inference framework type | Compatible framework version and runtime image |
+| **Deployment mode** | Single-node or high-availability deployment | Matching cloud deployment point, node combination, and runtime configuration |
+| **Business preference** | Cost-first, balanced cost and experience, or performance-first | Sorts candidates by resources, price, and availability |
+| **Provider scope** | A specific provider or all available providers | Filters cloud platforms and regions by business-region authorization |
+| **Final confirmation** | Deployment name, recommended solution, and matching cloud account | Model source, specification, output configuration, and service-creation parameters |
+
+#### 3.2.3 Recommended-Solution Details
+
+When selecting a candidate solution, users compare the following business information:
+
+- **Cloud platform and region**: Which provider and region will host the service.
+- **Deployment mode**: Single-node solutions support rapid validation, while high-availability solutions provide multi-node resilience.
+- **Resource specification**: GPU type and count, CPU, memory, and instance count.
+- **Cost information**: Estimated cost, currency, and billing cycle. The provider and current environment determine the actual bill.
+- **Framework type**: The inference framework type used by the solution; the platform automatically matches the specific version and image.
+- **Available account**: At confirmation, users can select only an account that matches the solution's provider and is available to the current tenant.
+
+#### 3.2.4 Deployment Process and Result
+
+| Phase | Page Focus |
+|---|---|
+| **Pre-deployment validation** | Confirm that the cloud account, region authorization, deployment point, framework, image, and specification are complete and available |
+| **Cloud service creation** | The platform submits an inference-service creation request to the target provider |
+| **Service startup** | Review the cloud task status, instance status, and provider-returned events |
+| **Health and access check** | Confirm that service health, the access endpoint, and authentication information are available |
+| **Runtime management** | Review details in **My Deployments** and use the available page actions to start, stop, or delete the deployment |
+
+#### 3.2.5 Failure Diagnostics
+
+- **Account or authorization issues**: Check whether the cloud account is valid and whether the target provider and region are within the current business authorization scope.
+- **Deployment asset issues**: Check whether the deployment point is missing a framework version, image, model source, or output configuration.
+- **Specification issues**: Check whether the specification exists and is available in the target region, and ensure that price and currency are not reused across regions.
+- **Provider task failures**: Use deployment status, provider events, and the error summary to identify the failed creation or startup phase.
+- **Access unavailable**: Check service health, the access endpoint, authentication information, and the target provider's invocation protocol.
 
 ## 4. Model Publishing — Exposing Models as Services
 
