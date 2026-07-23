@@ -323,63 +323,57 @@ Verify the response status, queuing behavior, or rejection behavior after a limi
 
 An **Aggregated Model** is created by a model provider from eligible published member models and presents a unified model entry point. Member-model selection, available routing strategies, prices, and limit fields depend on the current creation page. General users do not create aggregate models.
 
-### 5.2 Five Optimization Objectives of the Aggregated Model
+### 5.2 Aggregated Model Matching Strategies
 
-![Figure 4   Five Optimization Objectives of the Aggregated Model](./images/fig_aggregate_targets.svg)
+![Figure 4   Five Matching Strategies of the Aggregated Model](./images/fig_aggregate_targets.svg)
 
-<p align="center"><i>Figure 4   Five Optimization Objectives of the Aggregated Model</i></p>
+<p align="center"><i>Figure 4   Five Matching Strategies of the Aggregated Model</i></p>
 
-> Figure 4 is retained as a solution-design view. It does not indicate that every objective is an available built-in strategy in the current version. Protocol translation is not a currently confirmed aggregation capability in this document.
+> The current creation page provides five matching strategies: cost-first, success-rate-first, balanced cost and experience, random, and round-robin. Protocol consistency is a pre-creation check item, not an automatic protocol-conversion strategy provided by the platform.
 
 ### 5.3 Five Aggregation Strategies in Detail
 
 #### 5.3.1 Cost-optimized Aggregation
 
-- **Goal**: Consider invocation cost when member models meet business requirements.
-- **Strategy**: Select a cost-related strategy only when the current version provides it, then verify price fields and routing results.
-- **Typical scenarios**: Cost-sensitive internal invocations.
+- **Purpose**: Prioritize cost among available member models.
+- **Validation**: Confirm prices and actual routing results against the current configuration and call logs.
 
-#### 5.3.2 High-Availability (HA) Aggregation
+#### 5.3.2 Success-rate-first
 
-- **Goal**: Reduce the effect of a single member-model failure on the unified entry point.
-- **Strategy**: Availability- or success-rate-related routing depends on the strategy options in the current version and actual test results.
-- **Typical scenarios**: Services that use multiple backends through one entry point.
+- **Purpose**: Prioritize invocation success rate among available member models.
+- **Validation**: Confirm the success-rate calculation scope and actual member-model selection results against the current version and call logs.
 
-#### 5.3.3 Load-Balancing Aggregation
+#### 5.3.3 Balanced Cost and Experience
 
-- **Goal**: Distribute requests across multiple member models.
-- **Strategy**: Round-robin, success-rate, cost, and other options are available only when shown on the current creation page.
-- **Validation**: Use call logs and analytics to confirm that requests are distributed as expected; this document does not define a fixed weight formula or refresh interval.
+- **Purpose**: Consider both member-model cost and invocation experience.
+- **Validation**: This document does not define a fixed weighting formula. Confirm actual results through call logs.
 
-#### 5.3.4 Protocol Consistency Validation
+#### 5.3.4 Random
 
-- **Goal**: Confirm that member-model request, response, and capability boundaries satisfy the unified entry point.
-- **Strategy**: Validate member-model protocols and fields before creation. The aggregation layer is not currently claimed to automatically translate OpenAI, Anthropic, MindIE, or streaming/non-streaming protocols.
-- **Handling**: Move protocol differences into project-specific adaptation assessment.
+- **Purpose**: Randomly select from eligible member models.
+- **Validation**: Use multiple call logs to check member-model selection results. Do not state a fixed distribution ratio.
 
-#### 5.3.5 Experience-optimized Aggregation
+#### 5.3.5 Round-robin
 
-- **Goal**: Consider response experience across multiple available member models.
-- **Strategy**: Compare actual call logs and analytics; latency-related routing depends on current-version support.
-- **Typical scenarios**: Interactive model invocation.
+- **Purpose**: Select among eligible member models in round-robin order.
+- **Validation**: After member changes, recheck call logs to confirm that the round-robin results match expectations.
 
 ### 5.4 Multi-scenario Aggregation Configurations
 
-> The following table is a capacity and strategy design example, not a platform preset. Instance counts, timeouts, and active windows must be revalidated against actual load and version capabilities.
+| Aggregation Scenario | Available Strategy | Configuration and Validation Focus |
+|---|---|---|
+| **Cost-sensitive invocation** | Cost-first | Check member prices and actual routing results |
+| **Success-priority invocation** | Success-rate-first | Check success-rate calculation scope and exception handling results |
+| **Balanced cost and experience** | Balanced cost and experience | Validate the combined selection result through call logs |
+| **Request distribution among members** | Random or round-robin | Check member-selection distribution through multiple calls |
 
-| Aggregation Scenario | Backend Instances | Load Strategy | Timeout | Active Window |
-|---|:---:|---|:---:|---|
-| **Light load (daytime API support)** | 3 – 5  | Experience + round-robin | 3000s | Weekdays 08:00–20:00 |
-| **Heavy load (daytime batch reporting)** | 10 – 30 | Experience + round-robin | 3000s | Weekdays 09:00–20:00 |
-| **Full load (overnight batch processing)** | All instances | Experience + round-robin + batching | 3000s | Daily 20:00 – 08:00 next day |
+### 5.5 Member Adjustment and Validation for Aggregated Models
 
-### 5.5 Transparent Scaling of Aggregated Models
+![Figure 5   Member Adjustment and Invocation Continuity Validation Workflow for Aggregated Models](./images/fig_scaling_flow.svg)
 
-![Figure 5   Transparent Scaling Workflow for Aggregated Models](./images/fig_scaling_flow.svg)
+<p align="center"><i>Figure 5   Member Adjustment and Invocation Continuity Validation Workflow for Aggregated Models</i></p>
 
-<p align="center"><i>Figure 5   Transparent Scaling Workflow for Aggregated Models</i></p>
-
-Before changing member models, verify the aggregate-model entry point, review status, and invocation continuity. Whether the Endpoint can remain unchanged and scaling can be transparent depends on the current version and change method.
+When member models or matching strategies change, first record the original configuration, then complete the adjustment and required review on the page, and validate the result through invocation, call statistics, and call logs. This document does not assume that the Endpoint remains unchanged, that automatic scaling is available, or that changes are transparent to the business.
 
 ## 6. Metering, Billing, and Financial Operations — Fine-grained Operational Control
 
@@ -391,13 +385,13 @@ AGIOne provides operational pages for call logs, usage, metering details, credit
 
 The platform can record or aggregate the following metering dimensions. Availability, precision, and completeness depend on fields returned by the target model, metering configuration, and synchronization status:
 
-| Metering Dimension | Captured Content | Precision |
-|---|---|:---:|
-| **Input token count** | Computed input tokens (including system prompts and conversation history) | 1 token |
-| **Output token count** | Tokens actually generated by the model (precisely captured even when streaming is interrupted) | 1 token |
-| **Call count** | Number of API calls (success / failure recorded separately) | 1 call |
-| **Inference duration** | End-to-end processing time (used for duration-based billing) | 1 ms |
-| **Multimodal metering** | Image count / audio duration / video frame count (varies by modality) | Per modality |
+| Metering Dimension | Captured Content | Data Boundary |
+|---|---|---|
+| **Input token count** | Input tokens returned by the model or recorded by the platform | Whether system prompts and conversation history are included depends on target-model returned fields and metering configuration |
+| **Output token count** | Output tokens returned by the model or recorded by the platform | Data completeness in streaming interruption scenarios must be validated by target model |
+| **Call count** | API call count and success or failure status | The statistical scope follows call logs and the current page |
+| **Inference duration** | Page-recorded fields such as call duration and first-token latency | Time precision follows the current page, collection configuration, and deployed version |
+| **Multimodal metering** | Images, audio, or other multimodal usage returned by the model | Availability and unit depend on model-returned fields |
 
 ### 6.3 Credit-based Pricing System
 
