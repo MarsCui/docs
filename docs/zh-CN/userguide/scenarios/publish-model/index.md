@@ -35,10 +35,10 @@ next: true
 
 ## 推荐阅读顺序
 
-1. [发布模型（预设置）](../publish-model-preconfiguration)
+1. [发布模型（预设置）](../publish-model-preconfiguration/)
 2. 发布多模态 / 嵌入 / 图片 / 语音 / 视频模型
-3. [模型发布审批](../model-publishing-approval)
-4. [模型的体验与调用](../model-experience-api-calling)
+3. [模型发布审批](../model-publishing-approval/)
+4. [模型的体验与调用](../model-experience-api-calling/)
 
 ## 文档索引
 
@@ -54,10 +54,10 @@ next: true
 
 ## 相关场景
 
-- **[发布模型（预设置）](../publish-model-preconfiguration)**：发布前需由运营管理员完成元模型、模型来源、模板、标签、币种与审核配置
-- **[模型发布审批](../model-publishing-approval)**：提交审核后由管理员完成审批流程
-- **[发布聚合模型](../publish-aggregation-model)**：聚合模型路由策略的独立场景说明
-- **[模型的体验与调用](../model-experience-api-calling)**：发布完成后，最终用户如何检索、体验与 API 调用
+- **[发布模型（预设置）](../publish-model-preconfiguration/)**：发布前需由运营管理员完成元模型、模型来源、模板、标签、币种与审核配置
+- **[模型发布审批](../model-publishing-approval/)**：提交审核后由管理员完成审批流程
+- **[发布聚合模型](../publish-aggregation-model/)**：聚合模型路由策略的独立场景说明
+- **[模型的体验与调用](../model-experience-api-calling/)**：发布完成后，最终用户如何检索、体验与 API 调用
 
 ## 完成检查
 

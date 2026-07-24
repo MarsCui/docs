@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "AGIOne"
-  text: "AI 网关平台文档"
-  tagline: 统一的 AI 模型管理、GPU 纳管与 API 网关<br>----预览版 v1.0，2026-07-23 ·
+  text: "AI 网关平台文档（预览版）"
+  tagline: 统一的 AI 模型管理、GPU 纳管与 API 网关
   actions:
     - theme: brand
       text: 快速开始
@@ -19,16 +19,16 @@ features:
     details: 产品定位、功能能力、技术亮点、兼容性与限制说明
     link: /zh-CN/product/
   - title: 交付部署
-    details: 部署配置要求与快速安装指南（AGIOne平台 / 纳管算力节点）
+    details: AGIOne 平台与纳管算力节点的部署配置要求和快速安装指南
     link: /zh-CN/installation/
   - title: 购买与激活
     details: 在线支付激活与激活码激活流程
     link: /zh-CN/license/
   - title: 用户指南
-    details: 算力接入、算力管理与模型部署流程
+    details: 面向常见业务场景的 AGIOne 使用指南
     link: /zh-CN/userguide/scenarios
   - title: 用户手册
-    details: 注册、登录与仪表盘使用指引
+    details: 注册登录、模型服务、基础设施、账单与设置等功能手册
     link: /zh-CN/usermanual/
   - title: 最佳实践
     details: 技术集成实践与项目交付案例

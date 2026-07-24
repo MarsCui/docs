@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "AGIOne"
-  text: "AI Gateway Platform Documentation"
-  tagline: Unified AI model management, GPU orchestration, and API gateway<br>----Preview v1.0, 2026-07-23 ·
+  text: "AI Gateway Platform Documentation (Preview)"
+  tagline: Unified AI model management, GPU orchestration, and API gateway
   actions:
     - theme: brand
       text: Get Started
@@ -16,10 +16,10 @@ hero:
 
 features:
   - title: Product Overview
-    details: Product positioning, capabilities, technical highlights, compatibility and limitations
+    details: Product positioning, capabilities, technical highlights, compatibility, and limitations
     link: /product/
   - title: Installation
-    details: Deployment requirements and quick installation guides for AGIOne and  for managing compute nodes
+    details: Deployment requirements and quick installation guides for AGIOne and managed compute nodes
     link: /installation/
   - title: Purchase & Activation
     details: Online payment activation and activation-code based activation
@@ -28,7 +28,7 @@ features:
     details: Scenario-based guides for common AGIOne workflows
     link: /userguide/scenarios
   - title: User Manual
-    details: Register, login, and dashboard usage
+    details: Registration, login, dashboard, model services, infrastructure, billing, and settings manuals
     link: /usermanual/
   - title: Best Practices
     details: Technical integration practices and project delivery cases

@@ -51,15 +51,15 @@ next: true
 ## 相关场景
 
 ### 平台侧（上游 / 平台运营方 视角）
-- **[多云资源接入](../on-cloud-resource-access)**：用户需先确认 平台运营方 已接入目标云平台并完成业务-资源池授权 / 租户-云平台授权
-- **[多云模型资产上架](../on-cloud-model-asset-publishing)**：用户可在"快速部署 Step 1"中可选的模型库由本场景提供
+- **[多云资源接入](../on-cloud-resource-access/)**：用户需先确认 平台运营方 已接入目标云平台并完成业务-资源池授权 / 租户-云平台授权
+- **[多云模型资产上架](../on-cloud-model-asset-publishing/)**：用户可在"快速部署 Step 1"中可选的模型库由本场景提供
 
 ### 平台侧（下游 / 跨场景跳转）
-- **[发布模型](../publish-model)**：在"我的部署 → 发布"操作后跳转至此，完成 Step 1 基本信息 + Step 2 计费 + Step 3 限流，把部署实例发布为可调用服务
+- **[发布模型](../publish-model/)**：在"我的部署 → 发布"操作后跳转至此，完成 Step 1 基本信息 + Step 2 计费 + Step 3 限流，把部署实例发布为可调用服务
 - **[我的部署与监控（操作手册）](../../../usermanual/ai-infra-on-cloud/user/model-services/my-deployments/)**：对已部署的实例查看状态、事件和监控
 
 ### 用户侧（下游）
-- **[模型的体验与调用](../model-experience-api-calling)**：发布完成后，最终用户如何检索、体验与 API 调用
+- **[模型的体验与调用](../model-experience-api-calling/)**：发布完成后，最终用户如何检索、体验与 API 调用
 
 ## 完成检查
 
