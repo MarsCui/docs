@@ -12,7 +12,7 @@ Updated: 2026-07-08
 | Item | Content |
 | --- | --- |
 | Applicable role | Regular user |
-| Navigation path | AI Infrastructure > On-Prem > Monitoring > Statistics Overview |
+| Navigation path | AI Infrastructure > On-Prem > Monitoring > Overview |
 | Page route | `/powerone/user-monitor/overview` |
 | Managed objects | Resource pool monitoring overview, instance runtime status, and key resource trends |
 | Typical use | Quickly determine whether the selected region has visible monitoring data and enter drill-down pages |
@@ -58,7 +58,7 @@ The page displays statistics overview capability for the selected region. When t
 
 #### Procedure
 
-1. Go to `AI Infrastructure > On-Prem > Monitoring > Statistics Overview`.
+1. Go to `AI Infrastructure > On-Prem > Monitoring > Overview`.
 2. Confirm the region in the upper-right corner.
 3. Filter by time, status, or keyword provided by the page.
 4. View charts, lists, or prompt information.

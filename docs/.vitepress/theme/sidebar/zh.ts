@@ -498,7 +498,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                   ]
                 },
                 {
-                  text: '访问管理',
+                  text: '接入管理',
                   collapsed: false,
                   items: [
                     { text: '接入管理', link: '/zh-CN/usermanual/ai-infra-on-cloud/user/access-management/access-accounts/' },
@@ -555,13 +555,6 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                   ],
                 },
                 {
-                  text: '系统',
-                  collapsed: false,
-                  items: [
-                    { text: '系统设置', link: '/zh-CN/usermanual/ai-infra-on-prem/operator/system/system-setting/' },
-                  ],
-                },
-                {
                   text: '监控',
                   collapsed: false,
                   items: [
@@ -570,6 +563,13 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                     { text: '节点统计', link: '/zh-CN/usermanual/ai-infra-on-prem/operator/monitoring/nodes/' },
                     { text: '设备监控', link: '/zh-CN/usermanual/ai-infra-on-prem/operator/monitoring/devices/' },
                     { text: '作业监控', link: '/zh-CN/usermanual/ai-infra-on-prem/operator/monitoring/jobs/' },
+                  ],
+                },
+                {
+                  text: '系统',
+                  collapsed: false,
+                  items: [
+                    { text: '系统设置', link: '/zh-CN/usermanual/ai-infra-on-prem/operator/system/system-setting/' },
                   ],
                 },
               ],
@@ -662,9 +662,9 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                   text: '客户账务',
                   collapsed: false,
                   items: [
+                    { text: '业务线', link: '/zh-CN/usermanual/billing/operator/customer-billing/business-units/' },
                     { text: '客户概览', link: '/zh-CN/usermanual/billing/operator/customer-billing/customer-overview/' },
                     { text: '客户充值单', link: '/zh-CN/usermanual/billing/operator/customer-billing/top-up-orders/' },
-                    { text: '业务线', link: '/zh-CN/usermanual/billing/operator/customer-billing/business-units/' },
                   ],
                 },
                 {
@@ -693,8 +693,8 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                   text: '我的账务',
                   collapsed: false,
                   items: [
-                    { text: '额度治理', link: '/zh-CN/usermanual/billing/user/billing/quota-governance/' },
                     { text: '账户概览', link: '/zh-CN/usermanual/billing/user/billing/overview/' },
+                    { text: '额度治理', link: '/zh-CN/usermanual/billing/user/billing/quota-governance/' },
                     { text: '流水明细', link: '/zh-CN/usermanual/billing/user/billing/transactions/' },
                     { text: '充值订单', link: '/zh-CN/usermanual/billing/user/billing/top-up-orders/' },
                     { text: '月度账单', link: '/zh-CN/usermanual/billing/user/billing/monthly-bill/' },
@@ -757,7 +757,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                   text: 'API 流控',
                   collapsed: false,
                   items: [
-                    { text: '概览', link: '/zh-CN/usermanual/settings/operator/api-rate-control/overview/' },
+                    { text: 'Overview', link: '/zh-CN/usermanual/settings/operator/api-rate-control/overview/' },
                     { text: '规则管理', link: '/zh-CN/usermanual/settings/operator/api-rate-control/rule-management/' },
                     { text: '观测审计', link: '/zh-CN/usermanual/settings/operator/api-rate-control/observability-audit/' },
                     { text: '节点缓存', link: '/zh-CN/usermanual/settings/operator/api-rate-control/node-cache/' },
@@ -794,7 +794,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                   text: '租户&设置',
                   collapsed: false,
                   items: [
-                    { text: '租户设置', link: '/zh-CN/usermanual/settings/user/organizations/org-settings/' },
+                    { text: '组织设置', link: '/zh-CN/usermanual/settings/user/organizations/org-settings/' },
                   ],
                 },
                 {

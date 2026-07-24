@@ -55,10 +55,10 @@
 
 | 目标 | 推荐入口 | 下一步 |
 | --- | --- | --- |
-| 查看个人余额、流水或充值 | [用户账务](./user/billing/) | 先看账务总览，再进入流水、充值订单或月度账单。 |
-| 核对客户账户和业务线 | [客户账务](./operator/customer-billing/) | 查客户总览、充值订单和业务线配置。 |
-| 排查结算或金额不一致 | [运营财务](./operator/finance-operations/) | 查今日任务、月结总览、结算单、财务账户和巡检中心。 |
-| 管理授权额度 | [License](./operator/license/) | 区分授权额度、有效期和账务余额。 |
+| 查看个人余额、流水或充值 | [用户账务](./user/billing/overview/) | 先看账务总览，再进入流水、充值订单或月度账单。 |
+| 核对客户账户和业务线 | [客户账务](./operator/customer-billing/customer-overview/) | 查客户总览、充值订单和业务线配置。 |
+| 排查结算或金额不一致 | [运营财务](./operator/finance-operations/today-tasks/) | 查今日任务、月结总览、结算单、财务账户和巡检中心。 |
+| 管理授权额度 | [License](./operator/license/license/) | 区分授权额度、有效期和账务余额。 |
 
 ## 推荐阅读路径
 

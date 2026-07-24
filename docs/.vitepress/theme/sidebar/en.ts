@@ -398,9 +398,9 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   text: "Settings",
                   collapsed: false,
                   items: [
-                    { text: "Meta-models", link: "/usermanual/model-services/operator/settings/meta-models/" },
+                    { text: "Meta Models", link: "/usermanual/model-services/operator/settings/meta-models/" },
                     { text: "Model Sources", link: "/usermanual/model-services/operator/settings/model-source/" },
-                    { text: "Templates", link: "/usermanual/model-services/operator/settings/model-templates/" },
+                    { text: "Model Templates", link: "/usermanual/model-services/operator/settings/model-templates/" },
                     { text: "Tags", link: "/usermanual/model-services/operator/settings/tags/" },
                   ]
                 },
@@ -408,7 +408,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   text: "Publishing",
                   collapsed: false,
                   items: [
-                    { text: "App List", link: "/usermanual/model-services/operator/publishing/apps/" },
+                    { text: "Apps", link: "/usermanual/model-services/operator/publishing/apps/" },
                   ]
                 },
                 {
@@ -451,7 +451,7 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   ]
                 },
                 {
-                  text: "Usage & Revenue",
+                  text: "Usage & Earnings",
                   collapsed: false,
                   items: [
                     { text: "Model Earnings", link: "/usermanual/model-services/user/usage-earnings/model-earnings/" },
@@ -578,10 +578,10 @@ export const enSidebar: DefaultTheme.Sidebar = {
                     { text: "Spec Metrics", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/spec-metrics/" },
                     { text: "Resource Specs", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/resource-specs/" },
                     { text: "Images", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/images/" },
-                    { text: "Image Component", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/image-services/" },
-                    { text: "Object Storage Component", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/object-storage/" },
-                    { text: "Block Storage Component", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/block-storage/" },
-                    { text: "File Storage Component", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/file-storage/" },
+                    { text: "Image Services", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/image-services/" },
+                    { text: "Object Storage", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/object-storage/" },
+                    { text: "Block Storage", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/block-storage/" },
+                    { text: "File Storage", link: "/usermanual/ai-infra-on-prem/operator/resource-pools/file-storage/" },
                   ],
                 },
                 {
@@ -604,13 +604,6 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   ],
                 },
                 {
-                  text: "System",
-                  collapsed: false,
-                  items: [
-                    { text: "System Setting", link: "/usermanual/ai-infra-on-prem/operator/system/system-setting/" },
-                  ],
-                },
-                {
                   text: "Monitoring",
                   collapsed: false,
                   items: [
@@ -619,6 +612,13 @@ export const enSidebar: DefaultTheme.Sidebar = {
                     { text: "Nodes", link: "/usermanual/ai-infra-on-prem/operator/monitoring/nodes/" },
                     { text: "Devices", link: "/usermanual/ai-infra-on-prem/operator/monitoring/devices/" },
                     { text: "Jobs", link: "/usermanual/ai-infra-on-prem/operator/monitoring/jobs/" },
+                  ],
+                },
+                {
+                  text: "System",
+                  collapsed: false,
+                  items: [
+                    { text: "System Setting", link: "/usermanual/ai-infra-on-prem/operator/system/system-setting/" },
                   ],
                 },
               ],
@@ -711,9 +711,9 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   text: "Customer Billing",
                   collapsed: false,
                   items: [
+                    { text: "Business Units", link: "/usermanual/billing/operator/customer-billing/business-units/" },
                     { text: "Customer Overview", link: "/usermanual/billing/operator/customer-billing/customer-overview/" },
                     { text: "Top-up Orders", link: "/usermanual/billing/operator/customer-billing/top-up-orders/" },
-                    { text: "Business Units", link: "/usermanual/billing/operator/customer-billing/business-units/" },
                   ],
                 },
                 {
@@ -742,8 +742,8 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   text: "Billing",
                   collapsed: false,
                   items: [
-                    { text: "Quota Governance", link: "/usermanual/billing/user/billing/quota-governance/" },
                     { text: "Overview", link: "/usermanual/billing/user/billing/overview/" },
+                    { text: "Quota Governance", link: "/usermanual/billing/user/billing/quota-governance/" },
                     { text: "Transactions", link: "/usermanual/billing/user/billing/transactions/" },
                     { text: "Top-up Orders", link: "/usermanual/billing/user/billing/top-up-orders/" },
                     { text: "Monthly Bill", link: "/usermanual/billing/user/billing/monthly-bill/" },
