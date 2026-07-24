@@ -52,7 +52,7 @@ After clicking `Add Cloud Account`, the page opens the `Add Cloud Account` dialo
 
 ### Add Cloud Account
 
-1. Go to `AI Infra > On-Cloud > Access Management > Access Accounts`.
+1. Go to `AI Infrastructure > On-Cloud > Access Management > Access Accounts`.
 2. Click `Add Cloud Account` in the upper-right corner of the `Access Accounts` page.
 3. In the `Add Cloud Account` dialog, fill in `Account Name`.
 4. Select the target cloud platform in `Select Cloud Platform`.
@@ -64,7 +64,7 @@ After clicking `Add Cloud Account`, the page opens the `Add Cloud Account` dialo
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Cloud platform tabs | No | Tabs | `All` | Filters the account list by cloud platform. |
 | Name | No | Input | `demo-cloud-account` | Searches records by account name. Use sanitized examples only in documentation. |
@@ -89,7 +89,7 @@ After clicking `Add Cloud Account`, the page opens the `Add Cloud Account` dialo
 
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `Access Accounts` page and account list are displayed. | Check menu permissions, route, and login status. |
 | Cloud account list loads | The page displays cloud platform tabs, name filter, search, reset, and account cards. | Check filters, data permissions, and API status. |

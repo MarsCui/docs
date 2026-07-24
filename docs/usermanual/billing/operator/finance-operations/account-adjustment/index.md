@@ -60,7 +60,7 @@ Use the following operations to view the account adjustment page, evaluate adjus
 
 ### View Account Adjustment
 
-1. Go to `Finance Operations > Account Adjustment`.
+1. Go to `Billing > Finance Operations > Account Adjustment`.
 2. Review the risk notice at the top of the page and confirm that submitted adjustments may generate real fund flows and are usually irreversible.
 3. Review the `New Adjustment` area and confirm that target records can be located by billing record, settlement detail, transaction number, or billing fact ID.
 4. Review the `Adjustment Records` list, including time, adjustment type, subject / account, direction, amount, reason, operator, and details entry.
@@ -70,7 +70,7 @@ Use the following operations to view the account adjustment page, evaluate adjus
 
 ### Evaluate Adjustment Impact
 
-1. Go to `Finance Operations > Account Adjustment`.
+1. Go to `Billing > Finance Operations > Account Adjustment`.
 2. In the `New Adjustment` area, enter the billing record clue that requires adjustment.
 3. Before clicking `Evaluate Impact`, confirm record source, billing cycle, organization, amount direction, and approval basis.
 4. Review affected account, direction, amount, related document, and reason in the evaluation result.
@@ -79,7 +79,7 @@ Use the following operations to view the account adjustment page, evaluate adjus
 
 ### View Adjustment Records
 
-1. Go to `Finance Operations > Account Adjustment`.
+1. Go to `Billing > Finance Operations > Account Adjustment`.
 2. Review existing records in the `Adjustment Records` list.
 3. Locate the target record by time, subject / account, direction, amount, reason, or operator.
 4. Click `Details` to view more information for a single adjustment record.
@@ -88,7 +88,7 @@ Use the following operations to view the account adjustment page, evaluate adjus
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | New Adjustment | No | Page area | New Adjustment | Used to enter billing record clues and start impact evaluation. |
 | Billing Record to Adjust | Yes | Text | `FACT-202607080001` | Billing record, settlement detail, transaction number, or billing fact ID. |
@@ -118,7 +118,7 @@ Use the following operations to view the account adjustment page, evaluate adjus
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `Finance Operations > Account Adjustment` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |
@@ -144,7 +144,7 @@ The displayed balance, consumption, settlement status, monthly bill, or License 
 
 **How to check:**
 
-1. Confirm that the same billing cycle, customer, account, currency, and resource scope are being compared.
+1. Confirm adjustment order, approval status, affected billing cycle, and linked settlement or transaction records.
 2. Check whether pending top-up orders, adjustments, refunds, settlement reviews, or metering synchronization are still in progress.
 3. Compare the summary number with the detail list and operation records on the related billing pages.
 4. For financial-impacting differences, pause confirmation actions and escalate with desensitized record IDs, time range, customer scope, and screenshots without credentials.

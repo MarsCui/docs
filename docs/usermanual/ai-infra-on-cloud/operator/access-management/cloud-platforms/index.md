@@ -49,7 +49,7 @@ Page screenshot:
 
 ### Add Cloud Platform
 
-1. Go to `AI Infra > On-Cloud > Access Management > Cloud Platforms`.
+1. Go to `AI Infrastructure > On-Cloud > Access Management > Cloud Platforms`.
 2. On the `Cloud Platforms` page, click `Add Cloud Platform`.
 3. In the `Add Cloud Platform` dialog, select `Cloud Platform Type`. The current visible options include `Public Cloud` and `Private Cloud`.
 4. In the required `Select Platform` dropdown, select the target platform, such as `Alibaba Cloud`, `Tencent Cloud`, `Huawei Cloud`, `AWS`, `Azure China`, `Google Cloud`, `UCLOUD`, or `Baidu Cloud`.
@@ -81,7 +81,7 @@ Page screenshot:
 
 ## Result Validation
 
-| Check Item | Success Criteria | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `Cloud Platforms` page opens normally, and `Access Management > Cloud Platforms` is highlighted in the sidebar. | Check account permissions, navigation path, and page loading status. |
 | Cloud platform list loads normally | List cards show cloud platform names and action entries. | Refresh the page or check data permissions. |

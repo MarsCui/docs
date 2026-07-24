@@ -58,7 +58,7 @@ Use the following operations to work with quota governance records and related s
 
 ### View Project Quotas
 
-1. Go to `Billing > Quota Governance`.
+1. Go to `Billing > User Billing > Quota Governance`.
 2. Use filters or tabs to locate the target record.
 3. Select the target row or entry related to quota governance records and related status.
 4. Click the visible `View Project Quotas` entry when it is available.
@@ -66,7 +66,7 @@ Use the following operations to work with quota governance records and related s
 
 ### View Member Quotas
 
-1. Go to `Billing > Quota Governance`.
+1. Go to `Billing > User Billing > Quota Governance`.
 2. Use filters or tabs to locate the target record.
 3. Select the target row or entry related to quota governance records and related status.
 4. Click the visible `View Member Quotas` entry when it is available.
@@ -74,7 +74,7 @@ Use the following operations to work with quota governance records and related s
 
 ### View Risks and Action Queue
 
-1. Go to `Billing > Quota Governance`.
+1. Go to `Billing > User Billing > Quota Governance`.
 2. Use filters or tabs to locate the target record.
 3. Select the target row or entry related to quota governance records and related status.
 4. Click the visible `View Risks and Action Queue` entry when it is available.
@@ -82,7 +82,7 @@ Use the following operations to work with quota governance records and related s
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Keyword or name | No | Text | `Example name` | Used to locate a specific record. |
 | Status | No | Enum | `Enabled` | Used to determine the current processing or availability state. |
@@ -98,7 +98,7 @@ Use the following operations to work with quota governance records and related s
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `Billing > Quota Governance` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |
@@ -124,7 +124,7 @@ The displayed balance, consumption, settlement status, monthly bill, or License 
 
 **How to check:**
 
-1. Confirm that the same billing cycle, customer, account, currency, and resource scope are being compared.
+1. Compare quota period, usage percentage, risk queue, and action status under the same account.
 2. Check whether pending top-up orders, adjustments, refunds, settlement reviews, or metering synchronization are still in progress.
 3. Compare the summary number with the detail list and operation records on the related billing pages.
 4. For financial-impacting differences, pause confirmation actions and escalate with desensitized record IDs, time range, customer scope, and screenshots without credentials.

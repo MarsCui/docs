@@ -56,7 +56,7 @@ The following figure shows the monthly metering page.
 
 #### Procedure
 
-1. Go to `Quota & Metering > Monthly Metering`.
+1. Go to `AI Infrastructure > On-Prem > Quotas & Metering > Monthly Metering`.
 2. Filter by billing period or status.
 3. View billing period status and creation time in the list.
 4. If the monthly summary is abnormal, go to metering details for reconciliation.

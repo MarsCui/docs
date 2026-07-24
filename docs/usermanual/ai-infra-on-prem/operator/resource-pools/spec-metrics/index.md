@@ -68,7 +68,7 @@ Add a specification metric when a new hardware resource type needs to be added, 
 
 #### Steps
 
-1. Go to `AI Infra > On-Prem > Resource Pools > Specification Metrics`.
+1. Go to `AI Infrastructure > On-Prem > Resource Pools > Specification Metrics`.
 2. Click `Add` or the actual add entry on the page.
 3. Select a metric type, such as CPU, memory, AI accelerator metric, or another metric type provided by the page.
 4. Select AI card category, AI cards metrics, or other metrics, and fill in metric name, unit, k8s-key, and selector-key according to the page fields.
@@ -82,16 +82,16 @@ The following figure shows the Add Specification Metric drawer. AI accelerator m
 
 ## Parameter Reference
 
-| Parameter | Required | Description | Configuration Suggestion |
-| --- | --- | --- | --- |
-| AI card Category | Conditionally required | Category selected when adding an AI accelerator metric. | Keep it consistent with hardware categories in Accelerators. |
-| AI Cards Metrics | Conditionally required | Metric type selected for AI accelerator spec metrics. | Used to distinguish accelerator metrics. |
-| Other Metrics | Conditionally required | CPU, memory, or another non-accelerator metric supported by the page. | Keep it consistent with resource specification display and scheduling scope. |
-| Metric Name | Yes | Display name of the specification metric. | Use a name that expresses resource type and unit. |
-| Unit | Yes | Display or metering unit. | Keep it consistent with capacity statistics and Resource Specs. |
-| k8s-key | Conditionally required | Kubernetes scheduling resource key. | Must match the resource key actually reported by Kubernetes nodes. |
-| selector-key | Conditionally required | Accelerator model, node label, or device selector key. | Must match the accelerator model or node label. |
-| Actions | System-generated | Add, edit, import/export, delete, and similar entries. | `Confirm` submits real configuration. Do not click it during learning or screenshot capture. |
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| AI card Category | Conditionally required | Dropdown / enum | `CPU` | Category selected when adding an AI accelerator metric. Keep it consistent with hardware categories in Accelerators. |
+| AI Cards Metrics | Conditionally required | Dropdown / enum | `Example value` | Metric type selected for AI accelerator spec metrics. Used to distinguish accelerator metrics. |
+| Other Metrics | Conditionally required | Port / number | `CPU` | CPU, memory, or another non-accelerator metric supported by the page. Keep it consistent with resource specification display and scheduling scope. |
+| Metric Name | Yes | Text | `GPU VRAM` | Display name of the specification metric. Use a name that expresses resource type and unit. |
+| Unit | Yes | Text | `GiB` | Display or metering unit. Keep it consistent with capacity statistics and Resource Specs. |
+| k8s-key | Conditionally required | Credential / sensitive text | `nvidia.com/gpu` | Kubernetes scheduling resource key. Must match the resource key actually reported by Kubernetes nodes. |
+| selector-key | Conditionally required | Credential / sensitive text | `accelerator` | Accelerator model, node label, or device selector key. Must match the accelerator model or node label. |
+| Actions | System-generated | Action entry | `Edit` | Add, edit, import/export, delete, and similar entries. `Confirm` submits real configuration. Do not click it during learning or screenshot capture. |
 
 ## Pitfalls
 
@@ -104,7 +104,7 @@ The following figure shows the Add Specification Metric drawer. AI accelerator m
 
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page can be opened | `AI Infra > On-Prem > Resource Pools > Specification Metrics` is accessible. | Check menu configuration and account permissions. |
 | List loads normally | Metric cards, filters, k8s-key, selector-key, and units are displayed normally. | Refresh the page and check service status or browser console errors. |

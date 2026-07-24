@@ -93,7 +93,7 @@ Used to view template status, provider, and associated configuration.
 
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | The template can be selected in the model publishing flow | The template can be selected in the model publishing flow. | Return to the page and check permissions, filters, and configuration status. |
 | Provider, meta-model, source preview, and default parameters are carried into the publishing form correctly | Provider, meta-model, source preview, and default parameters are carried into the publishing form correctly. | Return to the page and check permissions, filters, and configuration status. |

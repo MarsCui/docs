@@ -58,7 +58,7 @@ Use the following operations to work with members records and related status. Co
 
 ### Manage Members
 
-1. Go to `Members & Roles > Members`.
+1. Go to `Settings > Members & Roles > Members`.
 2. Use filters or tabs to locate the target record.
 3. Select the target row or entry related to members records and related status.
 4. Click the visible `Manage Members` entry when it is available.
@@ -66,7 +66,7 @@ Use the following operations to work with members records and related status. Co
 
 ### Add Member
 
-1. Go to `Members & Roles > Members`.
+1. Go to `Settings > Members & Roles > Members`.
 2. Click `Add Member` in the upper-right corner of the page.
 3. In the `Add Member` dialog, review the member creation fields.
 
@@ -81,7 +81,7 @@ Use the following operations to work with members records and related status. Co
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Username | Yes | Text | `ops-user` | The username used by the operator member to sign in. |
 | Full name | Yes | Text | `Example Member` | The display name of the member on the page. |
@@ -105,7 +105,7 @@ Use the following operations to work with members records and related status. Co
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `Members & Roles > Members` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |

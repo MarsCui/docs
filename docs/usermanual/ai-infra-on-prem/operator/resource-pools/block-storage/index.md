@@ -59,7 +59,7 @@ Create a block storage component when a new Ceph RBD or compatible block storage
 
 #### Steps
 
-1. Go to `AI Infra > On-Prem > Resource Pools > Block Storage`.
+1. Go to `AI Infrastructure > On-Prem > Resource Pools > Block Storage`.
 2. Click `Register component` to open the `New Block Storage - Block Storage` page.
 3. Fill in `Block Storage Type`, `Cluster Name`, `Mon Node`, `FSID`, `Storage Pool`, `Admin Key`, `Over-provision Ratio`, `Tenant Quota Limit`, `Physical Threshold`, `Logical Threshold`, `Snapshot Limit per Vol`, and `Description` according to the page fields.
 4. If the page provides `Test Connection`, run the read-only connectivity check first and confirm the returned result.
@@ -72,21 +72,21 @@ The following figure shows the New Block Storage page, used to fill in block sto
 
 ## Parameter Reference
 
-| Parameter | Required | Description | Configuration Suggestion |
-| --- | --- | --- | --- |
-| Block Storage Type | Yes | Block storage backend type. | Select according to actual page-supported types. |
-| Cluster Name | Yes | Storage cluster name to connect. | Keep it consistent with the real storage cluster. |
-| Mon Node | Yes | Ceph Monitor node address list. | Use placeholders only in documentation. Do not record real addresses. |
-| FSID | Yes | Unique identifier of the Ceph cluster. | Keep it consistent with the target storage cluster. |
-| Storage Pool | Yes | Storage pool that hosts block volumes. | Confirm capacity, quota, and permissions. |
-| Admin Key | Yes | Admin key content or credential material. | Fill it only in system forms. Do not write it in documents, screenshots, or tickets. |
-| Over-provision Ratio | Yes | Overcommit ratio between logical and physical capacity. | Fill it carefully according to capacity planning. |
-| Tenant Quota Limit | Yes | Capacity limit available to tenants. | Keep it consistent with tenant capacity policies. |
-| Physical Threshold | Yes | Physical capacity alarm or limit threshold. | Do not exceed the real capacity safety boundary. |
-| Logical Threshold | Yes | Logical capacity alarm or limit threshold. | Verify it together with the over-provision ratio. |
-| Snapshot Limit per Vol | Yes | Number of snapshots retained per volume. | Configure according to capacity and backup policy. |
-| Description | No | Component purpose, boundary, or maintenance notes. | Record non-sensitive notes only. |
-| Actions | System-generated | Register component, Test Connection, Submit, Search, Reset, and similar entries. | `Submit` submits real configuration. Do not click it during learning or screenshot capture. |
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Block Storage Type | Yes | Dropdown / enum | `Ceph RBD` | Block storage backend type. Select according to actual page-supported types. |
+| Cluster Name | Yes | Text | `cluster-a` | Storage cluster name to connect. Keep it consistent with the real storage cluster. |
+| Mon Node | Yes | Address / path | `<mon-host>:6789` | Ceph Monitor node address list. Use placeholders only in documentation. Do not record real addresses. |
+| FSID | Yes | Identifier / text | `<fsid>` | Unique identifier of the Ceph cluster. Keep it consistent with the target storage cluster. |
+| Storage Pool | Yes | Text | `rbd-pool` | Storage pool that hosts block volumes. Confirm capacity, quota, and permissions. |
+| Admin Key | Yes | Credential / sensitive text | `<admin-key>` | Admin key content or credential material. Fill it only in system forms. Do not write it in documents, screenshots, or tickets. |
+| Over-provision Ratio | Yes | Number / capacity | `Example value` | Overcommit ratio between logical and physical capacity. Fill it carefully according to capacity planning. |
+| Tenant Quota Limit | Yes | Number / capacity | `10 TiB` | Capacity limit available to tenants. Keep it consistent with tenant capacity policies. |
+| Physical Threshold | Yes | Number / capacity | `80%` | Physical capacity alarm or limit threshold. Do not exceed the real capacity safety boundary. |
+| Logical Threshold | Yes | Number / capacity | `90%` | Logical capacity alarm or limit threshold. Verify it together with the over-provision ratio. |
+| Snapshot Limit per Vol | Yes | Number / capacity | `16` | Number of snapshots retained per volume. Configure according to capacity and backup policy. |
+| Description | No | Multi-line text | `Example description` | Component purpose, boundary, or maintenance notes. Record non-sensitive notes only. |
+| Actions | System-generated | Action entry | `Edit` | Register component, Test Connection, Submit, Search, Reset, and similar entries. `Submit` submits real configuration. Do not click it during learning or screenshot capture. |
 
 ## Pitfalls
 
@@ -100,7 +100,7 @@ The following figure shows the New Block Storage page, used to fill in block sto
 
 ## Result Validation
 
-| Check Item | Expected Result | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page can be opened | `AI Infra > On-Prem > Resource Pools > Block Storage` is accessible. | Check menu configuration and account permissions. |
 | List loads normally | Block storage component list, status, capacity, and connection information summary are displayed normally. | Refresh the page and check service status or browser console errors. |

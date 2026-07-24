@@ -49,7 +49,7 @@ Page screenshot:
 
 ### Add Tenant-Cloud Authorization
 
-1. Go to `AI Infra > On-Cloud > Authorization Management > Tenant-Cloud Auth`.
+1. Go to `AI Infrastructure > On-Cloud > Authorization Management > Tenant-Cloud Auth`.
 2. Click `Add Tenant-Cloud Authorization`.
 3. In the dialog, select `Select Cloud Platform` as required by the page.
 4. Select `Authorize a Single Tenant` or `Authorize All Tenants`. If you select single-tenant authorization, also fill in `Select Tenant`.
@@ -62,7 +62,7 @@ Key step screenshot:
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Tenant Name | No | Text | `Sample Tenant` | Filters authorization records by tenant name. Do not enter a real customer name in examples. |
 | Tenant ID | No | Text/Number | `1000000000000000` | Filters authorization records by tenant identifier. The example value is for documentation only. |
@@ -85,7 +85,7 @@ Key step screenshot:
 
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `Tenant-Cloud Auth` page and authorization list are displayed. | Check menu permissions, route, and login status. |
 | Authorization list loads | The list displays tenant name, tenant ID, authorized cloud platforms, and action entries. | Check filters, data permissions, and API status. |

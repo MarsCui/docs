@@ -51,7 +51,7 @@ The following figure shows the device monitoring page.
 
 #### Procedure
 
-1. Go to `Monitoring > Device Monitoring`.
+1. Go to `AI Infrastructure > On-Prem > Monitoring > Device Monitoring`.
 2. Confirm the region in the upper-right corner and page filters.
 3. View lists, charts, or statistic cards.
 4. Focus on abnormal status, high watermarks, long periods without updates, or data inconsistent with expectations.
@@ -59,7 +59,7 @@ The following figure shows the device monitoring page.
 
 #### View Device Monitoring
 
-1. Go to `AI Infra > On-Prem > Monitoring > Devices`.
+1. Go to `AI Infrastructure > On-Prem > Monitoring > Device Monitoring`.
 2. View the device list and overall running status, and confirm device ID, device type, node, cluster, region/AZ, and device status.
 3. Select cluster, node, device type, device status, or time range filters as provided by the page.
 4. Review accelerator usage, VRAM usage, temperature, health status, bound jobs, and exception information to identify unavailable devices, insufficient VRAM, or hardware exceptions.

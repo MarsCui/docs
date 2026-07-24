@@ -51,7 +51,7 @@ The following figure shows the cluster statistics page.
 
 #### Procedure
 
-1. Go to `Monitoring > Cluster Statistics`.
+1. Go to `AI Infrastructure > On-Prem > Monitoring > Cluster Statistics`.
 2. Confirm the region in the upper-right corner and page filters.
 3. View lists, charts, or statistic cards.
 4. Focus on abnormal status, high watermarks, long periods without updates, or data inconsistent with expectations.
@@ -59,7 +59,7 @@ The following figure shows the cluster statistics page.
 
 #### View Cluster Statistics
 
-1. Go to `AI Infra > On-Prem > Monitoring > Clusters`.
+1. Go to `AI Infrastructure > On-Prem > Monitoring > Cluster Statistics`.
 2. View the cluster list and overall running status, and confirm cluster name, region/AZ, node count, device count, and resource usage level.
 3. Select region, cluster, resource type, or time range filters as provided by the page.
 4. Review CPU, memory, accelerator, storage, node status, and job-related statistics to identify insufficient resources, abnormal nodes, or unavailable devices.

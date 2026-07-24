@@ -93,7 +93,7 @@ Settings is the unified entry for platform accounts, permissions, tenants, secur
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Entry | Yes | Navigation item | `Members & Roles > Members` | Locates the next Settings page to open. |
 | Role | Yes | Enum | `Operator admin` | Determines whether to use the user side or operator side. |
@@ -103,7 +103,7 @@ Settings is the unified entry for platform accounts, permissions, tenants, secur
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Correct entry | You can tell whether the task belongs to Personal, Members and Roles, Tenants, System Settings, or API Rate Control. | Return to the applicable role table and locate the entry again. |
 | Clear permission | You know which pages and actions the current account can access. | Check role authorization and tenant context. |

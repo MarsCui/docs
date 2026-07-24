@@ -58,7 +58,7 @@ Use the following operations to work with monthly bill records and related statu
 
 ### View a Billing-cycle Bill
 
-1. Go to `Billing > Monthly Bill`.
+1. Go to `Billing > User Billing > Monthly Bill`.
 2. Use filters or tabs to locate the target record.
 3. Select the target row or entry related to monthly bill records and related status.
 4. Click the visible `View a Billing-cycle Bill` entry when it is available.
@@ -66,7 +66,7 @@ Use the following operations to work with monthly bill records and related statu
 
 ### Check Spend by Dimension
 
-1. Go to `Billing > Monthly Bill`.
+1. Go to `Billing > User Billing > Monthly Bill`.
 2. Use filters or tabs to locate the target record.
 3. Select the target row or entry related to monthly bill records and related status.
 4. Click the visible `Check Spend by Dimension` entry when it is available.
@@ -74,7 +74,7 @@ Use the following operations to work with monthly bill records and related statu
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Keyword or name | No | Text | `Example name` | Used to locate a specific record. |
 | Status | No | Enum | `Enabled` | Used to determine the current processing or availability state. |
@@ -90,7 +90,7 @@ Use the following operations to work with monthly bill records and related statu
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `Billing > Monthly Bill` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |
@@ -116,7 +116,7 @@ The displayed balance, consumption, settlement status, monthly bill, or License 
 
 **How to check:**
 
-1. Confirm that the same billing cycle, customer, account, currency, and resource scope are being compared.
+1. Confirm the billing month, grouping view, transaction type, and monthly bill generation time before comparing totals.
 2. Check whether pending top-up orders, adjustments, refunds, settlement reviews, or metering synchronization are still in progress.
 3. Compare the summary number with the detail list and operation records on the related billing pages.
 4. For financial-impacting differences, pause confirmation actions and escalate with desensitized record IDs, time range, customer scope, and screenshots without credentials.

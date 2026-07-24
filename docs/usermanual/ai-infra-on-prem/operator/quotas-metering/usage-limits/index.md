@@ -58,7 +58,7 @@ After expanding a tenant row, operators can view or maintain the corresponding l
 
 #### Procedure
 
-1. Go to `AI Infra(On-Prem) > Quotas & Metering > Usage Limits`.
+1. Go to `AI Infrastructure > On-Prem > Quotas & Metering > Usage Limits`.
 2. Click `Resource Limits` or `Spec Credits` according to the verification target.
 3. Enter `Tenant Name / ID` in the search box, or leave it empty to view the list.
 4. Click `Search` to view matching tenants. Click `Reset` to restore query conditions.
@@ -74,20 +74,20 @@ After expanding a tenant row, operators can view or maintain the corresponding l
 
 ## Parameter Reference
 
-| Field Name | Area | Type | Description |
-| --- | --- | --- | --- |
-| Tenant Name / ID | Search box, main table | Text / system-generated | Locates the target tenant. Do not write real tenant names or tenant IDs in documentation. |
-| Resource Limits | Top switch, main table | Switch / summary column | Views or maintains tenant limits for CPU, memory, accelerator, and other resource categories. |
-| Spec Credits | Top switch, main table | Switch / summary column | Views or maintains tenant credits by resource ID or spec dimension. |
-| Category | Resource Limits expanded area | System field | Resource category, such as CPU, memory, or accelerator category. |
-| Allocate resource | Resource Limits expanded area | Quantity / capacity | Allowed resource amount for the current category. |
-| Resource ID | Spec Credits expanded area | System field | Spec or resource item identifier. Do not write real resource IDs in documentation. |
-| Quota | Spec Credits expanded area | Quantity / capacity | Available quota for the current resource ID. |
-| Unlimited | Expanded-area action | Quick action | Removes the fixed limit from the corresponding resource item. |
-| Delete | Expanded-area action | High-risk action | Deletes the current configuration item. |
-| Add Row | Expanded-area action | Configuration action | Adds a new resource item or quota configuration row. |
-| Cancel | Expanded-area action | Safe exit | Discards unsubmitted changes in the expanded area. |
-| Confirm | Expanded-area action | High-risk final action | Submits the current configuration adjustment. |
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Tenant Name / ID | Depends on operation | Text / system-generated | `tenant-demo` | Locates the target tenant. Do not write real tenant names or tenant IDs in documentation. Area: Search box, main table. |
+| Resource Limits | Depends on operation | Switch / summary column | `CPU 100 cores` | Views or maintains tenant limits for CPU, memory, accelerator, and other resource categories. Area: Top switch, main table. |
+| Spec Credits | Depends on operation | Switch / summary column | `gpu-a100-1card: 10` | Views or maintains tenant credits by resource ID or spec dimension. Area: Top switch, main table. |
+| Category | Depends on operation | System field | `CPU` | Resource category, such as CPU, memory, or accelerator category. Area: Resource Limits expanded area. |
+| Allocate resource | Depends on operation | Quantity / capacity | `100 cores` | Allowed resource amount for the current category. Area: Resource Limits expanded area. |
+| Resource ID | Depends on operation | System field | `gpu-a100-1card` | Spec or resource item identifier. Do not write real resource IDs in documentation. Area: Spec Credits expanded area. |
+| Quota | Depends on operation | Quantity / capacity | `10` | Available quota for the current resource ID. Area: Spec Credits expanded area. |
+| Unlimited | Depends on operation | Quick action | `Unlimited` | Removes the fixed limit from the corresponding resource item. Area: Expanded-area action. |
+| Delete | Depends on operation | High-risk action | `Delete` | Deletes the current configuration item. Area: Expanded-area action. |
+| Add Row | Depends on operation | Configuration action | `Add Row` | Adds a new resource item or quota configuration row. Area: Expanded-area action. |
+| Cancel | Depends on operation | Safe exit | `Cancel` | Discards unsubmitted changes in the expanded area. Area: Expanded-area action. |
+| Confirm | Depends on operation | High-risk final action | `Confirm` | Submits the current configuration adjustment. Area: Expanded-area action. |
 
 ## Pitfalls
 
@@ -100,7 +100,7 @@ After expanding a tenant row, operators can view or maintain the corresponding l
 
 ## Result Validation
 
-| Check Item | Success Criteria | If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | `Usage Limits` opens normally and the route is `/powerone/quota-metric/credit` | Check account permissions, region selection, and sidebar entry |
 | Search | Searching by `Tenant Name / ID` returns the expected tenant scope | Check tenant name, tenant ID, and region |

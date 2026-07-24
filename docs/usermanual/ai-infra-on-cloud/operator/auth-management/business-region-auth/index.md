@@ -49,7 +49,7 @@ Page screenshot:
 
 ### Authorize Regions
 
-1. Go to `AI Infra > On-Cloud > Authorization Management > Business-Region Auth`.
+1. Go to `AI Infrastructure > On-Cloud > Authorization Management > Business-Region Auth`.
 2. Find the target business in the business type list, such as `INFERENCE_JOB`.
 3. Click `Authorize Regions` on the right side of the target business.
 4. In the dialog, confirm `Current Authorized Business` and expand the target cloud platform.
@@ -63,7 +63,7 @@ Key step screenshot:
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Business Type | Yes | Text/Group | `INFERENCE_JOB` | Business scenario whose region authorization is being configured. |
 | Current Authorized Business | Yes | Prompt | `INFERENCE_JOB` | Indicates the business type currently being authorized in the dialog. |
@@ -84,7 +84,7 @@ Key step screenshot:
 
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `Business-Region Auth` page is displayed. | Check menu permissions, route, and login status. |
 | Authorization list loads | The list displays business type, cloud platform cards, region counts, and action entries. | Check data permissions, API status, and page refresh result. |

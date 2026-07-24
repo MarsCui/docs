@@ -65,7 +65,7 @@ The following screenshot shows the Customers page. Customer names, organizations
 
 ### View Customer Details
 
-1. Go to `Earnings > Customers`.
+1. Go to `Billing > Earnings > Customers`.
 2. Review customer statistic cards, including customer total, new customers in the billing cycle, Top 1 customer, and Top 5 proportion.
 3. Select `Billing Cycle`, or use keyword and tag filters as needed to locate the target customer.
 4. In the customer list, verify organization information, administrator information, tags, current-cycle revenue, proportion, customer join time, and latest revenue in the billing cycle.
@@ -77,7 +77,7 @@ The following screenshot shows the Customers page. Customer names, organizations
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Billing Cycle | No | Filter | 2026-07 | Selects the billing cycle for customer revenue statistics. |
 | Keyword | No | Filter | Desensitized keyword | Searches by customer name, organization, or other customer-related keyword. |
@@ -109,7 +109,7 @@ The following screenshot shows the Customers page. Customer names, organizations
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page loading | Customer statistic cards, filters, and customer list are displayed normally. | Refresh the page or check Provider revenue permissions. |
 | Filters available | Billing cycle, keyword, and tag filters can locate customers. | Click `Reset` and filter again. |

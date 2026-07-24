@@ -93,9 +93,16 @@ The page includes two tabs: `Overview` and `Earning Details`. `Overview` shows B
 | Caller | System-generated | Text | User or organization name | User or organization that generated the earning. |
 | Actions | No | Row entry | `View` | View earning records or related billing information. |
 
+## Pitfalls
+
+- Model Revenue is not real-time credited income. It may be affected by billing cycle, settlement status, and revenue rules.
+- Customer, model, and time views use different scopes. Do not add them together without checking the metric definition.
+- If revenue looks abnormal, verify model usage and call logs first, then ask operations to confirm settlement rules.
+
+
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `Model Earnings` page opens normally, and `Overview` and `Earning Details` tabs are visible. | Check account permissions, navigation path, and page loading status. |
 | Earnings overview displays normally | Number of Organizations, Number of Models, Income Tokens, Credits Earned, and charts are displayed normally. | Switch Billing cycle or Date and retry. Confirm whether the current period has earning data. |

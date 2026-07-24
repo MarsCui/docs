@@ -59,7 +59,7 @@ The following figure shows the model configuration page.
 
 #### Procedure
 
-1. Go to `AI Infra > On-Prem > Templates > Model Configuration`.
+1. Go to `AI Infrastructure > On-Prem > Templates > Model Configuration`.
 2. Click `Add Model` or the actual add entry on the page.
 
 The following figure shows the base model selection page, used to select model author, model series, and the base model entry.
@@ -92,26 +92,26 @@ The following figures show tag creation and associated cluster selection, used t
 
 ## Parameter Reference
 
-| Parameter | Required | Description | Configuration suggestion |
-| --- | --- | --- | --- |
-| Model Name | Yes | Model name displayed by the platform and referenced by templates. | Use a maintainable model name instead of temporary test naming. |
-| Model Author | Conditionally required | Author, organization, or source provider of the model. | Keep it consistent with page filters, model series, and authorization source. |
-| Model Series | Conditionally required | Model family or base model series. | Helps inference templates filter models by series. |
-| Model Type | Conditionally required | Model capability type or business category. | Keep it consistent with inference frameworks, template type, and user-side selection scope. |
-| Scenario | Conditionally required | Business scenario where the model applies. | Do not mix test, training, or inference scenarios. |
-| Token Limit | Conditionally required | Context length, input/output token limit, or KV Cache-related limit. | Keep it consistent with model capability, VRAM estimation, and template parameters. |
-| Model Source | Yes | Model file source, repository source, or object storage source. | Confirm authorization and network reachability for external sources. |
-| Version | Yes | Model version or weight version record. | Keep versions traceable. Do not use ambiguous `latest` for long-term configuration. |
-| Quantization Method | Conditionally required | Model weight quantization or precision method. | Keep it consistent with runtime framework and VRAM estimation configuration. |
-| Model Path | Yes | Path, repository identifier, or object storage location where the framework loads model files. | Do not write real keys, tokens, accounts, passwords, or internal addresses. |
-| Parameter Source | Conditionally required | Whether parameters come from model configuration, template defaults, or user input. | Prevent template defaults from overriding model-specific parameters. |
-| Environment Variables | No | Variables passed into the container runtime environment. | Use only non-sensitive variables. Use credential references for sensitive values. |
-| Startup Parameters | No | Model parameters appended to the framework startup command. | Match framework version, token limits, and resource specifications. |
-| Model Source Credential | Conditionally required | Credential reference used when accessing a private model repository or object storage. | Reference credential objects only. Do not write real credentials in documents. |
-| Associated Cluster | Conditionally required | Cluster scope where model files are accessible or deployable. | Confirm network and storage accessibility for target clusters before submission. |
-| Tags | No | Tags used for filtering, classification, or template matching. | Keep tag meanings stable and avoid temporary tags. |
-| Visibility Scope | Conditionally required | Model visibility boundary for templates, tenants, or user-side pages. | Incorrect visibility affects user-side selectable models. |
-| Actions | System-generated | Add, edit, save, submit, OK, and similar page operations. | `Save`, `Submit`, and `OK` are high-risk final actions. |
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Model Name | Yes | Dropdown / enum | `Qwen3-8B` | Model name displayed by the platform and referenced by templates. Use a maintainable model name instead of temporary test naming. |
+| Model Author | Conditionally required | Dropdown / enum | `Example Org` | Author, organization, or source provider of the model. Keep it consistent with page filters, model series, and authorization source. |
+| Model Series | Conditionally required | Dropdown / enum | `Example value` | Model family or base model series. Helps inference templates filter models by series. |
+| Model Type | Conditionally required | Dropdown / enum | `Large language model` | Model capability type or business category. Keep it consistent with inference frameworks, template type, and user-side selection scope. |
+| Scenario | Conditionally required | Dropdown / enum | `Example value` | Business scenario where the model applies. Do not mix test, training, or inference scenarios. |
+| Token Limit | Conditionally required | Number / capacity | `8192` | Context length, input/output token limit, or KV Cache-related limit. Keep it consistent with model capability, VRAM estimation, and template parameters. |
+| Model Source | Yes | Address / path | `Object Storage` | Model file source, repository source, or object storage source. Confirm authorization and network reachability for external sources. |
+| Version | Yes | Dropdown / enum | `v0.8.0` | Model version or weight version record. Keep versions traceable. Do not use ambiguous `latest` for long-term configuration. |
+| Quantization Method | Conditionally required | Dropdown / enum | `FP16` | Model weight quantization or precision method. Keep it consistent with runtime framework and VRAM estimation configuration. |
+| Model Path | Yes | Address / path | `s3://example-bucket/model` | Path, repository identifier, or object storage location where the framework loads model files. Do not write real keys, tokens, accounts, passwords, or internal addresses. |
+| Parameter Source | Conditionally required | Number / capacity | `Template default` | Whether parameters come from model configuration, template defaults, or user input. Prevent template defaults from overriding model-specific parameters. |
+| Environment Variables | No | Configuration text | `ENV=prod` | Variables passed into the container runtime environment. Use only non-sensitive variables. Use credential references for sensitive values. |
+| Startup Parameters | No | Dropdown / enum | `--max-model-len 8192` | Model parameters appended to the framework startup command. Match framework version, token limits, and resource specifications. |
+| Model Source Credential | Conditionally required | Credential / sensitive text | `Object Storage` | Credential reference used when accessing a private model repository or object storage. Reference credential objects only. Do not write real credentials in documents. |
+| Associated Cluster | Conditionally required | File / configuration text | `cluster-a` | Cluster scope where model files are accessible or deployable. Confirm network and storage accessibility for target clusters before submission. |
+| Tags | No | Text | `llm` | Tags used for filtering, classification, or template matching. Keep tag meanings stable and avoid temporary tags. |
+| Visibility Scope | Conditionally required | Dropdown / enum | `Tenant A` | Model visibility boundary for templates, tenants, or user-side pages. Incorrect visibility affects user-side selectable models. |
+| Actions | System-generated | Action entry | `Edit` | Add, edit, save, submit, OK, and similar page operations. `Save`, `Submit`, and `OK` are high-risk final actions. |
 
 ## Pitfalls
 
@@ -123,7 +123,7 @@ The following figures show tag creation and associated cluster selection, used t
 
 ## Result Validation
 
-| Check item | Expected result | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Model appears in the list | The model appears in the model configuration list. | Check associated objects, enabled status, version, and form configuration. |
 | Model version status matches expectations | Version status is visible and consistent with the submitted configuration. | Check model source, version information, and backend processing status. |

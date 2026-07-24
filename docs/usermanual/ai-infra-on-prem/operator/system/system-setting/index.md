@@ -57,7 +57,7 @@ If the page provides buttons such as `Edit`, `Save`, `Submit`, or `OK`, open onl
 
 #### Procedure
 
-1. Go to `AI Infra > On-Prem > System > System Setting`.
+1. Go to `AI Infrastructure > On-Prem > System > System Setting`.
 2. View the system configuration list and confirm that the page route is `/powerone/system/config-properties`.
 3. Review configuration item name, configuration value, description, status, or action entry.
 4. If the page provides view-only buttons such as search, filter, refresh, expand, or details, use them to narrow the review scope.
@@ -69,7 +69,7 @@ If the page provides buttons such as `Edit`, `Save`, `Submit`, or `OK`, open onl
 
 ![User service access](./images/user-service-access.png)
 
-1. Go to `AI Infra > On-Prem > System > System Setting`.
+1. Go to `AI Infrastructure > On-Prem > System > System Setting`.
 2. Locate the `User Service Access` configuration group.
 3. Review configuration item names, configuration values, descriptions, status, and action entries.
 4. If changes are required, record only fields, inline edit areas, or dialogs. Do not click the final `Save`, `Submit`, or `OK` during learning or screenshots.
@@ -82,7 +82,7 @@ If the page provides buttons such as `Edit`, `Save`, `Submit`, or `OK`, open onl
 ![Task scheduling and resource control](./images/task-scheduling-resource-control.png)
 :::
 
-1. Go to `AI Infra > On-Prem > System > System Setting`.
+1. Go to `AI Infrastructure > On-Prem > System > System Setting`.
 2. Locate the `Task Scheduling and Resource Control` configuration group.
 3. Review configuration item names, configuration values, descriptions, status, and action entries.
 4. If changes are required, record only fields, inline edit areas, or dialogs. Do not click the final `Save`, `Submit`, or `OK` during learning or screenshots.
@@ -95,7 +95,7 @@ If the page provides buttons such as `Edit`, `Save`, `Submit`, or `OK`, open onl
 ![Task runtime environment and storage](./images/task-runtime-storage.png)
 :::
 
-1. Go to `AI Infra > On-Prem > System > System Setting`.
+1. Go to `AI Infrastructure > On-Prem > System > System Setting`.
 2. Locate the `Task Runtime Environment and Storage` configuration group.
 3. Review configuration item names, configuration values, descriptions, status, and action entries.
 4. If changes are required, record only fields, inline edit areas, or dialogs. Do not click the final `Save`, `Submit`, or `OK` during learning or screenshots.
@@ -108,7 +108,7 @@ If the page provides buttons such as `Edit`, `Save`, `Submit`, or `OK`, open onl
 ![Frontend page configuration](./images/frontend-page-config.png)
 :::
 
-1. Go to `AI Infra > On-Prem > System > System Setting`.
+1. Go to `AI Infrastructure > On-Prem > System > System Setting`.
 2. Locate the `Frontend Page Configuration` configuration group.
 3. Review configuration item names, configuration values, descriptions, status, and action entries.
 4. If changes are required, record only fields, inline edit areas, or dialogs. Do not click the final `Save`, `Submit`, or `OK` during learning or screenshots.
@@ -121,7 +121,7 @@ If the page provides buttons such as `Edit`, `Save`, `Submit`, or `OK`, open onl
 ![Specification unit conversion](./images/spec-unit-conversion.png)
 :::
 
-1. Go to `AI Infra > On-Prem > System > System Setting`.
+1. Go to `AI Infrastructure > On-Prem > System > System Setting`.
 2. Locate the `Specification Unit Conversion` configuration group.
 3. Review configuration item names, configuration values, descriptions, status, and action entries.
 4. If changes are required, record only fields, inline edit areas, or dialogs. Do not click the final `Save`, `Submit`, or `OK` during learning or screenshots.
@@ -130,7 +130,7 @@ If the page provides buttons such as `Edit`, `Save`, `Submit`, or `OK`, open onl
 
 ![Billing policy](./images/billing-policy.png)
 
-1. Go to `AI Infra > On-Prem > System > System Setting`.
+1. Go to `AI Infrastructure > On-Prem > System > System Setting`.
 2. Locate the `Billing Policy` configuration group.
 3. Review configuration item names, configuration values, descriptions, status, and action entries.
 4. If changes are required, record only fields, inline edit areas, or dialogs. Do not click the final `Save`, `Submit`, or `OK` during learning or screenshots.
@@ -139,7 +139,7 @@ If the page provides buttons such as `Edit`, `Save`, `Submit`, or `OK`, open onl
 
 ![Cluster monitoring metrics](./images/cluster-monitoring-metrics.png)
 
-1. Go to `AI Infra > On-Prem > System > System Setting`.
+1. Go to `AI Infrastructure > On-Prem > System > System Setting`.
 2. Locate the `Cluster Monitoring Metrics` configuration group.
 3. Review configuration item names, configuration values, descriptions, status, and action entries.
 4. If changes are required, record only fields, inline edit areas, or dialogs. Do not click the final `Save`, `Submit`, or `OK` during learning or screenshots.
@@ -148,7 +148,7 @@ If the page provides buttons such as `Edit`, `Save`, `Submit`, or `OK`, open onl
 
 ![Feature availability](./images/feature-availability.png)
 
-1. Go to `AI Infra > On-Prem > System > System Setting`.
+1. Go to `AI Infrastructure > On-Prem > System > System Setting`.
 2. Locate the `Feature Availability` configuration group.
 3. Review configuration item names, configuration values, descriptions, status, and action entries.
 4. If changes are required, record only fields, inline edit areas, or dialogs. Do not click the final `Save`, `Submit`, or `OK` during learning or screenshots.
@@ -157,20 +157,20 @@ If the page provides buttons such as `Edit`, `Save`, `Submit`, or `OK`, open onl
 
 ![Disaster recovery](./images/disaster-recovery.png)
 
-1. Go to `AI Infra > On-Prem > System > System Setting`.
+1. Go to `AI Infrastructure > On-Prem > System > System Setting`.
 2. Locate the `Disaster Recovery` configuration group.
 3. Review configuration item names, configuration values, descriptions, status, and action entries.
 4. If changes are required, record only fields, inline edit areas, or dialogs. Do not click the final `Save`, `Submit`, or `OK` during learning or screenshots.
 
 ## Parameter Reference
 
-| Field Name | Type | Description |
-| --- | --- | --- |
-| Configuration Item | System field | Identifies a system-level configuration item. |
-| Configuration Value | Text / switch / enum / number | Current value used by the configuration item. Do not write real sensitive values in documentation or screenshots. |
-| Description | Text | Describes the purpose and impact scope of the configuration item. |
-| Status | Status | Shows whether the configuration item is enabled, available, or effective. |
-| Actions | Action entry | Entry used to view, edit, or maintain a configuration item. |
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Configuration Item | Depends on item | System field | `platform.feature.enabled` | Identifies a system-level configuration item. |
+| Configuration Value | Depends on item | Text / switch / enum / number | `true` | Current value used by the configuration item. Do not write real sensitive values in documentation or screenshots. |
+| Description | Depends on item | Text | `Feature switch description` | Describes the purpose and impact scope of the configuration item. |
+| Status | Depends on item | Status | `Enabled` | Shows whether the configuration item is enabled, available, or effective. |
+| Actions | Depends on item | Action entry | `Edit` | Entry used to view, edit, or maintain a configuration item. |
 
 ## Pitfalls
 
@@ -183,7 +183,7 @@ If the page provides buttons such as `Edit`, `Save`, `Submit`, or `OK`, open onl
 
 ## Result Validation
 
-| Check Item | Success Criteria | If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | `System Setting` opens normally and the route is `/powerone/system/config-properties` | Check account permissions, environment entry, and sidebar entry |
 | List view | The page shows the system configuration list or an empty state | Check whether system configuration has been initialized |

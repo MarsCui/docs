@@ -55,7 +55,7 @@ Use this operation to query publish records. Do not add publish, rollback, or ca
 
 ### View Publish Center
 
-1. Go to `API Rate Control > Publish Center`.
+1. Go to `Settings > API Rate Control > Publish Center`.
 2. Select node ID, start time, end time, publish status, or version information according to page fields.
 3. Click `Search` to query publish records.
 4. Review version, status, node count, publisher, publish time, and message in the publish record table.
@@ -67,7 +67,7 @@ Use this operation to query publish records. Do not add publish, rollback, or ca
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Node ID | No | Text | `<node_id>` | Filters publish records by node. |
 | Start Time | No | Time | `Start Time` | Sets the start time for publish record queries. |
@@ -90,7 +90,7 @@ Use this operation to query publish records. Do not add publish, rollback, or ca
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `API Rate Control > Publish Center` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Publish records | Publish records in the target time range are visible. | Expand the time range and query again. |

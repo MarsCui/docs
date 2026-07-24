@@ -53,7 +53,7 @@ The page contains three views: `My Images`, `Public Images`, and `Push History`.
 
 #### Procedure
 
-1. Go to `Extension Services > Image Services`.
+1. Go to `AI Infrastructure > On-Prem > Extension Services > Image Services`.
 2. On the `My Images` page, click `Add Project`.
 3. Fill in the project name.
 4. Click `Confirm`.
@@ -74,7 +74,7 @@ The page contains three views: `My Images`, `Public Images`, and `Push History`.
 - Sanitize credentials, addresses, customer information, or business identifiers first.
 - If the list is empty, check filters, region, and permissions first.
 
-## Result Validation
+#### Add Image Project Validation
 
 1. The project appears in the `My Images` list.
 2. Image count, quota usage, and push entrypoint can be viewed under the project.
@@ -104,7 +104,7 @@ If you need to build the image locally first, run:
 docker build -t <local-image>:<local-tag> .
 ```
 
-## Result Validation
+#### Push Custom Image Validation
 
 1. The `docker push` command succeeds.
 2. Return to the Image Services page and click `Sync`.
@@ -116,6 +116,15 @@ docker build -t <local-image>:<local-tag> .
 1. Switch to `Public Images` to view base images provided by the platform.
 2. Switch to `Push History` to view image push records.
 3. If push fails, locate the cause from history records and local command output.
+
+## Result Validation
+
+| Check Item | Success Signal | If Abnormal |
+| --- | --- | --- |
+| Image project created | The new project appears in the `My Images` list, and repository address and push entrypoint are visible. | Check project name, region, permissions, and repository service status. |
+| Image push completed | After `docker push` succeeds and the page is synced, the target image and tag are visible. | Verify repository address, project name, login credentials, tag, and local network. |
+| Image can be used | The target image can be selected when creating an Online IDE, runtime instance, or model service. | Check image sync status, project visibility scope, and current account permissions. |
+| Sensitive information is not exposed | Robot credentials, repository passwords, and tokens do not appear in docs, screenshots, or command records. | Remove exposed content immediately and rotate related credentials according to the credential leakage process. |
 
 ## FAQ
 

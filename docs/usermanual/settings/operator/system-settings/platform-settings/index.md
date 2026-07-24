@@ -58,7 +58,7 @@ Use the following operations to work with platform settings records and related 
 
 ### General Configuration
 
-1. Go to `System Settings > Platform Settings`.
+1. Go to `Settings > System Settings > Platform Settings`.
 2. Click `General Configuration`.
 3. Review general platform display and shared settings.
 
@@ -66,7 +66,7 @@ Use the following operations to work with platform settings records and related 
 
 ### Provider Relationship Configuration
 
-1. Go to `System Settings > Platform Settings`.
+1. Go to `Settings > System Settings > Platform Settings`.
 2. Click `Provider Relationship`.
 3. Review provider relationships, enabled status, and settlement ownership settings.
 
@@ -78,7 +78,7 @@ Use the following operations to work with platform settings records and related 
 
 ### Currency Settings
 
-1. Go to `System Settings > Platform Settings`.
+1. Go to `Settings > System Settings > Platform Settings`.
 2. Click `Currency Settings`.
 3. Review default currency, display rules, precision, or conversion-related settings.
 
@@ -86,7 +86,7 @@ Use the following operations to work with platform settings records and related 
 
 ### Payment Channel Configuration
 
-1. Go to `System Settings > Platform Settings`.
+1. Go to `Settings > System Settings > Platform Settings`.
 2. Click `Payment Channel`.
 3. Review payment channel list, enabled status, and available maintenance entries.
 
@@ -125,7 +125,7 @@ Use the following operations to work with platform settings records and related 
 
 ### Account and Settlement Configuration
 
-1. Go to `System Settings > Platform Settings`.
+1. Go to `Settings > System Settings > Platform Settings`.
 2. Click `Account and Settlement`.
 3. Review account, settlement cycle, recharge, or credits-related parameters.
 
@@ -133,7 +133,7 @@ Use the following operations to work with platform settings records and related 
 
 ### Email Settings
 
-1. Go to `System Settings > Platform Settings`.
+1. Go to `Settings > System Settings > Platform Settings`.
 2. Click `Email Settings`.
 3. Review mail service, sender configuration, notification templates, or verification email settings.
 
@@ -141,7 +141,7 @@ Use the following operations to work with platform settings records and related 
 
 ### UI Configuration
 
-1. Go to `System Settings > Platform Settings`.
+1. Go to `Settings > System Settings > Platform Settings`.
 2. Click `UI Configuration`.
 3. Review login page, platform identity, theme, or display-related settings.
 
@@ -149,7 +149,7 @@ Use the following operations to work with platform settings records and related 
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Configuration Category | System displayed | Text | `General Configuration` | The configuration group in platform settings. |
 | Configuration Item | System displayed | Text | `Default Currency` | The system parameter to view or maintain. |
@@ -173,7 +173,7 @@ Use the following operations to work with platform settings records and related 
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `System Settings > Platform Settings` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |

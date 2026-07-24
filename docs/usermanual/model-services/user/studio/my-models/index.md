@@ -61,7 +61,7 @@ The page includes three tabs: `Overview`, `My Published`, and `My Aggregate`. `O
 1. Go to `Model Services > Studio > My Models`.
 2. On `Overview`, select a publishing entry, or go to `My Published` and click `Publish Model`.
 3. In the `Publish Model` dialog, choose a publishing destination, such as `Private` or `Public`.
-4. On the `Publish Model` page, in `Basic Information`, maintain meta model, model source, request URL, API key, model source ID, model type, request header configuration, input/output modalities, advanced capabilities, Token limits, protocol, custom tag, description, Access Mode, and publication method as required by the page.
+4. On the `Publish Model` page, in `Basic Information`, maintain meta model, model source, request URL, API Key, model source ID, model type, request header configuration, input/output modalities, advanced capabilities, Token limits, protocol, custom tag, description, Access Mode, and publication method as required by the page.
 5. Click `Next` to enter `Billing Configuration`, and configure Billing type, Price Entry, Input Price, Output Price, Cache Price, Web Search, Free Quota, or other pricing or free quota settings as required by the page.
 6. Verify that model information, billing type, pricing, Web Search, free quota, and visibility are correct.
 7. Continue to `Rate Limit Configuration`, and configure rate-limit policies as required by the page.
@@ -119,9 +119,16 @@ The page includes three tabs: `Overview`, `My Published`, and `My Aggregate`. `O
 | Status | No | Tag | `Published` / `Delisted` | Current publishing status of the model. |
 | Actions | No | Row buttons | `Authorize` / `Edit` / `Delist` / `Delete` | View or manage a model record. |
 
+## Pitfalls
+
+- My Models is a publishing workspace, not proof that a model is already available to callers. Check review and deployment status.
+- Before changing model source, template, Endpoint, or billing configuration, confirm whether existing callers are affected.
+- Review materials must not expose real keys, internal addresses, customer data, or complete test requests.
+
+
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `My Models` page opens normally, and `Overview`, `My Published`, and `My Aggregate` tabs are visible. | Check account permissions, navigation path, and page loading status. |
 | Model list loads | `My Published` or `My Aggregate` shows model records, status, version, and operation entries. | Click `Search` or `Reset` and retry. Check permissions and filters if needed. |
@@ -154,7 +161,7 @@ Not recommended. Billing type, Input Price, Output Price, Cache Price, Web Searc
 
 ## Notes
 
-- Do not write real accounts, passwords, access parameters, API keys, tokens, AK/SK, private keys, or internal test processes in the document.
+- Do not write real accounts, passwords, access parameters, API Keys, tokens, AK/SK, private keys, or internal test processes in the document.
 - Before screenshots or export, confirm that the page does not contain real secrets, unredacted request headers, internal Endpoints, or sensitive business data.
 - Publishing models and creating aggregate models may affect real services. For learning, view fields only and do not perform final confirmation.
 - Pricing, billing type, Web Search, and free quota affect real call costs, billing statistics, and user quota. The document only describes the configuration flow and does not record real pricing strategies.

@@ -56,7 +56,7 @@ The following screenshot shows profile.
 
 ### Edit Personal Details
 
-1. Go to `Personal > Profile`.
+1. Go to `Settings > Personal > Profile`.
 2. Click `Edit personal details` in the upper-right corner of the profile page.
 3. In the `Edit personal details` dialog, review the editable fields.
 
@@ -69,7 +69,7 @@ The following screenshot shows profile.
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Display name | Yes | Text | `Example Admin` | The account display name shown on the page. |
 | Phone | No | Text | `188****8888` | Used for contact, notifications, or security verification. |
@@ -86,7 +86,7 @@ The following screenshot shows profile.
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `Personal > Profile` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Profile details | Display name, phone, email, user ID, and password area are visible. | Refresh the page or confirm account permissions. |

@@ -75,7 +75,7 @@ When you need to confirm which instances or tasks caused resource consumption fo
 
 #### Procedure
 
-1. Go to `Quota & Usage > Resource Usage`.
+1. Go to `AI Infrastructure > On-Prem > Quota & Usage > Resource Usage`.
 2. Find the target specification.
 3. Click `Consumption Details` in that row.
 4. View consumption records in the details dialog or drawer.

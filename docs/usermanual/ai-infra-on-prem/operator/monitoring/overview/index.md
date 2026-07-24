@@ -51,7 +51,7 @@ The following figure shows the statistics overview page.
 
 #### Procedure
 
-1. Go to `Monitoring > Statistics Overview`.
+1. Go to `AI Infrastructure > On-Prem > Monitoring > Statistics Overview`.
 2. Confirm the region in the upper-right corner and page filters.
 3. View lists, charts, or statistic cards.
 4. Focus on abnormal status, high watermarks, long periods without updates, or data inconsistent with expectations.
@@ -59,7 +59,7 @@ The following figure shows the statistics overview page.
 
 #### Monitoring Overview
 
-1. Go to `AI Infra > On-Prem > Monitoring > Overview`.
+1. Go to `AI Infrastructure > On-Prem > Monitoring > Statistics Overview`.
 2. View the overall running status of resource pools, clusters, nodes, devices, and jobs.
 3. Focus on total resources, used resources, remaining resources, online status, abnormal status, and trend metrics.
 4. If the page provides time range, region, cluster, or resource type filters, select the filters before reviewing statistics.

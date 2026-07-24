@@ -59,7 +59,7 @@ The page displays cluster statistics capability for the selected region. When th
 
 #### Procedure
 
-1. Go to `Monitoring > Cluster Statistics`.
+1. Go to `AI Infrastructure > On-Prem > Monitoring > Cluster Statistics`.
 2. Confirm the region in the upper-right corner.
 3. Filter by time, status, or keyword provided by the page.
 4. View charts, lists, or prompt information.

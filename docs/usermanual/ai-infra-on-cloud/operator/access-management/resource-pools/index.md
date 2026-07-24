@@ -50,7 +50,7 @@ Page screenshot:
 
 ### Enable/Disable Resource Pool
 
-1. Go to `AI Infra > On-Cloud > Access Management > Resource Pools`.
+1. Go to `AI Infrastructure > On-Cloud > Access Management > Resource Pools`.
 2. Select the target cloud platform in the left cloud platform list, such as `Alibaba Cloud`.
 3. Find the target resource pool in the list on the right, and check the resource pool region name and the enabled status switch.
 4. To filter currently enabled resource pools, select `Show only enabled`.
@@ -84,7 +84,7 @@ Page screenshot:
 
 ## Result Validation
 
-| Check Item | Success Criteria | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `Resource Pools` page opens normally, and `Access Management > Resource Pools` is highlighted in the sidebar. | Check account permissions, navigation path, and page loading status. |
 | Resource pool list loads normally | The left cloud platform list and right regional resource pool cards display normally. | Refresh the page or check cloud platform and resource pool synchronization status. |

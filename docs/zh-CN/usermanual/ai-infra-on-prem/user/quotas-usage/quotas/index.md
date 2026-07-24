@@ -76,7 +76,7 @@
 
 #### 操作步骤
 
-1. 进入 `配额&用量 > 资源配额`。
+1. 进入 `AI基础设施 > On-Prem > 配额&用量 > 资源配额`。
 2. 找到 `Runtime Instance` 或 `Online IDE` 区域。
 3. 点击 `View Resource Usage`。
 4. 在弹窗中查看资源占用项。

@@ -123,7 +123,7 @@ The page shows platform state, license categories, managed object authorization 
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Registration Code | System generated | Text | Not displayed | Authorization identifier of the current instance. Do not publicly record the complete value. |
 | Activation Code | Required for activation | Text | Not displayed | Activation credential returned by License support based on the registration code. |
@@ -140,6 +140,7 @@ The page shows platform state, license categories, managed object authorization 
 
 - Registration codes and activation codes are sensitive credentials and must not be written into public documents, screenshots, tickets, or chats.
 - Activation codes are usually bound to the current instance registration code and cannot be reused across environments.
+- Authorized quota is not the same as billing balance. It controls resource permission and capacity scope, while billing balance is checked in billing account and transaction pages.
 - Clicking `Activate` affects the current instance authorization state.
 - Before activation, confirm that the current page belongs to the target environment and target instance.
 - If the state is not updated, refresh the page and check import records before resubmitting the same activation code.
@@ -147,7 +148,7 @@ The page shows platform state, license categories, managed object authorization 
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Authorization state | `AI Infrastructure Authorization` shows activated or valid. | Refresh the page and check import records. |
 | Validity period | Correct expiry time or validity period is displayed. | Confirm whether the activation code matches the current instance. |

@@ -49,7 +49,7 @@ Page screenshot:
 
 ### View Access Overview
 
-1. Go to `AI Infra > On-Cloud > Access Workbench > Access Overview`.
+1. Go to `AI Infrastructure > On-Cloud > Access Workbench > Access Overview`.
 2. In `Access Foundation`, view the counts and names of `Connected clouds`, `Connected resource pools`, and `Connected accounts`.
 3. Click `Connect Cloud Platforms`, `Connect Resource Pools`, or `Access Accounts` to open the corresponding access management page and view details.
 4. In `Operator Resource Checklist`, view Resource, Count, Prerequisites, Supports, and Action to confirm whether inference images, inference frameworks, model library models, and policies are ready.
@@ -84,7 +84,7 @@ Page screenshot:
 
 ## Result Validation
 
-| Check Item | Success Criteria | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `InfraHub Access Overview` page opens normally, and `Access Workbench > Access Overview` is highlighted in the sidebar. | Check account permissions, navigation path, and page loading status. |
 | Access Foundation displays normally | Connected clouds, connected resource pools, and connected accounts cards show counts and names normally. | Return to the cloud platform, resource pool, or access account page and check access status. |

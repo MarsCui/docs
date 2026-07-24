@@ -92,9 +92,16 @@ Customer list screenshot:
 | Usage | System-generated | Text / tag | Displayed on page | Shows token, quota, or other call usage information. |
 | Actions | No | Action entry | `View Details` / `View Log` | Opens analytics details or jumps to call logs. |
 
+## Pitfalls
+
+- Call analytics is for trends and distributions. It does not replace per-request error details in call logs.
+- When switching customer, model, or time granularity, chart scope changes. Keep filters visible in screenshots.
+- Peaks, failure rate, and average latency should be checked together with model version and Endpoint status.
+
+
 ## Result Validation
 
-| Check Item | Success Criteria | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `Customer Calls - Call Analytics` page opens normally, and `Customer Calls > Call Analytics` is highlighted in the sidebar. | Check account permissions, navigation path, and page loading status. |
 | Model list displays normally | The `Models` tab shows model name, model type, customer name, successful calls, failed calls, rate limit triggers, and action entries. | Adjust the month, date range, or model filters and retry. |

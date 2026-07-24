@@ -58,7 +58,7 @@ Use the following operations to work with overview records and related status. C
 
 ### View Account Balance
 
-1. Go to `Billing > Overview`.
+1. Go to `Billing > User Billing > Account Overview`.
 2. Use filters or tabs to locate the target record.
 3. Select the target row or entry related to overview records and related status.
 4. Click the visible `View Account Balance` entry when it is available.
@@ -66,7 +66,7 @@ Use the following operations to work with overview records and related status. C
 
 ### Open Transactions
 
-1. Go to `Billing > Overview`.
+1. Go to `Billing > User Billing > Account Overview`.
 2. Use filters or tabs to locate the target record.
 3. Select the target row or entry related to overview records and related status.
 4. Click the visible `Open Transactions` entry when it is available.
@@ -74,7 +74,7 @@ Use the following operations to work with overview records and related status. C
 
 ### View Top-up Orders
 
-1. Go to `Billing > Overview`.
+1. Go to `Billing > User Billing > Account Overview`.
 2. Use filters or tabs to locate the target record.
 3. Select the target row or entry related to overview records and related status.
 4. Click the visible `View Top-up Orders` entry when it is available.
@@ -82,7 +82,7 @@ Use the following operations to work with overview records and related status. C
 
 ### Adjust Alert Thresholds
 
-1. Go to `Billing > Overview`.
+1. Go to `Billing > User Billing > Account Overview`.
 2. Use filters or tabs to locate the target record.
 3. Select the target row or entry related to overview records and related status.
 4. Click the visible `Adjust Alert Thresholds` entry when it is available.
@@ -90,7 +90,7 @@ Use the following operations to work with overview records and related status. C
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Keyword or name | No | Text | `Example name` | Used to locate a specific record. |
 | Status | No | Enum | `Enabled` | Used to determine the current processing or availability state. |
@@ -106,7 +106,7 @@ Use the following operations to work with overview records and related status. C
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `Billing > Overview` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |
@@ -132,7 +132,7 @@ The displayed balance, consumption, settlement status, monthly bill, or License 
 
 **How to check:**
 
-1. Confirm that the same billing cycle, customer, account, currency, and resource scope are being compared.
+1. Confirm that balance, estimated usage days, monthly estimate, and top spend source use the same account and time window.
 2. Check whether pending top-up orders, adjustments, refunds, settlement reviews, or metering synchronization are still in progress.
 3. Compare the summary number with the detail list and operation records on the related billing pages.
 4. For financial-impacting differences, pause confirmation actions and escalate with desensitized record IDs, time range, customer scope, and screenshots without credentials.

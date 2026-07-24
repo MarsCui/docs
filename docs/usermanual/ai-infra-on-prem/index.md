@@ -67,7 +67,7 @@ On-Prem is like an owned computing campus: operators plan the campus, connect ma
 
 ## Result Validation
 
-| Check Item | Success Signal | If Not Met |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Operator resources are visible | Regions, clusters, specifications, images, storage, templates, quotas, and monitoring pages show the target objects. | Check region binding, cluster access, component status, and operator permissions. |
 | User creation entry is available | The user can select an opened template, image, specification, storage path, and quota. | Check tenant authorization, template scope, quota, and resource visibility. |

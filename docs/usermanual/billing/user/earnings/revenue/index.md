@@ -61,7 +61,7 @@ The following screenshot shows Revenue Overview. Amounts, customers, and revenue
 
 ### View Revenue Overview
 
-1. Go to `Earnings > Revenue`.
+1. Go to `Billing > Earnings > Revenue`.
 2. Review `Revenue Account Balance`, `Current Month Estimate`, next settlement cue, and historical settlement performance.
 3. Confirm the current `Billing Cycle` used for analysis.
 4. Review `Daily Revenue`, `Top Customers`, and `Top Models` to understand revenue trends and major sources.
@@ -70,7 +70,7 @@ The following screenshot shows Revenue Overview. Amounts, customers, and revenue
 
 ### View Revenue Account Activity
 
-1. Go to `Earnings > Revenue`.
+1. Go to `Billing > Earnings > Revenue`.
 2. Switch to the `Revenue Account Activity` tab.
 3. Review the revenue account activity list.
 4. Verify activity time, activity type, amount, status, related billing cycle, and description as needed.
@@ -81,7 +81,7 @@ The following screenshot shows Revenue Overview. Amounts, customers, and revenue
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Overview | No | Tab | `Overview` | Shows revenue overview and billing cycle analysis. |
 | Revenue Account Activity | No | Tab | `Revenue Account Activity` | Shows revenue account activity or payout records. |
@@ -108,7 +108,7 @@ The following screenshot shows Revenue Overview. Amounts, customers, and revenue
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page load | Revenue metrics, billing cycle analysis, and entries are visible. | Refresh the page or check whether the account has Provider revenue permission. |
 | Overview readable | Revenue account balance, current month estimate, daily revenue, top customers, and top models are visible. | Wait for data refresh or switch to a billing cycle with revenue. |

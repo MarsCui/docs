@@ -105,7 +105,7 @@ Used to view meta-model status, modalities, protocols, and operation entry point
 
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | The new meta-model is visible in the list | The new meta-model appears in the list. | Return to the page and check permissions, filters, and configuration status. |
 | The meta-model can be selected during publishing or template configuration | The meta-model is available when publishing models or configuring templates. | Return to the page and check permissions, filters, and configuration status. |

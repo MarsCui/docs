@@ -40,7 +40,7 @@ Configuring accounts and permissions is like issuing access badges. Confirm whic
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Target Tenant | Yes | Text | `<tenant_name>` | Ownership scope for members, roles, and permissions. |
 | Target Member | Yes | Text | `<member_account>` | Account to add, check, or authorize. |
@@ -92,9 +92,9 @@ Configuring accounts and permissions is like issuing access badges. Confirm whic
 3. Confirm that member creation, role authorization, Key creation, or login-policy changes are recorded.
 4. If logs are missing, expand the time range and confirm the current account's log permissions.
 
-## Completion Checks
+## Result Validation
 
-| Check item | Success signal | Next step |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Tenant is clear | Target tenant and administrator can be located. | Continue with role configuration. |
 | Role is usable | Role permissions cover the target menus and actions. | Assign the role to the member. |

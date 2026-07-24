@@ -72,7 +72,7 @@ The following figure shows the framework configuration page.
 
 #### Procedure
 
-1. Go to `AI Infra > On-Prem > Templates > Framework Configuration`.
+1. Go to `AI Infrastructure > On-Prem > Templates > Framework Configuration`.
 2. Click `Add`, `Add Framework`, or the actual add entry on the page.
 3. In the basic information area, fill in framework name, version name, description, and supported scenarios.
 4. Select or fill in the framework image, and confirm image region, target cluster, and image registry pull permissions.
@@ -89,23 +89,23 @@ The following figure shows the add framework page, used to configure basic infor
 
 ## Parameter Reference
 
-| Parameter | Required | Description | Configuration suggestion |
-| --- | --- | --- | --- |
-| Framework Name | Yes | Name of the underlying inference framework or engine. | Use the official framework name where possible for easier identification and technical integration. |
-| Version Name | Yes | Version identifier of the framework configuration, used for iteration tracking or compatibility management. | Align it with the underlying framework version or use a stable internal scenario name. |
-| Image | Yes | Container image required to run inference tasks. | Use placeholders in documentation. Do not write real image registry addresses. |
-| Image Region | Conditionally required | Region where the image is hosted or can be pulled. | Keep it consistent with target region, cluster network, and registry permissions. |
-| Main Node Startup Command | Yes | Startup command for the main node in the task cluster. In single-node tasks, this is used directly as the node startup command. | The command must run as a foreground process to avoid immediate container exit. |
-| Worker Node Startup Command | Required for distributed scenarios | Startup command for Worker nodes, used in distributed inference. | Keep it consistent with main-node communication, scheduling topology, and framework version. |
-| Extra Parameters | No | Parameters used to dynamically supplement or adjust startup commands. They can be injected into commands through placeholders. | Do not write real tokens, AK/SK, private keys, passwords, or internal addresses. |
-| Environment Variables | No | Preset environment variables injected when the container starts. | Use only non-sensitive variables. Use platform credentials or Secret mechanisms for sensitive values. |
-| Service Port | Yes | Listening port used for platform probing, routing, or service exposure. | Must match the actual listening port of the framework. |
-| Port Exposure Policy | Conditionally required | Default exposure method and access authentication mechanism for the port. | Do not select a non-authenticated policy for external or cross-tenant access. |
-| Port Tag | No | Used to identify port protocol type or purpose. | System predefined tags can generate corresponding access help documents. |
-| Health Check | Conditionally required | Path or command used to determine whether the framework service starts successfully. | Match the actual service path, port, and startup delay. |
-| Creation Success Message | No | Message shown to users after the task cluster is created. Markdown and placeholders are supported. | It can include access methods and follow-up operations, but not real credentials or internal endpoints. |
-| Parameter Placeholder | No | Variable used in startup commands, extra parameters, or creation success messages. | Use platform-supported placeholder names and avoid unsupported variables. |
-| Actions | System-generated | Add, edit, save, submit, OK, and similar page operations. | `Save`, `Submit`, and `OK` are high-risk final actions. |
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Framework Name | Yes | Text | `vLLM` | Name of the underlying inference framework or engine. Use the official framework name where possible for easier identification and technical integration. |
+| Version Name | Yes | Text | `v0.8.0` | Version identifier of the framework configuration, used for iteration tracking or compatibility management. Align it with the underlying framework version or use a stable internal scenario name. |
+| Image | Yes | Text | `registry.example.com/project/runtime:v1` | Container image required to run inference tasks. Use placeholders in documentation. Do not write real image registry addresses. |
+| Image Region | Conditionally required | Text | `wuhan` | Region where the image is hosted or can be pulled. Keep it consistent with target region, cluster network, and registry permissions. |
+| Main Node Startup Command | Yes | Configuration text | `Example value` | Startup command for the main node in the task cluster. In single-node tasks, this is used directly as the node startup command. The command must run as a foreground process to avoid immediate container exit. |
+| Worker Node Startup Command | Required for distributed scenarios | Configuration text | `python worker.py` | Startup command for Worker nodes, used in distributed inference. Keep it consistent with main-node communication, scheduling topology, and framework version. |
+| Extra Parameters | No | Configuration text | `--max-model-len 8192` | Parameters used to dynamically supplement or adjust startup commands. They can be injected into commands through placeholders. Do not write real tokens, AK/SK, private keys, passwords, or internal addresses. |
+| Environment Variables | No | Configuration text | `ENV=prod` | Preset environment variables injected when the container starts. Use only non-sensitive variables. Use platform credentials or Secret mechanisms for sensitive values. |
+| Service Port | Yes | Port / number | `8000` | Listening port used for platform probing, routing, or service exposure. Must match the actual listening port of the framework. |
+| Port Exposure Policy | Conditionally required | Port / number | `Example value` | Default exposure method and access authentication mechanism for the port. Do not select a non-authenticated policy for external or cross-tenant access. |
+| Port Tag | No | Port / number | `OpenAI API Port` | Used to identify port protocol type or purpose. System predefined tags can generate corresponding access help documents. |
+| Health Check | Conditionally required | Address / path | `/health` | Path or command used to determine whether the framework service starts successfully. Match the actual service path, port, and startup delay. |
+| Creation Success Message | No | Port / number | `Example value` | Message shown to users after the task cluster is created. Markdown and placeholders are supported. It can include access methods and follow-up operations, but not real credentials or internal endpoints. |
+| Parameter Placeholder | No | Configuration text | `${modelName}` | Variable used in startup commands, extra parameters, or creation success messages. Use platform-supported placeholder names and avoid unsupported variables. |
+| Actions | System-generated | Action entry | `Edit` | Add, edit, save, submit, OK, and similar page operations. `Save`, `Submit`, and `OK` are high-risk final actions. |
 
 #### Port Exposure Policy and Port Tags
 
@@ -158,7 +158,7 @@ Startup commands, extra parameters, and creation success messages can use placeh
 
 ## Result Validation
 
-| Check item | Expected result | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page can be opened | `AI Infra > On-Prem > Templates > Framework Configuration` is accessible. | Check menu configuration, account permissions, and frontend route. |
 | Framework/version appears in the list | The newly added or maintained framework version appears in the list. | Check filters, save result, enabled status, and version configuration. |

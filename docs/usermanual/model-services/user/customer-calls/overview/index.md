@@ -90,9 +90,16 @@ Model Analytics screenshot:
 | Token Usage | System-generated | Number | Displayed on page | Shows total consumed tokens, input tokens, output tokens, average tokens per minute, and peaks. |
 | Actions | No | Action entry | `View Details` | Opens customer-level or model-level details. |
 
+## Pitfalls
+
+- Customer Calls Overview is for customer-level trends, not for locating a single failed request. Use call logs for single-request troubleshooting.
+- Align time range, customer scope, model version, and aggregation granularity before comparing customer calls.
+- Revenue, call count, and failure-rate data may have synchronization delay. Do not use overview numbers alone as final settlement evidence.
+
+
 ## Result Validation
 
-| Check Item | Success Criteria | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `Customer Calls - Overview` page opens normally, and `Customer Calls > Overview` is highlighted in the sidebar. | Check account permissions, navigation path, and page loading status. |
 | Customer analytics data displays normally | The `Customer Analytics` tab shows customers, call trend, consumption statistics, and Top 5 Customers by Call Volume. | Adjust the date range or customer filter and retry. |

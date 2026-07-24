@@ -84,7 +84,7 @@ Used to view app publishing review status and processing entry points.
 
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | The review list can be opened | The app review list opens normally. | Return to the page and check permissions, menu entry, and page loading status. |
 | Pending apps are displayed normally | Pending apps appear in the list with app name, customer, status, and time. | Return to the page and check permissions, filters, and data status. |

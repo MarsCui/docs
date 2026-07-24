@@ -59,7 +59,7 @@ The following figure shows the vram estimation configuration page.
 
 #### Procedure
 
-1. Go to `Templates > VRAM Estimation`.
+1. Go to `AI Infrastructure > On-Prem > Templates > VRAM Estimation Configuration`.
 2. Click the add or edit entrypoint.
 3. On the Basic Information tab, fill in rule name, applicable model, framework, and precision.
 4. On the Factor Form tab, configure factors such as parameter count, KV Token, concurrency, and context length.

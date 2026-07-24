@@ -58,7 +58,7 @@ The page displays statistics overview capability for the selected region. When t
 
 #### Procedure
 
-1. Go to `Monitoring > Statistics Overview`.
+1. Go to `AI Infrastructure > On-Prem > Monitoring > Statistics Overview`.
 2. Confirm the region in the upper-right corner.
 3. Filter by time, status, or keyword provided by the page.
 4. View charts, lists, or prompt information.

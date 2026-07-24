@@ -59,7 +59,7 @@ The page displays device monitoring capability for the selected region. When the
 
 #### Procedure
 
-1. Go to `Monitoring > Device Monitoring`.
+1. Go to `AI Infrastructure > On-Prem > Monitoring > Device Monitoring`.
 2. Confirm the region in the upper-right corner.
 3. Filter by time, status, or keyword provided by the page.
 4. View charts, lists, or prompt information.

@@ -51,7 +51,7 @@ The following figure shows the node statistics page.
 
 #### Procedure
 
-1. Go to `Monitoring > Node Statistics`.
+1. Go to `AI Infrastructure > On-Prem > Monitoring > Node Statistics`.
 2. Confirm the region in the upper-right corner and page filters.
 3. View lists, charts, or statistic cards.
 4. Focus on abnormal status, high watermarks, long periods without updates, or data inconsistent with expectations.
@@ -59,7 +59,7 @@ The following figure shows the node statistics page.
 
 #### View Node Statistics
 
-1. Go to `AI Infra > On-Prem > Monitoring > Nodes`.
+1. Go to `AI Infrastructure > On-Prem > Monitoring > Node Statistics`.
 2. View the node list and overall running status, and confirm node name, cluster, region/AZ, node status, and resource usage level.
 3. Select cluster, node, resource type, status, or time range filters as provided by the page.
 4. Review CPU, memory, accelerator, storage, network, and job-related statistics to identify high load, insufficient resources, or abnormal node status.

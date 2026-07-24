@@ -52,7 +52,7 @@ The list page supports filtering by region and status, and provides refresh and 
 
 #### Procedure
 
-1. Go to `AI Infra > On-Prem > Dev Resources > Runtime Instances`.
+1. Go to `AI Infrastructure > On-Prem > Development Resources > Runtime Instances`.
 2. Click `Create Instance`.
 3. On the deployment type page, select `Single Node` or `Cluster`.
 

@@ -49,7 +49,7 @@ Page screenshot:
 
 ### Add Cloud Account
 
-1. Go to `AI Infra > On-Cloud > Access Management > Cloud Accounts`.
+1. Go to `AI Infrastructure > On-Cloud > Access Management > Cloud Accounts`.
 2. On the `Cloud Accounts` page, click `Add Cloud Account` in the upper-right corner.
 3. In the `Add Cloud Account` dialog, fill in the required `Account Name`.
 4. In the `Select Cloud Platform` dropdown, select the cloud platform that owns the account.
@@ -83,7 +83,7 @@ Page screenshot:
 
 ## Result Validation
 
-| Check Item | Success Criteria | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `Cloud Accounts` page opens normally, and `Access Management > Cloud Accounts` is highlighted in the sidebar. | Check account permissions, navigation path, and page loading status. |
 | Cloud account list loads normally | Account cards show account name, cloud platform, cloud platform type, and action entries normally. | Refresh the page or check data permissions. |

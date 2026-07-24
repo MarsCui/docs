@@ -78,9 +78,16 @@ The top of the page provides filters for billing cycle, date range, model, model
 | Average Latency | System-generated | Number | Displayed on page | If the page shows latency dimensions, it is used to measure response speed. |
 | Status | System-generated | Tag / statistic | `Success` / `Failed` / `Rate limited` | Distinguishes successful calls, failed calls, or rate-limit triggers. |
 
+## Pitfalls
+
+- Call analytics is time-aggregated, so it may differ from real-time logs in a short window.
+- When comparing models, align time range, call method, and model version.
+- Higher latency does not always mean model failure. Network, queueing, input length, or rate-limit policy may also be involved.
+
+
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `My Calls - Call Analytics` page opens normally, and `My Calls > Call Analytics` is highlighted in the sidebar. | Check account permissions, navigation path, and page loading status. |
 | Statistics display normally | Model, Model type, Successful calls, Failed calls, Rate limit triggers, and action entries are displayed normally. | Expand the time range or confirm whether the current account has call records. |

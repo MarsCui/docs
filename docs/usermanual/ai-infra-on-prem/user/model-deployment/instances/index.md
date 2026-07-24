@@ -76,7 +76,7 @@ When you need to confirm whether a model service was created successfully, is st
 
 #### Procedure
 
-1. Go to `AI Infra > On-Prem > Model Deployment > Instances`.
+1. Go to `AI Infrastructure > On-Prem > Model Deployment > Instances`.
 2. View the instance list and confirm instance name, instance type, running status, model, specification, region, and creation time.
 3. Use `Instance Type`, `Status`, or the search box to filter target instances.
 4. Click `Search` and confirm that filters have taken effect.
@@ -108,7 +108,7 @@ When you need to confirm whether a model service was created successfully, is st
 
 ## Result Validation
 
-| Check Item | Expected Result | If Not Met |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Filter result | The instance list matches the selected `Instance Type`, `Status`, or search condition. | Click `Reset`, confirm tenant and region, and search again. |
 | Target instance visible | The target instance appears in the list after creation and refresh. | Check whether the instance was just created, whether the creation flow succeeded, and whether permissions are sufficient. |

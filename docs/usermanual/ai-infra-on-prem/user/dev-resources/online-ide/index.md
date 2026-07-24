@@ -79,7 +79,7 @@ Create an online IDE when an interactive development, debugging, or Notebook env
 
 #### Procedure
 
-1. Go to `AI Infra > On-Prem > Dev Resources > Online IDE`.
+1. Go to `AI Infrastructure > On-Prem > Development Resources > Online IDE`.
 2. Click `Create IDE`.
 3. On the deployment type page, select `Single Node` or `Cluster`.
 

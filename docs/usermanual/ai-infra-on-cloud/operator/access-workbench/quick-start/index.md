@@ -49,7 +49,7 @@ Page screenshot:
 
 ### Use Quick Access
 
-1. Go to `AI Infra > On-Cloud > Access Workbench > Quick Access`.
+1. Go to `AI Infrastructure > On-Cloud > Access Workbench > Quick Access`.
 2. On the `Quick Start` page, check the `Access Ready` status and `5/5` completion progress.
 3. Verify that `Cloud`, `Authorization`, `Account`, `Pool`, and `Pool Authorization` show `Done` in the flow.
 4. If a step is incomplete, go to the corresponding page in the sidebar, such as `Cloud Platforms`, `Resource Pools`, `Cloud Accounts`, `Tenant-Cloud Auth`, or `Business-Region Auth`, and complete the configuration.
@@ -81,7 +81,7 @@ Page screenshot:
 
 ## Result Validation
 
-| Check Item | Success Criteria | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `Quick Start` page opens normally, and `Access Workbench > Quick Access` is highlighted in the sidebar. | Check account permissions, navigation path, and page loading status. |
 | Access status displays normally | The page shows `Access Ready`, and completion progress shows `5/5` or matches the actual step status. | Refresh the page or go to the management page for the incomplete step and check configuration. |

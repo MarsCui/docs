@@ -78,9 +78,16 @@ Page screenshot:
 | Error Message | System-generated | Text | Displayed on page | Shows the error summary for a failed request. Redact it before screenshots or external communication. |
 | Actions | No | Action entry | `Details` | Opens single customer call log details. |
 
+## Pitfalls
+
+- Request IDs, customer identifiers, and error messages in call logs must be sanitized before sharing.
+- 401, 429, and 5xx point to different troubleshooting paths. Do not treat every failure as the same issue.
+- Log retention may be limited. Confirm the time range and keep desensitized clues early.
+
+
 ## Result Validation
 
-| Check Item | Success Criteria | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `Customer Calls - Call Logs` page opens normally, and `Customer Calls > Call Logs` is highlighted in the sidebar. | Check account permissions, navigation path, and page loading status. |
 | Log list loads normally | The list shows columns such as call time, model, customer name, call status, usage, latency, and error message. | Refresh the page or retry after adjusting the month and date range. |

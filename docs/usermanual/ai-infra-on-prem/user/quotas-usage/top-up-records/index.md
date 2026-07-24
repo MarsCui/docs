@@ -77,7 +77,7 @@ When you need to confirm whether credits have arrived, reconcile accounts, or tr
 
 #### Procedure
 
-1. Go to `Quota & Usage > Top-Up Records`.
+1. Go to `AI Infrastructure > On-Prem > Quota & Usage > Top-Up Records`.
 2. Enter query conditions.
 3. Click `Search`.
 4. View records in the table.

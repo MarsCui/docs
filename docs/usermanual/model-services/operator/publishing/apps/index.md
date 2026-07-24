@@ -78,7 +78,7 @@ Used to view app status, bound models, and visibility scope.
 
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | The page can be opened | The app list page opens normally. | Return to the page and check permissions, menu entry, and page loading status. |
 | The list loads normally | App cards, collect count, browse count, and operation entries are displayed normally. | Return to the page and check permissions, filters, and data status. |

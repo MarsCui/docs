@@ -85,7 +85,7 @@ Billing works like the financial control room for AGIOne. User billing helps reg
 
 #### Reading Parameters
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Issue Type | Yes | Enum | `Settlement reconciliation` | Determines whether to start from user billing, Provider earnings, customer billing, finance operations, or License. |
 | Role | Yes | Enum | `Billing operator` | Matches the accessible entry and recommended reading path. |
@@ -95,7 +95,7 @@ Billing works like the financial control room for AGIOne. User billing helps reg
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Entry identified | The issue can be mapped to user billing, Provider earnings, customer billing, finance operations, or License. | Return to the role entry table and classify the issue again. |
 | Paths available | Getting Started, the end-to-end workflow, and core module entries can be opened. | Check sidebar configuration and account menu permissions. |

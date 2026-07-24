@@ -63,7 +63,7 @@ Use the following operations to work with monthly overview records and related s
 
 ### View Monthly Overview
 
-1. Go to `Finance Operations > Monthly Overview`.
+1. Go to `Billing > Finance Operations > Monthly Overview`.
 2. Select the target month in `Billing Cycle` and confirm the billing-cycle scope.
 3. Click `Refresh` and wait for statistics and task lists to update.
 4. Review billing-cycle statistic cards, especially `Organization Total`, `Settled`, `Pending Organizations`, and `Failed`.
@@ -73,7 +73,7 @@ Use the following operations to work with monthly overview records and related s
 
 ### Generate Settlement
 
-1. Go to `Finance Operations > Monthly Overview`.
+1. Go to `Billing > Finance Operations > Monthly Overview`.
 2. Confirm that `Billing Cycle` is correct.
 3. Review the To generate count in the task list.
 4. Click `Generate Settlement`.
@@ -82,7 +82,7 @@ Use the following operations to work with monthly overview records and related s
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Billing Cycle | Yes | Month / billing period | `2026-07` | Switches the monthly settlement cycle being reviewed. |
 | Organization Total | System-generated | Number | `0` | Number of organizations included in the selected billing cycle. |
@@ -110,7 +110,7 @@ Use the following operations to work with monthly overview records and related s
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `Finance Operations > Monthly Overview` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |
@@ -136,7 +136,7 @@ The displayed balance, consumption, settlement status, monthly bill, or License 
 
 **How to check:**
 
-1. Confirm that the same billing cycle, customer, account, currency, and resource scope are being compared.
+1. Confirm month-end close cycle, organization, settlement status, and latest aggregation time before comparing totals.
 2. Check whether pending top-up orders, adjustments, refunds, settlement reviews, or metering synchronization are still in progress.
 3. Compare the summary number with the detail list and operation records on the related billing pages.
 4. For financial-impacting differences, pause confirmation actions and escalate with desensitized record IDs, time range, customer scope, and screenshots without credentials.

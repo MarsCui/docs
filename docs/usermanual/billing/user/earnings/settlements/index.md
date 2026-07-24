@@ -61,7 +61,7 @@ The following screenshot shows the Settlements page. Amounts, customers, account
 
 ### View Settlement Statement Details
 
-1. Go to `Earnings > Settlements`.
+1. Go to `Billing > Earnings > Settlements`.
 2. Review monthly settlement statement records in the list.
 3. Use `All Status` or `Billing Cycle` filters as needed to locate the target settlement statement.
 4. In the target row, verify billing cycle, status, amount to settle, actual received amount, rounding adjustment, and received time.
@@ -73,7 +73,7 @@ The following screenshot shows the Settlements page. Amounts, customers, account
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | All Status | No | Filter | Settled | Filters the list by settlement status. |
 | Billing Cycle | No | Filter | 2026-07 | Filters monthly settlement statements by billing cycle. |
@@ -98,7 +98,7 @@ The following screenshot shows the Settlements page. Amounts, customers, account
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page loading | The monthly settlement statement list and filters are displayed normally. | Refresh the page or check Provider revenue permissions. |
 | Filters available | `All Status` and `Billing Cycle` can locate the target settlement statement. | Click `Reset` and filter again. |

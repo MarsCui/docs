@@ -58,7 +58,7 @@ Use the following operation to review customer top-up orders and verify balance 
 
 ### View Customer Top-up Orders
 
-1. Go to `Customer Billing > Customer Top-up Orders`.
+1. Go to `Billing > Customer Billing > Customer Top-up Orders`.
 2. Enter filters such as `Top-up Order No.`, customer name, customer ID, order status, or time range as needed.
 3. Click `Search` and review the customer top-up order list.
 4. Verify top-up order number, customer information, top-up amount, credited credits, payment channel, order status, created time, and completed time.
@@ -70,7 +70,7 @@ Use the following operation to review customer top-up orders and verify balance 
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Top-up Order No. | No | Text | `TOPUP-202607080001` | Precisely locates a customer top-up order. Use placeholders only in documentation. |
 | Customer Name | No | Text | `Example customer` | Locates top-up orders by customer name. |
@@ -96,7 +96,7 @@ Use the following operation to review customer top-up orders and verify balance 
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `Customer Billing > Customer Top-up Orders` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |
@@ -122,7 +122,7 @@ The displayed balance, consumption, settlement status, monthly bill, or License 
 
 **How to check:**
 
-1. Confirm that the same billing cycle, customer, account, currency, and resource scope are being compared.
+1. Compare customer, organization, top-up order, payment channel, and credited amount before judging account changes.
 2. Check whether pending top-up orders, adjustments, refunds, settlement reviews, or metering synchronization are still in progress.
 3. Compare the summary number with the detail list and operation records on the related billing pages.
 4. For financial-impacting differences, pause confirmation actions and escalate with desensitized record IDs, time range, customer scope, and screenshots without credentials.

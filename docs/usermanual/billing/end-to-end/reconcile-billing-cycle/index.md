@@ -42,7 +42,7 @@ Billing-cycle reconciliation is like month-end closing. First check whether the 
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Billing Cycle | Yes | Month / financial period | `2026-07` | The unified time scope for this reconciliation and settlement workflow. |
 | Organization | Conditionally required | Text | `Desensitized organization` | Limits the settlement statement generation or reconciliation scope. |
@@ -107,7 +107,7 @@ Billing-cycle reconciliation is like month-end closing. First check whether the 
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Billing-cycle status clear | Monthly Overview shows the target billing cycle, summary status, and update time. | Continue with tasks and account checks. |
 | Blocking tasks handled | Today Tasks has no high-priority task blocking settlement. | Open Financial Accounts. |

@@ -78,9 +78,16 @@ The top of the page provides billing-cycle, date-range, and model-type filters. 
 | Failure Rate | System-generated | Percentage / statistic | Calculated by page | Can be calculated from failed calls and total calls. |
 | Status | System-generated | Tag / statistic | `Success` / `Failed` / `Rate limited` | Distinguishes successful calls, failed calls, or rate-limit triggers. |
 
+## Pitfalls
+
+- My Calls Overview shows only the current account's visible scope, not organization-wide or customer-wide totals.
+- When balance, Credits, or call count looks abnormal, check call logs, model usage, and billing pages together.
+- Align model and time range before comparing data, otherwise different model versions may be mixed.
+
+
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `My Calls - Overview` page opens normally, and `My Calls > Overview` is highlighted in the sidebar. | Check account permissions, navigation path, and page loading status. |
 | Overview metrics display normally | Total Calls, Successful calls, Failed calls, Rate limit triggers, and Total Consumed Tokens are displayed normally. | Expand the time range or confirm whether the current account has call records. |

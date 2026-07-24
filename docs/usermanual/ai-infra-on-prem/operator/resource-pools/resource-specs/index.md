@@ -68,7 +68,7 @@ Add a specification when resource tiers are required for training, inference, de
 
 #### Steps
 
-1. Go to `AI Infra > On-Prem > Resource Pools > Resource Specifications`.
+1. Go to `AI Infrastructure > On-Prem > Resource Pools > Resource Specifications`.
 2. Click `Add` or the actual add entry on the page.
 3. Fill in the specification ID. Use an ID that reflects CPU, memory, accelerator model, card count, and applicable scenario.
 4. Select CPU, memory, accelerator, and other specification metrics, and fill in the corresponding quantities.
@@ -82,17 +82,17 @@ The following figure shows the Add Resource Specification dialog. Clarify the CP
 
 ## Parameter Reference
 
-| Parameter | Required | Description | Configuration Suggestion |
-| --- | --- | --- | --- |
-| Specification ID | Yes | Specification name selected when users create online IDEs, runtime instances, training jobs, or model services. | Use an ID that reflects CPU, memory, accelerator model, card count, and applicable scenario. |
-| CPU | Conditionally required | CPU metric and quantity included in the specification. | Match the CPU resources required by the job, and avoid oversized or undersized settings. |
-| Memory | Conditionally required | Memory metric and capacity included in the specification. | Keep memory units consistent to avoid display and scheduling definition mismatch. |
-| Accelerator | No | AI accelerator type or metric included in the specification. | Keep it consistent with maintained accelerators and specification metrics. |
-| Accelerator Quantity | No | Number of accelerator cards included in the specification. | Match resources actually reported by cluster nodes and schedulable capacity. |
-| Specification Metric | Yes | CPU, memory, accelerator, and other metrics referenced by the resource specification. | k8s-key, selector-key, and unit should already be calibrated. |
-| Associated Cluster | Conditionally required | Cluster scope where the specification is available. | Verify cluster region, availability zone, and actual resource capacity before association. |
-| Enabled Status | No | Controls whether the specification can be selected by later flows. | Complete association and test validation before opening it to users. |
-| Actions | No | Supports add, edit, create from this, enable, disable, delete, and other operations. | Confirm impact scope and replacement options before high-risk actions. |
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Specification ID | Yes | Dropdown / enum | `Example value` | Specification name selected when users create online IDEs, runtime instances, training jobs, or model services. Use an ID that reflects CPU, memory, accelerator model, card count, and applicable scenario. |
+| CPU | Conditionally required | Number / capacity | `16 vCPU` | CPU metric and quantity included in the specification. Match the CPU resources required by the job, and avoid oversized or undersized settings. |
+| Memory | Conditionally required | Number / capacity | `128 GiB` | Memory metric and capacity included in the specification. Keep memory units consistent to avoid display and scheduling definition mismatch. |
+| Accelerator | No | Dropdown / enum | `1 x A100` | AI accelerator type or metric included in the specification. Keep it consistent with maintained accelerators and specification metrics. |
+| Accelerator Quantity | No | Number / capacity | `1 x A100` | Number of accelerator cards included in the specification. Match resources actually reported by cluster nodes and schedulable capacity. |
+| Specification Metric | Yes | Number / capacity | `Example value` | CPU, memory, accelerator, and other metrics referenced by the resource specification. k8s-key, selector-key, and unit should already be calibrated. |
+| Associated Cluster | Conditionally required | Dropdown / enum | `cluster-a` | Cluster scope where the specification is available. Verify cluster region, availability zone, and actual resource capacity before association. |
+| Enabled Status | No | Status | `Enabled` | Controls whether the specification can be selected by later flows. Complete association and test validation before opening it to users. |
+| Actions | No | Action entry | `Edit` | Supports add, edit, create from this, enable, disable, delete, and other operations. Confirm impact scope and replacement options before high-risk actions. |
 
 ## Pitfalls
 
@@ -104,7 +104,7 @@ The following figure shows the Add Resource Specification dialog. Clarify the CP
 
 ## Result Validation
 
-| Check Item | Expected Result | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page can be opened | `AI Infra > On-Prem > Resource Pools > Resource Specifications` is accessible. | Check menu configuration and account permissions. |
 | List loads normally | Specification cards, status, CPU, memory, accelerator type, and quantity are displayed normally. | Refresh the page and check service status or browser console errors. |

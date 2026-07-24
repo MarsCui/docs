@@ -53,7 +53,7 @@ The Smart Deployment Recommendation page displays the selected model, deployment
 
 ### Deploy Model
 
-1. Go to `AI Infra > On-Cloud > Model Services > Quick Deployment`.
+1. Go to `AI Infrastructure > On-Cloud > Model Services > Quick Deployment`.
 2. In `Deployable Scope`, select an available cloud platform and region. Use `All Clouds`, `All Regions`, or the actual page filters to narrow the scope.
 3. In `Matched Models`, filter models by `All Models`, `All Series`, `All Scenarios`, the search box, or `Default Sort`.
 4. After finding the target model, click `Details` first if you need to view model information, and then click `Deploy Model`.
@@ -77,7 +77,7 @@ The Smart Deployment Recommendation page displays the selected model, deployment
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Current Scope | No | Status tag | `Sample Cloud / Sample Region` | Displays the currently selected deployable cloud platform and region. |
 | All Clouds | No | Dropdown filter | `All Clouds` | Filters deployable scope by cloud platform. |
@@ -114,7 +114,7 @@ The Smart Deployment Recommendation page displays the selected model, deployment
 
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `Quick Deployment` page and Model Library are displayed. | Check menu permissions, route, and login status. |
 | Quick deployment entry is visible | `Deploy Model` is displayed for the target model in the model list. | Check model authorization, deployable scope, and filters. |

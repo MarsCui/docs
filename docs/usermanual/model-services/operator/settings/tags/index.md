@@ -78,7 +78,7 @@ Used to view tag names, categories, sort order, and enabled status.
 
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | The tag can be bound on model editing or app editing pages | The tag can be bound on model editing or app editing pages. | Return to the page and check permissions, filters, and configuration status. |
 | Users can filter correct results by tag on the discovery page | Users can filter correct results by tag on the discovery page. | Return to the page and check permissions, filters, and configuration status. |

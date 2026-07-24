@@ -103,7 +103,7 @@ Billing is the unified entry for balance, top-up, consumption, revenue, settleme
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Role | Yes | Enum | `Regular user` | Determines whether to read user-side pages, Provider earnings, operator-side pages, or License. |
 | Issue Keyword | Yes | Text | `Balance mismatch` | Helps locate the recommended entry quickly. |
@@ -113,7 +113,7 @@ Billing is the unified entry for balance, top-up, consumption, revenue, settleme
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Entry selected | The issue can be classified as user billing, Provider earnings, customer billing, finance operations, or License. | Return to the role table and classify again. |
 | Billing cycle clear | The target billing cycle is confirmed before amount reconciliation. | Align the billing cycle before comparing data. |

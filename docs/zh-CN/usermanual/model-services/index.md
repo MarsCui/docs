@@ -27,7 +27,7 @@
 | 调用日志 | 记录请求 ID、错误码、延迟、Token 和脱敏摘要的排障入口。 |
 | 收益统计 | 按模型、客户和时间统计调用收益。 |
 
-## 角色入口
+## 按角色阅读
 
 | 角色 | 推荐入口 | 典型任务 |
 | --- | --- | --- |
@@ -44,6 +44,15 @@
 | 运营管理员 | [元模型](./operator/settings/meta-models/)、[模型来源](./operator/settings/model-source/)、[模型审核](./operator/approvals/model-reviews/) | 维护基础配置、审核模型和治理可见范围。 |
 | 模型提供方 | [我的模型](./user/studio/my-models/)、[我的部署](./user/studio/my-deployments/)、[模型收益](./user/usage-earnings/model-earnings/) | 发布模型、跟踪部署记录、查看收益和客户调用。 |
 | 模型调用方 | [模型市场](./user/discover/models/)、[体验中心](./user/playground/text/)、[我的调用](./user/my-calls/overview/) | 浏览模型、体验效果、接入 API 并查看调用日志。 |
+
+## 按目标找入口
+
+| 目标 | 推荐入口 | 下一步 |
+| --- | --- | --- |
+| 第一次了解模型服务 | [平台入门](./getting-started/) | 判断自己是模型提供方、调用方还是运营管理员。 |
+| 查找并体验模型 | [模型市场](./user/discover/models/) | 进入体验中心后验证输入、输出和调用方式。 |
+| 发布或维护模型 | [我的模型](./user/studio/my-models/) | 准备模型来源、部署配置、审核材料和 API 信息。 |
+| 排查调用或收益 | [调用记录](./user/my-calls/overview/) | 结合调用日志、统计分析和收益数据交叉确认。 |
 
 ## 推荐阅读路径
 

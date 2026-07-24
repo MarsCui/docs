@@ -60,7 +60,7 @@ Use the following operations to work with my keys records and related status. Co
 
 ### Create Model API Key
 
-1. Go to `Personal > My Keys`.
+1. Go to `Settings > Personal > My Keys`.
 2. Click `Create Key` in the upper-right corner of the page.
 3. In the `Create Model API Key` dialog, fill in `Expire Time`, `Key Name`, and `Description`.
 4. In `Reset Cycle`, select `Monthly` or `Weekly`. When `Monthly` is selected, verify `Day of Month`.
@@ -73,7 +73,7 @@ Use the following operations to work with my keys records and related status. Co
 
 ### Create System API AK/SK Pair
 
-1. Go to `Personal > My Keys`.
+1. Go to `Settings > Personal > My Keys`.
 2. Switch to the `System API AK/SK Pairs` tab.
 3. Click `Create System API AK/SK Pair` or the actual create entry on the page.
 4. In the creation dialog, review the fields.
@@ -86,7 +86,7 @@ Use the following operations to work with my keys records and related status. Co
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Expire Time | No | Date time | `2026-12-31 23:59` | Defines when the Model API Key or System API AK/SK Pair expires. |
 | Key Name | Yes | Text | `Production Key` | Identifies the purpose of the key. |
@@ -115,7 +115,7 @@ Use the following operations to work with my keys records and related status. Co
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `Personal > My Keys` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |

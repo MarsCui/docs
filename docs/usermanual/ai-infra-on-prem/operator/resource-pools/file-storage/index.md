@@ -60,7 +60,7 @@ The following figure shows the file storage page.
 
 #### Procedure
 
-1. Go to `AI Infra > On-Prem > Resource Pools > File Storage`.
+1. Go to `AI Infrastructure > On-Prem > Resource Pools > File Storage`.
 2. Click `Register component` to open the `New File Storage - File Storage` page.
 3. Fill in `Name`, `Tenant Quota`, `Overcommit Ratio`, `Phy. Threshold`, and `Log. Threshold` according to the page fields.
 4. In `Cluster Connection Information`, provide connection configuration through `Paste Config`, `Upload File`, or `Manual Input`, and confirm that the configuration content has been sanitized.
@@ -75,18 +75,18 @@ The following figure shows the New File Storage page, used to fill in basic poli
 
 ## Parameter Reference
 
-| Parameter | Required | Description | Configuration Suggestion |
-| --- | --- | --- | --- |
-| Name | Yes | File storage component name. | Use a name that reflects environment, purpose, or capacity boundary. |
-| Tenant Quota | Yes | Whether tenant capacity usage is limited. | Keep it consistent with tenant capacity policies. |
-| Overcommit Ratio | Yes | Overcommit ratio between logical and physical file storage capacity. | Fill it carefully according to capacity planning. |
-| Phy. Threshold | Yes | Physical capacity alarm or limit threshold. | Do not exceed the real capacity safety boundary. |
-| Log. Threshold | Yes | Logical capacity alarm or limit threshold after overcommit. | Verify it together with the overcommit ratio. |
-| Paste Config | Conditionally required | Enter cluster connection information by pasting kubeconfig content. | Do not write real kubeconfig in documentation. |
-| Upload File | Conditionally required | Enter cluster connection information by uploading a file. | Upload only authorized configuration files from controlled environments. |
-| Manual Input | Conditionally required | Enter cluster connection information manually. | Do not write real internal addresses, accounts, or secrets. |
-| Description | No | Component purpose, boundary, or maintenance notes. | Record non-sensitive notes only. |
-| Actions | System-generated | Test Connection, Submit, Search, Reset, and similar entries. | `Submit` submits real configuration. Do not click it during learning or screenshot capture. |
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Name | Yes | File / configuration text | `Example Name` | File storage component name. Use a name that reflects environment, purpose, or capacity boundary. |
+| Tenant Quota | Yes | Number / capacity | `10 TiB` | Whether tenant capacity usage is limited. Keep it consistent with tenant capacity policies. |
+| Overcommit Ratio | Yes | File / configuration text | `1.5` | Overcommit ratio between logical and physical file storage capacity. Fill it carefully according to capacity planning. |
+| Phy. Threshold | Yes | Number / capacity | `Example value` | Physical capacity alarm or limit threshold. Do not exceed the real capacity safety boundary. |
+| Log. Threshold | Yes | Number / capacity | `Example value` | Logical capacity alarm or limit threshold after overcommit. Verify it together with the overcommit ratio. |
+| Paste Config | Conditionally required | File / configuration text | `Example value` | Enter cluster connection information by pasting kubeconfig content. Do not write real kubeconfig in documentation. |
+| Upload File | Conditionally required | File / configuration text | `<kubeconfig>` | Enter cluster connection information by uploading a file. Upload only authorized configuration files from controlled environments. |
+| Manual Input | Conditionally required | Text | `Example value` | Enter cluster connection information manually. Do not write real internal addresses, accounts, or secrets. |
+| Description | No | Multi-line text | `Example description` | Component purpose, boundary, or maintenance notes. Record non-sensitive notes only. |
+| Actions | System-generated | Action entry | `Edit` | Test Connection, Submit, Search, Reset, and similar entries. `Submit` submits real configuration. Do not click it during learning or screenshot capture. |
 
 ## Pitfalls
 
@@ -99,7 +99,7 @@ The following figure shows the New File Storage page, used to fill in basic poli
 
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `File Storage` page can be opened. | Check account permissions, menu configuration, and page route. |
 | Component list loads normally | The list displays connected file storage components and status. | Check dependent services, filter conditions, and API responses. |

@@ -58,7 +58,7 @@ The page is used to display file storage capability in the selected region. When
 
 #### Procedure
 
-1. Go to `Storage Services > File Storage`.
+1. Go to `AI Infrastructure > On-Prem > Storage Services > File Storage`.
 2. Confirm the region in the upper-right corner.
 3. If the page provides a create entrypoint, fill in name, capacity, access policy, and description.
 4. After submission, return to the list and view status.
@@ -125,6 +125,17 @@ Alternative troubleshooting paths:
 - Files in shared directories are visible to multiple tasks. Confirm naming and overwrite risks before writing.
 - NFS or shared storage paths must be sanitized before screenshots.
 - High-concurrency small-file read/write may affect performance. Split directories or use object storage if necessary.
+
+## Result Validation
+
+| Check Item | Success Signal | If Abnormal |
+| --- | --- | --- |
+| Page is accessible | The file storage page opens and shows shared directory records or an empty-state message. | Check account permission, region scope, and file storage component availability. |
+| Create-directory entry is visible | Users with permission can see the create shared directory entry and open the form. | Confirm whether file storage is opened to the current tenant. |
+| Mount information is clear | File system ID, mount path, permission, client node, and status are visible. | Verify NFS address, exported directory, read/write permission, and client network. |
+| Multi-node access can be verified | The shared directory can be read or written as expected from target instances or nodes. | Check export policy, permission scope, mount parameters, and node connectivity. |
+
+
 
 ## FAQ
 

@@ -59,7 +59,7 @@ The page displays job monitoring capability for the selected region. When the ca
 
 #### Procedure
 
-1. Go to `Monitoring > Job Monitoring`.
+1. Go to `AI Infrastructure > On-Prem > Monitoring > Job Monitoring`.
 2. Confirm the region in the upper-right corner.
 3. Filter by time, status, or keyword provided by the page.
 4. View charts, lists, or prompt information.

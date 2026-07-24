@@ -76,7 +76,7 @@ When creation fails with insufficient quota, or when you need to confirm which i
 
 #### Procedure
 
-1. Go to `Quota & Usage > Resource Quotas`.
+1. Go to `AI Infrastructure > On-Prem > Quota & Usage > Resource Quotas`.
 2. Find the `Runtime Instance` or `Online IDE` area.
 3. Click `View Resource Usage`.
 4. View resource occupation items in the dialog.

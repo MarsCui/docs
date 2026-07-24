@@ -58,7 +58,7 @@ Use the following operations to work with rule management records and related st
 
 ### Create Rate Control Rule
 
-1. Go to `API Rate Control > Rule Management`.
+1. Go to `Settings > API Rate Control > Rule Management`.
 2. Click `Create Rule`, `Create Rate Control Rule`, or the actual create entry on the page.
 3. In the rule creation page or dialog, review the rule configuration fields.
 
@@ -71,7 +71,7 @@ Use the following operations to work with rule management records and related st
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Rule Name | Yes | Text | `Example Rule A` | Identifies the rate control rule. |
 | API Path | Yes | Text | `/api/example` | The API path matched by the rule. Desensitize it in documentation. |
@@ -97,7 +97,7 @@ Use the following operations to work with rule management records and related st
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `API Rate Control > Rule Management` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |

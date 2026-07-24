@@ -50,7 +50,7 @@ The left side provides bucket search and bucket list, and the upper-right corner
 
 #### Procedure
 
-1. Go to `Storage Services > Object Storage`.
+1. Go to `AI Infrastructure > On-Prem > Storage Services > Object Storage`.
 2. Confirm the region in the upper-right corner.
 3. Click `Add Bucket`.
 4. Fill in Bucket Name.

@@ -59,7 +59,7 @@ Use this operation to query observability and audit data. Do not add create, pub
 
 ### View Observability Audit
 
-1. Go to `API Rate Control > Observability Audit`.
+1. Go to `Settings > API Rate Control > Observability Audit`.
 2. Select the `Minute Statistics`, `Blocked Logs`, or `Audit Logs` tab.
 3. Select a time range, API, node, rule, or result status according to page fields.
 4. Click `Search` to query the corresponding observability or audit data.
@@ -72,7 +72,7 @@ Use this operation to query observability and audit data. Do not add create, pub
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Tab | Yes | Tab | `Minute Statistics` | Switches between statistics, blocked logs, and audit data views. |
 | Time Range | No | Time range | `Start Time` / `End Time` | Filters observability or audit records by time. |
@@ -95,7 +95,7 @@ Use this operation to query observability and audit data. Do not add create, pub
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `API Rate Control > Observability Audit` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Tab switching | The three data tabs can be switched normally. | Refresh the page and re-enter it. |

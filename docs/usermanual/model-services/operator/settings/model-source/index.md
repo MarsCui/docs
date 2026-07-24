@@ -55,7 +55,7 @@ Used to view source status, region, and connectivity.
 2. Click `Add` to open the `New Model Source` page.
 3. In `Basic Information`, maintain the `English` and `Chinese` display names for `Name`.
 4. Fill in `Model source identifier` to distinguish the model source.
-5. In `Region Information`, maintain `Region identifier`, `Region name`, `Base URL`, `API key endpoint`, and `API documentation URL`. To add more regions, click `Add Region`.
+5. In `Region Information`, maintain `Region identifier`, `Region name`, `Base URL`, `API Key endpoint`, and `API documentation URL`. To add more regions, click `Add Region`.
 6. In `Headers Configuration`, maintain `Auth field name` and `Auth value`. To add more headers, click `Add request header`.
 7. Before clicking `Confirm`, verify the field values. For page validation only, click `Cancel` to close the page.
 
@@ -70,7 +70,7 @@ Used to view source status, region, and connectivity.
 | Region identifier | Yes | Text | `cn-shanghai` | Identifier of the region where the source service is located. |
 | Region name | Yes | Multilingual text | `East China 1` | Display name of the region where the source service is located. |
 | Base URL | Yes | URL | `https://api.example.com/v1` | Upstream service base address. Use a placeholder in examples. |
-| API key endpoint | No | URL | `https://example.com/keys` | URL for obtaining or managing upstream API Keys. |
+| API Key endpoint | No | URL | `https://example.com/keys` | URL for obtaining or managing upstream API Keys. |
 | API documentation URL | No | URL | `https://example.com/docs` | Upstream service API documentation URL. |
 | Auth field name | Conditionally required | Text | `Authorization` | Authentication field name in the request header. |
 | Auth value | Conditionally required | Text | `Bearer <key>` | Authentication value in the request header. Do not write real keys. |
@@ -84,7 +84,7 @@ Used to view source status, region, and connectivity.
 
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | The model source shows connected or available status in the list | The model source shows connected or available status in the list. | Return to the page and check permissions, filters, and configuration status. |
 | The source can be selected in template and model publishing flows | The source can be selected in template and model publishing flows. | Return to the page and check permissions, filters, and configuration status. |

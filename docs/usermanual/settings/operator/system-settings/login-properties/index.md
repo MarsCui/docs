@@ -58,7 +58,7 @@ Use the following operations to work with login properties records and related s
 
 ### Login Security Configuration
 
-1. Go to `System Settings > Login Properties`.
+1. Go to `Settings > System Settings > Login Properties`.
 2. Click or locate `Login Security`.
 3. Review password policy, login restrictions, session validity, MFA, or security verification settings.
 
@@ -66,7 +66,7 @@ Use the following operations to work with login properties records and related s
 
 ### Registration Verification Code Configuration
 
-1. Go to `System Settings > Login Properties`.
+1. Go to `Settings > System Settings > Login Properties`.
 2. Locate `Registration Verification Code`.
 3. Review verification code type, sending method, validity period, rate limits, and enabled status.
 
@@ -74,7 +74,7 @@ Use the following operations to work with login properties records and related s
 
 ### Account Recovery Configuration
 
-1. Go to `System Settings > Login Properties`.
+1. Go to `Settings > System Settings > Login Properties`.
 2. Locate `Account Recovery`.
 3. Review email, phone, verification code, identity verification, and recovery flow settings.
 
@@ -82,7 +82,7 @@ Use the following operations to work with login properties records and related s
 
 ### Google Login Configuration
 
-1. Go to `System Settings > Login Properties`.
+1. Go to `Settings > System Settings > Login Properties`.
 2. Locate `Google Login`.
 3. Review Client ID, callback URL, enabled status, and login entry settings.
 
@@ -90,7 +90,7 @@ Use the following operations to work with login properties records and related s
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Configuration Category | System displayed | Text | `Login Security` | The configuration group in login properties. |
 | Configuration Item | System displayed | Text | `Verification Code Validity Period` | The login policy parameter to view or maintain. |
@@ -113,7 +113,7 @@ Use the following operations to work with login properties records and related s
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `System Settings > Login Properties` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |

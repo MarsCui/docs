@@ -121,7 +121,7 @@ The recommended configuration order is: operator admins maintain meta-models, mo
 
 ## Result Validation
 
-| Check Item | Success Criteria | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Role is clear | You can tell whether you are a model provider, caller, or operator admin. | Return to the 30-second quick reference and choose the path again. |
 | Prerequisite objects are complete | Before publishing, you can confirm whether meta-models, sources, templates, and tags are available. | Contact the operator admin to complete base configuration first. |

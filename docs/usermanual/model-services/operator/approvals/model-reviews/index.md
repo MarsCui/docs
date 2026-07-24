@@ -87,7 +87,7 @@ Used to view review status, requester, model, and processing entry points.
 
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | The review list can be opened | The model review list opens normally. | Return to the page and check permissions, menu entry, and page loading status. |
 | Pending models are displayed normally | Pending models appear in the list with model name, customer, status, and time. | Return to the page and check permissions, filters, and data status. |

@@ -86,7 +86,7 @@ Use the following operations to search, view, and generate settlement statements
 
 ### View Settlement Statement Details
 
-1. Go to `Finance Operations > Settlement List`.
+1. Go to `Billing > Finance Operations > Settlement List`.
 2. Find the target settlement statement in the table.
 3. Click `Details` in the row.
 4. Verify settlement statement, organization, billing cycle, status, amount, and posting confirmation.
@@ -106,7 +106,7 @@ Before generating a settlement statement, confirm that:
 
 #### Steps
 
-1. Go to `Finance Operations > Settlement List`.
+1. Go to `Billing > Finance Operations > Settlement List`.
 2. Click `Generate Settlement`.
 3. Select the target `Billing Cycle` and `Organization`.
 
@@ -145,7 +145,7 @@ Before generating a settlement statement, confirm that:
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Settlement Statement | System-generated | Text | `SETTLE-202606-ORG001` | Settlement statement name or identifier used to locate a specific record. |
 | Organization | System-generated | Text | `Example Organization A` | Organization that owns the settlement statement. |
@@ -172,7 +172,7 @@ Before generating a settlement statement, confirm that:
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `Finance Operations > Settlement List` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |
@@ -182,7 +182,7 @@ Before generating a settlement statement, confirm that:
 
 ## Completion Checks
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `Finance Operations > Settlement List` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |
@@ -208,7 +208,7 @@ The displayed balance, consumption, settlement status, monthly bill, or License 
 
 **How to check:**
 
-1. Confirm that the same billing cycle, customer, account, currency, and resource scope are being compared.
+1. Confirm settlement period, organization, settlement status, and generated amount before comparing account balance.
 2. Check whether pending top-up orders, adjustments, refunds, settlement reviews, or metering synchronization are still in progress.
 3. Compare the summary number with the detail list and operation records on the related billing pages.
 4. For financial-impacting differences, pause confirmation actions and escalate with desensitized record IDs, time range, customer scope, and screenshots without credentials.

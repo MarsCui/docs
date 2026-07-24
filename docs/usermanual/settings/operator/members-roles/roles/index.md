@@ -58,7 +58,7 @@ Use the following operations to work with roles records and related status. Comp
 
 ### Add Role
 
-1. Go to `Members & Roles > Roles`.
+1. Go to `Settings > Members & Roles > Roles`.
 2. Click `Add Role` in the upper-right corner of the page.
 3. In the `Add Role` dialog, review the role creation fields.
 
@@ -72,7 +72,7 @@ Use the following operations to work with roles records and related status. Comp
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Role name | Yes | Text | `Audit Admin` | The display name of the operator role. |
 | Role code | Yes | Text | `audit_admin` | The unique role identifier. Use a stable, readable code that is easy to audit. |
@@ -94,7 +94,7 @@ Use the following operations to work with roles records and related status. Comp
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `Members & Roles > Roles` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |

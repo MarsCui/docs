@@ -147,7 +147,7 @@ Confirm the following first:
 
 #### Steps
 
-1. Go to `AI Infra > On-Prem > Resource Pools > Regions & Zones`.
+1. Go to `AI Infrastructure > On-Prem > Resource Pools > Regions & Zones`.
 2. Click `Add Region` in the upper-right corner of the page to open the Add Region dialog.
 3. In the `Region Basics` section, fill in `Region ID`, select `Visibility Policy`, and maintain multilingual `Display Name`.
 4. In the `Resource Binding` section, select the required `Image Service (Harbor)`, and enable `Object Storage`, `File Storage`, or `Block Storage` as needed.
@@ -160,7 +160,7 @@ The following screenshot shows the Add Region form. The upper area configures th
 6. To discard the configuration, click `Cancel` to close the dialog.
 7. For learning or screenshot capture only, view the fields and dialog without submitting a real configuration.
 
-#### Parameter Description
+#### Add Region Field Notes
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -172,14 +172,14 @@ The following screenshot shows the Add Region form. The upper area configures th
 | File Storage | No | Switch / Dropdown | `Off` | Enable only when a shared file system is required for multi-node I/O. |
 | Block Storage | No | Switch / Dropdown | `Off` | Enable only when independent disks or high-performance block volumes are required. |
 
-#### Troubleshooting Tips
+#### Add Region Pitfall Notes
 
 - The region ID cannot be modified after creation. Confirm the naming, regional meaning, and tenant boundary before submitting.
 - If the image service is unavailable, jobs may fail to pull images. Confirm that the image component status is normal before adding a region.
 - Storage components are not mandatory. Enable a storage component only when the business requires the corresponding storage capability.
 - A public region expands the resource visibility scope, while a dedicated region restricts the resource scope. Confirm the tenant or department boundary before configuration.
 
-#### Result Validation
+#### Add Region Submission Checks
 
 After the region is submitted successfully, check whether the configuration has taken effect:
 
@@ -226,22 +226,22 @@ The following screenshot shows the Create AZ form. The top area shows the owning
 7. Before clicking the final `Confirm`, verify the parent region, availability zone ID, display name, and description again.
 8. For learning or screenshot capture only, view the fields and dialog without submitting a real configuration.
 
-#### Parameter Description
+#### Create AZ Field Notes
 
-| Field Name | Required | Field Type | Example | Filling Instructions |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Region | Yes | Dropdown | `Wuhan` | The parent region to which the availability zone belongs. When adding an availability zone, this is usually automatically filled from the currently selected region. Confirm that the ownership is correct before submitting. |
 | Availability Zone ID | Yes | Text | `wuhan-1` | The unique identifier of the availability zone. It is recommended to use lowercase letters, numbers, and hyphens, such as `wuhan-1` or `wuhan-gpu-1`. It cannot be modified after creation. |
 | Display Name (Multilingual) | Yes | Multilingual tabs | Simplified Chinese `Wuhan-1` / English `Wuhan-1` | The availability zone name displayed in different language environments. Keep the regional meaning consistent with the availability zone ID. |
 | Description | No | Multi-line text | `Wuhan zone 1` | You can enter the data center location, purpose, network boundary, or maintenance notes to make later operations easier to identify. |
 
-#### Troubleshooting Tips
+#### Create AZ Pitfall Notes
 
 - Select the target region before adding an availability zone. Do not create the availability zone under the wrong region.
 - The availability zone ID cannot be modified after creation. Include the region prefix and sequence number to avoid names that are hard to distinguish across regions.
 - After an availability zone is created, it cannot run jobs by itself. You still need to register clusters under the availability zone.
 
-#### Result Validation
+#### Create AZ Submission Checks
 
 After the availability zone is submitted successfully, check whether the configuration has taken effect:
 
@@ -252,7 +252,7 @@ After the availability zone is submitted successfully, check whether the configu
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Region ID | Yes | Text | `wuhan` | Unique region identifier that affects later availability zone, cluster, and resource pool ownership. |
 | Visibility Policy | Yes | Single choice | `Public Region` | Controls whether the region is shared platform-wide or visible only to a dedicated scope. |
@@ -279,7 +279,7 @@ After the availability zone is submitted successfully, check whether the configu
 
 ## Result Validation
 
-| Check Item | Success Signal | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | You can enter `AI Infra > On-Prem > Resource Pools > Regions & Zones`. | Check account permissions and menu configuration. |
 | List loads normally | The region list, availability zone area, and region details are displayed normally. | Refresh the page and check API or permission status. |

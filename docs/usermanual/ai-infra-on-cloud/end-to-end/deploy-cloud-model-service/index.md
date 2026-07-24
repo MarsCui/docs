@@ -54,7 +54,7 @@ Deploying a cloud model service from scratch is like arranging a cloud resource 
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Cloud Platform Type | Yes | Enum | Sample cloud platform | Used to determine the source of account access, asset synchronization, and deployment capabilities. |
 | Cloud Account | Yes | Text | CLOUD-ACCOUNT-001 | Used for resource synchronization, authorization, and deployment submission. Only placeholders should be recorded in documentation. |
@@ -81,7 +81,7 @@ Deploying a cloud model service from scratch is like arranging a cloud resource 
 
 **Result validation:**
 
-| Check Item | Success Signal | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Target cloud platform is visible in the cloud platform list | The target cloud platform is visible in the cloud platform list. | Return to this step and check prerequisites, permissions, and configuration status. |
 | Cloud platform status, name, and identifier match expectations | The cloud platform status, name, and identifier match expectations. | Return to this step and check prerequisites, permissions, and configuration status. |
@@ -96,7 +96,7 @@ Deploying a cloud model service from scratch is like arranging a cloud resource 
 
 **Result validation:**
 
-| Check Item | Success Signal | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Target cloud account is visible in Access Accounts | The target cloud account is visible in the [Access Accounts](../../operator/access-management/cloud-accounts/) list. | Return to this step and check prerequisites, permissions, and configuration status. |
 | Account status is normal | The account status is normal and the cloud platform ownership is correct. | Return to this step and check prerequisites, permissions, and configuration status. |
@@ -111,7 +111,7 @@ Deploying a cloud model service from scratch is like arranging a cloud resource 
 
 **Result validation:**
 
-| Check Item | Success Signal | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Target region is enabled in Resource Pools | The target region is enabled in [Resource Pools](../../operator/access-management/resource-pools/). | Return to this step and check prerequisites, permissions, and configuration status. |
 | Region information is accurate | The region name, cloud platform ownership, and resource pool information are accurate. | Return to this step and check prerequisites, permissions, and configuration status. |
@@ -125,7 +125,7 @@ Deploying a cloud model service from scratch is like arranging a cloud resource 
 
 **Result validation:**
 
-| Check Item | Success Signal | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Tenant-cloud authorization record exists | The target authorization record exists in [Tenant-Cloud Platform Authorization](../../operator/auth-management/tenant-cloud-auth/). | Return to this step and check prerequisites, permissions, and configuration status. |
 | Business-resource pool authorization record exists | The target resource pool authorization record exists in [Business-Resource Pool Authorization](../../operator/auth-management/business-region-auth/). | Return to this step and check prerequisites, permissions, and configuration status. |
@@ -140,7 +140,7 @@ Deploying a cloud model service from scratch is like arranging a cloud resource 
 
 **Result validation:**
 
-| Check Item | Success Signal | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Target model is visible in Model Assets | The target model is visible in [Model Assets](../../operator/deploy-assets/models/). | Return to this step and check prerequisites, permissions, and configuration status. |
 | Model deployment configuration is complete | The cloud platform, region, inference framework, image, and compute plan associated with the model are complete. | Return to this step and check prerequisites, permissions, and configuration status. |
@@ -154,7 +154,7 @@ Deploying a cloud model service from scratch is like arranging a cloud resource 
 
 **Result validation:**
 
-| Check Item | Success Signal | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Target policy is visible in Policy Management | The target policy is visible in [Policy Management](../../operator/scheduling-governance/policies/). | Return to this step and check prerequisites, permissions, and configuration status. |
 | Business policy options match | The business policy options in Quick Deployment match the policy configuration. | Return to this step and check prerequisites, permissions, and configuration status. |
@@ -169,7 +169,7 @@ Deploying a cloud model service from scratch is like arranging a cloud resource 
 
 **Result validation:**
 
-| Check Item | Success Signal | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Target account is visible in Access Accounts | The target account is visible in [Access Accounts](../../user/access-management/access-accounts/). | Return to this step and check prerequisites, permissions, and configuration status. |
 | Account cloud platform is consistent | The account cloud platform is consistent with the cloud platform authorized by the operator. | Return to this step and check prerequisites, permissions, and configuration status. |
@@ -187,7 +187,7 @@ Deploying a cloud model service from scratch is like arranging a cloud resource 
 
 **Result validation:**
 
-| Check Item | Success Signal | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Quick Deployment shows target resources | [Quick Deployment](../../user/model-services/quick-deployment/) can show the target cloud account, region, and model. | Return to this step and check prerequisites, permissions, and configuration status. |
 | Intelligent recommendation returns a plan | The intelligent recommendation page can generate at least one deployable plan. | Return to this step and check prerequisites, permissions, and configuration status. |
@@ -204,7 +204,7 @@ Deploying a cloud model service from scratch is like arranging a cloud resource 
 
 **Result validation:**
 
-| Check Item | Success Signal | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Target task is visible in AI Infra My Deployments | The target Quick Deployment task is visible in [My Deployments](../../user/model-services/my-deployments/). | Return to this step and check prerequisites, permissions, and configuration status. |
 | Task status meets expectations | The task status meets expectations. If it fails, event records are visible. | Return to this step and check prerequisites, permissions, and configuration status. |
@@ -212,7 +212,7 @@ Deploying a cloud model service from scratch is like arranging a cloud resource 
 | Model Services My Deployments record is visible | The same deployment record is visible in the `On-Cloud` list under `Model Services > Studio > My Deployments`. | Check Model Services permissions, deployment filters, and task synchronization status. |
 | Publish page redirect is correct | After selecting a publish region, the page redirects to the publish model page under `Model Services > Studio > My Models`. | Check the publish entry, publish region, and target deployment status. |
 
-## Common Failure Paths
+## Failure Branches and Troubleshooting Paths
 
 #### Failure Branch: Cloud Account Validation Fails
 
@@ -250,13 +250,58 @@ Next hop: [My Deployments](../../user/model-services/my-deployments/)
 2. Verify that the model, inference framework, runtime image, specification, and scheduling policy match.
 3. Provide the operator with a redacted deployment ID, region, model name, and error summary for review.
 
-## Completion Check
+## Result Validation
 
-| Check Item | Success Signal | Next Step |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Resources visible | The Quick Deployment page can select the target model, region, account, and specification | Continue submitting the cloud deployment |
 | Status normal | My Deployments shows running or available status and generates invocation information | Enter API access or monitoring |
 | Troubleshooting entry available | Events, status, and monitoring can locate deployment errors | Continue troubleshooting by failure branch |
+
+## FAQ
+
+#### Why is quick deployment still unavailable after the cloud account is connected?
+
+**Symptom:**
+
+The user cannot see the target cloud account, resource pool, or model service specification on the quick deployment page.
+
+**Possible Causes:**
+
+The cloud account is abnormal, the resource pool is not enabled, tenant or business-region authorization does not include the current user, or deployment assets and scheduling policies are incomplete.
+
+**How to Handle:**
+
+Check cloud account and resource pool status first. Then verify tenant-cloud authorization, business-region authorization, and scheduling policies. Ask the user to refresh quick deployment and select again.
+
+#### What if deployment is created but the service is unavailable?
+
+**Symptom:**
+
+A deployment record exists, but the status stays creating, abnormal, or inaccessible.
+
+**Possible Causes:**
+
+Runtime image, model asset, resource pool capacity, network access, or scheduling policy does not meet the requirement.
+
+**How to Handle:**
+
+Open My Deployments and check status and error messages. Verify runtime image, model library, resource pool capacity, and scheduling policies, then continue troubleshooting in deployment assets or resource pools.
+
+#### What if resource, cost, or permission information does not match?
+
+**Symptom:**
+
+Deployment, authorization, and resource pool pages show inconsistent available scope.
+
+**Possible Causes:**
+
+Account, tenant, business region, cloud platform, or resource pool scope is different, or page data synchronization is delayed.
+
+**How to Handle:**
+
+Use the same account, tenant, business region, and resource pool scope before comparing. Keep desensitized page path, time, and resource pool name when asking platform operators for help.
+
 
 ## Next Steps
 

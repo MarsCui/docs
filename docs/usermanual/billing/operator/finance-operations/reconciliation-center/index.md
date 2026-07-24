@@ -79,7 +79,7 @@ Use the following operations to view reconciliation results and exception areas.
 
 ### View Reconciliation Results
 
-1. Go to `Finance Operations > Reconciliation Center`.
+1. Go to `Billing > Finance Operations > Reconciliation Center`.
 2. Select the target `Billing Cycle`.
 3. Click `Refresh`.
 4. Review result update time or exception count changes.
@@ -88,7 +88,7 @@ Use the following operations to view reconciliation results and exception areas.
 
 ### View Bilateral Ledger Check
 
-1. Go to `Finance Operations > Reconciliation Center`.
+1. Go to `Billing > Finance Operations > Reconciliation Center`.
 2. Select the target `Billing Cycle`.
 3. Click `Refresh` and wait for reconciliation results to update.
 4. Review the `Bilateral Ledger Check` area, especially unmatched transfers, fund direction, transaction object, business context, and reference information.
@@ -99,7 +99,7 @@ Use the following operations to view reconciliation results and exception areas.
 
 ### View Compensation Queue
 
-1. Go to `Finance Operations > Reconciliation Center`.
+1. Go to `Billing > Finance Operations > Reconciliation Center`.
 2. Select the target `Billing Cycle`.
 3. Click `Refresh` and confirm that compensation queue status has updated.
 4. Review the `Compensation Queue` area, especially task status, failure reason, retry count, related transaction, related settlement statement, and processing time.
@@ -110,7 +110,7 @@ Use the following operations to view reconciliation results and exception areas.
 
 ### View Revenue Detail Rebuild
 
-1. Go to `Finance Operations > Reconciliation Center`.
+1. Go to `Billing > Finance Operations > Reconciliation Center`.
 2. Select the target `Billing Cycle`.
 3. Review the `Revenue Detail Rebuild` area and confirm whether missing revenue details exist.
 4. Verify organization, billing cycle, business source, related transaction, and exception reason for missing records.
@@ -121,7 +121,7 @@ Use the following operations to view reconciliation results and exception areas.
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Billing Cycle | Yes | Month / billing period | `2026-07` | Selects the billing period to inspect. |
 | Refresh | No | Button | `Refresh` | Reloads reconciliation results for the current billing cycle. |
@@ -149,7 +149,7 @@ Use the following operations to view reconciliation results and exception areas.
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `Finance Operations > Reconciliation Center` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |
@@ -177,7 +177,7 @@ The displayed balance, consumption, settlement status, monthly bill, or License 
 
 **How to check:**
 
-1. Confirm that the same billing cycle, customer, account, currency, and resource scope are being compared.
+1. Confirm inspection period, organization scope, unmatched transfers, and missing revenue details before drawing conclusions.
 2. Check whether pending top-up orders, adjustments, refunds, settlement reviews, or metering synchronization are still in progress.
 3. Compare the summary number with the detail list and operation records on the related billing pages.
 4. For financial-impacting differences, pause confirmation actions and escalate with desensitized record IDs, time range, customer scope, and screenshots without credentials.

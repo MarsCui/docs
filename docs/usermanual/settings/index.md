@@ -78,7 +78,7 @@ When entering Settings, select the target group from the left menu first, then r
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Menu group | No | Navigation item | `Members & Roles` | Used to select Personal, Members, Tenants, logs, System Settings, or API Rate Control pages. |
 | Target object | Yes | Text | `Member` | Object to view or maintain in the current task. |
@@ -87,7 +87,7 @@ When entering Settings, select the target group from the left menu first, then r
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Menu visibility | The left menu displays Settings pages by group. | Check the current account permission and tenant scope. |
 | Page loading | Page title, filters, tables, or configuration cards are displayed normally. | Refresh the page and re-enter the target menu. |

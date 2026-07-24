@@ -83,7 +83,7 @@ Before a new hardware model is connected to the platform, accelerator basic info
 
 #### Steps
 
-1. Go to `AI Infra > On-Prem > Resource Pools > Accelerator Management`.
+1. Go to `AI Infrastructure > On-Prem > Resource Pools > Accelerator Management`.
 2. Click `New Accelerator` or the actual add entry on the page.
 3. Fill in vendor, architecture, series, model, Memory (GB) GiB, compute capability, precision mode, and peak compute (TFLOPS) according to the page fields.
 4. Select or associate the specification metric as required by the page, and verify Kubernetes resource key, selector-key, or monitoring identification fields.
@@ -96,19 +96,19 @@ The following figure shows the Create Accelerator dialog. Focus on hardware basi
 
 ## Parameter Reference
 
-| Parameter | Required | Description | Configuration Suggestion |
-| --- | --- | --- | --- |
-| Vendor | Yes | Accelerator vendor. | Keep it consistent with the real hardware vendor. |
-| Architecture | Yes | Accelerator architecture. | Select according to page options or the real hardware architecture. |
-| Series | Yes | Accelerator series. | Keep it consistent with vendor and model. |
-| Model | Yes | Accelerator model. | Match the model actually reported by cluster nodes. |
-| Memory (GB) GiB | Yes | Single-card memory capacity. | Use the page unit and avoid mixing GiB and GB. |
-| Compute Capability | Optional | CUDA or hardware capability version. | Do not invent a value when it is not confirmed. |
-| Precision mode | Conditionally required | Precision mode for compute capability configuration. | Keep it consistent with supported page options and hardware capability. |
-| Peak compute (TFLOPS) | Conditionally required | Peak compute value under the selected precision mode. | Fill in only confirmed public or hardware-reported data. |
-| Accelerator Spec Metric | Conditionally required | Link an existing spec metric or create an accelerator spec metric. | Verify k8s-key and selector-key against labels actually reported by nodes. |
-| Adaptation Status | Yes | Whether platform resource recognition and scheduling are adapted. | Do not expose unadapted devices to users. |
-| Actions | System-generated | New, edit, import/export, save, and similar entries. | `Save` submits real configuration. Do not click it during learning or screenshot capture. |
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Vendor | Yes | Dropdown / enum | `NVIDIA` | Accelerator vendor. Keep it consistent with the real hardware vendor. |
+| Architecture | Yes | Dropdown / enum | `Ampere` | Accelerator architecture. Select according to page options or the real hardware architecture. |
+| Series | Yes | Text | `Example value` | Accelerator series. Keep it consistent with vendor and model. |
+| Model | Yes | Dropdown / enum | `A100-SXM4-80GB` | Accelerator model. Match the model actually reported by cluster nodes. |
+| Memory (GB) GiB | Yes | Number / capacity | `128 GiB` | Single-card memory capacity. Use the page unit and avoid mixing GiB and GB. |
+| Compute Capability | Optional | Text | `8.0` | CUDA or hardware capability version. Do not invent a value when it is not confirmed. |
+| Precision mode | Conditionally required | Number / capacity | `FP16` | Precision mode for compute capability configuration. Keep it consistent with supported page options and hardware capability. |
+| Peak compute (TFLOPS) | Conditionally required | Number / capacity | `312` | Peak compute value under the selected precision mode. Fill in only confirmed public or hardware-reported data. |
+| Accelerator Spec Metric | Conditionally required | Text | `gpu-a100-80g` | Link an existing spec metric or create an accelerator spec metric. Verify k8s-key and selector-key against labels actually reported by nodes. |
+| Adaptation Status | Yes | Status | `Adapted` | Whether platform resource recognition and scheduling are adapted. Do not expose unadapted devices to users. |
+| Actions | System-generated | Action entry | `Edit` | New, edit, import/export, save, and similar entries. `Save` submits real configuration. Do not click it during learning or screenshot capture. |
 
 ## Pitfalls
 
@@ -120,7 +120,7 @@ The following figure shows the Create Accelerator dialog. Focus on hardware basi
 
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page can be opened | `AI Infra > On-Prem > Resource Pools > Accelerator Management` is accessible. | Check menu configuration and account permissions. |
 | List loads normally | Accelerator list, vendor filters, and status statistics are displayed normally. | Refresh the page and check service status or browser console errors. |

@@ -176,7 +176,7 @@ python app.py --host 0.0.0.0 --port 8000
 2. Go to `Quota & Usage > Resource Quotas` to confirm remaining quota.
 3. Go to `Monitoring` to view statistics overview, clusters, nodes, devices, and job data. If user-side monitoring is not opened, prioritize instance logs and events for troubleshooting.
 
-## Troubleshooting Common Failure Paths
+## Failure Branches and Troubleshooting Paths
 
 #### Failure Branch: Cluster Registration Fails
 
@@ -214,13 +214,58 @@ Next hop: [Job Monitoring](../../operator/monitoring/jobs/)
 2. Verify the image address, storage path, environment variables, and startup parameters.
 3. If events indicate insufficient resources, return to quotas, specifications, and cluster capacity for further troubleshooting.
 
-## Completion Check
+## Result Validation
 
-| Check Item | Success Signal | Next Step |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Resources visible | The creation page can select the target region, specification, image, or template | Continue creating an instance or deployment |
 | Status normal | The instance, job, or model service enters Running or Available | Enter invocation, logs, or monitoring |
 | Troubleshooting entrypoint available | Events, logs, or monitoring can locate errors | Continue troubleshooting by failure branch |
+
+## FAQ
+
+#### Why can users still not create instances after cluster registration succeeds?
+
+**Symptom:**
+
+The cluster appears in the list, but users still cannot create runtime instances, Online IDEs, or model services.
+
+**Possible Causes:**
+
+The cluster is not ready, specifications are not associated, templates are not opened, quota is insufficient, or images and storage are not bound to the target scope.
+
+**How to Handle:**
+
+Confirm cluster and node status first. Then verify resource specifications, templates, quotas, images, and storage. Use a test instance to validate the scheduling chain.
+
+#### What if a specification cannot be selected?
+
+**Symptom:**
+
+The target CPU, memory, GPU, or accelerator specification is not visible when users create an instance or model service.
+
+**Possible Causes:**
+
+The specification is disabled, not associated with the target cluster, or the current user lacks region, availability zone, tenant, or quota permission.
+
+**How to Handle:**
+
+Open Resource Specs and cluster details to confirm association. Check quota and authorization scope, then refresh the user-side creation page and select again.
+
+#### Where should I start after instance creation fails?
+
+**Symptom:**
+
+The instance fails after submission, stays queued for too long, or cannot start.
+
+**Possible Causes:**
+
+Capacity is insufficient, image pulling fails, storage mounting fails, template parameters are wrong, or node status is abnormal.
+
+**How to Handle:**
+
+Check instance status and error messages first. Then troubleshoot node monitoring, image services, storage, quotas, and template parameters in order.
+
 
 ## Next Steps
 

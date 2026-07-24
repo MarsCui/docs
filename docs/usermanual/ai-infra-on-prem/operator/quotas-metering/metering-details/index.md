@@ -57,7 +57,7 @@ The following figure shows the metering details page.
 
 #### Procedure
 
-1. Go to `Quotas & Metering > Metering Details`.
+1. Go to `AI Infrastructure > On-Prem > Quotas & Metering > Metering Details`.
 2. Select resource type, region, availability zone, or enterprise.
 3. Click `Search`.
 4. Click `View Resource Item` or expand details to view resource start and end time.
@@ -65,7 +65,7 @@ The following figure shows the metering details page.
 
 #### Detail Download
 
-1. Go to `AI Infra > On-Prem > Quotas & Metering > Metering Details`.
+1. Go to `AI Infrastructure > On-Prem > Quotas & Metering > Metering Details`.
 2. Select a resource type filter as needed, such as `All`, `Online IDE`, or `Runtime Instance`.
 3. Use query conditions such as `Resource Name` and `Resource ID` to narrow the detail range.
 4. Click `Search`, and confirm that resource ID, resource name, resource type, region/AZ, batch number, tenant name, start time, and end time match the export scope.

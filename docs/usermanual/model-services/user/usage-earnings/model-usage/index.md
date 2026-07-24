@@ -93,9 +93,16 @@ The page includes two tabs: `Overview` and `Usage Details`. `Overview` shows Bil
 | Status | System-generated | Tag | `Billed usage` | Billing or posting status of the usage record. |
 | Actions | No | Row entry | `View` | View usage records, pricing rules, or related billing information. |
 
+## Pitfalls
+
+- Model Usage is for consumption reconciliation. It does not directly equal final revenue, which also depends on billing rules and settlement scope.
+- Align model, customer, time range, and call type before comparing usage.
+- Recent calls may not appear immediately because of statistical delay. Check call logs at the same time.
+
+
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `Model Usage` page opens normally, and `Overview` and `Usage Details` tabs are visible. | Check account permissions, navigation path, and page loading status. |
 | Usage overview displays normally | Used Models, Total Consumption, Total Token Consumption, and charts are displayed normally. | Switch Billing cycle or Date and retry. Confirm whether the current period has usage data. |

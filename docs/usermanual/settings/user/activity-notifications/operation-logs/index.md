@@ -58,7 +58,7 @@ Use the following operations to work with operation logs records and related sta
 
 ### View Operation Logs
 
-1. Go to `Activity & Notifications > Operation Logs`.
+1. Go to `Settings > Activity & Notifications > Operation Logs`.
 2. Use filters or tabs to locate the target record.
 3. Select the target row or entry related to operation logs records and related status.
 4. Click the visible `View Operation Logs` entry when it is available.
@@ -66,7 +66,7 @@ Use the following operations to work with operation logs records and related sta
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Keyword or name | No | Text | `Example name` | Used to locate a specific record. |
 | Status | No | Enum | `Enabled` | Used to determine the current processing or availability state. |
@@ -82,7 +82,7 @@ Use the following operations to work with operation logs records and related sta
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `Activity & Notifications > Operation Logs` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |

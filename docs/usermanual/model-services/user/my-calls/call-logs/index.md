@@ -76,9 +76,16 @@ Page screenshot:
 | Error Message | System-generated | Text | Displayed on page | Shows the error summary for a failed request. Redact it before screenshots or external communication. |
 | Actions | No | Action entry | `Details` | Opens single-call log details. |
 
+## Pitfalls
+
+- API Key, Token, Prompt, response content, and complete Endpoint may contain sensitive data. Record only sanitized snippets.
+- For 429, check rate limits and quota first; for 401, check credentials and permissions; for 5xx, check model service and upstream status.
+- Before retrying, verify request parameters, model version, and input size to avoid repeated invalid calls.
+
+
 ## Result Validation
 
-| Check Item | Success Criteria | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `My Calls - Call Logs` page opens normally, and `My Calls > Call Logs` is highlighted in the sidebar. | Check account permissions, navigation path, and page loading status. |
 | Call log list loads normally | The list shows columns such as call time, model, call status, usage, latency, and error message. | Refresh the page or retry after adjusting the month and date range. |

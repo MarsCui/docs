@@ -58,7 +58,7 @@ Register an image component when a new Harbor, Docker Registry, or compatible im
 
 #### Steps
 
-1. Go to `AI Infra > On-Prem > Resource Pools > Image Services`.
+1. Go to `AI Infrastructure > On-Prem > Resource Pools > Image Services`.
 2. Click `Register component`.
 3. Fill in `Service Type`, `Image`, `Name`, `Endpoint (Public URL)`, `Internal IP Address`, `Username`, `Password`, and `Description` according to the page fields.
 4. If the page provides `Test Connection`, run the read-only connectivity check first and confirm the returned result.
@@ -72,17 +72,17 @@ The following figure shows the Register Image Component form, used to fill in im
 
 ## Parameter Reference
 
-| Parameter | Required | Description | Configuration Suggestion |
-| --- | --- | --- | --- |
-| Service Type | Yes | Service type of the current component. | On the Image Services page, this usually displays `Image`. |
-| Image | Yes | Service type value when registering an image component. | Keep it consistent with the actual page option. |
-| Name | Yes | Display name of the image service. | Use a name that reflects repository purpose, region, or environment. |
-| Endpoint (Public URL) | Yes | Public entry used by the platform or user side to access the image repository. | Use placeholders only in documentation. Do not record real addresses. |
-| Internal IP Address | Conditionally required | Internal address used by clusters or the platform to access the image repository. | Keep it consistent with real network, DNS, and container runtime configuration. |
-| Username | Conditionally required | Image repository access account. | Fill it only in system forms. Do not write it in documents, screenshots, or tickets. |
-| Password | Conditionally required | Image repository access password. | Sensitive credential. Do not write it in documents, screenshots, or tickets. |
-| Description | No | Component purpose, boundary, or maintenance notes. | Record non-sensitive notes only. |
-| Actions | System-generated | Register component, Test Connection, Cancel, Confirm, edit, delete, and similar entries. | `Confirm` and `Delete` are high-risk actions. |
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Service Type | Yes | Dropdown / enum | `Image` | Service type of the current component. On the Image Services page, this usually displays `Image`. |
+| Image | Yes | Dropdown / enum | `registry.example.com/project/runtime:v1` | Service type value when registering an image component. Keep it consistent with the actual page option. |
+| Name | Yes | Text | `Example Name` | Display name of the image service. Use a name that reflects repository purpose, region, or environment. |
+| Endpoint (Public URL) | Yes | Address / path | `https://endpoint.example.com` | Public entry used by the platform or user side to access the image repository. Use placeholders only in documentation. Do not record real addresses. |
+| Internal IP Address | Conditionally required | IP address | `192.0.2.10` | Internal address used by clusters or the platform to access the image repository. Keep it consistent with real network, DNS, and container runtime configuration. |
+| Username | Conditionally required | Address / path | `operator-user` | Image repository access account. Fill it only in system forms. Do not write it in documents, screenshots, or tickets. |
+| Password | Conditionally required | Credential / sensitive text | `<password>` | Image repository access password. Sensitive credential. Do not write it in documents, screenshots, or tickets. |
+| Description | No | Multi-line text | `Example description` | Component purpose, boundary, or maintenance notes. Record non-sensitive notes only. |
+| Actions | System-generated | Action entry | `Edit` | Register component, Test Connection, Cancel, Confirm, edit, delete, and similar entries. `Confirm` and `Delete` are high-risk actions. |
 
 ## Pitfalls
 
@@ -94,7 +94,7 @@ The following figure shows the Register Image Component form, used to fill in im
 
 ## Result Validation
 
-| Check Item | Expected Result | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page can be opened | `AI Infra > On-Prem > Resource Pools > Image Services` is accessible. | Check menu configuration and account permissions. |
 | Component list loads normally | Component name, status, access address, project count, sync status, and associated region are displayed normally. | Refresh the page and check service status or browser console errors. |

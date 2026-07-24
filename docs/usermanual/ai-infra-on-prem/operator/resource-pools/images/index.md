@@ -66,7 +66,7 @@ Use the client upload guide when a locally built or existing runtime image needs
 
 #### Steps
 
-1. Go to `AI Infra > On-Prem > Resource Pools > Image Management`, and confirm that the image component is connected and the image list loads normally.
+1. Go to `AI Infrastructure > On-Prem > Resource Pools > Image Management`, and confirm that the image component is connected and the image list loads normally.
 2. Prepare the local client environment for image build, login, and push, such as Docker, Podman, or the actual client tool supported by the page.
 3. Build or load the local image, and tag the image address with a placeholder format, such as `<registry>/<project>/<image>:<tag>`.
 4. Log in to the image registry and push the image. Use placeholders only in learning or documentation examples. Do not write real registry addresses, accounts, or passwords.
@@ -88,18 +88,18 @@ The following figure shows the Image Upload entrypoint. Confirm image source, pu
 
 ## Parameter Reference
 
-| Parameter | Required | Description | Configuration Suggestion |
-| --- | --- | --- | --- |
-| Client Tool | Conditionally required | Local tool used to build, log in, and push images. | Use Docker, Podman, or the actual client tool supported by the page. |
-| Image Registry | Yes | Registry where the image is stored. | Use only the `<registry>` placeholder in documentation examples, not real registry addresses. |
-| Project/Namespace | Yes | Project, organization, or namespace in the image registry. | Use the `<project>` placeholder in examples, and fill in real values according to registry permissions only during actual operations. |
-| Image Name | Yes | Image display name or image name in the registry. | The name should reflect framework, purpose, or runtime environment. |
-| Image Tag | Yes | Image version tag. | Avoid using only `latest` in production scenarios. |
-| Image Address | Yes | Full image address, such as `<registry>/<project>/<image>:<tag>`. | Verify registry, project, image, and tag before submission. |
-| Image Type | No | Image purpose type, such as development, training, or inference. | Keep it consistent with later job, IDE, or inference template use. |
-| Architecture | No | Image CPU architecture or hardware architecture. | Match the target cluster node architecture. |
-| Sync Status | System-generated | Status after the platform synchronizes the image. | Return to the platform after pushing and refresh or sync to check status. |
-| Actions | No | Supports upload image, sync, edit tags, view, delete, and other operations. | Confirm impact scope before high-risk operations. |
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Client Tool | Conditionally required | Text | `Docker` | Local tool used to build, log in, and push images. Use Docker, Podman, or the actual client tool supported by the page. |
+| Image Registry | Yes | Address / path | `registry.example.com` | Registry where the image is stored. Use only the `<registry>` placeholder in documentation examples, not real registry addresses. |
+| Project/Namespace | Yes | Address / path | `example-project` | Project, organization, or namespace in the image registry. Use the `<project>` placeholder in examples, and fill in real values according to registry permissions only during actual operations. |
+| Image Name | Yes | Address / path | `vllm-runtime` | Image display name or image name in the registry. The name should reflect framework, purpose, or runtime environment. |
+| Image Tag | Yes | Text | `v1.0.0` | Image version tag. Avoid using only `latest` in production scenarios. |
+| Image Address | Yes | Image URI | `registry.example.com/example/vllm:v1.0.0` | Full image address, such as `<registry>/<project>/<image>:<tag>`. Verify registry, project, image, and tag before submission. |
+| Image Type | No | Dropdown / enum | `Inference` | Image purpose type, such as development, training, or inference. Keep it consistent with later job, IDE, or inference template use. |
+| Architecture | No | Number / capacity | `Ampere` | Image CPU architecture or hardware architecture. Match the target cluster node architecture. |
+| Sync Status | System-generated | Status | `Synced` | Status after the platform synchronizes the image. Return to the platform after pushing and refresh or sync to check status. |
+| Actions | No | Action entry | `Edit` | Supports upload image, sync, edit tags, view, delete, and other operations. Confirm impact scope before high-risk operations. |
 
 ## Pitfalls
 
@@ -111,7 +111,7 @@ The following figure shows the Image Upload entrypoint. Confirm image source, pu
 
 ## Result Validation
 
-| Check Item | Expected Result | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page can be opened | `AI Infra > On-Prem > Resource Pools > Image Management` is accessible. | Check menu configuration and account permissions. |
 | Image list loads normally | Image name, tags, creation time, update time, and operation entrypoints are displayed normally. | Refresh the page and check image component status. |

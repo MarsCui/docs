@@ -51,7 +51,7 @@ The following figure shows the job monitoring page.
 
 #### Procedure
 
-1. Go to `Monitoring > Job Monitoring`.
+1. Go to `AI Infrastructure > On-Prem > Monitoring > Job Monitoring`.
 2. Confirm the region in the upper-right corner and page filters.
 3. View lists, charts, or statistic cards.
 4. Focus on abnormal status, high watermarks, long periods without updates, or data inconsistent with expectations.
@@ -59,7 +59,7 @@ The following figure shows the job monitoring page.
 
 #### View Job Monitoring
 
-1. Go to `AI Infra > On-Prem > Monitoring > Jobs`.
+1. Go to `AI Infrastructure > On-Prem > Monitoring > Job Monitoring`.
 2. View the job list and overall running status, and confirm job ID, job name, job type, job status, tenant/user, cluster, and resource occupation.
 3. Select job status, tenant/user, cluster, resource type, or time range filters as provided by the page.
 4. Review queue duration, runtime duration, GPU/accelerator occupation, failure information, and event entrypoints to identify long queueing, startup failures, insufficient resources, or abnormal occupation.

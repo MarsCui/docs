@@ -62,7 +62,7 @@ Use the following operations to work with today tasks records and related status
 
 ### View Today Tasks Overview
 
-1. Go to `Finance Operations > Today Tasks`.
+1. Go to `Billing > Finance Operations > Today Tasks`.
 2. Check `Billing Cycle Settled Amount`, the current billing cycle, and platform operation notice.
 3. Review settlement progress metrics such as `Awaiting Execution`, `Settling`, and `Settled`.
 4. Review `Platform Clearing Account`, `Payable to Provider`, `Platform Revenue Account`, and `Alert Items`.
@@ -71,14 +71,14 @@ Use the following operations to work with today tasks records and related status
 
 ### Open Downstream Pages
 
-1. Go to `Finance Operations > Today Tasks`.
+1. Go to `Billing > Finance Operations > Today Tasks`.
 2. In the `Settlement Workbench`, `Billing Reconciliation`, `Platform Account Reconciliation`, or `Account Adjustment` card, click `See detail`.
 3. Continue filtering, viewing details, or checking exceptions on the downstream page.
 4. If settlement generation or adjustment is required, confirm the billing cycle, tenant, amount, and approval basis before any final action.
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Billing Cycle Settled Amount | System-generated | Amount | `0.00 credits` | Settled amount summary in the current billing cycle. |
 | Awaiting Execution | System-generated | Number | `0` | Settlement tasks that still need operator execution. |
@@ -104,7 +104,7 @@ Use the following operations to work with today tasks records and related status
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `Finance Operations > Today Tasks` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |
@@ -130,7 +130,7 @@ The displayed balance, consumption, settlement status, monthly bill, or License 
 
 **How to check:**
 
-1. Confirm that the same billing cycle, customer, account, currency, and resource scope are being compared.
+1. Confirm task type, timeout status, organization, and amount-related clues before comparing totals.
 2. Check whether pending top-up orders, adjustments, refunds, settlement reviews, or metering synchronization are still in progress.
 3. Compare the summary number with the detail list and operation records on the related billing pages.
 4. For financial-impacting differences, pause confirmation actions and escalate with desensitized record IDs, time range, customer scope, and screenshots without credentials.

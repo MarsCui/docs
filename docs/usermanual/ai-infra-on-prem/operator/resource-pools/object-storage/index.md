@@ -61,7 +61,7 @@ Register a storage component when a new MinIO, S3-compatible storage, or another
 
 #### Steps
 
-1. Go to `AI Infra > On-Prem > Resource Pools > Object Storage`.
+1. Go to `AI Infrastructure > On-Prem > Resource Pools > Object Storage`.
 2. Click `Register component`.
 3. Fill in `Service Type`, `Object Storage`, `Name`, `Endpoint (Public URL)`, `IP Address`, `Access Key`, `Secret Key`, `Limit Storage Quota`, and `Description` according to the page fields.
 4. If the page provides `Test Connection`, run the read-only connectivity check first and confirm the returned result.
@@ -74,18 +74,18 @@ The following figure shows the Register Storage Component form, used to configur
 
 ## Parameter Reference
 
-| Parameter | Required | Description | Configuration Suggestion |
-| --- | --- | --- | --- |
-| Service Type | Yes | Service type of the current component. | On the Object Storage page, this usually displays `Object Storage`. |
-| Object Storage | Yes | Service type value when registering a storage component. | Keep it consistent with the actual page option. |
-| Name | Yes | Display name of the object storage component. | Use a name that reflects storage type, environment, or region. |
-| Endpoint (Public URL) | Yes | Public entry exposed by object storage to the platform or service side. | Do not record real Endpoint values in documentation. |
-| IP Address | Conditionally required | Address used by clusters or the platform to access object storage. | Keep it consistent with actual network, DNS, and routing configuration. |
-| Access Key | Yes | Access key for object storage. | Fill it only in system forms. Do not write it in documents, screenshots, or tickets. |
-| Secret Key | Yes | Secret key for object storage. | Sensitive credential. Do not write it in documents, screenshots, or tickets. |
-| Limit Storage Quota | No | Whether to limit object storage quota. | Plan according to tenant, region, and job scale. |
-| Description | No | Component purpose, boundary, or maintenance notes. | Record non-sensitive notes only. |
-| Actions | System-generated | Register component, Test Connection, Cancel, Confirm, Edit quota, Delete, and similar entries. | `Confirm` and `Delete` are high-risk actions. |
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Service Type | Yes | Dropdown / enum | `Image` | Service type of the current component. On the Object Storage page, this usually displays `Object Storage`. |
+| Object Storage | Yes | Dropdown / enum | `Object Storage` | Service type value when registering a storage component. Keep it consistent with the actual page option. |
+| Name | Yes | Text | `Example Name` | Display name of the object storage component. Use a name that reflects storage type, environment, or region. |
+| Endpoint (Public URL) | Yes | Address / path | `https://endpoint.example.com` | Public entry exposed by object storage to the platform or service side. Do not record real Endpoint values in documentation. |
+| IP Address | Conditionally required | IP address | `192.0.2.10` | Address used by clusters or the platform to access object storage. Keep it consistent with actual network, DNS, and routing configuration. |
+| Access Key | Yes | Credential / sensitive text | `<access-key>` | Access key for object storage. Fill it only in system forms. Do not write it in documents, screenshots, or tickets. |
+| Secret Key | Yes | Credential / sensitive text | `<secret-key>` | Secret key for object storage. Sensitive credential. Do not write it in documents, screenshots, or tickets. |
+| Limit Storage Quota | No | Number / capacity | `Enabled` | Whether to limit object storage quota. Plan according to tenant, region, and job scale. |
+| Description | No | Multi-line text | `Example description` | Component purpose, boundary, or maintenance notes. Record non-sensitive notes only. |
+| Actions | System-generated | Action entry | `Edit` | Register component, Test Connection, Cancel, Confirm, Edit quota, Delete, and similar entries. `Confirm` and `Delete` are high-risk actions. |
 
 ## Pitfalls
 
@@ -97,7 +97,7 @@ The following figure shows the Register Storage Component form, used to configur
 
 ## Result Validation
 
-| Check Item | Expected Result | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page can be opened | `AI Infra > On-Prem > Resource Pools > Object Storage` is accessible. | Check menu configuration and account permissions. |
 | Component list loads normally | Component name, Endpoint, internal address, capacity, status, and associated regions are displayed normally. | Refresh the page and check service status or browser console errors. |

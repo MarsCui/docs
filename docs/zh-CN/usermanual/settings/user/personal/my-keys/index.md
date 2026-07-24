@@ -51,7 +51,7 @@
 
 ### 管理我的 Keys
 
-1. 进入 `个人 > 我的 Keys`。
+1. 进入 `设置 > 个人 > 我的 Keys`。
 2. 在页签中选择 `Model API Keys` 或 `System API AK/SK Pairs`。
 3. 查看 Key 名称、前缀、状态、已用 / 限额和创建时间。
 

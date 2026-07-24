@@ -127,7 +127,7 @@ The recommended configuration order is: create regions first, then create availa
 
 ## Result Validation
 
-| Check Item | Success Signal | If Not Met |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Resource hierarchy is clear | You can map region, availability zone, cluster, node, resource pool, and instance relationships. | Re-read Resource Hierarchy and Role Relationship before entering feature pages. |
 | Operator preparation is complete | Regions, clusters, specifications, images, storage, templates, quotas, and monitoring have target records. | Continue with the operator reading path and check missing bindings. |

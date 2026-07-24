@@ -52,7 +52,7 @@ Page screenshot:
 
 ### Add Framework
 
-1. Go to `AI Infra > On-Cloud > Deploy Assets > Frameworks`.
+1. Go to `AI Infrastructure > On-Cloud > Deploy Assets > Frameworks`.
 2. Click `Add Framework` to open the add framework dialog.
 3. Select `Cloud Platform`, and then select `Cloud Account` and `Region` as required by the page.
 4. Fill in `Framework Type`, `Framework Name`, `Framework Description`, `Framework Version`, and `Default API Suffix`.
@@ -67,7 +67,7 @@ Key step screenshot:
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Cloud Platform | Yes | Tab/Single select | `Alibaba Cloud` | Selects the cloud platform to which the framework belongs. |
 | Cloud Account | Yes | Dropdown | `Sample Cloud Account` | Selects the cloud account under the current cloud platform. |
@@ -97,7 +97,7 @@ Key step screenshot:
 
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `Frameworks` page and framework list are displayed. | Check menu permissions, route, and login status. |
 | Framework list loads | Framework cards display name, version, framework type, cloud platform, region, and action entries. | Check filters, data permissions, and API status. |

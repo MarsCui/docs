@@ -58,7 +58,7 @@ Use the following operations to work with tenants records and related status. Co
 
 ### Create Tenant
 
-1. Go to `Tenants > Tenants`.
+1. Go to `Settings > Tenants > Tenants`.
 2. Click `Create Tenant` in the upper-right corner of the page.
 3. On the `Create Tenant` page, review the tenant creation fields.
 
@@ -72,7 +72,7 @@ Use the following operations to work with tenants records and related status. Co
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Tenant Name | Yes | Text | `Example Tenant A` | Identifies the tenant entity. |
 | Admin name | Yes | Text | `Example Admin` | The display name of the tenant administrator. |
@@ -97,7 +97,7 @@ Use the following operations to work with tenants records and related status. Co
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `Tenants > Tenants` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |

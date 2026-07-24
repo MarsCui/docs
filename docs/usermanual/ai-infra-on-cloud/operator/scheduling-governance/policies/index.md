@@ -53,7 +53,7 @@ The add policy flow contains three steps: `Basic Information & Model Association
 
 ### Add Policy
 
-1. Go to `AI Infra > On-Cloud > Scheduling Governance > Policies`.
+1. Go to `AI Infrastructure > On-Cloud > Scheduling Governance > Policies`.
 2. Click `Add Policy` in the policies list to open the `Add Policy` page.
 3. In `Basic Information & Model Association`, fill in `Name`, select `Scenario`, and select `Associated Model`.
 4. Review `Related Route Node Resources`, including `Cloud Platform`, `Region`, `Available specs`, and `Available frameworks`, and then fill in `Description`.
@@ -77,7 +77,7 @@ The add policy flow contains three steps: `Basic Information & Model Association
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Name | Yes | Text | `policy-cost-priority-demo` | Policy display name. Use sanitized examples or non-sensitive business-readable names. |
 | Label ID | No | Text | `label-demo` | List filter field used to search policies by label identifier. |
@@ -126,7 +126,7 @@ The add policy flow contains three steps: `Basic Information & Model Association
 
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `Policies` page and policy list are displayed. | Check menu permissions, route, and login status. |
 | Policy list loads | The page displays Name and Label ID filters, plus search, reset, and add entries. | Check filters, data permissions, and API status. |

@@ -50,7 +50,7 @@ Page screenshot:
 
 ### Add Runtime Image
 
-1. Go to `AI Infra > On-Cloud > Deploy Assets > Runtime Images`.
+1. Go to `AI Infrastructure > On-Cloud > Deploy Assets > Runtime Images`.
 2. Click `Add Runtime Image` to open the add runtime image dialog.
 3. Select `Cloud Platform`, and then select `Region` as required by the page.
 4. Select `Public` or `Private` under `Type`.
@@ -64,7 +64,7 @@ Key step screenshot:
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Cloud Platform | Yes | Tab/Single select | `Alibaba Cloud` | Selects the cloud platform to which the image belongs or on which it can be used. |
 | Region | Yes | Dropdown | `East China-Shanghai 1` | Selects the region where the image is located or available. |
@@ -92,7 +92,7 @@ Key step screenshot:
 
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `Runtime Images` page and image list are displayed. | Check menu permissions, route, and login status. |
 | Runtime image list loads | The table displays name, type, size, registry path, cloud platform, created time, and action entries. | Check filters, data permissions, and API status. |

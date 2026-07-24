@@ -17,7 +17,17 @@ The manual is organized into five modules in the left sidebar:
 4. Billing: view user billing, customer billing, finance operations, and License information.
 5. Settings: manage accounts, members, roles, organizations, system configuration, and operation logs.
 
-## Module Entry Points
+## Where To Start
+
+| Your role or goal | Recommended entry | Next step |
+| --- | --- | --- |
+| First-time platform user | Start from this page, then open the target module getting-started page. | Confirm your role, permissions, and target resource before entering a feature page. |
+| General user | Model Services, AI Infra On-Prem, Billing, or Settings. | Decide whether you need to call models, use resources, check billing, or manage personal settings. |
+| Platform operator | Settings, AI Infra On-Cloud, AI Infra On-Prem, and Model Services. | Confirm account permissions, resource onboarding, and approval boundaries first. |
+| Billing or finance user | Billing. | Confirm billing cycle, customer, organization, and business-line scope. |
+| Model provider | Model Services. | Start with model publishing, review, calling, and revenue paths. |
+
+## Find The Right Entry By Goal
 
 | Module | Applicable Roles | Core Features | Recommended Entry |
 | --- | --- | --- | --- |
@@ -27,7 +37,17 @@ The manual is organized into five modules in the left sidebar:
 | Billing | General users, platform operators, billing operators, License admins | User billing, customer billing, finance operations, top-up orders, monthly bills, settlements, adjustments, License | [Overview](./billing/), [Getting Started](./billing/getting-started/), [Reconcile and Settle a Billing Cycle](./billing/end-to-end/reconcile-billing-cycle/) |
 | Settings | General users, platform operators, system admins, security admins | Personal Keys, account information, projects, team members, roles, organization settings, operation logs, system configuration, API rate control | [Overview](./settings/), [Getting Started](./settings/getting-started/), [Configure Account and Permissions](./settings/end-to-end/configure-account-and-permissions/) |
 
-## Read by Role
+## Core Terms
+
+| Term | Beginner Meaning | Common Entry |
+| --- | --- | --- |
+| Model Service | AI capability that can be published, tried, called, and operated. | Model Services |
+| Resource Pool | Compute scope that hosts instances, jobs, or model services. | AI Infra On-Cloud, AI Infra On-Prem |
+| Billing cycle | Time period used for financial statistics and settlement. | Billing |
+| License | Credential that controls authorization quota, validity, and resource permission. | Billing, Settings |
+| Role permission | Rules that decide which menus, buttons, and data scopes are visible. | Settings |
+
+## Read By Role
 
 | Role | Recommended Reading Path | Focus |
 | --- | --- | --- |
@@ -52,6 +72,22 @@ The manual is organized into five modules in the left sidebar:
 2. Confirm that the target module, resource pool, cloud account, model, billing cycle, or settings object is visible to the current account.
 3. Before deployment, authorization, top-up, settlement, adjustment, deletion, publishing, or License activation, confirm the impact scope and rollback path.
 4. Screenshots, tickets, and communication materials must not contain passwords, tokens, AK/SK values, private keys, full credentials, customer-sensitive data, or real internal addresses.
+
+## Pitfalls
+
+- Do not choose an entry only by menu name. Confirm your role, target object, and permission scope first.
+- For cross-module tasks, start from the end-to-end workflow. Use feature pages for page-level fields and procedures.
+- For cost, credential, deployment, deletion, publishing, or authorization operations, confirm impact scope before final confirmation.
+
+
+## Result Validation
+
+| Check Item | Success Signal | If Abnormal |
+| --- | --- | --- |
+| Entry point identified | You can decide which module owns the target task. | Return to “Find The Right Entry By Goal” and locate the task again. |
+| Role path is clear | You can find the recommended reading path for your role. | Return to “Read By Role” and confirm permissions and responsibilities. |
+| Next step is clear | You can open the related overview, getting-started, or end-to-end page. | Check the link, sidebar entry, and visible menus under your account. |
+| Sensitive data is not exposed | Messages and screenshots do not include passwords, tokens, AK/SK values, customer data, or internal addresses. | Remove exposed content immediately and follow the security process. |
 
 ## FAQ
 

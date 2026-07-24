@@ -57,7 +57,7 @@ On-Cloud is like a multi-cloud resource scheduling hub: operators connect accoun
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Role Type | Yes | Enum | Operator | Used to decide whether to enter the operator access workflow or the user deployment workflow first. |
 | Cloud Resource Object | No | Text | Sample cloud account A | Used to locate a cloud platform, cloud account, resource pool, or access account. |
@@ -67,7 +67,7 @@ On-Cloud is like a multi-cloud resource scheduling hub: operators connect accoun
 
 ## Result Validation
 
-| Check Item | Success Signal | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Correct entry selected | You can distinguish the operator access workflow from the user deployment workflow. | Return to the role entry table and locate the entry again. |
 | Authorization workflow clear | You understand the relationship between cloud accounts, resource pools, tenant authorization, and business region authorization. | Continue reading Getting Started for AI Infra On-Cloud. |

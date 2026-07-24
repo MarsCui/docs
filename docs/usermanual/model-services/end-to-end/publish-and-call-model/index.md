@@ -85,7 +85,7 @@ Publishing and calling a model is like placing a model on a shelf and then compl
 
 Result checks:
 
-| Check Item | Success Criteria | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Target meta-model is visible in Meta-models | The target meta-model is visible in [Meta-models](../../operator/settings/meta-models/). | Return to this step and check prerequisites, permissions, and configuration status. |
 | Model type, input/output modalities, protocol, and context limit | Model type, input/output modalities, protocol, and context limit meet publishing requirements. | Return to this step and check prerequisites, permissions, and configuration status. |
@@ -100,7 +100,7 @@ Result checks:
 
 Result checks:
 
-| Check Item | Success Criteria | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Target source is visible in Model Sources | The target source is visible in [Model Sources](../../operator/settings/model-source/). | Return to this step and check prerequisites, permissions, and configuration status. |
 | Source region, request URL, and request header configuration | Source region, request URL, and request header configuration are accurate. | Return to this step and check prerequisites, permissions, and configuration status. |
@@ -115,7 +115,7 @@ Result checks:
 
 Result checks:
 
-| Check Item | Success Criteria | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Target template is visible in Templates | The target template is visible in [Templates](../../operator/settings/model-templates/). | Return to this step and check prerequisites, permissions, and configuration status. |
 | Target tag is visible in Tags | The target tag is visible in [Tags](../../operator/settings/tags/). | Return to this step and check prerequisites, permissions, and configuration status. |
@@ -144,7 +144,7 @@ On-Cloud Quick Deployment branch:
 
 Result checks:
 
-| Check Item | Success Criteria | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Target model is visible in My Models | The target model is visible in [My Models](../../user/studio/my-models/). | Return to this step and check prerequisites, permissions, and configuration status. |
 | On-Cloud record is visible in My Deployments | After Quick Deployment submission, the target deployment record is visible in the `On-Cloud` list in [My Deployments](../../user/studio/my-deployments/). | Check Quick Deployment task status, account permissions, and deployment filters. |
@@ -165,7 +165,7 @@ Result checks:
 
 Result checks:
 
-| Check Item | Success Criteria | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Target aggregation model is visible | The target aggregation model is visible in the My Aggregations list in [My Models](../../user/studio/my-models/). | Return to this step and check prerequisites, permissions, and configuration status. |
 | Member model count is at least two | The member model count is at least two. | Return to this step and check prerequisites, permissions, and configuration status. |
@@ -180,7 +180,7 @@ Result checks:
 
 Result checks:
 
-| Check Item | Success Criteria | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Target review record status is updated | The target review record status is updated in [Model Reviews](../../operator/approvals/model-reviews/). | Return to this step and check prerequisites, permissions, and configuration status. |
 | Model can enter listing or display flow after approval | After approval, the model can enter the listing or display flow. | Return to this step and check prerequisites, permissions, and configuration status. |
@@ -195,7 +195,7 @@ Result checks:
 
 Result checks:
 
-| Check Item | Success Criteria | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Target model is visible in Model Marketplace | The target model is visible in [Model Marketplace](../../user/discover/models/). | Return to this step and check prerequisites, permissions, and configuration status. |
 | Provider, quick start, performance, and overview information is complete | Provider, quick start, performance, and overview information is complete on the model details page. | Return to this step and check prerequisites, permissions, and configuration status. |
@@ -211,7 +211,7 @@ Result checks:
 
 Result checks:
 
-| Check Item | Success Criteria | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Target model can be selected in Text Chat | The target model can be selected in [Text Chat](../../user/playground/text/). | Return to this step and check prerequisites, permissions, and configuration status. |
 | Model returns an expected response | The model returns an expected response. | Return to this step and check prerequisites, permissions, and configuration status. |
@@ -227,13 +227,13 @@ Result checks:
 
 Result checks:
 
-| Check Item | Success Criteria | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Call data is visible in My Call Overview | Call data is visible in [My Call Overview](../../user/my-calls/overview/). | Return to this step and check prerequisites, permissions, and configuration status. |
 | Single request can be located in Call Logs | A single request can be located in [Call Logs](../../user/my-calls/call-logs/). | Return to this step and check prerequisites, permissions, and configuration status. |
 | Revenue and consumption can be viewed | Revenue and consumption can be viewed in [Model Revenue](../../user/usage-earnings/model-earnings/) and [Model Usage](../../user/usage-earnings/model-usage/). | Return to this step and check prerequisites, permissions, and configuration status. |
 
-## Common Failure Path Troubleshooting
+## Failure Branches and Troubleshooting Paths
 
 #### Failure Branch: Model Review Is Rejected
 
@@ -271,13 +271,58 @@ Next hop: [My Call Logs](../../user/my-calls/call-logs/)
 2. For 429, first check QPM, Token limits, customer quota, and provider rate limits.
 3. For 5xx, first check request ID, latency, and model source health in call logs.
 
-## Completion Check
+## Result Validation
 
-| Check Item | Success Signal | Next Step |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Model visible | The target model can be searched in the model marketplace | Enter details and quick start |
 | Normal status | Model review has passed and Playground can return results | Start production calling or revenue tracking |
 | Troubleshooting entry available | Review records, call logs, or source tests can locate the error | Continue troubleshooting by failure branch |
+
+## FAQ
+
+#### What should I do after model review is rejected?
+
+**Symptom:**
+
+The model submission is rejected, and callers cannot use it from the model marketplace.
+
+**Possible Causes:**
+
+Model description, tags, source, template, billing configuration, test results, or security materials are incomplete.
+
+**How to Handle:**
+
+Read the review comments. Complete model description, examples, source, template, and test materials. Before resubmission, confirm that sensitive information is sanitized.
+
+#### What if the model is published but calls fail?
+
+**Symptom:**
+
+The model is visible, but Playground or API calls return 401, 429, 5xx, or timeout.
+
+**Possible Causes:**
+
+API Key, Token, Endpoint, rate-limit policy, model service status, or upstream model source is abnormal.
+
+**How to Handle:**
+
+Check credentials, Endpoint, and request parameters first. Then review call logs, rate-limit configuration, model deployment status, and model source connectivity.
+
+#### Why do usage and revenue numbers not match?
+
+**Symptom:**
+
+Call logs, model usage, model revenue, or customer-call statistics show inconsistent counts, time ranges, or amounts.
+
+**Possible Causes:**
+
+The statistical time range, model version, customer scope, billing rule, or synchronization time is different.
+
+**How to Handle:**
+
+Use the same time range, model version, and customer scope. Check call logs first, then model usage and revenue statistics. If still inconsistent, keep desensitized clues and contact operations.
+
 
 ## Next Steps
 

@@ -58,7 +58,7 @@ Use the following operations to view EU and Provider customer overview records a
 
 ### View Customer Overview - EU
 
-1. Go to `Customer Billing > Customer Overview`.
+1. Go to `Billing > Customer Billing > Customer Overview`.
 2. Select `EU` in `Business Identity`.
 3. Enter customer name, customer ID, administrator email, tags, or other filters as needed.
 4. Click `Search` and review the EU customer list.
@@ -69,7 +69,7 @@ Use the following operations to view EU and Provider customer overview records a
 
 ### View Customer Overview - Provider
 
-1. Go to `Customer Billing > Customer Overview`.
+1. Go to `Billing > Customer Billing > Customer Overview`.
 2. Select `Provider` in `Business Identity`.
 3. Enter customer name, customer ID, administrator email, tags, or other filters as needed.
 4. Click `Search` and review the Provider customer list.
@@ -80,7 +80,7 @@ Use the following operations to view EU and Provider customer overview records a
 
 ### Manage Tags
 
-1. Go to `Customer Billing > Customer Overview`.
+1. Go to `Billing > Customer Billing > Customer Overview`.
 2. Click `Manage Tags` to open the tag management dialog.
 3. Review platform built-in tags. These tags are locked by the platform and cannot be edited.
 4. In the custom tag area, enter a new tag name and click the visible create entry when it is available.
@@ -89,7 +89,7 @@ Use the following operations to view EU and Provider customer overview records a
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Business Identity | No | Enum | `EU` | Filters customers by business identity. |
 | EU | System enum | Enum value | `EU` | End User customer view for consumption and balance information. |
@@ -116,7 +116,7 @@ Use the following operations to view EU and Provider customer overview records a
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `Customer Billing > Customer Overview` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |
@@ -142,7 +142,7 @@ The displayed balance, consumption, settlement status, monthly bill, or License 
 
 **How to check:**
 
-1. Confirm that the same billing cycle, customer, account, currency, and resource scope are being compared.
+1. Confirm customer, business unit, account status, credit limit, and billing period before comparing balances.
 2. Check whether pending top-up orders, adjustments, refunds, settlement reviews, or metering synchronization are still in progress.
 3. Compare the summary number with the detail list and operation records on the related billing pages.
 4. For financial-impacting differences, pause confirmation actions and escalate with desensitized record IDs, time range, customer scope, and screenshots without credentials.

@@ -68,7 +68,7 @@ The page displays model library, accelerators, business parameters, recommended 
 
 #### Procedure
 
-1. Go to `AI Infra > On-Prem > Model Deployment > Templates`.
+1. Go to `AI Infrastructure > On-Prem > Model Deployment > Templates`.
 2. View deployable models in `Model Library`.
 3. Select the target model and review `Accelerators`, `Business Parameters`, and `Recommended Specifications`.
 4. Review model capability, context, startup, or runtime parameters in `Business Parameters`.
@@ -107,7 +107,7 @@ The page displays model library, accelerators, business parameters, recommended 
 
 ## Result Validation
 
-| Check Item | Expected Result | If Not Met |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `Templates` page opens from `Model Deployment > Templates`. | Check account permission, sidebar route, and current language. |
 | Template visibility | Deployable templates are displayed in the model library. | Ask the operator to check template publishing status, tenant visibility, and model-source configuration. |

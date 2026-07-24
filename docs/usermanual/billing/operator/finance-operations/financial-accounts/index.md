@@ -82,14 +82,14 @@ Use the following operations to review account information and transactions. Thi
 
 ### View Account List
 
-1. Go to `Finance Operations > Financial Accounts`.
+1. Go to `Billing > Finance Operations > Financial Accounts`.
 2. Review accounts such as `Platform Clearing Account` and `Platform Revenue Account`.
 3. Check account balance, total income, total expense, available amount, and last update time.
 4. If the list is empty, reset filters first, then confirm whether the current account has financial-account view permission.
 
 ### View Platform Clearing Account
 
-1. Go to `Finance Operations > Financial Accounts`.
+1. Go to `Billing > Finance Operations > Financial Accounts`.
 2. Find `Platform Clearing Account` in the account list.
 3. Review account balance, income, expense, available amount, and last update time.
 4. To verify fund flow, click `Details` or the transaction entry for the account.
@@ -98,7 +98,7 @@ Use the following operations to review account information and transactions. Thi
 
 ### View Platform Revenue Account
 
-1. Go to `Finance Operations > Financial Accounts`.
+1. Go to `Billing > Finance Operations > Financial Accounts`.
 2. Find `Platform Revenue Account` in the account list.
 3. Review account balance, income, expense, available amount, and last update time.
 4. Focus on platform retained fee, self-operated revenue, or other platform revenue amounts.
@@ -107,7 +107,7 @@ Use the following operations to review account information and transactions. Thi
 
 ### View Account Details
 
-1. Go to `Finance Operations > Financial Accounts`.
+1. Go to `Billing > Finance Operations > Financial Accounts`.
 2. Select the target account in the account list.
 3. Open account details.
 4. Review basic account information, balance changes, income and expense summary, and transactions.
@@ -115,7 +115,7 @@ Use the following operations to review account information and transactions. Thi
 
 ### View Transactions
 
-1. Go to `Finance Operations > Financial Accounts`.
+1. Go to `Billing > Finance Operations > Financial Accounts`.
 2. Open the target account details.
 3. Filter by transaction time, transaction type, or transaction number.
 4. Open transaction details.
@@ -124,7 +124,7 @@ Use the following operations to review account information and transactions. Thi
 
 ### Open Troubleshooting Pages
 
-1. Go to `Finance Operations > Financial Accounts`.
+1. Go to `Billing > Finance Operations > Financial Accounts`.
 2. Use filters or tabs to locate the target record.
 3. Select the target row or entry related to financial accounts records and related status.
 4. Click the visible `Open Troubleshooting Pages` entry when it is available.
@@ -132,7 +132,7 @@ Use the following operations to review account information and transactions. Thi
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Platform Clearing Account | System-generated | Account type | Platform Clearing Account | Used to review clearing balance, income, expense, and transactions. |
 | Platform Revenue Account | System-generated | Account type | Platform Revenue Account | Used to review platform retained fee, self-operated revenue, and other platform revenue. |
@@ -150,7 +150,7 @@ Use the following operations to review account information and transactions. Thi
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `Finance Operations > Financial Accounts` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |
@@ -185,7 +185,7 @@ The displayed balance, consumption, settlement status, monthly bill, or License 
 
 **How to check:**
 
-1. Confirm that the same billing cycle, customer, account, currency, and resource scope are being compared.
+1. Confirm account type, transaction direction, organization, and account transaction time range before comparing amounts.
 2. Check whether pending top-up orders, adjustments, refunds, settlement reviews, or metering synchronization are still in progress.
 3. Compare the summary number with the detail list and operation records on the related billing pages.
 4. For financial-impacting differences, pause confirmation actions and escalate with desensitized record IDs, time range, customer scope, and screenshots without credentials.

@@ -58,7 +58,7 @@ Use the following operations to work with operation logs records and related sta
 
 ### View Operation Logs
 
-1. Go to `Activity & Notifications > Operation Logs`.
+1. Go to `Settings > Activity & Notifications > Operation Logs`.
 2. Select `HTTP Method`, `Result`, and the time range.
 3. Click `Search` to query operation logs.
 4. Review `Time`, `User`, `Action`, `Method`, `IP`, `Cost`, and `Result` in the log table.
@@ -69,7 +69,7 @@ Use the following operations to work with operation logs records and related sta
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | HTTP Method | No | Enum | `GET` | Filters logs by HTTP request method. |
 | Result | No | Enum | `Success` | Filters logs by operation result. |
@@ -95,7 +95,7 @@ Use the following operations to work with operation logs records and related sta
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `Activity & Notifications > Operation Logs` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |

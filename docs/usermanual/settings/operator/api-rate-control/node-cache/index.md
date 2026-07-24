@@ -54,7 +54,7 @@ Use this operation to query node cache status. Do not add create or publish oper
 
 ### View Node Cache
 
-1. Go to `API Rate Control > Node Cache`.
+1. Go to `Settings > API Rate Control > Node Cache`.
 2. Review node status, rule version, rule count, counter cache, identity cache, refresh time, and messages in the node list.
 3. Compare the rule version with the published version on the rule management page to confirm whether rules have been synchronized to nodes.
 4. Click `Refresh Nodes` to fetch node cache status again.
@@ -65,7 +65,7 @@ Use this operation to query node cache status. Do not add create or publish oper
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Node | No | Text | `<node_name>` | Identifies an API rate-control node. |
 | Node Status | System generated | Enum | `Normal` | Shows whether the node is online, abnormal, or synchronized. |
@@ -87,7 +87,7 @@ Use this operation to query node cache status. Do not add create or publish oper
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `API Rate Control > Node Cache` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Node visibility | The node list is displayed normally. | Check the Node ID filter. |

@@ -53,7 +53,7 @@ More actions include `Publish`, `Delete`, `Monitoring Information`, and `API Cal
 
 ### Publish Model
 
-1. Go to `AI Infra > On-Cloud > Model Services > My Deployments`.
+1. Go to `AI Infrastructure > On-Cloud > Model Services > My Deployments`.
 2. In the deployment list, find the target deployment and verify deployment name, running status, model name, cloud platform, region, GPU, CPU, memory, and cost information.
 3. Click the more actions entry in the lower-right corner of the target deployment, and then select `Publish`.
 
@@ -73,7 +73,7 @@ More actions include `Publish`, `Delete`, `Monitoring Information`, and `API Cal
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Name | No | Input | `demo-deployment` | Filters records by deployment name. Use sanitized examples only. |
 | Status | No | Dropdown | `Running` | Filters records by deployment status. |
@@ -108,7 +108,7 @@ More actions include `Publish`, `Delete`, `Monitoring Information`, and `API Cal
 
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `My Deployments` page and deployment list are displayed. | Check menu permissions, route, and login status. |
 | Deployment list loads | The page displays cloud platform tabs, Name, Status, Model Name filters, and deployment cards. | Check filters, data permissions, and API status. |

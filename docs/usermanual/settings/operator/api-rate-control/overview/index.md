@@ -58,7 +58,7 @@ Use the following operations to work with overview records and related status. C
 
 ### View API Rate Control Overview
 
-1. Go to `API Rate Control > Overview`.
+1. Go to `Settings > API Rate Control > API Rate Control Overview`.
 2. Review request volume, blocked volume, matched rules, API distribution, or trend data on the overview page.
 3. Select a time range, API, rule, or result status according to available filters.
 4. Click `Search` or the actual query entry on the page to refresh overview data.
@@ -69,7 +69,7 @@ Use the following operations to work with overview records and related status. C
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Time Range | No | Date time | `2026-07-13 09:00 to 10:00` | The time window for API request, blocked, and hit statistics. |
 | API | No | Text | `/api/example` | Filters overview data by API or API path. Desensitize it in documentation. |
@@ -94,7 +94,7 @@ Use the following operations to work with overview records and related status. C
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `API Rate Control > API Rate Control Overview` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |

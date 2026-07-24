@@ -88,12 +88,19 @@ After a publish region is selected, the page redirects to the `Publish Model` pa
 | Redirect Target | Yes | Page redirect | `My Models > Publish Model` | Target page after a publish region is selected. |
 | Publish Scope | Conditionally required | Page configuration | Displayed on the publish model page | Confirms the model visibility scope on the publish model page. |
 | Billing Configuration | Conditionally required | Step configuration | Displayed on the publish model page | Confirms pricing, free quota, or billing method on the publish model page. |
-| Call Configuration | Conditionally required | Step configuration | Displayed on the publish model page | Confirms request URL, API key, model source ID, rate limits, and other call-related settings. |
+| Call Configuration | Conditionally required | Step configuration | Displayed on the publish model page | Confirms request URL, API Key, model source ID, rate limits, and other call-related settings. |
 | Actions | No | Row buttons / more menu | `Start` / `Stop` / `Details` / `Publish` | Page entries for viewing, controlling, or entering the publish flow. |
+
+## Pitfalls
+
+- My Deployments shows deployment status. It does not mean the model has been published to the marketplace.
+- When deployment is abnormal, check Resource Pool, Runtime Image, model asset, and startup logs before submitting again.
+- Deleting, stopping, or restarting a deployment may affect callers. Confirm traffic and rollback path first.
+
 
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `My Deployments` page opens normally, and the `On-Prem` and `On-Cloud` tabs are visible. | Check account permissions, navigation path, and page loading status. |
 | Deployment list loads | The target deployment card shows deployment name, model name, status, region, and resource specification. | Click `Search` or `Reset` and retry. Check filters and deployment permissions if needed. |

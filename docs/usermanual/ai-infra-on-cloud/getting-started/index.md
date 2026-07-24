@@ -105,7 +105,7 @@ The recommended configuration order is: connect cloud platforms first, then add 
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Role Type | Yes | Enum | User | Used to decide whether to read the operator access configuration or the user deployment workflow. |
 | Cloud Account | No | Text | Sample cloud account A | Used to locate access accounts, cloud account authorization, and resource synchronization status. |

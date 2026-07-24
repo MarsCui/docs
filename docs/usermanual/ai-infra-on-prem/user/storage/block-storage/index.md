@@ -58,7 +58,7 @@ The page is used to display block storage capability in the selected region. Whe
 
 #### Procedure
 
-1. Go to `Storage Services > Block Storage`.
+1. Go to `AI Infrastructure > On-Prem > Storage Services > Block Storage`.
 2. Confirm the region in the upper-right corner.
 3. If the page provides a create entrypoint, fill in name, capacity, access policy, and description.
 4. After submission, return to the list and view status.
@@ -125,6 +125,17 @@ Alternative troubleshooting paths:
 - Block storage is usually not suitable for multiple instances reading and writing the same path simultaneously. Confirm the access mode before use.
 - Mount paths must not overwrite system directories, startup directories, or key directories inside the image.
 - Before deleting a volume, confirm that no running instances, training tasks, or output artifacts depend on it.
+
+## Result Validation
+
+| Check Item | Success Signal | If Abnormal |
+| --- | --- | --- |
+| Page is accessible | The block storage page opens and shows volume records or an empty-state message. | Check account permission, region scope, and block storage component availability. |
+| Create-volume entry is visible | Users with permission can see the create-volume entry and open the form. | Confirm whether block storage is opened to the current tenant. |
+| Mount relationship is clear | Volume ID, mounted instance, capacity, status, and mount path are visible. | Verify target instance, volume status, mount mode, and permission scope. |
+| Unmount or delete has confirmation | High-risk operations show confirmation or restriction prompts before final action. | Pause the operation and confirm whether instances or data still depend on the volume. |
+
+
 
 ## FAQ
 

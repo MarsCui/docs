@@ -24,7 +24,7 @@
 | 部署资产 | 模型库、推理框架、运行镜像和部署配置。 |
 | 调度策略 | 决定云上部署如何选择资源、回退和优先级。 |
 
-## 角色入口
+## 按角色阅读
 
 | 角色 | 推荐入口 | 典型任务 |
 | --- | --- | --- |
@@ -40,6 +40,15 @@
 | 普通用户 | [我的接入账号](./user/access-management/access-accounts/)、[快速部署](./user/model-services/quick-deployment/)、[我的部署](./user/model-services/my-deployments/) | 确认可用资源，查看部署任务、事件、API 和监控。 |
 | 排障人员 | [我的部署](./user/model-services/my-deployments/)、[资源池](./operator/access-management/resource-pools/)、[授权管理](./operator/auth-management/tenant-cloud-auth/)、[模型库](./operator/deploy-assets/models/) | 从部署事件、资源池、授权和部署资产定位失败原因。 |
 | 完整流程 | [从零开始部署云上模型服务](./end-to-end/deploy-cloud-model-service/) | 按端到端链路核对接入、授权、部署、发布和排障入口。 |
+
+## 按目标找入口
+
+| 目标 | 推荐入口 | 下一步 |
+| --- | --- | --- |
+| 第一次部署云上模型服务 | [平台入门](./getting-started/) | 先确认云平台、云账号、授权和资源池。 |
+| 运营侧接入云资源 | [云账号](./operator/access-management/cloud-accounts/) | 继续配置资源池、租户授权和业务区域授权。 |
+| 用户侧快速部署 | [快速部署](./user/model-services/quick-deployment/) | 选择可用接入账号、模型资产和运行规格。 |
+| 排查部署不可用 | [我的部署](./user/model-services/my-deployments/) | 结合部署状态、调度策略、授权范围和运行镜像定位。 |
 
 ## 推荐阅读路径
 

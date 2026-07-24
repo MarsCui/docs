@@ -19,7 +19,7 @@ Updated: 2026-07-08
 
 #### Beginner Explanation
 
-You can understand an On-Prem resource pool as a local compute management system:
+An On-Prem Resource Pool is like a local compute management system:
 
 - **Region/availability zone** indicates the site, machine room, or resource group where compute resources are located.
 - **Cluster** is the Kubernetes environment that actually provides compute resources. The platform can schedule jobs only after the cluster is connected.
@@ -113,7 +113,7 @@ Create a cluster when a new Kubernetes cluster needs to be included in unified p
 
 #### Steps
 
-1. Go to `AI Infra > On-Prem > Resource Pools > Cluster Management`.
+1. Go to `AI Infrastructure > On-Prem > Resource Pools > Cluster Management`.
 2. Click `Register Cluster` in the upper-right corner of the page to open the `New Cluster - Clusters` page.
 3. Paste kubeconfig in the `config file` area, or verify the connection information parsed by the page.
 
@@ -136,7 +136,7 @@ Associate specifications when the target cluster needs to run jobs with specific
 
 #### Steps
 
-1. Go to `AI Infra > On-Prem > Resource Pools > Cluster Management`.
+1. Go to `AI Infrastructure > On-Prem > Resource Pools > Cluster Management`.
 2. In the cluster list, find the target cluster and verify cluster status, region, availability zone, and resource capacity.
 3. Click `...` in the target cluster operation area and select `Cluster Details`.
 4. In the left-side menu of the `Cluster Details` page, select the specification-related entry.
@@ -155,7 +155,7 @@ Add storage when jobs need shared directories, model repositories, local Git rep
 
 #### Steps
 
-1. Go to `AI Infra > On-Prem > Resource Pools > Cluster Management`.
+1. Go to `AI Infrastructure > On-Prem > Resource Pools > Cluster Management`.
 2. In the cluster list, find the target cluster and verify cluster status, region, availability zone, and resource capacity.
 3. Click `...` in the target cluster operation area and select `Cluster Details`.
 4. In the left-side menu of the `Cluster Details` page, select the storage-related entry.
@@ -168,38 +168,38 @@ Add storage when jobs need shared directories, model repositories, local Git rep
 
 ## Parameter Reference
 
-| Parameter | Required | Description | Configuration Notes |
-| --- | --- | --- | --- |
-| Registration Name | Yes | Name used by the platform to identify the cluster. | Use a name that reflects environment, region, purpose, and resource type. It is usually not recommended to change after creation. |
-| Region | Yes | Region to which the cluster belongs. | Select an existing and available region. It affects resource pool ownership and scheduling scope. |
-| Availability Zone | Yes | Availability zone to which the cluster belongs. | Must match the selected region. Incorrect selection affects node ownership and job scheduling. |
-| config file | Conditionally required | kubeconfig content or connection configuration source. | Can be used to auto-fill some fields, but parsed results must be manually verified. |
-| Authentication Certificate | Yes | Certificate used to verify server identity. | Sensitive material. Do not record it in documents or screenshots. |
-| Server Address | Yes | Kubernetes API access entry. | Must be reachable from the platform side. Do not record real addresses in this document. |
-| Cluster Name | Yes | Kubernetes cluster name or page identification name. | Keep it consistent with kubeconfig or real cluster information. |
-| Authentication Type | Yes | Authentication method used to access the cluster. | Select according to kubeconfig or materials provided by the administrator. |
-| Context Name | Conditionally required | Connection context in kubeconfig. | Usually generated or imported automatically. Verify it before submission. |
-| Cluster CIDR | Conditionally required | Pod network segment configuration. | Must match network planning and avoid conflicts with the platform, nodes, or other clusters. |
-| Service CIDR | Conditionally required | Service network segment configuration. | Must match network planning and avoid service access issues. |
-| NodePort | Conditionally required | Kubernetes NodePort port range. | Fill in according to page-supported range and network policy. |
-| Monitor Service Port | Optional | Cluster resource monitoring service configuration. | Confirm monitoring collection capability, port, and network reachability. |
-| Jupyterlab Address | Optional | Service address related to online development. | Configure only when online IDE capability is required. |
-| Support RDMA Network | Optional | Whether to enable RDMA-related capabilities. | Enable only when hardware, drivers, network, and scheduling policies explicitly support it. |
-| Specification Name | Yes | Name of the specification to associate with the cluster. | Should match the actual CPU, memory, GPU, or other accelerator capability of the cluster. |
-| Specification Type | Conditionally required | Resource type or job type of the specification. | Confirm that the specification applies to the target cluster and business scenario. |
-| CPU | Conditionally required | CPU configuration in the specification. | Must not exceed cluster capability or scheduling policy limits. |
-| Memory | Conditionally required | Memory configuration in the specification. | Verify it together with CPU, GPU, or accelerator configuration. |
-| GPU/Accelerator | Conditionally required | GPU, NPU, or other accelerator configuration in the specification. | Must match target cluster node hardware and driver capability. |
-| Enabled Status | System generated or optional | Whether the specification or storage configuration is available. | If disabled, it is usually unavailable to users. |
-| Association Status | System generated | Whether the specification has been associated with the target cluster. | After saving, confirm the status in the list or details page. |
-| Storage Name | Yes | Name of the cluster storage configuration. | Use a name that reflects purpose, environment, and access scope. |
-| Storage Type | Yes | Storage source or mount type. | Common types include `nfs`, `hostpath`, or actual page-supported types. |
-| Shared Path | Yes | Host-side or shared storage path. | Do not record real paths in this document. Confirm that the path exists and permissions are correct before submission. |
-| Container Mount Path | Yes | Path used by job containers to access the storage. | Avoid conflicts with system directories, application directories, or other mount paths. |
-| Access Mode | Yes | Storage read/write permission or access policy. | Follow the least privilege principle and avoid granting write permission by mistake. |
-| Tenant Scope | Conditionally required | Tenant visibility or isolation scope of the storage. | Avoid unexpected cross-tenant access to the same directory. |
-| Description | Optional | Cluster purpose, boundary, or maintenance notes. | Record non-sensitive operations notes only. Do not write internal test parameters. |
-| Actions | System generated | Page entries for view, edit, disable, enable, and similar operations. | Confirm impact scope and rollback plan before high-risk operations. |
+| Field Name | Required | Field Type | Example | Description |
+| --- | --- | --- | --- | --- |
+| Registration Name | Yes | Text | `cluster-wuhan-gpu` | Name used by the platform to identify the cluster. Use a name that reflects environment, region, purpose, and resource type. It is usually not recommended to change after creation. |
+| Region | Yes | Text | `wuhan` | Region to which the cluster belongs. Select an existing and available region. It affects resource pool ownership and scheduling scope. |
+| Availability Zone | Yes | Text | `wuhan-1` | Availability zone to which the cluster belongs. Must match the selected region. Incorrect selection affects node ownership and job scheduling. |
+| config file | Conditionally required | File / configuration text | `<kubeconfig>` | kubeconfig content or connection configuration source. Can be used to auto-fill some fields, but parsed results must be manually verified. |
+| Authentication Certificate | Yes | Credential / sensitive text | `<ca-cert>` | Certificate used to verify server identity. Sensitive material. Do not record it in documents or screenshots. |
+| Server Address | Yes | Address / URL | `https://<api-server>:6443` | Kubernetes API access entry. Must be reachable from the platform side. Do not record real addresses in this document. |
+| Cluster Name | Yes | Identifier / text | `cluster-a` | Kubernetes cluster name or page identification name. Keep it consistent with kubeconfig or real cluster information. |
+| Authentication Type | Yes | Dropdown / enum | `Bearer Token` | Authentication method used to access the cluster. Select according to kubeconfig or materials provided by the administrator. |
+| Context Name | Conditionally required | File / configuration text | `cluster-a-context` | Connection context in kubeconfig. Usually generated or imported automatically. Verify it before submission. |
+| Cluster CIDR | Conditionally required | Number / capacity | `10.244.0.0/16` | Pod network segment configuration. Must match network planning and avoid conflicts with the platform, nodes, or other clusters. |
+| Service CIDR | Conditionally required | Number / capacity | `10.96.0.0/12` | Service network segment configuration. Must match network planning and avoid service access issues. |
+| NodePort | Conditionally required | Port / number | `30000-32767` | Kubernetes NodePort port range. Fill in according to page-supported range and network policy. |
+| Monitor Service Port | Optional | Port / number | `8000` | Cluster resource monitoring service configuration. Confirm monitoring collection capability, port, and network reachability. |
+| JupyterLab Address | Optional | Address / URL | `https://jupyter.example.com` | Service address related to online development. Configure only when online IDE capability is required. |
+| Support RDMA Network | Optional | Switch | `Disabled` | Whether to enable RDMA-related capabilities. Enable only when hardware, drivers, network, and scheduling policies explicitly support it. |
+| Specification Name | Yes | Text | `Example Name` | Name of the specification to associate with the cluster. Should match the actual CPU, memory, GPU, or other accelerator capability of the cluster. |
+| Specification Type | Conditionally required | Dropdown / enum | `Inference` | Resource type or job type of the specification. Confirm that the specification applies to the target cluster and business scenario. |
+| CPU | Conditionally required | Number / capacity | `16 vCPU` | CPU configuration in the specification. Must not exceed cluster capability or scheduling policy limits. |
+| Memory | Conditionally required | Number / capacity | `128 GiB` | Memory configuration in the specification. Verify it together with CPU, GPU, or accelerator configuration. |
+| GPU/Accelerator | Conditionally required | Number / capacity | `1 x A100` | GPU, NPU, or other accelerator configuration in the specification. Must match target cluster node hardware and driver capability. |
+| Enabled Status | System generated or optional | Status | `Enabled` | Whether the specification or storage configuration is available. If disabled, it is usually unavailable to users. |
+| Association Status | System generated | Status | `Associated` | Whether the specification has been associated with the target cluster. After saving, confirm the status in the list or details page. |
+| Storage Name | Yes | Text | `shared-data` | Name of the cluster storage configuration. Use a name that reflects purpose, environment, and access scope. |
+| Storage Type | Yes | Dropdown / enum | `nfs` | Storage source or mount type. Common types include `nfs`, `hostpath`, or actual page-supported types. |
+| Shared Path | Yes | Address / path | `/data/share` | Host-side or shared storage path. Do not record real paths in this document. Confirm that the path exists and permissions are correct before submission. |
+| Container Mount Path | Yes | Address / path | `/mnt/data` | Path used by job containers to access the storage. Avoid conflicts with system directories, application directories, or other mount paths. |
+| Access Mode | Yes | Dropdown / enum | `ReadWriteMany` | Storage read/write permission or access policy. Follow the least privilege principle and avoid granting write permission by mistake. |
+| Tenant Scope | Conditionally required | Dropdown / enum | `Tenant A` | Tenant visibility or isolation scope of the storage. Avoid unexpected cross-tenant access to the same directory. |
+| Description | Optional | Multi-line text | `Example description` | Cluster purpose, boundary, or maintenance notes. Record non-sensitive operations notes only. Do not write internal test parameters. |
+| Actions | System generated | Action entry | `Edit` | Page entries for view, edit, disable, enable, and similar operations. Confirm impact scope and rollback plan before high-risk operations. |
 
 ## Pitfalls
 
@@ -214,7 +214,7 @@ Add storage when jobs need shared directories, model repositories, local Git rep
 
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page can be opened | `AI Infra > On-Prem > Resource Pools > Cluster Management` is accessible. | Check menu configuration and account permissions. |
 | Cluster list loads normally | Cluster cards, status, region/availability zone, and resource usage are visible. | Refresh the page and check backend services or browser console errors. |

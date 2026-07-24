@@ -72,7 +72,7 @@ Model Services works like a model capability marketplace plus an operations cons
 
 ## Result Validation
 
-| Check Item | Success Criteria | Handling If Abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Correct entry selected | You can distinguish entries for model providers, callers, and operator admins. | Return to the role entry table and locate the entry again. |
 | Workflow is clear | You understand the relationship among meta-models, model sources, templates, reviews, and the marketplace. | Read Getting Started and the end-to-end workflow first. |

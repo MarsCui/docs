@@ -60,7 +60,7 @@ Use the following operations to add or edit business units. Complete view-only c
 
 ### Add a Business Unit
 
-1. Go to `Customer Billing > Business Units`.
+1. Go to `Billing > Customer Billing > Business Units`.
 2. Click `Add Business Unit` at the top of the page.
 3. In the dialog, fill in `Business Unit Name`, `Business Unit Code`, contact name, contact phone number, and business unit description.
 4. Configure payment channels, single top-up amount range, initial balance, overdraft limit, and whether overdraft is disabled.
@@ -72,7 +72,7 @@ Use the following operations to add or edit business units. Complete view-only c
 
 ### Edit a Business Unit
 
-1. Go to `Customer Billing > Business Units`.
+1. Go to `Billing > Customer Billing > Business Units`.
 2. Locate the target business unit in the list.
 3. Click `Edit Business Unit` for the target row.
 4. Review or adjust business unit name, description, payment channels, amount limits, initial balance, overdraft limit, and status according to the page fields.
@@ -81,7 +81,7 @@ Use the following operations to add or edit business units. Complete view-only c
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Business Unit Name | Required | Text | `Example business unit` | Display name of the business unit. |
 | Business Unit Code | Required | Text | `demo-cn` | Unique code of the business unit. Keep it stable after creation. |
@@ -110,7 +110,7 @@ Use the following operations to add or edit business units. Complete view-only c
 
 ## Result Validation
 
-| Check item | Success signal | If abnormal |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page access | The `Customer Billing > Business Units` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |
@@ -136,7 +136,7 @@ The displayed balance, consumption, settlement status, monthly bill, or License 
 
 **How to check:**
 
-1. Confirm that the same billing cycle, customer, account, currency, and resource scope are being compared.
+1. Confirm business unit, customer, credit ownership, account status, and transaction scope before comparing figures.
 2. Check whether pending top-up orders, adjustments, refunds, settlement reviews, or metering synchronization are still in progress.
 3. Compare the summary number with the detail list and operation records on the related billing pages.
 4. For financial-impacting differences, pause confirmation actions and escalate with desensitized record IDs, time range, customer scope, and screenshots without credentials.

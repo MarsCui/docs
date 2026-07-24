@@ -50,7 +50,7 @@ Page screenshot:
 
 ### Add Model
 
-1. Go to `AI Infra > On-Cloud > Deploy Assets > Models`.
+1. Go to `AI Infrastructure > On-Cloud > Deploy Assets > Models`.
 2. Click `Add Model` to open the add model page.
 3. In the `Meta Model` step, filter by author, type, or keyword, select the target meta model, and verify the selected meta model, capability and access constraints, modalities, capabilities, protocol compatibility, and meta model profile.
 4. Click `Next` to enter `Deployment Configuration`.
@@ -77,7 +77,7 @@ Key step screenshots:
 
 ## Parameter Reference
 
-| Field | Required | Type | Example | Description |
+| Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | Model Name | Yes | Text | `Sample Model` | Model name displayed in the Models list and details. |
 | Model Type | No | Dropdown/Tag | `Conversation` | Used to filter or identify the model capability type. |
@@ -114,7 +114,7 @@ Key step screenshots:
 
 ## Result Validation
 
-| Check Item | Success Criteria | Troubleshooting |
+| Check Item | Success Signal | If Abnormal |
 | --- | --- | --- |
 | Page is accessible | The `Models` page and model card list are displayed. | Check menu permissions, route, and login status. |
 | Model list loads | The list displays model name, model type, version, tags, and action entries. | Check filters, data permissions, and API status. |
