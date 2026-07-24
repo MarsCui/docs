@@ -23,7 +23,7 @@ A new Platform User completes registration and email verification; all roles can
 
 ### Create an Account
 
-1. Open the AGIOne sign-in URL provided by the organization, such as `https://agione.cc/user/login`.
+1. Open the AGIOne sign-in URL provided by the organization, such as `https://agione.pro/user/login`.
 2. Select **Create Account** at the bottom of the sign-in card.
 3. Complete the registration form:
    - **Username**: account username.

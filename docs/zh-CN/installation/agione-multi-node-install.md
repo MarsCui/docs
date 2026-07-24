@@ -239,7 +239,7 @@ export AGIONE_DISK_TOLERANCE_RATIO=0.80
 
 **固定下载页：**
 
-<https://agione.pro/release/download/agione-release-latest>
+<https://agione.cc/release/download/agione-release-latest>
 
 页面中同时提供 `MD5 URL`，建议下载后一起校验。
 
@@ -247,7 +247,7 @@ export AGIONE_DISK_TOLERANCE_RATIO=0.80
 
 ```bash
 ssh root@<app-node-1>
-AGIONE_RELEASE_PAGE="https://agione.pro/release/download/agione-release-latest"
+AGIONE_RELEASE_PAGE="https://agione.cc/release/download/agione-release-latest"
 AGIONE_RELEASE_URL="<复制下载页中的 Download URL>"
 AGIONE_RELEASE_MD5_URL="<复制下载页中的 MD5 URL>"
 AGIONE_RELEASE_ARCHIVE="${AGIONE_RELEASE_URL##*/}"
