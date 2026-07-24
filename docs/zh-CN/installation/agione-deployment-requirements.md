@@ -356,16 +356,14 @@ AGIOne 平台部署在逻辑上分为两个相对独立的部分：
 
 ---
 
-**固定下载页：**
-
-<https://agione.cc/release/download/agione-release-latest>
+固定下载页：[下载地址](https://agione.pro/release/download/agione-release-latest)
 
 打开页面后，复制页面中的 `Download URL` 与 `MD5 URL` 用于下载和校验安装包。
 
 ```bash
 # 1. 下载并解压交付包
 ssh root@<target>
-AGIONE_RELEASE_PAGE="https://agione.cc/release/download/agione-release-latest"
+AGIONE_RELEASE_PAGE="https://agione.pro/release/download/agione-release-latest"
 AGIONE_RELEASE_URL="<复制下载页中的 Download URL>"
 AGIONE_RELEASE_MD5_URL="<复制下载页中的 MD5 URL>"
 AGIONE_RELEASE_ARCHIVE="${AGIONE_RELEASE_URL##*/}"
