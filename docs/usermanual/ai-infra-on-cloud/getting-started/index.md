@@ -25,7 +25,7 @@ Updated: 2026-07-08
 | Key objects | Cloud platform, cloud account, resource pool, tenant authorization, business authorization, model library, inference framework, inference image, scheduling policy, deployment task |
 | Typical use | Build an On-Cloud resource understanding framework, clarify operator and user boundaries, and choose the correct reading path |
 
-### Beginner View
+#### Beginner Explanation
 
 AI Infra On-Cloud is like a multi-cloud resource access manual: first clarify cloud accounts, resource pools, and authorization relationships, then let users deploy model services based on authorized resources.
 
@@ -97,7 +97,7 @@ The recommended configuration order is: connect cloud platforms first, then add 
 | Business policy | A policy in Quick Deployment that affects candidate resource ranking, such as cost-effective, high performance, or spot fast delivery. |
 | Deployment task | One cloud model deployment record initiated by a user. |
 
-## Usage Prerequisites
+## Prerequisites
 
 1. You have confirmed whether the current account is an operator or a user.
 2. The operator has prepared cloud account authorization, resource pool planning, and least-privilege policies.
@@ -119,17 +119,19 @@ The recommended configuration order is: connect cloud platforms first, then add 
 - You know that when deployment fails, you should check My Deployments events, resource pool status, and authorization scope.
 - You know that after Quick Deployment submission, you can select a publish region from the `On-Cloud` list under `Model Services > Studio > My Deployments` and redirect to the publish model page in [My Models](../../model-services/user/studio/my-models/).
 
-## Pitfall Tips
+## Pitfalls
 
 - Do not open only the cloud platform type to users. Cloud account validation, resource pool synchronization, and authorization configuration are all required.
 - When users cannot see regions or specifications, check tenant authorization, business resource pool authorization, and resource pool enabled status first.
 - Models, frameworks, images, and scheduling policies must match at the same time. Maintaining only the model library does not guarantee successful deployment.
 - When deployment fails, keep only redacted deployment IDs, regions, models, specifications, and event summaries before entering operator-side troubleshooting.
-- Quick Deployment, selecting a publish region, and publishing a model may affect real service exposure. Do not submit real deployments, publishing actions, or configuration changes during learning or screenshot capture.
+- Getting-started learning is only for understanding cloud accounts, resource pools, authorization, deployment assets, scheduling policies, and deployment task relationships. It is not for performing real changes.
+- Do not perform real `Quick Deployment`, `Start Deployment`, deployment start/stop, deployment publishing, `Delete`, `Disable`, `Unbind`, or authorization adjustment actions.
+- Do not write real AK/SK, API Keys, tokens, Endpoints, account IDs, deployment IDs, resource pool IDs, customer information, cost details, or test parameters.
 
 ## Recommended Reading Path
 
-### Operators
+#### Operators
 
 1. Read this document to confirm role boundaries and the resource authorization hierarchy.
 2. Complete [Quick Access](../operator/access-workbench/quick-start/).
@@ -139,7 +141,7 @@ The recommended configuration order is: connect cloud platforms first, then add 
 6. Maintain [Model Assets](../operator/deploy-assets/models/), [Inference Frameworks](../operator/deploy-assets/frameworks/), and [Runtime Images](../operator/deploy-assets/runtime-images/).
 7. Configure [Policy Management](../operator/scheduling-governance/policies/).
 
-### Users
+#### Users
 
 1. Read this document to confirm the cloud platforms, cloud accounts, and model scope you need.
 2. Add or confirm cloud accounts in [Access Accounts](../user/access-management/access-accounts/).
@@ -150,7 +152,7 @@ The recommended configuration order is: connect cloud platforms first, then add 
 
 ## FAQ
 
-### Quick Deployment Cannot See the Target Cloud Account or Region
+#### Quick Deployment Cannot See the Target Cloud Account or Region
 
 **Issue Symptom:**
 
@@ -170,7 +172,7 @@ After entering Quick Deployment, the target cloud account, cloud platform, or re
 3. Check whether tenant authorization and business authorization cover the current user or business.
 4. Clear Quick Deployment filters and refresh resources.
 
-### Deployment Task Has No Result for a Long Time After Submission
+#### Deployment Task Has No Result for a Long Time After Submission
 
 **Issue Symptom:**
 
@@ -199,5 +201,5 @@ After a deployment task is submitted, it stays in creating, deploying, or unavai
 ## Notes
 
 - This document is a platform-level introduction and does not replace detailed field descriptions on each function page.
-- For operations involving cloud accounts, AK/SK, API Keys, tokens, Endpoints, account IDs, deployment IDs, customer information, cost details, private keys, and certificates, use the platform's key management capability for storage. Do not write them into documentation or screenshots.
-- Deletion, disabling, unbinding, authorization adjustment, and deployment start/stop may affect user tasks. Confirm the impact scope and rollback plan first.
+- For operations involving cloud accounts, AK/SK, API Keys, tokens, Endpoints, account IDs, deployment IDs, resource pool IDs, customer information, cost details, private keys, and certificates, use the platform's key management capability for storage. Do not write them into documentation or screenshots.
+- Real Quick Deployment, Start Deployment, deployment start/stop, deployment publishing, deletion, disabling, unbinding, and authorization adjustment may affect user tasks. Confirm the impact scope and rollback plan first.

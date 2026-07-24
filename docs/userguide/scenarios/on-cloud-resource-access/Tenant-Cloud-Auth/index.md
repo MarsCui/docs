@@ -27,7 +27,7 @@ The intended tenant can see the authorized cloud platform, while unrelated tenan
 1. From the platform home page, select **Authorization Management > Tenant-Cloud Authorization**.
 2. Select **Add Authorization** in the upper-right corner.
 
-![Review tenant-cloud authorization](./images/tenant-cloud_auth.png)
+![Review tenant-cloud authorization](./images/tenant-cloud-auth.png)
 
 3. Select one or more currently supported cloud platforms, such as Alibaba Cloud, AWS, or AGIOne-powerone. Huawei Cloud access is not currently supported.
 4. Select the authorization scope:

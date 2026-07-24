@@ -588,8 +588,8 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   text: "Templates",
                   collapsed: false,
                   items: [
-                    { text: "Models", link: "/usermanual/ai-infra-on-prem/operator/templates/model-config/" },
-                    { text: "Frames", link: "/usermanual/ai-infra-on-prem/operator/templates/frameworks/" },
+                    { text: "Models", link: "/usermanual/ai-infra-on-prem/operator/templates/models/" },
+                    { text: "Frames", link: "/usermanual/ai-infra-on-prem/operator/templates/frames/" },
                     { text: "Inference Templates", link: "/usermanual/ai-infra-on-prem/operator/templates/inference-templates/" },
                     { text: "VRAM Config", link: "/usermanual/ai-infra-on-prem/operator/templates/vram-config/" },
                   ],
@@ -598,10 +598,16 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   text: "Quotas & Metering",
                   collapsed: false,
                   items: [
-                    { text: "Tenant Quotas", link: "/usermanual/ai-infra-on-prem/operator/quotas-metering/tenant-quotas/" },
-                    { text: "Tenant Credits", link: "/usermanual/ai-infra-on-prem/operator/quotas-metering/tenant-credits/" },
+                    { text: "Usage Limits", link: "/usermanual/ai-infra-on-prem/operator/quotas-metering/usage-limits/" },
                     { text: "Monthly Usage", link: "/usermanual/ai-infra-on-prem/operator/quotas-metering/monthly-usage/" },
                     { text: "Metering Details", link: "/usermanual/ai-infra-on-prem/operator/quotas-metering/metering-details/" },
+                  ],
+                },
+                {
+                  text: "System",
+                  collapsed: false,
+                  items: [
+                    { text: "System Setting", link: "/usermanual/ai-infra-on-prem/operator/system/system-setting/" },
                   ],
                 },
                 {
@@ -626,16 +632,16 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   text: "Model Deployment",
                   collapsed: false,
                   items: [
-                    { text: "Templates", link: "/usermanual/ai-infra-on-prem/user/quick-start/inference-templates/" },
-                    { text: "Instances", link: "/usermanual/ai-infra-on-prem/user/model-deployment/online-inference/" },
+                    { text: "Templates", link: "/usermanual/ai-infra-on-prem/user/model-deployment/templates/" },
+                    { text: "Instances", link: "/usermanual/ai-infra-on-prem/user/model-deployment/instances/" },
                   ],
                 },
                 {
                   text: "Dev Resources",
                   collapsed: false,
                   items: [
-                    { text: "Online IDE", link: "/usermanual/ai-infra-on-prem/user/development/dev-environments/" },
-                    { text: "Runtime Instances", link: "/usermanual/ai-infra-on-prem/user/development/model-training/" },
+                    { text: "Online IDE", link: "/usermanual/ai-infra-on-prem/user/dev-resources/online-ide/" },
+                    { text: "Runtime Instances", link: "/usermanual/ai-infra-on-prem/user/dev-resources/runtime-instances/" },
                   ],
                 },
                 {
@@ -736,8 +742,8 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   text: "Billing",
                   collapsed: false,
                   items: [
-                    { text: "Overview", link: "/usermanual/billing/user/billing/overview/" },
                     { text: "Quota Governance", link: "/usermanual/billing/user/billing/quota-governance/" },
+                    { text: "Overview", link: "/usermanual/billing/user/billing/overview/" },
                     { text: "Transactions", link: "/usermanual/billing/user/billing/transactions/" },
                     { text: "Top-up Orders", link: "/usermanual/billing/user/billing/top-up-orders/" },
                     { text: "Monthly Bill", link: "/usermanual/billing/user/billing/monthly-bill/" },
@@ -770,15 +776,15 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   text: "Members & Roles",
                   collapsed: false,
                   items: [
-                    { text: "Team Members", link: "/usermanual/settings/operator/members-roles/team-members/" },
+                    { text: "Members", link: "/usermanual/settings/operator/members-roles/members/" },
                     { text: "Roles", link: "/usermanual/settings/operator/members-roles/roles/" },
                   ],
                 },
                 {
-                  text: "Organizations",
+                  text: "Tenants",
                   collapsed: false,
                   items: [
-                    { text: "Organizations", link: "/usermanual/settings/operator/organizations/organizations/" },
+                    { text: "Tenants", link: "/usermanual/settings/operator/tenants/tenants/" },
                   ],
                 },
                 {
@@ -827,17 +833,17 @@ export const enSidebar: DefaultTheme.Sidebar = {
                   text: "Members & Roles",
                   collapsed: false,
                   items: [
-                    { text: "Team Members", link: "/usermanual/settings/user/members-roles/team-members/" },
+                    { text: "Members", link: "/usermanual/settings/user/members-roles/team-members/" },
                     { text: "Roles", link: "/usermanual/settings/user/members-roles/roles/" },
                     { text: "Member Quotas", link: "/usermanual/settings/user/members-roles/member-quotas/" },
                     { text: "Quota Requests", link: "/usermanual/settings/user/members-roles/quota-requests/" },
                   ],
                 },
                 {
-                  text: "Organizations",
+                  text: "Tenants",
                   collapsed: false,
                   items: [
-                    { text: "Org Settings", link: "/usermanual/settings/user/organizations/org-settings/" },
+                    { text: "Tenant Settings", link: "/usermanual/settings/user/organizations/org-settings/" },
                   ],
                 },
                 {

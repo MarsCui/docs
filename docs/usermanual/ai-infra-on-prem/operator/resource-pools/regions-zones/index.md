@@ -12,12 +12,12 @@ Updated: 2026-07-08
 | Item | Content |
 | --- | --- |
 | Applicable role | Operator |
-| Navigation path | AI Infra > On-Prem > Resource Pools > Regions & Zones |
-| Page route | /powerone/resourcepool/region |
+| Navigation path | AI Infrastructure > On-Prem > Resource Pools > Regions & Zones |
+| Page route | `/powerone/resourcepool/region` |
 | Managed objects | Region, Availability Zone, region-associated components, and cluster resources under availability zones |
 | Typical use | Divide compute resource pools, bind image and storage capabilities, host cluster registration, and support later job scheduling |
 
-#### Beginner View
+#### Beginner Explanation
 
 You can think of an On-Prem resource pool as an office system:
 
@@ -41,7 +41,7 @@ For the first configuration, use the following order:
 5. Associate specifications and storage with the cluster as required.
 6. Submit a test job to verify image pulling, resource scheduling, storage mounting, and job results.
 
-#### Terms
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |
@@ -189,7 +189,7 @@ After the region is submitted successfully, check whether the configuration has 
 4. If storage components are enabled, confirm that the corresponding storage components appear in the associated component list.
 5. If clusters will be registered later, go to the cluster registration page and confirm that the region can be selected.
 
-### Add Availability Zone
+### Create AZ
 
 #### Applicable Scenarios
 
@@ -213,15 +213,15 @@ Confirm the following first:
 #### Steps
 
 1. Select the target region in the region list on the left.
-2. In the `Availability Zone` section on the right, click `Add Availability Zone` to open the Add Availability Zone dialog.
+2. In the `Availability Zone` section on the right, click `Create AZ` to open the Create AZ dialog.
 3. Confirm that the `Region` field is the target region.
 4. Fill in `Availability Zone ID`.
 5. Fill in `Display Name` in each multilingual tab.
 6. Fill in the description as needed, such as geographical location, data center number, or business purpose.
 
-The following screenshot shows the Add Availability Zone form. The top area shows the owning region, and the middle area is used to fill in the availability zone ID and multilingual display names.
+The following screenshot shows the Create AZ form. The top area shows the owning region, and the middle area is used to fill in the availability zone ID and multilingual display names.
 
-![Add Availability Zone](./images/add-availability-zone.png)
+![Create AZ](./images/add-availability-zone.png)
 
 7. Before clicking the final `Confirm`, verify the parent region, availability zone ID, display name, and description again.
 8. For learning or screenshot capture only, view the fields and dialog without submitting a real configuration.
@@ -258,7 +258,7 @@ After the availability zone is submitted successfully, check whether the configu
 | Visibility Policy | Yes | Single choice | `Public Region` | Controls whether the region is shared platform-wide or visible only to a dedicated scope. |
 | Display Name | Yes | Multilingual | English `WuHan` / Simplified Chinese `武汉` | Name displayed for the region or availability zone in different language environments. |
 | Availability Zone ID | Yes | Text | `wuhan-1` | Unique availability zone identifier that affects later cluster registration and scheduling scope. |
-| Parent Region | Yes | Dropdown | `WuHan` | The parent region of the availability zone. Verify ownership before submitting. |
+| Region | Yes | Dropdown | `WuHan` | The parent region of the availability zone. Verify ownership before submitting. |
 | Image Service (Harbor) | Required for region | Dropdown | `image-xxx` | Image service bound to the region. It affects job image pulling. |
 | Object Storage / File Storage / Block Storage | No | Switch / Dropdown | `Off` | Storage capabilities bound based on business requirements. |
 | Description | No | Multi-line text | `Wuhan zone 1` | Records data center location, purpose, network boundary, or maintenance notes. |
@@ -284,11 +284,11 @@ After the availability zone is submitted successfully, check whether the configu
 | Page is accessible | You can enter `AI Infra > On-Prem > Resource Pools > Regions & Zones`. | Check account permissions and menu configuration. |
 | List loads normally | The region list, availability zone area, and region details are displayed normally. | Refresh the page and check API or permission status. |
 | Add Region entry is visible | The upper-right entry or actual add entry can open the Add Region dialog. | Check operator permissions and page status. |
-| Add Availability Zone entry is visible | After a target region is selected, the availability zone area shows the add entry. | Confirm that the target region exists and is selected. |
-| Dialog can be opened | The Add Region or Add Availability Zone dialog opens normally. | Check page status, permissions, and browser console errors. |
+| Create AZ entry is visible | After a target region is selected, the availability zone area shows the add entry. | Confirm that the target region exists and is selected. |
+| Dialog can be opened | The Add Region or Create AZ dialog opens normally. | Check page status, permissions, and browser console errors. |
 | Required field validation works | Validation prompts appear when Region ID, Display Name, Image Service, or Availability Zone ID is empty. | Fill in fields according to page prompts. |
 | No submission during learning | The final `Confirm` action is not clicked during learning or screenshot capture. | Close the dialog or click `Cancel`. |
-| Record is correct after real submission | The new region or availability zone appears in the list, and the region-availability zone hierarchy is correct. | Recheck Region ID, Availability Zone ID, and Parent Region. |
+| Record is correct after real submission | The new region or availability zone appears in the list, and the region-availability zone hierarchy is correct. | Recheck Region ID, Availability Zone ID, and Region. |
 
 ## FAQ
 

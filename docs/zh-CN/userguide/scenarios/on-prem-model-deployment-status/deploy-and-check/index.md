@@ -65,4 +65,4 @@
 
 ## 操作手册
 
-[查看模型实例完整说明](/zh-CN/usermanual/ai-infra-on-prem/user/model-deployment/online-inference/)
+[查看模型实例完整说明](/zh-CN/usermanual/ai-infra-on-prem/user/model-deployment/instances/)

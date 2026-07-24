@@ -12,16 +12,16 @@ Updated: 2026-07-08
 | Item | Content |
 | --- | --- |
 | Applicable role | Operator |
-| Navigation path | AI Infra > On-Cloud > Access Management > Cloud Platforms |
-| Page route | /infrahub/op/access/platform |
+| Navigation path | AI Infrastructure > On-Cloud > Access Management > Cloud Platforms |
+| Page route | `/infrahub/op/access/platform` |
 | Managed objects | Cloud platform name, cloud platform type, platform source, and action entries |
 | Typical use | Add cloud platforms and maintain the accessible cloud platform list |
 
-#### Beginner View
+#### Beginner Explanation
 
 Cloud Platforms is like registering which clouds the system can access. Select Public Cloud or Private Cloud and choose the specific platform here first. Then cloud accounts, resource pools, and authorization configurations can use the corresponding cloud platform information.
 
-#### Terms
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |

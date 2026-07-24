@@ -13,7 +13,7 @@ Updated: 2026-07-08
 | --- | --- |
 | Applicable role | Regular user |
 | Navigation path | Model Services > My Calls > Overview |
-| Page route | /modelone/monitoring/calls/overview/model |
+| Page route | `/modelone/monitoring/calls/overview` |
 | Managed objects | My calls, successful calls, failed calls, rate limit triggers, token consumption, model types, and call distribution |
 | Typical use | View personal call health and consumption trends |
 

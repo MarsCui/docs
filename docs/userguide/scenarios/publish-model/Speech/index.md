@@ -39,7 +39,7 @@ The speech model passes protocol testing, is published to the intended scope, an
   - Enter the API key in the protected field, such as `sk-***`.
   - Enter the exact upstream **Model Source ID**, such as `qwen3-tts-flash`.
 
-![Model source and meta-model information](./images/step-1-model-source_meta-model-information.png)
+![Model source and meta-model information](./images/step-1-model-source-meta-model-information.png)
 
 - Confirm **Speech Model** and select the correct subtype, such as Text to Speech.
 

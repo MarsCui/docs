@@ -12,16 +12,16 @@ Updated: 2026-07-08
 | Item | Content |
 | --- | --- |
 | Applicable role | Operator |
-| Navigation path | AI Infra > On-Cloud > Access Workbench > Quick Access |
-| Page route | /operator/access-workbench/quick-start |
+| Navigation path | AI Infrastructure > On-Cloud > Access Workbench > Quick Access |
+| Page route | `/infrahub/op/workbanch/quick` |
 | Managed objects | Cloud platforms, authorization, accounts, resource pools, and pool authorization |
 | Typical use | Confirm whether the access flow has been completed |
 
-#### Beginner View
+#### Beginner Explanation
 
 Quick Access is like an access workflow checklist that connects Cloud, Authorization, Account, Pool, and Pool Authorization. It is suitable for step-by-step validation before a new environment goes live, but it does not replace detailed configuration on each access management page.
 
-#### Terms
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |

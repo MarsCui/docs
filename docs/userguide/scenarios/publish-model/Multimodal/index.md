@@ -39,7 +39,7 @@ The model processes every declared input modality, passes protocol testing, and 
   - Enter the API key in the protected field, such as `sk-***`.
   - Enter the exact upstream **Model Source ID**, such as `qwen3.6-plus`.
 
-![Model source and meta-model information](./images/step-1-model-source_meta-model-information.png)
+![Model source and meta-model information](./images/step-1-model-source-meta-model-information.png)
 
 - Confirm the model type, such as **Chat Model** for a multimodal conversation model.
 

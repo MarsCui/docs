@@ -65,4 +65,4 @@ The instance reaches Running, events and logs remain clean, and a controlled req
 
 ## User Manual
 
-[Model Instances](/usermanual/ai-infra-on-prem/user/model-deployment/online-inference/)
+[Model Instances](/usermanual/ai-infra-on-prem/user/model-deployment/instances/)

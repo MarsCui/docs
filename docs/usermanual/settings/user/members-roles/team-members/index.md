@@ -1,4 +1,4 @@
-# Team Members
+# Members
 
 ::: info Document Information
 Version: v1.0
@@ -7,21 +7,21 @@ Updated: 2026-07-13
 
 ## Feature Overview
 
-`Team Members` is used to view the member list, add members, and manage member status. It helps provider admin or provider account work with team members records and related status from a consistent page entry.
+`Members` is used to view the member list, add members, and manage member status. It helps provider admins or provider accounts work with tenant members and related status from a consistent page entry.
 
 | Item | Content |
 | --- | --- |
 | Applicable role | Provider admin or provider account |
-| Navigation path | Members & Roles > Team Members |
-| Page route | /user/members-roles/team-members |
-| Managed objects | Team Members records and related status |
+| Navigation path | Settings > Members & Roles > Members |
+| Page route | `/user/user-space/team-members` |
+| Managed objects | Members and related status |
 | Typical use | View the member list, add members, and manage member status |
 
-### Beginner Explanation
+#### Beginner Explanation
 
-Team Members is part of the settings and access-control workspace. Treat it as a place to confirm identities, permissions, organization rules, audit records, or rate-control status before changing configuration.
+Members is part of the settings and access-control workspace. Treat it as a place to confirm identities, permissions, tenant rules, audit records, or rate-control status before changing configuration.
 
-### Terms Quick Reference
+#### Terms Quick Reference
 
 | Term | Meaning | Handling tip |
 | --- | --- | --- |
@@ -32,7 +32,7 @@ Team Members is part of the settings and access-control workspace. Treat it as a
 
 ## Prerequisites
 
-1. The current account can access `Members & Roles > Team Members`.
+1. The current account can access `Members & Roles > Members`.
 2. The target organization, member, customer, billing cycle, rule, or record scope has been confirmed.
 3. Required upstream data is already available and the page has finished loading.
 4. For high-risk changes, confirm the impact scope and rollback path before continuing.
@@ -50,7 +50,7 @@ The page usually includes filters, summary cards, data tables, detail entries, s
 
 The following screenshot shows team members list.
 
-![Team Members list](./images/team-members-list.png)
+![Members list](./images/team-members-list.png)
 
 The following screenshot shows create member.
 
@@ -60,15 +60,15 @@ The following screenshot shows create member.
 
 Use the following operations to work with team members records and related status. Complete view-only checks before opening dialogs that may create, save, submit, activate, transfer, settle, publish, or delete data.
 
-### Manage Team Members
+### Manage Members
 
-1. Go to `Members & Roles > Team Members`.
+1. Go to `Members & Roles > Members`.
 2. Use filters or tabs to locate the target record.
 3. Select the target row or entry related to team members records and related status.
-4. Click the visible `Manage Team Members` entry when it is available.
+4. Click the visible `Manage Members` entry when it is available.
 5. Before confirming any high-risk dialog, review the affected scope, amount, permission, or configuration and cancel if the impact is unclear.
 
-## Parameters
+## Parameter Reference
 
 | Field | Required | Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -84,18 +84,18 @@ Use the following operations to work with team members records and related statu
 - UI entries can differ by role and organization scope; verify the current account context before troubleshooting.
 - Never copy complete Keys, AK/SK, tokens, or secrets into documentation, tickets, or screenshots.
 
-## Result Checks
+## Result Validation
 
 | Check item | Success signal | If abnormal |
 | --- | --- | --- |
-| Page access | The `Members & Roles > Team Members` page opens and data loads normally. | Check role permissions and refresh the page. |
+| Page access | The `Members & Roles > Members` page opens and data loads normally. | Check role permissions and refresh the page. |
 | Filter result | The list changes according to the selected filters. | Reset filters and search again. |
 | Record detail | Details, status, amount, permission, or configuration values are visible. | Confirm the record scope and permissions. |
 | Follow-up path | Related pages or dialogs can be opened from visible entries. | Return to the sidebar and enter the downstream page directly. |
 
 ## FAQ
 
-### Target settings entry is not visible in Team Members
+#### Target settings entry is not visible in Members
 
 The expected account, project, member, role, organization, key, operation log, system configuration, or API rate-control entry does not appear on this page.
 
@@ -106,7 +106,7 @@ The expected account, project, member, role, organization, key, operation log, s
 3. Verify that prerequisite objects, such as projects, members, roles, keys, or system configurations, have been created and enabled.
 4. If the entry was just changed, refresh the page and compare it with operation logs or related settings pages.
 
-### Configuration change does not take effect in Team Members
+#### Configuration change does not take effect in Members
 
 A permission, project, role, key, notification, system setting, or rate-control change was submitted, but the page or downstream behavior still shows the old result.
 
@@ -117,7 +117,7 @@ A permission, project, role, key, notification, system setting, or rate-control 
 3. Compare downstream behavior with operation logs and related settings pages to rule out cache, permission, or synchronization delay.
 4. For security-sensitive settings, verify impact scope before repeating the operation or escalating with desensitized page paths and timestamps.
 
-### Why are member invitation or edit buttons unavailable?
+#### Why are member invitation or edit buttons unavailable?
 
 Check the current tenant, organization, project, role permissions, object status, feature switch, and operation logs. Do not repeat save, submit, publish, rollback, disable, or delete actions until the scope and impact are confirmed.
 

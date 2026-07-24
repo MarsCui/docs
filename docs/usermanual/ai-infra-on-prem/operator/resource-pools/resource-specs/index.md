@@ -11,13 +11,13 @@ Updated: 2026-07-08
 
 | Item | Content |
 | --- | --- |
-| Applicable Role | Operator |
-| Navigation Path | AI Infra > On-Prem > Resource Pools > Resource Specifications |
-| Page Route | /powerone/resourcepool/flavor/list |
-| Managed Objects | Specification name, CPU, memory, accelerator, accelerator quantity, specification metrics, associated clusters, and enabled status |
-| Typical Use | Define job resource packages, limit the resource request scope for users, and open specifications to jobs or model services after cluster association |
+| Applicable role | Operator |
+| Navigation path | AI Infrastructure > On-Prem > Resource Pools > Resource Specifications |
+| Page route | `/powerone/resourcepool/flavor/list` |
+| Managed objects | Specification name, CPU, memory, accelerator, accelerator quantity, specification metrics, associated clusters, and enabled status |
+| Typical use | Define job resource packages, limit the resource request scope for users, and open specifications to jobs or model services after cluster association |
 
-#### Beginner View
+#### Beginner Explanation
 
 - **Resource specification** is like a resource package. Users select it to request resources when creating jobs or services.
 - **Specification metric** is a resource item in the package. CPU, memory, or accelerator metrics must exist before they can be combined into specifications.
@@ -26,7 +26,7 @@ Updated: 2026-07-08
 #### Configuration Flow
 
 1. Prepare CPU, memory, accelerator, and other specification metrics.
-2. Add a resource specification, fill in the specification name, and combine metric quantities.
+2. Add a resource specification, fill in the specification ID, and combine metric quantities.
 3. If the specification includes accelerators, verify accelerator metric, k8s-key, selector-key, and resources actually reported by the cluster.
 4. Enable the specification and associate it with the target cluster.
 5. Submit a test job or model service to confirm that the specification is selectable and schedulable.
@@ -35,7 +35,7 @@ Updated: 2026-07-08
 
 | Term | Description |
 | --- | --- |
-| Specification Name | Resource package name displayed on the user side or job creation page. |
+| Specification ID | Resource package name displayed on the user side or job creation page. |
 | CPU | CPU cores or CPU metric quantity included in the specification. |
 | Memory | Memory capacity included in the specification. |
 | Accelerator | Optional hardware resource, usually configured by accelerator metric and quantity. |
@@ -52,7 +52,7 @@ Updated: 2026-07-08
 
 ## Page Description
 
-The page displays specification name, status, CPU, memory, accelerator type, and quantity. It supports filtering by GPU vendor.
+The page displays specification ID, status, CPU, memory, accelerator type, and quantity. It supports filtering by GPU vendor.
 
 The following figure shows the resource specification list. Cards show CPU, memory, and accelerator quantity.
 
@@ -70,7 +70,7 @@ Add a specification when resource tiers are required for training, inference, de
 
 1. Go to `AI Infra > On-Prem > Resource Pools > Resource Specifications`.
 2. Click `Add` or the actual add entry on the page.
-3. Fill in the specification name. Use a name that reflects CPU, memory, accelerator model, card count, and applicable scenario.
+3. Fill in the specification ID. Use an ID that reflects CPU, memory, accelerator model, card count, and applicable scenario.
 4. Select CPU, memory, accelerator, and other specification metrics, and fill in the corresponding quantities.
 5. If the specification includes accelerators, verify that the accelerator metric, k8s-key, and selector-key are consistent with resources actually reported by the cluster.
 6. Before clicking the final `Save`, `Submit`, or `OK`, verify the resource combination, naming convention, and later cluster association impact.
@@ -84,7 +84,7 @@ The following figure shows the Add Resource Specification dialog. Clarify the CP
 
 | Parameter | Required | Description | Configuration Suggestion |
 | --- | --- | --- | --- |
-| Specification Name | Yes | Specification name selected when users create online IDEs, runtime instances, training jobs, or model services. | Use a name that reflects CPU, memory, accelerator model, card count, and applicable scenario. |
+| Specification ID | Yes | Specification name selected when users create online IDEs, runtime instances, training jobs, or model services. | Use an ID that reflects CPU, memory, accelerator model, card count, and applicable scenario. |
 | CPU | Conditionally required | CPU metric and quantity included in the specification. | Match the CPU resources required by the job, and avoid oversized or undersized settings. |
 | Memory | Conditionally required | Memory metric and capacity included in the specification. | Keep memory units consistent to avoid display and scheduling definition mismatch. |
 | Accelerator | No | AI accelerator type or metric included in the specification. | Keep it consistent with maintained accelerators and specification metrics. |
@@ -110,7 +110,7 @@ The following figure shows the Add Resource Specification dialog. Clarify the CP
 | List loads normally | Specification cards, status, CPU, memory, accelerator type, and quantity are displayed normally. | Refresh the page and check service status or browser console errors. |
 | Add entry is visible | `Add` or the actual add entry is displayed on the page. | Check operator permissions and page configuration. |
 | Add dialog can be opened | Clicking the add entry opens the Add Resource Specification dialog. | Check route, permissions, and frontend errors. |
-| Required field validation works | Validation prompts appear when specification name, specification metric, or quantity is missing. | Complete fields according to page prompts without bypassing validation. |
+| Required field validation works | Validation prompts appear when specification ID, specification metric, or quantity is missing. | Complete fields according to page prompts without bypassing validation. |
 | No real submission during learning | No real save, submit, or OK action is triggered. | If submitted by mistake, immediately check the list and follow the handling process. |
 | Record is traceable after real submission | The new specification appears in the Resource Specifications list, and status is visible. | Check filters, enabled status, and submission result. |
 | Cluster association can be verified | The target cluster details can associate or show this specification. | Check specification enabled status, associated cluster, and cluster resource capacity. |
@@ -190,7 +190,7 @@ The CPU, memory, or accelerator quantity displayed by the specification is incon
 ## Notes
 
 - Once opened to users, resource specifications directly affect creation choices for model instances, online IDEs, runtime instances, and training jobs.
-- Before modifying specification name, resource quantity, or enabled/disabled status, confirm associated clusters, templates, tenant quotas, and running instances.
+- Before modifying specification ID, resource quantity, or enabled/disabled status, confirm associated clusters, templates, tenant quotas, and running instances.
 - Large specifications may increase queue time, while small specifications may cause insufficient resources after task startup. Calibrate with monitoring and failure cases.
 - `Save`, `Submit`, and `OK` are high-risk final actions. Do not trigger them during learning or screenshots.
 - Do not record real cluster IDs, resource pool IDs, node labels, internal resource key mappings, tenant information, accounts, keys, tokens, or internal test parameters.

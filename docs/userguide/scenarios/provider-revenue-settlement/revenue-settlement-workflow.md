@@ -23,7 +23,7 @@ Use this task to explain provider revenue sources and confirm a monthly settleme
 
 Open [Revenue Overview](../../../usermanual/billing/user/earnings/revenue/) and confirm the revenue-account balance, current-month estimate, next-settlement notice, and billing-cycle trend.
 
-![Review the balance and billing-cycle trend in Revenue Overview](../../../usermanual/billing/user/earnings/revenue/images/revenue-overview.png)
+![Review the balance and billing-cycle trend in Revenue Overview](../../../usermanual/billing/user/earnings/revenue/images/overview-list.png)
 
 ### 2. Explain Revenue Sources
 

@@ -13,7 +13,7 @@ Audio Playground is used to select an audio model, enter text to convert into sp
 | --- | --- |
 | Applicable role | Regular user |
 | Navigation path | Model Services > Playground > Audio |
-| Page route | /modelone/exploration/audio |
+| Page route | `/modelone/exploration/audio` |
 | Managed objects | Audio models, Voice ID, text content, protocol, speed, volume, pitch, and generated results |
 | Typical use | Try text-to-speech audio models on the page |
 

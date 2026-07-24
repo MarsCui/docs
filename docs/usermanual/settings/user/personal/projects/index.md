@@ -12,16 +12,16 @@ Updated: 2026-07-13
 | Item | Content |
 | --- | --- |
 | Applicable role | Provider admin or provider account |
-| Navigation path | Personal > Projects |
-| Page route | /user/personal/projects |
+| Navigation path | Settings > Personal > Projects |
+| Page route | `/user/user-space/projects` |
 | Managed objects | Projects records and related status |
 | Typical use | View, filter, and maintain projects information |
 
-### Beginner Explanation
+#### Beginner Explanation
 
 Projects is part of the settings and access-control workspace. Treat it as a place to confirm identities, permissions, organization rules, audit records, or rate-control status before changing configuration.
 
-### Terms Quick Reference
+#### Terms Quick Reference
 
 | Term | Meaning | Handling tip |
 | --- | --- | --- |
@@ -72,7 +72,7 @@ Use the following operations to work with projects records and related status. C
 4. Click the visible `Manage Projects` entry when it is available.
 5. Before confirming any high-risk dialog, review the affected scope, amount, permission, or configuration and cancel if the impact is unclear.
 
-## Parameters
+## Parameter Reference
 
 | Field | Required | Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -88,7 +88,7 @@ Use the following operations to work with projects records and related status. C
 - UI entries can differ by role and organization scope; verify the current account context before troubleshooting.
 - Never copy complete Keys, AK/SK, tokens, or secrets into documentation, tickets, or screenshots.
 
-## Result Checks
+## Result Validation
 
 | Check item | Success signal | If abnormal |
 | --- | --- | --- |
@@ -99,7 +99,7 @@ Use the following operations to work with projects records and related status. C
 
 ## FAQ
 
-### Target settings entry is not visible in Projects
+#### Target settings entry is not visible in Projects
 
 The expected account, project, member, role, organization, key, operation log, system configuration, or API rate-control entry does not appear on this page.
 
@@ -110,7 +110,7 @@ The expected account, project, member, role, organization, key, operation log, s
 3. Verify that prerequisite objects, such as projects, members, roles, keys, or system configurations, have been created and enabled.
 4. If the entry was just changed, refresh the page and compare it with operation logs or related settings pages.
 
-### Configuration change does not take effect in Projects
+#### Configuration change does not take effect in Projects
 
 A permission, project, role, key, notification, system setting, or rate-control change was submitted, but the page or downstream behavior still shows the old result.
 
@@ -121,7 +121,7 @@ A permission, project, role, key, notification, system setting, or rate-control 
 3. Compare downstream behavior with operation logs and related settings pages to rule out cache, permission, or synchronization delay.
 4. For security-sensitive settings, verify impact scope before repeating the operation or escalating with desensitized page paths and timestamps.
 
-### Why are project creation or settings buttons unavailable?
+#### Why are project creation or settings buttons unavailable?
 
 Check the current tenant, organization, project, role permissions, object status, feature switch, and operation logs. Do not repeat save, submit, publish, rollback, disable, or delete actions until the scope and impact are confirmed.
 

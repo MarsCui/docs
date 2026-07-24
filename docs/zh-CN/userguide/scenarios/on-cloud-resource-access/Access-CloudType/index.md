@@ -66,4 +66,4 @@ next: true
 
 ## 操作手册
 
-[查看“接入云平台”的完整字段、校验规则和常见问题](/zh-CN/usermanual/ai-infra-on-cloud/operator/access-management/access-cloudtype/)
+[查看“接入云平台”的完整字段、校验规则和常见问题](/zh-CN/usermanual/ai-infra-on-cloud/operator/access-management/cloud-platforms/)

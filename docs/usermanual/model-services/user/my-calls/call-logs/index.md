@@ -13,7 +13,7 @@ Updated: 2026-07-08
 | --- | --- |
 | Applicable role | Regular user |
 | Navigation path | Model Services > My Calls > Call Logs |
-| Page route | /modelone/monitoring/calls/log/model |
+| Page route | `/modelone/monitoring/calls/log` |
 | Managed objects | Model call logs, call status, latency, token usage, and error messages for the current account |
 | Typical use | View single-call logs and locate failed or slow calls |
 

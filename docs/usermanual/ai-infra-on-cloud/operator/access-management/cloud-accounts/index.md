@@ -12,16 +12,16 @@ Updated: 2026-07-08
 | Item | Content |
 | --- | --- |
 | Applicable role | Operator |
-| Navigation path | AI Infra > On-Cloud > Access Management > Cloud Accounts |
-| Page route | /infrahub/op/access/account |
+| Navigation path | AI Infrastructure > On-Cloud > Access Management > Cloud Accounts |
+| Page route | `/infrahub/op/access/account` |
 | Managed objects | Cloud accounts, cloud platforms, cloud platform types, access credentials, and action entries |
 | Typical use | Add cloud accounts and provide the authentication foundation for resource pool discovery, resource synchronization, and authorization configuration |
 
-#### Beginner View
+#### Beginner Explanation
 
 Cloud Accounts is like registering keys that let the platform access cloud provider resources. When adding an account, verify the account name, owning cloud platform, and credential source. Real credentials should only be entered in secure input fields and should not be written into documentation, screenshots, or tickets.
 
-#### Terms
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |

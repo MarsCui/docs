@@ -39,7 +39,7 @@ The image model passes protocol testing, is published to the intended scope, and
   - Enter the API key in the protected field, such as `sk-***`.
   - Enter the exact upstream **Model Source ID**, such as `qwen-image-2.0`.
 
-![Model source and meta-model information](./images/step-1-model-source_meta-model-information.png)
+![Model source and meta-model information](./images/step-1-model-source-meta-model-information.png)
 
 - Confirm **Image Model** and select the correct subtype, such as Image Editing.
 

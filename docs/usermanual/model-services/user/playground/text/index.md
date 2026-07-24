@@ -13,7 +13,7 @@ Updated: 2026-07-08
 | --- | --- |
 | Applicable role | Regular user |
 | Navigation path | Model Services > Playground > Text |
-| Page route | /modelone/exploration/chat |
+| Page route | `/modelone/exploration/chat` |
 | Managed objects | Text models, Prompts, generation parameters, output results, and debugging records |
 | Typical use | Test text model output on the page |
 

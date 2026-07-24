@@ -39,7 +39,7 @@ The video model creates an asynchronous task, reports progress correctly, and re
   - Enter the API key in the protected field, such as `sk-***`.
   - Enter the exact upstream **Model Source ID**, such as `wan2.7-t2v`.
 
-![Model source and meta-model information](./images/step-1-model-source_meta-model-information.png)
+![Model source and meta-model information](./images/step-1-model-source-meta-model-information.png)
 
 - Confirm **Video Model** and select the correct subtype, such as Text to Video.
 

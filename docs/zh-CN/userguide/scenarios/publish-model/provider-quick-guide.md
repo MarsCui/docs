@@ -39,7 +39,7 @@
    - **Public・公有区**：在公共市场展示
 6. 点击 **"开始"** 进入配置流程。
 
-![我的模型入口](./images/my_models-overview-zh.png)
+![我的模型入口](./images/my-models-overview-zh.png)
 
 ### 2.1 选择平台托管或 BYOK
 

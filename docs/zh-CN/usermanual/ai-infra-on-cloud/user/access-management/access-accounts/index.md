@@ -12,10 +12,10 @@
 | 项目 | 内容 |
 | --- | --- |
 | 适用角色 | 普通用户 |
-| 导航路径 | AI Infra > On-Cloud > 接入管理 > 接入管理 |
-| 页面路由 | /infrahub/user/access/account |
+| 导航路径 | AI基础设施 > On-Cloud > 接入管理 > 接入管理 |
+| 页面路由 | `/infrahub/user/access/account` |
 | 管理对象 | 云账号、云平台、Access Key ID、Access Key Secret、创建时间和操作入口 |
-| 典型用途 | 新增可用于快速部署的云账号，并查看已接入账号 |
+| 典型途径 | 新增可用于快速部署的云账号，并查看已接入账号 |
 
 #### 新手理解
 

@@ -12,16 +12,16 @@ Updated: 2026-07-20
 | Item | Content |
 | --- | --- |
 | Applicable role | Operator |
-| Navigation path | AI Infra > On-Cloud > Authorization Management > Tenant-Cloud Auth |
-| Page route | /infrahub/op/auth/platform-auth |
+| Navigation path | AI Infrastructure > On-Cloud > Authorization Management > Tenant-Cloud Auth |
+| Page route | `/infrahub/op/auth/platform-auth` |
 | Managed objects | Tenant, Tenant ID, authorized cloud platforms, and actions |
 | Typical use | Authorize selected cloud platforms for one tenant or all tenants |
 
-#### Beginner View
+#### Beginner Explanation
 
 Tenant-cloud authorization works like issuing a cloud platform access pass to a tenant. A cloud platform being connected does not mean every tenant can use it. Only authorized tenants can access the corresponding cloud platform resources and services.
 
-#### Terms
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |

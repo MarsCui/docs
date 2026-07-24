@@ -16,7 +16,7 @@ This document connects operator and regular-user On-Prem operations into an end-
 | Output | A model service or runtime instance whose status, logs, usage, and monitoring can be checked |
 | Typical Use | First integration in a new environment, training demos, pre-launch acceptance, and issue location |
 
-## Beginner View
+#### Beginner Explanation
 
 An On-Prem end-to-end deployment is like delivering self-built data center resources to users: operators prepare regions, clusters, specifications, templates, and quotas first, and users then select images, data, and startup parameters to create model services.
 
@@ -32,7 +32,7 @@ An On-Prem end-to-end deployment is like delivering self-built data center resou
 | Status verification | Regular user | View status, logs, ports, events, usage, and monitoring. |
 | Troubleshooting loop | Both | Check resources, permissions, quotas, images, storage, and clusters based on the failure path. |
 
-## Terms Quick Reference
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |
@@ -59,7 +59,7 @@ An On-Prem end-to-end deployment is like delivering self-built data center resou
 | Template / Image | Confirm model, framework, image, ports, variables, startup command, and VRAM rules. | Determines whether the model service or runtime instance can start successfully. |
 | Quota / Credit | Confirm tenant quota, credit, and metering rule. | Determines whether users can create and continue running workloads. |
 
-## Pitfall Tips
+## Pitfalls
 
 - Do not paste real kubeconfig, registry credentials, storage keys, tokens, or internal endpoints into examples or screenshots.
 - If a specification is not selectable, check cluster association, tenant quota, template limits, and current filters together.
@@ -134,18 +134,18 @@ Result validation:
 
 ## Step 6: User Creates Online Inference / Development Environment / Runtime Instance
 
-### Method A: Use a Deployment Template to Create a Model Service
+#### Method A: Use a Deployment Template to Create a Model Service
 
-![Deployment templates](../../user/quick-start/inference-templates/images/inference-templates-list.png)
+![Deployment templates](../../user/model-deployment/templates/images/templates-list.png)
 
 1. Go to `Model Deployment > Deployment Templates`.
 2. Select the target template.
 3. Fill in the instance name, model parameters, specification, ports, storage, and environment variables according to the template.
 4. After submission, enter the model instance list to view status.
 
-### Method B: Create a Runtime Instance
+#### Method B: Create a Runtime Instance
 
-![Create runtime instance](../../user/development/model-training/images/create-instance.png)
+![Create runtime instance](../../user/dev-resources/runtime-instances/images/create-runtime-instance.png)
 
 1. Go to `Development Resources > Runtime Instances`.
 2. Click `Create Instance`.
@@ -178,7 +178,7 @@ python app.py --host 0.0.0.0 --port 8000
 
 ## Troubleshooting Common Failure Paths
 
-### Failure Branch: Cluster Registration Fails
+#### Failure Branch: Cluster Registration Fails
 
 Next hop: [Cluster Management](../../operator/resource-pools/clusters/)
 
@@ -190,7 +190,7 @@ Next hop: [Cluster Management](../../operator/resource-pools/clusters/)
 2. Confirm that the cluster version, network, and monitoring collection components meet access requirements.
 3. After registration succeeds, go to resource specifications and monitoring pages to verify that the cluster is visible.
 
-### Failure Branch: Specification Is Not Selectable
+#### Failure Branch: Specification Is Not Selectable
 
 Next hop: [Resource Specifications](../../operator/resource-pools/resource-specs/)
 
@@ -202,7 +202,7 @@ Next hop: [Resource Specifications](../../operator/resource-pools/resource-specs
 2. Check tenant quota, region visibility scope, and template specification limits.
 3. Go to cluster, node, and device monitoring to confirm that the target resources still have capacity.
 
-### Failure Branch: Instance Creation Fails
+#### Failure Branch: Instance Creation Fails
 
 Next hop: [Job Monitoring](../../operator/monitoring/jobs/)
 
@@ -222,7 +222,7 @@ Next hop: [Job Monitoring](../../operator/monitoring/jobs/)
 | Status normal | The instance, job, or model service enters Running or Available | Enter invocation, logs, or monitoring |
 | Troubleshooting entrypoint available | Events, logs, or monitoring can locate errors | Continue troubleshooting by failure branch |
 
-## Follow-Up Operations
+## Next Steps
 
 1. Organize the verified image, startup command, ports, object paths, and parameters into team standards.
 2. Accumulate inference templates or runtime instance templates for common scenarios.

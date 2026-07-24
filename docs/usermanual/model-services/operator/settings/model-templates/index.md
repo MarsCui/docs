@@ -13,7 +13,7 @@ Model Templates helps operators maintain reusable publishing templates that conn
 | --- | --- |
 | Applicable role | Operator |
 | Navigation path | Model Services > Settings > Model Templates |
-| Page route | /modelone/settings/provider-template |
+| Page route | `/modelone/settings/provider-template` |
 | Managed objects | Vendor templates, source previews, protocols, default parameters, and publishing forms |
 | Typical use | Provide reusable templates for model publishing |
 

@@ -32,7 +32,7 @@ next: true
 | 模型 API 调用失败或响应异常 | 我的调用 / 客户调用日志 | [调用日志](../../../usermanual/model-services/user/my-calls/call-logs/)、[客户调用日志](../../../usermanual/model-services/user/customer-calls/call-logs/) |
 | 调用成功率、时延或 Token 异常 | 调用分析 | [我的调用分析](../../../usermanual/model-services/user/my-calls/call-analytics/)、[客户调用分析](../../../usermanual/model-services/user/customer-calls/call-analytics/) |
 | 云上部署失败或不可访问 | 我的部署详情、事件和监控 | [我的部署](../../../usermanual/ai-infra-on-cloud/user/model-services/my-deployments/) |
-| 本地算力平台作业排队或失败 | 作业监控、实例事件和日志 | [作业监控](../../../usermanual/ai-infra-on-prem/operator/monitoring/jobs/)、[在线推理](../../../usermanual/ai-infra-on-prem/user/model-deployment/online-inference/) |
+| 本地算力平台作业排队或失败 | 作业监控、实例事件和日志 | [作业监控](../../../usermanual/ai-infra-on-prem/operator/monitoring/jobs/)、[模型实例](../../../usermanual/ai-infra-on-prem/user/model-deployment/instances/) |
 | 节点或加速卡异常 | 节点统计、设备监控 | [节点统计](../../../usermanual/ai-infra-on-prem/operator/monitoring/nodes/)、[设备监控](../../../usermanual/ai-infra-on-prem/operator/monitoring/devices/) |
 | 配额、用量或金额异常 | 配额、计量明细和模型用量 | [本地算力平台资源计量与监控](../on-prem-resource-metering-monitoring/)、[模型的消费与收益](../model-usage-revenue/) |
 

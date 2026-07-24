@@ -11,13 +11,13 @@ Updated: 2026-07-08
 
 | Item | Content |
 | --- | --- |
-| Applicable Role | Operator |
-| Navigation Path | AI Infra > On-Prem > Resource Pools > Specification Metrics |
-| Page Route | /powerone/resourcepool/flavor/type |
-| Managed Objects | Metric name, metric type, resource key, unit, k8s-key, selector-key, monitoring metric, and enabled status |
-| Typical Use | Define resource specification fields, associate accelerator models, and support job resource requests and monitoring display |
+| Applicable role | Operator |
+| Navigation path | AI Infrastructure > On-Prem > Resource Pools > Specification Metrics |
+| Page route | `/powerone/resourcepool/flavor/type` |
+| Managed objects | Metric name, metric type, resource key, unit, k8s-key, selector-key, monitoring metric, and enabled status |
+| Typical use | Define resource specification fields, associate accelerator models, and support job resource requests and monitoring display |
 
-#### Beginner View
+#### Beginner Explanation
 
 Specification metrics are like units of measure in a resource specification table. Whether CPU, memory, GPU, VRAM, and other fields can be correctly identified, displayed, and counted depends on metric definitions. When metric definitions are inconsistent, the specification name users see can fail to match the actual scheduled resources.
 
@@ -29,7 +29,7 @@ Specification metrics are like units of measure in a resource specification tabl
 4. Reference the metric in `Resource Specifications`.
 5. Use a test job to verify resource requests, scheduling result, and monitoring display.
 
-#### Terms
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |
@@ -71,9 +71,9 @@ Add a specification metric when a new hardware resource type needs to be added, 
 1. Go to `AI Infra > On-Prem > Resource Pools > Specification Metrics`.
 2. Click `Add` or the actual add entry on the page.
 3. Select a metric type, such as CPU, memory, AI accelerator metric, or another metric type provided by the page.
-4. Fill in metric name, resource key, unit, k8s-key, selector-key, or monitoring metric mapping according to the page fields.
-5. For an AI accelerator metric, verify that the accelerator model and selector-key are consistent with labels actually reported by cluster nodes.
-6. Before clicking the final `Save`, `Submit`, or `OK`, verify the metric scope, unit, and resource key again.
+4. Select AI card category, AI cards metrics, or other metrics, and fill in metric name, unit, k8s-key, and selector-key according to the page fields.
+5. For an AI accelerator metric, verify that selector-key is consistent with labels actually reported by cluster nodes.
+6. Before clicking the final `Save`, `Submit`, or `OK`, verify the metric scope, unit, k8s-key, and selector-key again.
 7. For learning or page validation only, view the fields and drawer without submitting real specification metric configuration.
 
 The following figure shows the Add Specification Metric drawer. AI accelerator metrics require k8s-key and selector-key.
@@ -82,18 +82,16 @@ The following figure shows the Add Specification Metric drawer. AI accelerator m
 
 ## Parameter Reference
 
-| Parameter | Required | Description | Configuration Notes |
+| Parameter | Required | Description | Configuration Suggestion |
 | --- | --- | --- | --- |
-| Metric Name | Yes | Metric display name. | Should reflect the resource type and long-term maintenance definition. Avoid temporary names. |
-| Metric Type | Yes | CPU, memory, AI accelerator metric, or another page-supported type. | Select according to the real resource type to avoid affecting specification filtering and display. |
-| Resource Key | Conditionally required | Resource identifier used for scheduling or metering. | Keep it consistent with page fields and platform definitions. |
-| Unit | Yes | Metric metering unit. | CPU, memory, VRAM, accelerator, and other units must align with monitoring and metering definitions. |
-| k8s-key | Conditionally required | Kubernetes scheduling resource key. | Must be consistent with the resource key actually reported by Kubernetes nodes. |
-| selector-key | Conditionally required | Accelerator model, node label, or device filter key. | Must be consistent with the accelerator model or node label. |
-| Monitoring Metric | Conditionally required | Metric mapping corresponding to resource monitoring. | Must match monitoring collection components and display definitions. |
-| Accelerator Model | Conditionally required | Hardware model associated with an AI accelerator metric. | Keep it consistent with the model in Accelerator Management and labels reported by nodes. |
-| Enabled Status | System generated or optional | Whether the metric can be referenced. | Before disabling, confirm resource specification, template, and running job references. |
-| Actions | System generated | Page entries for add, edit, enable, disable, and similar operations. | Confirm impact scope and rollback plan before high-risk actions. |
+| AI card Category | Conditionally required | Category selected when adding an AI accelerator metric. | Keep it consistent with hardware categories in Accelerators. |
+| AI Cards Metrics | Conditionally required | Metric type selected for AI accelerator spec metrics. | Used to distinguish accelerator metrics. |
+| Other Metrics | Conditionally required | CPU, memory, or another non-accelerator metric supported by the page. | Keep it consistent with resource specification display and scheduling scope. |
+| Metric Name | Yes | Display name of the specification metric. | Use a name that expresses resource type and unit. |
+| Unit | Yes | Display or metering unit. | Keep it consistent with capacity statistics and Resource Specs. |
+| k8s-key | Conditionally required | Kubernetes scheduling resource key. | Must match the resource key actually reported by Kubernetes nodes. |
+| selector-key | Conditionally required | Accelerator model, node label, or device selector key. | Must match the accelerator model or node label. |
+| Actions | System-generated | Add, edit, import/export, delete, and similar entries. | `Confirm` submits real configuration. Do not click it during learning or screenshot capture. |
 
 ## Pitfalls
 

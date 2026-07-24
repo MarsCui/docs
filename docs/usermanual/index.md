@@ -55,7 +55,7 @@ The manual is organized into five modules in the left sidebar:
 
 ## FAQ
 
-### Not sure which module to read
+#### Not sure which module to read
 
 **Symptom:**
 
@@ -75,7 +75,7 @@ You want to complete model deployment, model calling, resource access, or billin
 4. For balances, transactions, bills, settlements, adjustments, or License, start with Billing.
 5. For accounts, projects, keys, members, roles, organizations, or security policies, start with Settings.
 
-### Page entry is not visible
+#### Page entry is not visible
 
 **Symptom:**
 
@@ -93,7 +93,7 @@ The menu, button, or page mentioned in the documentation is not visible under th
 2. Check resources, authorization, and visibility against the prerequisites on the feature page.
 3. When requesting help, provide only desensitized page paths, time ranges, resource IDs, and missing entry descriptions.
 
-### Operation fails after following the documented steps
+#### Operation fails after following the documented steps
 
 **Symptom:**
 

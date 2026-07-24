@@ -32,9 +32,9 @@ In short: **organization defines the boundary, user signs in, member defines col
 
 | Object | Beginner-friendly Meaning | What It Affects | User Manual Reference |
 | --- | --- | --- | --- |
-| Organization | A business entity or customer space in the platform, replacing the earlier tenant concept | Data boundary, administrator, roles, tags, business ownership, and organization-visible scope | [Organizations](../usermanual/settings/operator/organizations/organizations/) |
+| Organization | A business entity or customer space in the platform, replacing the earlier tenant concept | Data boundary, administrator, roles, tags, business ownership, and organization-visible scope | [Organizations](../usermanual/settings/operator/tenants/tenants/) |
 | User | A personal account that can sign in to the platform | Login identity, personal operation records, personal Keys, and personal settings | [Settings](../usermanual/settings/) |
-| Member | The collaboration identity created when a user joins an organization, team, or project | Member status, collaboration, role assignment, project visibility, and operation permissions | [Team Members](../usermanual/settings/operator/members-roles/team-members/) |
+| Member | The collaboration identity created when a user joins an organization, team, or project | Member status, collaboration, role assignment, project visibility, and operation permissions | [Team Members](../usermanual/settings/operator/members-roles/members/) |
 | Project | A business workspace for model invocation and collaboration | Project budget, member scope, API Keys, usage, activity, model allowlist, and settings | [Projects](../usermanual/settings/user/personal/projects/) |
 | Role | A responsibility and permission set, such as operator, provider, or regular user | Menus, buttons, task ownership, and allowed operations | [Role Comparison](./role-comparison) |
 | Authorization scope | Resources, records, and actions opened to an organization, member, project, or account | Visible regions, resource pools, cloud accounts, models, templates, billing records, License, audit logs, and API rate-control rules | [User Manual](../usermanual/) |
@@ -133,8 +133,8 @@ Some deployments use a designated platform organization for `admin` and `operato
 - [Role Comparison](./role-comparison)
 - [Features and Capabilities](./technical/features)
 - [User Manual: Settings](../usermanual/settings/)
-- [Organizations](../usermanual/settings/operator/organizations/organizations/)
-- [Team Members](../usermanual/settings/operator/members-roles/team-members/)
+- [Organizations](../usermanual/settings/operator/tenants/tenants/)
+- [Team Members](../usermanual/settings/operator/members-roles/members/)
 - [Projects](../usermanual/settings/user/personal/projects/)
 - [Scenario Guide](../userguide/scenarios)
 - [User Manual](../usermanual/)

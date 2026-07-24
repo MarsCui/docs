@@ -68,4 +68,4 @@ The required public- or private-cloud platform is available for later account ac
 
 ## User Manual
 
-[Review complete fields, validation rules, and common issues for Cloud Platforms](/usermanual/ai-infra-on-cloud/operator/access-management/access-cloudtype/)
+[Review complete fields, validation rules, and common issues for Cloud Platforms](/usermanual/ai-infra-on-cloud/operator/access-management/cloud-platforms/)

@@ -12,16 +12,16 @@ Updated: 2026-07-21
 | Item | Content |
 | --- | --- |
 | Applicable role | Operator |
-| Navigation path | AI Infra > On-Cloud > Scheduling Governance > Policies |
-| Page route | /infrahub/op/schedule/policy |
+| Navigation path | AI Infrastructure > On-Cloud > Scheduling Governance > Policies |
+| Page route | `/infrahub/op/schedule/policy` |
 | Managed objects | Policy name, Label ID, scenario, associated model, route topology, health probe rules, and action entries |
 | Typical use | Add high-availability model policies and configure primary/backup routes, priority, and health probe rules |
 
-#### Beginner View
+#### Beginner Explanation
 
 Policies work like routing and health check rules for model deployment. They decide which route node a model service uses first, which nodes act as backup routes, and how health probes detect service issues and trigger failover.
 
-#### Terms
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |

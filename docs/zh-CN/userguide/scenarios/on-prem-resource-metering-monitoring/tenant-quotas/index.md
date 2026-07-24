@@ -54,4 +54,4 @@
 
 ## 操作手册
 
-[查看租户配额完整说明](/zh-CN/usermanual/ai-infra-on-prem/operator/quotas-metering/tenant-quotas/)
+运营侧核对可继续查看[计量明细](../../../../usermanual/ai-infra-on-prem/operator/quotas-metering/metering-details/)和[月度用量](../../../../usermanual/ai-infra-on-prem/operator/quotas-metering/monthly-usage/)。

@@ -16,9 +16,7 @@ Map tenant credits, monthly usage, and metering details to actual instances or w
 
 ## Steps
 
-1. Open [Tenant Credits](../../../../usermanual/ai-infra-on-prem/operator/quotas-metering/tenant-credits/) and review opening, allocated, used, and remaining credits.
-
-![Review tenant credits and allocation records](./images/tenant-credits-list-browser.png)
+1. Open the quota, credit, or usage governance page provided by the current UI, and review opening, allocated, used, and remaining amounts where available.
 
 2. Open [Monthly Usage](../../../../usermanual/ai-infra-on-prem/operator/quotas-metering/monthly-usage/), select the same tenant and billing cycle, and review resource type, specification, and summarized usage.
 

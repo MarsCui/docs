@@ -39,7 +39,7 @@ The embedding model passes protocol testing, is published to the intended scope,
   - Enter the API key in the protected field, such as `sk-***`.
   - Enter the exact upstream **Model Source ID**, such as `text-embedding-v1`.
 
-![Model source and meta-model information](./images/step-1-model-source_meta-model-information.png)
+![Model source and meta-model information](./images/step-1-model-source-meta-model-information.png)
 
 - Confirm that **Model Type** is **Embedding Model**.
 

@@ -111,7 +111,7 @@ On-Prem and On-Cloud use different asset structures for local-compute and cloud-
 
 | Deployment Scope | Components | User Manual |
 |---|---|---|
-| **On-Prem** | Model configurations, VRAM estimation, framework configurations, and inference templates | [Model Configurations](../../usermanual/ai-infra-on-prem/operator/templates/model-config/) / [VRAM Estimation](../../usermanual/ai-infra-on-prem/operator/templates/vram-config/) / [Framework Configurations](../../usermanual/ai-infra-on-prem/operator/templates/frameworks/) / [Inference Templates](../../usermanual/ai-infra-on-prem/operator/templates/inference-templates/) |
+| **On-Prem** | Model configurations, VRAM estimation, framework configurations, and inference templates | [Model Configurations](../../usermanual/ai-infra-on-prem/operator/templates/models/) / [VRAM Estimation](../../usermanual/ai-infra-on-prem/operator/templates/vram-config/) / [Framework Configurations](../../usermanual/ai-infra-on-prem/operator/templates/frames/) / [Inference Templates](../../usermanual/ai-infra-on-prem/operator/templates/inference-templates/) |
 | **On-Cloud** | Runtime images, inference frameworks, and the model catalog; model records further connect metadata models, cloud deployment points, cloud models, compute solutions, and output configurations | [Runtime Images](../../usermanual/ai-infra-on-cloud/operator/deploy-assets/runtime-images/) / [Inference Frameworks](../../usermanual/ai-infra-on-cloud/operator/deploy-assets/frameworks/) / [Model Catalog](../../usermanual/ai-infra-on-cloud/operator/deploy-assets/models/) |
 
 ### 2.1 AI Infra On-Prem
@@ -516,8 +516,8 @@ Settings centralizes identity, organization, audit, login security, platform con
 | Area | Typical Scope | Manual Entry |
 | --- | --- | --- |
 | Personal settings | Keys, profile, projects, and personal dashboard | [My Keys](../../usermanual/settings/user/personal/my-keys/) |
-| Members and roles | Team members, roles, member quotas, and quota requests | [Team Members](../../usermanual/settings/operator/members-roles/team-members/) |
-| Organizations | Organization records and user-side organization settings | [Organizations](../../usermanual/settings/operator/organizations/organizations/) |
+| Members and roles | Team members, roles, member quotas, and quota requests | [Team Members](../../usermanual/settings/operator/members-roles/members/) |
+| Organizations | Organization records and user-side organization settings | [Organizations](../../usermanual/settings/operator/tenants/tenants/) |
 | Activity and audit | Operation logs and change traceability | [Operation Logs](../../usermanual/settings/operator/activity-notifications/operation-logs/) |
 | System settings | Platform settings and login properties | [Platform Settings](../../usermanual/settings/operator/system-settings/platform-settings/) |
 | API rate control | Rule management, observability audit, node cache, and publish center | [API Rate Control Overview](../../usermanual/settings/operator/api-rate-control/overview/) |

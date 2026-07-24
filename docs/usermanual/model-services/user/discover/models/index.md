@@ -13,7 +13,7 @@ The Models page helps users discover available models, compare providers, review
 | --- | --- |
 | Applicable role | Regular user |
 | Navigation path | Model Services > Discover > Models |
-| Page route | /modelone/model/my/overview |
+| Page route | `/modelone/store/model` |
 | Managed objects | Model lists, providers, quick start, performance metrics, and model overview |
 | Typical use | Discover models, view providers, and obtain redacted call methods |
 

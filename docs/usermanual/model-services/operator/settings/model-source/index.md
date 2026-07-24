@@ -13,7 +13,7 @@ Model Sources helps operators maintain upstream source channels, regions, Base U
 | --- | --- |
 | Applicable role | Operator |
 | Navigation path | Model Services > Settings > Model Sources |
-| Page route | /modelone/settings/vendor |
+| Page route | `/modelone/settings/vendor` |
 | Managed objects | Source channels, regions, Base URLs, request headers, authentication information, and connectivity status |
 | Typical use | Maintain upstream model service sources |
 

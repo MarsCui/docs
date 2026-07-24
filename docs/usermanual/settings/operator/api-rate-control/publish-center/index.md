@@ -7,124 +7,134 @@ Updated: 2026-07-10
 
 ## Feature Overview
 
-`Publish Center` is used to view, filter, and maintain publish center information. It helps operator admin work with publish center records and related status from a consistent page entry.
+`Publish Center` is used to view API rate-control rule-version publish records, including version, status, node count, publisher, publish time, and messages.
 
 | Item | Content |
 | --- | --- |
 | Applicable role | Operator admin |
-| Navigation path | API Rate Control > Publish Center |
-| Page route | /operator/api-rate-control/publish-center |
-| Managed objects | Publish Center records and related status |
-| Typical use | View, filter, and maintain publish center information |
+| Navigation path | Settings > API Rate Control > Publish Center |
+| Page route | `/user/system/rate-control/publish` |
+| Managed objects | API rate-control rule versions, publish records, node counts, publishers, and publish times |
+| Typical use | View rule-version publish status, publish records, and node publish results |
 
-### Beginner Explanation
+#### Beginner Explanation
 
-Publish Center is part of the settings and access-control workspace. Treat it as a place to confirm identities, permissions, organization rules, audit records, or rate-control status before changing configuration.
+Publish Center works like a result dashboard for API rate-control publishing. Use it to confirm whether rules were successfully published to nodes, and to locate failed nodes and failure reasons.
 
-### Terms Quick Reference
+#### Terms Quick Reference
 
 | Term | Meaning | Handling tip |
 | --- | --- | --- |
-| Member | A user account that belongs to an organization or team. | Check role and status before troubleshooting access. |
-| Role | A permission set assigned to members. | Use least privilege and review scope before changes. |
-| Operation log | An audit record of user or platform actions. | Use it to trace risky or abnormal operations. |
-| API rate control rule | A policy that limits API request patterns. | Publish and verify rules carefully. |
+| Publish record | Execution record of a rule publish task. | Check it when troubleshooting rule effectiveness. |
+| Publish status | Status such as successful, failed, or in progress. | Check messages when failed. |
+| Target node | Node scope affected by the publish task. | Confirm whether the expected scope is covered. |
+| Failure reason | Error message for an unsuccessful publish task. | Troubleshoot together with Node Cache. |
 
 ## Prerequisites
 
-1. The current account can access `API Rate Control > Publish Center`.
-2. The target organization, member, customer, billing cycle, rule, or record scope has been confirmed.
-3. Required upstream data is already available and the page has finished loading.
-4. For high-risk changes, confirm the impact scope and rollback path before continuing.
+1. The current account has permission to view API rate-control publish records.
+2. You have opened `API Rate Control > Publish Center`.
+3. When troubleshooting publish issues, the approximate rule publish time and target nodes have been recorded.
 
 ## Page Description
 
-The page usually includes filters, summary cards, data tables, detail entries, status fields, and related operation buttons for publish center records and related status.
+The following screenshot shows the Publish Center page. Versions, nodes, and message details are desensitized.
 
 | Area | Description |
 | --- | --- |
-| Filters | Narrow records by keyword, status, time range, organization, customer, member, or billing cycle. |
-| Summary area | Displays key balances, counts, trends, warnings, or processing progress when available. |
-| List or table | Shows records, statuses, timestamps, owners, amounts, and row-level actions. |
-| Details or dialog | Provides more context before follow-up operations. |
-
-The following screenshot shows publish center.
+| Refresh Records | Refresh publish records. |
+| Node ID | Filter publish records by node. |
+| Start Time / End Time | Filter publish records by time range. |
+| Publish record table | Displays version, status, node count, publisher, publish time, and message. |
 
 ![Publish Center](./images/publish-center-list.png)
 
 ## Main Operations
 
-Use the following operations to work with publish center records and related status. Complete view-only checks before opening dialogs that may create, save, submit, activate, transfer, settle, publish, or delete data.
+Use this operation to query publish records. Do not add publish, rollback, or cancel operations here because they are high-risk final actions.
 
 ### View Publish Center
 
 1. Go to `API Rate Control > Publish Center`.
-2. Use filters or tabs to locate the target record.
-3. Select the target row or entry related to publish center records and related status.
-4. Click the visible `View Publish Center` entry when it is available.
-5. Before confirming any high-risk dialog, review the affected scope, amount, permission, or configuration and cancel if the impact is unclear.
+2. Select node ID, start time, end time, publish status, or version information according to page fields.
+3. Click `Search` to query publish records.
+4. Review version, status, node count, publisher, publish time, and message in the publish record table.
+5. Click `Refresh Records` when you need to fetch the latest records again.
+6. If the publish status is abnormal, go to `Node Cache` to verify node rule versions, then return to `Rule Management` to check the rule version.
+7. For learning or screenshots, only view publish records. Do not publish, roll back, cancel, or delete anything.
 
-## Parameters
+![Publish Center](./images/publish-center-list.png)
+
+## Parameter Reference
 
 | Field | Required | Type | Example | Description |
 | --- | --- | --- | --- | --- |
-| Keyword or name | No | Text | `Example name` | Used to locate a specific record. |
-| Status | No | Enum | `Enabled` | Used to determine the current processing or availability state. |
-| Time range or billing cycle | No | Date / Month | `2026-07` | Used to narrow statistics, logs, bills, or settlements. |
-| Organization / customer / member | No | Text | `Example organization` | Used to identify the business ownership scope. |
-| Operation | System generated | Button / link | `View Details` | Provides row-level entry points for follow-up checks. |
+| Node ID | No | Text | `<node_id>` | Filters publish records by node. |
+| Start Time | No | Time | `Start Time` | Sets the start time for publish record queries. |
+| End Time | No | Time | `End Time` | Sets the end time for publish record queries. |
+| Publish Batch | No | Text | `<publish_batch>` | Locates a specific publish task. |
+| Rule Version | No | Version | `<rule_version>` | Rule version included in the publish task. |
+| Publish Status | No | Enum | `Succeeded` | Shows the publish result. |
+| Node Count | System generated | Number | `10` | Number of nodes involved in the publish task. |
+| Publisher | System generated | Text | `<publisher>` | Account or role that initiated the publish task. |
+| Publish Time | System generated | Time | `Publish Time` | Creation or completion time of the publish task. |
+| Message | System generated | Text | `Published` | Publish result, failure reason, or internal hint. |
+| Refresh Records | No | Button | `Refresh Records` | Fetches the latest publish records again. |
 
 ## Pitfalls
 
-- Do not change roles, members, login policies, Keys, or API rate-control rules without confirming the affected users and systems.
-- UI entries can differ by role and organization scope; verify the current account context before troubleshooting.
-- Never copy complete Keys, AK/SK, tokens, or secrets into documentation, tickets, or screenshots.
+- Publish Center records may contain rule versions, nodes, publishers, publish times, failure reasons, and internal runtime information.
+- `Publish`, `Publish All`, `Rollback`, `Cancel`, and `Delete` are high-risk actions.
+- When publishing fails, do not publish repeatedly. Check failed nodes, the message field, Node Cache, and rule versions first.
+- Do not write real node IDs, internal IP addresses, API paths, tokens, tenant IDs, customer names, publish batches, internal error details, or load-test parameters in the manual.
 
-## Result Checks
+## Result Validation
 
 | Check item | Success signal | If abnormal |
 | --- | --- | --- |
 | Page access | The `API Rate Control > Publish Center` page opens and data loads normally. | Check role permissions and refresh the page. |
-| Filter result | The list changes according to the selected filters. | Reset filters and search again. |
-| Record detail | Details, status, amount, permission, or configuration values are visible. | Confirm the record scope and permissions. |
-| Follow-up path | Related pages or dialogs can be opened from visible entries. | Return to the sidebar and enter the downstream page directly. |
+| Publish records | Publish records in the target time range are visible. | Expand the time range and query again. |
+| Normal status | Publish status shows success or the expected state. | Check the message field and verify in Node Cache. |
+| Correct node count | Node count matches the expected node scope. | Check target nodes in the publish task. |
+| Version consistency | The rule version in publish records matches the Rule Management page. | Return to Rule Management and verify the version. |
 
 ## FAQ
 
-### Target settings entry is not visible in Publish Center
+#### Publish record status is abnormal
 
-The expected account, project, member, role, organization, key, operation log, system configuration, or API rate-control entry does not appear on this page.
-
-**How to check:**
-
-1. Confirm the current tenant, organization, project, role, and account permission scope.
-2. Check page filters such as keyword, status, project, member, role, organization, time range, and configuration type.
-3. Verify that prerequisite objects, such as projects, members, roles, keys, or system configurations, have been created and enabled.
-4. If the entry was just changed, refresh the page and compare it with operation logs or related settings pages.
-
-### Configuration change does not take effect in Publish Center
-
-A permission, project, role, key, notification, system setting, or rate-control change was submitted, but the page or downstream behavior still shows the old result.
+The target version status in Publish Center is not as expected.
 
 **How to check:**
 
-1. Confirm that the save operation completed and the target object status is enabled or active.
-2. Check whether the change applies to the correct organization, project, member, role, API key, or policy scope.
-3. Compare downstream behavior with operation logs and related settings pages to rule out cache, permission, or synchronization delay.
-4. For security-sensitive settings, verify impact scope before repeating the operation or escalating with desensitized page paths and timestamps.
+1. Check the message field.
+2. Open Node Cache and compare node status and rule version.
+3. Return to Rule Management and verify the rule version.
+4. Do not publish repeatedly before identifying failed nodes and failure reasons.
 
-### Why are publish, rollback, or cancel buttons unavailable?
+#### Why is the target policy missing from Publish Center?
 
-Check the current tenant, organization, project, role permissions, object status, feature switch, and operation logs. Do not repeat save, submit, publish, rollback, disable, or delete actions until the scope and impact are confirmed.
+Publish Center does not show the rate-control policy that is pending, published, or rolling back.
+
+**How to check:**
+
+1. Clear status and environment filters.
+2. Return to Rule Management and confirm whether the rule has been submitted for publishing.
+3. Check the publish task and approval status.
+4. Confirm that the current account has permission to view the publish record scope.
+
+#### Why are publish, rollback, or cancel buttons unavailable?
+
+The publish task is visible, but publish, rollback, cancel, or diff buttons cannot be clicked. Confirm task status and approval status. Before publishing or rolling back, verify the impact scope and let an administrator with publish permission handle the action.
 
 ## Next Steps
 
-1. Recheck the affected users, organizations, projects, roles, keys, policies, or configuration objects.
-2. Verify operation logs and downstream behavior after the configuration is saved or refreshed.
-3. Keep only desensitized page paths, timestamps, object names, and status values when escalating.
+1. To view node synchronization, go to [Node Cache](../node-cache/).
+2. To view rule configuration, go to [Rule Management](../rule-management/).
 
 ## Notes
 
-- Permission, Key, login, organization, and rate-control changes can affect real users. Confirm scope before changes.
-- Keep page routes, API fields, Key, AK/SK, License, and other product terms in their UI form.
-- Keep credentials, private operational details, and sensitive customer data out of the manual.
+- Publish records are trace records for rule-effectiveness issues.
+- Publish Center records may contain rule versions, nodes, publishers, publish times, failure reasons, and internal runtime information.
+- `发布 / Publish`, `发布全部 / Publish All`, `回滚 / Rollback`, `取消 / Cancel`, and `删除 / Delete` are high-risk actions.
+- When publishing fails, do not publish repeatedly. Check failed nodes, the message field, Node Cache, and rule versions first.
+- Do not write real node IDs, internal IP addresses, API paths, tokens, tenant IDs, customer names, publish batches, internal error details, or load-test parameters in the manual.

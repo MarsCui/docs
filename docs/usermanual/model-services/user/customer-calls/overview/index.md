@@ -13,7 +13,7 @@ Updated: 2026-07-08
 | --- | --- |
 | Applicable role | Model provider |
 | Navigation path | Model Services > Customer Calls > Overview |
-| Page route | /modelone/monitoring/monitor/overview/user |
+| Page route | `/modelone/monitoring/monitor/overview` |
 | Managed objects | Customer analytics, model analytics, call trends, token consumption, and rate limit triggers |
 | Typical use | View customer-side call overview and locate important customers or models |
 

@@ -33,7 +33,7 @@ Open [Financial Accounts](../../../usermanual/billing/operator/finance-operation
 
 Open the [Reconciliation Center](../../../usermanual/billing/operator/finance-operations/reconciliation-center/), refresh the target cycle, and review unmatched transfers, missing revenue details, and the compensation queue. Run bilateral transaction checks or rebuild revenue details when required, and record the conclusion.
 
-![Locate exception checks in the Reconciliation Center](../../../usermanual/billing/operator/finance-operations/reconciliation-center/images/reconciliation-center-list.png)
+![Locate exception checks in the Reconciliation Center](../../../usermanual/billing/operator/finance-operations/reconciliation-center/images/bilateral-ledger-check-list.png)
 
 ### 4. Review or Generate the Settlement Statement
 

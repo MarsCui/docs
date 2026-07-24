@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "AGIOne"
   text: "AI 网关平台文档"
-  tagline: 统一的 AI 模型管理、GPU 纳管与 API 网关
+  tagline: 统一的 AI 模型管理、GPU 纳管与 API 网关<br>----预览版 v1.0，2026-07-23 ·
   actions:
     - theme: brand
       text: 快速开始

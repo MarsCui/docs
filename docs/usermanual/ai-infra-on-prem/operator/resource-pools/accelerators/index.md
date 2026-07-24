@@ -11,13 +11,13 @@ Updated: 2026-07-08
 
 | Item | Content |
 | --- | --- |
-| Applicable Role | Operator |
-| Navigation Path | AI Infra > On-Prem > Resource Pools > Accelerator Management |
-| Page Route | /powerone/resourcepool/accelerators |
-| Managed Objects | AI accelerator vendors, architectures, series, models, VRAM, compute capability, specification metrics, and management status |
-| Typical Use | Unify the accelerator dictionary, support specification metrics, and help resource specifications and inference templates identify available hardware |
+| Applicable role | Operator |
+| Navigation path | AI Infrastructure > On-Prem > Resource Pools > Accelerator Management |
+| Page route | `/powerone/resourcepool/accelerators` |
+| Managed objects | AI accelerator vendors, architectures, series, models, VRAM, compute capability, specification metrics, and management status |
+| Typical use | Unify the accelerator dictionary, support specification metrics, and help resource specifications and inference templates identify available hardware |
 
-#### Beginner View
+#### Beginner Explanation
 
 - **Accelerator model** is like a hardware identity card. It tells the platform whether this is A100, H100, Ascend 910B, or another model.
 - **Specification metric** is like a scheduling label. It determines which resource key Kubernetes uses to request the corresponding accelerator.
@@ -33,7 +33,7 @@ Updated: 2026-07-08
 4. Associate accelerator models with the correct specification metrics.
 5. Reference the metric in resource specifications and verify scheduling, monitoring, and template recommendation results with a test job.
 
-#### Terms
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |
@@ -84,8 +84,8 @@ Before a new hardware model is connected to the platform, accelerator basic info
 #### Steps
 
 1. Go to `AI Infra > On-Prem > Resource Pools > Accelerator Management`.
-2. Click `Create Accelerator`, `Add Accelerator`, or the actual add entry on the page.
-3. Fill in accelerator vendor, model, architecture, series, VRAM capacity, compute capability, and adaptation status according to the page fields.
+2. Click `New Accelerator` or the actual add entry on the page.
+3. Fill in vendor, architecture, series, model, Memory (GB) GiB, compute capability, precision mode, and peak compute (TFLOPS) according to the page fields.
 4. Select or associate the specification metric as required by the page, and verify Kubernetes resource key, selector-key, or monitoring identification fields.
 5. Before clicking the final `Save`, `Submit`, or `OK`, verify that the hardware model, resource metric, and actual cluster-reported information are consistent.
 6. For learning or page validation only, view the fields and dialog without submitting real accelerator configuration.
@@ -96,20 +96,19 @@ The following figure shows the Create Accelerator dialog. Focus on hardware basi
 
 ## Parameter Reference
 
-| Parameter | Required | Description | Configuration Notes |
+| Parameter | Required | Description | Configuration Suggestion |
 | --- | --- | --- | --- |
-| Accelerator Vendor | Yes | Accelerator device vendor. | Keep it consistent with hardware inventory, driver identification, and page filter definitions. |
-| Model | Yes | Accelerator model. | Keep it consistent with real hardware and avoid mixing models with similar display names. |
-| Architecture | Conditionally required | Hardware architecture or generation. | Affects model classification, template recommendation, and maintenance identification. |
-| Series | Conditionally required | Product series or page classification. | Keep it consistent with vendor naming and procurement definitions. |
-| VRAM Capacity | Conditionally required | Single-card available VRAM capacity. | Affects inference template recommendation and VRAM estimation. |
-| Compute Capability | Optional | Peak compute power or compute capability under different precision modes. | Fill in according to hardware materials or actual page fields. |
-| Specification Metric | Conditionally required | Scheduling metric associated with resource specifications. | Should point to a maintained and available AI accelerator metric. |
-| Kubernetes Resource Key | Conditionally required | Resource name reported by the cluster device plugin. | Must match actual cluster reporting, or scheduling may fail. |
-| selector-key | Conditionally required | Field used to match devices, node labels, or monitoring identification. | Keep it consistent with specification metrics, monitoring collection, and node label configuration. |
-| Adaptation Status | Yes | Whether the model has completed platform adaptation. | Models that are not adapted or not managed should not be opened as stable scheduling capability. |
-| Management Status | System generated or optional | Whether the model is included in platform resource specifications and job scheduling definitions. | Return to the list after saving to confirm status statistics. |
-| Actions | System generated | Page entries for create, edit, view, and similar operations. | Confirm fields and impact scope before high-risk final actions. |
+| Vendor | Yes | Accelerator vendor. | Keep it consistent with the real hardware vendor. |
+| Architecture | Yes | Accelerator architecture. | Select according to page options or the real hardware architecture. |
+| Series | Yes | Accelerator series. | Keep it consistent with vendor and model. |
+| Model | Yes | Accelerator model. | Match the model actually reported by cluster nodes. |
+| Memory (GB) GiB | Yes | Single-card memory capacity. | Use the page unit and avoid mixing GiB and GB. |
+| Compute Capability | Optional | CUDA or hardware capability version. | Do not invent a value when it is not confirmed. |
+| Precision mode | Conditionally required | Precision mode for compute capability configuration. | Keep it consistent with supported page options and hardware capability. |
+| Peak compute (TFLOPS) | Conditionally required | Peak compute value under the selected precision mode. | Fill in only confirmed public or hardware-reported data. |
+| Accelerator Spec Metric | Conditionally required | Link an existing spec metric or create an accelerator spec metric. | Verify k8s-key and selector-key against labels actually reported by nodes. |
+| Adaptation Status | Yes | Whether platform resource recognition and scheduling are adapted. | Do not expose unadapted devices to users. |
+| Actions | System-generated | New, edit, import/export, save, and similar entries. | `Save` submits real configuration. Do not click it during learning or screenshot capture. |
 
 ## Pitfalls
 

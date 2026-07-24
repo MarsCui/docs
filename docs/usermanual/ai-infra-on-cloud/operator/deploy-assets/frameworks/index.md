@@ -12,16 +12,16 @@ Updated: 2026-07-20
 | Item | Content |
 | --- | --- |
 | Applicable role | Operator |
-| Navigation path | AI Infra > On-Cloud > Deploy Assets > Frameworks |
-| Page route | /infrahub/op/model/framework |
+| Navigation path | AI Infrastructure > On-Cloud > Deploy Assets > Frameworks |
+| Page route | `/infrahub/op/model/framework` |
 | Managed objects | Cloud platform, cloud account, region, framework type, framework name, version, image, and startup commands |
 | Typical use | Add or maintain inference frameworks that can be selected when adding models in the model library |
 
-#### Beginner View
+#### Beginner Explanation
 
 A framework works like the runtime instruction for model deployment. It tells the platform which cloud platform and region to use, which image to run, which port to listen on, and how master and worker nodes should start.
 
-#### Terms
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |

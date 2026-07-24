@@ -57,11 +57,11 @@ Model identity, modalities, capabilities, token limits, and protocols are mainta
 
 1. Under **Model Type and Subtype**, select every type supported by the model: Multimodal, Chat, Image, Speech, Video, Embedding, or Rerank.
 
-![Configure model type and variants](./images/step-1-model-type_variants.png)
+![Configure model type and variants](./images/step-1-model-type-variants.png)
 
 1. Under **Input / Output Modalities**, select the verified Text, Image, Audio, and Video inputs and outputs.
 
-![Configure input and output modalities](./images/step-1-input_output-modalities.png)
+![Configure input and output modalities](./images/step-1-input-output-modalities.png)
 
 1. Under **Advanced Capabilities**, enable Thinking Mode only when the model has been verified to support it. Function Calling and Tool Support remain planned capabilities and must not be configured as currently available features.
 

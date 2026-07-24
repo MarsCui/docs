@@ -30,11 +30,11 @@ This scenario guides users through creating an On-Prem development or training e
 
 1. Prepare object or file storage and confirm that data and output paths are accessible. See [Object Storage](../../../usermanual/ai-infra-on-prem/user/storage/object-storage/) and [File Storage](../../../usermanual/ai-infra-on-prem/user/storage/file-storage/).
 2. Prepare or select a versioned runtime image that the target region can pull. See [Image Service](../../../usermanual/ai-infra-on-prem/user/extensions/images/).
-3. Open [Development Environments](../../../usermanual/ai-infra-on-prem/user/development/dev-environments/), create an online IDE, select the image and resource specification, mount the persistent workspace, and confirm that the IDE opens normally.
+3. Open [Development Environments](../../../usermanual/ai-infra-on-prem/user/dev-resources/online-ide/), create an online IDE, select the image and resource specification, mount the persistent workspace, and confirm that the IDE opens normally.
 
 ![Create an online IDE with a persistent workspace](./images/create-ide.png)
 
-4. Open [Model Training](../../../usermanual/ai-infra-on-prem/user/development/model-training/), create a training or batch runtime instance, review code, data, output directory, and startup command, and confirm that the workload runs and emits logs.
+4. Open [Model Training](../../../usermanual/ai-infra-on-prem/user/dev-resources/runtime-instances/), create a training or batch runtime instance, review code, data, output directory, and startup command, and confirm that the workload runs and emits logs.
 
 ![Create a training runtime instance](./images/create-instance.png)
 

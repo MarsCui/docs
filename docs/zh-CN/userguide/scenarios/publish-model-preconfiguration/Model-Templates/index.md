@@ -38,7 +38,7 @@ next: true
    - 填写 **"模型源ID"**（必填，如 `qwen3.6-plus`）。
 ![选择元模型](./images/step-2-select-meta-model.png)
    - **输入/输出模态**：分别选择 **"输入模态"**（多选：文本/图片/视频）与 **"输出模态"**（多选）。
-![输入/输出模态](./images/step-2-input_output-modalities.png)
+![输入/输出模态](./images/step-2-input-output-modalities.png)
    - **高级能力配置**：仅按模型实际能力开启 **"思考模式"**；Function Calling（函数/工具支持）仍在规划中，当前版本不作为可用能力配置。
 ![高级能力配置](./images/step-2-advanced-capability-configuration.png)
    - **Token 限制**：设置 **"最大上下文"**、**"最大输入"**、**"最大输出"**。

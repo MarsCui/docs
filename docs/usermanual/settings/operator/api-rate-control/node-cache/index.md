@@ -7,124 +7,130 @@ Updated: 2026-07-10
 
 ## Feature Overview
 
-`Node Cache` is used to view, filter, and maintain node cache information. It helps operator admin work with node cache records and related status from a consistent page entry.
+`Node Cache` is used to view API rate-control node cache status, including node status, rule version, rule count, counter cache, identity cache, refresh time, and messages.
 
 | Item | Content |
 | --- | --- |
 | Applicable role | Operator admin |
-| Navigation path | API Rate Control > Node Cache |
-| Page route | /operator/api-rate-control/node-cache |
-| Managed objects | Node Cache records and related status |
-| Typical use | View, filter, and maintain node cache information |
+| Navigation path | Settings > API Rate Control > Node Cache |
+| Page route | `/user/system/rate-control/node-cache` |
+| Managed objects | API rate-control nodes, rule versions, rule counts, and cache status |
+| Typical use | View node cache status, refresh time, counter cache, and identity cache |
 
-### Beginner Explanation
+#### Beginner Explanation
 
-Node Cache is part of the settings and access-control workspace. Treat it as a place to confirm identities, permissions, organization rules, audit records, or rate-control status before changing configuration.
+Node Cache works like a synchronization status table for rate-control rules on each node. Use it to confirm whether rules have been delivered to nodes and whether node versions are consistent.
 
-### Terms Quick Reference
+#### Terms Quick Reference
 
 | Term | Meaning | Handling tip |
 | --- | --- | --- |
-| Member | A user account that belongs to an organization or team. | Check role and status before troubleshooting access. |
-| Role | A permission set assigned to members. | Use least privilege and review scope before changes. |
-| Operation log | An audit record of user or platform actions. | Use it to trace risky or abnormal operations. |
-| API rate control rule | A policy that limits API request patterns. | Publish and verify rules carefully. |
+| Node cache | Rate-control rule status stored locally on a node. | Check versions after publishing. |
+| Rule version | The rule version currently loaded by a node. | Troubleshoot publishing when versions differ. |
+| Synchronization status | Whether a node has completed rule synchronization. | Check Publish Center when abnormal. |
+| Refresh | Reload node cache status. | Use it after publishing to confirm status. |
 
 ## Prerequisites
 
-1. The current account can access `API Rate Control > Node Cache`.
-2. The target organization, member, customer, billing cycle, rule, or record scope has been confirmed.
-3. Required upstream data is already available and the page has finished loading.
-4. For high-risk changes, confirm the impact scope and rollback path before continuing.
+1. The current account has permission to view API rate-control nodes.
+2. You have opened `API Rate Control > Node Cache`.
+3. When troubleshooting rule effectiveness, the target rule version and publish time have been recorded.
 
 ## Page Description
 
-The page usually includes filters, summary cards, data tables, detail entries, status fields, and related operation buttons for node cache records and related status.
+The following screenshot shows the Node Cache page. Node addresses and cache details are desensitized.
 
 | Area | Description |
 | --- | --- |
-| Filters | Narrow records by keyword, status, time range, organization, customer, member, or billing cycle. |
-| Summary area | Displays key balances, counts, trends, warnings, or processing progress when available. |
-| List or table | Shows records, statuses, timestamps, owners, amounts, and row-level actions. |
-| Details or dialog | Provides more context before follow-up operations. |
-
-The following screenshot shows node cache.
+| Refresh Nodes | Fetch node cache status again. |
+| Node ID | Filter by node. |
+| Node table | Displays node, status, rule version, rule count, counter cache, identity cache, refresh time, and message. |
 
 ![Node Cache](./images/node-cache-list.png)
 
 ## Main Operations
 
-Use the following operations to work with node cache records and related status. Complete view-only checks before opening dialogs that may create, save, submit, activate, transfer, settle, publish, or delete data.
+Use this operation to query node cache status. Do not add create or publish operations to this query-oriented workflow.
 
 ### View Node Cache
 
 1. Go to `API Rate Control > Node Cache`.
-2. Use filters or tabs to locate the target record.
-3. Select the target row or entry related to node cache records and related status.
-4. Click the visible `View Node Cache` entry when it is available.
-5. Check the displayed details, status, and related fields before moving to the next page.
+2. Review node status, rule version, rule count, counter cache, identity cache, refresh time, and messages in the node list.
+3. Compare the rule version with the published version on the rule management page to confirm whether rules have been synchronized to nodes.
+4. Click `Refresh Nodes` to fetch node cache status again.
+5. If the page provides clear or rebuild cache entries, confirm node scope, business impact, and approval requirements first.
+6. For learning or screenshots, only view the list and refresh status. Do not clear, rebuild, or perform other high-risk operations.
 
-## Parameters
+![Node Cache](./images/node-cache-list.png)
+
+## Parameter Reference
 
 | Field | Required | Type | Example | Description |
 | --- | --- | --- | --- | --- |
-| Keyword or name | No | Text | `Example name` | Used to locate a specific record. |
-| Status | No | Enum | `Enabled` | Used to determine the current processing or availability state. |
-| Time range or billing cycle | No | Date / Month | `2026-07` | Used to narrow statistics, logs, bills, or settlements. |
-| Organization / customer / member | No | Text | `Example organization` | Used to identify the business ownership scope. |
-| Operation | System generated | Button / link | `View Details` | Provides row-level entry points for follow-up checks. |
+| Node | No | Text | `<node_name>` | Identifies an API rate-control node. |
+| Node Status | System generated | Enum | `Normal` | Shows whether the node is online, abnormal, or synchronized. |
+| Rule Version | System generated | Version | `<rule_version>` | The rule version currently loaded by the node. |
+| Rule Count | System generated | Number | `10` | Number of rules currently cached on the node. |
+| Counter Cache | System generated | Number / status | `Loaded` | Shows rate-limit counter cache status. |
+| Identity Cache | System generated | Number / status | `Loaded` | Shows identity or access-subject cache status. |
+| Refresh Time | System generated | Time | `Refresh Time` | Latest refresh time of node cache status. |
+| Message | System generated | Text | `Synchronized` | Shows synchronization or abnormal node-cache information. |
+| Refresh Nodes | No | Button | `Refresh Nodes` | Fetches node cache status again. |
+| Actions | No | Button / menu | `Clear` | Provides node-cache operation entries. |
 
 ## Pitfalls
 
-- Do not change roles, members, login policies, Keys, or API rate-control rules without confirming the affected users and systems.
-- UI entries can differ by role and organization scope; verify the current account context before troubleshooting.
-- Never copy complete Keys, AK/SK, tokens, or secrets into documentation, tickets, or screenshots.
+- Node cache reflects the synchronization status of rate-control rules on each node. Abnormal status may cause rules to be ineffective or node behavior to be inconsistent.
+- `Refresh Nodes` fetches node status again and should not be used too frequently.
+- `Clear`, `Rebuild`, and `Refresh Cache` are high-risk actions and may affect rule synchronization, counter cache, and identity cache.
+- Do not write real node addresses, internal IP addresses, tokens, tenant IDs, customer names, node names, internal error details, or load-test parameters in the manual.
 
-## Result Checks
+## Result Validation
 
 | Check item | Success signal | If abnormal |
 | --- | --- | --- |
 | Page access | The `API Rate Control > Node Cache` page opens and data loads normally. | Check role permissions and refresh the page. |
-| Filter result | The list changes according to the selected filters. | Reset filters and search again. |
-| Record detail | Details, status, amount, permission, or configuration values are visible. | Confirm the record scope and permissions. |
-| Follow-up path | Related pages or dialogs can be opened from visible entries. | Return to the sidebar and enter the downstream page directly. |
+| Node visibility | The node list is displayed normally. | Check the Node ID filter. |
+| Version consistency | The node rule version matches the published version on the rule management page. | Open Publish Center and check release records. |
+| Normal status | Node status, counter cache, identity cache, and messages are normal. | Use Observability Audit to troubleshoot node issues. |
+| Controlled refresh | Refresh time or messages update as expected after `Refresh Nodes`. | Avoid frequent refreshes and confirm node status and permissions. |
 
 ## FAQ
 
-### Target settings entry is not visible in Node Cache
+#### Node version is not updated after rule publishing
 
-The expected account, project, member, role, organization, key, operation log, system configuration, or API rate-control entry does not appear on this page.
-
-**How to check:**
-
-1. Confirm the current tenant, organization, project, role, and account permission scope.
-2. Check page filters such as keyword, status, project, member, role, organization, time range, and configuration type.
-3. Verify that prerequisite objects, such as projects, members, roles, keys, or system configurations, have been created and enabled.
-4. If the entry was just changed, refresh the page and compare it with operation logs or related settings pages.
-
-### Configuration change does not take effect in Node Cache
-
-A permission, project, role, key, notification, system setting, or rate-control change was submitted, but the page or downstream behavior still shows the old result.
+Rule Management shows that the rule is published, but the rule version in Node Cache is still old.
 
 **How to check:**
 
-1. Confirm that the save operation completed and the target object status is enabled or active.
-2. Check whether the change applies to the correct organization, project, member, role, API key, or policy scope.
-3. Compare downstream behavior with operation logs and related settings pages to rule out cache, permission, or synchronization delay.
-4. For security-sensitive settings, verify impact scope before repeating the operation or escalating with desensitized page paths and timestamps.
+1. Click `Refresh Nodes`.
+2. Open Publish Center and check the corresponding publish status.
+3. Confirm whether the target node is online.
+4. Compare the rule version with the rule management page.
 
-### Why are the node cache refresh or clear buttons unavailable?
+#### Why is the target node missing from the node cache list?
 
-Check the current tenant, organization, project, role permissions, object status, feature switch, and operation logs. Do not repeat save, submit, publish, rollback, disable, or delete actions until the scope and impact are confirmed.
+The Node Cache page does not display the target node or cache status.
+
+**How to check:**
+
+1. Clear filters and confirm the node access status.
+2. Check cache reporting time and node health status.
+3. Confirm whether the node is connected to the API rate-control component.
+4. If it is still empty, check rate-control service logs with desensitized context.
+
+#### Why are the node cache refresh or clear buttons unavailable?
+
+The node cache record is visible, but refresh, clear, or rebuild cache buttons cannot be clicked. Confirm rate-control operation permissions and node online status. Before clearing cache, record the impact scope and let an authorized administrator perform the operation.
 
 ## Next Steps
 
-1. Recheck the affected users, organizations, projects, roles, keys, policies, or configuration objects.
-2. Verify operation logs and downstream behavior after the configuration is saved or refreshed.
-3. Keep only desensitized page paths, timestamps, object names, and status values when escalating.
+1. To view publish records, go to [Publish Center](../publish-center/).
+2. To view rule hit status, go to [Observability Audit](../observability-audit/).
 
 ## Notes
 
-- Permission, Key, login, organization, and rate-control changes can affect real users. Confirm scope before changes.
-- Keep page routes, API fields, Key, AK/SK, License, and other product terms in their UI form.
-- Keep credentials, private operational details, and sensitive customer data out of the manual.
+- Node Cache is used to troubleshoot rule synchronization. It does not replace rule publishing operations.
+- `刷新节点 / Refresh Nodes` fetches node status again and should not be used too frequently.
+- `清理 / Clear`, `重建 / Rebuild`, and `刷新缓存 / Refresh Cache` are high-risk actions and may affect rule synchronization, counter cache, and identity cache.
+- Do not write real node addresses, internal IP addresses, tokens, tenant IDs, customer names, node names, internal error details, or load-test parameters in the manual.

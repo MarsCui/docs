@@ -1,4 +1,4 @@
-# Image Component
+# Image Services
 
 ::: info Document Information
 Version: v1.0
@@ -7,21 +7,21 @@ Updated: 2026-07-08
 
 ## Feature Overview
 
-`Image Component` is used to connect Harbor, Docker Registry, or compatible image repositories, providing image pull capability for regions, clusters, jobs, online IDEs, and model instances. When no available image component exists, later image sync, image upload, job startup, and model service deployment are usually affected.
+`Image Services` is used to connect Harbor, Docker Registry, or compatible image repositories, providing image pull capability for regions, clusters, jobs, online IDEs, and model instances. When no available image component exists, later image sync, image upload, job startup, and model service deployment are usually affected.
 
 | Item | Content |
 | --- | --- |
-| Applicable Role | Operator |
-| Navigation Path | AI Infra > On-Prem > Resource Pools > Image Component |
-| Page Route | `/powerone/resourcepool/images` |
-| Managed Objects | Component name, repository address, Endpoint, authentication method, access credentials, certificate policy, associated region, bound cluster, project sync scope, and sync status |
-| Typical Use | Connect Harbor/Registry to support public images, custom images, job image pulling, and user-side image project sync |
+| Applicable role | Operator |
+| Navigation path | AI Infrastructure > On-Prem > Resource Pools > Image Services |
+| Page route | `/powerone/resourcepool/images` |
+| Managed objects | Service type, image, name, Endpoint (Public URL), Internal IP Address, Username, Password, Description, and Actions |
+| Typical use | Connect Harbor/Registry to support public images, custom images, job image pulling, and user-side image project sync |
 
-#### Beginner View
+#### Beginner Explanation
 
-Image Component is like the image repository access card of the platform. It tells the platform where to pull runtime images, which credentials to use, and which regions or clusters can use the repository. When the image component is configured incorrectly, user-side model instances, online IDEs, runtime instances, and jobs usually get stuck during image pull.
+Image Services is like the image repository access card of the platform. It tells the platform where to pull runtime images, which credentials to use, and which regions or clusters can use the repository. When the image component is configured incorrectly, user-side model instances, online IDEs, runtime instances, and jobs usually get stuck during image pull.
 
-#### Terms
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |
@@ -44,9 +44,9 @@ Image Component is like the image repository access card of the platform. It tel
 
 The page displays connected image components, status, access address, project count, sync status, and associated regions.
 
-The following figure shows the image component list, where component status, Endpoint, sync status, and operation entrypoints can be viewed.
+The following figure shows the image services list, where component status, Endpoint, sync status, and operation entrypoints can be viewed.
 
-![Image Component](./images/image-services-list.png)
+![Image Services](./images/image-services-list.png)
 
 ## Main Operations
 
@@ -58,12 +58,12 @@ Register an image component when a new Harbor, Docker Registry, or compatible im
 
 #### Steps
 
-1. Go to `AI Infra > On-Prem > Resource Pools > Image Component`.
-2. Click `Register`, `Add`, or the actual registration entry on the page.
-3. Fill in component name, image repository address, Endpoint, authentication method, access credentials, and certificate configuration according to the page fields.
-4. Select associated regions, bound clusters, project sync scope, or sync policy as required by the page.
+1. Go to `AI Infra > On-Prem > Resource Pools > Image Services`.
+2. Click `Register component`.
+3. Fill in `Service Type`, `Image`, `Name`, `Endpoint (Public URL)`, `Internal IP Address`, `Username`, `Password`, and `Description` according to the page fields.
+4. If the page provides `Test Connection`, run the read-only connectivity check first and confirm the returned result.
 5. Before submission, confirm that the repository address is reachable from both the platform side and target clusters, and that robot credentials or access accounts have minimum required permissions.
-6. Before clicking the final `Save`, `Submit`, or `OK`, verify repository address, credential source, certificate policy, and region binding scope again.
+6. Before clicking the final `Save`, `Submit`, or `OK`, verify Endpoint, internal IP address, credential source, and component usage scope again.
 7. For learning or page validation only, view fields and forms without submitting real image component configuration.
 
 The following figure shows the Register Image Component form, used to fill in image service connection information and sync configuration.
@@ -74,17 +74,15 @@ The following figure shows the Register Image Component form, used to fill in im
 
 | Parameter | Required | Description | Configuration Suggestion |
 | --- | --- | --- | --- |
-| Component Name | Yes | Display name of the image component. | Use a name that reflects repository purpose, region, or environment. |
-| Repository Address | Yes | Access address of the image repository. | Use placeholders only in documentation. Do not record real repository addresses. |
-| Endpoint | Yes | Service address used by the platform and clusters to access the image repository. | Confirm that the platform side, target cluster nodes, and container runtime can access it. |
-| Authentication Method | Conditionally required | Authentication method for image pull, push, or sync. | Select Robot account, access account, or another page-supported method according to repository capability. |
-| Access Credentials | Conditionally required | Account, password, token, or key material required for authentication. | Fill credentials only in system forms. Do not write them in documents, screenshots, or tickets. |
-| Certificate Policy | Conditionally required | Private certificate, certificate chain, or TLS verification policy. | For private repositories, confirm the trust chain on the cluster side. |
-| Associated Region | Conditionally required | Region scope where the image component is available. | Keep it consistent with resource pools, user entrypoints, and image project visibility scope. |
-| Bound Cluster | Conditionally required | Clusters that can access this image component. | Before binding, confirm cluster network, DNS, and container runtime configuration. |
-| Project Sync Scope | No | Scope of projects, namespaces, or image lists synchronized by the platform. | Use the minimum required scope to avoid exposing unrelated projects. |
-| Sync Status | System-generated | Image component sync or probe status. | After registration, watch sync status, update time, and error messages. |
-| Actions | No | Supports register, edit, sync, test connection, bind, delete, and other operations. | Confirm impacts on regions, clusters, and user-side visibility before high-risk actions. |
+| Service Type | Yes | Service type of the current component. | On the Image Services page, this usually displays `Image`. |
+| Image | Yes | Service type value when registering an image component. | Keep it consistent with the actual page option. |
+| Name | Yes | Display name of the image service. | Use a name that reflects repository purpose, region, or environment. |
+| Endpoint (Public URL) | Yes | Public entry used by the platform or user side to access the image repository. | Use placeholders only in documentation. Do not record real addresses. |
+| Internal IP Address | Conditionally required | Internal address used by clusters or the platform to access the image repository. | Keep it consistent with real network, DNS, and container runtime configuration. |
+| Username | Conditionally required | Image repository access account. | Fill it only in system forms. Do not write it in documents, screenshots, or tickets. |
+| Password | Conditionally required | Image repository access password. | Sensitive credential. Do not write it in documents, screenshots, or tickets. |
+| Description | No | Component purpose, boundary, or maintenance notes. | Record non-sensitive notes only. |
+| Actions | System-generated | Register component, Test Connection, Cancel, Confirm, edit, delete, and similar entries. | `Confirm` and `Delete` are high-risk actions. |
 
 ## Pitfalls
 
@@ -98,11 +96,11 @@ The following figure shows the Register Image Component form, used to fill in im
 
 | Check Item | Expected Result | Troubleshooting |
 | --- | --- | --- |
-| Page can be opened | `AI Infra > On-Prem > Resource Pools > Image Component` is accessible. | Check menu configuration and account permissions. |
+| Page can be opened | `AI Infra > On-Prem > Resource Pools > Image Services` is accessible. | Check menu configuration and account permissions. |
 | Component list loads normally | Component name, status, access address, project count, sync status, and associated region are displayed normally. | Refresh the page and check service status or browser console errors. |
-| Registration entry is visible | `Register`, `Add`, or the actual registration entry is displayed on the page. | Check operator permissions, License, and page configuration. |
-| Registration form can be opened | Clicking the entry shows component name, repository address, Endpoint, authentication method, and certificate configuration fields. | Check route, permissions, and frontend errors. |
-| Required field validation works | Validation prompts appear when component name, repository address, authentication information, or region scope is missing. | Complete fields according to page prompts without bypassing validation. |
+| Registration entry is visible | `Register component` is displayed on the page. | Check operator permissions, License, and page configuration. |
+| Registration form can be opened | Clicking the entry shows Service Type, Name, Endpoint (Public URL), Internal IP Address, Username, and Password fields. | Check route, permissions, and frontend errors. |
+| Required field validation works | Validation prompts appear when Name, Endpoint, Username, or Password is missing. | Complete fields according to page prompts without bypassing validation. |
 | No real submission during learning | No real save, submit, or OK action is triggered. | If submitted by mistake, immediately verify the component list and binding scope. |
 | Status is traceable after real submission | The new component appears in the list, and status and sync result are visible. | Check repository connectivity, credentials, certificates, and sync logs. |
 | Downstream image pull can be verified | A test job, online IDE, or model instance can pull images normally. | Check Image Pull Secret, region binding, DNS, network, and certificate trust. |

@@ -13,7 +13,7 @@ Updated: 2026-07-08
 | --- | --- |
 | Applicable role | Regular user |
 | Navigation path | Model Services > My Calls > Call Analytics |
-| Page route | /modelone/monitoring/calls/list/model |
+| Page route | `/modelone/monitoring/calls/list` |
 | Managed objects | Model, model type, successful calls, failed calls, rate limit triggers, usage, and call log entries |
 | Typical use | View call statistics and abnormal call status by model |
 

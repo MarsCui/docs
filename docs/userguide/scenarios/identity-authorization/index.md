@@ -29,6 +29,10 @@ This scenario uses organizations, members, and roles to define which menus, acti
 | 3. Assign access | The target member receives the intended role and scope |
 | 4. Verify and audit | Authorized actions work, unauthorized actions are blocked, and changes are traceable |
 
+Representative role screenshot:
+
+![Roles live](./images/roles-live.png)
+
 ## Before You Start
 
 - Define the target user, organization, and job responsibility.

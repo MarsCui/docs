@@ -33,7 +33,7 @@ next: true
 
 进入[巡检中心](../../../usermanual/billing/operator/finance-operations/reconciliation-center/)，刷新目标账期，检查未配对划转、缺失收益明细和补偿队列。必要时执行双边流水检查或收益明细补建，并记录处理结论。
 
-![巡检中心中的异常检查入口](../../../usermanual/billing/operator/finance-operations/reconciliation-center/images/reconciliation-center-list.png)
+![巡检中心中的异常检查入口](../../../usermanual/billing/operator/finance-operations/reconciliation-center/images/bilateral-ledger-check-list.png)
 
 ### 4. 查看或生成结算单
 

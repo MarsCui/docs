@@ -16,7 +16,7 @@ This document connects operator and user On-Cloud operations into an end-to-end 
 | Output | A cloud model service deployment task with visible status, API, monitoring, and events |
 | Typical use | First integration for a new cloud platform, model asset onboarding validation, deployment workflow demo, pre-launch acceptance, and issue localization |
 
-## Beginner View
+#### Beginner Explanation
 
 Deploying a cloud model service from scratch is like arranging a cloud resource relay: the operator prepares cloud accounts, resource pools, authorization, models, and scheduling policies; the user selects resources and initiates deployment.
 
@@ -34,7 +34,7 @@ Deploying a cloud model service from scratch is like arranging a cloud resource 
 | Status validation | User | View deployment status, API invocation, monitoring information, and event records. |
 | Troubleshooting closure | Both | Check accounts, authorization, resource pools, model assets, and policies based on the failure path. |
 
-## Terms
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |
@@ -63,13 +63,14 @@ Deploying a cloud model service from scratch is like arranging a cloud resource 
 | Model Asset | Yes | Text | Sample model A | The model, framework, and image combination selected during Quick Deployment. |
 | Deployment Task | System generated | Text | DEPLOY-202607130001 | Used to track status, events, and invocation information in My Deployments. |
 
-## Pitfall Tips
+## Pitfalls
 
 - Passing cloud account validation does not mean users can deploy. Resource pool synchronization, tenant authorization, and business region authorization must also be completed.
 - When Quick Deployment has no selectable specifications, do not only change model parameters. Check resource pool inventory and scheduling policies first.
 - When a deployment stays in creating status or fails, check My Deployments events before returning to resource pools, images, or cloud accounts for troubleshooting.
-- Quick Deployment, selecting a publish region, and publishing a model may affect real service exposure. Do not submit real deployments, publishing actions, or configuration changes during learning or screenshot capture.
-- Documentation and tickets should record only redacted accounts, resource pools, deployment IDs, and error summaries. Do not write real AK/SK, API Keys, tokens, Endpoints, account IDs, customer information, or cost details.
+- `Confirm Deployment`, `Start Deployment`, `Publish`, `Submit`, `Save`, `Delete`, deployment start/stop, and authorization adjustment are high-risk actions. Confirm the impact scope and rollback plan before performing them.
+- For learning or screenshots only, view deployment recommendations, popup fields, task statuses, events, monitoring, and navigation without submitting real deployments.
+- Documentation and tickets should record only redacted accounts, resource pools, deployment IDs, and error summaries. Do not write real cloud accounts, AK/SK, API Keys, tokens, Endpoints, account IDs, cost details, customer information, or internal error logs.
 
 ## Step 1: Operator Connects the Cloud Platform
 
@@ -180,9 +181,9 @@ Deploying a cloud model service from scratch is like arranging a cloud resource 
 2. Select the target cloud platform, region, and model on the model library page.
 3. Click `Deploy Model` for the target model.
 4. On the intelligent recommendation deployment page, select deployment mode, inference engine, and business policy.
-5. After confirming the model compute matching plan, click `Confirm Deployment`.
+5. Confirm the model compute matching plan. Before clicking the final `Confirm Deployment`, verify model, specification, region, cost, and resource impact again.
 6. In the publish deployment popup, select the cloud account and fill in task name and task description.
-7. Click `Start Deployment` to submit the deployment task.
+7. In real deployment scenarios, click `Start Deployment` to submit the deployment task. For learning or screenshots only, view popup fields without clicking the final button.
 
 **Result validation:**
 
@@ -213,7 +214,7 @@ Deploying a cloud model service from scratch is like arranging a cloud resource 
 
 ## Common Failure Paths
 
-### Failure Branch: Cloud Account Validation Fails
+#### Failure Branch: Cloud Account Validation Fails
 
 Next hop: [Cloud Accounts](../../operator/access-management/cloud-accounts/)
 
@@ -225,7 +226,7 @@ Next hop: [Cloud Accounts](../../operator/access-management/cloud-accounts/)
 2. Confirm that keys have not expired and that least privilege covers resource query and deployment operations.
 3. After validation passes, enable resource pools and configure tenant authorization.
 
-### Failure Branch: Resource Pool Unavailable
+#### Failure Branch: Resource Pool Unavailable
 
 Next hop: [Resource Pools](../../operator/access-management/resource-pools/)
 
@@ -237,7 +238,7 @@ Next hop: [Resource Pools](../../operator/access-management/resource-pools/)
 2. Verify that tenant authorization and business region authorization both cover the current user.
 3. Confirm that model deployment assets and scheduling policies are not limited to other resource pools.
 
-### Failure Branch: Deployment Creation Fails
+#### Failure Branch: Deployment Creation Fails
 
 Next hop: [My Deployments](../../user/model-services/my-deployments/)
 

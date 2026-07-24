@@ -1,4 +1,4 @@
-# File Storage Component
+# File Storage
 
 ::: info Document Information
 Version: v1.0
@@ -7,21 +7,21 @@ Updated: 2026-07-08
 
 ## Feature Overview
 
-`File Storage Component` is used to connect shared directory and file volume capabilities. Common implementations include NFS or compatible file storage supported by the platform. File storage is suitable for multiple jobs, nodes, or instances to read and write the same directory, such as shared datasets, model repositories, code directories, and output results.
+`File Storage` is used to connect shared directory and file volume capabilities. Common implementations include NFS or compatible file storage supported by the platform. File storage is suitable for multiple jobs, nodes, or instances to read and write the same directory, such as shared datasets, model repositories, code directories, and output results.
 
 | Item | Content |
 | --- | --- |
 | Applicable role | Operator |
-| Navigation path | AI Infra > On-Prem > Resource Pools > File Storage Component |
-| Page route | /powerone/resourcepool/file |
-| Managed objects | NFS services, service addresses, shared paths, access policies, capacity, mount paths, and associated regions or clusters |
+| Navigation path | AI Infrastructure > On-Prem > Resource Pools > File Storage |
+| Page route | `/powerone/resourcepool/file` |
+| Managed objects | Name, Tenant Quota, Overcommit Ratio, Phy. Threshold, Log. Threshold, Cluster Connection Information, Paste Config, Upload File, Manual Input, and Description |
 | Typical use | Create file storage components to provide shared directory mounts, model repositories, local Git repositories, or dataset directories |
 
-#### Beginner View
+#### Beginner Explanation
 
 A file storage component is like a shared filing cabinet in the platform. It determines which clusters can mount shared directories. Operators first connect NFS or compatible shared storage to the platform, and then user-side instances and jobs can use the same directory to read data, models, and output files.
 
-#### Terms
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |
@@ -43,9 +43,9 @@ A file storage component is like a shared filing cabinet in the platform. It det
 
 The page displays connected file storage components, status, service address, shared path, capacity, and associated regions or clusters.
 
-The following figure shows the file storage component page.
+The following figure shows the file storage page.
 
-![File Storage Component](./images/file-storage-list.png)
+![File Storage](./images/file-storage-list.png)
 
 ## Main Operations
 
@@ -60,41 +60,33 @@ The following figure shows the file storage component page.
 
 #### Procedure
 
-1. Go to `AI Infra > On-Prem > Resource Pools > File Storage Component`.
-2. Click `Create File Storage Component`, `Add`, `Register`, or the actual creation entry on the page.
+1. Go to `AI Infra > On-Prem > Resource Pools > File Storage`.
+2. Click `Register component` to open the `New File Storage - File Storage` page.
 3. Fill in `Name`, `Tenant Quota`, `Overcommit Ratio`, `Phy. Threshold`, and `Log. Threshold` according to the page fields.
 4. In `Cluster Connection Information`, provide connection configuration through `Paste Config`, `Upload File`, or `Manual Input`, and confirm that the configuration content has been sanitized.
 5. If the page provides `Test Connection`, verify connectivity from target cluster nodes to the file storage service first.
-6. In `Cluster Configuration`, fill in `Description`, and continue checking service address, shared path, mount path, read/write permission, associated region, or bound cluster according to the actual page.
-7. Before clicking the final `Save`, `Submit`, or `OK`, verify the service address, shared path, permission scope, and capacity impact again.
-8. For learning or page validation only, view fields and dialogs without submitting real file storage component configuration.
+6. In `Cluster Configuration`, fill in `Description`, and continue checking cluster connection information, capacity thresholds, and description according to the actual page.
+7. Before clicking the final `Save`, `Submit`, or `OK`, verify the cluster connection information, capacity thresholds, and capacity impact again.
+8. For learning or page validation only, view fields and dialogs without submitting real file storage configuration.
 
-The following figure shows the Create File Storage Component page, used to fill in basic policy, cluster connection information, and cluster configuration.
+The following figure shows the New File Storage page, used to fill in basic policy, cluster connection information, and cluster configuration.
 
-![Create File Storage Component](./images/new-file-storage.png)
+![New File Storage](./images/new-file-storage.png)
 
 ## Parameter Reference
 
-| Field Name | Required | Field Type | Description |
+| Parameter | Required | Description | Configuration Suggestion |
 | --- | --- | --- | --- |
-| Component Name | Yes | Text | Display name or unique identifier of the file storage component. The page may display this field as `Name`. |
-| Storage Type | Conditionally required | Enum | File storage implementation type, such as NFS or another type supported by the page. |
-| Access Protocol | Conditionally required | Enum | File storage access protocol, such as NFS. |
-| Service Address | Conditionally required | Text | File storage service address or access entry. Do not write real internal addresses in documentation. |
-| Shared Path | Conditionally required | Text | Shared directory path exported by the service. Use placeholders only in documentation. |
-| Mount Path | Conditionally required | Text | Container path mounted by jobs, IDEs, or model services. |
-| Access Policy | Conditionally required | Enum | Controls directory read/write scope, visibility scope, or access mode. |
-| Read/Write Permission | Conditionally required | Enum | Controls whether the directory is read-only or read/write. |
-| Tenant Quota | Conditionally required | Number | Maximum file volume capacity available to a single tenant. |
-| Overcommit Ratio | Conditionally required | Number | Ratio between logical allocatable capacity and actual physical capacity. |
-| Physical Threshold | Conditionally required | Number | Blocking threshold based on actual physical usage. The page may display this field as `Phy. Threshold`. |
-| Logical Threshold | Conditionally required | Number | Blocking threshold based on logical capacity usage. The page may display this field as `Log. Threshold`. |
-| Associated Region | Conditionally required | Single-select/Multi-select | Regions where the file storage component can be referenced. |
-| Bound Cluster | Conditionally required | Single-select/Multi-select | Clusters that are allowed to mount the shared directory. |
-| Capacity Information | Conditionally required | Number | Total capacity, available capacity, or tenant quota of the file storage. |
-| Tenant Isolation | Conditionally required | Configuration item | Controls tenant directories, permissions, and access boundaries. |
-| Status | System-generated | Enum | Component creation, connection test, and mount capability status. |
-| Actions | Optional | Button/Menu | Create, edit, test connection, save, submit, OK, or delete entries. |
+| Name | Yes | File storage component name. | Use a name that reflects environment, purpose, or capacity boundary. |
+| Tenant Quota | Yes | Whether tenant capacity usage is limited. | Keep it consistent with tenant capacity policies. |
+| Overcommit Ratio | Yes | Overcommit ratio between logical and physical file storage capacity. | Fill it carefully according to capacity planning. |
+| Phy. Threshold | Yes | Physical capacity alarm or limit threshold. | Do not exceed the real capacity safety boundary. |
+| Log. Threshold | Yes | Logical capacity alarm or limit threshold after overcommit. | Verify it together with the overcommit ratio. |
+| Paste Config | Conditionally required | Enter cluster connection information by pasting kubeconfig content. | Do not write real kubeconfig in documentation. |
+| Upload File | Conditionally required | Enter cluster connection information by uploading a file. | Upload only authorized configuration files from controlled environments. |
+| Manual Input | Conditionally required | Enter cluster connection information manually. | Do not write real internal addresses, accounts, or secrets. |
+| Description | No | Component purpose, boundary, or maintenance notes. | Record non-sensitive notes only. |
+| Actions | System-generated | Test Connection, Submit, Search, Reset, and similar entries. | `Submit` submits real configuration. Do not click it during learning or screenshot capture. |
 
 ## Pitfalls
 
@@ -109,10 +101,10 @@ The following figure shows the Create File Storage Component page, used to fill 
 
 | Check Item | Success Criteria | Troubleshooting |
 | --- | --- | --- |
-| Page is accessible | The `File Storage Component` page can be opened. | Check account permissions, menu configuration, and page route. |
+| Page is accessible | The `File Storage` page can be opened. | Check account permissions, menu configuration, and page route. |
 | Component list loads normally | The list displays connected file storage components and status. | Check dependent services, filter conditions, and API responses. |
-| Creation entry is visible | `Create File Storage Component`, `Add`, `Register`, or the actual creation entry is displayed. | Check operator permissions, License, and page configuration. |
-| Creation page can be opened | The Create File Storage Component page opens, and Basic Policy and Cluster Connection Information are displayed. | Check frontend route, form configuration, and browser console errors. |
+| Creation entry is visible | `Register component` is displayed. | Check operator permissions, License, and page configuration. |
+| Creation page can be opened | The `New File Storage - File Storage` page opens, and Basic Policy and Cluster Connection Information are displayed. | Check frontend route, form configuration, and browser console errors. |
 | Required field validation works | The page displays validation prompts when required fields are empty. | Complete name, capacity, connection configuration, or other required fields according to page prompts. |
 | Connection test can be executed | If `Test Connection` is provided, it returns a clear result after execution. | Check network connectivity, kubeconfig, service address, and access permissions. |
 | High-risk action is not triggered accidentally | No final save, submit, or OK action is clicked during learning or screenshot capture. | If real configuration is submitted by mistake, immediately verify impact and roll back according to the change process. |

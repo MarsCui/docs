@@ -12,12 +12,12 @@ Updated: 2026-07-08
 | Item | Content |
 | --- | --- |
 | Applicable role | Operator |
-| Navigation path | AI Infra > On-Prem > Resource Pools > Cluster Management |
-| Page route | /powerone/resourcepool/cluster |
+| Navigation path | AI Infrastructure > On-Prem > Resource Pools > Cluster Management |
+| Page route | `/powerone/resourcepool/cluster` |
 | Managed objects | Kubernetes clusters, regions, availability zones, nodes, specifications, storage, jobs, and resource monitoring |
 | Typical use | Create cluster onboarding, view cluster status, check node resources, and maintain specifications and storage configuration |
 
-#### Beginner View
+#### Beginner Explanation
 
 You can understand an On-Prem resource pool as a local compute management system:
 
@@ -34,22 +34,22 @@ The core purpose of cluster creation is to bring a real Kubernetes cluster into 
 For first-time cluster onboarding, perform the following steps in order:
 
 1. Create or confirm the target region and availability zone.
-2. Prepare kubeconfig, CA certificate, API Server, authentication method, and network configuration.
-3. In `Resource Pools > Cluster Management`, click `Cluster Registration` to open the `Cluster Creation` page.
+2. Prepare kubeconfig, Authentication Certificate, Server Address, authentication method, and network configuration.
+3. In `Resource Pools > Cluster Management`, click `Register Cluster` to open the `New Cluster - Clusters` page.
 4. Paste or verify the kubeconfig parsing result, and complete region, availability zone, registration name, authentication, and network fields.
 5. After submission, return to the cluster list and verify status, nodes, resource usage, and monitoring data.
 6. Associate specifications, configure storage as needed, and use a test job to verify scheduling and mounting.
 
-#### Terms
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |
 | Kubernetes | A container orchestration system used to manage compute nodes, containers, service discovery, and job scheduling. |
 | kubeconfig | A Kubernetes connection configuration file that usually contains the cluster address, certificates, users, and authentication information. |
-| API Server | The Kubernetes control entry point. The platform uses it to read nodes, resources, jobs, and status. |
-| CA Certificate | A certificate used to verify API Server identity. It is sensitive material. |
-| User Authentication Type | The page field used to select certificate, username/password, identity token, authentication program, or another authentication method. |
-| context | A connection context in kubeconfig that associates the cluster, user, namespace, and related information. |
+| Server Address | The Kubernetes control entry point. The platform uses it to read nodes, resources, jobs, and status. |
+| Authentication Certificate | A certificate used to verify server identity. It is sensitive material. |
+| Authentication Type | The page field used to select certificate, username/password, identity token, authentication program, or another authentication method. |
+| Context Name | A connection context in kubeconfig that associates the cluster, user, namespace, and related information. |
 | Cluster CIDR | Pod network segment planning. Incorrect values may cause network conflicts. |
 | Service CIDR | Service network segment planning. Incorrect values may affect service access. |
 | NodePort | The port range used by Kubernetes to expose services. |
@@ -61,8 +61,8 @@ Before creating a cluster, confirm that the following conditions are met:
 
 1. The current account has operator permissions and can access `AI Infra > On-Prem > Resource Pools > Cluster Management`.
 2. The target region and availability zone have been created in `Resource Pools > Regions/Availability Zones`.
-3. The Kubernetes API Server can be reached from the platform management side.
-4. kubeconfig, CA certificate, API Server, cluster name, and authentication materials have been prepared.
+3. The Kubernetes server address can be reached from the platform management side.
+4. kubeconfig, Authentication Certificate, Server Address, cluster name, and authentication materials have been prepared.
 5. Cluster CIDR, Service CIDR, and NodePort have been checked against existing network plans.
 6. If monitoring, JupyterLab, or RDMA capabilities are required, related services, ports, hardware, and network plans have been confirmed.
 7. For learning or screenshots, do not submit real kubeconfig, certificates, private keys, tokens, passwords, or internal addresses.
@@ -106,7 +106,7 @@ Create a cluster when a new Kubernetes cluster needs to be included in unified p
 
 1. The target region and availability zone have been created and can be used for cluster onboarding.
 2. kubeconfig or equivalent authentication materials come from a trusted cluster administrator.
-3. API Server address, certificates, authentication method, and context have been verified.
+3. server address, certificates, authentication method, and context have been verified.
 4. Cluster CIDR, Service CIDR, and NodePort have been confirmed by network planning.
 5. Monitoring service, JupyterLab address, RDMA, and other advanced options have been confirmed as required.
 6. For learning or screenshots, only view page fields and do not submit real configuration.
@@ -114,16 +114,16 @@ Create a cluster when a new Kubernetes cluster needs to be included in unified p
 #### Steps
 
 1. Go to `AI Infra > On-Prem > Resource Pools > Cluster Management`.
-2. Click `Cluster Registration` in the upper-right corner of the page to open the `Cluster Creation` page.
+2. Click `Register Cluster` in the upper-right corner of the page to open the `New Cluster - Clusters` page.
 3. Paste kubeconfig in the `config file` area, or verify the connection information parsed by the page.
 
-The following figure shows the `Cluster Creation` page. Use it to locate kubeconfig, region/availability zone, connection information, authentication type, context, and advanced configuration areas.
+The following figure shows the `New Cluster - Clusters` page. Use it to locate kubeconfig, region/availability zone, connection information, authentication type, context, and advanced configuration areas.
 
-![Cluster Creation](./images/new-cluster.png)
+![New Cluster - Clusters](./images/new-cluster.png)
 
 4. Select `Region` and `Availability Zone`, and fill in `Registration Name`.
-5. Verify or fill in `CA Certificate`, `API Server`, and `Cluster Name`.
-6. Select `User Authentication Type`, fill in the corresponding authentication materials according to the page fields, and verify `context`.
+5. Verify or fill in `Authentication Certificate`, `Server Address`, and `Cluster Name`.
+6. Select `Authentication Type`, fill in the corresponding authentication materials according to the page fields, and verify `Context Name`.
 7. Configure `Cluster CIDR`, `Service CIDR`, `NodePort`, monitoring service, JupyterLab address, `Support RDMA Network`, description, and other advanced options.
 8. Before clicking the final `Submit`, verify sensitive information, region/availability zone, network configuration, and scheduling impact again.
 9. For learning or page validation only, view fields and screenshots. Do not perform the final `Submit`, `OK`, or `Save`.
@@ -174,16 +174,16 @@ Add storage when jobs need shared directories, model repositories, local Git rep
 | Region | Yes | Region to which the cluster belongs. | Select an existing and available region. It affects resource pool ownership and scheduling scope. |
 | Availability Zone | Yes | Availability zone to which the cluster belongs. | Must match the selected region. Incorrect selection affects node ownership and job scheduling. |
 | config file | Conditionally required | kubeconfig content or connection configuration source. | Can be used to auto-fill some fields, but parsed results must be manually verified. |
-| CA Certificate | Yes | Certificate used to verify API Server identity. | Sensitive material. Do not record it in documents or screenshots. |
-| API Server | Yes | Kubernetes API access entry. | Must be reachable from the platform side. Do not record real addresses in this document. |
+| Authentication Certificate | Yes | Certificate used to verify server identity. | Sensitive material. Do not record it in documents or screenshots. |
+| Server Address | Yes | Kubernetes API access entry. | Must be reachable from the platform side. Do not record real addresses in this document. |
 | Cluster Name | Yes | Kubernetes cluster name or page identification name. | Keep it consistent with kubeconfig or real cluster information. |
-| User Authentication Type | Yes | Authentication method used to access the cluster. | Select according to kubeconfig or materials provided by the administrator. |
-| context | Conditionally required | Connection context in kubeconfig. | Usually generated or imported automatically. Verify it before submission. |
+| Authentication Type | Yes | Authentication method used to access the cluster. | Select according to kubeconfig or materials provided by the administrator. |
+| Context Name | Conditionally required | Connection context in kubeconfig. | Usually generated or imported automatically. Verify it before submission. |
 | Cluster CIDR | Conditionally required | Pod network segment configuration. | Must match network planning and avoid conflicts with the platform, nodes, or other clusters. |
 | Service CIDR | Conditionally required | Service network segment configuration. | Must match network planning and avoid service access issues. |
 | NodePort | Conditionally required | Kubernetes NodePort port range. | Fill in according to page-supported range and network policy. |
-| Monitoring Service | Optional | Cluster resource monitoring service configuration. | Confirm monitoring collection capability, port, and network reachability. |
-| JupyterLab Address | Optional | Service address related to online development. | Configure only when online IDE capability is required. |
+| Monitor Service Port | Optional | Cluster resource monitoring service configuration. | Confirm monitoring collection capability, port, and network reachability. |
+| Jupyterlab Address | Optional | Service address related to online development. | Configure only when online IDE capability is required. |
 | Support RDMA Network | Optional | Whether to enable RDMA-related capabilities. | Enable only when hardware, drivers, network, and scheduling policies explicitly support it. |
 | Specification Name | Yes | Name of the specification to associate with the cluster. | Should match the actual CPU, memory, GPU, or other accelerator capability of the cluster. |
 | Specification Type | Conditionally required | Resource type or job type of the specification. | Confirm that the specification applies to the target cluster and business scenario. |
@@ -205,7 +205,7 @@ Add storage when jobs need shared directories, model repositories, local Git rep
 
 - Cluster creation/registration connects a real Kubernetes cluster to platform scheduling, monitoring, and resource management. Treat it as a high-impact operation.
 - kubeconfig, certificates, private keys, tokens, and passwords are sensitive materials. Do not write them into documents, screenshots, tickets, commit records, or chat messages.
-- If the API Server is unreachable, the platform cannot complete onboarding even when form fields are correctly formatted.
+- If the Server Address is unreachable, the platform cannot complete onboarding even when form fields are correctly formatted.
 - Incorrect region or availability zone may cause resource ownership, specification association, storage configuration, and job scheduling exceptions.
 - Incorrect authentication type, CIDR, or NodePort may cause onboarding failure, network conflicts, or service access exceptions.
 - Associating specifications affects which resource specifications users can select when creating jobs. Incorrect association may cause scheduling failure, resource request mismatch, or capacity misjudgment.
@@ -218,11 +218,11 @@ Add storage when jobs need shared directories, model repositories, local Git rep
 | --- | --- | --- |
 | Page can be opened | `AI Infra > On-Prem > Resource Pools > Cluster Management` is accessible. | Check menu configuration and account permissions. |
 | Cluster list loads normally | Cluster cards, status, region/availability zone, and resource usage are visible. | Refresh the page and check backend services or browser console errors. |
-| Create cluster entry is visible | The page shows the `Cluster Registration` entry. | Check operator permissions and page status. |
-| Cluster creation page can be opened | Clicking `Cluster Registration` opens the `Cluster Creation` page. | Check routes, permissions, and frontend errors. |
+| Create cluster entry is visible | The page shows the `Register Cluster` entry. | Check operator permissions and page status. |
+| Cluster creation page can be opened | Clicking `Register Cluster` opens the `New Cluster - Clusters` page. | Check routes, permissions, and frontend errors. |
 | Required field validation works | Validation prompts appear when required fields are missing. | Fill in fields according to page prompts and do not use real sensitive values for learning tests. |
 | No real configuration is submitted during learning | Only fields, dialogs, and screenshots are viewed. The final `Submit`, `OK`, or `Save` is not clicked. | If submitted by mistake, notify the platform administrator and follow the security process immediately. |
-| Record is traceable after real submission | The new cluster appears in the list and the status changes to `Onboarding`, `Available`, or another expected status. | Verify API Server, authentication materials, region/availability zone, and network configuration. |
+| Record is traceable after real submission | The new cluster appears in the list and the status changes to `Onboarding`, `Available`, or another expected status. | Verify Server Address, authentication materials, region/availability zone, and network configuration. |
 | Nodes and monitoring can be verified | Node list, resource usage, and monitoring charts are displayed as expected. | Check RBAC, collection components, monitoring service, and time range. |
 | Specification association can be verified | The target specification appears in the cluster details specification list, and users can select it according to permissions. | Check specification status, cluster capability, and association scope. |
 | Storage configuration can be verified | The new storage appears in the cluster details storage list, and mount path and access mode match the configuration. | Check shared path, container mount path, permissions, and tenant scope. |
@@ -230,7 +230,7 @@ Add storage when jobs need shared directories, model repositories, local Git rep
 ## Configuration Rules and Impact
 
 - **Configuration order**: Create the region and availability zone first, and then create the cluster under the corresponding availability zone.
-- **Onboarding dependencies**: API Server reachability, valid authentication materials, and correct CIDR and port planning are prerequisites for cluster onboarding.
+- **Onboarding dependencies**: Server Address reachability, valid authentication materials, and correct CIDR and port planning are prerequisites for cluster onboarding.
 - **Auto parsing**: Pasting kubeconfig can improve form completion efficiency, but the parsing result still requires manual verification.
 - **Network impact**: Cluster CIDR, Service CIDR, and NodePort affect Pod, Service, and platform access paths.
 - **Scheduling impact**: After creation, the cluster enters the platform scheduling scope, and later specifications, storage, and authorization configuration may reference it.
@@ -259,8 +259,8 @@ Add storage when jobs need shared directories, model repositories, local Git rep
 
 **Resolution:**
 
-1. Check whether the API Server can be reached from the platform side.
-2. Verify CA certificate, authentication type, and authentication materials with the cluster administrator.
+1. Check whether the Server Address can be reached from the platform side.
+2. Verify Authentication Certificate, authentication type, and authentication materials with the cluster administrator.
 3. Check whether Cluster CIDR, Service CIDR, and NodePort comply with network planning.
 4. Check the status of the target region and availability zone.
 5. Locate the specific field according to page prompts and reconfigure it.
@@ -271,7 +271,7 @@ Add storage when jobs need shared directories, model repositories, local Git rep
 
 **Resolution:**
 
-1. Check Kubernetes API Server connectivity.
+1. Check Kubernetes server address connectivity.
 2. Check whether authentication materials have expired or permissions are insufficient.
 3. Go to the cluster nodes page and check whether nodes are `Ready`.
 4. Check network connectivity between the platform side and the cluster side.
@@ -287,7 +287,7 @@ Add storage when jobs need shared directories, model repositories, local Git rep
 2. Check whether the authentication account can read nodes.
 3. Check whether the Kubernetes cluster itself has visible nodes.
 4. Refresh the page or reopen the cluster nodes page.
-5. If it is still empty, contact the cluster administrator to verify API Server and RBAC permissions.
+5. If it is still empty, contact the cluster administrator to verify Server Address and RBAC permissions.
 
 #### A specification cannot be selected
 
@@ -358,7 +358,7 @@ Add storage when jobs need shared directories, model repositories, local Git rep
 
 - Cluster creation/registration connects a real Kubernetes cluster to platform scheduling, monitoring, and resource management.
 - kubeconfig, certificates, private keys, tokens, and passwords are sensitive materials and must not be written into documents, screenshots, tickets, or commit records.
-- Incorrect region/availability zone, API Server, authentication type, CIDR, or NodePort may cause onboarding failure, network conflicts, or scheduling exceptions.
+- Incorrect region/availability zone, Server Address, authentication type, CIDR, or NodePort may cause onboarding failure, network conflicts, or scheduling exceptions.
 - Associating specifications and adding storage affect real job specifications, mount paths, read/write permissions, and data access scope.
 - `Save`, `Submit`, and `OK` are high-risk final actions.
-- Do not write real kubeconfig, certificates, private keys, tokens, passwords, shared paths, internal addresses, API Server addresses, accounts, keys, AK/SK, cluster IDs, resource pool IDs, or internal test parameters.
+- Do not write real kubeconfig, certificates, private keys, tokens, passwords, shared paths, internal addresses, server addresses, accounts, keys, AK/SK, cluster IDs, resource pool IDs, or internal test parameters.

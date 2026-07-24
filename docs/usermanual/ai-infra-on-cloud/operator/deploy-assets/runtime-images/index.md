@@ -12,16 +12,16 @@ Updated: 2026-07-20
 | Item | Content |
 | --- | --- |
 | Applicable role | Operator |
-| Navigation path | AI Infra > On-Cloud > Deploy Assets > Runtime Images |
-| Page route | /infrahub/op/model/image |
+| Navigation path | AI Infrastructure > On-Cloud > Deploy Assets > Runtime Images |
+| Page route | `/infrahub/op/model/image` |
 | Managed objects | Cloud platform, region, image name, image type, image size, registry path, and action entries |
 | Typical use | Add runtime images that can be used by inference frameworks and model deployments |
 
-#### Beginner View
+#### Beginner Explanation
 
 A runtime image works like the runtime package for a model service. It usually contains framework dependencies, drivers, service programs, and base tools. If the image path or version does not match, later deployments may fail to pull the image or start the service.
 
-#### Terms
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |

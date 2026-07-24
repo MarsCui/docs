@@ -38,7 +38,7 @@ next: true
     - 填写 **"API密钥"**（如 `sk-***`）；
     - 填写 **"模型源ID"**（如 `wan2.7-t2v`，即发往上游厂商的精确模型名称）。
 
-![模型源/元模型信息](./images/step-1-model-source_meta-model-information.png)
+![模型源/元模型信息](./images/step-1-model-source-meta-model-information.png)
 
 - **模型类型**：在"模型类型"区块默认 **"视频模型"**，默认并选择 **"模型子类型"**（如 文生视频）。
 

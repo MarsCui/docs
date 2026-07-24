@@ -12,16 +12,16 @@ Updated: 2026-07-20
 | Item | Content |
 | --- | --- |
 | Applicable role | Operator |
-| Navigation path | AI Infra > On-Cloud > Deploy Assets > Models |
-| Page route | /infrahub/op/model/model |
+| Navigation path | AI Infrastructure > On-Cloud > Deploy Assets > Models |
+| Page route | `/infrahub/op/model/model` |
 | Managed objects | Models, meta models, cloud deployment points, cloud models, compute configuration, and output configuration |
 | Typical use | Add deployable model assets for later quick access or deployment flows |
 
-#### Beginner View
+#### Beginner Explanation
 
 The Models page works like the model shelf in the deployment flow. `Add Model` first selects the model capability definition, then binds it to a specific cloud platform, region, cloud model, and compute configuration, and finally completes the request URL, method, parameters, and code samples generated after deployment.
 
-#### Terms
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |

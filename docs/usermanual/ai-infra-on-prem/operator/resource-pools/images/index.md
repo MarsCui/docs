@@ -11,13 +11,13 @@ Updated: 2026-07-08
 
 | Item | Content |
 | --- | --- |
-| Applicable Role | Operator |
-| Navigation Path | AI Infra > On-Prem > Resource Pools > Image Management |
-| Page Route | /powerone/resourcepool/image |
-| Managed Objects | Client tool, image registry, project/namespace, image name, image tag, image address, image type, architecture, and sync status |
-| Typical Use | Synchronize images, maintain image tags, record client-uploaded images, and clean up unused image records |
+| Applicable role | Operator |
+| Navigation path | AI Infrastructure > On-Prem > Resource Pools > Image Management |
+| Page route | `/powerone/resourcepool/image` |
+| Managed objects | Client tool, image registry, project/namespace, image name, image tag, image address, image type, architecture, and sync status |
+| Typical use | Synchronize images, maintain image tags, record client-uploaded images, and clean up unused image records |
 
-#### Beginner View
+#### Beginner Explanation
 
 Image Management is like the runtime environment shelf of the platform. Operators first make sure the image registry and image component are available, then build, log in, and push images through a client, and finally return to the platform page to sync or register image information so that jobs, IDEs, inference services, or templates can select the correct version.
 
@@ -70,7 +70,7 @@ Use the client upload guide when a locally built or existing runtime image needs
 2. Prepare the local client environment for image build, login, and push, such as Docker, Podman, or the actual client tool supported by the page.
 3. Build or load the local image, and tag the image address with a placeholder format, such as `<registry>/<project>/<image>:<tag>`.
 4. Log in to the image registry and push the image. Use placeholders only in learning or documentation examples. Do not write real registry addresses, accounts, or passwords.
-5. Return to `Image Management`, click `Upload Image`, `Sync`, or the actual page entry, and add the image address, tags, purpose, architecture, and other information to platform management.
+5. Return to `Image Management`, click `Image Upload`, `Sync`, or the actual page entry, and add the image address, tags, purpose, architecture, and other information to platform management.
 6. Before clicking the final `Save`, `Submit`, or `OK`, verify the image source, tag meaning, purpose, and impact on existing jobs.
 7. For learning or page validation only, view fields, dialogs, and client command formats. Do not push real images or submit real configuration.
 
@@ -82,9 +82,9 @@ docker login <registry>
 docker push <registry>/<project>/<image>:<tag>
 ```
 
-The following figure shows the Upload Image entrypoint. Confirm image source, purpose, and tags before uploading.
+The following figure shows the Image Upload entrypoint. Confirm image source, purpose, and tags before uploading.
 
-![Upload Image](./images/images-upload.png)
+![Image Upload](./images/images-upload.png)
 
 ## Parameter Reference
 
@@ -116,7 +116,7 @@ The following figure shows the Upload Image entrypoint. Confirm image source, pu
 | Page can be opened | `AI Infra > On-Prem > Resource Pools > Image Management` is accessible. | Check menu configuration and account permissions. |
 | Image list loads normally | Image name, tags, creation time, update time, and operation entrypoints are displayed normally. | Refresh the page and check image component status. |
 | Client command format is safe | Example commands contain placeholders only and do not expose real registries or credentials. | Replace real sensitive information in the document. |
-| Upload or sync entry is visible | `Upload Image`, `Sync`, or the actual entry is displayed. | Check operator permissions, image component status, and page configuration. |
+| Upload or sync entry is visible | `Image Upload`, `Sync`, or the actual entry is displayed. | Check operator permissions, image component status, and page configuration. |
 | Upload dialog can be opened | Clicking the entry shows fields such as image address, tags, purpose, and architecture. | Check route, permissions, and frontend errors. |
 | No real submission during learning | No real image is pushed and no real save, submit, or OK action is triggered. | If submitted by mistake, immediately verify the image registry and platform list. |
 | Record is traceable after real submission | The image appears in the list, and sync status is visible. | Check image address, tag, sync status, and filters. |

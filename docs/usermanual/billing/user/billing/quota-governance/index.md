@@ -12,16 +12,16 @@ Updated: 2026-07-10
 | Item | Content |
 | --- | --- |
 | Applicable role | User-side account, business admin, billing viewer |
-| Navigation path | Billing > Quota Governance |
-| Page route | /user/billing/quota-governance |
+| Navigation path | Billing > User Billing > Quota Governance |
+| Page route | `/billing/my/quota-governance` |
 | Managed objects | Quota Governance records and related status |
 | Typical use | View, filter, and maintain quota governance information |
 
-### Beginner Explanation
+#### Beginner Explanation
 
 Quota Governance is part of the billing control loop. Treat it as a view for confirming money, quota, billing-cycle, customer, or settlement status before making financial decisions.
 
-### Terms Quick Reference
+#### Terms Quick Reference
 
 | Term | Meaning | Handling tip |
 | --- | --- | --- |
@@ -80,7 +80,7 @@ Use the following operations to work with quota governance records and related s
 4. Click the visible `View Risks and Action Queue` entry when it is available.
 5. Check the displayed details, status, and related fields before moving to the next page.
 
-## Parameters
+## Parameter Reference
 
 | Field | Required | Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -96,7 +96,7 @@ Use the following operations to work with quota governance records and related s
 - Do not repeat high-risk billing operations when the first attempt fails; check status and error details first.
 - Remove sensitive customer, bank, contract, token, Key, or internal processing information before sharing screenshots or tickets.
 
-## Result Checks
+## Result Validation
 
 | Check item | Success signal | If abnormal |
 | --- | --- | --- |
@@ -107,7 +107,7 @@ Use the following operations to work with quota governance records and related s
 
 ## FAQ
 
-### Target billing data is not visible in Quota Governance
+#### Target billing data is not visible in Quota Governance
 
 The expected account, customer, order, bill, settlement, adjustment, or License record does not appear on this page.
 
@@ -118,7 +118,7 @@ The expected account, customer, order, bill, settlement, adjustment, or License 
 3. Verify that upstream actions, such as top-up, reconciliation, settlement, adjustment, or License activation, have completed successfully.
 4. If the record was just created or updated, refresh the list and compare it with related transaction, bill, settlement, or operation records.
 
-### Amount, status, or billing cycle does not match in Quota Governance
+#### Amount, status, or billing cycle does not match in Quota Governance
 
 The displayed balance, consumption, settlement status, monthly bill, or License status differs from the expected result.
 
@@ -129,7 +129,7 @@ The displayed balance, consumption, settlement status, monthly bill, or License 
 3. Compare the summary number with the detail list and operation records on the related billing pages.
 4. For financial-impacting differences, pause confirmation actions and escalate with desensitized record IDs, time range, customer scope, and screenshots without credentials.
 
-### Risk queue does not clear automatically
+#### Risk queue does not clear automatically
 
 Check the selected billing cycle, customer or project scope, status filters, and related asynchronous task records. Compare the result with transaction details, settlement records, and operation logs before repeating any high-risk billing action.
 

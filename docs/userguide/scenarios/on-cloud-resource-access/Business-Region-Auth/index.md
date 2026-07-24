@@ -28,7 +28,7 @@ Each business type, such as inference deployment, can schedule only to its appro
 2. Expand a business type to review cards showing the number of authorized regions for each currently supported cloud platform, such as AWS, Alibaba Cloud, or AGIOne-powerone. Huawei Cloud access is not currently supported.
 3. Select **+ Authorize Regions** for the business type to open the authorization dialog.
 
-![Review business-region authorization](./images/business-region_auth-list.png)
+![Review business-region authorization](./images/business-region-auth-list.png)
 
 4. Confirm the current business type shown in the information bar.
 5. In the platform-region tree, select only the regions approved for the business. Unselected regions remain unauthorized.

@@ -13,7 +13,7 @@ Apps helps operators view apps, model permissions, call scopes, status, and publ
 | --- | --- |
 | Applicable role | Operator |
 | Navigation path | Model Services > Publishing > Apps |
-| Page route | /modelone/audit/app |
+| Page route | `/modelone/publish/application` |
 | Managed objects | Apps, model permissions, call scopes, status, and publishing records |
 | Typical use | Maintain apps that can call model services |
 

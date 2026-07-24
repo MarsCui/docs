@@ -23,7 +23,7 @@ next: true
 
 进入[收益总览](../../../usermanual/billing/user/earnings/revenue/)，确认收益账户余额、当前自然月预估、下次结算提示和账期趋势。
 
-![收益总览中的余额和账期趋势](../../../usermanual/billing/user/earnings/revenue/images/revenue-overview.png)
+![收益总览中的余额和账期趋势](../../../usermanual/billing/user/earnings/revenue/images/overview-list.png)
 
 ### 2. 解释收益来源
 

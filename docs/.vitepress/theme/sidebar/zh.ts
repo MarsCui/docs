@@ -339,7 +339,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
           collapsed: false,
           items: [
             { text: '概览', link: '/zh-CN/usermanual/model-services/' },
-            { text: '平台入门', link: '/zh-CN/usermanual/model-services/getting-started/' },
+            { text: '快速入门', link: '/zh-CN/usermanual/model-services/getting-started/' },
             { text: '从发布到调用模型', link: '/zh-CN/usermanual/model-services/end-to-end/publish-and-call-model/' },
             {
               text: '运营管理员',
@@ -436,7 +436,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
           collapsed: false,
           items: [
             { text: '概览', link: '/zh-CN/usermanual/ai-infra-on-cloud/' },
-            { text: '平台入门', link: '/zh-CN/usermanual/ai-infra-on-cloud/getting-started/' },
+            { text: '快速入门', link: '/zh-CN/usermanual/ai-infra-on-cloud/getting-started/' },
             { text: '从零开始部署云上模型服务', link: '/zh-CN/usermanual/ai-infra-on-cloud/end-to-end/deploy-cloud-model-service/' },
             {
               text: '运营管理员',
@@ -513,7 +513,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
           collapsed: false,
           items: [
             { text: '概览', link: '/zh-CN/usermanual/ai-infra-on-prem/' },
-            { text: '平台入门', link: '/zh-CN/usermanual/ai-infra-on-prem/getting-started/' },
+            { text: '快速入门', link: '/zh-CN/usermanual/ai-infra-on-prem/getting-started/' },
             { text: '从零开始部署模型服务', link: '/zh-CN/usermanual/ai-infra-on-prem/end-to-end/deploy-model-service/' },
             {
               text: '运营管理员',
@@ -539,8 +539,8 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                   text: '模板',
                   collapsed: false,
                   items: [
-                    { text: '模型配置', link: '/zh-CN/usermanual/ai-infra-on-prem/operator/templates/model-config/' },
-                    { text: '框架配置', link: '/zh-CN/usermanual/ai-infra-on-prem/operator/templates/frameworks/' },
+                    { text: '模型配置', link: '/zh-CN/usermanual/ai-infra-on-prem/operator/templates/models/' },
+                    { text: '框架配置', link: '/zh-CN/usermanual/ai-infra-on-prem/operator/templates/frames/' },
                     { text: '推理模板', link: '/zh-CN/usermanual/ai-infra-on-prem/operator/templates/inference-templates/' },
                     { text: '显存计算', link: '/zh-CN/usermanual/ai-infra-on-prem/operator/templates/vram-config/' },
                   ],
@@ -549,10 +549,16 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                   text: '配额&计量',
                   collapsed: false,
                   items: [
-                    { text: '租户配额', link: '/zh-CN/usermanual/ai-infra-on-prem/operator/quotas-metering/tenant-quotas/' },
-                    { text: '租户额度', link: '/zh-CN/usermanual/ai-infra-on-prem/operator/quotas-metering/tenant-credits/' },
+                    { text: '用量限制', link: '/zh-CN/usermanual/ai-infra-on-prem/operator/quotas-metering/usage-limits/' },
                     { text: '月度计量', link: '/zh-CN/usermanual/ai-infra-on-prem/operator/quotas-metering/monthly-usage/' },
                     { text: '计量明细', link: '/zh-CN/usermanual/ai-infra-on-prem/operator/quotas-metering/metering-details/' },
+                  ],
+                },
+                {
+                  text: '系统',
+                  collapsed: false,
+                  items: [
+                    { text: '系统设置', link: '/zh-CN/usermanual/ai-infra-on-prem/operator/system/system-setting/' },
                   ],
                 },
                 {
@@ -577,16 +583,16 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                   text: '模型部署',
                   collapsed: false,
                   items: [
-                    { text: '部署模板', link: '/zh-CN/usermanual/ai-infra-on-prem/user/quick-start/inference-templates/' },
-                    { text: '模型实例', link: '/zh-CN/usermanual/ai-infra-on-prem/user/model-deployment/online-inference/' },
+                    { text: '部署模板', link: '/zh-CN/usermanual/ai-infra-on-prem/user/model-deployment/templates/' },
+                    { text: '模型实例', link: '/zh-CN/usermanual/ai-infra-on-prem/user/model-deployment/instances/' },
                   ],
                 },
                 {
                   text: '开发资源',
                   collapsed: false,
                   items: [
-                    { text: '在线IDE', link: '/zh-CN/usermanual/ai-infra-on-prem/user/development/dev-environments/' },
-                    { text: '运行实例', link: '/zh-CN/usermanual/ai-infra-on-prem/user/development/model-training/' },
+                    { text: '在线IDE', link: '/zh-CN/usermanual/ai-infra-on-prem/user/dev-resources/online-ide/' },
+                    { text: '运行实例', link: '/zh-CN/usermanual/ai-infra-on-prem/user/dev-resources/runtime-instances/' },
                   ],
                 },
                 {
@@ -675,7 +681,7 @@ export const zhSidebar: DefaultTheme.Sidebar = {
               collapsed: false,
               items: [
                 {
-                  text: '模型提供方收益',
+                  text: 'Provider 收益',
                   collapsed: false,
                   items: [
                     { text: '收益总览', link: '/zh-CN/usermanual/billing/user/earnings/revenue/' },
@@ -687,8 +693,8 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                   text: '我的账务',
                   collapsed: false,
                   items: [
-                    { text: '账户概览', link: '/zh-CN/usermanual/billing/user/billing/overview/' },
                     { text: '额度治理', link: '/zh-CN/usermanual/billing/user/billing/quota-governance/' },
+                    { text: '账户概览', link: '/zh-CN/usermanual/billing/user/billing/overview/' },
                     { text: '流水明细', link: '/zh-CN/usermanual/billing/user/billing/transactions/' },
                     { text: '充值订单', link: '/zh-CN/usermanual/billing/user/billing/top-up-orders/' },
                     { text: '月度账单', link: '/zh-CN/usermanual/billing/user/billing/monthly-bill/' },
@@ -721,15 +727,15 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                   text: '成员与角色',
                   collapsed: false,
                   items: [
-                    { text: '团队成员', link: '/zh-CN/usermanual/settings/operator/members-roles/team-members/' },
+                    { text: '成员', link: '/zh-CN/usermanual/settings/operator/members-roles/members/' },
                     { text: '角色', link: '/zh-CN/usermanual/settings/operator/members-roles/roles/' },
                   ],
                 },
                 {
-                  text: '组织&设置',
+                  text: '租户&设置',
                   collapsed: false,
                   items: [
-                    { text: '组织', link: '/zh-CN/usermanual/settings/operator/organizations/organizations/' },
+                    { text: '租户', link: '/zh-CN/usermanual/settings/operator/tenants/tenants/' },
                   ],
                 },
                 {
@@ -778,17 +784,17 @@ export const zhSidebar: DefaultTheme.Sidebar = {
                   text: '成员与角色',
                   collapsed: false,
                   items: [
-                    { text: '团队成员', link: '/zh-CN/usermanual/settings/user/members-roles/team-members/' },
+                    { text: '成员', link: '/zh-CN/usermanual/settings/user/members-roles/team-members/' },
                     { text: '角色', link: '/zh-CN/usermanual/settings/user/members-roles/roles/' },
                     { text: '成员额度', link: '/zh-CN/usermanual/settings/user/members-roles/member-quotas/' },
                     { text: '额度申请', link: '/zh-CN/usermanual/settings/user/members-roles/quota-requests/' },
                   ],
                 },
                 {
-                  text: '组织&设置',
+                  text: '租户&设置',
                   collapsed: false,
                   items: [
-                    { text: '组织设置', link: '/zh-CN/usermanual/settings/user/organizations/org-settings/' },
+                    { text: '租户设置', link: '/zh-CN/usermanual/settings/user/organizations/org-settings/' },
                   ],
                 },
                 {

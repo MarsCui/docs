@@ -13,7 +13,7 @@ Updated: 2026-07-08
 | --- | --- |
 | Applicable role | Model provider |
 | Navigation path | Model Services > Usage & Earnings > Model Usage |
-| Page route | /modelone/accounting/deduction/overview/model |
+| Page route | `/modelone/accounting/deduction` |
 | Managed objects | Usage overview, usage details, billing cycle, date, metered usage, free quota, billing mode, billing rules, and Credits |
 | Typical use | View model call consumption, Token consumption trends, model usage distribution, and usage details |
 

@@ -136,21 +136,16 @@ Templates connect the model author, model source, region, meta-model, Model Sour
 
 Tags are used for model marketplace classification and display. Prepare commonly used tags before public model publishing to avoid unclear classification or missing tag-based filtering after the model is listed.
 
-## 5. Confirm Currency Settings
+## 5. Confirm Pricing Currency
 
-1. In the left-side menu, go to **"Settings > Currency Settings"**.
-2. Check the current platform-wide currency.
-    - The current currency is used for platform-wide transaction and fee display.
-3. If the public model is paid, confirm that the currency matches the operating pricing policy.
-4. If the currency needs to be changed, click the current currency card.
-5. Select the target currency in the dialog.
-    - Changing currency affects the platform fee display.
-    - Confirm the impact on pricing, user-facing display, and historical record display before switching.
-6. Confirm and save.
+1. Before publishing a paid public model, confirm the current platform-wide pricing currency with the platform settings owner.
+2. Check whether the paid model currency matches the operating pricing policy.
+    - The platform currency affects transaction and fee display.
+3. If the currency needs to be changed, use the current platform-level settings entry provided by the deployment environment.
+4. Before any final `Save`, `Submit`, or `Confirm` action, verify the impact on pricing, user-facing display, and historical record display.
+5. For documentation or learning, record only the confirmation result. Do not record real customer prices, settlement policies, or internal finance configuration.
 
-![Currency Settings](./images/model-publishing-preconfiguration/en/05-currency-settings.png)
-
-Currency settings affect platform-wide transaction and fee display. It is not recommended to change them casually after online transactions already exist.
+Pricing currency affects platform-wide transaction and fee display. It is not recommended to change it casually after online transactions already exist.
 
 ## 6. Review Model Publishing Requests
 

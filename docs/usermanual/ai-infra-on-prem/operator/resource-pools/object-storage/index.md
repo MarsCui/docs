@@ -1,4 +1,4 @@
-# Object Storage Component
+# Object Storage
 
 ::: info Document Information
 Version: v1.0
@@ -7,24 +7,24 @@ Updated: 2026-07-08
 
 ## Feature Overview
 
-`Object Storage Component` is used to connect MinIO, S3-compatible storage, or other object storage services, providing bucket, object path, and unstructured data capabilities for regions, user-side object storage, job object path read/write, and model data management.
+`Object Storage` is used to connect MinIO, S3-compatible storage, or other object storage services, providing bucket, object path, and unstructured data capabilities for regions, user-side object storage, job object path read/write, and model data management.
 
 | Item | Content |
 | --- | --- |
-| Applicable Role | Operator |
-| Navigation Path | AI Infra > On-Prem > Resource Pools > Object Storage Component |
-| Page Route | `/powerone/resourcepool/storage` |
-| Managed Objects | Component name, Endpoint, internal address, access protocol, authentication method, access credentials, bucket capability, capacity limits, associated regions, and status |
-| Typical Use | Connect MinIO/S3 to support model files, datasets, artifact packages, task output, and user-side bucket management |
+| Applicable role | Operator |
+| Navigation path | AI Infrastructure > On-Prem > Resource Pools > Object Storage |
+| Page route | `/powerone/resourcepool/storage` |
+| Managed objects | Service Type, Object Storage, Name, Endpoint (Public URL), IP Address, Access Key, Secret Key, Limit Storage Quota, Description, and Actions |
+| Typical use | Connect MinIO/S3 to support model files, datasets, artifact packages, task output, and user-side bucket management |
 
-#### Beginner View
+#### Beginner Explanation
 
 - **Object storage** is like a bucket-organized file repository, suitable for storing model weights, datasets, compressed packages, and runtime artifacts.
 - **Bucket** is the top-level container of object storage. Users can organize objects only after creating buckets.
 - **Endpoint** is the access entrypoint. The platform, clusters, or jobs need to access object storage through it.
 - **AK/SK** are access credentials and sensitive information. They should not appear in screenshots, documentation, or tickets.
 
-#### Terms
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |
@@ -41,15 +41,15 @@ Updated: 2026-07-08
 2. Endpoint, internal address, access protocol, authentication method, access credentials, capacity plan, and associated regions have been prepared.
 3. Bucket naming, tenant isolation, permission boundaries, and data retention policies have been confirmed.
 4. The current account has operator resource pool management permissions.
-5. For learning or screenshots, only view fields and forms without submitting real object storage component configuration.
+5. For learning or screenshots, only view fields and forms without submitting real object storage configuration.
 
 ## Page Description
 
 The page displays connected object storage components, status, access Endpoint, internal address, capacity information, and associated regions.
 
-The following figure shows the object storage component list, where component status, Endpoint, internal address, capacity, and operation entrypoints can be viewed.
+The following figure shows the object storage list, where component status, Endpoint, internal address, capacity, and operation entrypoints can be viewed.
 
-![Object Storage Component](./images/object-storage-list.png)
+![Object Storage](./images/object-storage-list.png)
 
 ## Main Operations
 
@@ -57,36 +57,35 @@ The following figure shows the object storage component list, where component st
 
 #### Applicable Scenarios
 
-Register a storage component when a new MinIO, S3-compatible storage, or another object storage service needs to be connected and used by regions, user-side buckets, or job object path read/write. In this page, storage component refers to the object storage component managed here.
+Register a storage component when a new MinIO, S3-compatible storage, or another object storage service needs to be connected and used by regions, user-side buckets, or job object path read/write. In this page, storage component refers to the object storage entry managed here.
 
 #### Steps
 
-1. Go to `AI Infra > On-Prem > Resource Pools > Object Storage Component`.
-2. Click `Register Component`, `Add`, or the actual registration entry on the page.
-3. Fill in component name, Endpoint, internal address, access protocol, authentication method, capacity control, and connection information according to the page fields.
-4. Configure access credentials, bucket capability, capacity limits, associated regions, or visibility scope as required by the page.
-5. Before clicking the final `Save`, `Submit`, or `OK`, verify Endpoint, internal address, AK/SK source, bucket policy, and region binding scope again.
-6. For learning or page validation only, view fields and forms without submitting real object storage component configuration.
+1. Go to `AI Infra > On-Prem > Resource Pools > Object Storage`.
+2. Click `Register component`.
+3. Fill in `Service Type`, `Object Storage`, `Name`, `Endpoint (Public URL)`, `IP Address`, `Access Key`, `Secret Key`, `Limit Storage Quota`, and `Description` according to the page fields.
+4. If the page provides `Test Connection`, run the read-only connectivity check first and confirm the returned result.
+5. Before clicking the final `Save`, `Submit`, or `OK`, verify Endpoint (Public URL), IP Address, Access Key, Secret Key, and quota limit again.
+6. For learning or page validation only, view fields and forms without submitting real object storage configuration.
 
-The following figure shows the Register Object Storage Component form, used to configure object storage access method and connection parameters.
+The following figure shows the Register Storage Component form, used to configure object storage access method and connection parameters.
 
-![Register Object Storage Component](./images/object-storage-register.png)
+![Register Storage Component](./images/object-storage-register.png)
 
 ## Parameter Reference
 
 | Parameter | Required | Description | Configuration Suggestion |
 | --- | --- | --- | --- |
-| Component Name | Yes | Display name of the object storage component. | Use a name that reflects storage type, environment, or region. Do not use temporary names. |
-| Endpoint | Yes | Access entrypoint exposed by object storage to the platform or service side. | Confirm that both platform side and cluster side can access it. Do not record real Endpoint values in documentation. |
-| Internal Address | Conditionally required | Internal network address used by clusters or the platform to access object storage. | Keep it consistent with actual network, DNS, and routing configuration. Do not record real internal addresses. |
-| Access Protocol | Yes | Object storage compatible protocol or access method. | Select S3-compatible protocol or the actual protocol supported by the page. |
-| Authentication Method | Yes | Authentication method for object storage access. | Select AK/SK, token, or another supported method according to platform support. |
-| Access Credentials | Conditionally required | AK/SK, token, or connection credentials. | Fill credentials only in system forms. Do not write them in documents, screenshots, or tickets. |
-| Bucket Capability | Conditionally required | Whether creating, syncing, reading, or writing buckets is supported. | Keep it consistent with user-side object storage capability and tenant isolation policies. |
-| Capacity Limit | No | Capacity quota, bucket count, or object count limit. | Plan according to tenant, region, and job scale. |
-| Associated Region | Conditionally required | Region scope where the object storage component can be bound or visible. | Keep it consistent with resource pools, availability zones, clusters, and business data scope. |
-| Status | System-generated | Component registration, connectivity, and probe status. | After registration, watch status, update time, and error messages. |
-| Actions | No | Supports register, edit, enable, disable, delete, test connection, and other operations. | Confirm impacts on regions, data, and jobs before high-risk operations. |
+| Service Type | Yes | Service type of the current component. | On the Object Storage page, this usually displays `Object Storage`. |
+| Object Storage | Yes | Service type value when registering a storage component. | Keep it consistent with the actual page option. |
+| Name | Yes | Display name of the object storage component. | Use a name that reflects storage type, environment, or region. |
+| Endpoint (Public URL) | Yes | Public entry exposed by object storage to the platform or service side. | Do not record real Endpoint values in documentation. |
+| IP Address | Conditionally required | Address used by clusters or the platform to access object storage. | Keep it consistent with actual network, DNS, and routing configuration. |
+| Access Key | Yes | Access key for object storage. | Fill it only in system forms. Do not write it in documents, screenshots, or tickets. |
+| Secret Key | Yes | Secret key for object storage. | Sensitive credential. Do not write it in documents, screenshots, or tickets. |
+| Limit Storage Quota | No | Whether to limit object storage quota. | Plan according to tenant, region, and job scale. |
+| Description | No | Component purpose, boundary, or maintenance notes. | Record non-sensitive notes only. |
+| Actions | System-generated | Register component, Test Connection, Cancel, Confirm, Edit quota, Delete, and similar entries. | `Confirm` and `Delete` are high-risk actions. |
 
 ## Pitfalls
 
@@ -100,19 +99,19 @@ The following figure shows the Register Object Storage Component form, used to c
 
 | Check Item | Expected Result | Troubleshooting |
 | --- | --- | --- |
-| Page can be opened | `AI Infra > On-Prem > Resource Pools > Object Storage Component` is accessible. | Check menu configuration and account permissions. |
+| Page can be opened | `AI Infra > On-Prem > Resource Pools > Object Storage` is accessible. | Check menu configuration and account permissions. |
 | Component list loads normally | Component name, Endpoint, internal address, capacity, status, and associated regions are displayed normally. | Refresh the page and check service status or browser console errors. |
-| Registration entry is visible | `Register Component`, `Add`, or the actual registration entry is displayed on the page. | Check operator permissions, License, and page configuration. |
-| Registration form can be opened | Clicking the entry shows component name, Endpoint, internal address, authentication method, and capacity control fields. | Check route, permissions, and frontend errors. |
-| Required field validation works | Validation prompts appear when component name, Endpoint, authentication information, or capacity fields are missing. | Complete fields according to page prompts without bypassing validation. |
+| Registration entry is visible | `Register component` is displayed on the page. | Check operator permissions, License, and page configuration. |
+| Registration form can be opened | Clicking the entry shows Service Type, Name, Endpoint (Public URL), IP Address, Access Key, Secret Key, and Limit Storage Quota fields. | Check route, permissions, and frontend errors. |
+| Required field validation works | Validation prompts appear when Name, Endpoint, Access Key, Secret Key, or quota fields are missing. | Complete fields according to page prompts without bypassing validation. |
 | No real submission during learning | No real save, submit, or OK action is triggered. | If submitted by mistake, immediately verify the component list and region binding scope. |
-| Status is traceable after real submission | The component appears in the object storage component list, and status matches expectations. | Check Endpoint, internal address, credentials, certificates, and connection test results. |
-| Region binding can be verified | The object storage component can be bound to the target region in `Regions / Availability Zones`. | Check component status, associated regions, permissions, and visibility scope. |
+| Status is traceable after real submission | The component appears in the object storage list, and status matches expectations. | Check Endpoint, internal address, credentials, certificates, and connection test results. |
+| Region binding can be verified | The object storage entry can be bound to the target region in `Regions / Availability Zones`. | Check component status, associated regions, permissions, and visibility scope. |
 | Downstream read/write can be verified | The user-side object storage page can create buckets, and a test job can read from or write to object paths. | Check AK/SK, bucket policy, network, certificates, and path configuration. |
 
 ## FAQ
 
-#### Object Storage Component List Is Empty
+#### Object Storage List Is Empty
 
 **Symptom:**
 
@@ -132,7 +131,7 @@ No object storage component records are visible after entering the page.
 3. Check the current account's resource pool management permissions.
 4. Check registration result, sync status, and error messages.
 
-#### Object Storage Component Cannot Be Selected in Region
+#### Object Storage Cannot Be Selected in Region
 
 **Symptom:**
 
@@ -147,7 +146,7 @@ When creating or editing a region, the object storage drop-down list is empty.
 
 **Solution:**
 
-1. Return to the object storage component list and check status.
+1. Return to the object storage list and check status.
 2. Confirm the component's associated region and visibility scope.
 3. Check account permissions and reopen the region form.
 4. If it is still empty, check Endpoint, internal address, and connection test status.

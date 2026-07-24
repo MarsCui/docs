@@ -13,7 +13,7 @@ Updated: 2026-07-08
 | --- | --- |
 | Applicable role | Model provider |
 | Navigation path | Model Services > Customer Calls > Call Analytics |
-| Page route | /modelone/monitoring/monitor/list/model |
+| Page route | `/modelone/monitoring/monitor/list` |
 | Managed objects | Customer call analytics, model list, customer list, successful calls, failed calls, and rate limit triggers |
 | Typical use | View customer-side call statistics by model or customer |
 

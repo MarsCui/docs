@@ -29,9 +29,9 @@ This practice primarily belongs to `AI Infra On-Prem`. It is separate from the m
 | --- | --- | --- |
 | Onboard Kubernetes clusters and nodes | Clusters, cluster nodes, and device monitoring | [Clusters](/usermanual/ai-infra-on-prem/operator/resource-pools/clusters/) |
 | Define selectable compute packages | Spec metrics, resource specs, and cluster-spec association | [Resource Specs](/usermanual/ai-infra-on-prem/operator/resource-pools/resource-specs/) |
-| Control resources available to an organization or tenant | Tenant credits, quotas, and metering | [Tenant Credits](/usermanual/ai-infra-on-prem/operator/quotas-metering/tenant-credits/) |
+| Control resources available to an organization or tenant | Tenant credits, quotas, and metering | [Metering Details](/usermanual/ai-infra-on-prem/operator/quotas-metering/metering-details/) |
 | Standardize model deployment | Inference templates, model configuration, frameworks, images, resource specs, and VRAM configuration | [Inference Templates](/usermanual/ai-infra-on-prem/operator/templates/inference-templates/) |
-| Deploy and inspect model services | Model instances, instance status, logs, and access troubleshooting | [Model Instances](/usermanual/ai-infra-on-prem/user/model-deployment/online-inference/) |
+| Deploy and inspect model services | Model instances, instance status, logs, and access troubleshooting | [Model Instances](/usermanual/ai-infra-on-prem/user/model-deployment/instances/) |
 | Monitor resource health and capacity | Overview, cluster, node, device, and job monitoring | [Monitoring Overview](/usermanual/ai-infra-on-prem/operator/monitoring/overview/) |
 
 ## Roles and Responsibilities
@@ -132,11 +132,11 @@ Key checks:
 
 The Associated Specifications section above confirms which specs the cluster can schedule. If a spec exists but is unavailable to an End User, check this association first.
 
-### 3. Operator Configures Tenant Credits
+### 3. Operator Configures Usage Limits
 
 Tenant credits control the CPU, GPU/NPU, memory, and other resources available to an organization or tenant. A resource spec controls the resource used by one instance; tenant credits control the tenant's aggregate resource use. Both conditions must be satisfied.
 
-![Tenant Credits](./images/single-node-multi-card/tenant-credits-list.png)
+![Usage limits](./images/single-node-multi-card/tenant-credits-list.png)
 
 The tenant-credit list, labeled `Usage Limits` in the current English UI, shows whether the target tenant has sufficient CPU, accelerator, and memory credits for the POC plan.
 
@@ -284,7 +284,7 @@ For standard models, the Operator captures deployment experience in inference te
 
 - [Clusters](/usermanual/ai-infra-on-prem/operator/resource-pools/clusters/)
 - [Resource Specs](/usermanual/ai-infra-on-prem/operator/resource-pools/resource-specs/)
-- [Tenant Credits](/usermanual/ai-infra-on-prem/operator/quotas-metering/tenant-credits/)
+- [Metering Details](/usermanual/ai-infra-on-prem/operator/quotas-metering/metering-details/)
 - [Inference Templates](/usermanual/ai-infra-on-prem/operator/templates/inference-templates/)
-- [Model Instances](/usermanual/ai-infra-on-prem/user/model-deployment/online-inference/)
+- [Model Instances](/usermanual/ai-infra-on-prem/user/model-deployment/instances/)
 - [Multi-Compute Pool Heterogeneous Inference Scheduling Best Practice](./multi-compute-pool-heterogeneous-inference-scheduling)

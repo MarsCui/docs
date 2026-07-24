@@ -1,4 +1,4 @@
-# Publish and Call a Model End to End
+# Publish and Call a Model
 
 ::: info Document Information
 Version: v1.0
@@ -16,7 +16,7 @@ This document connects the Model Services operations of operator admins, model p
 | Output | A configured, reviewed model that is visible in the model marketplace and can be tried and called |
 | Typical use | New model listing, third-party Endpoint access, aggregation model publishing, review acceptance, and call troubleshooting |
 
-## Beginner Explanation
+#### Beginner Explanation
 
 Publishing and calling a model is like placing a model on a shelf and then completing a trial purchase: the operator prepares meta-models, sources, and templates; the provider publishes the model; the caller validates it in the marketplace, Playground, and API.
 
@@ -34,7 +34,7 @@ Publishing and calling a model is like placing a model on a shelf and then compl
 | Data viewing | All roles | View My Calls, call logs, usage details, model revenue, and customer calls. |
 | Troubleshooting loop | All roles | Check base configuration, review status, Endpoint, billing, rate limits, and call logs based on the failure path. |
 
-## Terms Quick Reference
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |
@@ -72,6 +72,9 @@ Publishing and calling a model is like placing a model on a shelf and then compl
 - A successful Playground test does not mean production integration is complete. Before formal calls, verify rate limits, billing, error logs, and call credentials.
 - Endpoint, API Key, request headers, and internal error logs are sensitive information and must be redacted before being written into documentation.
 - On-Cloud Quick Deployment, publish region selection, and model publishing may change real service exposure. For learning or page validation only, do not perform final `Publish`, `Submit`, `Save`, or `Create` actions.
+- `Publish`, `Submit for Review`, `Approve`, `Reject`, `List`, `Create Aggregation Model`, and `Delete` are high-risk actions. Confirm impact scope and rollback options before performing them.
+- For learning or screenshots, only view pages, fields, statuses, and navigation. Do not perform final publish, submit for review, approve, reject, list, create aggregation model, or delete actions.
+- Do not record real model IDs, API Keys, Endpoints, model source credentials, tenant information, user information, call logs, or test parameters.
 
 ## Step 1: Operator Admin Maintains Meta-models
 
@@ -232,7 +235,7 @@ Result checks:
 
 ## Common Failure Path Troubleshooting
 
-### Failure Branch: Model Review Is Rejected
+#### Failure Branch: Model Review Is Rejected
 
 Next hop: [Model Reviews](../../operator/approvals/model-reviews/)
 
@@ -244,7 +247,7 @@ Next hop: [Model Reviews](../../operator/approvals/model-reviews/)
 2. Check whether model source, protocol, request headers, and security policy meet requirements.
 3. Before resubmitting, validate source connectivity and output quality in a controlled environment.
 
-### Failure Branch: Model Source Connectivity Fails
+#### Failure Branch: Model Source Connectivity Fails
 
 Next hop: [Model Sources](../../operator/settings/model-source/)
 
@@ -256,7 +259,7 @@ Next hop: [Model Sources](../../operator/settings/model-source/)
 2. Confirm that the upstream service has no rate limits, allowlist restrictions, or network access restrictions.
 3. After a redacted request sample passes validation, associate the source with a template or publish the model.
 
-### Failure Branch: Call Returns 401/429/5xx
+#### Failure Branch: Call Returns 401/429/5xx
 
 Next hop: [My Call Logs](../../user/my-calls/call-logs/)
 

@@ -12,16 +12,16 @@ Updated: 2026-07-21
 | Item | Content |
 | --- | --- |
 | Applicable role | User |
-| Navigation path | AI Infra > On-Cloud > Model Services > My Deployments |
-| Page route | /infrahub/user/model/deployment |
+| Navigation path | AI Infrastructure > On-Cloud > Model Services > My Deployments |
+| Page route | `/infrahub/user/model/deployment` |
 | Managed objects | Deployment name, model name, deployment status, cloud platform, region, resource specification, publish region, and action entries |
 | Typical use | Publish a model from an existing deployment and continue configuring basic information, billing, and rate limits |
 
-#### Beginner View
+#### Beginner Explanation
 
 My Deployments is the list of running model services. Users can verify whether a deployment is running, whether the model and resources are expected, and then choose `Publish` from more actions to publish the model to a private or public area.
 
-#### Terms
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |

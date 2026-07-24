@@ -12,16 +12,16 @@ Updated: 2026-07-21
 | Item | Content |
 | --- | --- |
 | Applicable role | User |
-| Navigation path | AI Infra > On-Cloud > Access Management > Access Accounts |
-| Page route | /infrahub/user/access/account |
+| Navigation path | AI Infrastructure > On-Cloud > Access Management > Access Accounts |
+| Page route | `/infrahub/user/access/account` |
 | Managed objects | Cloud account, cloud platform, Access Key ID, Access Key Secret, creation time, and action entries |
 | Typical use | Add cloud accounts that can be used for Quick Deployment and view connected accounts |
 
-#### Beginner View
+#### Beginner Explanation
 
 An access account is the credential entry that connects user-side cloud resources. After an account is added, the platform can identify available resources based on the cloud platform and credentials, and use cloud resources within the authorization scope during Quick Deployment or model service creation.
 
-#### Terms
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |

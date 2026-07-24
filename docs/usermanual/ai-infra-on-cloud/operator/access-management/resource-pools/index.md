@@ -12,16 +12,16 @@ Updated: 2026-07-08
 | Item | Content |
 | --- | --- |
 | Applicable role | Operator |
-| Navigation path | AI Infra > On-Cloud > Access Management > Resource Pools |
-| Page route | /infrahub/op/access/region |
+| Navigation path | AI Infrastructure > On-Cloud > Access Management > Resource Pools |
+| Page route | `/infrahub/op/access/region` |
 | Managed objects | Cloud platform, regional resource pools, enabled status, import and export entries |
 | Typical use | Enable or disable a regional resource pool under a cloud platform |
 
-#### Beginner View
+#### Beginner Explanation
 
 Resource Pools is like setting an availability switch for regions under different cloud platforms. After a resource pool is enabled, it may enter the authorization and scheduling scope. After it is disabled, related deployments, authorization, or capacity display may be affected.
 
-#### Terms
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |

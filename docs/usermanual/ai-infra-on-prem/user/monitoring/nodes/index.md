@@ -11,17 +11,17 @@ Updated: 2026-07-08
 
 | Item | Content |
 | --- | --- |
-| Applicable Role | Regular user |
-| Navigation Path | Monitoring > Node Statistics |
-| Page Route | `/powerone/user-monitor/nodes` |
-| Managed Objects | Node resource trends and status within the user-visible scope |
-| Typical Use | Determine whether an instance is affected by node resources or node status |
+| Applicable role | Regular user |
+| Navigation path | AI Infrastructure > On-Prem > Monitoring > Node Statistics |
+| Page route | `/powerone/user-monitor/node` |
+| Managed objects | Node resource trends and status within the user-visible scope |
+| Typical use | Determine whether an instance is affected by node resources or node status |
 
-### Beginner View
+#### Beginner Explanation
 
 Node statistics are like a dashboard for each server. They show node CPU, memory, GPU, and status to determine whether a task is slow or failed because of a specific node.
 
-### Terms Quick Reference
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |
@@ -41,9 +41,9 @@ Node statistics are like a dashboard for each server. They show node CPU, memory
 
 The page displays node statistics capability for the selected region. When the capability is opened, users can view metric trends, list data, or key status. When the capability is not opened, the page shows a capability prompt.
 
-![Node Statistics](./images/monitoring-nodes.png)
+![Node Statistics](./images/nodes-list.png)
 
-### Expected Page Elements When Capability Is Open
+#### Expected Page Elements When Capability Is Open
 
 | Page Element | Example | Description |
 | --- | --- | --- |
@@ -71,7 +71,7 @@ The page displays node statistics capability for the selected region. When the c
 - Whether CPU, memory, or GPU curves remain high.
 - Whether curves are interrupted or update time is clearly delayed.
 
-#### Parameters
+## Parameter Reference
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -83,13 +83,13 @@ The page displays node statistics capability for the selected region. When the c
 | GPU Usage | System-generated | Percentage | `65%` | Determines node accelerator compute pressure. |
 | Node Status | System-generated | Status | `Ready` | Shows whether the node is available or abnormal. |
 
-#### Pitfalls
+## Pitfalls
 
 - Temporary CPU or memory spikes are not necessarily failures. Judge them together with the task runtime window.
 - Curve interruption may be collection delay or node unavailability.
 - Users usually cannot maintain nodes directly. During troubleshooting, prepare time range and instance information for the operator.
 
-#### Result Validation
+## Result Validation
 
 1. The node list displays node name, owning cluster, status, and key metrics.
 2. Metric curves match the selected time range.
@@ -116,7 +116,7 @@ Alternative troubleshooting paths:
 
 ## FAQ
 
-### Node Is Unavailable
+#### Node Is Unavailable
 
 **Symptom:**
 
@@ -134,7 +134,7 @@ The node status is abnormal, and related instance or job creation fails, restart
 2. View job or instance events to confirm whether it was scheduled to this node.
 3. Contact the operator to handle node status or migrate resources.
 
-### CPU/Memory Curve Is Interrupted
+#### CPU/Memory Curve Is Interrupted
 
 **Symptom:**
 
@@ -152,7 +152,7 @@ Node metric curves are interrupted or have no new data for a long time.
 2. Compare cluster statistics and job monitoring to determine impact scope.
 3. Provide the operator with sanitized node name and time period.
 
-## Follow-Up Operations
+## Next Steps
 
 1. When node metrics are abnormal, check whether affected jobs or instances are concentrated on this node.
 2. For GPU-related issues, continue to device monitoring.

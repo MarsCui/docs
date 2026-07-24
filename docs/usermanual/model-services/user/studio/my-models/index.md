@@ -13,7 +13,7 @@ Updated: 2026-07-08
 | --- | --- |
 | Applicable role | Model provider |
 | Navigation path | Model Services > Studio > My Models |
-| Page route | /user/studio/my-models |
+| Page route | `/modelone/model` |
 | Managed objects | Published models, aggregate models, model sources, meta models, protocols, billing, rate limits, and visibility |
 | Typical use | Publish models, delist models, edit models, and create aggregate models |
 

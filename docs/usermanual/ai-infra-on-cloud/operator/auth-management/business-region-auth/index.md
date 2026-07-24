@@ -12,16 +12,16 @@ Updated: 2026-07-20
 | Item | Content |
 | --- | --- |
 | Applicable role | Operator |
-| Navigation path | AI Infra > On-Cloud > Authorization Management > Business-Region Auth |
-| Page route | /infrahub/op/auth/region-auth |
+| Navigation path | AI Infrastructure > On-Cloud > Authorization Management > Business-Region Auth |
+| Page route | `/infrahub/op/auth/region-auth` |
 | Managed objects | Business type, cloud platform, authorized regions, and action entries |
 | Typical use | Configure available cloud platform regions for a specified business type |
 
-#### Beginner View
+#### Beginner Explanation
 
 Business-region authorization defines the region boundary that a business can use for deployment. After tenants obtain cloud platform permission, business-region authorization is still required so deployment or scheduling workflows can choose resources within the allowed region scope.
 
-#### Terms
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |

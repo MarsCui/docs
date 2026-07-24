@@ -37,7 +37,7 @@ The model passes protocol testing, is submitted to the correct publication scope
 5. Choose **Private** for internal use or **Public** for the public marketplace.
 6. Click **Start**.
 
-![My Models entry](./images/my_models-overview-en.png)
+![My Models entry](./images/my-models-overview-en.png)
 
 ### 2.1 Choose Platform-Hosted Deployment or BYOK
 

@@ -13,7 +13,7 @@ Meta-models help operators define model capabilities, protocols, modalities, Tok
 | --- | --- |
 | Applicable role | Operator |
 | Navigation path | Model Services > Settings > Meta Models |
-| Page route | /modelone/settings/meta |
+| Page route | `/modelone/settings/meta` |
 | Managed objects | Model capabilities, protocols, modalities, Token limits, default parameters, and capability tags |
 | Typical use | Maintain model capability abstractions and protocol definitions |
 

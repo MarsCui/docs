@@ -21,7 +21,7 @@ next: true
 | 交易流水 | 余额为什么增加或扣减 | [交易流水](../../../usermanual/billing/user/billing/transactions/) |
 | 资源配额 | 当前租户最多可申请多少算力或存储 | [资源配额](../../../usermanual/ai-infra-on-prem/user/quotas-usage/quotas/) |
 | 资源用量 | 实例或作业实际用了多少资源 | [资源用量](../../../usermanual/ai-infra-on-prem/user/quotas-usage/usage/) |
-| 模型用量与收益 | 模型调用产生多少 Token、次数、时长、消费或收益 | [模型用量](../../../usermanual/model-services/user/usage-revenue/model-usage/)、[模型收益](../../../usermanual/model-services/user/usage-revenue/model-revenue/) |
+| 模型用量与收益 | 模型调用产生多少 Token、次数、时长、消费或收益 | [模型用量](../../../usermanual/model-services/user/usage-earnings/model-usage/)、[模型收益](../../../usermanual/model-services/user/usage-earnings/model-earnings/) |
 | 月度账单 | 同一账期的汇总消费是否可以复核 | [月度账单](../../../usermanual/billing/user/billing/monthly-bill/) |
 
 ## 场景目标
@@ -41,7 +41,7 @@ next: true
 
 1. 进入[账务概览](../../../usermanual/billing/user/billing/overview/)，先确认可用额度、账期和预警信息，再查看**充值订单**，核对发生时间、支付状态和到账额度。
 
-![从账务概览确认账户状态](../../../usermanual/billing/user/billing/overview/images/billing-overview-list.png)
+![从账务概览确认账户状态](../../../usermanual/billing/user/billing/overview/images/overview-list.png)
 
 2. 进入[交易流水](../../../usermanual/billing/user/billing/transactions/)，按相同账号和时间范围解释余额增加、扣减或调整。
 
@@ -58,11 +58,11 @@ next: true
 5. 对模型调用，对照调用日志、模型用量和模型收益。
 6. 进入[月度账单](../../../usermanual/billing/user/billing/monthly-bill/)，在同一账期核对币种、计费单位、价格、交易和汇总扣减。
 
-![核对月度账单汇总](../../../usermanual/billing/user/billing/monthly-bill/images/monthly-bill-overview.png)
+![核对月度账单汇总](../../../usermanual/billing/user/billing/monthly-bill/images/monthly-bill-list.png)
 
 7. 需要运营方协助时，提供租户、账期、对象编号和脱敏证据；运营侧按[账期对账与结算](../billing-cycle-reconciliation-settlement/)继续核对。
 
-运营方可继续查看：[租户配额](../../../usermanual/ai-infra-on-prem/operator/quotas-metering/tenant-quotas/)、[租户额度](../../../usermanual/ai-infra-on-prem/operator/quotas-metering/tenant-credits/)、[计量明细](../../../usermanual/ai-infra-on-prem/operator/quotas-metering/metering-details/)和[月度用量](../../../usermanual/ai-infra-on-prem/operator/quotas-metering/monthly-usage/)。
+运营方可继续查看：[计量明细](../../../usermanual/ai-infra-on-prem/operator/quotas-metering/metering-details/)和[月度用量](../../../usermanual/ai-infra-on-prem/operator/quotas-metering/monthly-usage/)。
 
 ## 完成检查
 

@@ -12,16 +12,16 @@ Updated: 2026-07-10
 | Item | Content |
 | --- | --- |
 | Applicable role | Operator admin |
-| Navigation path | Personal > Profile |
-| Page route | /operator/personal/profile |
+| Navigation path | Settings > Personal > Profile |
+| Page route | `/user/user-space/profile` |
 | Managed objects | Profile records and related status |
 | Typical use | View, filter, and maintain profile information |
 
-### Beginner Explanation
+#### Beginner Explanation
 
 Profile is part of the settings and access-control workspace. Treat it as a place to confirm identities, permissions, organization rules, audit records, or rate-control status before changing configuration.
 
-### Terms Quick Reference
+#### Terms Quick Reference
 
 | Term | Meaning | Handling tip |
 | --- | --- | --- |
@@ -50,48 +50,52 @@ The page usually includes filters, summary cards, data tables, detail entries, s
 
 The following screenshot shows profile.
 
-![Profile](./images/profile-detail.png)
+![Profile](./images/profile-list.png)
 
 ## Main Operations
 
-Use the following operations to work with profile records and related status. Complete view-only checks before opening dialogs that may create, save, submit, activate, transfer, settle, publish, or delete data.
-
-### View Profile
+### Edit Personal Details
 
 1. Go to `Personal > Profile`.
-2. Use filters or tabs to locate the target record.
-3. Select the target row or entry related to profile records and related status.
-4. Click the visible `View Profile` entry when it is available.
-5. Check the displayed details, status, and related fields before moving to the next page.
+2. Click `Edit personal details` in the upper-right corner of the profile page.
+3. In the `Edit personal details` dialog, review the editable fields.
 
-## Parameters
+![Edit personal details](./images/edit-personal-details.png)
+
+4. Fill in or verify `Display name` and `Phone`.
+5. Confirm that `Display name` is required, and enter `Phone` according to page validation rules.
+6. Before clicking the final `Confirm`, verify that the display name and contact information changes do not affect account identification, notifications, or later audits.
+7. For learning or screenshots only, view the fields and click `Cancel` to close the dialog without submitting real changes.
+
+## Parameter Reference
 
 | Field | Required | Type | Example | Description |
 | --- | --- | --- | --- | --- |
-| Keyword or name | No | Text | `Example name` | Used to locate a specific record. |
-| Status | No | Enum | `Enabled` | Used to determine the current processing or availability state. |
-| Time range or billing cycle | No | Date / Month | `2026-07` | Used to narrow statistics, logs, bills, or settlements. |
-| Organization / customer / member | No | Text | `Example organization` | Used to identify the business ownership scope. |
-| Operation | System generated | Button / link | `View Details` | Provides row-level entry points for follow-up checks. |
+| Display name | Yes | Text | `Example Admin` | The account display name shown on the page. |
+| Phone | No | Text | `188****8888` | Used for contact, notifications, or security verification. |
+| Email | System displayed | Text | `user@example.com` | The email address bound to the current account. |
+| User ID | System displayed | Text | `Example user ID` | The system identifier of the current account. |
+| Password | System displayed | Password | `******` | Shows password status or password change entry. |
+| Actions | System generated | Button | `Edit personal details` | Opens the editable personal details dialog. |
 
 ## Pitfalls
 
-- Do not change roles, members, login policies, Keys, or API rate-control rules without confirming the affected users and systems.
-- UI entries can differ by role and organization scope; verify the current account context before troubleshooting.
-- Never copy complete Keys, AK/SK, tokens, or secrets into documentation, tickets, or screenshots.
+- `Confirm` is the final submit action. For learning or screenshots, only view fields and use `Cancel` to exit.
+- Editing personal details can affect account display name, contact information, notification delivery, and later audit identification.
+- Do not write real phone numbers, emails, user IDs, account names, customer names, or internal test data in documentation.
 
-## Result Checks
+## Result Validation
 
 | Check item | Success signal | If abnormal |
 | --- | --- | --- |
 | Page access | The `Personal > Profile` page opens and data loads normally. | Check role permissions and refresh the page. |
-| Filter result | The list changes according to the selected filters. | Reset filters and search again. |
-| Record detail | Details, status, amount, permission, or configuration values are visible. | Confirm the record scope and permissions. |
-| Follow-up path | Related pages or dialogs can be opened from visible entries. | Return to the sidebar and enter the downstream page directly. |
+| Profile details | Display name, phone, email, user ID, and password area are visible. | Refresh the page or confirm account permissions. |
+| Edit dialog | Clicking `Edit personal details` opens the same-name dialog. | Check whether profile editing is allowed for the current account. |
+| Cancel exit | Clicking `Cancel` closes the dialog without submitting changes. | Refresh the page and verify the displayed values again. |
 
 ## FAQ
 
-### Target settings entry is not visible in Profile
+#### Target settings entry is not visible in Profile
 
 The expected account, project, member, role, organization, key, operation log, system configuration, or API rate-control entry does not appear on this page.
 
@@ -102,7 +106,7 @@ The expected account, project, member, role, organization, key, operation log, s
 3. Verify that prerequisite objects, such as projects, members, roles, keys, or system configurations, have been created and enabled.
 4. If the entry was just changed, refresh the page and compare it with operation logs or related settings pages.
 
-### Configuration change does not take effect in Profile
+#### Configuration change does not take effect in Profile
 
 A permission, project, role, key, notification, system setting, or rate-control change was submitted, but the page or downstream behavior still shows the old result.
 
@@ -113,7 +117,7 @@ A permission, project, role, key, notification, system setting, or rate-control 
 3. Compare downstream behavior with operation logs and related settings pages to rule out cache, permission, or synchronization delay.
 4. For security-sensitive settings, verify impact scope before repeating the operation or escalating with desensitized page paths and timestamps.
 
-### Why cannot the operator account profile be edited?
+#### Why cannot the operator account profile be edited?
 
 Check the current tenant, organization, project, role permissions, object status, feature switch, and operation logs. Do not repeat save, submit, publish, rollback, disable, or delete actions until the scope and impact are confirmed.
 
@@ -128,3 +132,5 @@ Check the current tenant, organization, project, role permissions, object status
 - Permission, Key, login, organization, and rate-control changes can affect real users. Confirm scope before changes.
 - Keep page routes, API fields, Key, AK/SK, License, and other product terms in their UI form.
 - Keep credentials, private operational details, and sensitive customer data out of the manual.
+- `Confirm` is the final submit action. For learning or screenshots, only open the dialog to view fields and use `Cancel` to exit.
+- Do not write real phone numbers, emails, user IDs, account names, customer names, or internal test data in documentation, screenshots, tickets, or examples.

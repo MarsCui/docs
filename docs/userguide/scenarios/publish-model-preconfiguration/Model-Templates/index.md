@@ -46,7 +46,7 @@ A model source and meta-model are combined into a reusable publication template 
 
    - Select verified input and output modalities.
 
-![Configure input and output modalities](./images/step-2-input_output-modalities.png)
+![Configure input and output modalities](./images/step-2-input-output-modalities.png)
 
    - Enable Thinking Mode only when the model has been verified to support it. Function Calling and Tool Support remain planned capabilities and must not be configured as currently available features.
 

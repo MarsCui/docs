@@ -23,7 +23,7 @@ Use this task to release an API rate-control rule version safely and validate no
 
 Open [API Rate Control Overview](../../../usermanual/settings/operator/api-rate-control/overview/), select a time range that covers normal and peak traffic, and record requests, blocked requests, over-limit statistics, and top rules. Do not judge a rule from total requests alone.
 
-![Record the API request and blocking baseline](../../../usermanual/settings/operator/api-rate-control/overview/images/rate-control-overview.png)
+![Record the API request and blocking baseline](../../../usermanual/settings/operator/api-rate-control/overview/images/overview-list.png)
 
 ### 2. Create or Review the Rule
 

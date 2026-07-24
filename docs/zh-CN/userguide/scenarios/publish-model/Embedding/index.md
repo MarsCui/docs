@@ -38,7 +38,7 @@ next: true
     - 填写 **"API密钥"**（如 `sk-***`）；
     - 填写 **"模型源ID"**（如 `text-embedding-v1`，即发往上游厂商的精确模型名称）。
 
-![模型源/元模型信息](./images/step-1-model-source_meta-model-information.png)
+![模型源/元模型信息](./images/step-1-model-source-meta-model-information.png)
 
 - **模型类型**：在"模型类型"区块默认 **"嵌入模型"**。
 

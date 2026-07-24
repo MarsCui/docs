@@ -24,8 +24,6 @@ next: true
 
 进入[License 管理](../../../usermanual/billing/operator/license/license/)，核对当前状态、有效期、总额度、已用额度、剩余额度和纳管对象。先确认当前页面属于目标环境和实例。
 
-![查看 License 状态和纳管对象](../../../usermanual/billing/operator/license/license/images/license-managed-objects.png)
-
 ### 2. 选择并执行激活方式
 
 - 具备在线购买条件时，参考[在线支付激活](../../../license/online-payment-activation)。
@@ -36,8 +34,6 @@ next: true
 ### 3. 核对详情和授权构成
 
 激活后刷新 License 管理页面，打开详情和授权构成，确认授权类型、生效时间、到期时间、总额度和各类资源占用。
-
-![核对 License 授权构成](../../../usermanual/billing/operator/license/license/images/license-composition.png)
 
 ### 4. 建立有效期和额度巡检
 

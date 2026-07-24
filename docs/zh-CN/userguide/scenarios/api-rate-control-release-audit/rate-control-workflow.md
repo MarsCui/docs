@@ -23,7 +23,7 @@ next: true
 
 进入[API 流控概览](../../../usermanual/settings/operator/api-rate-control/overview/)，选择覆盖正常和峰值的时间范围，记录请求量、拦截请求、统计超限和 Top 规则。不要只根据总请求量判断规则是否合理。
 
-![记录 API 请求和拦截基线](../../../usermanual/settings/operator/api-rate-control/overview/images/rate-control-overview.png)
+![记录 API 请求和拦截基线](../../../usermanual/settings/operator/api-rate-control/overview/images/overview-list.png)
 
 ### 2. 创建或复核规则
 

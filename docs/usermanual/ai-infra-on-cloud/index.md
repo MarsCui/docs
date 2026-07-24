@@ -9,7 +9,7 @@ Updated: 2026-07-08
 
 AI Infra On-Cloud is designed for cloud resource access, authorization, resource pool governance, and cloud model service deployment. It connects cloud provider accounts, resource pools, business authorization, deployment assets, and scheduling policies.
 
-### Beginner View
+#### Beginner Explanation
 
 On-Cloud is like a multi-cloud resource scheduling hub: operators connect accounts and resources from different cloud providers to the platform, authorize them by tenant and business region, and then users quickly deploy model services based on the authorized resources.
 
@@ -35,9 +35,11 @@ On-Cloud is like a multi-cloud resource scheduling hub: operators connect accoun
 
 | Your Goal | Start Here | Next Step |
 | --- | --- | --- |
-| Manage local clusters and resource pools | AI Infra On-Prem | Region / Cluster / Specification / Template |
-| Manage cloud accounts and cloud deployments | AI Infra On-Cloud | Cloud accounts / Resource pools / Authorization / Quick deployment |
-| Publish or call models | Model Services | Model marketplace / My Models / My Deployments / Playground |
+| New user | [Getting Started](./getting-started/) | First understand the relationship between cloud platforms, cloud accounts, resource pools, authorization, deployment assets, and deployment tasks. |
+| Operator | [Quick Access](./operator/access-workbench/quick-start/), [Cloud Accounts](./operator/access-management/cloud-accounts/), [Resource Pools](./operator/access-management/resource-pools/), [Authorization Management](./operator/auth-management/tenant-cloud-auth/) | Continue maintaining deployment assets and scheduling policies, and open the deployable resource scope. |
+| User | [My Access Accounts](./user/access-management/access-accounts/), [Quick Deployment](./user/model-services/quick-deployment/), [My Deployments](./user/model-services/my-deployments/) | Confirm available resources and view deployment tasks, events, APIs, and monitoring. |
+| Troubleshooter | [My Deployments](./user/model-services/my-deployments/), [Resource Pools](./operator/access-management/resource-pools/), [Authorization Management](./operator/auth-management/tenant-cloud-auth/), [Model Assets](./operator/deploy-assets/models/) | Locate failures from deployment events, resource pools, authorization, and deployment assets. |
+| Full workflow | [Deploy a Cloud Model Service from Scratch](./end-to-end/deploy-cloud-model-service/) | Follow the end-to-end path to check access, authorization, deployment, publishing, and troubleshooting entries. |
 
 ## Recommended Reading Path
 
@@ -72,16 +74,18 @@ On-Cloud is like a multi-cloud resource scheduling hub: operators connect accoun
 | Deployment path clear | Users can enter My Deployments from Quick Deployment to view status and know that they can select a publish region from the `On-Cloud` list under `Model Services > Studio > My Deployments`. | Check account permissions, resource authorization, and publish entry status. |
 | Troubleshooting entry reachable | When failures occur, you know to check resource pools, authorization, deployment assets, and event records. | Continue troubleshooting with the end-to-end workflow. |
 
-## Pitfall Tips
+## Pitfalls
 
 - Successful cloud account access does not mean users can deploy. Resource pool enablement, tenant authorization, and business region authorization must also be completed.
 - When Quick Deployment has no available resources, do not only change model parameters. Check authorization scope, resource pool status, and inventory first.
 - When My Deployments stays in creating status, check event records and resource recommendation results before deciding whether operator intervention is required.
-- Quick Deployment, selecting a publish region, and publishing a model may affect real service exposure. Do not submit real deployments, publishing actions, or configuration changes during learning or screenshot capture.
+- Quick Deployment, Start Deployment, starting or stopping deployments, publishing deployments, selecting a publish region, publishing models, Delete, Disable, Unbind, and authorization adjustment are high-risk actions. Confirm the impact scope and rollback plan before performing them.
+- For learning or screenshots only, view menus, pages, fields, statuses, and navigation without submitting real deployments or configuration changes.
+- Do not record real AK/SK, API Keys, tokens, Endpoints, account IDs, deployment IDs, customer information, cost details, internal addresses, or test parameters.
 
 ## FAQ
 
-### Why Users Cannot See Cloud Resources
+#### Why Users Cannot See Cloud Resources
 
 **Issue Symptom:**
 
@@ -99,7 +103,7 @@ A user cannot see the target account, region, or resource in Quick Deployment or
 2. Ask the operator to verify the resource pool, tenant authorization, and business region authorization.
 3. If the resource pool is abnormal, wait for synchronization or switch to an available region.
 
-### Why Deployment Creation Fails
+#### Why Deployment Creation Fails
 
 **Issue Symptom:**
 
@@ -127,5 +131,5 @@ A task fails after quick deployment submission, stays in creation for a long tim
 
 - This overview page helps identify cloud accounts, authorization, resource pools, and deployment entries. It does not replace detailed cloud resource configuration instructions.
 - Cloud account, authorization, and resource pool scopes must stay aligned; otherwise, the deployment options and cost attribution visible to users may differ.
-- For cloud account credentials, role authorization, resource pool changes, and deployment deletion, confirm the affected tenant, region, and business scope first.
+- For cloud account credentials, role authorization, resource pool changes, deployment deletion, disabling, unbinding, deployment start/stop, or authorization adjustment, confirm the affected tenant, region, and business scope first.
 - Do not expose real AK/SK, API Keys, tokens, Endpoints, account IDs, deployment IDs, customer information, cost details, internal addresses, or test parameters in screenshots, tickets, or troubleshooting records.

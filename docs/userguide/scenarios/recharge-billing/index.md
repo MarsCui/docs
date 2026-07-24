@@ -29,6 +29,10 @@ This scenario distinguishes account top-ups, billing balance, resource quotas, r
 | 3. Confirm quota and usage | Resource or model usage has explicit limits and traceable details |
 | 4. Reconcile bills | Balance, usage, price, transactions, and monthly bill agree |
 
+Top-up record screenshot:
+
+![Top-up records](./images/top-up-records.png)
+
 ## Before You Start
 
 - Decide whether the investigation concerns model calls or On-Prem resources.

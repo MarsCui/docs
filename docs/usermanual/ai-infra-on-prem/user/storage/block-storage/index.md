@@ -11,17 +11,17 @@ Updated: 2026-07-08
 
 | Item | Content |
 | --- | --- |
-| Applicable Role | Regular user |
-| Navigation Path | Storage Services > Block Storage |
-| Page Route | `/powerone/storage-service/block` |
-| Managed Objects | Block storage volumes, capacity, mount relationships, and volume status |
-| Typical Use | Provide independent persistent volumes for instances, suitable for tasks that require block devices or independent volumes |
+| Applicable role | Regular user |
+| Navigation path | AI Infrastructure > On-Prem > Storage Services > Block Storage |
+| Page route | `/powerone/storage-service/block` |
+| Managed objects | Block storage volumes, capacity, mount relationships, and volume status |
+| Typical use | Provide independent persistent volumes for instances, suitable for tasks that require block devices or independent volumes |
 
-### Beginner View
+#### Beginner Explanation
 
 Block storage is like attaching an independent disk to an instance. It is suitable for tasks that require persistent writes, independent volumes, or block device semantics. It is not a shared directory. Before multiple instances read and write simultaneously, confirm whether the platform supports the corresponding mount mode.
 
-### Terms Quick Reference
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |
@@ -41,7 +41,7 @@ Block storage is like attaching an independent disk to an instance. It is suitab
 
 The page is used to display block storage capability in the selected region. When the capability is opened, it usually displays list, capacity, status, creation entrypoint, mount entrypoint, and operation entrypoint. When the capability is not opened, the page shows a capability unavailable prompt.
 
-![Block Storage](./images/block-storage.png)
+![Block Storage](./images/block-storage-list.png)
 
 ## Main Operations
 
@@ -64,7 +64,7 @@ The page is used to display block storage capability in the selected region. Whe
 4. After submission, return to the list and view status.
 5. Select this volume in instance creation or instance details and set the in-container path.
 
-#### Parameters
+## Parameter Reference
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -74,7 +74,7 @@ The page is used to display block storage capability in the selected region. Whe
 | Mount Path | Conditionally required | Text | `/mnt/data` | Access path inside the instance or container. |
 | Volume Status | System-generated | Enum | `Available` | Used to determine whether it can be mounted, expanded, or deleted. |
 
-### Mount, Unmount, and Confirm Capacity
+#### Mount, Unmount, and Confirm Capacity
 
 #### Mount
 
@@ -128,7 +128,7 @@ Alternative troubleshooting paths:
 
 ## FAQ
 
-### Page Has No Block Storage Data
+#### Page Has No Block Storage Data
 
 **Symptom:**
 
@@ -148,7 +148,7 @@ No available block storage resources are visible after entering the page, or the
 3. Check resource quotas and capacity.
 4. In the short term, object storage or temporary directories inside instances can be used, but temporary directories are not suitable for saving important results.
 
-### Path Is Unavailable After Mounting
+#### Path Is Unavailable After Mounting
 
 **Symptom:**
 
@@ -166,7 +166,7 @@ After the instance starts, the block storage mount path cannot be accessed insid
 2. Confirm in-container path, access policy, and instance region.
 3. Contact the operator to check underlying storage components and cluster mount capability.
 
-### Delete or Unmount Fails
+#### Delete or Unmount Fails
 
 **Symptom:**
 
@@ -184,7 +184,7 @@ Attempts to delete or unmount a block storage resource fail.
 2. Refresh the page and confirm resource status.
 3. Contact the operator to check permissions and underlying storage reclaim status.
 
-## Follow-Up Operations
+## Next Steps
 
 1. Verify the mount path in runtime instances or Online IDE.
 2. Write input data and output results to persistent paths.

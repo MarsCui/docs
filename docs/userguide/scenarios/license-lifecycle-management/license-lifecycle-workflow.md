@@ -24,8 +24,6 @@ Use this task to confirm current License state, complete activation when require
 
 Open [License Management](../../../usermanual/billing/operator/license/license/) and review current state, validity, total quota, used quota, remaining quota, and managed objects. First confirm that the page belongs to the target environment and instance.
 
-![Review License state and managed objects](../../../usermanual/billing/operator/license/license/images/license-managed-objects.png)
-
 ### 2. Choose and Complete Activation
 
 - When online purchasing is available, follow [Online Payment Activation](../../../license/online-payment-activation).
@@ -36,8 +34,6 @@ Before submission, confirm the environment, instance, registration code, and aut
 ### 3. Review Details and Authorization Composition
 
 After activation, refresh License Management and open details and authorization composition. Confirm authorization type, effective time, expiry time, total quota, and resource usage by category.
-
-![Review License authorization composition](../../../usermanual/billing/operator/license/license/images/license-composition.png)
 
 ### 4. Establish Validity and Quota Checks
 

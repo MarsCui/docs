@@ -12,16 +12,16 @@ Updated: 2026-07-21
 | Item | Content |
 | --- | --- |
 | Applicable role | User |
-| Navigation path | AI Infra > On-Cloud > Model Services > Quick Deployment |
-| Page route | /infrahub/user/model/store |
+| Navigation path | AI Infrastructure > On-Cloud > Model Services > Quick Deployment |
+| Page route | `/infrahub/user/model/store` |
 | Managed objects | Deployable scope, matched models, deployment mode, inference engine, business strategy, compute matching plan, cloud account, and deployment task |
 | Typical use | Quickly select a model and launch deployment based on authorized cloud accounts and regions |
 
-#### Beginner View
+#### Beginner Explanation
 
 Quick Deployment works like choosing a deployable model from Model Library and letting the platform recommend a deployment plan based on the current cloud account, region, strategy, and resource inventory. Before submission, verify the model, compute resources, cost, and cloud account to avoid launching a real deployment task by mistake.
 
-#### Terms
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |

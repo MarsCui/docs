@@ -11,17 +11,17 @@ Updated: 2026-07-08
 
 | Item | Content |
 | --- | --- |
-| Applicable Role | Regular user |
-| Navigation Path | Monitoring > Cluster Statistics |
-| Page Route | `/powerone/user-monitor/clusters` |
-| Managed Objects | Cluster resource trends, capacity, and health status within the user-visible scope |
-| Typical Use | Determine whether the cluster where a task runs is resource-constrained or abnormal |
+| Applicable role | Regular user |
+| Navigation path | AI Infrastructure > On-Prem > Monitoring > Cluster Statistics |
+| Page route | `/powerone/user-monitor/cluster` |
+| Managed objects | Cluster resource trends, capacity, and health status within the user-visible scope |
+| Typical use | Determine whether the cluster where a task runs is resource-constrained or abnormal |
 
-### Beginner View
+#### Beginner Explanation
 
 Cluster statistics are like a capacity table for the user-visible resource pool. They help determine how much cluster capacity, node scale, and accelerator resources are still available in the current region for tasks.
 
-### Terms Quick Reference
+#### Terms Quick Reference
 
 | Term | Description |
 | --- | --- |
@@ -41,9 +41,9 @@ Cluster statistics are like a capacity table for the user-visible resource pool.
 
 The page displays cluster statistics capability for the selected region. When the capability is opened, users can view metric trends, list data, or key status. When the capability is not opened, the page shows a capability prompt.
 
-![Cluster Statistics](./images/monitoring-clusters.png)
+![Cluster Statistics](./images/clusters-list.png)
 
-### Expected Page Elements When Capability Is Open
+#### Expected Page Elements When Capability Is Open
 
 | Page Element | Example | Description |
 | --- | --- | --- |
@@ -71,7 +71,7 @@ The page displays cluster statistics capability for the selected region. When th
 - Whether node count, total GPUs, and total CPUs match expectations.
 - Whether resource watermarks are close to thresholds that affect new task creation.
 
-#### Parameters
+## Parameter Reference
 
 | Field Name | Required | Field Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -82,13 +82,13 @@ The page displays cluster statistics capability for the selected region. When th
 | Total CPUs | System-generated | Number | `1536 Core` | Total CPU capacity of the cluster. |
 | Health Status | System-generated | Status | `Healthy` | Shows whether the cluster is available, alerted, or collection abnormal. |
 
-#### Pitfalls
+## Pitfalls
 
 - High cluster watermarks do not necessarily mean your task will fail. Also check target specification and quota.
 - When cluster health is abnormal, do not repeatedly submit the same job. Confirm platform events first.
 - Do not mix resources from different regions in the same judgment.
 
-#### Result Validation
+## Result Validation
 
 1. The list displays cluster name, region, node count, and health status.
 2. Resource capacity is consistent with the current region and visible scope.
@@ -115,7 +115,7 @@ Alternative troubleshooting paths:
 
 ## FAQ
 
-### Cluster Watermark Is High
+#### Cluster Watermark Is High
 
 **Symptom:**
 
@@ -133,7 +133,7 @@ Cluster GPU, CPU, or memory watermark stays close to the limit for a long time.
 2. Switch to an available region or specification and retry creation.
 3. Contact the operator to evaluate capacity expansion, migration, or specification association adjustment.
 
-### Cluster Status Is Abnormal
+#### Cluster Status Is Abnormal
 
 **Symptom:**
 
@@ -151,7 +151,7 @@ The cluster list shows abnormal, unavailable, or data has not updated for a long
 2. View node statistics for NotReady nodes.
 3. Contact the operator to check cluster access and collection links.
 
-## Follow-Up Operations
+## Next Steps
 
 1. Go to node statistics to check whether a small number of nodes caused the cluster exception.
 2. Go to device monitoring to confirm whether GPU/NPU resources are sufficient.
